@@ -1,0 +1,75 @@
+---
+import "../styles/custom.css";
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found · AI Workforce Docs</title>
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <main>
+      <a class="brand" href="/">AI Workforce <span>Docs</span></a>
+      <p class="code">404</p>
+      <h1>This page could not be found.</h1>
+      <p lang="zh-CN">没有找到这个页面。你可以从文档首页继续。</p>
+      <nav aria-label="Documentation home">
+        <a href="/">English documentation →</a><a href="/zh-cn/" lang="zh-CN"
+          >简体中文文档 →</a
+        >
+      </nav>
+    </main>
+  </body>
+</html>
+<style>
+  body {
+    margin: 0;
+    color: #18324f;
+    background: #f3f7fa;
+    font-family: var(--sl-font);
+  }
+  main {
+    max-width: 40rem;
+    margin: 12vh auto;
+    padding: 2rem;
+  }
+  a {
+    color: #08789b;
+    text-decoration: none;
+  }
+  .brand {
+    font-size: 1rem;
+    font-weight: 650;
+    color: #18324f;
+  }
+  .brand span {
+    color: #5f7488;
+    font-weight: 400;
+    margin-left: 0.5rem;
+  }
+  .code {
+    margin-top: 5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: #08789b;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+  }
+  p {
+    color: #5f7488;
+    line-height: 1.8;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+</style>

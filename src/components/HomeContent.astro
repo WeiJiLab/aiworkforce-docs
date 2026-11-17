@@ -1,0 +1,106 @@
+---
+import {
+  getHomeContent,
+  localizedGuideHref,
+  type HomeSection,
+} from "../lib/landing-content";
+
+interface Props {
+  section: HomeSection;
+}
+
+const { section } = Astro.props;
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const { paths, domains, pathsIntro, overview, agents } = getHomeContent(zh);
+---
+
+{
+  section === "overview" && (
+    <div
+      class="overview-canvas not-content"
+      role="img"
+      aria-label={overview.description}
+    >
+      <div class="overview-flow">
+        {overview.nodes.map((node) => (
+          <div class="overview-node">
+            <p class="overview-node-title">{node.title}</p>
+            <p class="overview-node-detail">{node.detail}</p>
+          </div>
+        ))}
+      </div>
+      <div class="overview-footer">
+        <span>{overview.control}</span>
+      </div>
+    </div>
+  )
+}
+{
+  section === "paths" && (
+    <section
+      class="home-section not-content"
+      aria-label={zh ? "选择你的起步入口" : "Choose your starting point"}
+    >
+      <div class="home-section-heading">
+        <p>{pathsIntro}</p>
+      </div>
+      <div class="path-grid">
+        {paths.map((path) => (
+          <a class="path-card" href={localizedGuideHref(path.href, zh)}>
+            <div class="path-card-heading">
+              <h3>
+                <span class="path-name">{path.portal}</span> {path.title}
+              </h3>
+              <span aria-hidden="true">→</span>
+            </div>
+            <p class="path-description">
+              {path.description}
+              <span class="path-outcome"> · {path.audience}</span>
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
+{
+  section === "domains" && (
+    <section
+      class="home-section not-content"
+      aria-label={zh ? "使用与管理平台" : "Use and manage the platform"}
+    >
+      <div class="domain-grid">
+        {domains.map(({ title, description, href }) => (
+          <a class="domain-link" href={localizedGuideHref(href, zh)}>
+            <>
+              <div>
+                <>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </>
+              </div>
+              <span aria-hidden="true">→</span>
+            </>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
+{
+  section === "agents" && (
+    <section class="agent-section not-content" aria-label={agents.title}>
+      <div>
+        <p>{agents.description}</p>
+      </div>
+      <div class="agent-links">
+        {agents.links.map((link) => (
+          <a href={link.href}>
+            <code>{link.title}</code>
+            <span>{link.description} ↗</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}

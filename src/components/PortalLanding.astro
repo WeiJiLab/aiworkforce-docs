@@ -1,0 +1,49 @@
+---
+import {
+  getPortalContent,
+  localizedGuideHref,
+  type LandingPortal,
+  type PortalSection,
+} from "../lib/landing-content";
+
+interface Props {
+  portal: LandingPortal;
+  section: PortalSection;
+}
+
+const { portal, section } = Astro.props;
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const active = getPortalContent(portal, zh);
+const guides = section === "next" ? active.next : active.guides;
+---
+
+{
+  section === "paths" ? (
+    <div class="path-grid not-content">
+      {active.paths.map((path) => (
+        <a class="path-card" href={localizedGuideHref(path.href, zh)}>
+          <div class="path-card-heading">
+            <h3>{path.title}</h3>
+            <span aria-hidden="true">→</span>
+          </div>
+          <p class="path-description">
+            {path.description}
+            <span class="path-outcome"> · {path.outcome}</span>
+          </p>
+        </a>
+      ))}
+    </div>
+  ) : (
+    <div class="domain-grid not-content">
+      {guides.map((guide) => (
+        <a class="domain-link" href={localizedGuideHref(guide.href, zh)}>
+          <div>
+            <h3>{guide.title}</h3>
+            <p>{guide.description}</p>
+          </div>
+          <span aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  )
+}

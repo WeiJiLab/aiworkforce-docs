@@ -1,0 +1,45 @@
+---
+title: Developers · 构建与集成
+description: 构建数字员工包，连接工具与平台 API，准备执行环境，并通过明确的授权边界和执行证据验证实现。
+prev: false
+next:
+  link: /zh-cn/build/employee-definition/
+  label: 员工定义
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-17"
+  sourceHash: "78f74dca617ac1e6c81905908b975b7dc8a2b597e5c329ed3335d028779c96a2"
+---
+
+import HomeContent from "../../../../components/HomeContent.astro";
+import PortalLanding from "../../../../components/PortalLanding.astro";
+
+Developers 面向为 AI Workforce 实现能力的 Builder、FDE、开发者与平台工程师。从已确认的员工职责或集成需求开始，厘清员工包、工具、API 与运行环境之间的边界，再完成实现。
+
+## 选择实现路径
+
+<PortalLanding portal="developers" section="paths" />
+
+## 组合需要的能力
+
+员工角色定义工作职责，Skills 提供工作方法，Plugins 打包能力，MCP 连接工具；平台 API 提供当前已实现的资源操作。围绕实际流程选择需要的部分，并核对执行员工真正拥有的访问权限。
+
+<PortalLanding portal="developers" section="guides" />
+
+## 验证一个完整流程
+
+1. 确认预期成果、允许使用的输入与资源，以及验收标准。工作定义仍有缺口时，参考 [Learn](/zh-cn/learn/)补齐。
+2. 实现最小可用的员工包或集成，核对支持的字段与调用、执行入口和授权要求。
+3. 分别尝试正常请求、输入缺失，以及资源无权限或不可用的情况。检查执行记录、成果证据与恢复方式。
+4. 适用时先完成员工包验证，再通过工作空间员工，在预期的运行环境与权限下验证实际能力。
+
+部署或扩大访问范围前，阅读[部署与安全](/zh-cn/deployment/security/)。修改源代码或文档时，参考[贡献指南](/zh-cn/developer/contributing/)。
+
+## 将实现接入团队工作
+
+<PortalLanding portal="developers" section="next" />
+
+## 供 Agent 阅读
+
+<HomeContent section="agents" />

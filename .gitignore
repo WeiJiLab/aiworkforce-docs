@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.worktree/
+.DS_Store
