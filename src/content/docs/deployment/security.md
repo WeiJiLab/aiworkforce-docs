@@ -4,7 +4,7 @@ description: "Understand workspace permissions, execution credentials, network a
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
 Review access at the resource and execution levels. A person can be authorized to manage a workspace while an employee still needs a separate credential grant. A job can be allowed to run while its external provider refuses a particular operation.
@@ -49,4 +49,5 @@ Before enabling an integration, verify the task's input scope, the recipient of 
 
 - [Authentication](/developer/authentication/)
 - [Runtime environments](/deployment/runtime-environments/)
+- [Self-host](/deployment/self-host/)
 - [Code repositories](/integrations/code-repositories/)

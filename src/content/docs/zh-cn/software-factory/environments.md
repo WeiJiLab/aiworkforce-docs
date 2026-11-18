@@ -10,14 +10,14 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "4281f8e79978b9ab0278dc406dd29e1fea26e2cf8d1d6db7d30e9fae3cbff731"
+  sourceHash: "1bf3c7fcc5077f612b00d8e90cd2e638a45900168f7ed5bb9f2e8e335c06d690"
 ---
 
 开发环境是变更的工具和命令实际运行的地方。软件工厂使用执行员工已经配置的运行时。创建交付卡片不会准备沙箱、预览 URL 或一次性虚拟机。
 
 ## 选择与授权匹配的位置
 
-[运行时管理](/zh-cn/deployment/runtime-environments/)是完整的选择：平台执行、自托管部署，或已授权的设备 worker。平台保留对话和授权。设备在已批准的工作目录中以主机用户身份运行命令。该目录是上下文，不是隔离边界。
+[运行时管理](/zh-cn/deployment/runtime-environments/)是完整的选择：平台执行、自托管部署，或已授权的设备 worker。自己运行平台的步骤在[自托管](/zh-cn/deployment/self-host/)。平台保留对话和授权。设备在已批准的工作目录中以主机用户身份运行命令。该目录是上下文，不是隔离边界。
 
 员工使用的仓库凭据会对照该员工当前的授权来检查。工作空间连接不够。提供方、实例、启用状态和工作空间必须匹配。见[代码仓库](/zh-cn/integrations/code-repositories/)。
 

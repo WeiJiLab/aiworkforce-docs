@@ -16,7 +16,7 @@ A development environment is where tools and commands for a change actually run.
 
 ## Choose the place that matches the grant
 
-[Runtime management](/deployment/runtime-environments/) is the full choice: platform execution, a self-hosted deployment, or an authorized device worker. The platform keeps the conversation and authorization. The device runs commands as the host user in an approved working directory. That directory is context, not an isolation boundary.
+[Runtime management](/deployment/runtime-environments/) is the full choice: platform execution, a self-hosted deployment, or an authorized device worker. The steps for running the platform yourself are in [Self-host](/deployment/self-host/). The platform keeps the conversation and authorization. The device runs commands as the host user in an approved working directory. That directory is context, not an isolation boundary.
 
 Repository credentials used by the employee are checked against that employee's current authorization. A workspace connection is not enough. Provider, instance, enabled state, and workspace must match. See [code repositories](/integrations/code-repositories/).
 

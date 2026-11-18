@@ -4,8 +4,8 @@ description: "定位故障，收集有效会话证据，并在保护凭据的前
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "235718d0b98b69c811bbee9b6736eff76bcb4a94faba4bfce2b2dd37c97b1733"
+  sourceVersion: "2026-11-18"
+  sourceHash: "fffe3f27d20de2adbf02074096062e0e29bcc4910f87891492ebe8d293c53062"
 ---
 
 从失败的最小操作开始。空间权限不足、员工不可用、设备断连、模型渠道故障和回答错误，需要不同处理方式。
@@ -49,4 +49,4 @@ translation:
 
 修复后重复最小复现步骤，核对输出，并记录成功会话或运行。保留原始失败证据，方便复查解决过程。
 
-继续阅读[配置管理](/zh-cn/administration/configuration/)、[用量分析](/zh-cn/administration/analytics/)和[更新与支持](/zh-cn/resources/releases-support/)。
+继续阅读[配置管理](/zh-cn/administration/configuration/)、[自托管](/zh-cn/deployment/self-host/)、[用量分析](/zh-cn/administration/analytics/)和[更新与支持](/zh-cn/resources/releases-support/)。

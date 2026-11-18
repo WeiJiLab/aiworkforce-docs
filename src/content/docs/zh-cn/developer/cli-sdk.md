@@ -6,21 +6,21 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "48d26a761f671ac6b44d39f6e016303e6e6e0df196a6f47bdd0668d9bb7d1c86"
+  sourceVersion: "2026-11-18"
+  sourceHash: "b2a0afa9858586920721dd209f54ffc797da5d9316e3fc8726d193432d945720"
 ---
 
 选择接口时，先确定工作在哪里执行，以及调用者需要什么权限。平台 HTTP API、自动化 MCP 服务和设备 daemon 解决的是不同集成问题。
 
 ## 接口矩阵
 
-| 接口            | 用途                                       | 边界                                                    |
-| --------------- | ------------------------------------------ | ------------------------------------------------------- |
-| 平台 HTTP       | 管理可访问资源，或调用已注册自动化         | 管理登录与机器调用使用不同凭据。                        |
-| 自动化 MCP      | 让兼容 Agent 发现并调用允许的 Job          | 工具暴露已注册工作，不能任意修改运行配置。              |
-| 设备 CLI        | 配对并管理执行电脑                         | 为平台执行工具，不是通用平台管理 CLI。                  |
-| 平台 SDK        | 根据当前 Schema 构建应用自己的 HTTP 客户端 | 当前基线没有指定受支持的通用 Python/TypeScript SDK 包。 |
-| IDE / ACP / A2A | 通过兼容且已说明的传输协议连接             | 当前基线没有指定内置 IDE 扩展或通用 ACP/A2A 服务。      |
+| 接口            | 用途                                       | 边界                                                                        |
+| --------------- | ------------------------------------------ | --------------------------------------------------------------------------- |
+| 平台 HTTP       | 管理可访问资源，或调用已注册自动化         | 管理登录与机器调用使用不同凭据。                                            |
+| 自动化 MCP      | 让兼容 Agent 发现并调用允许的 Job          | 工具暴露已注册工作，不能任意修改运行配置。                                  |
+| 设备 CLI        | 配对并管理执行电脑                         | 为平台执行工具，不是通用平台管理 CLI。                                      |
+| 平台 SDK        | 根据当前 Schema 构建应用自己的 HTTP 客户端 | 当前基线没有指定受支持的通用 Python/TypeScript SDK 包。                     |
+| IDE / ACP / A2A | 本版本没有受支持的接口                     | 没有捆绑的 IDE 扩展，也没有通用 ACP 或 A2A 服务。请改用 HTTP 或自动化 MCP。 |
 
 不要仅凭名称假定应该安装名为 `aiworkforce` 的 npm 或 pip 包。内部运行时依赖的 SDK，也不等于面向平台 API 用户的官方 SDK。
 
@@ -45,7 +45,6 @@ translation:
 - [设备执行器 CLI](/zh-cn/integrations/cli/)
 - [SDK](/zh-cn/integrations/sdk/)
 - [OpenAPI 参考](/zh-cn/integrations/openapi/)
-- [Agent 协议](/zh-cn/integrations/agent-protocol/)
 - [集成概览](/zh-cn/integrations/overview/)
 - [运行时管理](/zh-cn/deployment/runtime-environments/)
 - [安全与权限](/zh-cn/deployment/security/)

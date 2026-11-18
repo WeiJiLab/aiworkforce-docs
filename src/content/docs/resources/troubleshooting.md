@@ -4,7 +4,7 @@ description: "Locate a failure, collect useful session evidence, and report a re
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
 Start with the smallest operation that failed. A workspace permission problem, unavailable employee, disconnected device, model-channel failure, and incorrect answer require different fixes.
@@ -48,4 +48,4 @@ Send the report through the support route agreed for your deployment. Administra
 
 After a fix, repeat the minimal reproduction, verify the output, and record the successful session or run. Keep the original failure evidence so the resolution can be reviewed.
 
-See [configuration](/administration/configuration/), [usage analytics](/administration/analytics/), and [support and updates](/resources/releases-support/).
+See [configuration](/administration/configuration/), [self-host](/deployment/self-host/), [usage analytics](/administration/analytics/), and [support and updates](/resources/releases-support/).

@@ -6,20 +6,20 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
 Choose an interface based on where the work should run and what authority the caller needs. The platform's HTTP API, its Automation MCP server, and the device daemon solve different integration problems.
 
 ## Interface matrix
 
-| Interface       | Use it for                                                        | Boundary                                                                          |
-| --------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Platform HTTP   | Manage accessible resources or invoke a registered Automation     | Management login and machine invocation use different credentials.                |
-| Automation MCP  | Let a compatible agent discover and call allowed Jobs             | Tools expose registered work, not arbitrary runtime configuration.                |
-| Device CLI      | Pair and operate an execution computer                            | It runs tools for the platform; it is not a general platform administration CLI.  |
-| Platform SDK    | Build an application-specific HTTP client from the current schema | No supported general Python/TypeScript SDK package is specified by this baseline. |
-| IDE / ACP / A2A | Connect through a compatible documented transport                 | No bundled IDE extension or general ACP/A2A server is specified by this baseline. |
+| Interface       | Use it for                                                        | Boundary                                                                                |
+| --------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Platform HTTP   | Manage accessible resources or invoke a registered Automation     | Management login and machine invocation use different credentials.                      |
+| Automation MCP  | Let a compatible agent discover and call allowed Jobs             | Tools expose registered work, not arbitrary runtime configuration.                      |
+| Device CLI      | Pair and operate an execution computer                            | It runs tools for the platform; it is not a general platform administration CLI.        |
+| Platform SDK    | Build an application-specific HTTP client from the current schema | No supported general Python/TypeScript SDK package is specified by this baseline.       |
+| IDE / ACP / A2A | No supported interface in this release                            | No bundled IDE extension and no general ACP or A2A server. Call HTTP or Automation MCP. |
 
 Do not install an assumed `aiworkforce` npm or pip package based on its name. An internal runtime SDK dependency is also different from an official SDK for users of the platform API.
 
@@ -44,7 +44,6 @@ The only device CLI is [Device Executor CLI](/integrations/cli/). That page owns
 - [Device Executor CLI](/integrations/cli/)
 - [SDK](/integrations/sdk/)
 - [OpenAPI reference](/integrations/openapi/)
-- [Agent protocol](/integrations/agent-protocol/)
 - [Integration overview](/integrations/overview/)
 - [Runtime management](/deployment/runtime-environments/)
 - [Security and permissions](/deployment/security/)

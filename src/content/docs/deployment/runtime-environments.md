@@ -4,7 +4,7 @@ description: "Choose between platform execution, a self-hosted deployment, and a
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
 The platform controls the employee's conversation, model loop, task state, and authorization. The execution environment determines where tools operate. Hosting the platform yourself, choosing a runtime kernel, and selecting a device are related choices, but none automatically supplies the other two.
@@ -20,34 +20,9 @@ The platform controls the employee's conversation, model loop, task state, and a
 
 The runtime enum includes several kernel names. A listed name is not proof of a working deployment: the main session registry in this baseline binds Claude Code and Pydantic AI. Confirm the employee's actual kernel, configured channel/model, and supported capabilities before selecting it for a task.
 
-## Start the local development stack
+## Run the platform yourself
 
-From the platform source repository root, use the existing local template and Compose file:
-
-```bash
-cp deploy/local/.env.example deploy/local/.env
-docker compose --env-file deploy/local/.env \
-  -f deploy/local/docker-compose.yml up --build
-```
-
-Review the local configuration before starting. This guide introduces no new configuration keys. The stack starts PostgreSQL, applies the safe expand migration and DBOS schema step, then starts the application. The frontend defaults to `http://localhost:5173` and backend to `http://localhost:8080`.
-
-Check service health:
-
-```bash
-curl 'http://localhost:8080/api/health/live'
-curl 'http://localhost:8080/api/health/ready'
-```
-
-Liveness reports the process; readiness reports whether it can serve work. Neither proves the selected model, MCP server, or repository credential can complete a task. Create a small session and inspect a real output too. The local stack uses development reload and is not a production deployment recipe.
-
-## Operate a self-hosted environment
-
-The provided deployment assets use Docker Compose with PostgreSQL, backend, frontend, a reverse proxy, and persistent volumes. Use the environment-specific deployment entrypoints and the existing configuration contract. Do not expose the database, private execution control paths, or internal tool-bridge endpoints as general public APIs.
-
-Keep database state, workspace files, and stable encryption/signing keys together in the recovery plan. Apply schema changes explicitly; application startup is not a substitute for migration management. The release flow can restore application images/configuration after a failure, but does not automatically downgrade the database. Verify backups independently instead of assuming every deployment created one.
-
-No maintained Kubernetes operator or Helm chart is established by this baseline. If you package the services differently, preserve migration ordering, persistent storage, runtime ownership, worker coordination, and readiness semantics.
+[Self-host](/deployment/self-host/) is the procedure: the local development stack, the single-host release layout, health checks, network and recovery, and the limits of those assets. Hosting the platform does not choose a runtime kernel and does not attach a device. The local Compose file is a development stack. The release assets update one host. This baseline has no maintained Kubernetes operator or Helm chart.
 
 ## Connect a device
 
@@ -57,6 +32,7 @@ The model loop remains on the platform, so file content and tool results used fo
 
 ## Related guides
 
+- [Self-host](/deployment/self-host/)
 - [Platform architecture](/developer/architecture/)
 - [Security and data boundaries](/deployment/security/)
 - [Code repositories](/integrations/code-repositories/)

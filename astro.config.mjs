@@ -8,6 +8,16 @@ export default defineConfig({
   site: origin,
   ...(base && base !== "/" ? { base } : {}),
   trailingSlash: "always",
+  redirects: {
+    "/integrations/agent-protocol/": {
+      status: 301,
+      destination: "/integrations/overview/",
+    },
+    "/zh-cn/integrations/agent-protocol/": {
+      status: 301,
+      destination: "/zh-cn/integrations/overview/",
+    },
+  },
   integrations: [
     starlight({
       title: "AI Workforce",

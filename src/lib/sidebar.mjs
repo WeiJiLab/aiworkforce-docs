@@ -121,6 +121,7 @@ export const groups = [
     collapsed: true,
     items: [
       "deployment/runtime-environments",
+      "deployment/self-host",
       {
         label: "Delivery execution",
         zh: "交付执行",
@@ -206,12 +207,6 @@ export const groups = [
       "concepts/glossary",
     ],
   },
-  {
-    label: "Planned",
-    zh: "规划中",
-    collapsed: true,
-    items: ["integrations/agent-protocol"],
-  },
 ];
 
 export function groupPages(group) {
@@ -223,7 +218,7 @@ export function groupPages(group) {
 export const orderedIds = [homeId, ...groups.flatMap(groupPages)];
 
 export const plannedIds = groupPages(
-  groups.find((group) => group.label === "Planned"),
+  groups.find((group) => group.label === "Planned") ?? { items: [] },
 );
 
 export function starlightSlug(id) {

@@ -4,8 +4,8 @@ description: "理解工作空间权限、执行凭据、网络访问与任务产
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "dd09859cda6503db34043d6253dd4f569e45df4dd9acbaaa789fd21eb51c52ab"
+  sourceVersion: "2026-11-18"
+  sourceHash: "e98e3e1e83c7111bdf3c53aa333c5291cd1f429b59d4785982229e425278adc4"
 ---
 
 应同时检查资源和执行两个层面的访问控制。成员有权管理工作空间，不代表员工已经获得独立凭据授权；Job 允许运行，也不代表外部供应商会允许所有操作。
@@ -50,4 +50,5 @@ daemon 执行日志可能包含命令与输出数据。恢复时保留未知执�
 
 - [身份认证](/zh-cn/developer/authentication/)
 - [运行环境](/zh-cn/deployment/runtime-environments/)
+- [自托管](/zh-cn/deployment/self-host/)
 - [代码仓库连接](/zh-cn/integrations/code-repositories/)
