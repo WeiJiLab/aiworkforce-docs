@@ -1,6 +1,6 @@
 ---
 title: Developer
-description: Build artifact viewers and integrate with AI Workforce using HTTP APIs, webhooks, MCP, and the device CLI.
+description: Choose an integration for ticket events, app buttons, agent tools, local diagnostics, or report previews.
 prev: false
 translation:
   source: en
@@ -10,13 +10,20 @@ translation:
 
 import PortalLanding from "../../../components/PortalLanding.astro";
 
-To change how a run artifact appears, build a Viewer App that adds a view to the file preview.
+## What do you want to do?
 
-Use the HTTP management and Automation routes, inbound webhooks, Automation MCP, or the device executor CLI. To integrate through an inbound webhook, trigger a published Job and query its run for the result. There is no general published SDK package and no ACP or A2A server.
-
-## Choose a development task
+A ticket event, a button in your app, and a conversational agent can all start the same published analysis Job. Choose the guide that matches who initiates the run. If you need a tool on a particular machine or a different view of the finished report, start with that task instead.
 
 <PortalLanding portal="developer" section="paths" />
+
+## Example: write an analysis summary back to a new ticket
+
+1. **Prepare the Job.** Publish and enable a Job that takes ticket content and returns a summary. Run it manually with a sample ticket to check its input fields and output. See [automation fundamentals](/automate/fundamentals/).
+2. **Connect the ticket event.** Configure and enable an inbound webhook for the Job. When your backend receives a ticket creation event, send the input the Job expects. Reuse the same idempotency key if you retry that event. See the [webhook guide](/integrations/webhooks/).
+3. **Associate the run with the ticket.** HTTP `202` means the platform accepted the event. Find the target Job’s `run_id` in `data.results` and store it alongside the ticket ID. If the entry has no run ID, inspect its `disposition` and `message`.
+4. **Write back the summary.** Have the ticket backend poll the run’s `status`. On success, write the summary from the Job’s `output` to the original ticket. On failure, read `error` and mark the analysis as failed. See the [REST API run lookup example](/developer/api-reference/#start-and-inspect-a-run).
+
+If you later add a “Run analysis again” button, reuse the Job and the write-back logic. On click, have the backend start a fresh run through the REST API, take the run ID from `data.id`, and look up its result.
 
 ## Guides and references
 

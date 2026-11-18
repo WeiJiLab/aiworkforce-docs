@@ -1,23 +1,30 @@
 ---
 title: Developer
-description: 开发产物查看器，或通过 HTTP API、Webhook、MCP 与设备 CLI 集成 AI Workforce。
+description: 按工单事件、页面按钮、Agent 对话、本机诊断或报告预览选择开发入口。
 prev: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "dc2bec23edf3abe229e32d73201c0719a1897544da8be2ba2fffc4c751af6722"
+  sourceHash: "777c01009687692c50ee105034f2de223414b610af1c62fef3c11a35d0963da3"
 ---
 
 import PortalLanding from "../../../../components/PortalLanding.astro";
 
-想改变运行产物的展示方式？从 Viewer App 入手，给文件预览添加一个视图。
+## 你想在什么情况下使用 AI Workforce？
 
-可用接口包括 HTTP 管理与 Automation 路由、入站 Webhook、Automation MCP 和设备执行 CLI。通过入站 Webhook 触发已发布的 Job 后，查询对应的运行即可获取结果。当前未发布通用 SDK 包，也未提供 ACP 或 A2A 服务。
-
-## 选择开发任务
+同一个已发布的工单分析 Job 可以由工单创建事件、页面按钮或对话中的 Agent 发起。按谁来发起分析选择入口。如果要接入本机工具或改变报告的展示方式，也可以直接从对应场景开始。
 
 <PortalLanding portal="developer" section="paths" />
+
+## 示例：从创建工单到写回分析摘要
+
+1. **准备 Job。** 发布并启用一个接受工单内容、输出摘要的 Job。用一张测试工单手动运行，确认输入字段和输出符合预期。见[自动化基础](/zh-cn/automate/fundamentals/)。
+2. **接入创建事件。** 为 Job 配置并启用入站 Webhook。工单系统的后端收到创建事件后，发送符合 Job 输入约定的数据。同一事件重试时，复用原来的幂等键。见 [Webhook 调用指南](/zh-cn/integrations/webhooks/)。
+3. **关联工单和运行。** HTTP `202` 表示平台已接收事件。从回执的 `data.results` 找到目标 Job 的 `run_id`，和工单 ID 一起保存。如果没有运行 ID，先检查该项的 `disposition` 和 `message`。
+4. **写回摘要。** 工单后端按运行 ID 查询 `status`。运行成功后，把 `output` 中约定的摘要写回原工单；运行失败时，读取 `error` 并在工单中标记失败。见 [REST API 的运行查询示例](/zh-cn/developer/api-reference/#启动并检查运行)。
+
+以后添加「重新分析」按钮时，可以沿用这个 Job 和写回逻辑。按钮点击后，后端直接通过 REST API 创建一次新运行，从响应的 `data.id` 取运行 ID，再查询结果。
 
 ## 指南与参考
 

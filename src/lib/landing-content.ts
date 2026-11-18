@@ -448,44 +448,57 @@ export function getPortalContent(
     developer: {
       paths: [
         {
-          label: zh ? "API 参考" : "API Reference",
-          title: zh ? "调用当前 HTTP 接口" : "Call the current HTTP API",
+          label: "Webhook",
+          title: zh ? "工单创建时自动分析" : "Analyze each new ticket",
           description: zh
-            ? "鉴权、发现工作空间资源，并启动一次 Automation 运行。"
-            : "Authenticate, discover workspace resources, and start an Automation run.",
-          href: "developer/api-reference",
-          outcome: zh ? "完成一次可验证调用" : "Complete one verifiable call",
-        },
-        {
-          label: zh ? "Webhook" : "Webhooks",
-          title: zh ? "通过 Webhook 触发 Job" : "Trigger a Job with a webhook",
-          description: zh
-            ? "从外部系统启动已发布的 Job，并查询运行结果。"
-            : "Start a published Job from an external system and query its run for the result.",
+            ? "给分析 Job 配置入站 Webhook，让工单系统在创建事件发生时发送工单内容。"
+            : "Configure an inbound webhook on the analysis Job so the ticket system can send each new ticket as it arrives.",
           href: "integrations/webhooks",
-          outcome: zh ? "按运行 ID 查询" : "Look up a run by ID",
+          outcome: zh ? "配置 Webhook" : "Set up a webhook",
         },
         {
-          label: "MCP",
-          title: zh ? "让 Agent 发现 Job" : "Let agents discover Jobs",
-          description: zh
-            ? "通过 Automation MCP 暴露已注册的 Job 工具。"
-            : "Expose registered Job tools through Automation MCP.",
-          href: "integrations/mcp",
-          outcome: zh ? "核对 MCP 边界" : "Confirm the MCP boundary",
-        },
-        {
-          label: "Apps",
+          label: "REST API",
           title: zh
-            ? "了解内置 Viewer Apps"
-            : "Explore the built-in Viewer Apps",
+            ? "给工单加一个「重新分析」按钮"
+            : "Add a “Run analysis again” button",
           description: zh
-            ? "按产物选择查看器，预览文档、图表和代码变更。"
-            : "Choose a viewer for documents, diagrams, or code changes.",
-          href: "developer/built-in-viewers",
-          outcome: zh
-            ? "继续学习如何开发自己的 App"
-            : "Learn how to build your own app",
+            ? "用户点击按钮时，由业务后端通过 REST API 启动指定 Job，再按运行 ID 查询状态和结果。"
+            : "When a user clicks the button, have your backend start a specific Job through the REST API and look up its status and result by run ID.",
+          href: "developer/api-reference",
+          outcome: zh ? "查看 REST 请求示例" : "See the REST requests",
+        },
+        {
+          label: "Automation MCP",
+          title: zh
+            ? "让外部 Agent 在对话中选择分析工具"
+            : "Let an agent choose when to analyze a ticket",
+          description: zh
+            ? "让兼容 MCP 的 Agent 发现凭据允许调用的 Job，再根据对话决定是否调用工单分析。"
+            : "Let an MCP client discover the Jobs its credential can invoke and choose the ticket analysis tool when the conversation calls for it.",
+          href: "integrations/mcp",
+          outcome: zh ? "连接 Automation MCP" : "Connect to Automation MCP",
+        },
+        {
+          label: "CLI",
+          title: zh
+            ? "在团队的 Linux 机器上运行诊断工具"
+            : "Run diagnostics on your team’s Linux machine",
+          description: zh
+            ? "用设备执行器 CLI 配对目标机器，确认 worker 在线后，在会话中授权使用设备工具。"
+            : "Pair the machine with the device executor CLI, verify the worker is online, then authorize its tools in the session.",
+          href: "integrations/cli",
+          outcome: zh ? "配对设备" : "Pair a device",
+        },
+        {
+          label: "Viewer App",
+          title: zh
+            ? "在报告里按严重程度查看问题"
+            : "Group findings by severity in a report",
+          description: zh
+            ? "先用内置 JSON 查看器打开分析报告。需要分组展示时，再为同一份文件开发 Viewer App。"
+            : "Open the analysis report in the built-in JSON viewer. To group findings by severity, add a custom view for the same file.",
+          href: "developer/viewer-apps",
+          outcome: zh ? "开发查看器" : "Build a viewer",
         },
       ],
       guides: [
