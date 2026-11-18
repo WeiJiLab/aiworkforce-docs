@@ -51,7 +51,11 @@ export interface PortalContent {
 import { withBase } from "./site.mjs";
 
 export function localizedGuideHref(href: string, zh: boolean): string {
-  return withBase(`${zh ? "/zh-cn" : ""}/${href}/`);
+  const [path, fragment] = href.split("#");
+  return (
+    withBase(`${zh ? "/zh-cn" : ""}/${path}/`) +
+    (fragment ? `#${fragment}` : "")
+  );
 }
 
 function guide(title: string, description: string, href: string): LandingGuide {
@@ -76,29 +80,27 @@ export function getHomeContent(zh: boolean): HomeContent {
     ),
     applications: [
       guide(
+        zh ? "交付一条 Issue" : "Deliver an issue",
         zh
-          ? "在已有看板上交付第一条 Issue"
-          : "Deliver your first Issue on an existing board",
-        zh
-          ? "手上有一条 Issue？跟进代码变更，核对验证结果，在卡片上记录审阅决定。"
-          : "Have a board and an Issue? Follow the code change, check the evidence, and record your review.",
+          ? "已有看板和 Issue？跟进代码变更，在卡片上核对测试结果。"
+          : "Have a board and an issue? Follow the code change and review the test results on the card.",
         "getting-started/quickstart",
       ),
       guide(
+        zh ? "配置第一个交付看板" : "Set up a delivery board",
         zh
-          ? "配置团队的第一个交付看板"
-          : "Set up your team’s first delivery board",
-        zh
-          ? "工作空间还没有看板？连接仓库，为泳道指派员工，让看板可以接收第一张卡片。"
-          : "Starting with an empty workspace? Connect a repository and assign employees so the board can accept its first card.",
+          ? "工作空间还没有看板？连接仓库，为泳道指派员工，接收第一张卡片。"
+          : "Starting with an empty workspace? Connect a repository and assign employees to lanes to receive your first card.",
         "getting-started/first-software-factory",
       ),
       guide(
-        zh ? "运行第一个自动化任务" : "Run your first automation Job",
+        zh ? "让员工运行一次 Job" : "Run a Job with one employee",
         zh
-          ? "已有就绪的数字员工？给它一项小任务，手动执行一次，打开运行记录检查输出。"
-          : "Have a ready employee? Give it a small task, run it manually, and check its output.",
-        "getting-started/first-automation",
+          ? "已有可用的数字员工？给它一项任务，手动运行，再检查输出。"
+          : "Have an employee ready? Give it a task, run it manually, and check the output.",
+        zh
+          ? "automate/workflow-builder#组合一个-job"
+          : "automate/workflow-builder#compose-a-job",
       ),
     ],
     buildSoftware: [
