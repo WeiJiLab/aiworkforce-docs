@@ -1,21 +1,29 @@
 ---
 title: 构建并自动化软件交付
-description: 通过自动化发现需求，在交付看板上跟踪每条 Story 的代码变更、CI/CD 结果和发布状态。
+description: 通过自动化收集需求，在开发前进行人工审阅，并在交付看板上跟踪 CI/CD 结果。
 prev: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "b1fec94408b9e39834d479bae0216303d2b722a9e8ce6143692e1c39d981c043"
+  sourceHash: "21fac02d7f354b6986d6fda4f94156d8747c325aa73f7690529fc6bb2cabc8a8"
 ---
 
 import HomeContent from "../../../components/HomeContent.astro";
 
-自动化可以从外部 Issue、事件和定期调研中收集需求。在这个示例中，调研 Job 从竞品更新日志发现了新功能。团队人工审阅并确认需求后，将它作为 Story 加入 Backlog。随着 Story 在交付看板上推进，团队可以查看关联 PR、测试环境部署结果和生产发布状态。
+用 AI Workforce 从 Issue、事件和定期调研中收集需求，再在交付看板上跟踪一条需求如何经过人工审阅、开发、验证和发布。
 
 [![AI Workforce 三列交付看板。竞品调研发现经人工审阅后，以 Story #128 加入 Backlog，后续关联 GitHub Actions 流水线结果。](/illustrations/delivery-board.svg)](/illustrations/delivery-board.html)
 
-[放大查看工作台](/illustrations/delivery-board.html) · [配置 CI/CD 集成](/zh-cn/software-factory/cicd/)
+[打开交付看板交互示例](/illustrations/delivery-board.html)
+
+## 跟进 Story #128
+
+图中这条 Story 的目标是让团队在邀请工作空间成员时选择角色。
+
+1. **收集发现。** 定时调研 Job 从竞品更新日志中发现了邀请时选择角色的功能，将发现和来源一起记录到任务收件箱。[配置定时 Job](/zh-cn/automate/triggers-schedules/)
+2. **人工审阅并加入 Backlog。** 团队成员在任务收件箱审阅发现，将它作为 Story #128 转入交付项目。开始开发前，团队在卡片上确认工作范围和验收条件。[审阅需求并确认范围](/zh-cn/user-guide/human-approval/)
+3. **验证变更。** 在「交付」页签，PR #62 关联到 GitHub Actions 运行 #482。构建与测试已通过，变更已部署到测试环境，生产发布仍待执行。[接入 CI/CD 流水线](/zh-cn/software-factory/cicd/)
 
 ## 现行入口
 

@@ -1,6 +1,6 @@
 ---
 title: Build and automate software delivery
-description: Collect requests with automations and track each delivery story’s code changes, CI/CD results, and release status.
+description: Collect work with automation, review requests before development, and track CI/CD results on the delivery board.
 prev: false
 translation:
   source: en
@@ -10,11 +10,19 @@ translation:
 
 import HomeContent from "../../components/HomeContent.astro";
 
-Collect requests from issues, events, and scheduled research. In this example, a research job spots a new competitor feature. The team reviews the finding and adds it to the backlog as a story after approval. As it moves through the delivery board, the team tracks its pull request, test deployment, and release status.
+Use AI Workforce to collect requests from issues, events, and scheduled research. On the delivery board, follow a request from human review to implementation, testing, and release.
 
 [![An AI Workforce delivery board with three columns. The team approves a competitor research finding, adds it to the backlog as Story #128, and tracks its GitHub Actions results.](/illustrations/delivery-board-en.svg)](/illustrations/delivery-board-en.html)
 
-[Explore the delivery board](/illustrations/delivery-board-en.html) · [Set up CI/CD integration](/software-factory/cicd/)
+[Explore the interactive delivery board](/illustrations/delivery-board-en.html)
+
+## Follow Story #128
+
+The example follows a team adding role selection to workspace invitations.
+
+1. **Collect the finding.** A scheduled research Job reads a competitor’s release notes, spots role selection in the invite flow, and sends the finding and its source to the Task inbox. [Set up a scheduled Job](/automate/triggers-schedules/)
+2. **Review and add to Backlog.** A team member reviews the finding in the inbox and routes it to the delivery project as Story #128. Before development, the team confirms the scope and acceptance criteria on the card. [Review a request and confirm its scope](/user-guide/human-approval/)
+3. **Verify the change.** In the Delivery tab, PR #62 links to GitHub Actions run #482. The build and tests passed and the change reached the test environment. Production release is still pending. [Connect your CI/CD pipeline](/software-factory/cicd/)
 
 ## Current entries
 
