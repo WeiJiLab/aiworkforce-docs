@@ -1,0 +1,343 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import { localizedGuideHref } from "../lib/landing-content";
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const signals = [
+  {
+    provider: "Sentry",
+    path: "integrations/sentry",
+    title: zh ? "支付错误再次出现" : "A checkout error resurfaces",
+    event: zh ? "Issue 回归" : "Issue regression",
+    rule: zh
+      ? "匹配项目与回归状态后，已启用的规则启动调查 Job。"
+      : "An enabled rule matches the project and regression status to start an investigation job.",
+  },
+  {
+    provider: "PagerDuty",
+    path: "integrations/pagerduty",
+    title: zh ? "支付服务触发告警" : "The payments service pages on-call",
+    event: zh ? "Incident 触发" : "Incident triggered",
+    rule: zh
+      ? "匹配服务与紧急程度后，已启用的规则启动调查 Job。"
+      : "An enabled rule matches the service and urgency to start an investigation job.",
+  },
+] as const;
+---
+
+<fieldset class="monitor">
+  <legend class="sr-only"
+    >{
+      zh ? "选择线上监控示例来源" : "Choose a production monitoring example"
+    }</legend
+  >
+  <div class="scope" aria-hidden="true">
+    <div class="sweep"></div><i></i><i></i><i></i>
+  </div>
+  <div class="intro">
+    <span class="kicker"
+      ><span class="lamp"></span>{
+        zh ? "线上监控 · 交互示例" : "Production monitoring · Example"
+      }</span
+    >
+    <h3>{zh ? "从一次线上告警开始" : "Follow a production alert"}</h3>
+  </div>
+  <div class="switches">
+    {
+      signals.map((s, i) => (
+        <label>
+          <>
+            <input
+              type="radio"
+              name="monitor-source"
+              value={s.provider}
+              checked={i === 0}
+            />
+            <span>{s.provider}</span>
+          </>
+        </label>
+      ))
+    }
+  </div>
+  {
+    signals.map((s) => (
+      <div class="signal" data-provider={s.provider}>
+        <div class="readout">
+          <>
+            <span class="kicker">{s.event}</span>
+            <strong>{s.title}</strong>
+            <p>{s.rule}</p>
+          </>
+        </div>
+        <a class="connect" href={localizedGuideHref(s.path, zh)}>
+          {zh ? `接入 ${s.provider}` : `Connect ${s.provider}`}{" "}
+          <Icon name="right-arrow" />
+        </a>
+      </div>
+    ))
+  }
+  <div class="route">
+    <a href={localizedGuideHref("workflows/research-monitoring", zh)}
+      ><Icon name="random" /><strong
+        >{zh ? "配置调查 Job" : "Configure the job"}</strong
+      ></a
+    >
+    <a href={localizedGuideHref("software-factory/observability", zh)}
+      ><Icon name="magnifier" /><strong
+        >{zh ? "查看运行记录" : "Inspect the run"}</strong
+      ></a
+    >
+    <a href={localizedGuideHref("software-factory/signal-to-card", zh)}
+      ><Icon name="approve-check-circle" /><strong
+        >{zh ? "人工确认交付卡片" : "Review the delivery card"}</strong
+      ></a
+    >
+  </div>
+</fieldset>
+<style>
+  .monitor {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-inline-size: 0;
+    margin: 0;
+    padding: 1.55rem 1.55rem 0;
+    border: 1px solid #28495b;
+    border-radius: 1rem;
+    color: #f0f8fb;
+    background-color: #0d2030;
+    background-image:
+      radial-gradient(#43617688 0.8px, transparent 0.9px),
+      linear-gradient(110deg, #0d2030 40%, #153e49);
+    background-size:
+      14px 14px,
+      auto;
+  }
+  .sr-only,
+  .switches input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    overflow: hidden;
+  }
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a6ebd9;
+    font-size: 0.74rem;
+    font-weight: 650;
+    letter-spacing: 0.05em;
+  }
+  .lamp {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #8be5ce;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #93efd61f;
+  }
+  .intro h3 {
+    color: #f2f8fa;
+    font-size: clamp(1.35rem, 4cqi, 1.85rem);
+    line-height: 1.25;
+    margin: 0.45rem 0 0.9rem;
+    letter-spacing: -0.035em;
+  }
+  .switches {
+    display: inline-flex;
+    padding: 3px;
+    border: 1px solid #527283;
+    background: #0c202e;
+    border-radius: 2rem;
+  }
+  .switches label {
+    cursor: pointer;
+    position: relative;
+  }
+  .switches span {
+    display: block;
+    border-radius: 2rem;
+    padding: 0.3rem 0.85rem;
+    color: #c3d4dd;
+    font-size: 0.79rem;
+    line-height: 1.5;
+    font-weight: 650;
+  }
+  .switches input:checked + span {
+    background: #b0efdb;
+    color: #143332;
+  }
+  .switches input:focus-visible + span,
+  .monitor a:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+  .signal {
+    display: none;
+    max-width: 65%;
+    padding: 1rem 0;
+  }
+  .monitor:has([value="Sentry"]:checked) [data-provider="Sentry"],
+  .monitor:has([value="PagerDuty"]:checked) [data-provider="PagerDuty"] {
+    display: block;
+  }
+  .readout strong {
+    display: block;
+    font-size: 1.15rem;
+    margin: 0.12rem 0;
+  }
+  .readout p {
+    color: #cedee6;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .connect,
+  .route a {
+    text-decoration: none;
+  }
+  .connect {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #aff2dd;
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 0.4rem 0;
+  }
+  .connect:hover,
+  .route a:hover strong {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .route {
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    margin: 0 -1.55rem;
+    background: #112938;
+    border-top: 1px solid #355665;
+  }
+  .route a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    flex: 1;
+    padding: 0.85rem 0.6rem;
+    color: #dcecf1;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  .route a + a::before {
+    content: "›";
+    position: absolute;
+    left: -0.2em;
+    color: #8bb3b8;
+  }
+  .route svg {
+    color: #85d8c5;
+    flex-shrink: 0;
+  }
+  .scope {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    width: 15rem;
+    aspect-ratio: 1;
+    right: -0.6rem;
+    top: 2rem;
+    border-radius: 50%;
+    border: 1px solid #70eac755;
+    background:
+      linear-gradient(transparent 49.8%, #74baad55 50%, transparent 50.4%),
+      linear-gradient(
+        90deg,
+        transparent 49.8%,
+        #74baad55 50%,
+        transparent 50.4%
+      ),
+      repeating-radial-gradient(
+        circle,
+        transparent 0 16%,
+        #7edbc74a 16.4% 16.9%,
+        transparent 17.4% 23%
+      );
+  }
+  .sweep {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0 29deg,
+      #75e5ba40 68deg,
+      #94ffdf99 69deg,
+      transparent 70deg
+    );
+    transition: transform 0.5s;
+  }
+  .scope i {
+    position: absolute;
+    left: 67%;
+    top: 30%;
+    width: 0.47rem;
+    height: 0.47rem;
+    border-radius: 50%;
+    background: #9cffe2;
+    box-shadow:
+      0 0 0 5px #8afbd029,
+      0 0 0 10px #8afbd014;
+  }
+  .scope i:nth-of-type(2) {
+    left: 29%;
+    top: 71%;
+    opacity: 0.35;
+  }
+  .scope i:nth-of-type(3) {
+    left: 40%;
+    top: 26%;
+    opacity: 0.25;
+  }
+  .monitor:has([value="PagerDuty"]:checked) .sweep {
+    transform: rotate(151deg);
+  }
+  .monitor:has([value="PagerDuty"]:checked) .scope i:first-of-type {
+    opacity: 0.35;
+  }
+  .monitor:has([value="PagerDuty"]:checked) .scope i:nth-of-type(2) {
+    opacity: 1;
+  }
+  @container (max-width:35rem) {
+    .monitor {
+      padding: 1rem 1rem 0;
+    }
+    .scope {
+      width: 10rem;
+      right: -3.8rem;
+      top: 3.2rem;
+      opacity: 0.75;
+    }
+    .signal {
+      max-width: none;
+    }
+    .readout {
+      max-width: 82%;
+    }
+    .route {
+      margin: 0 -1rem;
+    }
+    .route a {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 0.75rem 0.6rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sweep {
+      transition: none;
+    }
+  }
+</style>
