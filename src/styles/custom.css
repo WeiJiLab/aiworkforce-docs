@@ -1184,3 +1184,33 @@ body,
     transition: none;
   }
 }
+
+.intro-review {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--docs-line);
+  border-inline-start: 3px solid var(--docs-accent);
+  border-radius: var(--docs-radius-md);
+  background: var(--docs-soft);
+}
+.intro-review details {
+  background: var(--docs-surface);
+  border: 1px solid var(--docs-line);
+  border-radius: var(--docs-radius-sm);
+}
+.intro-review summary {
+  padding: 0.65rem 0.9rem;
+  color: var(--docs-ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+.intro-review summary::marker {
+  color: var(--docs-accent);
+}
+.intro-review details[open],
+.intro-review details:hover {
+  border-color: var(--docs-line-hover);
+}
+.intro-review details p {
+  margin: 0;
+  padding: 0 0.9rem 0.85rem;
+}

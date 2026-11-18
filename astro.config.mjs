@@ -11,6 +11,9 @@ export default defineConfig({
   redirects: {
     "/api/": "/developer/",
     "/zh-cn/api/": "/zh-cn/developer/",
+    "/getting-started/platform-overview/": "/getting-started/first-automation/",
+    "/zh-cn/getting-started/platform-overview/":
+      "/zh-cn/getting-started/first-automation/",
     "/integrations/agent-protocol/": {
       status: 301,
       destination: "/integrations/mcp/",
