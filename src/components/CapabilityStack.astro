@@ -1,0 +1,155 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import type { ComponentProps } from "astro/types";
+
+interface Card {
+  icon: ComponentProps<typeof Icon>["name"];
+  label: string;
+  href: string;
+  tools?: readonly { name: string; path: string }[];
+  detail?: string;
+}
+interface Props {
+  title: string;
+  icon: Card["icon"];
+  side: "intake" | "devops";
+  cards: readonly Card[];
+  guide: (path: string) => string;
+}
+const { title, icon, side, cards, guide } = Astro.props;
+---
+
+<section class:list={["stack", side]}>
+  <h3><Icon name={icon} />{title}</h3>
+  <div class="cards">
+    {
+      cards.map((card) => (
+        <div class="tile">
+          <Icon name={card.icon} />
+          <a class="title" href={card.href}>
+            {card.label}
+          </a>
+          <small>
+            {card.tools
+              ? card.tools.map((tool, i) => (
+                  <>
+                    {i > 0 && " · "}
+                    <a href={guide(tool.path)}>{tool.name}</a>
+                  </>
+                ))
+              : card.detail}
+          </small>
+        </div>
+      ))
+    }
+  </div>
+</section>
+<style>
+  .stack {
+    min-width: 0;
+    --tone: var(--orange);
+  }
+  .devops {
+    --tone: var(--teal);
+  }
+  h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: var(--tone);
+    font-size: 0.96rem;
+    line-height: 1.45;
+    margin: 0 0 0.65rem;
+  }
+  .cards {
+    display: grid;
+    gap: 0.55rem;
+  }
+  .tile {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-content: center;
+    align-items: center;
+    gap: 0 0.4rem;
+    padding: 0.4rem 0.5rem;
+    min-height: 4rem;
+    background: var(--docs-surface);
+    border: 1px solid var(--tone);
+    border-radius: 0.6rem;
+    line-height: 1.4;
+  }
+  .tile svg {
+    grid-row: span 2;
+    color: var(--tone);
+  }
+  .title {
+    color: var(--docs-ink);
+    font-size: 0.85rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  small {
+    color: var(--docs-body);
+    font-size: 0.74rem;
+  }
+  small a {
+    position: relative;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--docs-line-hover);
+    text-underline-offset: 0.18em;
+  }
+  a:hover {
+    color: var(--tone);
+    text-decoration: underline;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--docs-accent);
+    outline-offset: 2px;
+  }
+  @container (min-width:37rem) {
+    .cards {
+      position: relative;
+      --rail: 0.45rem;
+    }
+    .intake .cards {
+      margin-right: var(--rail);
+    }
+    .devops .cards {
+      margin-left: var(--rail);
+    }
+    .cards::before {
+      content: "";
+      position: absolute;
+      inset-block: 2rem;
+      border-left: 1px solid var(--tone);
+    }
+    .intake .cards::before {
+      left: calc(100% + var(--rail));
+    }
+    .devops .cards::before {
+      right: calc(100% + var(--rail));
+    }
+    .tile::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: var(--rail);
+      border-top: 1px solid var(--tone);
+    }
+    .intake .tile::before {
+      left: 100%;
+    }
+    .devops .tile::before {
+      right: 100%;
+    }
+  }
+</style>
