@@ -1,0 +1,139 @@
+<svg xml:lang="en" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 584 568" width="584" height="568" role="img" aria-labelledby="title desc">
+  <title id="title">Software Factory delivery loop</title>
+  <desc id="desc">A person confirms scope and acceptance criteria on a delivery card (ticket). Development records a PR, branch or commit. A batch deploys the candidate for per-card testing. Failed tests return to development. After approval, a connected pipeline can deploy to production. Operations feeds production signals back through the inbox for investigation and human confirmation. The board’s final lane closes out delivery resources.</desc>
+  <defs>
+    <radialGradient id="paper" cx="50%" cy="53%" r="72%">
+      <stop stop-color="#203c50"/><stop offset=".65" stop-color="#162b3c"/><stop offset="1" stop-color="#102334"/>
+    </radialGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="7" cy="7" r=".8" fill="#99bdd0" opacity=".16"/>
+    </pattern>
+    <marker id="arrow-delivery" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="m1 1 8 4-8 4 2-4z" fill="#a8caff"/>
+    </marker>
+    <marker id="arrow-feedback" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="m1 1 8 4-8 4 2-4z" fill="#7de9c9"/>
+    </marker>
+    <marker id="arrow-intake" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="m1 1 8 4-8 4 2-4z" fill="#ffd494"/>
+    </marker>
+    <g id="card" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="-10" y="-8" width="20" height="16" rx="2.5"/><path d="M-6-3h7m-7 5h3m3 0 2 2 4-5"/>
+    </g>
+    <g id="draft" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+      <circle cx="-6" cy="-7" r="2.4"/><circle cx="-6" cy="8" r="2.4"/><circle cx="7" cy="8" r="2.4"/>
+      <path d="M-6-4v9M7 5V-2a5 5 0 0 0-5-5H0m3-3L0-7l3 3"/>
+    </g>
+    <g id="merge" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <circle cx="-6" cy="-8" r="2.4"/><circle cx="-6" cy="8" r="2.4"/><circle cx="7" cy="-6" r="2.4"/>
+      <path d="M-6-5v10M7-3c0 6-9 3-13 8"/>
+    </g>
+    <g id="production" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="-10" y="-9" width="20" height="18" rx="3"/><path d="M-10 0h20M-6-4.5h1m-1 9h1M3-4.5h3m-3 9h3"/>
+    </g>
+  </defs>
+  <style>
+    text { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    .stage { font-size: 18px; font-weight: 650; fill: #f1f7fc; }
+    .action { font-size: 16px; fill: #c5d9eb; }
+    .feedback { fill: #8de6c9; }
+    .intake { fill: #ffdb9d; }
+    .key { font-size: 13px; fill: #b5c7d2; }
+    .name { font-size: 30px; font-weight: 700; letter-spacing: -.7px; fill: #f3f8ff; }
+    .subtitle { font-size: 15px; fill: #b8ceda; }
+  </style>
+  <rect x=".5" y=".5" width="583" height="567" rx="16" fill="url(#paper)" stroke="#385062"/>
+  <rect x="1" y="1" width="582" height="566" rx="16" fill="url(#dots)"/>
+  <!-- Intake is separate from the loop; the dashed return ends at the same card. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M238 46H272Q292 55 292 75V90" stroke="#ffd494" stroke-width="2.4" marker-end="url(#arrow-intake)"/>
+    <g stroke="#a8caff" stroke-width="3.4" marker-end="url(#arrow-delivery)">
+      <path d="M375 121C427 140 465 177 476 231"/>
+      <path d="M477 295C464 349 424 385 372 400"/>
+      <path d="M211 401C154 383 119 346 108 296"/>
+    </g>
+    <path d="M107 231C119 177 155 140 207 122" stroke="#7de9c9" stroke-dasharray="6 7" stroke-width="3.4" marker-end="url(#arrow-feedback)"/>
+  </g>
+  <!-- The two line styles and the adjacent verbs remain distinct without color. -->
+  <g fill="none" stroke-width="2.4" stroke-linecap="round">
+    <path d="M438 31h24" stroke="#a8caff"/><path d="M438 52h24" stroke="#7de9c9" stroke-dasharray="4 5"/>
+    <path d="M26 39l5-5 5 5-5 5z" stroke="#ffd494"/>
+  </g>
+  <!-- Milestones have solid backplates to keep the paths and the labels apart. -->
+  <g fill="#21394e" stroke="#577086">
+    <rect x="215" y="96" width="154" height="46" rx="12" fill="#24463f" stroke="#73b9a9"/>
+    <rect x="407" y="240" width="146" height="46" rx="12"/>
+    <rect x="220" y="382" width="144" height="46" rx="12"/>
+    <rect x="31" y="240" width="148" height="46" rx="12"/>
+  </g>
+  <g color="#acd0ff">
+    <use href="#card" x="237" y="119" color="#96edd1"/><use href="#draft" x="433" y="263"/>
+    <use href="#merge" x="245" y="405"/><use href="#production" x="54" y="263"/>
+  </g>
+  <!-- An isometric sawtooth factory, drawn as editable vector surfaces. -->
+  <g transform="translate(292 220)" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-18,-6 48,21.72 13,36.42 -53,8.7" fill="#122b39" stroke="none"/>
+    <polygon points="-18,-10 48,17.72 13,32.42 -53,4.7" fill="#486c87" stroke="none"/>
+    <polygon points="-53,4.7 13,32.42 13,28.42 -53,0.7" fill="#80a6c5" stroke="none"/>
+    <polygon points="48,17.72 13,32.42 13,28.42 48,13.72" fill="#41657c" stroke="none"/>
+    <polygon points="22,-5.16 29,-2.22 29,-42.22 22,-45.16" fill="#bdd8de" stroke="none"/>
+    <polygon points="35,-4.74 29,-2.22 29,-42.22 35,-44.74" fill="#82a6bd" stroke="none"/>
+    <polygon points="28,-48.52 37,-44.74 29,-41.38 20,-45.16" fill="#def5ee" stroke="none"/>
+    <polygon points="28,-46.84 33,-44.74 29,-43.06 24,-45.16" fill="#53758a" stroke="none"/>
+    <polygon points="42,12.88 13,25.06 13,-4.94 42,-17.12" fill="#7094ae" stroke="none"/>
+    <polygon points="-47,-0.14 -27,8.26 -27,-21.74 -47,-19.14" fill="#9ab9d0" stroke="none"/>
+    <polygon points="-18,-31.32 2,-33.92 -27,-21.74 -47,-19.14" fill="#c3eadf" stroke="#6eacb1"/>
+    <polygon points="2,-22.92 -27,-10.74 -27,-21.74 2,-33.92" fill="#577b92" stroke="none"/>
+    <polygon points="-43,-4.46 -39,-2.78 -39,-9.78 -43,-11.46" fill="#38596f" stroke="none"/>
+    <polygon points="-36,-1.52 -32,0.16 -32,-6.84 -36,-8.52" fill="#38596f" stroke="none"/>
+    <polygon points="-27,8.26 -7,16.66 -7,-13.34 -27,-10.74" fill="#9ab9d0" stroke="none"/>
+    <polygon points="2,-22.92 22,-25.52 -7,-13.34 -27,-10.74" fill="#c3eadf" stroke="#6eacb1"/>
+    <polygon points="22,-14.52 -7,-2.34 -7,-13.34 22,-25.52" fill="#577b92" stroke="none"/>
+    <polygon points="-23,3.94 -19,5.62 -19,-1.38 -23,-3.06" fill="#38596f" stroke="none"/>
+    <polygon points="-16,6.88 -12,8.56 -12,1.56 -16,-0.12" fill="#38596f" stroke="none"/>
+    <polygon points="-7,16.66 13,25.06 13,-4.94 -7,-2.34" fill="#9ab9d0" stroke="none"/>
+    <polygon points="22,-14.52 42,-17.12 13,-4.94 -7,-2.34" fill="#c3eadf" stroke="#6eacb1"/>
+    <polygon points="-3,12.34 1,14.02 1,7.02 -3,5.34" fill="#38596f" stroke="none"/>
+    <polygon points="4,15.28 8,16.96 8,9.96 4,8.28" fill="#38596f" stroke="none"/>
+    <polygon points="37,14.98 24,20.44 24,3.44 37,-2.02" fill="#36586b" stroke="none"/>
+  </g>
+  <!-- Default board lanes. A failed per-card test returns its evidence to development. -->
+  <path d="M22 446H562" stroke="#456070"/>
+  <path d="M45 497H539" stroke="#57788e" stroke-width="1.5"/>
+  <g fill="#112a3d" stroke="#9bbdd4" stroke-width="1.6">
+    <circle cx="52" cy="497" r="3.5"/>
+    <circle cx="147" cy="497" r="3.5"/>
+    <circle cx="242" cy="497" r="3.5"/>
+    <circle cx="337" cy="497" r="3.5"/>
+    <circle cx="432" cy="497" r="3.5"/>
+    <circle cx="528" cy="497" r="3.5"/>
+  </g>
+  <path d="M337 524v10q0 7-7 7H154q-7 0-7-7v-9" fill="none" stroke="#a8caff" stroke-width="1.8" marker-end="url(#arrow-delivery)"/>
+  <text x="46" y="45" text-anchor="start" class="stage intake" style="font-size:17px">Requirements → Ticket</text>
+  <text x="46" y="66" text-anchor="start" class="action" style="font-size:13.5px">Agree on scope and acceptance</text>
+  <text x="472" y="35" text-anchor="start" class="key">Delivery</text>
+  <text x="472" y="56" text-anchor="start" class="key">Feedback</text>
+  <text x="308" y="125" text-anchor="middle" class="stage">Ticket</text>
+  <text x="495" y="269" text-anchor="middle" class="stage">Draft PR</text>
+  <text x="308" y="411" text-anchor="middle" class="stage">Merged PR</text>
+  <text x="121" y="269" text-anchor="middle" class="stage">Operations</text>
+  <text x="84" y="147" text-anchor="middle" class="stage feedback" style="font-size:16px">Signal → Ticket</text>
+  <text x="79" y="168" text-anchor="middle" class="action" style="font-size:14px">Triage signals</text>
+  <text x="491" y="147" text-anchor="middle" class="stage">Ticket → PR</text>
+  <text x="501" y="168" text-anchor="middle" class="action" style="font-size:14px">Implement</text>
+  <text x="503" y="370" text-anchor="middle" class="stage" style="font-size:17px">PR → Merge</text>
+  <text x="503" y="391" text-anchor="middle" class="action" style="font-size:14px">Test and approve</text>
+  <text x="78" y="370" text-anchor="middle" class="stage">CI/CD</text>
+  <text x="78" y="391" text-anchor="middle" class="action" style="font-size:14px">Deploy to production</text>
+  <text x="292" y="285" text-anchor="middle" class="name" style="font-size:24px">Software Factory</text>
+  <text x="292" y="311" text-anchor="middle" class="subtitle">Delivery loop</text>
+  <text x="26" y="473" text-anchor="start" class="stage" style="font-size:16px">Built-in board lanes</text>
+  <text x="558" y="473" text-anchor="end" class="key">Test per card · Deploy by batch</text>
+  <text x="52" y="516" text-anchor="middle" class="action" style="font-size:13px">Requirements</text>
+  <text x="147" y="516" text-anchor="middle" class="action" style="font-size:13px">Development</text>
+  <text x="242" y="516" text-anchor="middle" class="action" style="font-size:13px">Test deploy</text>
+  <text x="337" y="516" text-anchor="middle" class="action" style="font-size:13px">Testing</text>
+  <text x="432" y="516" text-anchor="middle" class="action" style="font-size:13px">Production</text>
+  <text x="528" y="516" text-anchor="middle" class="action" style="font-size:13px">Close-out</text>
+  <text x="243" y="557" text-anchor="middle" class="key">Failed test returns to development</text>
+</svg>

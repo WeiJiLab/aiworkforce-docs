@@ -5,34 +5,35 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "de2d27867e92f516c4ecd736588a8d8e552a3d67f12123c4b103582d99b6b88f"
+  sourceHash: "1330c7cca6fb63eda715f0acb4ad4993a671e76b8b0b08ee6fcbb4c131170bec"
 ---
+
+import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astro";
 
 如果每一步交接都要重新给员工下指令，人就会花时间协调软件交付。软件工厂把交付看板的泳道连成四条回路，已确认的卡片可以走过实现、验证和发布，而不必在每一列都重新写提示。人保留判断：范围、证据审阅，以及变更是否交付。
 
 产品界面是**交付工作台**。在主导航打开**工作台**。地址是 `/automations?tab=board-flow`。它与[看板工作台](/zh-cn/workflows/kanban-workbench/)和 [Issue 自动化](/zh-cn/workflows/issue-automation/)共用工作流、自动化、员工和证据。
 
+## 整条流程
+
+泳道员工把一项需求带到经过审阅的变更。项目接上的流水线部署已合并的版本。采集 Job 可以把生产运行中的事件和用户反馈送到收件箱，由人确认哪项后续工作成为下一张卡片。
+
+<SoftwareFactoryLoop locale="zh-cn" />
+
+**卡片**是这些回路交接的工作项。导入的 GitHub、GitLab、云效、Jira 或 Linear 事项，在转入项目并确认之后成为这张卡片。卡片保留已确认的范围、会话、代码引用、测试记录和人工决定。
+
 ## 试一试交付看板
 
 从 **#128 修复重复的 Issue 通知** 开始。确认范围后，沿看板查看这张卡的开发会话、Pull Request 和测试记录。也可以直接点开测试验证中的 **#119**，试试要求修改，再展开交付记录查看退回原因。演练使用本地样例数据。
 
-<iframe src="/illustrations/factory-kanban/" title="软件工厂交付看板交互演练" loading="lazy" style="width:100%;height:34rem;border:0;border-radius:14px;"></iframe>
+<iframe
+  src="/illustrations/factory-kanban/"
+  title="软件工厂交付看板交互演练"
+  loading="lazy"
+  style="width:100%;height:34rem;border:0;border-radius:14px;"
+></iframe>
 
 [单独打开交付看板演练](/illustrations/factory-kanban/)
-
-## 整条流程
-
-泳道员工把一项需求带到经过审阅的变更。项目接上的流水线部署已合并的版本。反馈和事件在有人确认后续工作之后，成为下一张卡片。
-
-```mermaid
-flowchart TD
-    req["需求 → 卡片"] --> pr["卡片 → Pull Request"]
-    pr --> merge["Pull Request → 合并"]
-    merge --> signal["信号 → 卡片"]
-    signal --> req
-```
-
-**卡片**是这些回路交接的工作项。导入的 GitHub、GitLab、云效、Jira 或 Linear 事项，在转入项目并确认之后成为这张卡片。卡片保留已确认的范围、会话、代码引用、测试记录和人工决定。
 
 ## 四条回路
 
@@ -72,7 +73,7 @@ flowchart TD
 | Pull Request → 合并 | 测试发布、测试验证和生产发布。仓库和流水线已连接时，合并和生产才会执行。 |
 | 信号 → 卡片         | 收件箱和采集 Job。已确认的后续工作进入需求泳道。                         |
 
-泳道内的步骤是执行状态。自定义看板可以有不同安排。没有在制品上限。要一起测试的卡片可以共享一个批次。关闭批次只结束该批次的收尾。生产发布另有记录。
+泳道内的步骤是执行状态。自定义看板可以有不同安排。没有在制品上限。要一起测试的卡片可以共享一个批次。「已完成」泳道负责交付收尾。上线后的事件和用户反馈仍可从生产运行环节回到需求入口。
 
 ## 人保留决定
 
