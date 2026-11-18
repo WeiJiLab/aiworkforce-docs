@@ -29,6 +29,14 @@ The documentation uses the words above. The screens use these names:
 
 Open **Automations** (自动化) at `/automations` for Jobs. Open **Pipeline** on that screen for a lane pipeline. Open **Workbench** (工作台) for the board. Its address is `/automations?tab=board-flow`.
 
+### Try an issue trigger
+
+Select **Simulate a run** (▷) in the editor to see which instructions the developer receives. Then change **Label** to `enhancement` and try the same issue again. The sample issue has the `bug` label, so the second run is skipped. The demo uses local sample data.
+
+<iframe src="/illustrations/automation-editor/en/" title="Interactive example: configure and test an issue automation" loading="lazy" style="width:100%;height:clamp(36rem, 72vh, 47rem);border:0;border-radius:12px;"></iframe>
+
+[Open the automation editor on its own](/illustrations/automation-editor/en/)
+
 ## Lifecycle
 
 ```text

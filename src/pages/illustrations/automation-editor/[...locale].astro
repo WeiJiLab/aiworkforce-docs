@@ -1,24 +1,24 @@
 ---
-import IconButton from "../../components/IconButton.astro";
+import IconButton from "../../../components/IconButton.astro";
+import { editorCopy } from "../../../lib/automation-editor";
 
-const settings = [
-  ["执行器", "Agent"],
-  ["执行会话模式", "每次新建"],
-  ["任务并发上限", "1"],
-  ["执行超时", "900 秒"],
-  ["队列时限", "3600 秒"],
-  ["调用方式", "说明 + 输入"],
-  ["工具模式", "标准工具"],
-];
+export function getStaticPaths() {
+  return [
+    { params: { locale: undefined }, props: { locale: "zh-CN" as const } },
+    { params: { locale: "en" }, props: { locale: "en" as const } },
+  ];
+}
+const { locale } = Astro.props;
+const copy = editorCopy[locale];
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={locale}>
   <head
     ><meta charset="utf-8" /><meta
       name="viewport"
       content="width=device-width, initial-scale=1"
-    /><title>自动化编辑器 · 交互示例</title></head
+    /><title>{copy.title}</title></head
   >
   <body>
     <main>
@@ -33,10 +33,14 @@ const settings = [
                 height="6"
                 rx="1.5"></rect><path d="M5 9v5a4 4 0 0 0 4 4h7M8 6h6"
               ></path></svg
-            >自动化 <span>／</span> 新建
+            >{copy.automations}
+            <span>/</span>
+            {copy.newJob}
           </div>
           <div class="actions">
-            <small>本地演示</small><IconButton type="submit" label="模拟试运行"
+            <small>{copy.local}</small><IconButton
+              type="submit"
+              label={copy.run}
               ><svg viewBox="0 0 24 24" aria-hidden="true"
                 ><path d="m7 4 13 8-13 8z"></path></svg
               ></IconButton
@@ -46,23 +50,23 @@ const settings = [
         <div class="sheet">
           <input
             class="name"
-            aria-label="自动化名称"
+            aria-label={copy.jobLabel}
             name="job"
-            value="新 Issue 分诊"
+            value={copy.job}
             maxlength="64"
             required
           />
-          <p class="subtitle">从仓库收集新问题，交给数字员工调查。</p>
+          <p class="subtitle">{copy.subtitle}</p>
           <div class="meta">
-            <span class="draft">草稿</span><span>Loop V2 Test</span><select
-              name="employee"
-              aria-label="执行员工"
-              ><option>开发 Developer</option><option>测试 QA</option></select
+            <span class="draft">{copy.draft}</span><span>Loop V2 Test</span
+            ><select name="employee" aria-label={copy.employee}
+              ><option>{copy.developer}</option><option>{copy.qa}</option
+              ></select
             >
           </div>
           <div class="columns">
-            <section aria-label="自动化定义">
-              <h2>触发条件</h2>
+            <section aria-label={copy.definition}>
+              <h2>{copy.trigger}</h2>
               <div class="rule">
                 <div class="rule-row">
                   <svg viewBox="0 0 24 24" aria-hidden="true"
@@ -71,34 +75,39 @@ const settings = [
                       cy="19"
                       r="2.5"></circle><circle cx="18" cy="6" r="2.5"
                     ></circle><path d="M6 8v8m0-3h5a7 7 0 0 0 7-5"></path></svg
-                  ><select name="event" aria-label="GitHub 事件"
-                    ><option value="opened">Issue · 打开</option><option
-                      value="closed">Issue · 关闭</option
+                  ><select name="event" aria-label={copy.event}
+                    ><option value="opened">{copy.opened}</option><option
+                      value="closed">{copy.closed}</option
                     ></select
-                  ><span>在</span><code>demo/product</code>
+                  ><span>{copy.inRepo}</span><code>demo/product</code>
                 </div>
                 <label class="rule-row"
-                  >标签<select name="tag" aria-label="标签"
-                    ><option value="any">任意标签</option><option>bug</option
+                  >{copy.label}<select name="tag" aria-label={copy.label}
+                    ><option value="any">{copy.any}</option><option>bug</option
                     ><option>enhancement</option></select
                   ></label
                 >
               </div>
               <div class="defaults">
-                <span>Skill<strong>未选择</strong></span><span
-                  >模型<strong>继承员工模型</strong></span
-                ><span>思考等级<strong>默认</strong></span>
+                <span>Skill<strong>{copy.none}</strong></span><span
+                  >{copy.model}<strong>{copy.inherit}</strong></span
+                ><span
+                  >{copy.reasoning}<strong>{copy.defaultValue}</strong></span
+                >
               </div>
               <label class="task"
-                >任务说明<textarea name="task" rows="2" maxlength="600" required
-                  >阅读 Issue，整理复现步骤，并列出需要补充的信息。</textarea
+                >{copy.task}<textarea
+                  name="task"
+                  rows="2"
+                  maxlength="600"
+                  required>{copy.instructions}</textarea
                 ></label
               >
             </section>
             <aside>
-              <h2>运行配置</h2><dl>
+              <h2>{copy.configuration}</h2><dl>
                 {
-                  settings.map(([label, value]) => (
+                  copy.settings.map(([label, value]) => (
                     <div>
                       <>
                         <dt>{label}</dt>
@@ -113,17 +122,16 @@ const settings = [
         </div>
         <footer>
           <div class="sample">
-            <span class="mark" aria-hidden="true">◎</span><b>示例事件</b><code
-              >#128</code
-            ><span>Issue 已打开</span><span class="tag">bug</span>
+            <span class="mark" aria-hidden="true">◎</span><b>{copy.sample}</b
+            ><code>#128</code><span>{copy.issueOpened}</span><span class="tag"
+              >bug</span
+            >
           </div>
-          <output aria-live="polite" id="result"
-            >点击右上角的 ▷，查看这条事件能否触发运行。</output
-          >
+          <output aria-live="polite" id="result">{copy.hint}</output>
         </footer>
       </form>
     </main>
-    <script is:inline>
+    <script define:vars={{ messages: copy.result }}>
       const editor = document.querySelector("#editor");
       const result = document.querySelector("#result");
       const hint = result.textContent;
@@ -142,14 +150,21 @@ const settings = [
         event.preventDefault();
         const data = new FormData(editor);
         const mismatches = [];
-        if (data.get("event") !== "opened")
-          mismatches.push("事件是「打开」，规则要求「关闭」");
+        if (data.get("event") !== "opened") mismatches.push(messages.event);
         if (!["bug", "any"].includes(data.get("tag")))
-          mismatches.push("Issue 只有 bug 标签，规则要求 enhancement");
+          mismatches.push(messages.label);
         result.dataset.state = mismatches.length ? "skipped" : "matched";
-        result.textContent = mismatches.length
-          ? `已跳过 · ${mismatches.join("；")}。`
-          : `已匹配 · 模拟运行「${data.get("job")}」。${data.get("employee")} 收到任务：${data.get("task")}`;
+        if (mismatches.length) {
+          result.textContent = messages.skipped.replace(
+            "{reasons}",
+            mismatches.join(messages.join),
+          );
+        } else {
+          result.textContent = messages.matched.replace(
+            /\{(job|employee|task)\}/g,
+            (_, field) => data.get(field),
+          );
+        }
       });
     </script>
   </body>

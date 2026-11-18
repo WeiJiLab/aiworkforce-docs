@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2c33d44bd016d1b1e0154c1fa14863c5923d189db65f18abf9d4d1b00ff33766"
+  sourceHash: "af5b22ada3c1736604a5629a787c2257adbfbdfb0a5969acf30f23cdfcdb47a3"
 ---
 
 AI Workforce 是以工作流为中心的平台。**工作流**是可复用的工作定义。**自动化**是启动并持续推动这项工作的机制。**智能体**在产品里是数字员工，负责执行具体步骤。**运行**是一次执行实例。**任务**是这次执行中的一个工作单元。
