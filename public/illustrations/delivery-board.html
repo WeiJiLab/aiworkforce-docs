@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>从外部信号到交付看板 · AI Workforce</title>
+  <title>从竞品发现到 CI/CD 交付 · AI Workforce</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -26,7 +26,7 @@
       display: block;
       width: 100%;
       height: auto;
-      aspect-ratio: 1100 / 694;
+      aspect-ratio: 1200 / 600;
       border-radius: 14px;
       background: #102a40;
     }
@@ -88,38 +88,33 @@
   <figure>
     <img
       src="delivery-board.svg"
-      width="1100"
-      height="694"
-      alt="Issue 或事件触发自动化，生成待确认的 Story，再由交付看板跟踪实现、测试与审阅"
+      width="1200"
+      height="600"
+      alt="交付看板上的 Story #128，左侧展示竞品调研发现，右侧展示 GitHub Actions 流水线结果"
     />
     <figcaption>
       <fieldset hidden>
         <legend>选择要放大的交付环节</legend>
         <label><input type="radio" name="view" value="" checked />全览</label>
+        <label><input type="radio" name="view" value="origin" />调研发现</label>
         <label
-          ><input type="radio" name="view" value="signals" />信号来源</label
+          ><input type="radio" name="view" value="story" />CI/CD 交付</label
         >
-        <label
-          ><input type="radio" name="view" value="automation" />自动化</label
-        >
-        <label><input type="radio" name="view" value="story" />Story</label>
-        <label><input type="radio" name="view" value="board" />交付看板</label>
+        <label><input type="radio" name="view" value="board" />原始看板</label>
       </fieldset>
       <p aria-live="polite">
-        从一个外部信号开始，跟踪它怎样成为团队可以开发、测试和审阅的 Story。
+        竞品更新监测发现了新的邀请权限选项。团队将发现确认为 Story
+        #128，在交付页签跟踪代码变更和流水线结果。
       </p>
     </figcaption>
   </figure>
   <script>
     const captions = {
-      signals:
-        "平台可接入 Issue、IM 消息或 Webhook 事件。示例从 GitHub Issue #128 开始：用户发现项目名称留空也能提交。",
-      automation:
-        "新 Issue 命中已启用的触发规则。需求收集 Job 调用执行员工，提取需求并把来源和内容登记到任务收件箱。",
+      origin:
+        "示例中的定时调研 Job 读取竞品更新日志，发现邀请成员时可以选择角色。团队确认这项需求后，将它转为 Story #128。",
       story:
-        "将收件箱事项转入交付项目，形成 Story 草稿。团队确认范围，并写下两项可验证的条件：空名称必须拦截，有效名称可以提交。",
-      board:
-        "同一张卡从需求确认进入开发。开发员工关联 PR #62，测试验证两项验收条件，团队依据代码与测试证据记录审阅决定。",
+        "PR #62 关联到 GitHub Actions 运行 #482。构建与测试通过，变更已部署到测试环境，生产发布仍待执行。",
+      board: "在看板的开发中一列找到 #128，继续跟踪验证与发布进度。",
     };
     const diagram = document.querySelector("img");
     const caption = document.querySelector("figcaption p");
