@@ -76,25 +76,29 @@ export function getHomeContent(zh: boolean): HomeContent {
     ),
     applications: [
       guide(
-        zh ? "在现有看板上交付" : "Deliver on an existing board",
         zh
-          ? "已有交付项目？用一条小 Issue 跑通需求确认、实现和审阅。"
-          : "Already have a delivery project? Take a small issue through confirmation, implementation, and review.",
+          ? "在已有看板上交付第一条 Issue"
+          : "Deliver your first Issue on an existing board",
+        zh
+          ? "手上有一条 Issue？跟进代码变更，核对验证结果，在卡片上记录审阅决定。"
+          : "Have a board and an Issue? Follow the code change, check the evidence, and record your review.",
         "getting-started/quickstart",
       ),
       guide(
-        zh ? "配置团队交付" : "Set up team delivery",
         zh
-          ? "创建交付看板，连接仓库，配置执行和验证，试跑第一张卡片。"
-          : "Create a delivery board, connect a repository, configure execution and verification, and try your first card.",
+          ? "配置团队的第一个交付看板"
+          : "Set up your team’s first delivery board",
+        zh
+          ? "工作空间还没有看板？连接仓库，为泳道指派员工，让看板可以接收第一张卡片。"
+          : "Starting with an empty workspace? Connect a repository and assign employees so the board can accept its first card.",
         "getting-started/first-software-factory",
       ),
       guide(
-        zh ? "从外部系统启动 Job" : "Start a Job from an external system",
+        zh ? "运行第一个自动化任务" : "Run your first automation Job",
         zh
-          ? "用入站 Webhook 触发已发布的 Job，然后查询运行结果。"
-          : "Trigger a published Job with an inbound webhook, then query the run for its result.",
-        "integrations/webhooks",
+          ? "已有就绪的数字员工？给它一项小任务，手动执行一次，打开运行记录检查输出。"
+          : "Have a ready employee? Give it a small task, run it manually, and check its output.",
+        "getting-started/first-automation",
       ),
     ],
     buildSoftware: [

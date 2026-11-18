@@ -14,13 +14,7 @@ The same model covers a one-shot task, an event from GitHub, a schedule, and a d
 
 The default first path is a verified software change. [Software Factory](/software-factory/overview/) moves that change through four loops on the delivery workbench: [requirements to a card](/software-factory/requirements-to-card/), [a card to a pull request](/software-factory/card-to-pr/), [a pull request to merge](/software-factory/pr-to-merge/), and [a signal back to a card](/software-factory/signal-to-card/). The card links the confirmed requirement, the implementation, the verification evidence, and the team's decision.
 
-## Choose your path
-
-- **Deliver your first change.** Follow the [quickstart](/getting-started/quickstart/) to turn one Issue into a reviewed change. Use [Issue to PR](/recipes/issue-to-pr/) for a worked example, and the [Kanban workbench](/workflows/kanban-workbench/) when you need the board's rules.
-- **Configure the factory.** Follow [Configure the Software Factory](/getting-started/first-software-factory/) when the project, repositories, or lane employees are not ready yet.
-- **Run a first workflow.** Follow [your first workflow](/getting-started/first-automation/) to create a Job, inspect one manual run, and only then enable a trigger. Read [workflow concepts](/workflows/concepts/) when you need the words to stay stable.
-- **Use an employee.** Follow [build your first AI employee](/getting-started/first-employee/) from a published template. Then use [workspaces](/user-guide/workspace/) and [Agent Chat](/user-guide/agent-chat/).
-- **React to an issue.** Use [issue automation](/workflows/issue-automation/) to ingest a GitHub issue or an inbox item. Confirm it before development starts.
+Choose a tutorial based on the board, repository, or employee you have available. [Find your starting point](/#choose-your-starting-point).
 
 A builder defines a reusable employee. A user creates a workspace employee from a published template. Automation asks a ready employee to perform work. The board uses those employees inside a delivery workflow. Package-authoring steps stay in [Build AI employees](/build/employee-definition/), not in the user guide.
 

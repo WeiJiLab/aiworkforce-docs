@@ -2,6 +2,7 @@
 title: Build and automate software delivery
 description: Collect work with automation, review requests before development, and track CI/CD results on the delivery board.
 prev: false
+next: false
 translation:
   source: en
   status: complete
@@ -13,21 +14,25 @@ import CapabilityMap from "../../components/CapabilityMap.astro";
 
 Use AI Workforce to collect requests from issues, events, and scheduled research. On the delivery board, follow a request from human review to implementation, testing, and release.
 
-[![An AI Workforce delivery board with three columns. The team approves a competitor research finding, adds it to the backlog as Story #128, and tracks its GitHub Actions results.](/illustrations/delivery-board-en.svg)](/illustrations/delivery-board-en.html)
+## Choose your starting point
 
-[Explore the interactive delivery board](/illustrations/delivery-board-en.html)
-
-## Follow Story #128
-
-The example follows a team adding role selection to workspace invitations.
-
-1. **Collect the finding.** A scheduled research Job reads a competitor’s release notes, spots role selection in the invite flow, and sends the finding and its source to the Task inbox. [Set up a scheduled Job](/automate/triggers-schedules/)
-2. **Review and add to Backlog.** A team member reviews the finding in the inbox and routes it to the delivery project as Story #128. Before development, the team confirms the scope and acceptance criteria on the card. [Review a request and confirm its scope](/user-guide/human-approval/)
-3. **Verify the change.** In the Delivery tab, PR #62 links to GitHub Actions run #482. The build and tests passed and the change reached the test environment. Production release is still pending. [Connect your CI/CD pipeline](/software-factory/cicd/)
+<HomeContent section="applications" />
 
 ## Software delivery capability map
 
 <CapabilityMap />
+
+## Follow Story #128
+
+Follow Story #128 on the board below to see how role selection for workspace invitations went from a research finding to a change deployed for testing.
+
+[![An AI Workforce delivery board with three columns. The team approves a competitor research finding, adds it to the backlog as Story #128, and tracks its GitHub Actions results.](/illustrations/delivery-board-en.svg)](/illustrations/delivery-board-en.html)
+
+[Explore the interactive delivery board](/illustrations/delivery-board-en.html)
+
+1. **Collect the finding.** A scheduled research Job reads a competitor’s release notes, spots role selection in the invite flow, and sends the finding and its source to the Task inbox. [Set up a scheduled Job](/automate/triggers-schedules/)
+2. **Review and add to Backlog.** A team member reviews the finding in the inbox and routes it to the delivery project as Story #128. Before development, the team confirms the scope and acceptance criteria on the card. [Review a request and confirm its scope](/user-guide/human-approval/)
+3. **Verify the change.** In the Delivery tab, PR #62 links to GitHub Actions run #482. The build and tests passed and the change reached the test environment. Production release is still pending. [Connect your CI/CD pipeline](/software-factory/cicd/)
 
 ## Current entries
 
@@ -38,10 +43,6 @@ This site is the operator guide, and it matches the current console.
 **Knowledge and evidence.** [aiworkforce-documents](https://github.com/WeiJiLab/aiworkforce-documents) holds white papers and source evidence. It is not an operator manual and not deployment steps.
 
 <HomeContent section="cta" />
-
-## Choose how to get started
-
-<HomeContent section="applications" />
 
 ## Software Factory
 

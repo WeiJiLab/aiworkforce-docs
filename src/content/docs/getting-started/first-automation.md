@@ -1,38 +1,34 @@
 ---
-title: "Your first workflow"
-description: "Create a Job, run it once by hand, and only then enable a trigger."
-sidebar:
-  label: Your first workflow
+title: "Run your first automation Job"
+description: "Initialize lanes and pipelines from a published board template and follow the first card through a run."
 last_verified: "2026-11-18"
+prev: false
+next: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-Start with Build inspection. This scenario summarizes the last 24 hours of CI results and links each finding to its build.
+Create a delivery board in your workspace from a published board template. The template defines the lanes, their prompts and tasks, employee requirements, and automation recipes. Assign employees to the required lanes during setup. After initialization, the board maintains its own delivery policy.
 
 <picture>
   <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/en-compact.svg" />
-  <img src="/illustrations/first-workflow/en.svg" alt="Create an employee from a template, use the Build inspection scenario, check a manual run, then enable its schedule. A board template can also supply a testing lane pipeline." />
+  <img src="/illustrations/first-workflow/en.svg" alt="Six lanes and nine pipelines in the v3 board template, followed by the steps to initialize a board and inspect a card’s run." />
 </picture>
 
-## 1. Connect a project and choose an employee
+## 1. Choose a published board template
 
-Choose a project with CI history in your workspace. Use an existing employee that can read the build results, or create one from a published **employee template** with the role and entry Skill you need. Once initialization finishes, configure the tools and read permissions for the project’s CI records. Ask the employee to read the log of a known build. [Create an employee from a template](/getting-started/first-employee/)
+Administrators maintain organization templates under **Admin console → Board templates**. They can also capture a template from an existing board. The illustrated AI Workforce bootstrap template (v3) is a published example with six lanes, nine pipelines, one shared MCP server, and zero shared Skills.
 
-## 2. Create a Job from a scenario template
+In your workspace, open **Workbench → New delivery project**. Select an available published template in the board wizard. Expand **View the full flow and automations** to see which pipelines belong to each lane. Name the board and check the lane order.
 
-Open **Automations → New → Create from template**. Search for **Build inspection** and select it. The editor fills in the task instructions and suggests a daily 08:30 schedule. Select your employee, specify the project and build source, and use a fresh session for the first run. The task asks for failed builds, related commits, possible causes, and links to the builds. The same catalog includes **Issue to PR**, **PR risk review**, and **Daily project summary**.
+## 2. Assign employees and initialize the board
 
-## 3. Check the report and enable the schedule
+Choose an available digital employee instance for each required lane. Review the shared MCP servers and Skills selected by the template and adjust them as needed. Connect an external work item source if you need synchronization. Review the configuration and select **Create board**. The board and its configured automations can start once initialization checks pass. [Set up a software factory](/getting-started/first-software-factory/)
 
-Run the Job manually and open its run record and session. Pick a known failed build. Follow the report’s link and check the commit and failed step against the build log. If the employee cannot read the log, check its project permissions and run the Job again.
+## 3. Follow one card through a pipeline run
 
-Once the report checks out, confirm the time zone and next scheduled run. Publish the Job and enable automatic execution. Find the next inspection report in the Job’s run history. [Runs and recovery](/automate/runs-recovery/)
+Open the board and start a requirements session, or bring an issue in from the inbox. Confirm the scope and acceptance criteria, then follow the card. Inspect the target lane’s flow to see its execution nodes. Open the corresponding pipeline run and compare the node statuses and employee session with the card to see how far the work progressed. [Configure a lane pipeline](/automate/workflow-builder/#compose-a-lane-pipeline)
 
-## Optional: start a lane pipeline from a board template
-
-To assign cards to a QA employee, open **Workbench → New delivery project** and select a published **board template**. Preview the lanes, pipelines, shared Skills and MCP servers it includes. Assign a ready employee to each required lane. [Set up a software factory](/getting-started/first-software-factory/)
-
-For example, choose a template with a test admission pipeline. Open **Automations → Pipeline**, then select the board and its testing lane. The admission node selects eligible cards and the QA employee tests each one. Check the input mapping between the nodes, enable the pipeline, and run it manually. Open the node records to see which employee received each card. [Configure a lane pipeline](/automate/workflow-builder/#compose-a-lane-pipeline)
+For a standalone task with one employee, create a Job. Run it manually and inspect the result before enabling a schedule. [Compose a Job](/automate/workflow-builder/#compose-a-job)

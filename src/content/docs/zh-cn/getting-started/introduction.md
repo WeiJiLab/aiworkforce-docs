@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1e822c49a7c20b880571e755bfdd88ebaf6458c7bd2f2b6817e58bca84be4e47"
+  sourceHash: "a53cf29be850996da7d7fb4b8af7ce0482c560e1366ff95183fbd102a5d5f5bf"
 ---
 
 AI Workforce 是以工作流为中心的平台。工作流定义工作如何完成。自动化启动这条工作流并让它持续运行。数字员工是执行步骤的智能体。人仍然对范围、接管和发布负责。
@@ -15,13 +15,7 @@ AI Workforce 是以工作流为中心的平台。工作流定义工作如何完�
 
 默认的第一条路径是一项经过验证的软件变更。[软件工厂](/zh-cn/software-factory/overview/)在交付工作台上用四条回路推进这项变更：[需求到卡片](/zh-cn/software-factory/requirements-to-card/)、[卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)、[Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/)，以及[信号回到卡片](/zh-cn/software-factory/signal-to-card/)。卡片把已确认的需求、实现、验证证据和团队决定连在一起。
 
-## 选择路径
-
-- **交付第一项变更。** 按[快速入门](/zh-cn/getting-started/quickstart/)把一条 Issue 变成经过审阅的变更。完整示例见[从 Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。需要看板规则时阅读[看板工作台](/zh-cn/workflows/kanban-workbench/)。
-- **配置软件工厂。** 项目、仓库或泳道员工还没准备好时，按[配置软件工厂](/zh-cn/getting-started/first-software-factory/)准备。
-- **运行第一个工作流。** 按[你的第一个工作流](/zh-cn/getting-started/first-automation/)创建 Job，检查一次手动运行，然后再启用触发规则。需要稳定用词时阅读[工作流概念](/zh-cn/workflows/concepts/)。
-- **使用员工。** 按[构建你的第一个数字员工](/zh-cn/getting-started/first-employee/)，从已发布模板创建员工。然后使用[工作空间](/zh-cn/user-guide/workspace/)和 [Agent 对话](/zh-cn/user-guide/agent-chat/)。
-- **响应 Issue。** 用 [Issue 自动化](/zh-cn/workflows/issue-automation/)接收 GitHub Issue 或收件箱事项。开发开始之前先确认。
+根据你现有的看板、仓库或数字员工，在[文档首页选择起点](/zh-cn/#选择你的起点)。
 
 构建者定义可复用的员工。使用者从已发布模板创建工作空间员工。自动化要求一名就绪的员工执行工作。看板在交付工作流里使用这些员工。员工包的编写步骤在[构建数字员工](/zh-cn/build/employee-definition/)里，不在使用指南里。
 

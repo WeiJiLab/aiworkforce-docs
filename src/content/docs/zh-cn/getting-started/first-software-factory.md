@@ -1,16 +1,16 @@
 ---
-title: "配置软件工厂"
-description: "连接代码托管，选择员工的运行位置，创建交付看板，并启动第一张卡片。"
-sidebar:
-  label: 配置软件工厂
+title: "配置团队的第一个交付看板"
+description: "连接代码托管，选择员工的运行位置，创建交付看板，为第一张卡片做好准备。"
+prev: false
+next: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "8dfaa7373394797e522551a7d66e908096cc6d38cc000764e43aefe750992395"
+  sourceHash: "7722c6d277631e60239af3d15f65391d084a8b4d8f72a458ace90154fa69e6c1"
 ---
 
-首次配置会接上交付看板需要的工具，选择员工在哪里运行，并启动一张卡片。第一次变更之前先连接代码托管。需要把消息或外部事项送上看板时，再连接那些来源。看板已经配好时，直接进入[快速入门](/zh-cn/getting-started/quickstart/)。
+首次配置会接上交付看板需要的工具，选择员工在哪里运行，为第一张卡片做好准备。第一次变更之前先连接代码托管。需要把消息或外部事项送上看板时，再连接那些来源。看板已经配好时，直接进入[快速入门](/zh-cn/getting-started/quickstart/)。
 
 你需要在目标工作空间拥有创建交付看板、管理仓库和员工授权的权限。准备一个获准使用的测试仓库、可以验证变更的方法，以及包含需求、开发和验证阶段的已发布看板模板。看板模板缺失时请系统管理员发布。不能添加泳道员工时，页面写的是联系空间管理员。按[创建数字员工](/zh-cn/getting-started/first-employee/)，为每条必配泳道准备一个已就绪的员工实例。
 
@@ -65,13 +65,6 @@ Job 也可以轮询 GitHub 事项事件。支持的观察是打开、关闭、�
 2. 需要自动检查时，连接项目的测试工作流，并核对实际使用的测试部署或环境。已连接的 GitHub 仓库可以使用 GitHub Actions 工作流作为项目流水线。配置方法见 [CI/CD 集成](/zh-cn/software-factory/cicd/)和 [GitHub](/zh-cn/integrations/github/)。从配置好的测试发布和测试验证泳道查看运行结果。
 3. 自动检查还不可用时，选定一项可以在测试环境里执行的具体检查，并记录哪些自动检查没有运行。在团队拿到结果或记录明确豁免之前，保持必过门禁处于阻断。见[质量门禁](/zh-cn/software-factory/quality-gates/)。
 
-## 让看板开始工作
+## 下一步
 
-### 启动第一张卡片
-
-1. 使用[从 Issue 到 PR](/zh-cn/recipes/issue-to-pr/)中的表单校验示例。可以从任务收件箱转入 Issue。看板以需求泳道为入口时，也可以点击**新建需求会话**。
-2. 开发开始之前，在草稿上确认预期行为、验收标准和允许修改的仓库。这一步是[需求到卡片](/zh-cn/software-factory/requirements-to-card/)。确认需求不会同时批准修改仓库，也不会授予凭据。
-3. 跟进卡片的开发阶段。在**执行记录**中查看处理变更的会话，在**交付物**中打开代码引用。项目配置的交付路径创建了 Pull Request 时，可以从这里检查。这一程是[卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)。
-4. 在测试环境里检查示例的两种行为。空字段显示更正后的提示，有效值仍然可以提交。为每条验收标准记录受测提交或候选版本、环境和结果。检查失败时附上证据，退回卡片，并验证新版本。在卡片上记录审阅决定。
-
-第一张卡片具备已确认的需求、执行记录、代码引用、对应版本的验证证据和人工审阅决定之后，就可以开始下一项交付。项目还要合并或发布时，继续[Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/)。卡片停止推进时，参见[排查受阻的交付卡片](/zh-cn/getting-started/delivery-board-troubleshooting/)。
+仓库已绑定、必配泳道都有就绪员工，并且你知道在哪里核对测试结果，就可以选一条小 Issue 开始交付了。[在已有看板上交付第一条 Issue](/zh-cn/getting-started/quickstart/)。

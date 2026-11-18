@@ -1,6 +1,8 @@
 ---
-title: "Quickstart"
+title: "Deliver your first Issue on an existing board"
 description: "Take an Issue through an existing delivery board and review the code change and its verification evidence."
+prev: false
+next: false
 translation:
   source: en
   status: complete
