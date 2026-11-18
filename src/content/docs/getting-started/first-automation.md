@@ -10,41 +10,29 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Start with one issue. Ask a developer to write up the steps to reproduce it, then check the steps against the original report.
+Start with Build inspection. This scenario summarizes the last 24 hours of CI results and links each finding to its build.
 
 <picture>
   <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/en-compact.svg" />
-  <img src="/illustrations/first-workflow/en.svg" alt="Define a Job, check its output in a manual run, then add a schedule if needed. To draft a test case, connect the developer and QA nodes in a lane pipeline." />
+  <img src="/illustrations/first-workflow/en.svg" alt="Create an employee from a template, use the Build inspection scenario, check a manual run, then enable its schedule. A board template can also supply a testing lane pipeline." />
 </picture>
 
-## Prerequisites
+## 1. Connect a project and choose an employee
 
-You need a workspace you can operate and a ready employee whose responsibility matches the task. Use an employee that can finish the task from input you supply. Do not start with a Job that writes to an external system.
+Choose a project with CI history in your workspace. Use an existing employee that can read the build results, or create one from a published **employee template** with the role and entry Skill you need. Once initialization finishes, configure the tools and read permissions for the project’s CI records. Ask the employee to read the log of a known build. [Create an employee from a template](/getting-started/first-employee/)
 
-## 1. Define a small Job
+## 2. Create a Job from a scenario template
 
-Open **Automations** at `/automations`. Choose the execution employee. Describe a concrete task, the input, and an output you can check. Decide whether each run starts a new session or reuses the Job's bound session. A new session keeps runs separate. Reuse lets context accumulate, which is harder to judge on a first workflow.
+Open **Automations → New → Create from template**. Search for **Build inspection** and select it. The editor fills in the task instructions and suggests a daily 08:30 schedule. Select your employee, specify the project and build source, and use a fresh session for the first run. The task asks for failed builds, related commits, possible causes, and links to the builds. The same catalog includes **Issue to PR**, **PR risk review**, and **Daily project summary**.
 
-## 2. Run it before you enable a trigger
+## 3. Check the report and enable the schedule
 
-Save a draft if you are still editing. **Run manually** creates an execution you can inspect now. **Publish** stores the execution configuration and does not create a run. **Enable automatic execution** allows configured triggers to invoke the Job. Publishing does not require a successful test, so inspect a manual run before you enable anything unattended.
+Run the Job manually and open its run record and session. Pick a known failed build. Follow the report’s link and check the commit and failed step against the build log. If the employee cannot read the log, check its project permissions and run the Job again.
 
-Open the run and read its status, output, and session. If it fails, fix authorization, inputs, or missing tools before retrying. A paused published Job can still be run manually. That manual run does not turn automatic triggers back on.
+Once the report checks out, confirm the time zone and next scheduled run. Publish the Job and enable automatic execution. Find the next inspection report in the Job’s run history. [Runs and recovery](/automate/runs-recovery/)
 
-## 3. Add one trigger
+## Optional: start a lane pipeline from a board template
 
-Add a single schedule only after the manual result is acceptable. Keep the first rule simple. A Job can have more than one scheduling rule later. Each rule belongs to that Job. Publishing still does not execute the Job. If an expected run does not appear, check both the Job state and the trigger's enabled state.
+To assign cards to a QA employee, open **Workbench → New delivery project** and select a published **board template**. Preview the lanes, pipelines, shared Skills and MCP servers it includes. Assign a ready employee to each required lane. [Set up a software factory](/getting-started/first-software-factory/)
 
-Event-driven starts are covered in [event-driven automation](/automate/event-driven/). Webhook triggers are covered in [watchers and webhooks](/automate/watchers-webhooks/). A lane pipeline, which needs at least two executors, is covered in [create a workflow](/automate/workflow-builder/).
-
-## Optional: hand the reproduction steps to QA
-
-When you also need a test case, open **Automations → Pipeline** and choose a workspace, board, and lane. Create two nodes using that lane’s executors. The developer writes the reproduction steps. The QA engineer uses those steps to draft a test case.
-
-Connect the nodes with a success edge. Map the developer’s output to the QA node’s required input. Save and enable the pipeline, then run it manually. Open the pipeline run to check both node statuses and compare the test case with the reproduction steps. [See how to configure a lane pipeline](/automate/workflow-builder/#compose-a-lane-pipeline).
-
-## Expected result
-
-You have one Job, one inspected manual run, and at most one enabled trigger whose next run you know how to find. You have not proved that a collected business request is resolved. If the Job should file inbox items, add **Collect tasks / issues** only after the basic run is reliable. A chat summary is not a saved issue.
-
-Continue with [workflow concepts](/workflows/concepts/) to place this Job among boards and events, or with [runs and recovery](/automate/runs-recovery/) if a later run fails.
+For example, choose a template with a test admission pipeline. Open **Automations → Pipeline**, then select the board and its testing lane. The admission node selects eligible cards and the QA employee tests each one. Check the input mapping between the nodes, enable the pipeline, and run it manually. Open the node records to see which employee received each card. [Configure a lane pipeline](/automate/workflow-builder/#compose-a-lane-pipeline)
