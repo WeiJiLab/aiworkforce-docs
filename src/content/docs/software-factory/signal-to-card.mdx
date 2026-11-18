@@ -9,6 +9,8 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
+import MonitoringRoute from "../../../components/MonitoringRoute.astro";
+
 A signal is a report that might deserve engineering work: an imported or polled issue, a message that starts a Job, or a monitoring event. A Job employee investigates and writes what it found. **Collect tasks / issues** can save an inbox item when that step is on the Job and the run records a server receipt. The inbox item waits until a person accepts it and confirms a delivery card. Confirming the card is what allows development. The investigation itself does not change code, and creating the inbox item does not either.
 
 People are marked in the diagram. Employees run the other steps.
@@ -33,6 +35,10 @@ Two sources use this shape.
 **Incidents.** [Sentry](/integrations/sentry/) and [PagerDuty](/integrations/pagerduty/) can start a published Job when an issue or incident event arrives. The run holds the finding. The Job does not update the external incident, and it does not open a pull request. A code fix still starts from a confirmed card.
 
 [Turn feedback into reviewed work](/learn/feedback-review/) is the method for separating the observation from the hypothesis before you confirm anything.
+
+## Production alert example
+
+<MonitoringRoute />
 
 ## Where you participate
 

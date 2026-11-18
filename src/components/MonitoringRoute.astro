@@ -24,76 +24,82 @@ const signals = [
 ] as const;
 ---
 
-<fieldset class="monitor">
-  <legend class="sr-only"
-    >{
-      zh ? "选择线上监控示例来源" : "Choose a production monitoring example"
-    }</legend
-  >
-  <div class="scope" aria-hidden="true">
-    <div class="sweep"></div><i></i><i></i><i></i>
-  </div>
-  <div class="intro">
-    <span class="kicker"
-      ><span class="lamp"></span>{
-        zh ? "线上监控 · 交互示例" : "Production monitoring · Example"
-      }</span
+<div class="monitor-figure not-content">
+  <fieldset class="monitor">
+    <legend class="sr-only"
+      >{
+        zh ? "选择线上监控示例来源" : "Choose a production monitoring example"
+      }</legend
     >
-    <h3>{zh ? "从一次线上告警开始" : "Follow a production alert"}</h3>
-  </div>
-  <div class="switches">
+    <div class="scope" aria-hidden="true">
+      <div class="sweep"></div><i></i><i></i><i></i>
+    </div>
+    <div class="intro">
+      <span class="kicker"
+        ><span class="lamp"></span>{
+          zh ? "线上监控 · 交互示例" : "Production monitoring · Example"
+        }</span
+      >
+      <h3>{zh ? "从一次线上告警开始" : "Follow a production alert"}</h3>
+    </div>
+    <div class="switches">
+      {
+        signals.map((s, i) => (
+          <label>
+            <>
+              <input
+                type="radio"
+                name="monitor-source"
+                value={s.provider}
+                checked={i === 0}
+              />
+              <span>{s.provider}</span>
+            </>
+          </label>
+        ))
+      }
+    </div>
     {
-      signals.map((s, i) => (
-        <label>
-          <>
-            <input
-              type="radio"
-              name="monitor-source"
-              value={s.provider}
-              checked={i === 0}
-            />
-            <span>{s.provider}</span>
-          </>
-        </label>
+      signals.map((s) => (
+        <div class="signal" data-provider={s.provider}>
+          <div class="readout">
+            <>
+              <span class="kicker">{s.event}</span>
+              <strong>{s.title}</strong>
+              <p>{s.rule}</p>
+            </>
+          </div>
+          <a class="connect" href={localizedGuideHref(s.path, zh)}>
+            {zh ? `接入 ${s.provider}` : `Connect ${s.provider}`}{" "}
+            <Icon name="right-arrow" />
+          </a>
+        </div>
       ))
     }
-  </div>
-  {
-    signals.map((s) => (
-      <div class="signal" data-provider={s.provider}>
-        <div class="readout">
-          <>
-            <span class="kicker">{s.event}</span>
-            <strong>{s.title}</strong>
-            <p>{s.rule}</p>
-          </>
-        </div>
-        <a class="connect" href={localizedGuideHref(s.path, zh)}>
-          {zh ? `接入 ${s.provider}` : `Connect ${s.provider}`}{" "}
-          <Icon name="right-arrow" />
-        </a>
-      </div>
-    ))
-  }
-  <div class="route">
-    <a href={localizedGuideHref("workflows/research-monitoring", zh)}
-      ><Icon name="random" /><strong
-        >{zh ? "配置调查 Job" : "Configure the job"}</strong
-      ></a
-    >
-    <a href={localizedGuideHref("software-factory/observability", zh)}
-      ><Icon name="magnifier" /><strong
-        >{zh ? "查看运行记录" : "Inspect the run"}</strong
-      ></a
-    >
-    <a href={localizedGuideHref("software-factory/signal-to-card", zh)}
-      ><Icon name="approve-check-circle" /><strong
-        >{zh ? "人工确认交付卡片" : "Review the delivery card"}</strong
-      ></a
-    >
-  </div>
-</fieldset>
+    <div class="route">
+      <a href={localizedGuideHref("workflows/research-monitoring", zh)}
+        ><Icon name="random" /><strong
+          >{zh ? "配置调查 Job" : "Configure the job"}</strong
+        ></a
+      >
+      <a href={localizedGuideHref("software-factory/observability", zh)}
+        ><Icon name="magnifier" /><strong
+          >{zh ? "查看运行记录" : "Inspect the run"}</strong
+        ></a
+      >
+      <a href={zh ? "#你在哪些地方参与" : "#where-you-participate"}
+        ><Icon name="approve-check-circle" /><strong
+          >{zh ? "人工确认交付卡片" : "Review the delivery card"}</strong
+        ></a
+      >
+    </div>
+  </fieldset>
+</div>
 <style>
+  .monitor-figure {
+    container-type: inline-size;
+    margin-block: 1rem;
+  }
   .monitor {
     position: relative;
     isolation: isolate;
