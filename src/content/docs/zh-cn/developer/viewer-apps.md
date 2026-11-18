@@ -5,12 +5,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "cad2843055c1d42a7b97cf3672f69331a1e0995ccb1593db7eb1a43ad66f8a36"
+  sourceHash: "5d6215a71bb7018f928db9a6a0ea83edd7270aaaf583ea7d296babe60b3c080d"
 ---
 
 Viewer App 决定一个产物在文件预览里如何展示。这个例子会添加 **JSON Size**，显示文件名和预览文本的 UTF-8 字节数。你可以在同一个文件上切换到内置 JSON 查看器，查看格式化后的内容。
 
-准备好平台前端源码，并使用 `frontend/package.json` 指定的 pnpm 版本。以下步骤都在 `frontend/` 下进行。内置的 Markdown、HTML、JSON、代码、OpenAPI 和拉取请求查看器也在这里的 `apps/` 下。
+准备好平台前端源码，并使用 `frontend/package.json` 指定的 pnpm 版本。以下步骤都在 `frontend/` 下进行。可参考[内置 Viewer Apps](/zh-cn/developer/built-in-viewers/)。
 
 ## 创建 App 包
 
