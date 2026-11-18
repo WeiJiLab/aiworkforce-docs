@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "242f40426c2dcda0e5c70b971b7dbd03c9cb15f04234e046ab83b418bdd4feef"
+  sourceHash: "da628d214dc5010a2db678a305dff36511c03ed7df0d55b4a2d16b83663ad875"
 ---
 
 import HomeContent from "../../../components/HomeContent.astro";
@@ -14,21 +14,21 @@ import CapabilityMap from "../../../components/CapabilityMap.astro";
 
 用 AI Workforce 从 Issue、事件和定期调研中收集需求，再在交付看板上跟踪一条需求如何经过人工审阅、开发、验证和发布。
 
+## 软件交付能力地图
+
+<CapabilityMap />
+
+## 跟进 Story #128
+
+在下面的交付看板上，跟着 Story #128 看团队如何把「邀请工作空间成员时选择角色」从调研发现推进到测试环境。
+
 [![AI Workforce 三列交付看板。竞品调研发现经人工审阅后，以 Story #128 加入 Backlog，后续关联 GitHub Actions 流水线结果。](/illustrations/delivery-board.svg)](/illustrations/delivery-board.html)
 
 [打开交付看板交互示例](/illustrations/delivery-board.html)
 
-## 跟进 Story #128
-
-图中这条 Story 的目标是让团队在邀请工作空间成员时选择角色。
-
 1. **收集发现。** 定时调研 Job 从竞品更新日志中发现了邀请时选择角色的功能，将发现和来源一起记录到任务收件箱。[配置定时 Job](/zh-cn/automate/triggers-schedules/)
 2. **人工审阅并加入 Backlog。** 团队成员在任务收件箱审阅发现，将它作为 Story #128 转入交付项目。开始开发前，团队在卡片上确认工作范围和验收条件。[审阅需求并确认范围](/zh-cn/user-guide/human-approval/)
 3. **验证变更。** 在「交付」页签，PR #62 关联到 GitHub Actions 运行 #482。构建与测试已通过，变更已部署到测试环境，生产发布仍待执行。[接入 CI/CD 流水线](/zh-cn/software-factory/cicd/)
-
-## 软件交付能力地图
-
-<CapabilityMap />
 
 ## 现行入口
 
