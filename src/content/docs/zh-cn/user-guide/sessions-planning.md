@@ -1,11 +1,11 @@
 ---
-title: "会话、计划与评审"
+title: "会话与计划"
 description: "控制会话范围，检查执行计划和工具动作，并在验收前审阅结果。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "df21bcdc4e34dd274eadfef7146aa6052c9947ce9b547012f8d67dd8a1ed9b96"
+  sourceHash: "bde7aff4c011d331b408eb1a851c547196b26eb8984850795018b3a86c3e1072"
 ---
 
 会话连接你的请求、员工执行和生成文件。围绕一个清晰目标组织会话，通过计划、工具活动和产物检查工作。

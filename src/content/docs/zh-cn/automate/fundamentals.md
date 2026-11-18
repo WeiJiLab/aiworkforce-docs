@@ -1,12 +1,16 @@
 ---
-title: "自动化基础"
-description: "理解 Job、触发规则与运行，以及保存、执行、发布和启用之间的区别。"
+title: "自动化概念"
+description: "用 Job、触发规则和运行把信号变成工作。日程只是一种触发。"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "3f124a5b11176075b304613ddb3596c9da12478d0e4839c53190e805210f9e22"
+  sourceVersion: "2026-11-18"
+  sourceHash: "3af122619826f053ec36fbf89f2965004d550bb3760996b889c139208317cfc3"
 ---
+
+自动化启动工作并记录发生了什么。它不只是定时任务。在相应类型可用时，Job 可以由日程、Webhook、平台事件、Issue 或 IM 消息调用，也可以手动运行。下面把 Job、触发规则和运行分开，这样失败才有地方可查。
+
+事件驱动的启动见[事件驱动自动化](/zh-cn/automate/event-driven/)。入站 Webhook 见[监视与 Webhook](/zh-cn/automate/watchers-webhooks/)。重复工作见[循环与周期性工作](/zh-cn/automate/loops/)。人介入的步骤见[批准与通知](/zh-cn/automate/approvals/)。
 
 自动化 **Job** 定义要做的工作，以及负责执行的员工或受支持执行器。**触发规则（Trigger）**定义何时调用该 Job。**运行（Run）**记录一次执行。区分这些概念，才能在调整调度时保留任务身份，并准确定位失败。
 

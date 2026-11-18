@@ -1,5 +1,5 @@
 ---
-title: "Usage and operational analytics"
+title: "Usage and analytics"
 description: "Read resource, API, database, and token metrics with the correct time range and evidence coverage."
 translation:
   source: en

@@ -51,6 +51,10 @@ Replace the platform origin and directory. Pairing asks for trusted host-executi
 
 ## Related guides
 
+- [CLI](/integrations/cli/)
+- [SDK](/integrations/sdk/)
+- [OpenAPI reference](/integrations/openapi/)
+- [Agent protocol](/integrations/agent-protocol/)
 - [Integration overview](/integrations/overview/)
-- [Runtime environments](/deployment/runtime-environments/)
-- [Security and data boundaries](/deployment/security/)
+- [Runtime management](/deployment/runtime-environments/)
+- [Security and permissions](/deployment/security/)

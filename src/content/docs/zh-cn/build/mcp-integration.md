@@ -1,14 +1,14 @@
 ---
-title: "MCP 集成"
-description: "声明员工的 MCP 能力，通过模板和插件维护应用到实例的连接配置。"
+title: "MCP 服务"
+description: "声明员工依赖的 MCP 服务。连接和协议配置在另一篇指南。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "16ee2701dca5711c7383983a372d328a9331e8adea2efe8f9bb79e2a5eb35cbb"
+  sourceHash: "7d7be60cd925d9d9610aa32cc897e4603afb8326895fcf44be24e1ac01e01782"
 ---
 
-模型上下文协议（Model Context Protocol，MCP）让员工能够使用外部服务提供的工具。发现服务、配置、安装和外部账号授权是不同的步骤。模板中列出某个服务，并不能证明工具调用一定成功。
+模型上下文协议（Model Context Protocol，MCP）让员工能够使用外部服务提供的工具。本页讲的是员工依赖：岗位期望哪个服务，以及这种声明与可用连接有何不同。协议、端点和客户端配置见 [MCP 集成](/zh-cn/integrations/mcp/)。不要维护两份互相矛盾的连接步骤。发现服务、配置、安装和外部账号授权是不同的步骤。模板中列出某个服务，并不能证明工具调用一定成功。
 
 ## 声明能力
 

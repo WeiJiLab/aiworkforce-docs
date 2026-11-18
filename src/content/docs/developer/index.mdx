@@ -1,44 +1,34 @@
 ---
-title: Developers
-description: Build AI employee packages, connect tools and platform APIs, and prepare execution environments with clear authorization and verifiable results.
+title: Developer guide
+description: Use the HTTP API, Automation MCP, and device CLI that exist today. Do not install a package this baseline does not publish.
 prev: false
-next:
-  link: /build/employee-definition/
-  label: Employee definition
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-import HomeContent from "../../../components/HomeContent.astro";
-import PortalLanding from "../../../components/PortalLanding.astro";
+This page collects the interfaces a builder or platform engineer uses to reach AI Workforce from outside the product UI. Employee authoring stays in [Build AI employees](/build/architecture/). Product connections such as repositories stay in [integrations](/integrations/overview/).
 
-Developers is for Builders, FDEs, developers, and platform engineers implementing capabilities for AI Workforce. Start from an agreed responsibility or integration need, then connect the package, tool, API, and runtime boundaries that make it work.
+## Choose an interface
 
-## Choose an implementation path
+| Need                               | Start here                                      |
+| ---------------------------------- | ----------------------------------------------- |
+| Call the platform over HTTP        | [REST API](/developer/api-reference/)           |
+| Authenticate a person or a machine | [Authentication](/developer/authentication/)    |
+| See the deployed schema            | [OpenAPI reference](/integrations/openapi/)     |
+| Let an agent call registered Jobs  | [MCP integration](/integrations/mcp/)           |
+| Pair an execution computer         | [CLI](/integrations/cli/)                       |
+| Build an application client        | [SDK](/integrations/sdk/)                       |
+| Understand what is not provided    | [Agent protocol](/integrations/agent-protocol/) |
 
-<PortalLanding portal="developers" section="paths" />
+The [interface matrix](/developer/cli-sdk/) compares those choices, including the current limit: there is no supported general Python or TypeScript SDK package, and no bundled ACP or A2A server.
 
-## Assemble the building blocks
+## Verify one workflow
 
-An employee role defines the job. Skills provide working methods, plugins package capabilities, and MCP connects tools. Platform APIs expose implemented resource operations. Choose the pieces your workflow needs and verify the access available to the execution employee.
+1. Agree the outcome, the allowed resources, and the acceptance criteria. Use a [playbook](/learn/) when the work is still unclear.
+2. Call only the endpoint or tool your credential is allowed to use. Keep secrets in the caller's secret store.
+3. Try a normal call, a missing input, and a denied resource. Read the run id and the error. Do not treat HTTP 202 as a finished business result.
+4. When the capability is an employee, validate the package and try it as a workspace instance with the intended runtime.
 
-<PortalLanding portal="developers" section="guides" />
-
-## Verify one complete workflow
-
-1. Agree on the intended outcome, allowed inputs and resources, and acceptance criteria. Use [Learn](/learn/) to resolve gaps in the work definition.
-2. Implement the smallest useful package or integration. Check its supported fields and calls, entry points, and authorization requirements.
-3. Try a normal request, missing inputs, and a denied or unavailable resource. Inspect the execution records and output evidence, including how the workflow recovers.
-4. Validate the employee package where applicable, then try the capability through a workspace employee with the intended runtime and access.
-
-Before deploying or broadening access, review [deployment and security](/deployment/security/). Use the [contribution guide](/developer/contributing/) for source changes and documentation updates.
-
-## Connect implementation to team workflows
-
-<PortalLanding portal="developers" section="next" />
-
-## Documentation for agents
-
-<HomeContent section="agents" />
+[Platform architecture](/developer/architecture/) shows how sessions, Jobs, and delivery records differ. [Contributing](/developer/contributing/) is for changes to this documentation and the product source, not for calling the API.

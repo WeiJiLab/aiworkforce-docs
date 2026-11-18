@@ -105,11 +105,15 @@ function landingBody(body: string, zh: boolean): string {
 }
 
 export function toMarkdown(entry: CollectionEntry<"docs">): string {
-  const { title, description } = entry.data;
+  const { title, description, support } = entry.data;
   const zh = entry.id.startsWith("zh-cn/") || entry.id === "zh-cn";
   const canonicalId = markdownId(entry.id.replace(/^zh-cn(?:\/|$)/, ""));
   const isHome = ["index", "developer", "learn"].includes(canonicalId);
   const body = isHome ? landingBody(entry.body ?? "", zh) : (entry.body ?? "");
-  const sourceLabel = isHome && zh ? "来源" : "Source";
-  return `# ${title}\n\n${description}\n\n${sourceLabel}: https://docs.aiworkforce.run${pageUrl(entry.id)}\n\n${body}\n`;
+  const sourceLabel = zh ? "来源" : "Source";
+  const supportLabel =
+    support && support !== "available"
+      ? `${zh ? "支持状态" : "Support"}: ${support}\n\n`
+      : "";
+  return `# ${title}\n\n${description}\n\n${supportLabel}${sourceLabel}: https://docs.aiworkforce.run${pageUrl(entry.id)}\n\n${body}\n`;
 }

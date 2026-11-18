@@ -28,21 +28,15 @@ npm run check:navigation
 
 `npm run preview` serves the production build, including the Pagefind search index. Search indexing is a production build step; use the preview to verify it.
 
-## Content and portals
+## Content
 
-The site has three independent reading contexts. Each portal has a bilingual homepage, its own sidebar, and previous/next links that stay within the same portal and language. The sidebar footer always links to all three portals and support. Theme and language controls appear once in the header's top-right corner; switching languages preserves the current page.
+English and Chinese share one sidebar and the same slugs. The directory is defined in `src/lib/sidebar.mjs`. There are 87 pages in each language, including the homepage. [Navigation](NAVIGATION.md) explains the sections, the support states, and the stable URLs.
 
-| Portal     | English / Chinese entry             | Audience and purpose                                                                          | Guides per language |
-| ---------- | ----------------------------------- | --------------------------------------------------------------------------------------------- | ------------------- |
-| Docs       | `/` / `/zh-cn/`                     | Business users, team members, and administrators using and configuring the product            | 26                  |
-| Developers | `/developer/` / `/zh-cn/developer/` | Builders, FDEs, developers, and platform engineers building packages and integrations         | 11                  |
-| Learn      | `/learn/` / `/zh-cn/learn/`         | Product, engineering, Builder/FDE, and delivery teams framing requirements and reviewing work | 5                   |
+A page may set `support` to `available` (the default), `limited`, or `planned`. Limited and planned pages say so in the sidebar and above the article. Do not describe a planned interface as something a reader can call.
 
-There are 42 guides in each language and six localized portal homepages: 90 pages in total. API, CLI, SDK, and self-hosting topics distinguish implemented interfaces from unsupported capabilities. [Navigation](NAVIGATION.md) explains the portal boundaries; [competitive coverage](COMPETITIVE-COVERAGE.md) maps reference topics from Cursor, Augment, and 8090 to this structure.
+Content lives in `src/content/docs/`. Chinese files mirror the English paths under `zh-cn/`. Start a guide from `templates/guide.md`. Starlight supplies the H1. Use absolute links to the language-appropriate page. Add every new guide to `src/lib/sidebar.mjs`. Existing guide URLs stay valid when their section changes.
 
-Content lives in `src/content/docs/`. English and Chinese use the same relative filenames, with Chinese under `zh-cn/`. Start a guide from `templates/guide.md`; Starlight supplies the H1. Use absolute links to the language-appropriate page. Register new guides in the appropriate portal in `src/lib/navigation.ts` and update the rendered navigation contract in `scripts/check-navigation.mjs`. Existing guide URLs remain stable when their portal changes: `build/prompts-rules` and `recipes/issue-to-pr`, for example, belong to Learn.
-
-After a production build, `npm run check:navigation` checks direct page loads, portal membership, active links, portal switches, localized language targets, and pagination boundaries across all 90 pages. Homepage section headings are written as Markdown so Starlight can generate their table of contents.
+After a production build, `npm run check:navigation` checks direct page loads, the shared sidebar, the current page, the support link, localized language targets, and pagination across both languages. Homepage section headings are written as Markdown so Starlight can generate their table of contents.
 
 Every page requires a title, description, and translation metadata. `sourceVersion` records the reviewed product/date baseline. A Chinese page marked `complete` also records `sourceHash`, the SHA-256 of the entire English file. After reviewing a translation, compute its new hash:
 
@@ -54,10 +48,11 @@ Copy that hash into the corresponding Chinese frontmatter. If translation review
 
 ## Agent access
 
-- `/llms.txt` is the generated bilingual index.
+- `/llms.txt` is the generated bilingual index, grouped by the shared information architecture. Limited and planned pages are marked.
 - `/llms-full.txt` is generated from all published pages.
 - `/getting-started/quickstart.md` and `/zh-cn/getting-started/quickstart.md` expose page content without navigation or scripts.
 - The English homepage is available at `/index.md`; the Chinese homepage at `/zh-cn.md`.
+- A page whose support is not `available` includes that state in the Markdown export.
 
 Draft pages are excluded from these endpoints. Content endpoints are generated from the same collection as the website, so no duplicated text files need maintenance. Documentation MCP and downloadable integration skills are future work, not available services.
 

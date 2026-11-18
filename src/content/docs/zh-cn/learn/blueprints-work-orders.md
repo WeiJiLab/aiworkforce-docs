@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: e8a8cff62e7efb0d8fe823cd4d806019ae5af89f7c24202b5c187b3388f161c2
+  sourceHash: "e8a8cff62e7efb0d8fe823cd4d806019ae5af89f7c24202b5c187b3388f161c2"
 ---
 
 经过确认的需求说明用户需要什么结果，技术设计解释系统如何实现这个结果，执行计划则把有明确边界的一部分变更交给员工。保持三者关联，可以避免实现满足了一个方便的解释，却偏离了真正的需求。

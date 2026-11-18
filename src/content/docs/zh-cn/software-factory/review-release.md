@@ -1,11 +1,11 @@
 ---
-title: "从变更审核跟进到发布"
+title: "审阅与发布"
 description: "逐项核对代码、验证、合并、生产发布与资源回收的证据，并作出明确的人工决定。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: c93634063ea9fc55622e7a256f63472891c1637749d17e5b3f4d4dc36be038ff
+  sourceHash: "99edb540433ac4fb94ce568a4d86047f635463c7789a2ffc41999d77e7cea8ee"
 ---
 
 审核确认特定变更是否满足已确认需求，发布确认已接纳变更是否到达目标环境。在交付工作台中，应逐步查看实际记录，避免根据卡片会话或已有 PR 推断整个交付已经完成。
@@ -50,6 +50,8 @@ translation:
 说明验证了哪条需求和哪个代码引用、执行了哪些检查，以及发布记录证实了什么。合并成功但部署失败时，应分别报告。如果发布成功后回收失败，应保留可见的回收问题，同时准确表述发布结果。
 
 自动合并和发布依赖项目真实的代码平台与流水线集成、执行资源及员工授权。创建交付卡片本身不会提供这些权限。
+
+本页保持为审阅路径。周围的记录见[证据与追踪](/zh-cn/software-factory/evidence/)、[质量门禁](/zh-cn/software-factory/quality-gates/)和[发布治理](/zh-cn/software-factory/release-governance/)。
 
 继续阅读[软件工厂概览](/zh-cn/software-factory/overview/)、[Issue 到 PR](/zh-cn/recipes/issue-to-pr/)和[反馈研判](/zh-cn/learn/feedback-review/)。
 

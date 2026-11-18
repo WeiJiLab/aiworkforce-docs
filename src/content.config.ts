@@ -10,6 +10,9 @@ export const collections = {
     schema: docsSchema({
       extend: z.object({
         description: z.string().min(10),
+        support: z
+          .enum(["available", "limited", "planned"])
+          .default("available"),
         translation: z.object({
           source: z.literal("en"),
           status: z.enum(["complete", "needs-review", "untranslated"]),

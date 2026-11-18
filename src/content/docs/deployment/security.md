@@ -1,5 +1,5 @@
 ---
-title: "Security and data boundaries"
+title: "Security and permissions"
 description: "Understand workspace permissions, execution credentials, network access, and the data produced by a task."
 translation:
   source: en

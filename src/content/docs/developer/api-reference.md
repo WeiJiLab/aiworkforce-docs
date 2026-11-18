@@ -1,5 +1,5 @@
 ---
-title: "API reference"
+title: "REST API"
 description: "Use the current management and Automation HTTP endpoints with concrete request examples and asynchronous run handling."
 translation:
   source: en

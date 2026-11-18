@@ -1,11 +1,11 @@
 ---
-title: "安全与数据边界"
+title: "安全与权限"
 description: "理解工作空间权限、执行凭据、网络访问与任务产生的数据范围。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "188187d183a8bbf0f2412d727d4aa1f7e736e3f875477978f7565f22e6f67933"
+  sourceHash: "dd09859cda6503db34043d6253dd4f569e45df4dd9acbaaa789fd21eb51c52ab"
 ---
 
 应同时检查资源和执行两个层面的访问控制。成员有权管理工作空间，不代表员工已经获得独立凭据授权；Job 允许运行，也不代表外部供应商会允许所有操作。

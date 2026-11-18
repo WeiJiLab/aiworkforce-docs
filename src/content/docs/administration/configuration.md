@@ -1,5 +1,5 @@
 ---
-title: "Configuration and runtime settings"
+title: "Platform configuration"
 description: "Choose the correct configuration scope for preferences, credentials, model channels, and execution devices."
 translation:
   source: en

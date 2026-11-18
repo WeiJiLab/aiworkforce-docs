@@ -1,11 +1,11 @@
 ---
-title: "知识、记忆与上下文"
+title: "知识与上下文"
 description: "提供任务资料，维护经过审核的空间记忆，并区分外部知识来源与模型上下文。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "6230cf31f07c55dcadb0f7619150d3129c80131c87cfbe1e232dd7cbfb351378"
+  sourceHash: "e7f34ed10293c393dc397b61122d40cfc0e28d5f5b594aeeaf774d196f82fd30"
 ---
 
 员工需要相关上下文才能完成有效工作。AI Workforce 当前提供任务消息与附件、项目文件、空间记忆，以及经过授权的连接。它们是不同的信息来源，不能因为文档可访问，就假定员工已自动阅读全部内容。

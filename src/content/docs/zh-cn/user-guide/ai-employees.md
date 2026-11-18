@@ -1,14 +1,14 @@
 ---
-title: "数字员工"
-description: "创建、初始化并使用职责明确的工作空间员工。"
+title: "使用数字员工"
+description: "选择员工、分配任务并审阅结果。编写员工包属于构建数字员工。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "ae759e57636f7f8a266c3279e7acec0d02885cee2eb4fd5713bff62c8fb93120"
+  sourceHash: "e20800ee0627ab97cfd3dd9a4cbf8f0e7ef9b4df70d2471dfd68317232521c29"
 ---
 
-数字员工是工作空间中的已配置工作者。模板提供可复用能力；工作空间配置和授权决定员工在哪里执行，以及可以使用哪些已连接资源。
+数字员工是工作空间中的已配置工作者。模板提供可复用能力；工作空间配置和授权决定员工在哪里执行，以及可以使用哪些已连接资源。本指南说明如何选择员工、分配任务、提供上下文、观察执行并审阅结果。它不说明如何编写员工包。构建者使用[员工架构](/zh-cn/build/architecture/)。
 
 ## 先选择明确职责
 

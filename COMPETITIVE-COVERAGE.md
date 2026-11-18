@@ -8,7 +8,7 @@
 - Augment：[Introduction](https://docs.augmentcode.com/introduction)、[llms.txt](https://docs.augmentcode.com/llms.txt)。读取 Introduction 返回的 `nav.versions`，当前默认版本为 Auggie 1.x；一级分类为 Getting Started、Cosmos、Auggie CLI、Other clients、Admin、Models & Pricing、Troubleshooting。Cosmos 的重要二级分类也单独列出，避免一级总览掩盖内容缺口。
 - 8090：[用户提供的 Requirements Writing Guide](https://docs.8090.ai/opinions/requirements-writing-guide)、[Markdown 原文](https://docs.8090.ai/opinions/requirements-writing-guide.md)、[llms.txt](https://docs.8090.ai/llms.txt)。索引明确区分 Docs、Learn、Developers，下面覆盖每个入口和其直接分类。
 
-“对应页面”使用本轮最终实现的文档，包括新增的会话规划、知识背景、团队权限、配置、用量、模型、排障、更新支持、集成、鉴权/API、执行环境与安全指南。“差异”保留真实产品边界，不能把“已经写明能力边界”误解成“已经提供竞品同名功能”。最终导航拆成三个独立入口：Docs 解释产品操作，Developers 提供员工构建、实际协议、集成契约与部署，Learn 承载需求、方案和验收等实践方法。下表中的 User guide、Build、Integrations 等名称指内容域，不表示它们仍共用一棵侧栏。
+“对应页面”使用当时实现的文档。“差异”保留真实产品边界，不能把“已经写明能力边界”误解成“已经提供竞品同名功能”。2026-11-18 起，站点改为单一侧栏；下表里的 User guide、Build、Learn 等名称指内容域，不再表示独立入口。当前目录以 [NAVIGATION.md](NAVIGATION.md) 为准。
 
 ## Cursor
 

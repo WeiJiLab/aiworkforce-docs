@@ -1,11 +1,11 @@
 ---
-title: "配置与运行时设置"
+title: "平台配置"
 description: "为偏好、凭据、模型渠道和执行设备选择正确的配置范围。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "c5e6bfaa9cccccdc65a50a53ed48feb5b2f8cbbd508ce9fb7ca1ad2fe2421542"
+  sourceHash: "ec39a58480aa97d00a234775810d9ed7205e3cf58d0af438024236cf56907627"
 ---
 
 配置分布在不同范围。遇到能力不可用时，应修改真正控制该能力的设置，避免在无关页面之间复制凭据或模型参数。

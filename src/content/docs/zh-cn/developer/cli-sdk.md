@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "774a334881360a9f333534735ccb3e292c0c9cd03a38095c957349f5af291f99"
+  sourceHash: "574ed75d3cbb603e6a1f82d19aaccf9ad0696ffbca4d6bc500cce156f9882ad4"
 ---
 
 选择接口时，先确定工作在哪里执行，以及调用者需要什么权限。平台 HTTP API、自动化 MCP 服务和设备 daemon 解决的是不同集成问题。
@@ -52,6 +52,10 @@ aiworkforce-device-exec stop
 
 ## 相关文档
 
+- [CLI](/zh-cn/integrations/cli/)
+- [SDK](/zh-cn/integrations/sdk/)
+- [OpenAPI 参考](/zh-cn/integrations/openapi/)
+- [Agent 协议](/zh-cn/integrations/agent-protocol/)
 - [集成概览](/zh-cn/integrations/overview/)
-- [运行环境](/zh-cn/deployment/runtime-environments/)
-- [安全与数据边界](/zh-cn/deployment/security/)
+- [运行时管理](/zh-cn/deployment/runtime-environments/)
+- [安全与权限](/zh-cn/deployment/security/)

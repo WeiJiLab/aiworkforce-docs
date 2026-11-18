@@ -1,13 +1,13 @@
 ---
-title: "AI employees"
-description: "Create, initialize, and work with employees that have a defined responsibility."
+title: "Using AI employees"
+description: "Choose an employee, assign work, and review the result. Package authoring lives in Build AI employees."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
 ---
 
-An AI employee is a configured worker in a workspace. Its template supplies reusable capabilities, while its workspace configuration and authorizations determine where it can work and which connected resources it can use.
+An AI employee is a configured worker in a workspace. Its template supplies reusable capabilities, while its workspace configuration and authorizations determine where it can work and which connected resources it can use. This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an employee package. Builders use [employee architecture](/build/architecture/).
 
 ## Choose the right responsibility
 

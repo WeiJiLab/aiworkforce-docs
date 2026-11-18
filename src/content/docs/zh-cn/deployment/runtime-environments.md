@@ -1,11 +1,11 @@
 ---
-title: "运行环境"
+title: "运行时管理"
 description: "在平台执行、自托管部署与已授权设备 Worker 之间选择合适的运行方式。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "efd9cbb48fadbbd4269395fa816075a23b390793e26b626217b48f90b3a393ab"
+  sourceHash: "652857f3167b43d97b234d6c5d44188cd9c6fb25fc54b38be922a1747af580bc"
 ---
 
 平台负责员工对话、模型循环、任务状态与授权；执行环境决定工具在哪里运行。自行托管平台、选择运行内核和选择设备有关联，但其中任何一项都不会自动补齐另外两项。

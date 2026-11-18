@@ -1,5 +1,5 @@
 ---
-title: "Knowledge, memory, and context"
+title: "Knowledge and context"
 description: "Provide task materials, maintain reviewed workspace memory, and distinguish connected sources from model context."
 translation:
   source: en

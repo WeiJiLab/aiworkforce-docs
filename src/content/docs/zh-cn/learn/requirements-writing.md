@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: 50e85dd5d4f855be6b6cf34c63f8e45a2c7285352ea581071b5c5eccf562150c
+  sourceHash: "50e85dd5d4f855be6b6cf34c63f8e45a2c7285352ea581071b5c5eccf562150c"
 ---
 
 好的需求让提出变更的人和实施变更的数字员工对同一个可观察结果达成一致。应在授权开发前写清需求。本指南以假设的校验提示修改说明方法；示例描述的是拟议变更，不代表 AI Workforce 已承诺提供该功能。

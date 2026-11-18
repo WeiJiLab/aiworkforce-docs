@@ -1,11 +1,11 @@
 ---
-title: "更新与支持"
+title: "更新日志与支持"
 description: "协调实例更新，确认兼容边界，并使用团队约定的支持流程。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "0de6e9a975f168a2350d6ec25386357f3279e7601706911ad8eac7e04680d597"
+  sourceHash: "645f2c094864c4e31bff5be6b9c8b8311bc5812821cf373ba3c6133dd977be48"
 ---
 
 不同 AI Workforce 实例可能运行不同的产品修订、运行时版本和员工模板版本。本文档描述当前已记录行为，不能据此认定每个实例都具备完全相同的能力。

@@ -1,5 +1,5 @@
 ---
-title: "Connect and check employee tools"
+title: "Tools and connectors"
 description: "Select available MCP tools, authorize the external account, and check the employee's connection."
 translation:
   source: en
@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-17"
 ---
 
-An employee can use tools exposed by a configured MCP service. Use this guide when choosing or checking an existing connection in the product. Builders who maintain the underlying package should use [MCP integration in Developers](/build/mcp-integration/).
+An employee can use tools exposed by a configured MCP service. Use this guide when choosing or checking an existing connection in the product. Builders who declare the dependency on an employee package should use [MCP servers](/build/mcp-integration/). Operators who configure the protocol endpoint should use [MCP integration](/integrations/mcp/).
 
 ## Choose the capability
 

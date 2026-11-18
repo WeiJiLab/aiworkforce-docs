@@ -1,31 +1,37 @@
 ---
 import PageTitle from "@astrojs/starlight/components/PageTitle.astro";
 import IconButton from "./IconButton.astro";
-import {
-  canonicalPage,
-  getPortal,
-  PORTALS,
-  portalDestinations,
-} from "../lib/navigation";
+import { canonicalPage, findSection, sectionHref } from "../lib/navigation";
+
 const { entry, locale } = Astro.locals.starlightRoute;
 const zh = locale === "zh-cn";
 const id = entry.id.replace(/\/?index$/, "") || "index";
-const portal = getPortal(entry.id);
-const destination = portalDestinations(locale).find(
-  (item) => item.id === portal,
-)!;
-const group = PORTALS[portal].groups.find((item) =>
-  item.pages.includes(canonicalPage(entry.id)),
-);
-const eyebrow = group ? (zh ? group.zh : group.label) : destination.description;
-const isLanding = canonicalPage(entry.id) === PORTALS[portal].landing;
+const section = findSection(entry.id);
+const isHome = canonicalPage(entry.id) === "index";
+const support = entry.data.support ?? "available";
+const supportCopy =
+  support === "limited"
+    ? zh
+      ? "有限制：当前版本只覆盖本页写明的场景。"
+      : "Limited: the current release covers only the scenarios this page describes."
+    : support === "planned"
+      ? zh
+        ? "规划中：当前版本尚未提供此能力。本页只说明预期边界，避免把它当成已经支持的功能。"
+        : "Planned: this capability is not in the current release. This page records the intended boundary so it is not treated as available."
+      : "";
 ---
 
 <header class="document-heading">
   <p class="document-eyebrow">
-    <a href={destination.href}>{destination.label}</a><span aria-hidden="true">
-      /
-    </span>{eyebrow}
+    {
+      section ? (
+        <a href={sectionHref(section, locale)}>
+          {zh ? section.zh : section.label}
+        </a>
+      ) : (
+        "AI Workforce"
+      )
+    }
   </p>
   <div class="document-title">
     <PageTitle />
@@ -45,11 +51,18 @@ const isLanding = canonicalPage(entry.id) === PORTALS[portal].landing;
     </div>
   </div>
   {
-    !isLanding && entry.data.description && (
+    !isHome && entry.data.description && (
       <p class="document-description">{entry.data.description}</p>
     )
   }
 </header>
+{
+  supportCopy && (
+    <aside class="support-status" data-support={support}>
+      {supportCopy}
+    </aside>
+  )
+}
 {
   entry.data.translation.status !== "complete" && (
     <aside class="translation-notice">

@@ -1,36 +1,37 @@
 ---
 title: "Introduction"
-description: "Learn how AI Workforce connects AI employees, shared workspaces, and reviewed delivery."
+description: "Start from the work you need to do: use an employee, build one, or operate the platform."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-AI Workforce brings AI employees into a shared workspace so people can give them context, work with them in conversations, and inspect what they produce. It connects reusable employee capabilities with tasks, automation, and software delivery.
+AI Workforce gives a team a shared place to assign work to AI employees, inspect what they produce, and decide what happens next. The same concepts cover everyday tasks, reusable employee packages, automation, and software delivery.
 
-Start with a concrete responsibility: prepare a report, investigate a request, or propose a code change. Give the employee the information it needs and define what a useful result looks like. People remain responsible for reviewing the result and deciding what happens next.
+People remain responsible for the result. An employee can prepare a report, investigate a request, or propose a code change. It does not approve its own scope or release its own software.
 
 ## Choose your path
 
-- **Use AI employees:** follow the [quickstart](/getting-started/quickstart/), then learn about [workspaces](/user-guide/workspace/) and [Agent Chat](/user-guide/agent-chat/).
-- **Build AI employees:** start with an [employee definition](/build/employee-definition/) and package repeatable work as [Skills and Plugins](/build/skills-plugins/).
-- **Extend the platform:** read the [architecture](/developer/architecture/) and [MCP integration guide](/build/mcp-integration/).
+- **Use AI Workforce.** Follow the [quickstart](/getting-started/quickstart/) or [build your first AI employee](/getting-started/first-employee/) from a published template. Then learn [workspaces](/user-guide/workspace/), [Agent Chat](/user-guide/agent-chat/), and [human approval](/user-guide/human-approval/).
+- **Build AI employees.** Read [employee architecture](/build/architecture/) and define the role in [employee definition](/build/employee-definition/). Package methods as [skills](/build/skills/) and [plugins](/build/plugins/).
+- **Operate the platform.** Connect [runtime](/deployment/runtime-environments/), [teams and access](/administration/teams-access/), and [integrations](/integrations/overview/). Governance is how those controls relate, not a separate settings list.
+- **Deliver software.** Start with [Software Factory](/software-factory/overview/) when the work must move from a confirmed request to verification, evidence, and release.
 
-These paths share the same concepts. A builder creates a reusable definition; a user creates an employee from a published template; automation can ask a configured employee to perform work.
+A builder creates a reusable definition. A user creates a workspace employee from a published template. Automation can ask a ready employee to perform work. Software Factory uses those employees inside a delivery flow. Do not look for package-authoring steps in the user guide.
 
 ## Before you begin
 
-You need an account on an AI Workforce deployment and access to a workspace. A workspace manager or platform administrator provides the available employee templates, execution resources, and connections. Availability depends on what your deployment has configured.
+You need an account on an AI Workforce deployment and access to a workspace. A workspace manager or platform administrator provides templates, execution resources, and connections. Availability depends on that deployment. This documentation marks partial support as **Limited** and capabilities that are not in the current release as **Planned**.
 
-For your first task, use a small, self-contained input that you are allowed to share. Ask for a written output with explicit acceptance criteria. This makes it easier to distinguish a helpful answer from a verified result.
+For a first task, use a small input you are allowed to share and ask for a written output with explicit acceptance criteria. That makes it possible to tell a fluent answer from a verified result.
 
 ## What success looks like
 
-You can open your workspace, start a session with a ready employee, give it a bounded task, and review the answer or generated files. Continue with the same session when refining that task.
+You can open a workspace, start a session with a ready employee, give it a bounded task, and review the answer or generated files. Continue the same session when you are still refining that task.
 
-If an employee cannot start, check its initialization state and ask your workspace manager to inspect its execution configuration. If an answer lacks support, request the underlying sources or verification steps before accepting it.
+If an employee cannot start, check initialization and ask a workspace manager to inspect execution setup. If an answer lacks support, ask for the sources or verification steps before accepting it.
 
 ## Next steps
 
-Read the [platform overview](/getting-started/platform-overview/) and [core concepts](/getting-started/core-concepts/) to understand how the pieces fit together.
+Read [platform overview](/getting-started/platform-overview/) and [core concepts](/getting-started/core-concepts/) before adding automation or delivery.

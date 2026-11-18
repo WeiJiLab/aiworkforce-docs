@@ -1,5 +1,5 @@
 ---
-title: "Sessions, plans, and review"
+title: "Sessions and plans"
 description: "Control the scope of a session, inspect execution plans, and review tool actions before accepting a result."
 translation:
   source: en

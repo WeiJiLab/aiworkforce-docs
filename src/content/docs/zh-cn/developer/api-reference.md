@@ -1,11 +1,11 @@
 ---
-title: "API 参考"
+title: "REST API"
 description: "通过真实管理与自动化 HTTP 端点集成平台，包含请求示例、幂等与异步运行处理。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "e5e2da3b46ab757782c5cc7e9ec7ae038907ad1de7d0038ec8809751a9a9afd0"
+  sourceHash: "0980479ac92bdeeca27d6ba8033e43b92d6fd340dd634f9ca8d6b3ecb17c860c"
 ---
 
 本页覆盖当前核心 HTTP 契约：登录、发现工作空间资源，以及调用已注册自动化。路径相对于平台后端。示例使用本地开发地址 `http://localhost:8080`，远程访问时替换为实际 HTTPS 域名。

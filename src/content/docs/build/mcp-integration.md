@@ -1,13 +1,13 @@
 ---
-title: "MCP integration"
-description: "Declare an employee's MCP capabilities and maintain the configuration applied through templates and plugins."
+title: "MCP servers"
+description: "Declare the MCP servers an employee depends on. Connection and protocol setup are a separate guide."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-Model Context Protocol (MCP) lets an employee use tools exposed by external services. Discovering a server, configuring it, installing it, and authorizing the external account are separate steps. A server listed in a template is not proof that a tool call will succeed.
+Model Context Protocol (MCP) lets an employee use tools exposed by external services. This page is the employee dependency: which server the role expects, and how that declaration differs from a working connection. Protocol, endpoint, and client setup are in [MCP integration](/integrations/mcp/). Do not maintain two conflicting copies of the connection steps. Discovering a server, configuring it, installing it, and authorizing the external account are separate steps. A server listed in a template is not proof that a tool call will succeed.
 
 ## Declare the capability
 

@@ -1,11 +1,11 @@
 ---
-title: "用量与运行分析"
+title: "用量与分析"
 description: "按正确时间范围和证据覆盖率阅读资源、接口、数据库及 Token 指标。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "892cf49adcb21fb58e92aac27ac4b5923e849848bf06ac4ee2b9722b0a66918b"
+  sourceHash: "7a6cd5227f68f138fe6946a9422d190634911260c5258b0ee5ea627426232d97"
 ---
 
 管理员的**运维监控**页面展示当前实例的运行观察。它适合调查容量与执行用量，但不能替代对员工工作成果的实际验收。

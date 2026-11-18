@@ -1,17 +1,21 @@
 ---
 title: "Employee definition"
-description: "Define a digital employee with explicit responsibilities, inputs, outputs, and a reusable entry skill."
+description: "Define a role as responsibility, invocation, capabilities, constraints, and the evaluation that checks them."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-An employee definition turns a reusable agent package into a job that people can understand and delegate to. Start with one bounded outcome: for example, prepare a research brief from materials supplied by the user.
+An employee definition turns a package into a job a person can delegate. This is the central page in Build AI employees. The chain below is how a role, a plugin, and an evaluation stay about the same job:
+
+`Role → Responsibility → Invocation scenarios → Capabilities → Constraints → Evaluation`
+
+Workspace users do not upload this file when they create an employee. They select a published template. Start with [Using AI employees](/user-guide/ai-employees/) for that path, and with [employee architecture](/build/architecture/) for the surrounding model.
 
 ## Before you begin
 
-This guide is for Builders and FDEs maintaining employee packages. Workspace users create an employee from a published template; they do not upload this YAML in the employee creation flow. Start with [AI employees](/user-guide/ai-employees/) if you want to use an existing employee.
+Use one bounded outcome. A research assistant that prepares a brief from supplied materials is a complete example. Adding publishing, ticket updates, and code changes to the same role makes the later evaluation meaningless.
 
 ## Package structure
 
@@ -24,11 +28,11 @@ research-assistant/
 └── skills/main/SKILL.md
 ```
 
-`plugin.json` provides package metadata, including a name. `employee.yaml` describes the role. `router.md` points to the single entry skill and explains how to handle missing inputs or requests outside the role. The README explains usage.
+`plugin.json` names the package. `employee.yaml` is the role. `router.md` points at the single entry skill and explains missing inputs or requests outside the role. The README tells a person how to use the employee.
 
-## Describe the job
+## Write the chain
 
-The following example uses supported manifest fields:
+The fields below are the supported manifest shape for this example.
 
 ```yaml
 id: research-assistant
@@ -54,18 +58,31 @@ constraints:
   - Ask for missing materials before drawing conclusions
 ```
 
-Use a kebab-case `id`. Keep responsibilities and exclusions distinct. `entry_skill: main` must correspond to `skills/main/SKILL.md`; the router must identify that same entry skill.
+Read the chain against that file:
 
-`mcp_servers`, when present, is a list of `name` and `description` entries describing intended services. It does not contain connection credentials or grant access.
+| Step                 | In this example                                                         |
+| -------------------- | ----------------------------------------------------------------------- |
+| Role                 | `name` and `description`: prepare a brief, nothing else                 |
+| Responsibility       | Summarize supplied materials with sources; do not publish them          |
+| Invocation scenarios | `use_cases`: preparing for a research discussion                        |
+| Capabilities         | `entry_skill: main`, which must exist at `skills/main/SKILL.md`         |
+| Constraints          | Ask for missing materials; `non_responsibilities` exclude external send |
+| Evaluation           | A brief a person can check against the supplied sources                 |
 
-## Validate and try the role
+Use a kebab-case `id`. Keep responsibilities and exclusions distinct. The router must name the same entry skill. `mcp_servers`, when present, is a list of `name` and `description`. It is not a connection string and it grants nothing. Put the method itself in the skill, not only in this manifest. See [Skills](/build/skills/).
 
-Use **Validate** in the employee builder before **Submit build**. Resolve missing files, missing manifest fields, unknown skill references, and conflicting boundaries. Then try a normal request, a request with missing inputs, and a request outside the role. Inspect the resulting brief and its sources.
+Invocation scenarios are the requests this employee should accept. A scenario that needs a tool or an external service is a capability dependency, not a sentence in the description. If the scenario is "search the approved knowledge source," declare that MCP dependency and configure it separately.
 
-A valid package is a structural check, not proof of task quality. Written constraints describe behavior; actual access also depends on tools, credentials, and runtime authorization. After publication, create a workspace instance from the template and confirm the applied capabilities.
+## Validate, then evaluate
+
+Use **Validate** in the employee builder before **Submit build**. Fix missing files, missing fields, unknown skill references, and conflicting boundaries. Validation can also report exposed credentials. A valid package is a structural check.
+
+Then run three requests: a normal brief, a request with no materials, and a request to publish or send the brief. The first should cite sources. The second should ask for materials instead of inventing them. The third should stay inside `non_responsibilities`. Inspect the brief and its sources. This is the evaluation for the role. [Employee testing](/build/testing/) expands the same idea. [Agent evaluation](/software-factory/evaluation/) applies it when the deliverable is a code change.
+
+Written constraints describe behavior. Actual access still depends on tools, credentials, and runtime authorization. After publication, create a workspace instance and confirm the applied capabilities. Changing the template does not prove an existing instance changed. See [publishing](/build/publishing/).
 
 ## Related guides
 
 - [Skills and plugins](/build/skills-plugins/)
-- [MCP integration](/build/mcp-integration/)
+- [MCP servers](/build/mcp-integration/)
 - [Artifacts and evidence](/user-guide/artifacts-evidence/)

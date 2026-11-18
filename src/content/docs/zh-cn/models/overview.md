@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "cc14fece3f5bbd2cd10f7de4590f60d20ba29879f530d325cfc5655e1890ed76"
+  sourceHash: "eedfce68f3b79810d62289b3b23ffad0640046fb207cea7373cfb1902fed4463"
 ---
 
 会话可用模型取决于员工、运行时内核和已配置渠道。应从产品提供的模型列表中选择，而不是假定填写任意供应商模型名称都能使用。

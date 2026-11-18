@@ -1,11 +1,13 @@
 ---
 title: "Skills and plugins"
-description: "Package reusable working methods and understand how they become employee capabilities."
+description: "See how skills and plugins fit in one employee package, then follow the dedicated guides."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
+
+This page is the overview. [Skills](/build/skills/) shows how to write one reusable method. [Plugins](/build/plugins/) shows how that method is packaged, versioned, and applied. Use those pages for the task you are doing. The steps below keep the shared package facts in one place.
 
 A **Skill** describes a repeatable way to complete a task. A **Plugin** packages capabilities such as skills and subagents. An employee definition adds the role, boundaries, inputs, and expected outputs that make those capabilities useful as a job.
 

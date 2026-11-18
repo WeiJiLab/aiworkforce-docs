@@ -1,11 +1,15 @@
 ---
-title: "Automation fundamentals"
-description: "Understand Jobs, triggers, runs, and the separate actions that control automatic execution."
+title: "Automation concepts"
+description: "Turn a signal into work with a Job, a trigger, and a run. A schedule is only one kind of trigger."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
+
+Automation starts work and records what happened. It is not only a cron job. A Job can be invoked by a schedule, a webhook, a platform event, an Issue, or an IM message when that trigger type is available. It can also be run by hand. The sections below keep the Job, the trigger, and the run separate so a failure has a place to look.
+
+Event-driven starts are in [event-driven automation](/automate/event-driven/). Inbound webhooks are in [watchers and webhooks](/automate/watchers-webhooks/). Recurring work is in [loops and recurring work](/automate/loops/). A person stepping in is in [approvals and notifications](/automate/approvals/).
 
 An Automation **Job** defines what work to perform and which employee or supported executor performs it. A **trigger** defines when to invoke that Job. A **run** records one execution. Keeping these concepts separate makes it easier to inspect failures and change a schedule without losing the task's identity.
 

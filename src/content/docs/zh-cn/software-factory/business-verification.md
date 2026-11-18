@@ -1,0 +1,33 @@
+---
+title: "业务验证"
+description: "把变更与已确认的验收标准比较。产品不会自行给业务结果打分。"
+support: limited
+sidebar:
+  badge:
+    text: 有限制
+    variant: caution
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+  sourceHash: "06e054b19c9e787ab9fc66fd9790786d8cc063f2bfdadf36d38f156cab8a73c1"
+---
+
+业务验证问的是：对需要该结果的人来说，变更是否做了已确认需求所说的事。测试可以支持这个答案。测试不能代替它。当前工作台记录需求、测试结果和人工决定。它不包含单独的业务验证产品、指标目录或自动验收分数。
+
+## 使用你已经确认的标准
+
+从进入时写下的编号和可观察行为开始。方法见[需求写作](/zh-cn/learn/requirements-writing/)。在卡片上，让这些标准在开发会话中保持可见。设计说明里提到一种行为，并不会把它加入已约定的范围。
+
+检查你负责的每条标准：
+
+- 现在应该成立的事实。
+- 你观察到的事实。
+- 哪份产物、测试或来源显示了它。
+- 哪些标准你没有检查。
+
+如果一条标准无法观察，就写明未验证。不要因为对话结束就把卡片标成已接受。观察结果是缺陷、新范围还是问题时，见[反馈与审阅](/zh-cn/learn/feedback-review/)。
+
+## 记录决定
+
+接受该标准、退回，或豁免。豁免要写明检查项、原因、范围和风险。“继续”不是豁免。一小套案例见 [Agent 评测](/zh-cn/software-factory/evaluation/)。观察应存放的位置见[证据与追踪](/zh-cn/software-factory/evidence/)，这样下一位读者不必依赖聊天回滚。

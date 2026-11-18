@@ -21,7 +21,7 @@ const { paths, domains, pathsIntro, overview, agents } = getHomeContent(zh);
       role="img"
       aria-label={overview.description}
     >
-      <div class="overview-flow">
+      <div class="overview-flow" data-count={overview.nodes.length}>
         {overview.nodes.map((node) => (
           <div class="overview-node">
             <p class="overview-node-title">{node.title}</p>

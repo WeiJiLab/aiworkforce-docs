@@ -1,5 +1,5 @@
 ---
-title: "Review a change through release"
+title: "Review and release"
 description: "Follow code, verification, merge, production release, and cleanup evidence while making explicit human decisions."
 translation:
   source: en
@@ -49,6 +49,8 @@ If a person takes over, record what was done and explicitly hand work back throu
 State which requirement and code reference were verified, which checks ran, and what the release record confirms. If merge succeeded but deployment failed, report those as separate outcomes. If cleanup failed after a successful release, keep the cleanup issue visible without misdescribing the release result.
 
 Automated merge and release require the project's actual code-host and pipeline integrations, execution resources, and employee authorizations. The presence of a delivery card supplies none of those permissions by itself.
+
+This page stays the review path. The records around it are [evidence and trace](/software-factory/evidence/), [quality gates](/software-factory/quality-gates/), and [release governance](/software-factory/release-governance/).
 
 Continue with [Software Factory overview](/software-factory/overview/), [Issue to PR](/recipes/issue-to-pr/), and [feedback review](/learn/feedback-review/).
 

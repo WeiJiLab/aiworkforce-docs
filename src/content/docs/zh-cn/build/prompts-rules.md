@@ -1,11 +1,11 @@
 ---
-title: "提示词与规则"
+title: "Agent 指令"
 description: "把岗位职责、任务说明和仓库指引放在合适的位置，并检查会话实际使用的提示词。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "87c38d6b9e7f19c9bac8d93691d2c568542012b4e975b795a5b1526bc1863b6c"
+  sourceHash: "546cfcb4632fc16b94f4710bc21cd608f64747f78ec83ba11920058bdf363c12"
 ---
 
 提示词应说明岗位、当前任务，以及如何判断结果合格。把可复用的岗位指令与单次请求的输入分开，员工才能稳定处理不同样例。

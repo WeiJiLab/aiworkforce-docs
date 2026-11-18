@@ -56,96 +56,78 @@ export function localizedGuideHref(href: string, zh: boolean): string {
 export function getHomeContent(zh: boolean): HomeContent {
   const paths: readonly HomePath[] = [
     {
-      portal: "Docs",
-      title: zh ? "使用数字员工" : "Work with AI employees",
+      portal: zh ? "使用者" : "User",
+      title: zh ? "把任务交给数字员工" : "Assign work to employees",
       description: zh
-        ? "进入工作空间，创建员工，完成并验收你的第一项任务。"
-        : "Open a workspace, create an employee, and review the result of your first task.",
+        ? "选择员工、提供上下文、观察执行，并审阅产物后再确认下一步。"
+        : "Choose an employee, supply context, follow execution, and review the result before the next action.",
       href: "getting-started/quickstart",
-      audience: zh ? "业务用户与团队成员" : "For users and teams",
+      audience: zh ? "业务用户与团队成员" : "For people using employees",
       icon: "learn",
     },
     {
-      portal: "Learn",
-      title: zh ? "把工作定义清楚" : "Define useful work",
+      portal: zh ? "构建者" : "Builder",
+      title: zh ? "定义可复用的数字员工" : "Define reusable employees",
       description: zh
-        ? "先明确问题、工作边界和验收标准，再组织员工协作与交付。"
-        : "Frame the problem, scope, and acceptance criteria before coordinating delivery.",
-      href: "learn",
-      audience: zh
-        ? "产品、Builder、FDE 与交付负责人"
-        : "For product and delivery teams",
+        ? "用职责、技能、插件和工具组成员工，再验证并发布模板。"
+        : "Compose a role from responsibilities, skills, plugins, and tools, then test and publish it.",
+      href: "build/architecture",
+      audience: zh ? "Builder 与 FDE" : "For builders and FDEs",
       icon: "build",
     },
     {
-      portal: "Developers",
-      title: zh ? "构建与集成" : "Build and integrate",
+      portal: zh ? "平台工程师" : "Platform engineer",
+      title: zh ? "运行、授权并治理执行" : "Run, authorize, and govern",
       description: zh
-        ? "编写员工包，接入工具与 API，并理解运行环境和授权边界。"
-        : "Build employee packages, connect tools and APIs, and understand runtime authorization.",
-      href: "developer",
-      audience: zh
-        ? "Builder、FDE、开发者与平台工程师"
-        : "For builders and developers",
+        ? "连接运行时、权限、模型、成本、审计和交付门禁。"
+        : "Connect runtime, permissions, models, cost, audit, and delivery gates.",
+      href: "deployment/runtime-environments",
+      audience: zh ? "平台与集成工程师" : "For platform engineers",
       icon: "integrate",
     },
   ];
   const domains: readonly (readonly [string, string, string])[] = [
     [
-      zh ? "组织工作空间" : "Organize a workspace",
+      zh ? "使用数字员工" : "Use AI Workforce",
       zh
-        ? "选择工作空间，准备项目与工作上下文"
-        : "Choose a workspace and prepare project context",
-      "user-guide/workspace",
-    ],
-    [
-      zh ? "创建与配置员工" : "Set up an employee",
-      zh
-        ? "从模板创建员工，检查初始化与可用能力"
-        : "Create from a template and check readiness and capabilities",
+        ? "工作空间、会话、上下文、收件箱与审阅"
+        : "Workspaces, sessions, context, inbox, and review",
       "user-guide/ai-employees",
     ],
     [
-      zh ? "开展任务会话" : "Work in a conversation",
+      zh ? "构建数字员工" : "Build AI employees",
       zh
-        ? "提供目标、资料与约束，跟进员工执行"
-        : "Supply goals, materials, and constraints, then follow execution",
-      "user-guide/agent-chat",
+        ? "员工结构、技能、插件、工具与 MCP 依赖"
+        : "Employee structure, skills, plugins, tools, and MCP dependencies",
+      "build/architecture",
     ],
     [
-      zh ? "处理任务收件箱" : "Triage the Task inbox",
+      zh ? "自动化工作" : "Automate work",
       zh
-        ? "查看事项来源，确认后续行动与交付入口"
-        : "Review an item's source and decide its next action",
-      "user-guide/inbox-tasks",
-    ],
-    [
-      zh ? "安排重复工作" : "Automate recurring work",
-      zh
-        ? "配置 Job 与触发器，查看运行结果并处理恢复"
-        : "Configure Jobs and triggers, review runs, and recover work",
+        ? "事件、周期任务、委派和人工介入，不只是定时作业"
+        : "Events, recurring work, handoff, and approval — not only schedules",
       "automate/fundamentals",
     ],
     [
-      zh ? "连接外部资源" : "Connect external resources",
+      zh ? "软件工厂" : "Software Factory",
       zh
-        ? "代码仓库、业务连接与外部工具"
-        : "Code repositories, business connectors, and tools",
+        ? "从需求进入、分派、执行、验证到证据和发布"
+        : "From intake and dispatch through execution, verification, evidence, and release",
+      "software-factory/overview",
+    ],
+    [
+      zh ? "集成与开发" : "Integrations & developer",
+      zh
+        ? "产品连接、HTTP API、MCP 与设备 CLI"
+        : "Product connections, the HTTP API, MCP, and the device CLI",
       "integrations/overview",
     ],
     [
-      zh ? "管理团队访问" : "Manage team access",
+      zh ? "运营与治理" : "Operate & govern",
       zh
-        ? "角色权限、配置、监控与用量"
-        : "Roles, access, configuration, and usage monitoring",
+        ? "团队权限、模型成本、运行时、审计与门禁"
+        : "Access, model cost, runtime, audit, and quality gates",
       "administration/teams-access",
-    ],
-    [
-      zh ? "模型与成本" : "Models & costs",
-      zh
-        ? "模型选择、Token 用量与成本理解"
-        : "Model selection, token usage, and cost estimates",
-      "models/overview",
     ],
   ];
   return {
@@ -160,44 +142,62 @@ export function getHomeContent(zh: boolean): HomeContent {
       : "Start with the work you want to do.",
     overview: {
       description: zh
-        ? "AI Workforce 工作示意：在工作空间中提供上下文，数字员工使用技能与工具执行任务，产物和证据交由团队审阅。"
-        : "AI Workforce connects workspace context to employee execution with skills and tools, producing artifacts and evidence for team review.",
-      title: zh ? "从上下文到可验收的工作" : "From context to reviewable work",
+        ? "AI Workforce 由六层抽象组成：员工能力、执行、编排、工程基础设施、质量保证和工作管理。它们共同完成从任务输入到可验证交付。"
+        : "AI Workforce is six cooperating layers: workforce capability, execution, orchestration, engineering infrastructure, quality assurance, and work management.",
+      title: zh ? "同一套产品抽象" : "One product architecture",
       nodes: [
         {
-          caption: "CONTEXT",
-          title: zh ? "工作空间" : "Workspace",
+          caption: "CAPABILITY",
+          title: zh ? "员工能力" : "Workforce capability",
           detail: zh
-            ? "任务目标 · 项目资料 · 授权资源"
-            : "Goals · Project context · Authorized resources",
-          icon: "context",
-        },
-        {
-          caption: "EXECUTION",
-          title: zh ? "数字员工" : "AI employee",
-          detail: zh
-            ? "明确职责 · Skills · Tools"
-            : "Responsibilities · Skills · Tools",
+            ? "员工 · Skills · Plugins"
+            : "Employee · Skills · Plugins",
           icon: "build",
         },
         {
-          caption: "REVIEW",
-          title: zh ? "产物与证据" : "Artifacts & evidence",
+          caption: "EXECUTION",
+          title: zh ? "执行" : "Execution",
           detail: zh
-            ? "执行记录 · 来源 · 可审阅的成果"
-            : "Run history · Sources · Reviewable outputs",
+            ? "Agent · Harness · Runtime"
+            : "Agent · Harness · Runtime",
+          icon: "build",
+        },
+        {
+          caption: "ORCHESTRATION",
+          title: zh ? "编排" : "Orchestration",
+          detail: zh ? "自动化 · 任务分派" : "Automation · Dispatcher",
+          icon: "context",
+        },
+        {
+          caption: "INFRASTRUCTURE",
+          title: zh ? "工程基础设施" : "Engineering infrastructure",
+          detail: zh ? "环境 · CI/CD" : "Environment · CI/CD",
+          icon: "context",
+        },
+        {
+          caption: "QUALITY",
+          title: zh ? "质量保证" : "Quality & assurance",
+          detail: zh
+            ? "验证 · 证据 · 评测"
+            : "Verification · Evidence · Evaluation",
+          icon: "review",
+        },
+        {
+          caption: "WORK",
+          title: zh ? "工作管理" : "Work management",
+          detail: zh ? "收件箱 · 产物 · 项目" : "Inbox · Artifacts · Projects",
           icon: "review",
         },
       ],
       control: zh
-        ? "在关键决策与验收环节，由人保留判断与控制。"
-        : "People retain judgment and control at key decisions and acceptance.",
+        ? "人在确认需求、接管执行和决定发布时保留判断。"
+        : "People keep judgment when confirming scope, taking over execution, and approving release.",
     },
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "使用每页标题旁的原文入口，或将完整文档索引交给 Coding Agent。"
-        : "Read a page as Markdown using its title action, or share the complete index with your coding agent.",
+        ? "每页可读取 Markdown 原文。索引按同一套信息架构分组，并标出有限制或规划中的能力。"
+        : "Read any page as Markdown. The index follows this information architecture and marks limited or planned capabilities.",
       links: [
         {
           title: "llms.txt",

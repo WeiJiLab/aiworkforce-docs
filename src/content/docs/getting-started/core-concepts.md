@@ -1,38 +1,71 @@
 ---
 title: "Core concepts"
-description: "Understand the shared vocabulary used across employees, sessions, automation, and delivery."
+description: "See how AI employees, capabilities, automation, Software Factory, and governance work as one system."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-Use these concepts when describing work to an employee or discussing a result with your team. They also explain why a conversation, an inbox item, and an automation run can show different states.
+AI Workforce is not a set of isolated features. Five abstractions cooperate: an employee does the work, capabilities say how, automation decides when, Software Factory carries engineering work through verification, and governance decides what is allowed to continue.
 
-## Workspace and employee
+Use the same words in a conversation, an inbox item, an automation run, and a delivery card. Those records can show different states because they answer different questions.
 
-A **workspace** groups the employees, resources, and work context used for collaboration. Access to a workspace and permission to manage or execute work are separate concerns.
+## Five abstractions
 
-An **AI employee** is a configured worker with a defined responsibility. A published **template** supplies reusable capabilities; a workspace employee is the instance you actually work with. Creating an employee includes initialization, so wait until it is ready before beginning a session.
+| Abstraction      | Question it answers                                     | What you inspect                                       |
+| ---------------- | ------------------------------------------------------- | ------------------------------------------------------ |
+| AI employee      | Who is responsible for this outcome?                    | Role, workspace instance, and readiness                |
+| Capabilities     | Which methods and tools can that employee use?          | Skills, plugins, tools, and MCP dependencies           |
+| Automation       | What starts the work, and what happens after it starts? | Job, triggers, and an individual run                   |
+| Software Factory | How does engineering work reach a reviewed delivery?    | Intake, execution, verification, evidence, and release |
+| Governance       | What is permitted, proven, and allowed to proceed?      | Permissions, evaluation, evidence, and human decisions |
 
-A **Skill** describes how to perform a task. A **Plugin** packages capabilities that can include Skills and agents. A **tool** performs an operation; an **MCP server** exposes external tools through the Model Context Protocol. Instructions describe intended behavior, while the execution environment and authorization determine the available tools.
+A workspace groups the employees, resources, and context used together. Access to the workspace is separate from permission to manage it or to execute work.
 
-## Session, task, and run
+## How they combine
 
-A **session** is the conversation and execution context for work with an employee. Continue a session to refine the same task; begin another when the goal or context changes substantially.
+An **AI employee** is the actor. A published template supplies a reusable role; the workspace employee is the instance you actually assign. Initialization has to finish before a session is useful. Creating the instance does not author the template. Builders define the role in [Build AI employees](/build/architecture/); users choose and task a published employee in [Using AI employees](/user-guide/ai-employees/).
 
-A **task or issue** in the inbox is a tracked request. Its source and review state belong to that request. It may be linked to delivery work, but collecting it does not approve implementation.
+**Capabilities** are how that actor works:
 
-An **automation definition** describes repeatable work and its configured triggers. A **run** records a particular execution. Publishing a definition does not itself create a run, and a successful run does not automatically prove that a collected business request has been resolved.
+- A **Skill** is a reusable method for one kind of task.
+- A **Plugin** packages skills and related agents.
+- A **tool** performs an operation.
+- An **MCP server** exposes external tools. Naming a server in the employee manifest documents the dependency. It does not store credentials or grant access.
 
-## Artifact and evidence
+Instructions describe intended behavior. The runtime and authorization decide which tools actually run. Read [Employee architecture](/build/architecture/) for the full composition, and [MCP servers](/build/mcp-integration/) for the employee-facing dependency. Protocol and connection setup live in [MCP integration](/integrations/mcp/).
 
-An **artifact** is an output such as a report or source file. **Evidence** supports a claim: a source excerpt, test result, linked session, or inspected change. A generated file can be useful without proving that its contents are correct.
+**Automation** turns a signal into work. A Job defines the task and executor. A trigger — schedule, webhook, platform event, Issue, or IM, where that type is enabled — decides when to invoke it. A run records one execution. Publishing a Job does not create a run, and a successful run does not by itself resolve a business request. Automation is a way to start and recover work, not only a cron expression. See [Automation concepts](/automate/fundamentals/).
 
-A **delivery card** tracks work through a configured board. Stages, assigned employees, review decisions, and associated sessions help the team understand progress.
+**Software Factory** is the engineering delivery system. Confirmed requirements become delivery cards. Employees execute lane work. Verification, evidence, and human review decide whether a change is ready to merge or release. It is not a promise that an agent writes code unattended. See [Software Factory](/software-factory/overview/).
 
-## Put the concepts into practice
+**Governance** connects permission, evaluation, and evidence. A prompt that says "read only" does not replace a tool grant. A green conversation does not replace a test result or an acceptance decision. People keep the decisions that change scope, take over execution, or release software.
 
-Before starting, name the workspace, desired outcome, required inputs, and reviewer. After execution, inspect the artifact and the evidence supporting each acceptance criterion. If something is blocked, identify whether the problem concerns a request, a particular run, or the employee's setup.
+## Records that must stay distinct
 
-See the [glossary](/concepts/glossary/) for English–Chinese terminology and the [quickstart](/getting-started/quickstart/) for a first session.
+| Record              | What it proves                                               |
+| ------------------- | ------------------------------------------------------------ |
+| Session             | The conversation and execution context for one goal          |
+| Inbox task or issue | A tracked request, its source, and its review state          |
+| Automation run      | One invocation of a Job, including failure and recovery      |
+| Artifact            | An output, such as a report or file                          |
+| Evidence            | Support for a claim: a source, test, linked session, or diff |
+| Delivery card       | Engineering work moving through a configured board           |
+
+An artifact can be useful without being correct. A collected inbox item is not approval to change code. A delivery card keeps requirements, executions, and human decisions together; the card's existence does not configure a repository or a pipeline.
+
+## Shared layers
+
+The same five abstractions sit on six layers that the rest of the documentation uses:
+
+| Layer                      | Belongs here                       |
+| -------------------------- | ---------------------------------- |
+| Workforce capability       | Employee, Skills, Plugins          |
+| Execution                  | Agent, harness, runtime            |
+| Orchestration              | Automation and dispatch            |
+| Engineering infrastructure | Environment and CI/CD              |
+| Quality and assurance      | Verification, evidence, evaluation |
+| Work management            | Inbox, artifacts, projects         |
+
+[Platform overview](/getting-started/platform-overview/) maps these layers onto product surfaces. The [glossary](/concepts/glossary/) lists English and Chinese terms. [Quickstart](/getting-started/quickstart/) is the shortest path through a first session.

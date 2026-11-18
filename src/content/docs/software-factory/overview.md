@@ -1,47 +1,43 @@
 ---
 title: "Software Factory overview"
-description: "Coordinate requirements, development, testing, and release through the delivery workbench."
+description: "Follow engineering work from intake through execution, verification, evidence, and a human release decision."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-AI Workforce's Software Factory connects requirements, employee execution, code changes, verification, and delivery records. Its product entry is the **delivery workbench**, available from **Automations** at `/automations?tab=board-flow`.
+Software Factory is AI Workforce's engineering delivery system. It connects a confirmed request to employee execution, an environment that can check the change, and evidence a person uses to decide whether the change ships. The product surface is the **delivery workbench**, opened from **Automations** at `/automations?tab=board-flow`.
 
-A delivery card represents work to be completed. Employee sessions perform lane work; batches coordinate related cards during candidate preparation and testing. The card keeps requirements, executions, deliverables, and human decisions connected.
+This is not a product for unattended code generation. An agent can draft a change. The factory's job is to make the path from input to a verified delivery inspectable.
 
-## Prepare the workbench
+## Three layers
 
-Before enabling automatic delivery, configure a workbench project and board, its repositories and pipeline resources, and the employees assigned to the relevant lanes. Confirm that the employees are ready and can access the intended resources.
+| Layer        | What must be true                                                                   | Where to read it                                                                                                                                                                                     |
+| ------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Execution    | An employee, in a harness and runtime, performs a dispatched task                   | [Dispatch](/software-factory/dispatch/), [orchestration](/software-factory/orchestration/), [harness](/software-factory/harness/)                                                                    |
+| Verification | The result is checked in an environment, by tests, and against the business outcome | [Environments](/software-factory/environments/), [build and test](/software-factory/build-test/), [business verification](/software-factory/business-verification/)                                  |
+| Governance   | Evidence, evaluation, and gates decide whether to deliver                           | [Evidence](/software-factory/evidence/), [evaluation](/software-factory/evaluation/), [quality gates](/software-factory/quality-gates/), [release governance](/software-factory/release-governance/) |
 
-Repository credentials belong to the workspace. Referencing a credential in a repository connection does not authorize every employee. Explicitly authorize the execution employees required by the delivery roles. Provider, instance, enabled state, and workspace must match the intended connection.
+Execution without verification is a conversation that edited files. Verification without governance is a test result nobody used. Governance without evidence is a status label.
 
-## Follow the delivery flow
+## From intake to a pull request
 
-Built-in lanes support:
+1. **Intake.** A request enters as an inbox item or a workbench draft. A person confirms scope, acceptance criteria, and allowed repositories. See [work intake](/software-factory/intake/).
+2. **Dispatch.** A ready card is assigned to the lane employee that should do the work. See [task dispatch](/software-factory/dispatch/).
+3. **Execute.** That employee works in a session, on the configured runtime. Batches group cards when a later stage tests them together. See [agent orchestration](/software-factory/orchestration/).
+4. **Verify.** Test preparation and testing record results. Failures can send work back. A business check compares the change with the confirmed acceptance criteria.
+5. **Evidence.** The card keeps the session, the code reference or pull request, the test result, and the human decision. See [evidence and trace](/software-factory/evidence/).
+6. **Release.** Merge and production release run only with working repository and pipeline integration. A closed batch is not proof that production release finished. See [review and release](/software-factory/review-release/).
 
-1. **Requirements:** clarify the request and confirm its scope and acceptance criteria.
-2. **Development:** start or resume an employee session for each ready card and record the resulting code work.
-3. **Test preparation:** group ready cards into a candidate batch and prepare the configured test release.
-4. **Testing:** verify member cards and record results; failures can return work for repair.
-5. **Merge to main:** process a passing batch and record its merge outcome.
-6. **Completion:** progress configured production release and resource cleanup, recording the result on each card.
+Built-in lanes are requirements, development, test preparation, testing, merge to main, and completion. Custom boards can arrange work differently. Available actions depend on the selected board.
 
-Custom board lanes can also coordinate work by card or batch. Available actions depend on the selected board and its configuration. Automated merging and production release require working repository and pipeline integration; creating a card alone does not supply them.
+## What you configure first
 
-## Keep people in the loop
+Before any automatic delivery, configure the workbench project and board, the repositories and pipeline resources, and the employees on the lanes. Employees must be ready. Repository credentials belong to the workspace; referencing one in a connection does not authorize every employee. Authorize the execution employees for the delivery roles. Provider, instance, enabled state, and workspace must match the connection you intend. See [code repositories](/integrations/code-repositories/).
 
-Issues routed into the workbench become drafts awaiting human confirmation, not immediate authorization to modify code. Confirm the requirements, acceptance criteria, and allowed repositories.
+## People stay in the loop
 
-During execution, respond to questions and approval requests from the card. If you take over, automatic progress stops and the current state is kept. Hand work back explicitly when ready; resuming a pause alone does not clear a takeover. Operations on a shared batch can affect every member card, so inspect the scope before confirming.
+A draft is not permission to modify code. During execution, answer questions and approval requests on the card. Taking over stops automatic progress and keeps the current state. Hand the work back explicitly. Resuming a pause does not clear a takeover. An operation on a shared batch can affect every member card.
 
-## Verify completion
-
-Read the execution records, code references or PR, test evidence, and release status. A successful conversation is only one part of delivery. Use the recorded downstream results to determine what actually finished.
-
-## Related guides
-
-- [Issue to PR](/recipes/issue-to-pr/)
-- [Artifacts and evidence](/user-guide/artifacts-evidence/)
-- [Automation fundamentals](/automate/fundamentals/)
+[Your first Software Factory workflow](/getting-started/first-software-factory/) walks one card. [Issue to PR](/recipes/issue-to-pr/) is the longer practice. [Automation concepts](/automate/fundamentals/) explains Jobs that collect work into the inbox or the workbench. Those Jobs do not replace the confirmation step.

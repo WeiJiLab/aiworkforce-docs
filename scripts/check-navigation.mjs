@@ -2,6 +2,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseHTML } from "linkedom";
+import { groups, homeId, orderedIds } from "../src/lib/sidebar.mjs";
 
 const origin = "https://docs.aiworkforce.run";
 const sourceRoot = fileURLToPath(
@@ -9,69 +10,7 @@ const sourceRoot = fileURLToPath(
 );
 const buildRoot = fileURLToPath(new URL("../dist/", import.meta.url));
 const locales = ["", "zh-cn"];
-
-// This is the published navigation contract, checked against rendered HTML.
-// New guides need an intentional destination rather than an implicit fallback.
-const portalGuides = {
-  docs: [
-    "index",
-    "getting-started/introduction",
-    "getting-started/platform-overview",
-    "getting-started/core-concepts",
-    "getting-started/quickstart",
-    "user-guide/workspace",
-    "user-guide/ai-employees",
-    "user-guide/agent-chat",
-    "user-guide/sessions-planning",
-    "user-guide/knowledge-context",
-    "user-guide/inbox-tasks",
-    "user-guide/artifacts-evidence",
-    "automate/fundamentals",
-    "automate/triggers-schedules",
-    "automate/runs-recovery",
-    "software-factory/overview",
-    "software-factory/review-release",
-    "integrations/overview",
-    "integrations/employee-tools",
-    "integrations/code-repositories",
-    "administration/teams-access",
-    "administration/configuration",
-    "administration/analytics",
-    "models/overview",
-    "resources/troubleshooting",
-    "resources/releases-support",
-    "concepts/glossary",
-  ],
-  developers: [
-    "developer/index",
-    "developer/architecture",
-    "developer/authentication",
-    "developer/api-reference",
-    "developer/cli-sdk",
-    "developer/contributing",
-    "deployment/runtime-environments",
-    "deployment/security",
-    "build/employee-definition",
-    "build/skills-plugins",
-    "build/hooks-subagents",
-    "build/mcp-integration",
-  ],
-  learn: [
-    "learn/index",
-    "learn/requirements-writing",
-    "learn/blueprints-work-orders",
-    "learn/feedback-review",
-    "build/prompts-rules",
-    "recipes/issue-to-pr",
-  ],
-};
-const portalEntries = {
-  docs: "index",
-  developers: "developer/index",
-  learn: "learn/index",
-};
 const errors = [];
-const assignments = new Map();
 
 function routeFor(id, locale = "") {
   const slug = id.replace(/(^|\/)index$/, "");
@@ -99,13 +38,6 @@ function sameSet(actual, expected) {
   );
 }
 
-for (const [portal, ids] of Object.entries(portalGuides)) {
-  for (const id of ids) {
-    record(!assignments.has(id), id, "guide assigned to more than one portal");
-    assignments.set(id, portal);
-  }
-}
-
 const sources = (await readdir(sourceRoot, { recursive: true })).filter(
   (file) => /\.mdx?$/.test(file),
 );
@@ -114,16 +46,17 @@ const sourceIds = new Set(
     .filter((file) => !file.startsWith("zh-cn/"))
     .map((file) => file.replace(/\.mdx?$/, "")),
 );
+const assigned = new Set(orderedIds);
 for (const id of sourceIds) {
-  record(assignments.has(id), id, "canonical guide has no portal assignment");
+  record(assigned.has(id), id, "canonical guide is missing from the sidebar");
   record(
     sources.some((file) => file.replace(/\.mdx?$/, "") === `zh-cn/${id}`),
     id,
     "canonical guide has no Simplified Chinese source",
   );
 }
-for (const id of assignments.keys()) {
-  record(sourceIds.has(id), id, "assigned guide has no English source");
+for (const id of assigned) {
+  record(sourceIds.has(id), id, "sidebar guide has no English source");
 }
 for (const file of sources.filter((file) => file.startsWith("zh-cn/"))) {
   record(
@@ -136,11 +69,7 @@ for (const file of sources.filter((file) => file.startsWith("zh-cn/"))) {
 const expectedPages = new Map();
 for (const id of sourceIds) {
   for (const locale of locales) {
-    expectedPages.set(routeFor(id, locale), {
-      id,
-      locale,
-      portal: assignments.get(id),
-    });
+    expectedPages.set(routeFor(id, locale), { id, locale });
   }
 }
 
@@ -158,12 +87,14 @@ const documents = new Map(
 let sidebarLinks = 0;
 let paginationLinks = 0;
 let languageTargets = 0;
+const expectedTargetsFor = (locale) =>
+  orderedIds.map((id) => routeFor(id, locale));
 const boundaries = [];
 
 for (const [route, page] of expectedPages) {
   const document = documents.get(route);
   record(Boolean(document), route, "guide has no directly loadable built page");
-  if (!document || !page.portal) continue;
+  if (!document) continue;
 
   const canonical = document.querySelectorAll('link[rel="canonical"]');
   record(
@@ -174,30 +105,32 @@ for (const [route, page] of expectedPages) {
   );
 
   const navigation = document.querySelectorAll(".portal-navigation");
-  record(navigation.length === 1, route, "expected exactly one portal sidebar");
+  record(
+    navigation.length === 1,
+    route,
+    "expected exactly one documentation sidebar",
+  );
   const nav = navigation[0];
   if (nav) {
     record(
-      nav.getAttribute("data-portal") === page.portal,
+      nav.getAttribute("data-site") === "workforce",
       route,
-      `direct load must show the ${page.portal} sidebar`,
+      "direct load must show the shared documentation sidebar",
     );
     const links = [...nav.querySelectorAll("a[href]")];
     const targets = links.map((link) =>
       pathname(link.getAttribute("href"), route),
     );
-    const expectedTargets = portalGuides[page.portal].map((id) =>
-      routeFor(id, page.locale),
-    );
+    const expectedTargets = expectedTargetsFor(page.locale);
     record(
       new Set(targets).size === targets.length,
       route,
-      "sidebar must not repeat a canonical guide",
+      "sidebar must not repeat a guide",
     );
     record(
       sameSet(targets, expectedTargets),
       route,
-      `sidebar must contain every ${page.portal} guide exactly once; missing=${expectedTargets.filter((target) => !targets.includes(target)).join(",")} unexpected=${targets.filter((target) => !expectedTargets.includes(target)).join(",")}`,
+      `sidebar must contain every guide once; missing=${expectedTargets.filter((target) => !targets.includes(target)).join(",")} unexpected=${targets.filter((target) => !expectedTargets.includes(target)).join(",")}`,
     );
     const active = links.filter(
       (link) => link.getAttribute("aria-current") === "page",
@@ -209,52 +142,29 @@ for (const [route, page] of expectedPages) {
       "sidebar must identify this guide as the only current page",
     );
     sidebarLinks += links.length;
-    if (page.id === portalEntries[page.portal]) {
+    if (page.id === homeId) {
       boundaries.push({
-        portal: page.portal,
         locale: page.locale || "en",
         first: targets[0],
         last: targets.at(-1),
+        sections: groups.map((group) => group.label),
       });
     }
   }
 
-  const destinations = document.querySelectorAll(".portal-destinations");
+  const support = document.querySelectorAll(".portal-support");
+  record(support.length === 1, route, "expected one support link");
   record(
-    destinations.length === 1,
+    pathname(support[0]?.getAttribute("href"), route) ===
+      routeFor("resources/releases-support", page.locale),
     route,
-    "expected exactly one portal destination switcher",
+    "support link must open changelog and support in this language",
   );
-  const destinationLinks = [
-    ...(destinations[0]?.querySelectorAll("a[href]") ?? []),
-  ];
   record(
-    destinationLinks.length === 3,
+    document.querySelectorAll(".portal-destinations").length === 0,
     route,
-    "portal switcher must contain three real links",
+    "portal switcher must not be rendered",
   );
-  for (const [portal, entry] of Object.entries(portalEntries)) {
-    const matches = destinationLinks.filter(
-      (link) => link.getAttribute("data-portal-target") === portal,
-    );
-    const link = matches[0];
-    record(
-      matches.length === 1 &&
-        pathname(link.getAttribute("href"), route) ===
-          routeFor(entry, page.locale) &&
-        Boolean(link.textContent.trim()),
-      route,
-      `${portal} switch must link to its localized landing page`,
-    );
-    if (link) {
-      record(
-        (link.getAttribute("data-active") === "true") ===
-          (portal === page.portal),
-        route,
-        `${portal} switch has an incorrect active state`,
-      );
-    }
-  }
 
   const languageSelects = document.querySelectorAll(
     "starlight-lang-select select",
@@ -282,13 +192,13 @@ for (const [route, page] of expectedPages) {
     );
     for (const target of targets) {
       record(
-        expectedPages.get(target)?.portal === page.portal &&
+        expectedPages.has(target) &&
           documents
             .get(target)
             ?.querySelector(".portal-navigation")
-            ?.getAttribute("data-portal") === page.portal,
+            ?.getAttribute("data-site") === "workforce",
         route,
-        `language destination ${target} must remain in ${page.portal}`,
+        `language destination ${target} must stay in the shared sidebar`,
       );
       languageTargets++;
     }
@@ -300,10 +210,9 @@ for (const [route, page] of expectedPages) {
     record(
       Boolean(documents.get(target)) &&
         target !== route &&
-        nextPage?.locale === page.locale &&
-        nextPage?.portal === page.portal,
+        nextPage?.locale === page.locale,
       route,
-      `pagination must stay in the same language and portal: ${link.getAttribute("href")}`,
+      `pagination must stay in the same language: ${link.getAttribute("href")}`,
     );
     paginationLinks++;
   }

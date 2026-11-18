@@ -1,42 +1,26 @@
 ---
-title: Learn · 方法与实践
-description: 写清需求，将目标拆成有边界的工作，并用证据审阅 AI 辅助交付。面向产品、工程与交付团队的实用方法。
+title: 实践手册与范例
+description: 在员工行动之前写清需求，把目标变成有边界的工作，并用证据审阅结果。
 prev: false
-next:
-  link: /zh-cn/learn/requirements-writing/
-  label: 需求写作
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "02b454acaa42bb0da93a140e5c95c70da060aafb6fee99882808848e0ae224eb"
+  sourceVersion: "2026-11-18"
+  sourceHash: "cc7243abc25e6f3eeca962ad1bbe875c263b720b99eb0ae97e0334eef0080134"
 ---
 
-import PortalLanding from "../../../../components/PortalLanding.astro";
+实践手册说明在员工行动之前如何框定工作。范例沿着一条路径，从请求走到经过审阅的结果。它们曾经是独立的 Learn 入口。现在放在资源中，与使用同一套词的产品指南放在一起。
 
-Learn 面向需要判断“什么是有效工作”的产品经理、技术负责人、Builder、FDE 与交付团队。在请员工执行之前，通过这些指南准备上下文、明确工作边界，并约定可用于验收的证据。
+## 从你要做的决定开始
 
-## 从当前需要作出的决定开始
+- [需求写作](/zh-cn/learn/requirements-writing/) — 写下结果，以及人可以检查的验收标准。
+- [方案与工作单](/zh-cn/learn/blueprints-work-orders/) — 把设计说明和执行任务分开。平台不提供 Blueprint 模块。
+- [反馈与审阅](/zh-cn/learn/feedback-review/) — 判断一条发现是缺陷、新范围，还是一个问题。
+- [从 Issue 到 Pull Request](/zh-cn/recipes/issue-to-pr/) — 把一项工程请求带过确认、执行、验证和审阅。
+- [最佳实践](/zh-cn/resources/best-practices/) — 这些指南里反复出现的短规则。
 
-<PortalLanding portal="learn" section="paths" />
+## 把工作交回产品
 
-## 在真实工作中应用方法
+实践手册不会创建员工或流水线。需求清楚之后，用[数字员工](/zh-cn/user-guide/ai-employees/)分配任务；结果是代码变更时，使用[软件工厂](/zh-cn/software-factory/overview/)。需要新岗位的构建者继续阅读[员工定义](/zh-cn/build/employee-definition/)。
 
-一份有效的指令需要连接预期成果、必要信息与执行边界。将长期规则和当前请求分开组织，并用同一组验收标准检查最终结果。下面的指南将这些方法放入完整的工作流程。
-
-<PortalLanding portal="learn" section="guides" />
-
-## 检查工作是否可以交接
-
-确认任务之前，确保团队能够回答以下问题：
-
-- **成果：** 谁需要这项改变，什么应该得到改善，由谁澄清问题？
-- **范围：** 允许使用哪些资源、修改哪些内容，哪些工作应留给后续任务？
-- **验收：** 另一个人可以根据哪些可观察的行为接受或拒绝结果？
-- **证据与决策：** 需要审阅哪些成果与检查记录，哪些环节需要人工确认？
-
-缺少答案时，把它写成具体问题。答案改变了已约定的工作范围时，先更新需求与验收标准，再继续执行。通过[反馈与评审](/zh-cn/learn/feedback-review/)判断一项发现属于缺陷、新需求，还是解释请求。
-
-## 在 AI Workforce 中落实方法
-
-<PortalLanding portal="learn" section="next" />
+确认任务之前，团队应能说出结果、允许的范围、可观察的验收检查，以及必须由人决定的位置。如果某个答案缺失，就去要这个答案。如果答案改变了范围，先更新需求，再继续执行。

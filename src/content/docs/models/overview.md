@@ -1,5 +1,5 @@
 ---
-title: "Models and costs"
+title: "Models and cost"
 description: "Choose an available model and reasoning level, and distinguish token usage, reported cost, and reference estimates."
 translation:
   source: en

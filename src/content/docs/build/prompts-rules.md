@@ -1,10 +1,10 @@
 ---
-title: "Prompts and rules"
+title: "Agent instructions"
 description: "Put responsibilities, task instructions, and repository guidance in the right place, then inspect the effective session prompt."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
 Use prompts to describe the job, the current task, and how success will be checked. Keep reusable role instructions separate from one request's input so an employee can handle more than one example reliably.

@@ -1,5 +1,5 @@
 ---
-title: "Updates and support"
+title: "Changelog and support"
 description: "Coordinate deployment updates, identify compatibility boundaries, and use the support route agreed with your team."
 translation:
   source: en

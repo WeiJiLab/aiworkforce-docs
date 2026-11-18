@@ -1,12 +1,14 @@
 ---
 title: "Skills 与 Plugins"
-description: "将可复用的工作方法打包，并理解它们如何成为员工实例的实际能力。"
+description: "先看 Skills 和 Plugins 如何放在同一个员工包里，再进入各自的指南。"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "4cf79722705257791cd0e6229b01c3c922679a40ffdbbf2c8c18b8463e6ab316"
+  sourceVersion: "2026-11-18"
+  sourceHash: "9ee2723257db9738f9b5aa3d5210e31137366afc15aad2141e14969bd79e6685"
 ---
+
+本页是总览。[Skills](/zh-cn/build/skills/) 说明如何写一种可复用方法。[Plugins](/zh-cn/build/plugins/) 说明如何打包、版本化并应用这种方法。按你正在做的事进入对应页面。下面保留两页共用的包结构事实。
 
 **Skill（技能）**描述一种可以重复使用的工作方法。**Plugin（插件）**把技能、子 Agent 等能力打包。员工定义进一步补充岗位、边界、输入和预期输出，让这些能力成为可委派的工作。
 
