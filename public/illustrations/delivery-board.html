@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>从外部信号到交付看板 · AI Workforce</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font:
+        16px/1.6 MiSans,
+        "PingFang SC",
+        "Microsoft YaHei",
+        system-ui,
+        sans-serif;
+      color: #182c41;
+      background: #fff;
+    }
+    body {
+      margin: 0;
+    }
+    figure {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1100 / 694;
+      border-radius: 14px;
+      background: #102a40;
+    }
+    fieldset[hidden] {
+      display: none;
+    }
+    fieldset {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      border: 0;
+      margin: 0.8rem 0 0.4rem;
+      padding: 0;
+    }
+    label {
+      position: relative;
+      cursor: pointer;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 0.5rem;
+    }
+    label:has(:checked) {
+      background: #def0f7;
+      color: #075b76;
+      font-weight: 650;
+    }
+    label:has(:focus-visible) {
+      outline: 2px solid #1481a1;
+      outline-offset: 1px;
+    }
+    input,
+    legend {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      clip-path: inset(50%);
+      overflow: hidden;
+    }
+    p {
+      margin: 0 0.3rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color: #e1eaf1;
+        background: #121923;
+      }
+      label:has(:checked) {
+        background: #1b3c4e;
+        color: #91d9ef;
+      }
+    }
+    @media (max-width: 32rem) {
+      label {
+        padding: 0.4rem 0.55rem;
+      }
+    }
+  </style>
+  <figure>
+    <img
+      src="delivery-board.svg"
+      width="1100"
+      height="694"
+      alt="Issue 或事件触发自动化，生成待确认的 Story，再由交付看板跟踪实现、测试与审阅"
+    />
+    <figcaption>
+      <fieldset hidden>
+        <legend>选择要放大的交付环节</legend>
+        <label><input type="radio" name="view" value="" checked />全览</label>
+        <label
+          ><input type="radio" name="view" value="signals" />信号来源</label
+        >
+        <label
+          ><input type="radio" name="view" value="automation" />自动化</label
+        >
+        <label><input type="radio" name="view" value="story" />Story</label>
+        <label><input type="radio" name="view" value="board" />交付看板</label>
+      </fieldset>
+      <p aria-live="polite">
+        从一个外部信号开始，跟踪它怎样成为团队可以开发、测试和审阅的 Story。
+      </p>
+    </figcaption>
+  </figure>
+  <script>
+    const captions = {
+      signals:
+        "平台可接入 Issue、IM 消息或 Webhook 事件。示例从 GitHub Issue #128 开始：用户发现项目名称留空也能提交。",
+      automation:
+        "新 Issue 命中已启用的触发规则。需求收集 Job 调用执行员工，提取需求并把来源和内容登记到任务收件箱。",
+      story:
+        "将收件箱事项转入交付项目，形成 Story 草稿。团队确认范围，并写下两项可验证的条件：空名称必须拦截，有效名称可以提交。",
+      board:
+        "同一张卡从需求确认进入开发。开发员工关联 PR #62，测试验证两项验收条件，团队依据代码与测试证据记录审阅决定。",
+    };
+    const diagram = document.querySelector("img");
+    const caption = document.querySelector("figcaption p");
+    const views = document.querySelector("fieldset");
+    const overview = caption.textContent;
+    views.hidden = false;
+    views.addEventListener("change", (event) => {
+      const section = event.target.value;
+      diagram.src = section
+        ? `delivery-board.svg#${section}`
+        : "delivery-board.svg";
+      caption.textContent = captions[section] ?? overview;
+    });
+  </script>
+</html>
