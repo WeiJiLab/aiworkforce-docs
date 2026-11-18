@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Testing an employee means two different checks. Validation tells you the package is structurally complete. A task trial tells you the role behaved on inputs you chose. The [employee builder](/fde/builder/) provides **Validate** and **Submit build**. Administrators can also queue a stored suite from [FDE Agent tests](/fde/agent-tests/). [Execution evaluation](/software-factory/evaluation/) shows how to judge one delivery task from the records you already have. The three trials below are the hand-run check while you change the package.
+Testing an employee means two different checks. Validation tells you the package is structurally complete. A task trial tells you the role behaved on inputs you chose. The [employee builder](/build/builder/) provides **Validate** and **Submit build**. Administrators can also queue a stored suite from [FDE Agent tests](/build/agent-tests/). [Execution evaluation](/software-factory/evaluation/) shows how to judge one delivery task from the records you already have. The three trials below are the hand-run check while you change the package.
 
 ## Validate the package
 

@@ -1,24 +1,24 @@
-# Docs / Learn / FDE / Developer 信息架构
+# Docs / Learn / Build / Developer 信息架构
 
-核对日期：2026-11-18。顶栏为 **Docs · Learn · FDE · Developer · Console**。英文与中文共用相同 slug；侧栏按栏目（portal）切换，上一页 / 下一页不跨栏目、不跨语言。源码仓库不放进顶栏。
+核对日期：2026-11-18。顶栏为 **Docs · Learn · Build · Developer · Console**。英文与中文共用相同 slug；侧栏按栏目（portal）切换，上一页 / 下一页不跨栏目、不跨语言。源码仓库不放进顶栏。
 
 ## 顶栏去向
 
-| 项        | 含义                         | 去向                                 |
-| --------- | ---------------------------- | ------------------------------------ |
-| Docs      | 产品参考与配置               | `/` 与 `/zh-cn/`                     |
-| Learn     | 教程与课程路径               | `/learn/` 与 `/zh-cn/learn/`         |
-| FDE       | FDE 工作台：发现、构建、发布 | `/fde/` 与 `/zh-cn/fde/`             |
-| Developer | 应用开发与程序化集成         | `/developer/` 与 `/zh-cn/developer/` |
-| Console   | 产品控制台（外链）           | `https://aiworkforce.run`            |
+| 项        | 含义                 | 去向                                 |
+| --------- | -------------------- | ------------------------------------ |
+| Docs      | 产品参考与配置       | `/` 与 `/zh-cn/`                     |
+| Learn     | 教程与课程路径       | `/learn/` 与 `/zh-cn/learn/`         |
+| Build     | 构建数字员工         | `/build/` 与 `/zh-cn/build/`         |
+| Developer | 应用开发与程序化集成 | `/developer/` 与 `/zh-cn/developer/` |
+| Console   | 产品控制台（外链）   | `https://aiworkforce.run`            |
 
-FDE 是控制台里的独立工作台，不是读者角色标签。不要把 User / Builder / Platform Engineer 做成顶栏或 Docs 一级栏目；读者角色放在 Learn 路径描述里。
+Build 是文档栏目，中文名为「构建数字员工」。控制台中对应的产品入口是「FDE 工作台」（`/fde/`）。不要把 User / Builder / Platform Engineer 做成顶栏或 Docs 一级栏目；读者角色放在 Learn 路径描述里。
 
 ## 产品模型
 
 工作流是组织单位。自动化触发并运行它。智能体（数字员工是其工作空间配置形态）在工作流内执行。软件工厂、看板自动化、Issue 自动化是工作流应用。
 
-首页与 Docs 首屏以软件交付 / 软件工厂为主线。使用已发布员工留在 Docs → Use employees。定义、打包、发布和评测员工留在 FDE。已有指南换栏目时保留原 slug，例如 `/build/employee-definition/`。
+首页与 Docs 首屏以软件交付 / 软件工厂为主线。使用已发布员工留在 Docs → Use employees。定义、打包、发布和评测员工留在 Build。已有指南换栏目时保留原 slug，例如 `/build/employee-definition/`。
 
 ## Docs 侧栏
 
@@ -33,11 +33,11 @@ FDE 是控制台里的独立工作台，不是读者角色标签。不要把 Use
 7. Integrations / 集成。点击一级栏目「集成」可展开或收起目录。展开后，灰色分类标题下直接列出所有连接器。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。员工工具挂在概览之后。MCP 与 Webhook 留在 Developer。不收录 ACP / A2A。
 8. Resources / 资源。简介、核心概念和平台地图可在这里查阅。
 
-自托管服务栈的部署指南位于 FDE → 运营。
+自托管服务栈的部署指南位于 Build → 运营。
 
-## FDE 侧栏
+## Build 侧栏
 
-对齐控制台里的 FDE 工作台。构建者参考页仍使用原来的 `/build/` 地址。运营从文档栏目移到这里，地址不变。
+栏目首页是 `/build/`。旧 `/fde/` 文档链接按语言跳转到对应的 `/build/` 页面。运营从文档栏目移到这里，地址不变。
 
 1. Customer discovery / 客户发现：访谈机器人、邀请、会议助手、会议记录
 2. Build / 构建：构建器，以及员工定义、指令、架构、能力与组合
@@ -54,7 +54,7 @@ FDE 是控制台里的独立工作台，不是读者角色标签。不要把 Use
 2. Build with AI Workforce
 3. Run a Software Factory
 
-另保留实践手册（需求、方案与工单、反馈）。课时可以是短文，或指向对应的 Docs、FDE 参考页。
+另保留实践手册（需求、方案与工单、反馈）。课时可以是短文，或指向对应的 Docs、Build 参考页。
 
 ## Developer 侧栏
 
@@ -80,4 +80,4 @@ npm run check:links
 npm run check:navigation
 ```
 
-`check:navigation` 确认每页只有当前栏目侧栏、顶栏含 Docs/Learn/FDE/Developer/Console、不含源码仓库链接和 Agent Protocol，以及语言切换与分页留在同一栏目。
+`check:navigation` 确认每页只有当前栏目侧栏、顶栏含 Docs/Learn/Build/Developer/Console、不含源码仓库链接和 Agent Protocol，以及语言切换与分页留在同一栏目。

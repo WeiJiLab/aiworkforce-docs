@@ -2,6 +2,7 @@ import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 
+import { legacyBuildRoutes } from "./src/lib/legacy-build-routes.mjs";
 import { portalSidebars } from "./src/lib/navigation.ts";
 import {
   publishGoogleSitemap,
@@ -19,6 +20,9 @@ export default defineConfig({
   ...(base && base !== "/" ? { base } : {}),
   trailingSlash: "always",
   redirects: {
+    ...Object.fromEntries(
+      legacyBuildRoutes.map(({ from, to }) => [`/${from}/`, `/${to}/`]),
+    ),
     "/api/": "/developer/",
     "/zh-cn/api/": "/zh-cn/developer/",
     "/getting-started/platform-overview/": "/getting-started/first-automation/",

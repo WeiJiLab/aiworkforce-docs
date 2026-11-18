@@ -1,12 +1,12 @@
 /**
- * Docs / Learn / FDE / Developer portals share English and Chinese slugs.
+ * Docs / Learn / Build / Developer portals share English and Chinese slugs.
  * File ids keep existing guide URLs when a page changes section.
  */
 
 export const Portal = {
   Docs: "docs",
   Learn: "learn",
-  Fde: "fde",
+  Build: "build",
   Developer: "developer",
 };
 
@@ -244,24 +244,24 @@ export const PORTALS = {
       },
     ],
   },
-  [Portal.Fde]: {
-    label: "FDE",
-    zhLabel: "FDE",
+  [Portal.Build]: {
+    label: "Build",
+    zhLabel: "构建数字员工",
     description: [
       "Build employees in the FDE workbench",
       "在 FDE 工作台构建数字员工",
     ],
-    landing: "fde",
+    landing: "build",
     groups: [
       {
         label: "Customer discovery",
         zh: "客户发现",
         collapsed: false,
         items: [
-          "fde/bots",
-          "fde/invites",
-          "fde/meeting-assistants",
-          "fde/meeting-records",
+          "build/bots",
+          "build/invites",
+          "build/meeting-assistants",
+          "build/meeting-records",
         ],
       },
       {
@@ -269,7 +269,7 @@ export const PORTALS = {
         zh: "构建",
         collapsed: false,
         items: [
-          "fde/builder",
+          "build/builder",
           "build/employee-definition",
           "build/prompts-rules",
           "build/architecture",
@@ -293,21 +293,21 @@ export const PORTALS = {
         items: [
           "build/templates",
           "build/publishing",
-          "fde/market",
-          "fde/marketplace",
+          "build/market",
+          "build/marketplace",
         ],
       },
       {
         label: "Configuration",
         zh: "配置",
         collapsed: true,
-        items: ["fde/channels"],
+        items: ["build/channels"],
       },
       {
         label: "Evaluation",
         zh: "评测",
         collapsed: true,
-        items: ["build/testing", "fde/agent-tests"],
+        items: ["build/testing", "build/agent-tests"],
       },
       {
         label: "Operate",

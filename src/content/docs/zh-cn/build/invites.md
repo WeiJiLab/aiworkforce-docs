@@ -5,10 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1e7a3fac3c42bffaacf84a1ab1428ceb5efed134db2f6ce341c3551a3f199b94"
+  sourceHash: "0b5013eba5c59c989d9309b59cbe3957564432c9b1f74dd804e767cd7129b0dd"
 ---
 
-打开**访谈邀请**。**新建访谈邀请**选择一个[访谈机器人](/zh-cn/fde/bots/)，并填写一位或多位邀请人名称。每位邀请人得到一条独立链接。邀请记录当前登录用户。
+打开**访谈邀请**。**新建访谈邀请**选择一个[访谈机器人](/zh-cn/build/bots/)，并填写一位或多位邀请人名称。每位邀请人得到一条独立链接。邀请记录当前登录用户。
 
 受访者打开链接后，与该机器人进行语音访谈。对话按时间顺序保存。你可以在邀请里查看并导出。
 

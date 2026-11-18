@@ -11,4 +11,4 @@ translation:
 
 The page has tabs for language, decision, and voice. Language and decision settings save together. Voice settings save separately. Switching tabs keeps unsaved changes.
 
-An [interview bot](/fde/bots/) can preview its voice after the voice channel is configured. This page does not choose the model for a workspace employee. That choice stays in [Models and cost](/models/overview/).
+An [interview bot](/build/bots/) can preview its voice after the voice channel is configured. This page does not choose the model for a workspace employee. That choice stays in [Models and cost](/models/overview/).

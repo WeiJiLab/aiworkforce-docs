@@ -204,9 +204,14 @@ for (const [route, page] of expectedPages) {
       "site nav must include Learn",
     );
     record(
-      labels.some((label) => label === "FDE"),
+      [...siteNav[0].querySelectorAll("a")].some(
+        (link) =>
+          link.textContent.trim() === (zh ? "构建数字员工" : "Build") &&
+          pathname(link.getAttribute("href"), route) ===
+            routeFor("build", page.locale),
+      ),
       route,
-      "site nav must include FDE",
+      "site nav must link to the localized Build portal",
     );
     record(
       labels.some((label) => label.startsWith("Developer")),

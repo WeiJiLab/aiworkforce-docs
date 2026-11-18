@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Open **Interview invitations** (访谈邀请). **New interview invite** (新建访谈邀请) asks for one [interview bot](/fde/bots/) and one or more invitee names. Each name gets its own link. The invite records the signed-in user.
+Open **Interview invitations** (访谈邀请). **New interview invite** (新建访谈邀请) asks for one [interview bot](/build/bots/) and one or more invitee names. Each name gets its own link. The invite records the signed-in user.
 
 The interviewee opens the link and starts a voice interview with that bot. The transcript is stored in time order. You can view it and export it from the invite.
 

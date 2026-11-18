@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-This path is for someone using AI Workforce, not for someone authoring an employee package. You select a published template, wait until the workspace employee is ready, give it one bounded task, and review the result. Builders who need to define a new role start in the [FDE workbench](/fde/), at [employee definition](/build/employee-definition/).
+This path is for someone using AI Workforce, not for someone authoring an employee package. You select a published template, wait until the workspace employee is ready, give it one bounded task, and review the result. Builders who need to define a new role start in the [FDE workbench](/build/), at [employee definition](/build/employee-definition/).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Ask for a specific correction in the same session when something is missing. Sta
 
 ## Expected result
 
-You can name the employee, the input you provided, what it produced, and why you accept or reject that output. You have not published a template or granted a new tool. Those steps belong to the [FDE workbench](/fde/) and [employee architecture](/build/architecture/).
+You can name the employee, the input you provided, what it produced, and why you accept or reject that output. You have not published a template or granted a new tool. Those steps belong to the [FDE workbench](/build/) and [employee architecture](/build/architecture/).
 
 ## If it does not start
 

@@ -5,10 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "c442e6dc1ea41d043b682e677090bb5a4546bea6dd59b79444f2369eb0e21bd5"
+  sourceHash: "a4d05c2cf5d391e9ffb6c2e9015388b5760912e12ea444139352b4dbde3b566e"
 ---
 
-测试员工是两种不同的检查。校验告诉你员工包在结构上完整。任务试验告诉你岗位在你选择的输入上如何表现。[数字员工构建器](/zh-cn/fde/builder/)提供 **Validate** 和 **Submit build**。管理员还可以从 [FDE Agent 评估](/zh-cn/fde/agent-tests/)把已有套件排进队列。如何根据已有记录判断一次交付任务，见[执行评测](/zh-cn/software-factory/evaluation/)。下面三个试验是你修改员工包时的手工检查。
+测试员工是两种不同的检查。校验告诉你员工包在结构上完整。任务试验告诉你岗位在你选择的输入上如何表现。[数字员工构建器](/zh-cn/build/builder/)提供 **Validate** 和 **Submit build**。管理员还可以从 [FDE Agent 评估](/zh-cn/build/agent-tests/)把已有套件排进队列。如何根据已有记录判断一次交付任务，见[执行评测](/zh-cn/software-factory/evaluation/)。下面三个试验是你修改员工包时的手工检查。
 
 ## 校验员工包
 

@@ -4,12 +4,12 @@ export type HomeSection =
   | "build-software"
   | "automate-work"
   | "use-employees"
-  | "fde"
+  | "build"
   | "run-workflows"
   | "daemon"
   | "integrations"
   | "agents";
-export type LandingPortal = "developer" | "learn" | "fde";
+export type LandingPortal = "developer" | "learn" | "build";
 export type PortalSection = "paths" | "guides" | "next" | "operate";
 
 export interface LandingGuide {
@@ -25,7 +25,7 @@ interface HomeContent {
   readonly buildSoftware: readonly LandingGuide[];
   readonly automateWork: readonly LandingGuide[];
   readonly useEmployees: readonly LandingGuide[];
-  readonly fde: readonly LandingGuide[];
+  readonly build: readonly LandingGuide[];
   readonly runWorkflows: readonly LandingGuide[];
   readonly daemon: readonly LandingGuide[];
   readonly integrations: readonly LandingGuide[];
@@ -217,27 +217,27 @@ export function getHomeContent(zh: boolean): HomeContent {
         "user-guide/agent-chat",
       ),
     ],
-    fde: [
+    build: [
       guide(
-        zh ? "FDE 工作台" : "FDE workbench",
+        zh ? "构建数字员工" : "Build AI employees",
         zh
           ? "发现客户工作、构建员工包、发布并评测。"
           : "Discover customer work, build an employee package, publish it, and evaluate it.",
-        "fde",
+        "build",
       ),
       guide(
         zh ? "数字员工构建器" : "Employee builder",
         zh
           ? "在需求工作树里迭代 Plugin，再校验并提交。"
           : "Iterate a Plugin in a requirement worktree, then validate and submit.",
-        "fde/builder",
+        "build/builder",
       ),
       guide(
         zh ? "标准数字员工市场" : "Standard employee marketplace",
         zh
           ? "同步内部员工，或把外部插件转成一次构建。"
           : "Sync internal employees, or turn an external plugin into a build.",
-        "fde/market",
+        "build/market",
       ),
       guide(
         zh ? "发布与分发" : "Publishing",
@@ -340,8 +340,8 @@ export function getHomeContent(zh: boolean): HomeContent {
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / FDE / Developer 分组，并标出规划中的能力。"
-        : "Read any page as Markdown. The index follows Docs, Learn, FDE, and Developer and marks planned capabilities.",
+        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / Build / Developer 分组，并标出规划中的能力。"
+        : "Read any page as Markdown. The index follows Docs, Learn, Build, and Developer and marks planned capabilities.",
       links: [
         {
           title: "llms.txt",
@@ -428,11 +428,11 @@ export function getPortalContent(
           href: "getting-started/quickstart",
         },
         {
-          title: zh ? "FDE · 构建数字员工" : "FDE · Build an employee",
+          title: zh ? "构建数字员工" : "Build an AI employee",
           description: zh
             ? "在 FDE 工作台定义岗位、迭代 Plugin 并发布模板"
             : "Define a role, iterate a Plugin, and publish a template in the FDE workbench",
-          href: "fde",
+          href: "build",
         },
         {
           title: zh
@@ -536,7 +536,7 @@ export function getPortalContent(
         },
       ],
     },
-    fde: {
+    build: {
       paths: [
         {
           label: zh ? "客户发现" : "Discovery",
@@ -544,7 +544,7 @@ export function getPortalContent(
           description: zh
             ? "用访谈机器人和会议助手记录客户现场，事实仍要人确认。"
             : "Record customer fieldwork with interview bots and meeting assistants. A person still confirms the facts.",
-          href: "fde/bots",
+          href: "build/bots",
           outcome: zh
             ? "留下可回看的访谈和会议"
             : "Keep a reviewable interview or meeting",
@@ -555,7 +555,7 @@ export function getPortalContent(
           description: zh
             ? "在需求工作树中对话、校验员工包，再提交构建。"
             : "Talk in a requirement worktree, validate the package, and submit the build.",
-          href: "fde/builder",
+          href: "build/builder",
           outcome: zh ? "提交一次通过校验的构建" : "Submit one validated build",
         },
         {
@@ -564,7 +564,7 @@ export function getPortalContent(
           description: zh
             ? "从标准市场选择或转换插件，再发布工作空间可以安装的模板。"
             : "Choose or convert a plugin from the standard marketplace, then publish a template a workspace can install.",
-          href: "fde/market",
+          href: "build/market",
           outcome: zh
             ? "工作空间能安装这个模板"
             : "A workspace can install the template",
