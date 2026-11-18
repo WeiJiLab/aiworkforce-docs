@@ -128,8 +128,10 @@ export function portalSidebars() {
       items: [
         {
           slug: starlightSlug(landingFileId(definition.landing)),
-          label: `${definition.label} home`,
-          translations: { "zh-CN": `${definition.zhLabel}首页` },
+          label: definition.landingLabel ?? `${definition.label} home`,
+          translations: {
+            "zh-CN": definition.landingZh ?? `${definition.zhLabel}首页`,
+          },
         },
         ...definition.groups.map((group) => ({
           label: group.label,

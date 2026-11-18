@@ -12,6 +12,14 @@ translation:
 
 产品界面是**交付工作台**。在主导航打开**工作台**。地址是 `/automations?tab=board-flow`。它与[看板工作台](/zh-cn/workflows/kanban-workbench/)和 [Issue 自动化](/zh-cn/workflows/issue-automation/)共用工作流、自动化、员工和证据。
 
+## 试一试交付看板
+
+从 **#128 修复重复的 Issue 通知** 开始。确认范围后，沿看板查看这张卡的开发会话、Pull Request 和测试记录。也可以直接点开测试验证中的 **#119**，试试要求修改，再展开交付记录查看退回原因。演练使用本地样例数据。
+
+<iframe src="/illustrations/factory-kanban/" title="软件工厂交付看板交互演练" loading="lazy" style="width:100%;height:34rem;border:0;border-radius:14px;"></iframe>
+
+[单独打开交付看板演练](/illustrations/factory-kanban/)
+
 ## 整条流程
 
 泳道员工把一项需求带到经过审阅的变更。项目接上的流水线部署已合并的版本。反馈和事件在有人确认后续工作之后，成为下一张卡片。
