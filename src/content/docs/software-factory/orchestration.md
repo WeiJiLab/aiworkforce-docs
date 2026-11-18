@@ -11,7 +11,7 @@ Orchestration in Software Factory is the workbench moving cards and batches thro
 
 ## Follow the built-in lanes
 
-Built-in lanes are requirements, development, test preparation, testing, merge to main, and completion. Requirements confirms the request. Development starts or resumes a session for a ready card. Test preparation groups ready cards into a candidate batch. Testing records results and can return work for repair. Merge and completion record their own outcomes. Custom boards can use a different arrangement. Read the configured lanes rather than assuming this list.
+Built-in lanes are Requirements, Development, Test release, Test verification, Production release, and Done. Requirements confirms the request. Development starts or resumes a session for a ready card. Test release groups ready cards into a candidate batch. Test verification records results and can return work for repair. Production release and Done record their own outcomes. Custom boards can use a different arrangement. Read the configured lanes rather than assuming this list. Dispatch assigns the card to the lane employee. Orchestration is this movement of cards and batches, not a separate multi-agent product.
 
 An operation on a shared batch can affect every member card. Inspect membership before you confirm. A successful conversation in development is only one record. The batch's test and merge records answer different questions.
 

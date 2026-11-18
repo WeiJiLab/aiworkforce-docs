@@ -5,10 +5,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2001dbd99a3717316f8fce7bae1133185d316009bf4fec53c564e021553abd24"
+  sourceHash: "2b2c4742628a7e630f792deb8bfac747c1624dce084e7a56469f46a37f4c2b8f"
 ---
 
-软件工厂是 AI Workforce 的工程交付体系。它把已确认的请求连接到员工执行、能够检查变更的环境，以及人用来决定是否交付的证据。产品界面是**交付工作台**，从 **Automations** 的 `/automations?tab=board-flow` 进入。
+软件工厂是面向工程交付的一种工作流应用。它与[看板工作台](/zh-cn/workflows/kanban-workbench/)和 [Issue 自动化](/zh-cn/workflows/issue-automation/)共用工作流、自动化、员工、运行时和证据。它不是单独的引擎。
+
+它把已确认的请求连接到员工执行、能够检查变更的环境，以及人用来决定是否交付的证据。产品界面是**交付工作台**，从 **Automations** 的 `/automations?tab=board-flow` 进入。
 
 这不是无人值守生成代码的产品。Agent 可以起草变更。工厂要做的是让从输入到经过验证的交付这条路径可以被检查。下面这张图是唯一的架构地图。其他软件工厂页面只解释其中一段。
 
@@ -28,7 +30,7 @@ translation:
 | 编码 Agent       | 交付和收集所使用的 Claude Code 运行时            | 其他编码 Agent 的目录                         |
 | Harness          | 平台上的模型循环，加上已配置的运行时或设备       | Harness 注册表                                |
 | 环境             | 平台执行、自托管部署、已授权设备和已配置的流水线 | 按卡片准备的沙箱、Kubernetes 环境或预览浏览器 |
-| 构建与测试       | 测试准备和测试泳道，以及你接上的流水线           | 自带的构建集群                                |
+| 构建与测试       | 测试发布和测试验证泳道，以及你接上的流水线       | 自带的构建集群                                |
 | 验证             | 已确认的验收标准和人工比较                       | 自动的业务分数                                |
 | 证据             | 会话、代码引用、测试记录和卡片上的决定           | 第二套追踪产品                                |
 | 门禁、审阅、发布 | 泳道检查、人工审阅，以及集成存在时的合并和生产   | 无人值守的自动交付                            |
@@ -59,7 +61,7 @@ translation:
 5. **证据。** 卡片保留会话、代码引用或 Pull Request、测试结果和人工决定。见[证据与追踪](/zh-cn/software-factory/evidence/)。
 6. **发布。** 只有仓库和流水线集成可用时，合并和生产发布才会执行。批次关闭不能证明生产发布已经完成。见[审阅与发布](/zh-cn/software-factory/review-release/)。
 
-内置泳道是需求、开发、测试准备、测试、合并到主干和完成。自定义看板可以有不同安排。可用操作取决于所选看板。
+内置泳道按顺序是需求、开发、测试发布、测试验证、生产发布和已完成。泳道内的步骤是执行状态，不是手工编辑的标签。自定义看板可以有不同安排。可用操作取决于所选看板。没有在制品上限。
 
 ## 先配置什么
 
@@ -69,4 +71,4 @@ translation:
 
 草稿不是修改代码的许可。执行过程中，在卡片上回答问题和批准请求。接管会停止自动推进并保留当前状态。需要继续时明确交还。只恢复暂停并不能清除接管。对共享批次的操作可能影响其中每张卡片。
 
-[你的第一个软件工厂流程](/zh-cn/getting-started/first-software-factory/)走通一张卡片。[Issue 到 PR](/zh-cn/recipes/issue-to-pr/)是更完整的实践。[自动化概念](/zh-cn/automate/fundamentals/)说明把工作收集到收件箱或工作台的 Job。这些 Job 不能代替确认步骤。
+[你的第一个软件工厂流程](/zh-cn/getting-started/first-software-factory/)走通一张卡片。[Issue 到 PR](/zh-cn/recipes/issue-to-pr/)是更完整的实践。[工作流概念](/zh-cn/workflows/concepts/)说明看板、Job 和运行如何放在一起。把工作收集到收件箱的 Job 不能代替确认步骤。
