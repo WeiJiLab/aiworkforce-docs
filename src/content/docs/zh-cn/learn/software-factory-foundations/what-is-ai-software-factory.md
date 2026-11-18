@@ -5,11 +5,23 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "9b9be9656ff06a9181aeafecb1b8874702ab5f84e1b0688201e66d5bb71fd5c5"
+  sourceHash: "3bc905c203783af8f8f2ceaf03e6cff0fd481fac4654a6061bd05bb593358dd5"
 ---
 
-软件工厂不是另一套引擎。它是一种[工作流应用](/zh-cn/workflows/applications/)，与 AI Workforce 其他部分共用「工作流 → 自动化 → 智能体」模型。
+软件工厂把已确认的工程请求连接到执行、检查和审阅决定。在 AI Workforce 中，交付看板把请求及其关联记录放在一起，团队借助已配置的员工和环境完成工作。
 
-实践里意味着：已确认的需求成为交付看板卡片，智能体在已配置环境中执行，检查产生证据，人在合并或发布前审阅。
+## 跟随表单案例
 
-产品概览见：[软件工厂](/zh-cn/software-factory/overview/)。
+请求是修正必填项为空时的提示。人先确认目标提示，以及有效值仍能提交的要求。员工实施修改，检查针对一个明确版本执行，审阅者再把结果与请求逐项比较。
+
+得到的结果是一项带有支持证据、可以审阅的变更。合并、部署和清理按项目已配置的流程继续，各自需要结果记录。
+
+## 试着判断
+
+员工回复“已修复”并提供了差异，但没有实际检查表单。现在能接受这项请求吗？
+
+实现已经可供检查，但要求的行为仍未验证。先要求对候选版本完成约定检查，再记录接受决定。
+
+完整产品路径见[软件工厂概览](/zh-cn/software-factory/overview/)。
+
+[返回软件工厂基础课程](/zh-cn/learn/software-factory-foundations/)。

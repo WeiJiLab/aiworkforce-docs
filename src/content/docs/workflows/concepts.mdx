@@ -1,0 +1,67 @@
+---
+title: "Workflow concepts"
+description: "Choose how reusable work is defined, started, executed, and checked."
+last_verified: "2026-11-18"
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
+
+A workflow is a reusable agreement about how to complete work: its inputs, steps, expected result, and checks. Automation starts that work, a worker performs the steps, and a run records one execution.
+
+For example, a recurring issue-intake task keeps the same instructions while each invocation inspects new reports. The run tells you what was found this time. Requests routed to a delivery draft still need a person to confirm development.
+
+## From a definition to a result
+
+<ProcessDiagram id="automation-run" />
+
+Publishing or enabling a definition does not create a run. Inspect the result of an actual execution before relying on automatic triggers. A successful run must still be compared with the outcome the task required.
+
+## Choose the form that fits your work
+
+| Work you need                                                               | Product form                                                 | Where to continue                                         |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------- |
+| One bounded task performed by a worker                                      | A Job with its task, executor, and optional triggers         | [Your first workflow](/getting-started/first-automation/) |
+| Several executors working within one delivery lane                          | A lane pipeline associated with a workspace, board, and lane | [Create a workflow](/automate/workflow-builder/)          |
+| Engineering work moving through confirmation, development, and verification | A delivery board with lane rules and employees               | [Software Factory](/software-factory/overview/)           |
+| A reusable method inside an employee capability                             | A workflow declared on a skill                               | [Skills](/build/skills/)                                  |
+
+Open **Automations** at `/automations` for Jobs and **Pipeline** on the same screen for lane pipelines. Open **Workbench** (工作台) in the primary navigation at `/automations?tab=board-flow` for the board. [Workflow applications](/workflows/applications/) compares the use cases.
+
+## Decide what starts the work
+
+- **Manual:** choose **Run manually** on a Job and inspect that run.
+- **Scheduled or event-driven:** an available trigger admits an execution. Jobs support schedules, inbound webhooks, polled GitHub events, Issue, and IM triggers where available. Lane-pipeline triggers in the editor are manual and cron.
+- **Continuous board work:** lane rules and scans progress ready cards through the delivery workflow. The card's state shows execution progress.
+
+Saving, publishing, running, and enabling are separate actions. A paused published Job can still run manually; that does not re-enable automatic triggers. See [automation concepts](/automate/fundamentals/) for the actions and their effects.
+
+## Prepare the worker, context, and evidence
+
+A workspace employee supplies the role and capabilities. Some board steps use an allowlisted code executor. The configured runtime and environment supply execution resources; a connection and the executor's authorization must be ready before the task uses them. Event payloads are task input, not a source of credentials or tool grants.
+
+A **session** records conversation and execution context. An **artifact** is an output. **Evidence** links the output to its sources, tested revision, environment, and checks. For software changes, a reviewer compares that evidence with confirmed acceptance criteria. Employee-package evaluation checks the reusable capability across trials; it is separate from verifying this delivery. See [business verification](/software-factory/business-verification/) and [employee evaluation](/software-factory/evaluation/).
+
+## Follow the matching guide
+
+- [Issue automation](/workflows/issue-automation/): investigate a GitHub issue or inbox item, then confirm the request before development. GitHub events are polled, and the event adapter does not write back to GitHub. [Event-driven automation](/automate/event-driven/) covers source setup.
+- [Pull request automation](/workflows/pull-request-automation/): inspect PR events with a worker. Read its session result; review comments and automatic merge are not guaranteed outputs of the event adapter.
+- [Kanban workbench](/workflows/kanban-workbench/): follow cards and batches through delivery lanes. Dispatch assigns a ready card to a lane employee; orchestration progresses cards, batches, and lane pipelines.
+- [Research and monitoring](/workflows/research-monitoring/): produce an artifact on a schedule, or start from a configured monitoring event. A person reviews the result before publication or action.
+
+## Know the boundaries before expanding
+
+A Job has no branching canvas. A lane pipeline supports edge conditions, node conditions, retries, and upstream-failure policies; the editor requires at least two executors before enabling it. Skill workflows can declare tool, subagent, approval, parallel, condition, and branch steps, but the selected runtime must execute them and show the result in its trace. Use [custom workflows](/workflows/custom-workflows/) for those choices.
+
+The first successful GitHub poll establishes a baseline without replaying history. Later polls are at least 60 seconds apart and observe state changes rather than a complete event stream. An event payload does not prove the runtime checked out that revision.
+
+The delivery workbench is the Kanban surface. Built-in lanes are Requirements, Development, Test deployment, Testing, Production, and Done. Custom boards can differ. Shared batches can move or release multiple cards together; inspect all member cards before acting. The current board has no WIP-limit control.
+
+People confirm scope, handle exceptions, and decide release according to project policy. Taking over stops automatic progress; continuing requires an explicit hand-back. A trigger, board, or prompt does not supply missing credentials, a per-card environment, or an automatic business acceptance score.
+
+## Next step
+
+[Run your first workflow manually](/getting-started/first-automation/), inspect its result, and then add one trigger.

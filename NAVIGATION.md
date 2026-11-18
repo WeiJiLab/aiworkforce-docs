@@ -17,7 +17,9 @@
 
 工作流是组织单位。自动化触发并运行它。智能体（数字员工是其工作空间配置形态）在工作流内执行。软件工厂、看板自动化、Issue 自动化是工作流应用。
 
-首页与 Docs 首屏以软件交付 / 软件工厂为主线，不以「创建第一名数字员工」开场。数字员工内容保留，并收在 Docs → Build Workflows → Agents → Employees。
+首页与 Docs 首屏以软件交付 / 软件工厂为主线，不以「创建第一名数字员工」开场。数字员工内容保留在 Docs → Build Workflows，下设 Employees、Capabilities 与 Composition and lifecycle。
+
+分类首篇先解释完整工作流程和完成条件，再链接局部对象或配置参考。环境、执行者和授权是支撑条件，不与确认、执行、验证、审阅等业务阶段混成一条时序。
 
 ## Docs 侧栏
 
@@ -26,11 +28,15 @@
 1. Get started / 开始使用
 2. Software Factory / 软件工厂
 3. Automate Work / 自动化工作
-4. Build Workflows / 构建工作流（Employees 在 Agents 下）
+4. Build Workflows / 构建工作流（先读「构建可复用 AI Worker」，再进入员工与能力）
 5. Run Workflows / 运行工作流
 6. Operate / 运营（含 Self-host / 自托管）
 7. Integrations / 集成。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。MCP、Webhook 与员工工具仍留在 API 或「构建工作流」，目录只链接过去。不收录 ACP / A2A。
 8. Resources / 资源
+
+Build Workflows 的首篇为 `build/overview`，Run Workflows 的首篇为 `workflows/run`，Operate 的首篇为 `operate/overview`。Projects 归入 Software Factory，作为准备交付项目的参考，不再作为运营入口。
+
+入口页的 SVG 流程节点链接到对应指南。中英文节点目标随页面语言切换；图下保留文本解释，Markdown 与 Agent 文档仍能表达关键流程。图的主线解释业务动作，工具配置与实现细节留在目标指南。
 
 ## Learn 侧栏
 
@@ -40,7 +46,7 @@
 2. Build with AI Workforce
 3. Run a Software Factory
 
-另保留实践手册（需求、方案与工单、反馈）。课时可以是短文，或诚实指向对应 Docs 页。
+另保留实践手册（需求、方案与工单、反馈）。课程首页给出有案例与完成条件的完整路线，操作入口直接链接权威 Docs。独立课时需提供新的判断、例子或练习，避免连续的目录跳转；进入 Docs 时保留返回课程路径的说明。
 
 ## API 侧栏
 
@@ -63,6 +69,7 @@
 ```sh
 npm run check:links
 npm run check:navigation
+npm run check:diagrams
 ```
 
 `check:navigation` 确认每页只有当前栏目侧栏、顶栏含 Docs/Learn/API/Console、不含源码仓库链接和 Agent Protocol，以及语言切换与分页留在同一栏目。

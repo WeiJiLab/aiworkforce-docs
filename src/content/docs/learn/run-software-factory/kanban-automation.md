@@ -8,3 +8,5 @@ translation:
 ---
 
 Follow [Kanban Automation Workbench](/workflows/kanban-workbench/).
+
+[Back to Run a Software Factory](/learn/run-software-factory/).

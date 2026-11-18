@@ -5,8 +5,11 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "85b830ed61632a4c3fbf09e4099d2a014a78b12bbe064f0ffef7929102d9c76e"
+  sourceHash: "df8fe84b1a9e016040ba281b894ecde490c3c13ea1526de5b13687b4bb484c5e"
+last_verified: "2026-11-18"
 ---
+
+import ProcessDiagram from "../../../../components/ProcessDiagram.astro";
 
 从一个还没有交付看板的工作空间开始。创建看板，准备执行所需的仓库和测试资源，然后验证一项小改动。如果看板已经配好，请直接进入[快速入门](/zh-cn/getting-started/quickstart/)。
 
@@ -41,4 +44,12 @@ translation:
 2. 跟进卡片的开发阶段。在**执行记录**中查看处理变更的会话，在**交付物**中打开代码引用。若项目配置的交付路径创建了 Pull Request，可以从这里检查 PR。
 3. 在测试环境验证示例的两条行为。留空时显示修正后的提示，填写有效值时仍可提交。记录实际测试的提交或候选版本、环境以及每项验收结果。检查失败时，附上证据并退回修复，随后验证新版本。在卡片上记录审阅决定。
 
-当第一张卡片具备已确认的需求、执行记录、代码引用、对应版本的验证证据和人工审阅决定时，就可以开始下一项交付。卡片停止推进时，参见[排查交付看板](/zh-cn/getting-started/delivery-board-troubleshooting/)；要继续跟进审阅后的步骤，参见[审阅与发布](/zh-cn/software-factory/review-release/)。
+当第一张卡片具备已确认的需求、执行记录、代码引用、对应版本的验证证据和人工审阅决定时，就可以开始下一项交付。
+
+## 处理受阻卡片
+
+<ProcessDiagram id="run-recovery" />
+
+卡片停止推进时，打开[排查受阻的交付卡片](/zh-cn/getting-started/delivery-board-troubleshooting/)，按当前泳道、执行记录和待处理请求决定下一步。
+
+审阅通过后，按项目配置分别核对合并、发布和资源清理，参见[审阅与发布](/zh-cn/software-factory/review-release/)。

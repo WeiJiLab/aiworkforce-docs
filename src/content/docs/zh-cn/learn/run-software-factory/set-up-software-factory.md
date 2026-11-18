@@ -5,7 +5,9 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "bf1d20e5a391d62194ab6708b64f7d34ea4b8a4c587e321c0ca1fd726a644096"
+  sourceHash: "a2ad889176d6ffa4ccbdde910b9135ab94d1481460fc519fa414bebddbda9582"
 ---
 
 动手配置见[第一个软件工厂](/zh-cn/getting-started/first-software-factory/)。
+
+[返回「运行软件工厂」课程](/zh-cn/learn/run-software-factory/)。

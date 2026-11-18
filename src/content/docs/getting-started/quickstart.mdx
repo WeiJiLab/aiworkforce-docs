@@ -1,0 +1,59 @@
+---
+title: "Quickstart"
+description: "Take an Issue from the task inbox through implementation, verification, and review in Software Factory."
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
+
+Use Software Factory to take a small engineering request from the task inbox to a reviewed code change. This walkthrough corrects a project form. An empty name should show “Enter a project name.” A valid name should still create the project.
+
+## Check your starting point
+
+- **Your board is ready:** use a workspace with a configured delivery project and board, a [connected repository](/integrations/code-repositories/), and a test environment or pipeline for your checks. Check that you can confirm and review a card. The employees on the relevant lanes must be ready and authorized to use the repository.
+- **Something is not ready:** follow [set up and run a delivery board](/getting-started/first-software-factory/), then return to step 1 of this walkthrough.
+
+You can also [read the worked example](/recipes/issue-to-pr/) to see what the delivery record looks like.
+
+## What you will review
+
+<ProcessDiagram id="delivery-loop" />
+
+At the end, you should be able to open the card and check this record. These are review questions, not a separate form to create.
+
+| Review item           | For the form example                                                   |
+| --------------------- | ---------------------------------------------------------------------- |
+| Confirmed requirement | Show the agreed message when the required field is empty               |
+| Normal behavior       | A valid value still submits successfully                               |
+| Code reference        | The code reference and commit or candidate revision actually checked   |
+| Verification          | The environment and results for both acceptance criteria               |
+| Decision              | Accept the change, or return it with the failed criterion and evidence |
+
+## 1. Confirm the Issue on the delivery board
+
+Open the workspace **Task inbox** (任务收件箱), review the Issue, and route it to the intended delivery project. Open the resulting draft and confirm the work scope, allowed repositories, and acceptance criteria through the card's human request. Repository changes and credentials are authorized separately.
+
+For this example, include both the empty-field message and the valid submission in the criteria. The result of this step is a confirmed request with an explicit boundary for development.
+
+## 2. Follow implementation
+
+Open **Workbench** (工作台) in the primary navigation at `/automations?tab=board-flow`. Select your project and open the confirmed card. Start or resume its development session and respond to any questions or approval requests on the card.
+
+The development lane records a pull request or another code reference, depending on the project's repository integration. Follow that reference to inspect the change. Keep any clarification attached to the card so the reviewer can follow the same work.
+
+## 3. Verify the change and record your decision
+
+Open the verification results on the card. Check the diff against the agreed scope and compare the results with each acceptance criterion. Verify which commit or candidate revision the checks ran against and which environment they used.
+
+If a check fails, return the work with the failed criterion and its evidence. Recheck the new revision after the fix. A report for an earlier commit leaves the current change unverified.
+
+The quickstart is complete when the card links the confirmed requirement, the code change, the verification evidence, and your review decision. Merge and release follow your project's configured [review and release process](/software-factory/review-release/).
+
+If the card stops progressing, use [Troubleshoot a blocked delivery card](/getting-started/delivery-board-troubleshooting/) to find the cause and decide how to continue.
+
+## Next step
+
+Read [Issue to PR](/recipes/issue-to-pr/) for a fuller worked example of the same path. To collect recurring requests, use [Automation](/getting-started/first-automation/) before routing them to the board.

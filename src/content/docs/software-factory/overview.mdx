@@ -1,0 +1,53 @@
+---
+title: "Software Factory overview"
+description: "Follow an engineering change through confirmed scope, execution, verification, and review."
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
+
+Software Factory connects a confirmed engineering request to a change your team can verify and review. It uses your project's repositories, workers, and engineering environment. Each delivery card keeps the requirement, execution, code reference, checks, and decisions connected.
+
+## How a change moves forward
+
+<ProcessDiagram id="delivery-loop" />
+
+A failed check returns evidence to development. After repair, verification must cover the new revision. People confirm scope, handle exceptions, and make the review and release decisions required by the project.
+
+The **delivery workbench**, opened from **Workbench** (工作台) in the primary navigation at `/automations?tab=board-flow`, is where you follow this work. The [Kanban workbench](/workflows/kanban-workbench/) describes that same board; [Issue automation](/workflows/issue-automation/) is one way requests enter it.
+
+## Choose a starting point
+
+| Your goal                                      | Start here                                                                  |
+| ---------------------------------------------- | --------------------------------------------------------------------------- |
+| Review one change on an existing board         | [Quickstart](/getting-started/quickstart/)                                  |
+| Prepare the project and execution resources    | [Set up and run a delivery board](/getting-started/first-software-factory/) |
+| Turn incoming requests into confirmed work     | [Work intake](/software-factory/intake/)                                    |
+| Review results and follow a configured release | [Review and release](/software-factory/review-release/)                     |
+
+## What supports the delivery
+
+**Ready resources.** The project needs a board, repository connections, ready lane employees, and the environment or pipeline for the checks you plan to run. Repository credentials belong to the workspace; each employee needs its own grant. Confirm provider, instance, enabled state, and workspace when selecting the connection. See [environments](/software-factory/environments/) and [code repositories](/integrations/code-repositories/).
+
+**Linked execution.** A confirmed card is assigned to the lane employee. Sessions show the work performed; batches group related cards when later stages test or release them together. See [task dispatch](/software-factory/dispatch/) and [agent orchestration](/software-factory/orchestration/).
+
+**Reviewable evidence.** Checks identify the revision, environment, and result. A reviewer compares them with the acceptance criteria and records acceptance, a return for repair, or an explicit waiver. See [build and test](/software-factory/build-test/), [evidence](/software-factory/evidence/), and [quality gates](/software-factory/quality-gates/).
+
+Creating a card does not prepare these resources. The configured runtime and harness determine how a worker executes; see [coding agents and harnesses](/software-factory/harness/) for current support. The board does not supply a per-card sandbox or built-in build farm, and business acceptance requires a recorded comparison by the team.
+
+## Keep human decisions and release outcomes explicit
+
+Requirements must be confirmed before development. Answer questions and approval requests on the card. Taking over stops automatic progress and preserves its state; explicitly hand the work back to continue. Resuming a pause does not clear a takeover.
+
+Built-in boards use Requirements, Development, Test deployment, Testing, Production, and Done. Custom boards may differ. Lane steps describe execution state, and operations on a shared batch can affect every member card. There is no WIP-limit control. The [Kanban workbench](/workflows/kanban-workbench/) covers board behavior.
+
+Merge and production release require working repository and pipeline integrations. Inspect merge, deployed revision, and cleanup separately; closing a batch does not prove that release or resource cleanup succeeded. Follow [review and release](/software-factory/review-release/) for those records.
+
+Use [workflow concepts](/workflows/concepts/) when you need to connect the board to Jobs and lane pipelines. Use [evaluation and governance](/operate/evaluation-governance/) when improving worker behavior across repeated tasks.
+
+## Next step
+
+On a ready board, [deliver your first change](/getting-started/quickstart/).

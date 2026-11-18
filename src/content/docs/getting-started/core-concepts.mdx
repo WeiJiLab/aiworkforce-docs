@@ -1,0 +1,52 @@
+---
+title: "Core concepts"
+description: "Use one small change to understand tasks, workflows, workers, runs, and evidence."
+last_verified: "2026-11-18"
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
+
+Use the same small change as the [quickstart](/getting-started/quickstart/): correct a form message, verify both the empty and valid inputs, and record a review decision. The concepts below describe different parts of that work.
+
+## The words you need first
+
+| Concept           | Question it answers                | In the form example                                                         |
+| ----------------- | ---------------------------------- | --------------------------------------------------------------------------- |
+| Task              | What result do we need?            | The Issue, then the confirmed delivery card for the message change          |
+| Workflow          | How should this work be performed? | The agreed path through development, verification, and review               |
+| Agent / AI worker | Who performs the steps?            | The configured workspace employee assigned to the lane                      |
+| Automation        | What starts the work?              | A manual action or configured trigger; a Job defines its task and executor  |
+| Run               | What happened this time?           | One Job or pipeline execution, including its status and result              |
+| Evidence          | Why can we accept the result?      | The change, tested revision, environment, test results, and review decision |
+
+A **workspace** groups people, employees, resources, and context. Workspace access and permission to use a particular resource are separate authorizations.
+
+## Reusable work and one execution
+
+<ProcessDiagram id="automation-run" />
+
+Changing a task definition or publishing it does not establish the result of a run. Inspect the execution record and the evidence for the result you are reviewing.
+
+A workflow can be represented by delivery-board lanes and their rules, a pipeline on one lane, or a workflow declared inside an employee skill. [Workflow concepts](/workflows/concepts/) explains which representation to use.
+
+## The worker and its capabilities
+
+A published **template** supplies a reusable role. A workspace **employee** is the instance the team assigns after initialization completes. A **skill** describes a reusable method; a **plugin** packages skills and related agents. A **tool** performs an operation, and an **MCP server** exposes external tools.
+
+Instructions explain intended behavior. Actual tool access still requires the configured runtime, connection, and authorization. [Build a reusable AI worker](/build/overview/) explains how those parts become a capability a team can use.
+
+## Read each record for its own purpose
+
+A **session** keeps the conversation and execution context. An **artifact** is an output such as code or a report. Evidence supports a claim about that output. A delivery card brings the requirement, execution, and decisions together; creating it does not prepare repositories or pipelines.
+
+For example, a successful automation run may have collected an Issue, while its delivery card is still waiting for scope confirmation. Likewise, a finished session or a merged PR leaves verification and deployment to be checked in their own records.
+
+Use the [glossary](/concepts/glossary/) for additional terms and the [platform map](/getting-started/platform-overview/) to find screens.
+
+## Next step
+
+[Deliver your first change](/getting-started/quickstart/) on a configured board.

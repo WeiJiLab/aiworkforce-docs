@@ -7,10 +7,20 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Keep three words separate:
+A workflow describes how a kind of work should be done. Automation determines when to start it. An employee performs the assigned steps, and a run records one execution.
 
-1. **Workflow** — the reusable definition of how work is performed.
-2. **Automation** — the Job and triggers that start and continue that work.
-3. **Agent / employee** — the execution participant inside a run. An employee is a configured agent, not the product model.
+## Separate the method from this attempt
 
-Details: [Workflow concepts](/workflows/concepts/) and [Automation fundamentals](/automate/fundamentals/).
+For form-validation requests, the reusable method might be: read the request, identify the affected behavior, propose or implement the scoped change, and collect the required checks. Today's Issue supplies the particular form and expected message.
+
+A manual action or configured trigger starts a run using those inputs. A later trigger starts another run. The same method can be reused while the inputs, outputs, and outcome differ each time.
+
+## Try this judgment
+
+The method is published, but no one has run it. What evidence exists for this Issue?
+
+You have a definition that can be used. You do not yet have an execution result for the Issue. Inspect a real run before relying on automatic triggers.
+
+Use [Workflow concepts](/workflows/concepts/) for the product objects, or [Your first workflow](/getting-started/first-automation/) to run one Job manually.
+
+[Back to Software Factory Foundations](/learn/software-factory-foundations/).

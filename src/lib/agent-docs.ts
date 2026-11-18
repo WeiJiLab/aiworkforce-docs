@@ -1,6 +1,10 @@
 import type { CollectionEntry } from "astro:content";
 import { absoluteUrl } from "./site.mjs";
 import {
+  processDiagramMarkdown,
+  type ProcessDiagramId,
+} from "./process-diagrams";
+import {
   getHomeContent,
   getPortalContent,
   localizedGuideHref,
@@ -31,20 +35,8 @@ function homeSection(section: string, zh: boolean): string {
   switch (section) {
     case "cta":
       return linked([content.primaryCta, content.secondaryCta]);
-    case "applications":
-      return linked(content.applications);
-    case "build-software":
-      return linked(content.buildSoftware);
-    case "automate-work":
-      return linked(content.automateWork);
-    case "build-workflows":
-      return linked(content.buildWorkflows);
-    case "run-workflows":
-      return linked(content.runWorkflows);
-    case "operate":
-      return linked(content.operate);
-    case "integrations":
-      return linked(content.integrations);
+    case "paths":
+      return linked(content.paths);
     case "agents":
       return [
         content.agents.description,
@@ -77,14 +69,14 @@ function portalSection(
   }
 }
 
-function landingBody(body: string, zh: boolean): string {
+function readableBody(body: string, zh: boolean): string {
   return body
     .replace(
-      /^import (?:HomeContent|PortalLanding) from ["'][^"']+["'];?\r?\n/gm,
+      /^import (?:HomeContent|PortalLanding|ProcessDiagram) from ["'][^"']+["'];?\r?\n/gm,
       "",
     )
     .replace(
-      /<(HomeContent|PortalLanding)\b([^>]*)\/>/g,
+      /<(HomeContent|PortalLanding|ProcessDiagram)\b([^>]*)\/>/g,
       (_, name: string, source: string) => {
         const attributes = Object.fromEntries(
           [...source.matchAll(/(\w+)="([^"]*)"/g)].map((match) => [
@@ -92,6 +84,8 @@ function landingBody(body: string, zh: boolean): string {
             match[2],
           ]),
         );
+        if (name === "ProcessDiagram")
+          return processDiagramMarkdown(attributes.id as ProcessDiagramId, zh);
         if (name === "HomeContent") return homeSection(attributes.section, zh);
         const portal = attributes.portal;
         if (portal !== "api" && portal !== "learn")
@@ -105,9 +99,7 @@ function landingBody(body: string, zh: boolean): string {
 export function toMarkdown(entry: CollectionEntry<"docs">): string {
   const { title, description, status } = entry.data;
   const zh = entry.id.startsWith("zh-cn/") || entry.id === "zh-cn";
-  const canonicalId = markdownId(entry.id.replace(/^zh-cn(?:\/|$)/, ""));
-  const isHome = ["index", "api", "learn"].includes(canonicalId);
-  const body = isHome ? landingBody(entry.body ?? "", zh) : (entry.body ?? "");
+  const body = readableBody(entry.body ?? "", zh);
   const sourceLabel = zh ? "来源" : "Source";
   const supportLabel =
     status && status !== "available"

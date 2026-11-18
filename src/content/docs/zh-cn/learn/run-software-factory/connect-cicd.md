@@ -5,7 +5,9 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "e3dbd376728f118b833934f3a4cbc2677352b76d27592982c9fa7de49ad29399"
+  sourceHash: "f8758076f40fda4f9c88b83a965f4cce2bdf22c2c9b4cc7d2ebfcef0946a14d3"
 ---
 
 产品指南：[CI/CD](/zh-cn/software-factory/cicd/)。
+
+[返回「运行软件工厂」课程](/zh-cn/learn/run-software-factory/)。

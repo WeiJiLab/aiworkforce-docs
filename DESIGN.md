@@ -15,7 +15,7 @@ The site uses one reading layout for Docs, Learn, and API. A persistent top navi
 - Top navigation: **Docs · Learn · API · Console**. Console is the external product link from `src/lib/site.mjs`. The source repository is not linked; the product is not presented as open source.
 - The header is a full-width bar above the sidebar. Brand and Docs / Learn / API sit on the left, search in the center, and theme, language, and Console on the right. Do not move that bar into the sidebar column. The header and sidebar share one chrome color and meet without a seam. The article and table of contents sit in a rounded surface on the right.
 - Each portal has its own sidebar. Route middleware keeps previous/next inside the current portal and language.
-- Docs homepage leads with software delivery, then task sections matching the Docs IA. It does not open with “Create your first AI Employee.”
+- Docs homepage leads with one verifiable software change, a linked delivery diagram, and three task paths. Category overviews explain work before individual objects; the sidebar holds the complete reference directory.
 - Learn homepage asks what the reader wants to do, with three path cards. Practice playbooks remain available.
 - API is a first-class area for HTTP, webhooks, MCP, and CLI/SDK boundaries. Agent Protocol / ACP / A2A pages are not published.
 - Preserve stable guide URLs when possible. Moved or removed pages use redirects in `astro.config.mjs`.
@@ -25,7 +25,9 @@ The site uses one reading layout for Docs, Learn, and API. A persistent top navi
 
 ## Verification
 
-Run formatting, Astro/content checks, a production build, link checks, and `npm run check:navigation`. Visual review should include Docs home, Learn home, API home, quickstart, both languages, and confirmation that Agent Protocol is absent from navigation.
+Process diagrams use native SVG links from one bilingual definition shared by article views, standalone SVGs, and Markdown exports. Steps support keyboard focus, follow the current document language, and open the guide for that stage. Narrow article columns use a vertical layout; light and dark themes use the existing console palette. Keep each diagram focused on one business flow, with tools, permissions, and environments described as supporting conditions.
+
+Run formatting, Astro/content checks, a production build, link checks, `npm run check:navigation`, and `npm run check:diagrams`. Visual review should include Docs home, Learn home, API home, quickstart, both languages, linked diagram steps in wide and narrow columns, and confirmation that Agent Protocol is absent from navigation.
 
 ## Publication
 

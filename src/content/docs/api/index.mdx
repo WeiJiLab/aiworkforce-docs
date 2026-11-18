@@ -6,19 +6,33 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
+last_verified: "2026-11-18"
 ---
 
 import PortalLanding from "../../../components/PortalLanding.astro";
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
 
-Use the HTTP management and Automation routes, inbound webhooks, Automation MCP, or the device executor CLI. To integrate through an inbound webhook, trigger a published Job and query its run for the result. There is no general published SDK package and no ACP or A2A server.
+Use the API to start an authorized task from another system and follow its result. The external caller supplies task input; the published configuration determines what executes and which resources it may use.
+
+<ProcessDiagram id="api-invocation" />
+
+For example, an internal service can invoke a published report-checking task, retain the returned run record, and query its status and output. Receiving a run record means work was accepted. Inspect the final result and required evidence before acting on it.
 
 ## Choose an interface
 
 <PortalLanding portal="api" section="paths" />
 
+## Prepare the first call
+
+Choose the published task and obtain a credential limited to the work it needs to invoke. Follow [authentication](/developer/authentication/) and [REST API](/developer/api-reference/) to start a run and read its result. Management calls and task invocation use different credential scopes.
+
+Webhook support here is inbound: an external system starts a published Job. There is no documented outbound subscription that pushes each run event to a registered URL; query the run for its result. See [Webhooks](/integrations/webhooks/).
+
 ## Guides and references
 
 <PortalLanding portal="api" section="guides" />
+
+HTTP management and Automation routes, Automation MCP, and the device executor CLI serve different integration needs. The device CLI executes tools on an authorized computer; it does not manage the platform. This baseline has no published general SDK package or public ACP/A2A service. Use the schema from your deployed backend for client development.
 
 ## Related product docs
 

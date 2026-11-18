@@ -5,7 +5,9 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "302e2cb5098033a39260ed13d7607ea1cea7da83862c73edaa84543d779f3749"
+  sourceHash: "ce5b54ffd6ee065d38d1acff5f5cc9341406f96f341f67dd14794f323c50ba00"
 ---
 
 见[构建与测试](/zh-cn/software-factory/build-test/)、[业务验证](/zh-cn/software-factory/business-verification/)与[质量门禁](/zh-cn/software-factory/quality-gates/)。
+
+[返回「运行软件工厂」课程](/zh-cn/learn/run-software-factory/)。

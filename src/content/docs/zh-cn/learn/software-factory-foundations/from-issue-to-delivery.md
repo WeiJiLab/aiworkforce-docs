@@ -5,14 +5,26 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "5d1746a42014310740eb4b7aadcbd7ced0d5f426b1de68bb294ebe0cc0e7de1e"
+  sourceHash: "1ceda0a7b722ad47f80c61278696ff6c92c185c4ef43dd71f42647e72f658111"
 ---
 
-最快看到价值的方式，是在已配置的交付看板上处理一条小 Issue。
+收到的 Issue 记录请求，交付卡片把已确认工作连接到实现与验证。两者之间的确认，是对范围和验收标准的一次决定。
 
-1. 确认范围与验收标准。
-2. 在看板上跟进实现。
-3. 把验证证据对照每条验收标准。
-4. 记录审阅决定。
+## 跟随一条请求
 
-动手路径见[快速开始](/zh-cn/getting-started/quickstart/)，完整示例见 [Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。
+1. 在收件箱审阅表单校验 Issue，送入目标交付项目。
+2. 在草稿卡片上确认要修改的提示、允许使用的仓库，以及空值和有效值两项检查。
+3. 跟踪关联的开发会话，查看它产生的代码引用。
+4. 把候选版本的检查结果与两项标准比较，记录接受决定，或带着失败标准退回。
+
+Issue 到达时进入收集阶段，卡片确认后才明确本次实施范围。合并和发布仍是项目已配置流程中的后续步骤。
+
+## 试着判断
+
+导入的 Issue 只写着“改善表单”。现在能立即开发吗？
+
+先在草稿上澄清行为和验收标准。一条来源请求本身不能消除这些歧义。
+
+实际操作见[快速入门](/zh-cn/getting-started/quickstart/)；更完整的示例见[从 Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。
+
+[返回软件工厂基础课程](/zh-cn/learn/software-factory-foundations/)。

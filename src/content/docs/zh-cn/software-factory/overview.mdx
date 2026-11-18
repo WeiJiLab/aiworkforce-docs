@@ -1,0 +1,54 @@
+---
+title: "软件工厂概览"
+description: "跟随一项工程变更，完成范围确认、执行、验证和审阅。"
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+  sourceHash: "d4d6de9e9f2a799127393a02b3234e0afb43f13d6f1d792081d3995d37b1292f"
+---
+
+import ProcessDiagram from "../../../../components/ProcessDiagram.astro";
+
+软件工厂把已确认的工程请求推进到团队能够验证和审阅的变更。它使用项目已有的代码仓库、执行者和工程环境。每张交付卡片把需求、执行、代码引用、检查结果和决定关联起来。
+
+## 一项变更如何推进
+
+<ProcessDiagram id="delivery-loop" />
+
+检查失败时，把证据带回开发。修复后验证新版本。人负责确认范围、处理例外，并按项目要求作出审阅和发布决定。
+
+在主导航打开**工作台**（`/automations?tab=board-flow`）即可跟进工作。[看板工作台](/zh-cn/workflows/kanban-workbench/)介绍同一张看板的使用方式，[Issue 自动化](/zh-cn/workflows/issue-automation/)则是请求进入交付的一种途径。
+
+## 选择起点
+
+| 你的目标                   | 从这里开始                                                           |
+| -------------------------- | -------------------------------------------------------------------- |
+| 在现有看板上审阅一项变更   | [快速入门](/zh-cn/getting-started/quickstart/)                       |
+| 准备项目和执行资源         | [配置并运行交付看板](/zh-cn/getting-started/first-software-factory/) |
+| 把进入的请求变成已确认工作 | [工作进入](/zh-cn/software-factory/intake/)                          |
+| 审阅结果并跟踪已配置的发布 | [审阅与发布](/zh-cn/software-factory/review-release/)                |
+
+## 什么支撑这次交付
+
+**已就绪的资源。**项目需要看板、仓库连接、就绪的泳道员工，以及执行计划检查的环境或流水线。仓库凭据属于工作空间，每名员工仍需要自己的授权。选择连接时核对提供方、实例、启用状态和工作空间。见[开发环境](/zh-cn/software-factory/environments/)和[代码仓库](/zh-cn/integrations/code-repositories/)。
+
+**关联的执行记录。**已确认卡片交给泳道员工，会话展示实际执行。后续阶段需要一起测试或发布时，批次把相关卡片组织起来。见[任务分派](/zh-cn/software-factory/dispatch/)和 [Agent 编排](/zh-cn/software-factory/orchestration/)。
+
+**可审阅的证据。**检查需说明版本、环境和结果。审阅者对照验收标准，记录接受、退回修复或明确的豁免。见[构建与测试](/zh-cn/software-factory/build-test/)、[证据](/zh-cn/software-factory/evidence/)和[质量门禁](/zh-cn/software-factory/quality-gates/)。
+
+创建卡片不会准备上述资源。运行时和 Harness 决定员工如何执行，当前支持范围见[编码智能体与 Harness](/zh-cn/software-factory/harness/)。看板不提供按卡片创建的沙箱或内置构建集群，业务验收需要团队记录比较结果。
+
+## 明确人工决定与发布结果
+
+开发前必须确认需求。执行中在卡片上回答问题和审批请求。接管会停止自动推进并保留状态，需要继续时明确交还；恢复暂停不会清除接管。
+
+内置看板使用需求、开发、测试发布、测试验证、生产发布和已完成泳道，自定义看板可以不同。泳道内的步骤表示执行状态，共享批次上的操作可能影响每张成员卡片。当前没有在制品上限控制。具体行为见[看板工作台](/zh-cn/workflows/kanban-workbench/)。
+
+合并和生产发布需要可用的仓库与流水线集成。分别检查合并、部署版本和清理，批次关闭不能证明发布或资源清理成功。对应记录见[审阅与发布](/zh-cn/software-factory/review-release/)。
+
+需要理解看板、Job 和泳道编排的关系时，查看[工作流概念](/zh-cn/workflows/concepts/)。希望改进重复任务中的员工表现时，查看[评测与治理](/zh-cn/operate/evaluation-governance/)。
+
+## 下一步
+
+看板已就绪时，[交付第一项变更](/zh-cn/getting-started/quickstart/)。

@@ -1,7 +1,8 @@
 ---
 title: Build and automate software delivery
-description: Have an agent implement a confirmed issue, review the change and test evidence on the delivery board, and record your team's decision.
+description: Use AI workers in your existing engineering environment and review software changes with evidence.
 prev: false
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
@@ -9,46 +10,25 @@ translation:
 ---
 
 import HomeContent from "../../components/HomeContent.astro";
+import ProcessDiagram from "../../components/ProcessDiagram.astro";
 
-Have an agent implement a confirmed issue. Review the change and its verification evidence on the delivery board, then record your team's decision.
-
-## Current entries
-
-This site is the operator guide, and it matches the current console.
-
-**Local startup.** Use the platform repository's current `main`, not a deployment snapshot in the knowledge base: [deploy/local/README.md](https://github.com/WeiJiLab/aiworkforce-platform/blob/main/deploy/local/README.md).
-
-**Knowledge and evidence.** [aiworkforce-documents](https://github.com/WeiJiLab/aiworkforce-documents) holds white papers and source evidence. It is not an operator manual and not deployment steps.
+Use AI workers to move a request through your existing project, tools, and engineering environment. Agree the scope, follow execution, and review the change against its acceptance criteria.
 
 <HomeContent section="cta" />
 
-## Choose how to get started
+## From a request to a reviewed change
 
-<HomeContent section="applications" />
+<ProcessDiagram id="delivery-loop" />
 
-## Software Factory
+## Choose your next step
 
-<HomeContent section="build-software" />
+<HomeContent section="paths" />
 
-## Automate Work
+When the first task works, [add automatic triggers](/getting-started/first-automation/), [improve from run feedback](/operate/overview/), or [connect another system](/integrations/overview/). [Learn](/learn/) provides worked examples and judgment exercises; [API](/api/) covers programmatic access.
 
-<HomeContent section="automate-work" />
+## Local setup and source material
 
-## Build Workflows
-
-<HomeContent section="build-workflows" />
-
-## Run Workflows
-
-<HomeContent section="run-workflows" />
-
-## Operate
-
-<HomeContent section="operate" />
-
-## Integrations
-
-<HomeContent section="integrations" />
+For local startup, follow the [deployment guide on the platform repository’s current `main`](https://github.com/WeiJiLab/aiworkforce-platform/blob/main/deploy/local/README.md). The [aiworkforce-documents repository](https://github.com/WeiJiLab/aiworkforce-documents) keeps white papers and source evidence.
 
 ## Read this documentation from an agent
 

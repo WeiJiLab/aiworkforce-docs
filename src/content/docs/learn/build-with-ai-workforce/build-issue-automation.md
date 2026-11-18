@@ -8,3 +8,5 @@ translation:
 ---
 
 Follow [Issue Automation](/workflows/issue-automation/). Polling or inbox intake is not the same as inventing a new issue tracker inside the docs site.
+
+[Back to Build with AI Workforce](/learn/build-with-ai-workforce/).

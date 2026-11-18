@@ -1,24 +1,48 @@
 ---
 title: "运行软件工厂"
-description: "配置、运营并治理跨环境、CI/CD 与看板的 AI 交付流水线。"
+description: "准备看板，完成一项经过审阅的变更，恢复遇阻工作，并用运行记录持续改进。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "410f1dd1db0a343b32cef1ef480a47c3f538375984ce382a22ef9ca98bcb94dd"
+  sourceHash: "599aa0b4700b7633bc7af2aa79297f1edbf3c6f5a29427d0789c572e135f5102"
 ---
 
-本课程面向日常运营软件工厂。课时强调配置顺序，并以 Docs 作为长期产品参考。
+import ProcessDiagram from "../../../../../components/ProcessDiagram.astro";
 
-## 课时
+准备交付看板，完成一项小变更，再用记录下来的结果改进工作流。负责让工程交付保持就绪、遇阻后能够恢复时，使用本课程。已有配置好的看板、只需提交变更时，使用[快速入门](/zh-cn/getting-started/quickstart/)。
 
-1. [Set up a Software Factory](/zh-cn/learn/run-software-factory/set-up-software-factory/)
-2. [Configure Environments](/zh-cn/learn/run-software-factory/configure-environments/)
-3. [Connect CI/CD](/zh-cn/learn/run-software-factory/connect-cicd/)
-4. [Configure Coding Agents](/zh-cn/learn/run-software-factory/configure-coding-agents/)
-5. [Set up Kanban Automation](/zh-cn/learn/run-software-factory/kanban-automation/)
-6. [Automate Issue Processing](/zh-cn/learn/run-software-factory/automate-issue-processing/)
-7. [Configure Verification](/zh-cn/learn/run-software-factory/configure-verification/)
-8. [Set up Governance](/zh-cn/learn/run-software-factory/set-up-governance/)
-9. [Monitor Runs and Cost](/zh-cn/learn/run-software-factory/monitor-runs-cost/)
-10. [Scale Autonomous Development](/zh-cn/learn/run-software-factory/scale-autonomous-development/)
+## 本课程运行什么
+
+沿用[基础课程](/zh-cn/learn/software-factory-foundations/)中的表单校验案例。团队的第一个目标是一项经过审阅、能够指出受检版本和环境的变更。随后用重复任务观察失败、等待和人工投入，再决定是否扩大使用。
+
+<ProcessDiagram id="improvement-loop" />
+
+## 准备、运行与改进
+
+| 阶段               | 检查产出                                       | 权威操作指南                                                                                    |
+| ------------------ | ---------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 准备看板           | 项目具备所需泳道、仓库连接、就绪员工和执行授权 | [配置并运行交付看板](/zh-cn/getting-started/first-software-factory/)                            |
+| 核对执行资源       | 指定环境和流水线能够完成所需检查               | [开发环境](/zh-cn/software-factory/environments/)与 [CI/CD 集成](/zh-cn/software-factory/cicd/) |
+| 跟踪一项已确认变更 | 卡片关联需求、变更、受检版本、环境与审阅决定   | [快速入门](/zh-cn/getting-started/quickstart/)与[证据](/zh-cn/software-factory/evidence/)       |
+| 处理遇阻工作       | 保留失败证据、人工决定和选择的继续方式         | [运行与恢复](/zh-cn/automate/runs-recovery/)与[人工审批](/zh-cn/user-guide/human-approval/)     |
+| 改进下一版本       | 把失败转成案例，检查改进方法后再扩大采用       | [员工测试](/zh-cn/build/testing/)与[评测治理](/zh-cn/operate/evaluation-governance/)            |
+
+项目配置了发布流程时，在[审阅与发布](/zh-cn/software-factory/review-release/)中分别核对合并、部署和清理记录。仅凭卡片关闭或测试通过，不能确认这些结果。
+
+## 按问题深入
+
+1. [搭建软件工厂](/zh-cn/learn/run-software-factory/set-up-software-factory/)
+2. [配置环境](/zh-cn/learn/run-software-factory/configure-environments/)
+3. [连接 CI/CD](/zh-cn/learn/run-software-factory/connect-cicd/)
+4. [配置编码智能体](/zh-cn/learn/run-software-factory/configure-coding-agents/)
+5. [设置看板自动化](/zh-cn/learn/run-software-factory/kanban-automation/)
+6. [自动化 Issue 处理](/zh-cn/learn/run-software-factory/automate-issue-processing/)
+7. [配置验证](/zh-cn/learn/run-software-factory/configure-verification/)
+8. [设置治理](/zh-cn/learn/run-software-factory/set-up-governance/)
+9. [监控运行与成本](/zh-cn/learn/run-software-factory/monitor-runs-cost/)
+10. [扩大可重复交付](/zh-cn/learn/run-software-factory/scale-autonomous-development/)
+
+## 怎样算完成
+
+你能展示一项经过审阅的变更，说明遇阻卡片的下一步，并指出各个已配置发布阶段的记录。你还保留了新版本采用前要重新检查的案例。有证据时记录周期、失败、人工介入和模型用量；比较总投入时也纳入人工与环境成本。这些指标需要基线，不表示平台会自动计算投资回报。

@@ -1,23 +1,47 @@
 ---
 title: "Run a Software Factory"
-description: "Set up, operate, and govern an AI delivery pipeline across environments, CI/CD, and boards."
+description: "Prepare a board, deliver one reviewed change, recover blocked work, and improve from recorded results."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-This track is for operating a Software Factory day to day. Lessons emphasize configuration order and point to Docs for the durable product reference.
+import ProcessDiagram from "../../../../components/ProcessDiagram.astro";
 
-## Lessons
+Prepare a delivery board, run one small change, and improve the workflow from recorded results. Use this track when you are responsible for keeping engineering delivery ready and recoverable. If a configured board is already available and you only need to submit a change, use [Quickstart](/getting-started/quickstart/).
+
+## The example we will operate
+
+Use the same form-validation change as [Foundations](/learn/software-factory-foundations/). The team's first goal is one reviewed change with the tested revision and environment identified. Repeated requests then provide evidence about failures, waiting, and human effort before the team expands use.
+
+<ProcessDiagram id="improvement-loop" />
+
+## Prepare, run, and improve
+
+| Stage                       | Result to check                                                                                  | Authoritative guide                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Prepare the board           | The project has the intended lanes, repository connections, ready employees, and required grants | [Set up and run a delivery board](/getting-started/first-software-factory/)                                  |
+| Check execution resources   | The intended environment and pipeline can perform the required checks                            | [Development environments](/software-factory/environments/) and [CI/CD integration](/software-factory/cicd/) |
+| Follow one confirmed change | The card links its requirement, change, tested revision, environment, and review decision        | [Quickstart](/getting-started/quickstart/) and [evidence](/software-factory/evidence/)                       |
+| Handle blocked work         | Failure evidence, human decisions, and the chosen continuation are preserved                     | [Runs and recovery](/automate/runs-recovery/) and [human approval](/user-guide/human-approval/)              |
+| Improve the next version    | Recorded failures become cases, and the revised method is checked before wider adoption          | [Employee testing](/build/testing/) and [evaluation governance](/operate/evaluation-governance/)             |
+
+For projects configured to release, review merge, deployment, and cleanup records separately in [Review and release](/software-factory/review-release/). A closed card or successful test alone does not establish those outcomes.
+
+## Focused lessons
 
 1. [Set up a Software Factory](/learn/run-software-factory/set-up-software-factory/)
-2. [Configure Environments](/learn/run-software-factory/configure-environments/)
+2. [Configure environments](/learn/run-software-factory/configure-environments/)
 3. [Connect CI/CD](/learn/run-software-factory/connect-cicd/)
-4. [Configure Coding Agents](/learn/run-software-factory/configure-coding-agents/)
-5. [Set up Kanban Automation](/learn/run-software-factory/kanban-automation/)
-6. [Automate Issue Processing](/learn/run-software-factory/automate-issue-processing/)
-7. [Configure Verification](/learn/run-software-factory/configure-verification/)
-8. [Set up Governance](/learn/run-software-factory/set-up-governance/)
-9. [Monitor Runs and Cost](/learn/run-software-factory/monitor-runs-cost/)
-10. [Scale Autonomous Development](/learn/run-software-factory/scale-autonomous-development/)
+4. [Configure coding agents](/learn/run-software-factory/configure-coding-agents/)
+5. [Set up Kanban automation](/learn/run-software-factory/kanban-automation/)
+6. [Automate Issue processing](/learn/run-software-factory/automate-issue-processing/)
+7. [Configure verification](/learn/run-software-factory/configure-verification/)
+8. [Set up governance](/learn/run-software-factory/set-up-governance/)
+9. [Monitor runs and cost](/learn/run-software-factory/monitor-runs-cost/)
+10. [Expand repeatable delivery](/learn/run-software-factory/scale-autonomous-development/)
+
+## Completion check
+
+You can show one reviewed change, explain a blocked card's next action, and identify the records for each configured release stage. You also have a case to recheck before the next version is adopted. Record cycle time, failures, human intervention, and model use where evidence is available; include human and environment costs when comparing total effort. These measures need a baseline and do not imply an automatic ROI calculation.

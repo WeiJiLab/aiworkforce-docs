@@ -1,23 +1,49 @@
 ---
 title: "用 AI Workforce 构建"
-description: "创建工作流、连接 GitHub、添加智能体与技能，然后发布并评测。"
+description: "构建可复用的工程能力，用真实请求试验，并检查第一次自动化运行。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "09cb21a0c7486a81b6b63b73d95bba6bd5e79cea9e8f34c656d0166af4389695"
+  sourceHash: "e129e85dbd9ec2f53afdc60b8257999a3a25d7fe212323050c7ff345c18e03ed"
 ---
 
-当你要配置自动化与智能体工作流时，按本课程推进。多节课会加深现有 Docs 页面；操作步骤以那些指南为准。
+import ProcessDiagram from "../../../../../components/ProcessDiagram.astro";
 
-## 课时
+把已有的工程方法变成可复用的员工能力，再通过一项自动化实际运行。需要的角色或方法还未准备好时，使用本课程。看板已有合适员工时，可以直接从[快速入门](/zh-cn/getting-started/quickstart/)开始。
 
-1. [Create your first Workflow](/zh-cn/learn/build-with-ai-workforce/create-first-workflow/)
-2. [Connect GitHub](/zh-cn/learn/build-with-ai-workforce/connect-github/)
-3. [Build an Issue Automation](/zh-cn/learn/build-with-ai-workforce/build-issue-automation/)
-4. [Create an Agent](/zh-cn/learn/build-with-ai-workforce/create-an-agent/)
-5. [Add Skills & Tools](/zh-cn/learn/build-with-ai-workforce/add-skills-tools/)
-6. [Connect MCP](/zh-cn/learn/build-with-ai-workforce/connect-mcp/)
-7. [Design Agent Handoffs](/zh-cn/learn/build-with-ai-workforce/design-handoffs/)
-8. [Test and Evaluate a Workflow](/zh-cn/learn/build-with-ai-workforce/test-evaluate-workflow/)
-9. [Publish a Workflow](/zh-cn/learn/build-with-ai-workforce/publish-workflow/)
+## 本课程构建什么
+
+继续[基础课程](/zh-cn/learn/software-factory-foundations/)中的表单校验案例。团队需要一名员工调查相似请求，形成可审阅的建议。输入包括 Issue、相关项目资料和验收标准；输出应说明受影响的行为，以及还需要哪些证据。请求在交付卡片上确认后，才开始实施。
+
+<ProcessDiagram id="worker-lifecycle" />
+
+## 按这个顺序构建
+
+| 阶段               | 检查产出                                           | 权威操作指南                                                                                        |
+| ------------------ | -------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| 明确职责           | 写清必需输入、预期输出、不负责的工作和验收标准     | [员工定义](/zh-cn/build/employee-definition/)                                                       |
+| 准备访问           | 员工在授权范围内使用指定仓库和工具                 | [代码仓库](/zh-cn/integrations/code-repositories/)与[员工工具](/zh-cn/integrations/employee-tools/) |
+| 试验真实请求       | 正常请求、缺失输入、超出职责三类案例均有可接受行为 | [员工测试](/zh-cn/build/testing/)                                                                   |
+| 发布并创建实例     | 模板版本已发布，工作空间员工准备就绪               | [发布](/zh-cn/build/publishing/)与[创建员工](/zh-cn/getting-started/first-employee/)                |
+| 先运行，再自动触发 | 检查一次手动 Job 运行的结果，再启用自动触发规则    | [第一个工作流](/zh-cn/getting-started/first-automation/)                                            |
+
+保留试验的输入、接受的输出和失败案例。能力包校验检查结构，任务试验检查实际行为；这些步骤不表示平台已有自动基准评测服务。发布模板与启用 Job 是不同操作，既有员工采用新版本也需要明确安排。
+
+## 按问题深入
+
+需要作某个决定时打开对应课时；要完成整条路径，也可以直接使用上表的操作指南。
+
+1. [创建第一个工作流](/zh-cn/learn/build-with-ai-workforce/create-first-workflow/)
+2. [连接 GitHub](/zh-cn/learn/build-with-ai-workforce/connect-github/)
+3. [构建 Issue 自动化](/zh-cn/learn/build-with-ai-workforce/build-issue-automation/)
+4. [创建智能体](/zh-cn/learn/build-with-ai-workforce/create-an-agent/)
+5. [添加技能与工具](/zh-cn/learn/build-with-ai-workforce/add-skills-tools/)
+6. [连接 MCP](/zh-cn/learn/build-with-ai-workforce/connect-mcp/)
+7. [设计智能体交接](/zh-cn/learn/build-with-ai-workforce/design-handoffs/)
+8. [测试并评估工作结果](/zh-cn/learn/build-with-ai-workforce/test-evaluate-workflow/)
+9. [发布可复用能力](/zh-cn/learn/build-with-ai-workforce/publish-workflow/)
+
+## 怎样算完成
+
+你能指出模板版本、一名就绪的工作空间员工、记录下来的任务试验，以及一次检查过的手动运行。你知道后续由哪条规则触发，以及哪些决定仍由人作出。需要让已确认变更经过团队看板交付时，继续[运行软件工厂](/zh-cn/learn/run-software-factory/)。

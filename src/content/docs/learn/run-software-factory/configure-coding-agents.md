@@ -8,3 +8,5 @@ translation:
 ---
 
 Read [Harness](/software-factory/harness/) and lane assignment in the Software Factory setup guides.
+
+[Back to Run a Software Factory](/learn/run-software-factory/).

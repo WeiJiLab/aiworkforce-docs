@@ -1,19 +1,43 @@
 ---
 title: "Software Factory Foundations"
-description: "Understand AI Software Factory, agentic workflows, verification, and human-in-the-loop review."
+description: "Follow one small change and learn how requirements, execution, verification, and human decisions connect."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-This track builds the mental model for software delivery on AI Workforce. Lessons are short. Where a product guide already covers the steps, the lesson points there instead of inventing a second tutorial.
+import ProcessDiagram from "../../../../components/ProcessDiagram.astro";
 
-## Lessons
+Follow one small software change from a request to a review decision. You can complete this track without a configured deployment; the hands-on steps are in [Quickstart](/getting-started/quickstart/).
 
-1. [What is an AI Software Factory](/learn/software-factory-foundations/what-is-ai-software-factory/)
-2. [How Agentic Workflows work](/learn/software-factory-foundations/how-agentic-workflows-work/)
-3. [From Issue to Delivery](/learn/software-factory-foundations/from-issue-to-delivery/)
-4. [Agents, Environments & Tools](/learn/software-factory-foundations/agents-environments-tools/)
-5. [Verification & Evidence](/learn/software-factory-foundations/verification-evidence/)
-6. [Human-in-the-loop](/learn/software-factory-foundations/human-in-the-loop/)
+## The example we will follow
+
+A form shows the wrong message when a required field is empty. The requested change has two checks: an empty value shows the agreed message, and a valid value still submits. The team must agree on the scope before an employee changes code.
+
+<ProcessDiagram id="delivery-loop" />
+
+## Follow the change
+
+| Stage                       | What you should be able to explain                                           | Read or try                                                   |
+| --------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Agree on the work           | What may change, who confirms it, and which behavior will be checked         | [Write verifiable requirements](/learn/requirements-writing/) |
+| Execute in the real project | Which employee, tools, and environment can perform the work                  | [Software Factory overview](/software-factory/overview/)      |
+| Decide from evidence        | Which revision was checked, what passed, and who accepts or returns the work | [Evidence and trace](/software-factory/evidence/)             |
+
+## Explore a question
+
+Each lesson adds a decision or example to the same change. Read them in order, or open the question you need.
+
+1. [What is an AI Software Factory?](/learn/software-factory-foundations/what-is-ai-software-factory/) — identify what connects a request to a reviewable result.
+2. [How do agentic workflows work?](/learn/software-factory-foundations/how-agentic-workflows-work/) — distinguish the reusable method from this execution.
+3. [How does an Issue reach delivery?](/learn/software-factory-foundations/from-issue-to-delivery/) — follow the request and find the human confirmation point.
+4. [How do agents, environments, and tools fit together?](/learn/software-factory-foundations/agents-environments-tools/) — check execution readiness.
+5. [What counts as verification evidence?](/learn/software-factory-foundations/verification-evidence/) — reject a result checked on the wrong revision.
+6. [When does a person intervene?](/learn/software-factory-foundations/human-in-the-loop/) — respond to changed scope and explicitly hand work back.
+
+## Completion check
+
+You can describe the confirmed request, the work performed, the tested revision and environment, and the review decision. You can also explain why a missing test or an unconfirmed request blocks a claim of completion.
+
+On a configured board, follow [Quickstart](/getting-started/quickstart/) to create those records. To prepare reusable execution capabilities, continue with [Build with AI Workforce](/learn/build-with-ai-workforce/).

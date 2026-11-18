@@ -24,6 +24,7 @@ npm run check
 npm run build
 npm run check:links
 npm run check:navigation
+npm run check:diagrams
 ```
 
 `npm run preview` serves the production build, including the Pagefind search index. Search indexing is a production build step; use the preview to verify it.
@@ -37,6 +38,8 @@ A page may set `status` to `available` (the default), `beta`, or `planned`. Beta
 Content lives in `src/content/docs/`. Chinese files mirror the English paths under `zh-cn/`. Start a guide from `templates/guide.md`. Starlight supplies the H1. Use absolute links to the language-appropriate page. Add every new guide to the correct portal in `src/lib/sidebar.mjs`. Existing guide URLs stay valid when their section changes; removed pages need redirects.
 
 After a production build, `npm run check:navigation` checks direct page loads, the portal sidebar, top navigation, localized language targets, and pagination within each portal. The sidebar does not include a contact-support link. Homepage section headings are written as Markdown so Starlight can generate their table of contents.
+
+`npm run check:diagrams` checks linked SVG steps in both layouts and languages, standalone diagram files, and the equivalent guide links in Markdown exports. Diagram definitions live in `src/lib/process-diagrams.ts` and are shared by all three outputs.
 
 Every page requires a title, description, and translation metadata. `sourceVersion` records the reviewed product/date baseline. A Chinese page marked `complete` also records `sourceHash`, the SHA-256 of the entire English file. After reviewing a translation, compute its new hash:
 

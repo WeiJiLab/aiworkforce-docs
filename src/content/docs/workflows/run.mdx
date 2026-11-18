@@ -1,0 +1,44 @@
+---
+title: "Run and recover work"
+description: "Prepare a task, follow its execution, and handle interruptions before accepting the result."
+last_verified: "2026-11-18"
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
+
+Use this path when a task is ready to execute, or when work has stopped and you need to decide how to continue. Keep the original request and execution records together so the next decision uses what actually happened.
+
+<ProcessDiagram id="run-recovery" />
+
+## Check readiness
+
+Before starting, confirm the task has enough input, an appropriate worker, permission to use the required resources, and an environment where the checks can run. For a software change, the delivery card must have confirmed scope and acceptance criteria.
+
+[Runtime management](/deployment/runtime-environments/) explains execution placement. [Development environments](/software-factory/environments/) and [CI/CD integration](/software-factory/cicd/) cover the resources needed for engineering work.
+
+## Follow one task
+
+For a small form-validation fix, open the card's session and code reference as execution progresses. When verification finishes, check which version and environment the result covers. The result is ready for review when the required outputs and evidence are present.
+
+For a Job, use its run history to inspect status, output, and the linked session. A successful collection run may have created an inbox item; that request still needs confirmation before development.
+
+## Handle an interruption
+
+| What you observe                      | What to do next                                                                      |
+| ------------------------------------- | ------------------------------------------------------------------------------------ |
+| Missing input or a pending decision   | Supply the information or record the decision within the agreed scope.               |
+| Missing access or an unavailable tool | Repair the connection or grant through the responsible owner, then verify readiness. |
+| Failed verification                   | Preserve the failure evidence, repair the change, and check the new version.         |
+| Human takeover                        | Record what was done and explicitly hand control back when ready.                    |
+
+Inspect existing actions before retrying so a repeated attempt does not duplicate work. Resuming a pause does not clear a takeover. Requesting cancellation does not prove that a remote process has stopped; check the execution evidence.
+
+## Accept the result
+
+The reviewer can find the request, the execution record, the output, and evidence that covers the acceptance criteria. Software merge, deployment, and resource cleanup each need their own confirmation when those stages are used.
+
+Continue with [runs, results, and recovery](/automate/runs-recovery/) for the controls, or [evidence and trace](/software-factory/evidence/) when deciding whether to accept the work.

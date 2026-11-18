@@ -1,0 +1,44 @@
+---
+title: "Continuous operation"
+description: "Use run evidence, failures, human effort, and cost to improve a workflow before expanding it."
+last_verified: "2026-11-18"
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
+
+Operate a workflow by checking whether real tasks produce acceptable results and what it takes to keep them working. Begin with one workflow and a small set of comparable tasks before extending it to more teams.
+
+<ProcessDiagram id="improvement-loop" />
+
+## Read results in context
+
+Review failed work and successful work that needed repeated human intervention. Keep the task, worker version, result, and acceptance decision together. Usage records help explain inputs; the team still needs to establish the business outcome.
+
+For a report-review worker, repeated requests to supply missing source references may indicate a weak output method. If it never reached the source system, investigate the connection or permission first.
+
+## Choose a specific improvement
+
+| Question                                           | Where to look                                                                                                |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Why did this task stop or require help?            | [Runs and recovery](/automate/runs-recovery/) and [observability](/software-factory/observability/)          |
+| Which cases should a new version pass?             | [Execution evaluation](/software-factory/evaluation/)                                                        |
+| What model usage and cost can we actually observe? | [Models and cost](/models/overview/) and [usage and analytics](/administration/analytics/)                   |
+| Who can use resources and make key decisions?      | [Platform governance](/operate/evaluation-governance/) and [teams and access](/administration/teams-access/) |
+
+Change the method, task input, tool connection, or responsible control that explains the failure. Do not broaden permissions to hide a poor result.
+
+## Check before expanding
+
+Repeat relevant cases after the change, including past failures. Compare accepted results, rework, human takeovers, and the inputs used. Business cycle time and total human effort may need team-maintained measurements; platform usage alone does not calculate return on investment.
+
+Adopt a new version deliberately and confirm the actual workspace instances using it. This is a team improvement process, not automatic self-learning or automatic template rollout.
+
+## Know what improved
+
+The team can explain the failure it addressed, show the cases it repeated, identify the adopted version, and describe remaining limits. Expand to another task or team only after the current workflow meets its agreed criteria.
+
+Use [execution evaluation](/software-factory/evaluation/) to define the next comparison. For a new workflow, [prepare the delivery board](/getting-started/first-software-factory/) before measuring its operation.

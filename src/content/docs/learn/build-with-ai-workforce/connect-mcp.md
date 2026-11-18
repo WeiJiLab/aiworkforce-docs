@@ -8,3 +8,5 @@ translation:
 ---
 
 Read [MCP integration](/build/mcp-integration/) for authoring, and [MCP](/integrations/mcp/) under API for the Automation MCP surface agents can call.
+
+[Back to Build with AI Workforce](/learn/build-with-ai-workforce/).

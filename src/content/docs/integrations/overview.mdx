@@ -1,18 +1,44 @@
 ---
-title: "Integration directory"
-description: "Open the guide for each connection AI Workforce supports, grouped the way the product groups them."
-last_verified: "2026-11-18"
+title: "Integration overview"
+description: "Choose the connection that matches your task and distinguish platform capabilities from external-client compatibility."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
+last_verified: "2026-11-18"
 ---
 
-An integration is a named connection between AI Workforce and another system. Use it to make a repository available, to let an event start a Job, to import tasks, or to carry a conversation with an employee. A successful connection still needs the grant, the selected resource, and the enabled trigger that the task actually uses.
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
 
-The groups below follow the product: code hosting, issue import, messaging, and monitoring. MCP, inbound webhooks, and employee tools already have their own guides. This directory links to them. ACP and A2A are not connections in this product.
+Connect the resources a task needs, then check that its actual worker can use them. An integration may bring work into the platform, provide access to a resource, or let another system invoke a task.
 
-## Code hosting
+<ProcessDiagram id="integration-trust" />
+
+## Choose the purpose
+
+| What you want to do                           | Start here                                                                                             |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Work with an existing codebase                | [Code repositories](/integrations/code-repositories/)                                                  |
+| Let a worker read or act in a business system | [Employee tools](/integrations/employee-tools/)                                                        |
+| Start work from a signal                      | [Event-driven automation](/automate/event-driven/) or [webhook triggers](/automate/watchers-webhooks/) |
+| Call a published task from an external client | [API](/api/) or [platform MCP](/integrations/mcp/)                                                     |
+
+## Verify one connection
+
+For a repository task, select the intended provider account and repository, authorize the employee that will perform the work, and try a small read. Inspect the recorded result before using it for a code change. A connected account alone does not grant every employee repository access.
+
+1. Choose only the repository, channel, or resource needed for the task.
+2. Create or select a connection in the correct workspace or account scope and confirm its external identity.
+3. Configure the execution employee's grants and required capabilities.
+4. Try a small read or test event, then inspect the real result.
+
+For a business system without a native catalog entry, use a compatible MCP service or a registered Automation. Confirm that the actual tools support the intended operation. Naming a service in instructions only describes a dependency.
+
+## Connection directory
+
+The groups below follow the product. Open the provider guide for its connection mode and preparation; shared connection and authorization rules still apply.
+
+### Code hosting
 
 Workspace credentials, repository connections, and employee grants follow one model. Provider differences are on each host's page.
 
@@ -23,7 +49,7 @@ Workspace credentials, repository connections, and employee grants follow one mo
 | [Yunxiao Codeup](/integrations/yunxiao/)              | The code or Projex work items live on Alibaba Cloud Yunxiao, including a Region instance.                |
 | [Code repositories](/integrations/code-repositories/) | You need the shared rules for tokens, instances, discovery, and employee grants.                         |
 
-## Issue import
+### Issue import
 
 GitHub and Yunxiao imports use a repository or project picker on the signed-in user's own token. Those steps are on the host pages above. Jira and Linear appear in the same import dialog only after an administrator has connected a source for that workspace.
 
@@ -34,7 +60,7 @@ GitHub and Yunxiao imports use a repository or project picker on the signed-in u
 
 Import creates inbox tasks. It does not start a session, sync later changes, or write status back.
 
-## Messaging
+### Messaging
 
 These are chat channels. A channel can reach the primary employee and, where the channel accepts inbound messages, start a Job from an allowed sender in one conversation. The channel does not replace the workflow, the board, or the Job.
 
@@ -49,7 +75,7 @@ These are chat channels. A channel can reach the primary employee and, where the
 
 Open **Integrations** for the cards the workspace catalog lists. DingTalk is chosen in the same **Connect a messaging channel** dialog as the other chat providers.
 
-## Monitoring
+### Monitoring
 
 A monitoring connection receives events for the person who created it in that workspace. It can start a published Job. It does not file a research report by itself, and it does not update the external incident.
 
@@ -60,7 +86,7 @@ A monitoring connection receives events for the person who created it in that wo
 
 The Job that runs is the same Job model as a schedule. See [research and monitoring](/workflows/research-monitoring/).
 
-## Tools and inbound calls
+### Tools and inbound calls
 
 | Guide                                                 | Use it when                                                                                       |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -69,8 +95,8 @@ The Job that runs is the same Job model as a schedule. See [research and monitor
 | [Webhooks](/integrations/webhooks/)                   | An external system should start one published Job with an inbound call.                           |
 | [Watchers and webhooks](/automate/watchers-webhooks/) | You are attaching that inbound trigger on the Job.                                                |
 
-## Related guides
+## Confirm the task can use it
 
-- [Issue automation](/workflows/issue-automation/)
-- [Pull request automation](/workflows/pull-request-automation/)
-- [Event-driven automation](/automate/event-driven/)
+You can identify the external account, selected resources, authorized executor, and a successful small-task result. For a repository connection, continue with [code repositories](/integrations/code-repositories/). For an external caller, use the [API integration path](/api/).
+
+The platform's MCP interface exposes registered Automations to authorized clients. Employee connections to external MCP services and the documentation's Markdown endpoints serve different purposes; see [MCP integration](/integrations/mcp/) when choosing the direction of access.

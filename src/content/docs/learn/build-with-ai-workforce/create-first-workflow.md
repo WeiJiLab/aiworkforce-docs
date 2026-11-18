@@ -8,3 +8,5 @@ translation:
 ---
 
 Start with [first automation](/getting-started/first-automation/) and [workflow builder](/automate/workflow-builder/). This lesson does not replace those guides; it frames the order: define the outcome, pick a trigger, assign an executor, then run once by hand.
+
+[Back to Build with AI Workforce](/learn/build-with-ai-workforce/).

@@ -1,0 +1,42 @@
+---
+title: "Build reusable AI workers"
+description: "Turn a proven way of working into an AI worker your team can use and review."
+last_verified: "2026-11-18"
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
+
+Build a reusable AI worker when a team repeatedly needs the same kind of work: requirements clarification, architecture review, or a specified test procedure. Start with one real task and an expert who can explain the decisions and acceptance criteria.
+
+The result is a versioned capability a workspace can adopt, with clear responsibilities, tool dependencies, and evidence for judging its work.
+
+<ProcessDiagram id="worker-lifecycle" />
+
+## Start with the work
+
+For a test-report reviewer, agree which reports it reads, what counts as a finding, and what it must submit. The expert supplies examples and required checks. The builder or FDE turns those into instructions and methods, connects the tools, and tries real tasks with the expert.
+
+Write down the expected output before choosing tools. A useful acceptance criterion might be: every finding identifies a source and explains which requirement it affects. Decide which exceptions need a person.
+
+## Build and check one version
+
+| Decision                                                          | Guide                                                                                              |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| What work does this role own, and what is outside its scope?      | [Employee definition](/build/employee-definition/)                                                 |
+| Which methods and tools does it need?                             | [Skills and plugins](/build/skills-plugins/) and [tool connections](/integrations/employee-tools/) |
+| Does it work on normal, missing-input, and out-of-scope requests? | [Employee testing](/build/testing/)                                                                |
+| How will the team obtain and adopt the version?                   | [Publishing and distribution](/build/publishing/)                                                  |
+
+Tool names in instructions do not grant access. Test the workspace instance with the connections and permissions it will actually use. Package validation checks structure; task trials and expert review establish whether the role meets its acceptance criteria.
+
+## Know when it is ready
+
+A reviewer can identify the version, repeat its task trials, and inspect the outputs and supporting evidence. Required tools work within the agreed permissions, and a person knows how to handle exceptions.
+
+Publishing a template makes it available for use. Existing employees do not automatically adopt later template changes. Record which version the team uses, and send reproducible failures back to the builder for the next trial.
+
+Start by writing an [employee definition](/build/employee-definition/). If a suitable template already exists, [create a workspace employee](/getting-started/first-employee/) and check its first result instead.

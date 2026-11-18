@@ -1,22 +1,48 @@
 ---
 title: "Build with AI Workforce"
-description: "Create workflows, connect GitHub, add agents and skills, then publish and evaluate."
+description: "Build a reusable engineering capability, test it on real requests, and inspect its first automated run."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-Follow this track when you are configuring automations and agent workflows. Several lessons deepen existing Docs pages; open those guides for the authoritative steps.
+import ProcessDiagram from "../../../../components/ProcessDiagram.astro";
 
-## Lessons
+Turn a known engineering procedure into a reusable employee capability, then run it through one automation. Use this track when the required role or method is not ready yet. If the board already has suitable employees, start with [Quickstart](/getting-started/quickstart/).
 
-1. [Create your first Workflow](/learn/build-with-ai-workforce/create-first-workflow/)
+## The example we will build
+
+Continue the form-validation example from [Foundations](/learn/software-factory-foundations/). The team wants a worker that investigates similar requests and prepares a reviewable proposal. Its inputs are the Issue, relevant project materials, and acceptance criteria. Its output must explain the affected behavior and the evidence still needed. Implementation starts only after the request is confirmed on a delivery card.
+
+<ProcessDiagram id="worker-lifecycle" />
+
+## Build in this order
+
+| Stage                          | Result to check                                                                        | Authoritative guide                                                                                       |
+| ------------------------------ | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Define the responsibility      | Required inputs, expected output, exclusions, and acceptance criteria are written down | [Employee definition](/build/employee-definition/)                                                        |
+| Prepare access                 | The worker can use the intended repository and tools within its grants                 | [Code repositories](/integrations/code-repositories/) and [employee tools](/integrations/employee-tools/) |
+| Try real requests              | A normal request, missing input, and out-of-scope work produce acceptable behavior     | [Employee testing](/build/testing/)                                                                       |
+| Publish and create an instance | A published template version is available, and the workspace employee is ready         | [Publishing](/build/publishing/) and [create an employee](/getting-started/first-employee/)               |
+| Run once, then automate        | One manual Job run has an inspected result before an automatic trigger is enabled      | [Your first workflow](/getting-started/first-automation/)                                                 |
+
+Record the inputs, accepted outputs, and failures from trials. Package validation checks structure; task trials check behavior. These steps do not require or imply an automatic benchmark service. Publishing a template and enabling a Job are separate actions, and existing employees need an explicit version-adoption plan.
+
+## Focused lessons
+
+Open a lesson for a particular decision, or follow the direct guides above to complete the path.
+
+1. [Create your first workflow](/learn/build-with-ai-workforce/create-first-workflow/)
 2. [Connect GitHub](/learn/build-with-ai-workforce/connect-github/)
-3. [Build an Issue Automation](/learn/build-with-ai-workforce/build-issue-automation/)
-4. [Create an Agent](/learn/build-with-ai-workforce/create-an-agent/)
-5. [Add Skills & Tools](/learn/build-with-ai-workforce/add-skills-tools/)
+3. [Build an Issue automation](/learn/build-with-ai-workforce/build-issue-automation/)
+4. [Create an agent](/learn/build-with-ai-workforce/create-an-agent/)
+5. [Add skills and tools](/learn/build-with-ai-workforce/add-skills-tools/)
 6. [Connect MCP](/learn/build-with-ai-workforce/connect-mcp/)
-7. [Design Agent Handoffs](/learn/build-with-ai-workforce/design-handoffs/)
-8. [Test and Evaluate a Workflow](/learn/build-with-ai-workforce/test-evaluate-workflow/)
-9. [Publish a Workflow](/learn/build-with-ai-workforce/publish-workflow/)
+7. [Design agent handoffs](/learn/build-with-ai-workforce/design-handoffs/)
+8. [Test and evaluate the work](/learn/build-with-ai-workforce/test-evaluate-workflow/)
+9. [Publish a reusable capability](/learn/build-with-ai-workforce/publish-workflow/)
+
+## Completion check
+
+You have identified the template version, a ready workspace employee, recorded task trials, and one inspected manual run. You know which trigger will start later runs and which decisions remain with people. To carry confirmed changes through a team board, continue with [Run a Software Factory](/learn/run-software-factory/).

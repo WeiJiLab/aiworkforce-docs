@@ -8,3 +8,5 @@ translation:
 ---
 
 Use [Agent handoff](/automate/agent-handoff/) for the supported patterns in this baseline.
+
+[Back to Build with AI Workforce](/learn/build-with-ai-workforce/).

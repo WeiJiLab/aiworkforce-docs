@@ -8,3 +8,5 @@ translation:
 ---
 
 Use [Issue Automation](/workflows/issue-automation/) after the board exists.
+
+[Back to Run a Software Factory](/learn/run-software-factory/).

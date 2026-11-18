@@ -1,13 +1,6 @@
-export type HomeSection =
-  | "cta"
-  | "applications"
-  | "build-software"
-  | "automate-work"
-  | "build-workflows"
-  | "run-workflows"
-  | "operate"
-  | "integrations"
-  | "agents";
+import { withBase } from "./site.mjs";
+
+export type HomeSection = "cta" | "paths" | "agents";
 export type LandingPortal = "api" | "learn";
 export type PortalSection = "paths" | "guides" | "next";
 
@@ -16,36 +9,25 @@ export interface LandingGuide {
   readonly description: string;
   readonly href: string;
 }
-
 interface HomeContent {
   readonly primaryCta: LandingGuide;
   readonly secondaryCta: LandingGuide;
-  readonly applications: readonly LandingGuide[];
-  readonly buildSoftware: readonly LandingGuide[];
-  readonly automateWork: readonly LandingGuide[];
-  readonly buildWorkflows: readonly LandingGuide[];
-  readonly runWorkflows: readonly LandingGuide[];
-  readonly operate: readonly LandingGuide[];
-  readonly integrations: readonly LandingGuide[];
+  readonly paths: readonly LandingGuide[];
   readonly agents: {
     readonly title: string;
     readonly description: string;
     readonly links: readonly LandingGuide[];
   };
 }
-
 export interface PortalPath extends LandingGuide {
   readonly label: string;
   readonly outcome: string;
 }
-
 export interface PortalContent {
   readonly paths: readonly PortalPath[];
   readonly guides: readonly LandingGuide[];
   readonly next: readonly LandingGuide[];
 }
-
-import { withBase } from "./site.mjs";
 
 export function localizedGuideHref(href: string, zh: boolean): string {
   return withBase(`${zh ? "/zh-cn" : ""}/${href}/`);
@@ -60,8 +42,8 @@ export function getHomeContent(zh: boolean): HomeContent {
     primaryCta: guide(
       zh ? "交付第一项变更" : "Deliver your first change",
       zh
-        ? "把一条 Issue 送到交付看板，跟踪实现，并审阅验证证据。"
-        : "Take an Issue through the delivery board, then review the change and its evidence.",
+        ? "在已就绪的看板上完成一项小需求。"
+        : "Complete a small request on a ready delivery board.",
       "getting-started/quickstart",
     ),
     secondaryCta: guide(
@@ -71,234 +53,34 @@ export function getHomeContent(zh: boolean): HomeContent {
         : "Follow a form fix from acceptance criteria to code and verification evidence.",
       "recipes/issue-to-pr",
     ),
-    applications: [
+    paths: [
       guide(
-        zh ? "在现有看板上交付" : "Deliver on an existing board",
+        zh ? "配置交付看板" : "Set up a delivery board",
         zh
-          ? "已有交付项目？用一条小 Issue 跑通需求确认、实现和审阅。"
-          : "Already have a delivery project? Take a small issue through confirmation, implementation, and review.",
-        "getting-started/quickstart",
-      ),
-      guide(
-        zh ? "配置团队交付" : "Set up team delivery",
-        zh
-          ? "创建交付看板，连接仓库，配置执行和验证，试跑第一张卡片。"
-          : "Create a delivery board, connect a repository, configure execution and verification, and try your first card.",
+          ? "创建看板，准备仓库、员工和验证资源，并试跑第一张卡片。"
+          : "Create a board, prepare its repository, workers, and checks, then try the first card.",
         "getting-started/first-software-factory",
       ),
       guide(
-        zh ? "从外部系统启动 Job" : "Start a Job from an external system",
+        zh ? "构建可复用能力" : "Build a reusable worker",
         zh
-          ? "用入站 Webhook 触发已发布的 Job，然后查询运行结果。"
-          : "Trigger a published Job with an inbound webhook, then query the run for its result.",
-        "integrations/webhooks",
+          ? "把专家流程变成有职责、工具和验收标准的 AI worker。"
+          : "Turn an expert procedure into an AI worker with tools and acceptance criteria.",
+        "build/overview",
       ),
-    ],
-    buildSoftware: [
       guide(
-        zh ? "交付流程概览" : "Delivery overview",
+        zh ? "准备并运行工作" : "Prepare and run work",
         zh
-          ? "了解从工作进入到审阅与发布的交付路径。"
-          : "Explore the delivery path from intake through review and release.",
-        "software-factory/overview",
-      ),
-      guide(
-        zh ? "Issue 自动化" : "Issue Automation",
-        zh
-          ? "把事项整理、确认并送入交付。"
-          : "Triage, confirm, and route issues into delivery.",
-        "workflows/issue-automation",
-      ),
-      guide(
-        zh ? "看板自动化" : "Kanban Automation",
-        zh
-          ? "按泳道推进持续交付。"
-          : "Move continuous delivery work through lanes.",
-        "workflows/kanban-workbench",
-      ),
-      guide(
-        zh ? "Pull Request 自动化" : "Pull Request Automation",
-        zh
-          ? "轮询 GitHub PR 事件，匹配规则时启动 Job 并查看调查结果。"
-          : "Poll GitHub for pull request events, start a Job on a match, and review its findings.",
-        "workflows/pull-request-automation",
-      ),
-      guide(
-        zh ? "构建与验证" : "Build and verification",
-        zh
-          ? "核对候选版本和已配置的构建与测试结果。"
-          : "Check the release candidate and its configured build and test results.",
-        "software-factory/build-test",
-      ),
-    ],
-    automateWork: [
-      guide(
-        zh ? "工作流概念" : "Workflow concepts",
-        zh
-          ? "工作流、自动化与运行如何区分。"
-          : "How workflow, automation, and run differ.",
-        "workflows/concepts",
-      ),
-      guide(
-        zh ? "自动化基础" : "Automation fundamentals",
-        zh
-          ? "Job、触发与持续推进。"
-          : "Jobs, triggers, and continuous progress.",
-        "automate/fundamentals",
-      ),
-      guide(
-        zh ? "触发与日程" : "Triggers and schedules",
-        zh ? "决定工作流何时启动。" : "Decide when a workflow starts.",
-        "automate/triggers-schedules",
-      ),
-      guide(
-        zh ? "事件驱动" : "Event-driven work",
-        zh ? "由外部事件启动运行。" : "Start runs from external events.",
-        "automate/event-driven",
-      ),
-      guide(
-        zh ? "持续工作" : "Continuous work",
-        zh
-          ? "循环、观察与看板消耗。"
-          : "Loops, watchers, and board consumption.",
-        "automate/loops",
-      ),
-    ],
-    buildWorkflows: [
-      guide(
-        zh ? "智能体" : "Agents",
-        zh
-          ? "工作流内的执行参与者。数字员工是其中一种配置形态。"
-          : "Execution participants inside a workflow. Employees are one configured form.",
-        "user-guide/ai-employees",
-      ),
-      guide(
-        zh ? "技能与插件" : "Skills and plugins",
-        zh
-          ? "可复用的工作方法与能力包。"
-          : "Reusable methods and capability packages.",
-        "build/skills-plugins",
-      ),
-      guide(
-        zh ? "工具与 MCP" : "Tools and MCP",
-        zh
-          ? "一次操作，或 MCP 服务暴露的外部工具。"
-          : "An operation, or tools exposed by an MCP server.",
-        "build/mcp-integration",
-      ),
-      guide(
-        zh ? "智能体交接" : "Agent handoffs",
-        zh
-          ? "在步骤之间传递上下文与责任。"
-          : "Pass context and responsibility between steps.",
-        "automate/agent-handoff",
-      ),
-      guide(
-        zh ? "工作流配置" : "Workflow configuration",
-        zh
-          ? "用构建器组合触发、执行与审批。"
-          : "Compose triggers, execution, and approvals in the builder.",
-        "automate/workflow-builder",
-      ),
-    ],
-    runWorkflows: [
-      guide(
-        zh ? "环境" : "Environments",
-        zh
-          ? "仓库、设备与流水线资源。"
-          : "Repositories, devices, and pipeline resources.",
-        "software-factory/environments",
-      ),
-      guide(
-        zh ? "编码智能体与 Harness" : "Coding agents and harness",
-        zh
-          ? "执行变更的运行时与约束。"
-          : "Runtime and constraints for applying changes.",
-        "software-factory/harness",
-      ),
-      guide(
-        zh ? "运行时" : "Runtime",
-        zh
-          ? "平台、自托管或已授权设备。"
-          : "Platform, self-hosted, or an authorized device.",
-        "deployment/runtime-environments",
-      ),
-      guide(
-        zh ? "运行与恢复" : "Runs and recovery",
-        zh
-          ? "跟进一次运行并处理失败。"
-          : "Follow a run and recover from failure.",
-        "automate/runs-recovery",
-      ),
-      guide(
-        zh ? "证据" : "Evidence",
-        zh
-          ? "证明工作完成，而不只是对话结束。"
-          : "Proof the work finished, not only that the conversation ended.",
-        "software-factory/evidence",
-      ),
-    ],
-    operate: [
-      guide(
-        zh ? "项目" : "Projects",
-        zh
-          ? "交付项目与工作空间边界。"
-          : "Delivery projects and workspace boundaries.",
-        "user-guide/projects",
-      ),
-      guide(
-        zh ? "权限" : "Permissions",
-        zh
-          ? "团队访问与授权边界。"
-          : "Team access and authorization boundaries.",
-        "administration/teams-access",
-      ),
-      guide(
-        zh ? "模型与成本" : "Models and cost",
-        zh ? "模型通道与用量观察。" : "Model channels and usage visibility.",
-        "models/overview",
-      ),
-      guide(
-        zh ? "评测与治理" : "Evaluation and governance",
-        zh
-          ? "验收、评测与发布门禁。"
-          : "Acceptance, evaluation, and release gates.",
-        "operate/evaluation-governance",
-      ),
-      guide(
-        zh ? "可观测性" : "Observability",
-        zh ? "运行记录与审计。" : "Run records and audit.",
-        "software-factory/observability",
-      ),
-    ],
-    integrations: [
-      guide(
-        zh ? "集成总览" : "Integrations overview",
-        zh
-          ? "仓库、消息渠道与事件入口。"
-          : "Repositories, chat channels, and event entry points.",
-        "integrations/overview",
-      ),
-      guide(
-        zh ? "GitHub 与代码仓库" : "GitHub and repositories",
-        zh
-          ? "连接代码托管与交付项目。"
-          : "Connect code hosting and delivery projects.",
-        "integrations/code-repositories",
-      ),
-      guide(
-        zh ? "MCP、Webhook 与 API" : "MCP, webhooks, and API",
-        zh
-          ? "程序化集成见 API 栏目。"
-          : "Programmatic integration lives under API.",
-        "api",
+          ? "准备执行条件，跟进结果，并明确处理遇阻与恢复。"
+          : "Prepare execution, follow results, and handle blocks and recovery.",
+        "workflows/run",
       ),
     ],
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / API 分组，并标出规划中的能力。"
-        : "Read any page as Markdown. The index follows Docs, Learn, and API and marks planned capabilities.",
+        ? "每页可读取 Markdown 原文。流程图同步提供步骤说明与指南链接，索引按 Docs / Learn / API 分组。"
+        : "Read any page as Markdown, including diagram steps and guide links. The index follows Docs, Learn, and API.",
       links: [
         {
           title: "llms.txt",
@@ -326,8 +108,8 @@ export function getPortalContent(
           label: zh ? "软件工厂" : "Software Factory",
           title: zh ? "软件工厂" : "Software Factory",
           description: zh
-            ? "跟随一条 Issue，了解如何执行、验证和审阅变更。"
-            : "Follow one issue through implementation, verification, and review.",
+            ? "用同一项小需求理解执行、验证与人工审阅。"
+            : "Follow one small change through execution, verification, and human review.",
           href: "learn/software-factory-foundations",
           outcome: zh
             ? "理解软件工厂主线"
@@ -340,7 +122,7 @@ export function getPortalContent(
             ? "创建自动化与智能体工作流，连接仓库、技能与交接。"
             : "Create automations and agent workflows; connect repos, skills, and handoffs.",
           href: "learn/build-with-ai-workforce",
-          outcome: zh ? "发布一条可用工作流" : "Publish a working workflow",
+          outcome: zh ? "验证并复用工作方法" : "Validate and reuse a method",
         },
         {
           label: zh ? "运行软件工厂" : "Run a Software Factory",
@@ -405,12 +187,12 @@ export function getPortalContent(
         },
         {
           label: zh ? "Webhook" : "Webhooks",
-          title: zh ? "通过 Webhook 触发 Job" : "Trigger a Job with a webhook",
+          title: zh ? "从外部系统触发任务" : "Trigger work from another system",
           description: zh
-            ? "从外部系统启动已发布的 Job，并查询运行结果。"
-            : "Start a published Job from an external system and query its run for the result.",
+            ? "调用已发布的 Job，取得运行记录并查询结果。"
+            : "Invoke a published Job, retain its run record, and query the result.",
           href: "integrations/webhooks",
-          outcome: zh ? "按运行 ID 查询" : "Look up a run by ID",
+          outcome: zh ? "跟踪一次外部调用" : "Follow one external invocation",
         },
         {
           label: "MCP",

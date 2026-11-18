@@ -5,7 +5,9 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2b0096d2263d9b407915560caddfc5047177d6ba47a5ea6f5030efdac4f809aa"
+  sourceHash: "95f65e376edac239fd2884b0c3e141b4df19369373e65e09300b80df3741d28b"
 ---
 
 看板就绪后使用 [Issue 自动化](/zh-cn/workflows/issue-automation/)。
+
+[返回「运行软件工厂」课程](/zh-cn/learn/run-software-factory/)。

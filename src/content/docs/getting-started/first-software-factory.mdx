@@ -5,7 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
+last_verified: "2026-11-18"
 ---
+
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
 
 Start with a workspace that has no delivery board. You will create the board, connect the execution resources, and follow a small change through verification. If the board is already configured, go to [Quickstart](/getting-started/quickstart/).
 
@@ -40,4 +43,12 @@ Board settings for a project that is not saved yet show **Observe mode** (观察
 2. Follow the card through development. In **Executions**, check the session that handled the change. In **Deliverables**, open the code reference. A pull request is available when the configured delivery path produces one.
 3. Check both behaviors from the sample in the test environment. An empty field shows the corrected message, and a valid value still submits. Record the tested commit or candidate version, the environment, and the result for each acceptance criterion. If a check fails, attach the evidence, return the card for repair, and verify the new revision. Record the review decision on the card.
 
-The board is ready for the next change when the first card has a confirmed request, an execution record, a code reference, versioned verification evidence, and a recorded review decision. See [troubleshoot a delivery board](/getting-started/delivery-board-troubleshooting/) for a stopped card and [review and release](/software-factory/review-release/) to follow a change beyond review.
+The board is ready for the next change when the first card has a confirmed request, an execution record, a code reference, versioned verification evidence, and a recorded review decision.
+
+## Recover a blocked card
+
+<ProcessDiagram id="run-recovery" />
+
+If the card stops progressing, use [Troubleshoot a blocked delivery card](/getting-started/delivery-board-troubleshooting/) to decide what to do from its lane, execution record, and pending requests.
+
+After review, check the configured merge, release, and cleanup stages separately. See [review and release](/software-factory/review-release/).

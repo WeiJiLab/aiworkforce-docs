@@ -7,8 +7,20 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-A Software Factory is not a separate engine. It is a [workflow application](/workflows/applications/) that uses the same Workflow → Automation → Agent model as the rest of AI Workforce.
+A Software Factory connects a confirmed engineering request to execution, checks, and a review decision. In AI Workforce, the delivery board keeps the request and its linked records together. The team uses configured employees and environments to carry out the work.
 
-In practice it means: confirmed requirements become delivery-board cards, agents execute inside configured environments, checks produce evidence, and a person reviews before merge or release.
+## Follow the form example
 
-Read the product overview: [Software Factory](/software-factory/overview/).
+The request is to correct the message shown for an empty required field. First, a person confirms the intended message and that valid input must still submit. An employee implements the change. Checks run on a known revision, and a reviewer compares their results with the request.
+
+The useful result is a reviewable change with supporting evidence. Merge, deployment, and cleanup follow the project's configured process; they need their own records.
+
+## Try this judgment
+
+An employee reports “fixed” and supplies a diff, but the form was never exercised. Is the request ready to accept?
+
+The implementation is available for inspection, but the required behavior remains unverified. Ask for the agreed checks on the candidate revision before recording acceptance.
+
+For the complete product path, read [Software Factory overview](/software-factory/overview/).
+
+[Back to Software Factory Foundations](/learn/software-factory-foundations/).

@@ -1,20 +1,44 @@
 ---
 title: "软件工厂基础"
-description: "理解 AI 软件工厂、智能体工作流、验证与人工介入审阅。"
+description: "跟随一项小变更，理解需求、执行、验证与人工决定怎样连接。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "efc3676d60ad1c42b462c2aff71d7013a0c4299b6f0a43b6ed6b44978ea3877b"
+  sourceHash: "746b278d410083a076ee0be0738202f95cddda41dd47b4c035c380ece2bf5e75"
 ---
 
-本课程建立 AI Workforce 软件交付的心智模型。课时保持简短；若产品指南已覆盖操作步骤，课时会指向该指南，而不是再写一套空教程。
+import ProcessDiagram from "../../../../../components/ProcessDiagram.astro";
 
-## 课时
+跟随一项小变更，从请求走到审阅决定。没有配置好的部署也可以完成本课程；实际操作步骤见[快速入门](/zh-cn/getting-started/quickstart/)。
 
-1. [What is an AI Software Factory](/zh-cn/learn/software-factory-foundations/what-is-ai-software-factory/)
-2. [How Agentic Workflows work](/zh-cn/learn/software-factory-foundations/how-agentic-workflows-work/)
-3. [From Issue to Delivery](/zh-cn/learn/software-factory-foundations/from-issue-to-delivery/)
-4. [Agents, Environments & Tools](/zh-cn/learn/software-factory-foundations/agents-environments-tools/)
-5. [Verification & Evidence](/zh-cn/learn/software-factory-foundations/verification-evidence/)
-6. [Human-in-the-loop](/zh-cn/learn/software-factory-foundations/human-in-the-loop/)
+## 贯穿案例
+
+一个表单在必填项为空时显示了错误的提示。此次修改有两项检查：空值显示约定的提示，有效值仍能正常提交。员工改代码之前，团队先确认修改范围。
+
+<ProcessDiagram id="delivery-loop" />
+
+## 跟随这项变更
+
+| 阶段             | 你应能解释什么                               | 阅读或实践                                             |
+| ---------------- | -------------------------------------------- | ------------------------------------------------------ |
+| 约定工作         | 可以改什么，由谁确认，检查哪些行为           | [编写可验证的需求](/zh-cn/learn/requirements-writing/) |
+| 在真实项目中执行 | 哪名员工借助哪些工具和环境完成工作           | [软件工厂概览](/zh-cn/software-factory/overview/)      |
+| 用证据作决定     | 检查了哪个版本，哪些行为通过，由谁接受或退回 | [证据与追踪](/zh-cn/software-factory/evidence/)        |
+
+## 深入一个问题
+
+每课都围绕同一项变更，增加一个判断或示例。可以顺序学习，也可以直接打开当前的问题。
+
+1. [什么是 AI 软件工厂](/zh-cn/learn/software-factory-foundations/what-is-ai-software-factory/)：请求怎样连接到可审阅的结果。
+2. [智能体工作流如何运作](/zh-cn/learn/software-factory-foundations/how-agentic-workflows-work/)：区分可复用方法与本次执行。
+3. [从 Issue 到交付](/zh-cn/learn/software-factory-foundations/from-issue-to-delivery/)：跟随请求，找到人工确认的位置。
+4. [智能体、环境与工具](/zh-cn/learn/software-factory-foundations/agents-environments-tools/)：判断执行是否准备就绪。
+5. [验证与证据](/zh-cn/learn/software-factory-foundations/verification-evidence/)：识别针对错误版本的验证结果。
+6. [人工介入](/zh-cn/learn/software-factory-foundations/human-in-the-loop/)：处理范围变化，并明确交还工作。
+
+## 怎样算完成
+
+你能说清已确认的请求、完成的工作、受检版本与环境，以及审阅决定。你也能解释为什么缺少验证记录，或请求尚未确认时，不能声称交付完成。
+
+看板已准备好时，按[快速入门](/zh-cn/getting-started/quickstart/)实际形成这些记录。需要准备可复用的执行能力时，继续[用 AI Workforce 构建](/zh-cn/learn/build-with-ai-workforce/)。

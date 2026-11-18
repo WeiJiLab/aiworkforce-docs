@@ -1,0 +1,81 @@
+---
+import {
+  diagramAssetHref,
+  processDiagrams,
+  renderProcessSvg,
+  type ProcessDiagramId,
+} from "../lib/process-diagrams";
+
+interface Props {
+  id: ProcessDiagramId;
+}
+
+const { id } = Astro.props;
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const diagram = processDiagrams[id];
+---
+
+<figure class="process-diagram not-content" data-process-diagram={id}>
+  <p class="process-diagram-hint">
+    {zh ? "选择流程节点，查看对应指南。" : "Select a step to open its guide."}
+  </p>
+  <div class="process-diagram-wide" set:html={renderProcessSvg(id, zh)} />
+  <div
+    class="process-diagram-narrow"
+    set:html={renderProcessSvg(id, zh, true)}
+  />
+  <figcaption>
+    <span>{diagram.description[zh ? 1 : 0]}</span>
+    <a href={diagramAssetHref(id, zh)}>
+      {zh ? "单独打开流程图" : "Open the diagram separately"}
+    </a>
+  </figcaption>
+</figure>
+
+<style>
+  .process-diagram {
+    container-type: inline-size;
+    margin: 1.5rem 0 2rem;
+    --process-human: #efbe83;
+    --process-human-bg: #382b20;
+  }
+  :global(:root[data-theme="light"]) .process-diagram {
+    --process-human: #986119;
+    --process-human-bg: #fff7ed;
+  }
+  .process-diagram-hint {
+    margin: 0 0 0.25rem;
+    color: var(--docs-muted);
+    font-size: 0.8125rem;
+  }
+  .process-diagram :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .process-diagram-narrow {
+    display: none;
+  }
+  figcaption {
+    display: grid;
+    gap: 0.5rem;
+    color: var(--docs-body);
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+  figcaption a {
+    width: fit-content;
+    color: var(--docs-accent);
+    text-underline-offset: 3px;
+  }
+  @container (max-width: 560px) {
+    .process-diagram-wide {
+      display: none;
+    }
+    .process-diagram-narrow {
+      display: block;
+      max-width: 22.5rem;
+      margin-inline: auto;
+    }
+  }
+</style>

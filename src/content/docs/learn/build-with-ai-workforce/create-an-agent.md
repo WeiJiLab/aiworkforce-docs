@@ -8,3 +8,5 @@ translation:
 ---
 
 Employee is an execution model under Agents. Create one with [Create your first AI employee](/getting-started/first-employee/) and [Employee definition](/build/employee-definition/).
+
+[Back to Build with AI Workforce](/learn/build-with-ai-workforce/).

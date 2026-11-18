@@ -55,6 +55,7 @@ export const PORTALS = {
           "workflows/kanban-workbench",
           "workflows/pull-request-automation",
           "recipes/issue-to-pr",
+          "user-guide/projects",
           nested("Software Factory path", "软件工厂路径", [
             "software-factory/intake",
             "software-factory/dispatch",
@@ -90,6 +91,7 @@ export const PORTALS = {
         zh: "构建工作流",
         collapsed: true,
         items: [
+          "build/overview",
           "user-guide/ai-employees",
           nested("Employees", "数字员工", [
             "getting-started/first-employee",
@@ -126,6 +128,7 @@ export const PORTALS = {
         zh: "运行工作流",
         collapsed: true,
         items: [
+          "workflows/run",
           "deployment/runtime-environments",
           "software-factory/harness",
           "software-factory/environments",
@@ -140,7 +143,7 @@ export const PORTALS = {
         zh: "运营",
         collapsed: true,
         items: [
-          "user-guide/projects",
+          "operate/overview",
           "administration/teams-access",
           "administration/configuration",
           "models/overview",

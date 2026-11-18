@@ -8,3 +8,5 @@ translation:
 ---
 
 Use the product steps in [Code repositories](/integrations/code-repositories/). Confirm the workspace can browse the repo and that lane employees have the access they need.
+
+[Back to Build with AI Workforce](/learn/build-with-ai-workforce/).

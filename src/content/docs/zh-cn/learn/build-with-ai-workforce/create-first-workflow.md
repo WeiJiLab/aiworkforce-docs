@@ -5,7 +5,9 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "5f569d363a81d6c7de969a1b99e17f9026d7382d28e494c8cc14d16b5de744d1"
+  sourceHash: "6701c4b19ab86d19a6a5c39fbb1f8eda7100275ac507df85d9b6bb30b676189c"
 ---
 
 从[第一次自动化](/zh-cn/getting-started/first-automation/)与[工作流构建器](/zh-cn/automate/workflow-builder/)开始。本课不替代那些指南；它强调顺序：先定义结果，再选触发，指定执行者，然后先手动跑通一次。
+
+[返回「用 AI Workforce 构建」课程](/zh-cn/learn/build-with-ai-workforce/)。

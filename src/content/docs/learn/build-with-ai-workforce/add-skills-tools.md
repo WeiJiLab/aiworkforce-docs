@@ -8,3 +8,5 @@ translation:
 ---
 
 Product reference: [Skills and plugins](/build/skills-plugins/) and [Tools](/build/tools/).
+
+[Back to Build with AI Workforce](/learn/build-with-ai-workforce/).

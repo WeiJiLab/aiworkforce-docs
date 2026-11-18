@@ -17,21 +17,6 @@ const cards = (
   items: readonly { title: string; description: string; href: string }[],
 ) =>
   items.map((item) => ({ ...item, href: localizedGuideHref(item.href, zh) }));
-
-const sectionCards: Partial<
-  Record<
-    HomeSection,
-    readonly { title: string; description: string; href: string }[]
-  >
-> = {
-  applications: content.applications,
-  "build-software": content.buildSoftware,
-  "automate-work": content.automateWork,
-  "build-workflows": content.buildWorkflows,
-  "run-workflows": content.runWorkflows,
-  operate: content.operate,
-  integrations: content.integrations,
-};
 ---
 
 {
@@ -53,34 +38,19 @@ const sectionCards: Partial<
   )
 }
 {
-  section !== "cta" &&
-    section !== "agents" &&
-    sectionCards[section] &&
-    (section === "applications" ? (
-      <div class="path-grid not-content">
-        {cards(sectionCards[section]!).map((item) => (
-          <a class="path-card" href={item.href}>
-            <div class="path-card-heading">
-              <h3>{item.title}</h3>
-              <span aria-hidden="true">→</span>
-            </div>
-            <p class="path-description">{item.description}</p>
-          </a>
-        ))}
-      </div>
-    ) : (
-      <div class="domain-grid not-content">
-        {cards(sectionCards[section]!).map(({ title, description, href }) => (
-          <a class="domain-link" href={href}>
-            <div>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </div>
+  section === "paths" && (
+    <div class="path-grid not-content">
+      {cards(content.paths).map((item) => (
+        <a class="path-card" href={item.href}>
+          <div class="path-card-heading">
+            <h3>{item.title}</h3>
             <span aria-hidden="true">→</span>
-          </a>
-        ))}
-      </div>
-    ))
+          </div>
+          <p class="path-description">{item.description}</p>
+        </a>
+      ))}
+    </div>
+  )
 }
 {
   section === "agents" && (

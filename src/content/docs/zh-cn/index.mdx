@@ -1,55 +1,35 @@
 ---
 title: 构建并自动化软件交付
-description: 让 Agent 实现已确认的 Issue，在交付看板上检查代码与验证证据，并记录团队的审阅决定。
+description: 在现有工程环境中使用 AI workers，通过变更和验证证据判断交付结果。
 prev: false
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "38731537c924e86cf949ff981074db80cbf13ebdee9b7c65f5a027d99e7e99af"
+  sourceHash: "60d9bfa69f77cefdb7876ac679482932f1a1fe8f33641ff08d8a81250d0d0a51"
 ---
 
 import HomeContent from "../../../components/HomeContent.astro";
+import ProcessDiagram from "../../../components/ProcessDiagram.astro";
 
-把已确认的 Issue 交给 Agent 实现。在交付看板上检查代码和验证证据，再记录团队的审阅决定。
-
-## 现行入口
-
-本站是操作说明，对得上当前控制台。
-
-**本地启动。** 以平台仓库当前 main 为准，不要用知识库里的部署快照：[deploy/local/README.md](https://github.com/WeiJiLab/aiworkforce-platform/blob/main/deploy/local/README.md)。
-
-**知识与证据。** [aiworkforce-documents](https://github.com/WeiJiLab/aiworkforce-documents) 保存白皮书和来源证据，不是操作手册，也不是部署步骤。
+让 AI workers 使用已有项目、工具与工程环境推进需求。团队确认范围，跟进执行，并对照验收标准审阅变更。
 
 <HomeContent section="cta" />
 
-## 选择你的起点
+## 从请求到经过审阅的变更
 
-<HomeContent section="applications" />
+<ProcessDiagram id="delivery-loop" />
 
-## 软件工厂
+## 选择下一步
 
-<HomeContent section="build-software" />
+<HomeContent section="paths" />
 
-## 自动化工作
+第一项任务跑通后，可以[添加自动触发](/zh-cn/getting-started/first-automation/)、[根据运行反馈改进](/zh-cn/operate/overview/)，或[连接其他系统](/zh-cn/integrations/overview/)。[Learn](/zh-cn/learn/)提供贯穿案例和判断练习，[API](/zh-cn/api/)说明程序化调用。
 
-<HomeContent section="automate-work" />
+## 启动与来源资料
 
-## 构建工作流
-
-<HomeContent section="build-workflows" />
-
-## 运行工作流
-
-<HomeContent section="run-workflows" />
-
-## 运营
-
-<HomeContent section="operate" />
-
-## 集成
-
-<HomeContent section="integrations" />
+本地启动按平台仓库当前 `main` 的[部署说明](https://github.com/WeiJiLab/aiworkforce-platform/blob/main/deploy/local/README.md)操作。白皮书与来源证据收录在 [aiworkforce-documents](https://github.com/WeiJiLab/aiworkforce-documents)。
 
 ## 这些文档也可以交给 Agent 读
 

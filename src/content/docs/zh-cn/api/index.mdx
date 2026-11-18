@@ -6,20 +6,34 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2fdc38d79ae1be5bb87c9786875d771721713cb07402434b98ff51f1452b7702"
+  sourceHash: "d6579340cee7590c6892586194e1864f843496653dfd53fc3236655364a9b99c"
+last_verified: "2026-11-18"
 ---
 
 import PortalLanding from "../../../../components/PortalLanding.astro";
+import ProcessDiagram from "../../../../components/ProcessDiagram.astro";
 
-可用接口包括 HTTP 管理与 Automation 路由、入站 Webhook、Automation MCP 和设备执行 CLI。通过入站 Webhook 触发已发布的 Job 后，查询对应的运行即可获取结果。当前未发布通用 SDK 包，也未提供 ACP 或 A2A 服务。
+通过 API 从其他系统启动已授权任务，并跟踪结果。外部调用方提供任务输入；执行内容和可用资源由已发布配置决定。
+
+<ProcessDiagram id="api-invocation" />
+
+例如，内部服务调用已发布的报告检查任务，保留返回的运行记录，再查询状态和输出。取得运行记录表示工作已被接受。根据结果采取行动前，还应核对最终产物和必需证据。
 
 ## 选择接口
 
 <PortalLanding portal="api" section="paths" />
 
+## 准备第一次调用
+
+先选定已发布任务，取得只允许调用所需工作的凭据。按[身份认证](/zh-cn/developer/authentication/)和 [REST API](/zh-cn/developer/api-reference/)启动一次运行并读取结果。管理调用与任务调用使用的凭据范围不同。
+
+这里的 Webhook 是入站触发：外部系统启动已发布 Job。当前没有向注册地址推送每次运行事件的文档化出站订阅，结果需要查询运行记录。参见 [Webhooks](/zh-cn/integrations/webhooks/)。
+
 ## 指南与参考
 
 <PortalLanding portal="api" section="guides" />
+
+HTTP 管理与 Automation 路由、Automation MCP、设备执行器 CLI 分别服务于不同集成需求。设备 CLI 在已授权电脑上执行工具，不管理平台。本基线没有发布通用 SDK 包或公开 ACP/A2A 服务。开发客户端时读取实际部署后端提供的 schema。
 
 ## 相关产品文档
 
