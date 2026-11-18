@@ -11,7 +11,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "3bd02505e0320a3cdd9d1a9a16a6502c7243035e818a53f8a8e584ea9a367cc7"
+  sourceHash: "4c083c5930f3f3b370f83f5956456108fcaff9f634182f58e63d3eb22b2dd5a4"
 ---
 
 自托管是指由你们自己运行 AI Workforce 的服务：Web 应用、后端、PostgreSQL，以及这些服务保存的工作空间文件。运营方托管的部署是同一套产品，只是由别人替你们运行。使用工作空间、数字员工和工作流的方式不变。变的是谁运维这些服务，以及这些记录放在哪里。
@@ -166,7 +166,7 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 | 界面、API 或数据库端口已被占用     | 修改 `deploy/local/.env` 里的 `FRONTEND_PORT`、`BACKEND_PORT` 或 `POSTGRES_PORT`，然后重新启动。                                |
 | 远程 Docker 主机上的源码目录是空的 | 加上 `deploy/local/docker-compose.vm.yml`。                                                                                     |
 | 登录页不能创建账号                 | 本地示例会打开账号创建。发布部署遵循它自己的运行配置。                                                                          |
-| 设备一直离线                       | 浏览器里的批准和执行器在线是两步。使用 `aiworkforce-device-exec status --json`。见[设备执行器 CLI](/zh-cn/integrations/cli/)。  |
+| 设备一直离线                       | 浏览器里的批准和执行器在线是两步。使用 `aiworkforce-daemon status --json`。见[设备执行器 CLI](/zh-cn/integrations/cli/)。       |
 | 改完之后已保存的密钥解不开         | 加密密钥和数据库不是同一代。恢复当初加密这套数据库的那把密钥。                                                                  |
 
 ## 相关文档

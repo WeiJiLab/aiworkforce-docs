@@ -110,7 +110,6 @@ export const PORTALS = {
         zh: "运行工作流",
         collapsed: true,
         items: [
-          "deployment/daemon",
           "deployment/runtime-environments",
           "software-factory/harness",
           "software-factory/environments",
@@ -118,6 +117,17 @@ export const PORTALS = {
           "automate/runs-recovery",
           "software-factory/evidence",
           "user-guide/artifacts-evidence",
+        ],
+      },
+      {
+        label: "Self-Hosted Machines",
+        zh: "自托管机器",
+        collapsed: true,
+        items: [
+          "deployment/daemon",
+          "deployment/daemon/my-machines",
+          "deployment/daemon/session-execution",
+          "deployment/daemon/troubleshooting",
         ],
       },
       {

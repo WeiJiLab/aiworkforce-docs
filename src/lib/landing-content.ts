@@ -291,25 +291,25 @@ export function getHomeContent(zh: boolean): HomeContent {
         "deployment/daemon",
       ),
       guide(
-        zh ? "什么时候用 Daemon" : "When to use a daemon",
+        zh ? "我的机器" : "My machines",
         zh
-          ? "代码或构建只能在你的网络里到达时，把执行放到那台电脑。"
-          : "Put execution on that computer when the code or build can only be reached from your network.",
-        "deployment/daemon",
+          ? "配对电脑并确认设备已上线。"
+          : "Pair your computer and confirm the worker is online.",
+        "deployment/daemon/my-machines",
       ),
       guide(
-        zh ? "配对与在线" : "Pair and come online",
+        zh ? "会话执行位置" : "Session execution location",
         zh
-          ? "浏览器批准和 worker 在线是两步。离线不会退回平台执行。"
-          : "Browser approval and an online worker are separate. Offline does not fall back to the platform.",
-        "integrations/cli",
+          ? "在第一条消息之前，为会话选择执行工具的电脑。"
+          : "Choose the computer that will run tools before sending the first message.",
+        "deployment/daemon/session-execution",
       ),
       guide(
-        zh ? "选择执行位置" : "Choose where execution runs",
+        zh ? "故障排查" : "Troubleshooting",
         zh
-          ? "平台执行、自托管服务，和已授权电脑是三件不同的事。"
-          : "Platform execution, a self-hosted service stack, and an authorized computer are different choices.",
-        "deployment/runtime-environments",
+          ? "检查配对、离线状态和工作目录。"
+          : "Diagnose pairing, offline workers, and working directory issues.",
+        "deployment/daemon/troubleshooting",
       ),
     ],
     integrations: [

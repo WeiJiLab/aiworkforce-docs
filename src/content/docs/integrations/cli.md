@@ -1,6 +1,6 @@
 ---
 title: "Device Executor CLI"
-description: "Install, pair, and operate aiworkforce-device-exec. It runs tools on a computer; it does not administer the platform."
+description: "Install, pair, and operate aiworkforce-daemon. It runs tools on a computer; it does not administer the platform."
 audience:
   - developer
   - platform-engineer
@@ -14,7 +14,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-`aiworkforce-device-exec` is the device executor. It pairs a macOS or Linux computer so AI Workforce can run tools there. The platform keeps the conversation, the model loop, and authorization. This CLI does not create employees, edit grants, call the management API, or install a general `aiworkforce` admin command.
+`aiworkforce-daemon` is the device executor. It pairs a macOS or Linux computer so AI Workforce can run tools there. The platform keeps the conversation, the model loop, and authorization. This CLI does not create employees, edit grants, call the management API, or install a general `aiworkforce` admin command.
 
 The limit is that scope. There is no supported npm or pip package for this client, and this baseline does not publish a public download URL or a checksum manifest. Obtain the binary from the maintainer of your deployment.
 
@@ -22,12 +22,12 @@ The interface map for HTTP, MCP, and SDK clients is [Interface overview](/develo
 
 ## Install and verify
 
-1. **Get a release build.** Ask your maintainer for the `aiworkforce-device-exec` binary that matches the computer's operating system. Daemon developers can build it from its own repository with `cargo build --locked`. A package name alone is not an install path.
+1. **Get a release build.** Ask your maintainer for the `aiworkforce-daemon` binary that matches the computer's operating system. Daemon developers can build it from its own repository with `cargo build --locked`. A package name alone is not an install path.
 2. **Check the file you received.** Confirm the filename and that your maintainer expects that build. This documentation cannot verify a checksum that the release process has not published.
-3. **Check the computer.** The supported hosts are macOS and Linux. Put the binary on `PATH`. Then run:
+3. **Check the computer.** The supported hosts are macOS and Linux. Install the binary on `PATH` under the name `aiworkforce-daemon`. Then run:
 
 ```bash
-aiworkforce-device-exec doctor --json
+aiworkforce-daemon doctor --json
 ```
 
 `doctor` reports whether this machine can host execution. Read the JSON. A failure here is an environment problem, not a platform outage.
@@ -35,7 +35,7 @@ aiworkforce-device-exec doctor --json
 4. **Pair.** Use your deployment's platform origin. The host below is a placeholder, not a live service:
 
 ```bash
-aiworkforce-device-exec connect \
+aiworkforce-daemon connect \
   --workspace /absolute/project/path \
   --platform https://platform.example.org
 ```
@@ -45,7 +45,7 @@ Replace both values. `--workspace` is the approved working directory. It identif
 5. **Confirm the connection.** Browser approval and an online worker are different steps. After you approve host execution, run:
 
 ```bash
-aiworkforce-device-exec status --json
+aiworkforce-daemon status --json
 ```
 
 Pairing is complete only when `status` shows the worker online. Approval in the browser, by itself, does not.
@@ -74,8 +74,8 @@ Commands run as the host user. Tool results and file content given to a task can
 Generate the definition, review it, then install it with the operating system tools. Connecting does not install a service.
 
 ```bash
-aiworkforce-device-exec service --format launchd
-aiworkforce-device-exec service --format systemd
+aiworkforce-daemon service --format launchd
+aiworkforce-daemon service --format systemd
 ```
 
 Review the working directory, the platform origin, and the user the service will run as. Install or remove the service with `launchctl` or `systemctl` after that review. `stop` stops the current process. It does not unload a service unit you installed yourself. Uninstall by removing that unit the same way you installed it, then run `disconnect` if the worker should forget this pairing.

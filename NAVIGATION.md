@@ -29,10 +29,11 @@ FDE 是控制台里的独立工作台，不是读者角色标签。不要把 Use
 3. Automate Work / 自动化工作（含 Agent handoff）
 4. Use employees / 使用数字员工
 5. Run Workflows / 运行工作流
-6. Integrations / 集成。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。员工工具挂在概览之后。MCP 与 Webhook 留在 Developer。不收录 ACP / A2A。
-7. Resources / 资源。简介、核心概念和平台地图可在这里查阅。
+6. Self-Hosted Machines / 自托管机器。原 Daemon 地址作为概览，下面是我的机器、会话执行位置和故障排查。
+7. Integrations / 集成。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。员工工具挂在概览之后。MCP 与 Webhook 留在 Developer。不收录 ACP / A2A。
+8. Resources / 资源。简介、核心概念和平台地图可在这里查阅。
 
-运行工作流的第一页是 Daemon：在你管理的电脑上执行工具。自托管服务栈不在这一组。
+自托管服务栈的部署指南位于 FDE → 运营。
 
 ## FDE 侧栏
 

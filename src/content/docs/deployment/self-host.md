@@ -165,7 +165,7 @@ Before you call an upgrade finished, compare `/api/version` with the source or i
 | The UI, API, or database port is already in use     | Change `FRONTEND_PORT`, `BACKEND_PORT`, or `POSTGRES_PORT` in `deploy/local/.env` and start again.                                                                   |
 | A remote Docker host shows empty source directories | Add `deploy/local/docker-compose.vm.yml`.                                                                                                                            |
 | The sign-in page has no way to create an account    | The local example enables account creation. A release deployment follows its own runtime configuration.                                                              |
-| A device stays offline                              | Browser approval and an online worker are different steps. Use `aiworkforce-device-exec status --json`. See [Device Executor CLI](/integrations/cli/).               |
+| A device stays offline                              | Browser approval and an online worker are different steps. Use `aiworkforce-daemon status --json`. See [Device Executor CLI](/integrations/cli/).                    |
 | Stored secrets no longer decrypt after a change     | The encryption key and the database are from different generations. Restore the key that encrypted that database.                                                    |
 
 ## Related guides

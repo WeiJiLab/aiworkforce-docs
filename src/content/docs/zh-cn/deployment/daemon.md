@@ -1,91 +1,29 @@
 ---
-title: "在你的电脑上执行工具"
-description: "Daemon 在你管理的 macOS 或 Linux 电脑上执行员工工具。对话和模型循环仍留在平台。"
+title: "自托管机器概览"
+description: "了解何时用 Daemon 在自己的电脑上执行工具，以及任务数据会发往哪里。"
 sidebar:
-  label: Daemon
+  label: 概览
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "f72b00d64b15213e108ffea910644e937375868728a9f109c974ce0afcd83585"
+  sourceHash: "153edaf55e635988d3644e5e8e869211974c07ad1e3f46c5d1f4425925582b30"
 ---
 
-Daemon 把工具执行放到你管理的电脑上。你仍然从工作空间、交付看板和控制台使用员工。AI Workforce 保留对话、模型循环和授权。Daemon 负责执行工具。
-
-通常使用平台执行。只有工作必须发生在平台到不了的电脑上时，才使用 Daemon。自己运行 Web 应用和数据库是另一件事，见[自托管](/zh-cn/deployment/self-host/)。
+Daemon 让数字员工在你管理的 macOS 或 Linux 电脑上执行工具。你仍在 AI Workforce 里发起会话、查看结果。平台负责对话、模型调用和授权，电脑负责执行命令。
 
 ## 谁应该使用 Daemon
 
-平台执行满足不了约束时，使用 Daemon：
+如果任务依赖内网里的代码仓库或测试服务、这台电脑上的硬件，或必须以本机用户身份运行的构建命令，可以把执行位置设在这台电脑上。任务只需使用平台已连接的服务时，直接选择平台执行即可。
 
-- 检出的代码、构建或测试服务只能从你的网络内部到达。
-- 工作需要一台你已经在运行的电脑：检出的仓库、凭据，或应该留在那里的硬件。
-- 命令必须以那台电脑上的用户身份运行，而不是作为平台内部的进程。
-
-在个人设置里打开**设备连接**，连接电脑、查看是否在线、撤销授权，或标记默认设备。默认只是一个标记。它不会自己改变会话。
-
-## 这些情况继续用平台执行
-
-下面这些已经够用时，留在平台执行：
-
-- 任务使用平台已经接好的连接，并且不需要私有检出。
-- 你不想安装 worker、批准目录，并让那台电脑保持在线。
-- 你需要把服务记录放在自己运营的基础设施上。那是[自托管](/zh-cn/deployment/self-host/)，不是 Daemon。Daemon 不会安装 Web 应用或数据库。
-
-平台执行、自托管服务栈和已授权电脑怎么选，见[运行时管理](/zh-cn/deployment/runtime-environments/)。
+如果团队需要自己运行 Web 应用和数据库，请参阅[自托管部署](/zh-cn/deployment/self-host/)。各种运行方式的适用条件见[运行时管理](/zh-cn/deployment/runtime-environments/)。
 
 ## 什么会离开这台电脑
 
-检出的代码和电脑自己的凭据留在电脑上。任务进行时，员工用到的文件内容和工具结果会送到平台，再送到为该员工配置的模型服务。
+代码检出目录和设备凭据保存在本机。员工读取的文件内容和工具结果会发送到平台，并可传给该员工配置的模型服务。Daemon 主动向平台发起 HTTPS 和 WebSocket 连接，电脑无需开放入站端口。详见[安全与权限](/zh-cn/deployment/security/)。
 
-浏览器不会在这台电脑上打开端口。Daemon 向你的平台地址发起出站 HTTPS 和 WebSocket 连接。浏览器不需要入站端口、公网地址或 VPN 才能到达这台机器。
+## 开始使用
 
-提示词里的一句话不能代替授权。工作空间权限、会话的工具授权，以及你选中的电脑，才决定一次调用能不能发生。见[安全与权限](/zh-cn/deployment/security/)。
-
-## 如何连接
-
-1. 安装与操作系统匹配的 `aiworkforce-device-exec`。本基线不发布公开下载地址，也不发布校验和清单。向运营这个部署的人取得二进制文件。
-2. 配对电脑。下面的命令使用占位值，两处都要换成你的：
-
-```bash
-aiworkforce-device-exec connect \
-  --workspace /absolute/project/path \
-  --platform https://platform.example.org
-```
-
-CLI 会说明主机执行并请你确认。它打开浏览器，让你批准这台电脑、这个目录和当前登录账号。没有浏览器的机器加上 `--no-browser`，再到别处完成同一次批准。浏览器不会显示设备 Token。
-
-3. 随后 CLI 启动后台 worker。浏览器批准和 worker 在线是两件事。运行 `aiworkforce-device-exec status --json`。状态显示 worker 在线，配对才完成。
-4. 在员工会话的第一条消息之前，把**执行位置**设为平台，或设为一台你拥有的在线电脑。会话开始后，这个选择保持不变。Daemon 离线或被撤销时，会话不会退回平台执行。
-5. 该会话的工具在选中的电脑上运行。命令以操作系统用户身份执行。`--workspace` 是工作目录，不是操作系统沙箱。个人设备上，只有会话所有者可以运行这些工具。
-
-`aiworkforce-device-exec service --format launchd` 或 `systemd` 会打印服务定义。CLI 不会替你安装。先核对目录、平台地址和运行用户，再自己安装。命令列表见[设备执行器 CLI](/zh-cn/integrations/cli/)。
-
-## 要求
-
-- macOS 或 Linux。把二进制文件放到 `PATH`。
-- 能向你的平台地址发起出站 HTTPS 和 WebSocket。
-- 一个可以批准这台电脑和这个目录的账号。
-- 一个在第一条消息之前选中该电脑的员工会话。
-
-连接失败前先运行 `aiworkforce-device-exec doctor --json`。阅读 JSON。这里失败的是这台电脑，不是平台故障。本基线不记录版本参数，也不记录升级通道。
-
-## 无法开始时
-
-| 你看到的                      | 要检查的                                                                                 |
-| ----------------------------- | ---------------------------------------------------------------------------------------- |
-| `connect` 之前 `doctor` 失败  | 二进制文件、操作系统，以及你能否使用该工作目录。                                         |
-| 浏览器没有完成批准            | 你使用了 `--no-browser` 却没有完成打印出的流程，或者 `--platform` 不是你的部署。         |
-| 浏览器成功了，`status` 仍离线 | 批准和出站 worker 是两步。平台不会回拨到本地端口。                                       |
-| 认证被拒绝                    | 为这个地址重新登录。平台登录不能修复已撤销的设备。重新配对。                             |
-| 工具跑在另一个目录            | `--workspace` 就是你批准的目录。用打算使用的绝对路径重新配对。                           |
-| 会话仍在平台上执行            | **执行位置**留在平台，或在第一条消息之后才设置。已连接的电脑和默认标记不会选中这个会话。 |
-
-停止 worker 不会撤销平台凭据。`disconnect` 结束这一次配对，不删除账号。未知的停止状态会保持隔离，直到电脑报告发生了什么。不要删除本地日志来强迫电脑重新上线。
-
-## 接下来
-
-- [设备执行器 CLI](/zh-cn/integrations/cli/)：`doctor`、`status`、`stop` 和服务定义。
-- [运行时管理](/zh-cn/deployment/runtime-environments/)：在平台执行、自托管和 Daemon 之间选择。
-- [安全与权限](/zh-cn/deployment/security/)：一次任务可以把什么送出这台电脑。
-- [自托管](/zh-cn/deployment/self-host/)：需要自己运行服务栈时。
+1. 批准电脑和工作目录，确认设备在线。见[我的机器](/zh-cn/deployment/daemon/my-machines/)。
+2. 打开员工会话，在发送第一条消息前选中这台电脑。见[会话执行位置](/zh-cn/deployment/daemon/session-execution/)。
+3. 如果浏览器已批准但设备仍离线，按症状查看[故障排查](/zh-cn/deployment/daemon/troubleshooting/)。
