@@ -2,13 +2,14 @@
 import SidebarPersister from "@astrojs/starlight/components/SidebarPersister.astro";
 import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
 
-import { getPortal, portalDestinations } from "../lib/navigation";
+import { externalNav, getPortal, portalDestinations } from "../lib/navigation";
 import { withBase } from "../lib/site.mjs";
 
 const { entry, locale, sidebar } = Astro.locals.starlightRoute;
 const zh = locale === "zh-cn";
 const portal = getPortal(entry.id);
 const destinations = portalDestinations(locale);
+const outbound = externalNav(locale);
 ---
 
 <div class="portal-sidebar" data-portal={portal}>
@@ -39,6 +40,18 @@ const destinations = portalDestinations(locale);
             {destination.id === portal && (
               <span class="portal-current" aria-hidden="true" />
             )}
+          </a>
+        ))
+      }
+      {
+        outbound.map((item) => (
+          <a
+            class="portal-link"
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>{item.label}</span>
           </a>
         ))
       }

@@ -10,52 +10,72 @@ const zh = locale === "zh-cn";
 const current = getPortal(Astro.locals.starlightRoute.entry.id);
 const destinations = portalDestinations(locale);
 const outbound = externalNav(locale);
+const github = outbound.find((item) => item.id === "github");
+const consoleLink = outbound.find((item) => item.id === "console");
+const newWindow = zh ? "（新窗口打开）" : " (opens in a new tab)";
 ---
 
 <div class="docs-header">
-  <div class="docs-brand"><SiteTitle /></div>
-  <nav class="site-nav" aria-label={zh ? "站点导航" : "Site"}>
+  <div class="docs-header-start">
+    <div class="docs-brand"><SiteTitle /></div>
+    <nav class="site-nav" aria-label={zh ? "站点导航" : "Site"}>
+      {
+        destinations.map((destination) => (
+          <a
+            class="site-nav-link"
+            href={destination.href}
+            data-active={destination.id === current ? "true" : undefined}
+            aria-current={destination.id === current ? "page" : undefined}
+          >
+            {destination.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+  <div class="docs-header-center">
+    <div class="docs-search"><Search /></div>
+  </div>
+  <div class="docs-header-end">
     {
-      destinations.map((destination) => (
+      github && (
         <a
-          class="site-nav-link"
-          href={destination.href}
-          data-active={destination.id === current ? "true" : undefined}
-          aria-current={destination.id === current ? "page" : undefined}
-        >
-          {destination.label}
-        </a>
-      ))
-    }
-    {
-      outbound.map((item) => (
-        <a
-          class="site-nav-link site-nav-external"
-          href={item.href}
+          class="site-nav-link site-nav-github"
+          href={github.href}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {item.label}
-          <span class="site-nav-external-mark" aria-hidden="true">
-            ↗
-          </span>
+          {github.label}
+          <span class="visually-hidden">{newWindow}</span>
         </a>
-      ))
+      )
     }
-  </nav>
-  <div class="docs-search"><Search /></div>
-  <div class="docs-preferences">
-    <div class="docs-preference">
-      <ThemeSelect />
-      <span class="docs-preference-tooltip" aria-hidden="true"
-        >{zh ? "切换主题" : "Change theme"}</span
-      >
+    <div class="docs-preferences">
+      <div class="docs-preference">
+        <ThemeSelect />
+        <span class="docs-preference-tooltip" aria-hidden="true"
+          >{zh ? "切换主题" : "Change theme"}</span
+        >
+      </div>
+      <div class="docs-preference">
+        <LanguageSelect />
+        <span class="docs-preference-tooltip" aria-hidden="true"
+          >{zh ? "切换语言" : "Change language"}</span
+        >
+      </div>
     </div>
-    <div class="docs-preference">
-      <LanguageSelect />
-      <span class="docs-preference-tooltip" aria-hidden="true"
-        >{zh ? "切换语言" : "Change language"}</span
-      >
-    </div>
+    {
+      consoleLink && (
+        <a
+          class="site-nav-console"
+          href={consoleLink.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {consoleLink.label}
+          <span class="visually-hidden">{newWindow}</span>
+        </a>
+      )
+    }
   </div>
 </div>

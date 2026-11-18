@@ -97,11 +97,11 @@ export function portalDestinations(locale?: string) {
 export function externalNav(locale?: string) {
   const zh = locale === "zh-cn";
   return [
-    { label: "GitHub", href: githubUrl, external: true as const },
+    { id: "github" as const, label: "GitHub", href: githubUrl },
     {
+      id: "console" as const,
       label: zh ? "控制台" : "Console",
       href: consoleUrl,
-      external: true as const,
     },
   ];
 }
