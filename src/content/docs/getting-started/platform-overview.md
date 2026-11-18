@@ -30,7 +30,7 @@ The workspace **task inbox** reviews collected or imported requests. An inbox it
 
 Open **Workspaces** to choose where work happens. Select an employee and start a conversation. A session keeps that conversation and its execution history together. Artifacts let you inspect produced files and, when the runtime supports it, file changes.
 
-Users create employees from published templates. Builders define the role, inputs, outputs, skills, and tool dependencies before publishing. [Employee definition](/build/employee-definition/) is the starting point for a new role. Putting a tool name in instructions does not grant access.
+Users create employees from published templates. Builders define the role, inputs, outputs, skills, and tool dependencies in the [FDE workbench](/fde/) before publishing. [Employee definition](/build/employee-definition/) is the starting point for a new role. Putting a tool name in instructions does not grant access.
 
 ## Operate and integrate
 

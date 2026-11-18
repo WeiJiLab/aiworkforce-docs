@@ -1,11 +1,12 @@
 /**
- * Docs / Learn / API portals share English and Chinese slugs.
+ * Docs / Learn / FDE / API portals share English and Chinese slugs.
  * File ids keep existing guide URLs when a page changes section.
  */
 
 export const Portal = {
   Docs: "docs",
   Learn: "learn",
+  Fde: "fde",
   Api: "api",
 };
 
@@ -85,44 +86,24 @@ export const PORTALS = {
           "automate/watchers-webhooks",
           "automate/loops",
           "automate/approvals",
+          "automate/agent-handoff",
           "workflows/custom-workflows",
           "workflows/research-monitoring",
         ],
       },
       {
-        label: "Build Workflows",
-        zh: "构建工作流",
+        label: "Use employees",
+        zh: "使用数字员工",
         collapsed: true,
         items: [
           "user-guide/ai-employees",
-          nested("Employees", "数字员工", [
-            "getting-started/first-employee",
-            "build/employee-definition",
-            "build/prompts-rules",
-            "user-guide/workspace",
-            "user-guide/agent-chat",
-            "user-guide/sessions-planning",
-            "user-guide/inbox-tasks",
-            "user-guide/human-approval",
-            "user-guide/knowledge-context",
-          ]),
-          nested("Capabilities", "能力", [
-            "build/skills-plugins",
-            "build/skills",
-            "build/plugins",
-            "build/tools",
-            "build/mcp-integration",
-            "integrations/employee-tools",
-          ]),
-          nested("Composition and lifecycle", "组合与生命周期", [
-            "automate/agent-handoff",
-            "build/composition",
-            "build/hooks-subagents",
-            "build/testing",
-            "build/templates",
-            "build/publishing",
-            "build/architecture",
-          ]),
+          "getting-started/first-employee",
+          "user-guide/workspace",
+          "user-guide/agent-chat",
+          "user-guide/sessions-planning",
+          "user-guide/inbox-tasks",
+          "user-guide/human-approval",
+          "user-guide/knowledge-context",
         ],
       },
       {
@@ -145,6 +126,7 @@ export const PORTALS = {
         collapsed: true,
         items: [
           "integrations/overview",
+          "integrations/employee-tools",
           nested("Code hosting", "代码托管", [
             "integrations/github",
             "integrations/gitlab",
@@ -265,6 +247,73 @@ export const PORTALS = {
           "learn/blueprints-work-orders",
           "learn/feedback-review",
         ],
+      },
+    ],
+  },
+  [Portal.Fde]: {
+    label: "FDE",
+    zhLabel: "FDE",
+    description: [
+      "Build employees in the FDE workbench",
+      "在 FDE 工作台构建数字员工",
+    ],
+    landing: "fde",
+    groups: [
+      {
+        label: "Customer discovery",
+        zh: "客户发现",
+        collapsed: false,
+        items: [
+          "fde/bots",
+          "fde/invites",
+          "fde/meeting-assistants",
+          "fde/meeting-records",
+        ],
+      },
+      {
+        label: "Build",
+        zh: "构建",
+        collapsed: false,
+        items: [
+          "fde/builder",
+          "build/employee-definition",
+          "build/prompts-rules",
+          "build/architecture",
+          nested("Capabilities", "能力", [
+            "build/skills-plugins",
+            "build/skills",
+            "build/plugins",
+            "build/tools",
+            "build/mcp-integration",
+          ]),
+          nested("Composition", "组合", [
+            "build/composition",
+            "build/hooks-subagents",
+          ]),
+        ],
+      },
+      {
+        label: "Publish and marketplace",
+        zh: "发布与市场",
+        collapsed: true,
+        items: [
+          "build/templates",
+          "build/publishing",
+          "fde/market",
+          "fde/marketplace",
+        ],
+      },
+      {
+        label: "Configuration",
+        zh: "配置",
+        collapsed: true,
+        items: ["fde/channels"],
+      },
+      {
+        label: "Evaluation",
+        zh: "评测",
+        collapsed: true,
+        items: ["build/testing", "fde/agent-tests"],
       },
     ],
   },
