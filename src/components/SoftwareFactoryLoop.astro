@@ -1,0 +1,50 @@
+---
+import { consoleUrl, withBase } from "../lib/site.mjs";
+
+interface Props {
+  locale: "zh-cn" | "en";
+}
+
+const zh = Astro.props.locale === "zh-cn";
+const diagram = withBase(
+  `/illustrations/software-factory-loop.${Astro.props.locale}.svg`,
+);
+---
+
+<figure class="factory-loop">
+  <img
+    src={diagram}
+    width="584"
+    height="568"
+    alt={zh
+      ? "需求经人工确认后成为卡片。开发记录代码变更，候选版本部署后逐卡验收，失败退回开发。审批后由已接入的流水线部署到生产。生产运行中收到的反馈，经调查和人工确认后形成下一张卡片。"
+      : "Requirements become a confirmed delivery card (ticket). Development records the change. A candidate deployment is tested per card, with failures returning to development. After approval, a connected pipeline deploys to production. During operations, people investigate production signals and confirm the next ticket."}
+  />
+  <figcaption>
+    <a href={`${consoleUrl}/automations?tab=board-flow`}>
+      {zh ? "打开交付看板" : "Open the delivery board"}
+    </a>
+    {zh && <a href="#试一试交付看板">试一试看板演练</a>}
+  </figcaption>
+</figure>
+
+<style>
+  .factory-loop {
+    margin-inline: 0;
+  }
+  .factory-loop img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .factory-loop figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-top: 0.65rem;
+    font-size: 0.875rem;
+  }
+  .factory-loop figcaption a {
+    margin: 0;
+  }
+</style>

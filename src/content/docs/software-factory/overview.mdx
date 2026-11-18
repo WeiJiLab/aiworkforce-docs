@@ -7,21 +7,17 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
+import SoftwareFactoryLoop from "../../../components/SoftwareFactoryLoop.astro";
+
 Asking an employee for a new prompt at every handoff leaves people coordinating the software lifecycle. Software Factory connects the delivery board's lanes into four loops, so a confirmed card moves through implementation, verification, and release without a fresh prompt in every column. People stay on the judgment calls: scope, the review of evidence, and whether the change ships.
 
 The product surface is the **delivery workbench**. Open **Workbench** (工作台) in the primary navigation. The address is `/automations?tab=board-flow`. It uses the same workflow, automation, employees, and evidence as the [Kanban workbench](/workflows/kanban-workbench/) and [issue automation](/workflows/issue-automation/).
 
 ## The full flow
 
-Lane employees carry a requirement to a reviewed change. A connected pipeline deploys the merged revision. Feedback and incidents become the next card when someone confirms the follow-up.
+Lane employees carry a requirement to a reviewed change. A connected pipeline deploys the merged revision. During operations, a collection job can send incidents and user feedback to the inbox. A person confirms which follow-up becomes the next delivery card (ticket).
 
-```mermaid
-flowchart TD
-    req["Requirements → card"] --> pr["Card → pull request"]
-    pr --> merge["Pull request → merge"]
-    merge --> signal["Signal → card"]
-    signal --> req
-```
+<SoftwareFactoryLoop locale="en" />
 
 A **card** is the work item these loops hand off. An imported GitHub, GitLab, Yunxiao, Jira, or Linear issue becomes that card when you route it to a project and confirm it. The card keeps the confirmed scope, the session, the code reference, the test record, and the human decision.
 
@@ -63,7 +59,7 @@ Requirements (需求) → Development (开发) → Test deployment (测试发布
 | Pull request → merge | Test deployment (测试发布), Testing (测试验证), and Production (生产发布). Merge and production run when the repository and pipeline are connected. |
 | Signal → card        | The inbox and a collection Job. A confirmed follow-up enters Requirements.                                                                          |
 
-A step inside a lane is execution state. Custom boards can arrange lanes differently. There is no WIP limit. Cards that will be tested together can share a batch. Closing a batch finishes that batch's close-out. Production release has its own record.
+A step inside a lane is execution state. Custom boards can arrange lanes differently. There is no WIP limit. Cards that will be tested together can share a batch. The Done lane closes out delivery resources. Operations continues after release, and production signals can start the next card.
 
 ## People keep the decisions
 
