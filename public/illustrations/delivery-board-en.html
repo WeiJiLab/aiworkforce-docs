@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>From competitive research to delivery · AI Workforce</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font:
+        16px/1.6 MiSans,
+        "PingFang SC",
+        "Microsoft YaHei",
+        system-ui,
+        sans-serif;
+      color: #182c41;
+      background: #fff;
+    }
+    body {
+      margin: 0;
+    }
+    figure {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1200 / 600;
+      border-radius: 14px;
+      background: #102a40;
+    }
+    fieldset[hidden] {
+      display: none;
+    }
+    fieldset {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      border: 0;
+      margin: 0.8rem 0 0.4rem;
+      padding: 0;
+    }
+    label {
+      position: relative;
+      cursor: pointer;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 0.5rem;
+    }
+    label:has(:checked) {
+      background: #def0f7;
+      color: #075b76;
+      font-weight: 650;
+    }
+    label:has(:focus-visible) {
+      outline: 2px solid #1481a1;
+      outline-offset: 1px;
+    }
+    input,
+    legend {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      clip-path: inset(50%);
+      overflow: hidden;
+    }
+    p {
+      margin: 0 0.3rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color: #e1eaf1;
+        background: #121923;
+      }
+      label:has(:checked) {
+        background: #1b3c4e;
+        color: #91d9ef;
+      }
+    }
+    @media (max-width: 32rem) {
+      label {
+        padding: 0.4rem 0.55rem;
+      }
+    }
+  </style>
+  <figure>
+    <img
+      src="delivery-board-en.svg"
+      width="1200"
+      height="600"
+      alt="Story #128 on the delivery board, with a competitive research finding on the left and GitHub Actions results on the right"
+    />
+    <figcaption>
+      <fieldset hidden>
+        <legend>Choose a delivery view</legend>
+        <label
+          ><input type="radio" name="view" value="" checked />Overview</label
+        >
+        <label
+          ><input type="radio" name="view" value="origin" />Research
+          finding</label
+        >
+        <label
+          ><input type="radio" name="view" value="story" />CI/CD results</label
+        >
+        <label><input type="radio" name="view" value="board" />Board</label>
+      </fieldset>
+      <p aria-live="polite">
+        The team turned a competitive research finding into Story #128 and
+        tracks the code change and pipeline results in the Delivery tab.
+      </p>
+    </figcaption>
+  </figure>
+  <script>
+    const captions = {
+      origin:
+        "A scheduled research job reads a competitor’s release notes and finds that users can choose a role when inviting members. The team confirms the requirement as Story #128.",
+      story:
+        "PR #62 links to GitHub Actions run #482. The build and tests passed, and the change is deployed to the test environment. Production release is pending.",
+      board:
+        "Two requests are in the backlog. A developer agent is implementing a permission change log, and Story #128 is in verification.",
+    };
+    const diagram = document.querySelector("img");
+    const caption = document.querySelector("figcaption p");
+    const views = document.querySelector("fieldset");
+    const overview = caption.textContent;
+    views.hidden = false;
+    views.addEventListener("change", (event) => {
+      const section = event.target.value;
+      diagram.src = section
+        ? `delivery-board-en.svg#${section}`
+        : "delivery-board-en.svg";
+      caption.textContent = captions[section] ?? overview;
+    });
+  </script>
+</html>
