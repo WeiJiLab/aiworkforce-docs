@@ -1,12 +1,8 @@
 ---
 title: "GitHub"
 description: "Connect GitHub repositories with a personal access token, poll issue and pull request activity, and import open issues."
-status: limited
 sidebar:
   label: GitHub
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

@@ -1,18 +1,14 @@
 ---
 title: "GitHub"
 description: "用个人访问 Token 连接 GitHub 仓库，轮询 Issue 与 Pull Request 活动，并导入未关闭的 Issue。"
-status: limited
 sidebar:
   label: GitHub
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "a8545d2c8885a95cdb13996b1477de56a4307388b232892d66c10a5e3712c3be"
+  sourceHash: "ef00ebab20bf6778cb98ec0f24d594010b36f03ac1559420b6d2889c7de6e951"
 ---
 
 GitHub 既是代码托管连接，也是事件来源。工作空间里的 Token 可以列出你有权访问的仓库；员工只有在被明确授权之后才能使用这个 Token；Job 可以响应平台通过轮询观察到的活动。轮询器只读。它不会评论、打标签、提交 Review、关闭事项或推送代码。

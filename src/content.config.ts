@@ -10,9 +10,7 @@ export const collections = {
     schema: docsSchema({
       extend: z.object({
         description: z.string().min(10),
-        status: z
-          .enum(["available", "beta", "limited", "planned"])
-          .default("available"),
+        status: z.enum(["available", "beta", "planned"]).default("available"),
         audience: z
           .array(z.enum(["user", "builder", "developer", "platform-engineer"]))
           .optional(),

@@ -1,17 +1,12 @@
 ---
 title: "调研与监控"
 description: "用日程让员工产出可审阅的产物，或用监控事件启动一个 Job。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "e18f723e85a11aad5faa204315af6e8396f8415426e5e1010c45fe2a131090e6"
+  sourceHash: "5bae3a5ddd6e220f3b2ad35b85a8b19445794a823a8e48a10a7e825e14594296"
 ---
 
 定时调研工作流是一个一次性或重复执行的 Job，任务是收集信息并写成文字。监控是同一 Job 模型上的另一种触发：已配置连接时的 Sentry Issue 事件或 PagerDuty 事件。两者都不是单独的调研产品，也不是单独的监控引擎。
@@ -53,4 +48,4 @@ translation:
 
 ## 限制
 
-没有调研 Agent 模板，没有作为独立产品、一直运行到被取消的监控，也没有针对书面报告的工作流评分。员工包评测仍是另一项部分支持的检查。见[执行评测](/zh-cn/software-factory/evaluation/)。
+没有调研 Agent 模板，没有作为独立产品、一直运行到被取消的监控，也没有针对书面报告的工作流评分。员工包评测是另一项单独的检查。见[执行评测](/zh-cn/software-factory/evaluation/)。

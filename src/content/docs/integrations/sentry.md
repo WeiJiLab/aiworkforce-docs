@@ -1,12 +1,8 @@
 ---
 title: "Sentry"
 description: "Receive Sentry issue events on a personal connection and start a Job when an enabled rule matches."
-status: limited
 sidebar:
   label: Sentry
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

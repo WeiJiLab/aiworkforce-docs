@@ -1,18 +1,14 @@
 ---
 title: "Linear"
 description: "管理员为这个工作空间接好 Linear 团队之后，导入未关闭的 Issue。"
-status: limited
 sidebar:
   label: Linear
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "5fa6e4fbaea0e6138c6712e26718af65a3f643dc16cca5792461f6f38450ddfd"
+  sourceHash: "0fcd3768e07c4413eb0361217fda756fae0716cae3da4c07076420e5bc8c17a8"
 ---
 
 在 AI Workforce 里，Linear 是一次性的、只读的 Task Inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Linear 团队之后，它才会出现。没有 Linear 的 OAuth 安装，没有团队浏览器，也不会把状态写回 Linear。

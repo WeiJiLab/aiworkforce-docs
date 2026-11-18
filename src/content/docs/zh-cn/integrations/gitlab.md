@@ -1,18 +1,14 @@
 ---
 title: "GitLab"
 description: "用个人访问 Token 连接 GitLab 实例、关联项目，并在交付项目上读取 Issue。"
-status: limited
 sidebar:
   label: GitLab
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "03a68a68bdea558cfa9a721a954cdcec02777f43638d33130f6701dd5839545d"
+  sourceHash: "7c4a2798b09e6d8c75086b3692c2cba21cf69b69432f584e9432d7fb8f2046c5"
 ---
 
 GitLab 是针对某一个实例的代码托管连接，包括 GitLab.com。平台会列出 Token 能读取的项目，之后也可以读取已经绑定到交付项目上的仓库 Issue。它不会轮询 Merge Request，也不会把 GitHub 的 Pull Request 查看器套到 GitLab 上。

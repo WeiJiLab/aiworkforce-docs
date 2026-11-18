@@ -1,12 +1,8 @@
 ---
 title: "Yunxiao Codeup"
 description: "Connect Alibaba Cloud Yunxiao for Codeup repositories, Projex work items, and a Flow pipeline binding."
-status: limited
 sidebar:
   label: Yunxiao
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

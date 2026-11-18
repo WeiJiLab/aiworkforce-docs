@@ -1,7 +1,6 @@
 ---
 title: "Device Executor CLI"
 description: "Install, pair, and operate aiworkforce-device-exec. It runs tools on a computer; it does not administer the platform."
-status: limited
 audience:
   - developer
   - platform-engineer
@@ -9,9 +8,6 @@ product_area: integrations
 last_verified: "2026-11-18"
 sidebar:
   label: Device Executor CLI
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

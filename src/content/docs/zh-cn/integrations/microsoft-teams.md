@@ -1,18 +1,14 @@
 ---
 title: "Microsoft Teams"
 description: "通过机器人与一名允许的 Teams 用户私聊，或经由 Teams 工作流发送通知。"
-status: limited
 sidebar:
   label: Microsoft Teams
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "b394a3ba670b27080ef18316dbed9a1201c77556d8986b28854939a19022fda1"
+  sourceHash: "3ace1c5d03a6bd04cfed443bdbbd1dd6eea0c07a228e8a6321ec55f34897dc09"
 ---
 
 Microsoft Teams 是一条消息渠道，两种模式做的事不一样。应用机器人只和一名允许的用户私聊。工作流模式向固定会话发通知，不接收消息。两种模式都不是 AI Workforce 里的 Teams 工作流引擎。

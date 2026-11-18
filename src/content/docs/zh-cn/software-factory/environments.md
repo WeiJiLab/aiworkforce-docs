@@ -1,16 +1,11 @@
 ---
 title: "开发环境"
 description: "把编码工作放在平台运行时或已授权设备上。卡片不会创建隔离环境。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1bf3c7fcc5077f612b00d8e90cd2e638a45900168f7ed5bb9f2e8e335c06d690"
+  sourceHash: "2dce33a665c3edb1997a47dae65c558ab2fce495d963fad277f9b61ecf4b172a"
 ---
 
 开发环境是变更的工具和命令实际运行的地方。软件工厂使用执行员工已经配置的运行时。创建交付卡片不会准备沙箱、预览 URL 或一次性虚拟机。

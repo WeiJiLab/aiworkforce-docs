@@ -1,16 +1,11 @@
 ---
 title: "Webhooks"
 description: "从外部系统调用已发布的 Job。出站 Webhook 订阅不是一个单独的产品界面。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "402b2f4fecb3adaf6e2cd300f8955d873f96b1d2f3b100658cb2c5c0a17c9dba"
+  sourceHash: "f7027d4884b9b52ace509f7a994e4a04ba47040a5df6ab9c26f8211c4df76030"
 ---
 
 当前产品里的 Webhook 是自动化 Job 上的入站触发。外部系统调用平台，若已启用自动执行且调用满足部署的认证，已发布的 Job 可以运行。本页是这次调用的开发者视图。把触发规则挂到 Job 上的产品步骤见[监视与 Webhook](/zh-cn/automate/watchers-webhooks/)。

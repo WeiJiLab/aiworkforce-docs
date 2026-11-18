@@ -1,18 +1,14 @@
 ---
 title: "云效 Codeup"
 description: "连接阿里云云效，使用 Codeup 仓库、导入 Projex 工作项，并绑定 Flow 流水线。"
-status: limited
 sidebar:
   label: 云效
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "d8d212db65a8a306d61e2127ba3375e47b670a1e5eddf9f48b3d6d8c3e0187eb"
+  sourceHash: "6a77aab7c6c84f65d567acebbc8a2895a366551570445fe97f37b62635cffc0c"
 ---
 
 云效是阿里云 DevOps 的代码托管连接，另外还有独立的 Projex 导入，以及可选的 Flow 流水线绑定。Codeup 仓库权限、Projex 工作项权限和 Flow 流水线权限，是同一类云效 Token 上的不同授权。有其中一项，不代表另外两项也有。

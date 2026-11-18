@@ -1,16 +1,11 @@
 ---
 title: "审计与合规"
 description: "阅读自动化运行的审计记录，并知道哪些操作平台不会替你归档。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "6c613620eb12955e507b6245d2e3c55a5c17adc6cab72e221ecac5ed0c12dca4"
+  sourceHash: "566662d28d117bdbd3e08ab386df26a6d875a78275ed9a15afbd44eac9cd6573"
 ---
 
 审计回答谁调用了一项工作，以及平台为这次调用存了什么。当前契约是自动化运行审计视图 `GET /api/automation/v1/runs/{run_id}/audit`，调用方需要能够读取该运行。会话历史、交付卡片上的决定和管理员监控是分开的记录。它们合在一起也不是合规产品、保留策略，或一份自行满足某项法规的导出。

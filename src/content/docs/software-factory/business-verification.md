@@ -1,11 +1,6 @@
 ---
 title: "Business verification"
 description: "Compare a change with the confirmed acceptance criteria. The product does not score business outcomes by itself."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

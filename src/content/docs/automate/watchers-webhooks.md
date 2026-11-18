@@ -1,11 +1,6 @@
 ---
 title: "Watchers and webhooks"
 description: "Start a Job from an inbound webhook. There is no separate Watcher resource in the current release."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

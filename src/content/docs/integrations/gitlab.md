@@ -1,12 +1,8 @@
 ---
 title: "GitLab"
 description: "Connect a GitLab instance with a personal access token, associate projects, and read issues on a delivery project."
-status: limited
 sidebar:
   label: GitLab
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

@@ -28,19 +28,13 @@ for (const file of files) {
   const badge = data.sidebar?.badge?.text;
 
   record(
-    ["available", "beta", "limited", "planned"].includes(status),
-    `${file}: status must be available, beta, limited, or planned`,
+    ["available", "beta", "planned"].includes(status),
+    `${file}: status must be available, beta, or planned`,
   );
   record(
-    badge !== "有限制",
-    `${file}: sidebar badge must say 部分支持, not 有限制`,
+    badge !== "有限制" && badge !== "部分支持" && badge !== "Limited",
+    `${file}: pages describe supported behavior and do not use a partial-support badge`,
   );
-  if (badge === "Limited" || badge === "部分支持") {
-    record(
-      status === "limited",
-      `${file}: Limited badge requires status: limited`,
-    );
-  }
   if (badge === "Planned" || badge === "规划中") {
     record(
       status === "planned",
@@ -50,7 +44,7 @@ for (const file of files) {
   if (badge === "Beta") {
     record(status === "beta", `${file}: Beta badge requires status: beta`);
   }
-  if (status === "limited" || status === "planned" || status === "beta") {
+  if (status === "planned" || status === "beta") {
     record(Boolean(badge), `${file}: ${status} pages need a sidebar badge`);
   }
   if (status === "available") {

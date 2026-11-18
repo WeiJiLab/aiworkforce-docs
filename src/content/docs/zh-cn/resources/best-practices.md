@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1a98af162a475a8ea2933f17f54c0f6db0dd3a5226511a5bb9d3e735dde404d7"
+  sourceHash: "f3b856f3cf644844c28fdfdde5bc007aa6b90c4def2db626d0e5f8d9e30aedff"
 ---
 
 这些实践是其余文档反复写明的约束。它们不是一项新功能。
@@ -28,6 +28,6 @@ translation:
 
 ## 不要把规划中的工作写成已经可用
 
-如果页面标了有限制或规划中，就遵守该边界。日程、Webhook 和事件是不同的触发。软件工厂不会自己写完并发布代码。本基线没有通用 SDK 包，也没有 ACP 或 A2A 服务。
+如果页面标了规划中，就遵守该边界。日程、Webhook 和事件是不同的触发。软件工厂不会自己写完并发布代码。本基线没有通用 SDK 包，也没有 ACP 或 A2A 服务。
 
 同样的判断还写在[实践手册](/zh-cn/learn/)和[反馈与审阅](/zh-cn/learn/feedback-review/)里。

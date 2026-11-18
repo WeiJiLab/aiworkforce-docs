@@ -1,12 +1,8 @@
 ---
 title: "Microsoft Teams"
 description: "Chat privately with one allowed Teams user through a bot, or send a notification through a Teams workflow."
-status: limited
 sidebar:
   label: Microsoft Teams
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

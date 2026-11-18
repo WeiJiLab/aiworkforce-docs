@@ -1,17 +1,13 @@
 ---
 title: "Agent 评测"
 description: "用检查和案例判断员工是否完成了所定义的工作，而不是依据一段流畅的回复。"
-status: limited
 sidebar:
   label: 执行评测
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "684f581c039c457ea710acf62cc4d2c6c9d0a3f51f063fb5c6f52aa90d831e55"
+  sourceHash: "f50ad17c056f80f344e75c2e82a7d6dd1d41152d0855307057e0ffce0832711e"
 ---
 
 执行评测回答一个窄问题：这名员工在这项任务上，是否产出了符合职责和验收标准的结果？自信的回复、很长的会话，或一次顺利的对话，都不是这个答案。平台控制，包括授权、模型、成本和审计，在[平台治理](/zh-cn/operate/evaluation-governance/)，不是同一项任务的第二份分数。

@@ -32,7 +32,7 @@ npm run check:navigation
 
 English and Chinese share the same slugs across three portals: Docs, Learn, and API. Sidebars are defined in `src/lib/sidebar.mjs` and filtered by route middleware. Top navigation also links to Console. [Navigation](NAVIGATION.md) explains the sections, support states, and redirects.
 
-A page may set `status` to `available` (the default), `beta`, `limited`, or `planned`. Beta, limited, and planned pages say so in the sidebar and above the article. Do not describe a planned interface as something a reader can call.
+A page may set `status` to `available` (the default), `beta`, or `planned`. Beta and planned pages say so in the sidebar and above the article. A page describes the behavior this release supports, so it does not carry a partial-support badge. Do not describe a planned interface as something a reader can call.
 
 Content lives in `src/content/docs/`. Chinese files mirror the English paths under `zh-cn/`. Start a guide from `templates/guide.md`. Starlight supplies the H1. Use absolute links to the language-appropriate page. Add every new guide to the correct portal in `src/lib/sidebar.mjs`. Existing guide URLs stay valid when their section changes; removed pages need redirects.
 
@@ -48,7 +48,7 @@ Copy that hash into the corresponding Chinese frontmatter. If translation review
 
 ## Agent access
 
-- `/llms.txt` is the generated bilingual index, grouped by the shared information architecture. Limited and planned pages are marked.
+- `/llms.txt` is the generated bilingual index, grouped by the shared information architecture. Planned pages are marked.
 - `/llms-full.txt` is generated from all published pages.
 - `/getting-started/quickstart.md` and `/zh-cn/getting-started/quickstart.md` expose page content without navigation or scripts.
 - The English homepage is available at `/index.md`; the Chinese homepage at `/zh-cn.md`.

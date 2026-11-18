@@ -3,10 +3,6 @@ title: "Create a workflow"
 description: "Compose one Job, or a delivery-lane pipeline of two or more executors. A Job has no branch canvas."
 sidebar:
   label: Create a workflow
-  badge:
-    text: Limited
-    variant: caution
-status: limited
 last_verified: "2026-11-18"
 translation:
   source: en

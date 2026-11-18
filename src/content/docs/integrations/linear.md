@@ -1,12 +1,8 @@
 ---
 title: "Linear"
 description: "Import open Linear issues after an administrator connects a team for this workspace."
-status: limited
 sidebar:
   label: Linear
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

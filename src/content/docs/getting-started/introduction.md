@@ -26,7 +26,7 @@ A builder defines a reusable employee. A user creates a workspace employee from 
 
 ## Before you begin
 
-You need an account on an AI Workforce deployment and access to a workspace. A workspace manager provides templates, execution resources, and connections. For a delivery workflow, the project also needs a repository connection, ready lane employees, and a way to verify the change. Availability depends on that deployment. This documentation marks partial support as **Limited** and capabilities that are not in the current release as **Planned**.
+You need an account on an AI Workforce deployment and access to a workspace. A workspace manager provides templates, execution resources, and connections. For a delivery workflow, the project also needs a repository connection, ready lane employees, and a way to verify the change. Availability depends on that deployment. Capabilities that are not in the current release are marked **Planned**.
 
 For a first change, use one small Issue with acceptance criteria a reviewer can check. For a first task that does not change software, use a small input you are allowed to share and ask for a written output with explicit acceptance criteria.
 

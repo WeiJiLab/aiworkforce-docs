@@ -1,11 +1,6 @@
 ---
 title: "Webhooks"
 description: "Call a published Job from an external system. Outbound webhook subscriptions are not a separate product surface."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

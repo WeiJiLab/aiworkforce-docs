@@ -1,11 +1,6 @@
 ---
 title: "Employee testing"
 description: "Test an employee package with structural validation and a small set of task trials."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

@@ -297,8 +297,8 @@ export function getHomeContent(zh: boolean): HomeContent {
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / API 分组，并标出部分支持或规划中的能力。"
-        : "Read any page as Markdown. The index follows Docs, Learn, and API and marks limited or planned capabilities.",
+        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / API 分组，并标出规划中的能力。"
+        : "Read any page as Markdown. The index follows Docs, Learn, and API and marks planned capabilities.",
       links: [
         {
           title: "llms.txt",

@@ -1,12 +1,8 @@
 ---
 title: "Agent evaluation"
 description: "Judge whether an employee did the job you defined, using checks and examples rather than a fluent reply."
-status: limited
 sidebar:
   label: Execution evaluation
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

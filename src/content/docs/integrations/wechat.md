@@ -1,12 +1,8 @@
 ---
 title: "WeChat"
 description: "Chat from personal WeChat by scanning a QR code, or receive Official Account messages with developer credentials."
-status: limited
 sidebar:
   label: WeChat
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

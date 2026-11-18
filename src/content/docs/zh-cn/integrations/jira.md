@@ -1,18 +1,14 @@
 ---
 title: "Jira"
 description: "管理员为这个工作空间接好 Jira Cloud 项目之后，导入未关闭的 Issue。"
-status: limited
 sidebar:
   label: Jira
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "b1f5106681a82621e3a14c645aaeedaad08fb08dcd545d82598ad253b7426bdf"
+  sourceHash: "a3b2bea9f340d01870d307bbe62c538d659883af7af105930b837f8e79976a71"
 ---
 
 在 AI Workforce 里，Jira 是一次性的、只读的 Task Inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Jira Cloud 项目之后，它才会出现。工作空间的集成目录里没有 Jira 卡片，没有项目浏览器，也不会把状态写回 Jira。

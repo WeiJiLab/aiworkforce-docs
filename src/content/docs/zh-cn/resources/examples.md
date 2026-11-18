@@ -1,16 +1,11 @@
 ---
 title: "示例项目"
 description: "把文档中的研究助手包当作完整示例。本站不提供可下载目录。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "e0df996437efa3ec2fbbd314497ca2f82fa3b31f0f62771ff98f3519cd868358"
+  sourceHash: "1dc36fd5ff6588b67b643d253d377fbc84467277845a98f5772fa19924bfb28e"
 ---
 
 本文档中的完整示例是一名研究助手：根据给定材料准备简报，并拒绝发布这些材料。它说明的是员工包布局，不是你的部署一定已经发布的模板，也不是可以从本站克隆的仓库。

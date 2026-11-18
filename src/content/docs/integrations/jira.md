@@ -1,12 +1,8 @@
 ---
 title: "Jira"
 description: "Import open Jira Cloud issues after an administrator connects a project for this workspace."
-status: limited
 sidebar:
   label: Jira
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

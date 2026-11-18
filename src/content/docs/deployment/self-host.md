@@ -1,16 +1,12 @@
 ---
 title: "Self-host"
 description: "Run the AI Workforce service stack on infrastructure you operate, including the local Compose path, the single-host release, and the limits of both."
-status: limited
 audience:
   - platform-engineer
 product_area: deployment
 last_verified: "2026-11-18"
 sidebar:
   label: Self-host
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

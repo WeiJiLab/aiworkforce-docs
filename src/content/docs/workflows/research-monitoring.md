@@ -1,11 +1,6 @@
 ---
 title: "Research and monitoring"
 description: "Schedule an employee to produce a reviewable artifact, or start a Job from a monitoring event."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
@@ -52,4 +47,4 @@ Trigger: weekdays at a time you set. Context: the question in the task, plus too
 
 ## Limits
 
-There is no research-agent template, no open-ended monitor that runs until cancelled as its own product, and no workflow-level score for a written report. Employee-package evaluation remains a separate, limited check. See [execution evaluation](/software-factory/evaluation/).
+There is no research-agent template, no open-ended monitor that runs until cancelled as its own product, and no workflow-level score for a written report. Employee-package evaluation is a separate check. See [execution evaluation](/software-factory/evaluation/).

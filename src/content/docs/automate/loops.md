@@ -1,11 +1,6 @@
 ---
 title: "Loops and recurring work"
 description: "Repeat a Job on a schedule or across runs. There is no loop block in the workflow editor."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

@@ -1,17 +1,12 @@
 ---
 title: "Pull Request 自动化"
 description: "当轮询到的 GitHub Pull Request 事件匹配时启动员工。合并仍留在发布泳道。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "3f9d85c9735f2c85d51bc2c18285de339c6d8cc4031c6ea427dceae0dab7e525"
+  sourceHash: "41f97621ec318416ad21a2550a7b3cae82b3dc6435fc1b6cc62d6b525b69e5c1"
 ---
 
 Pull Request 自动化是一条事件驱动的工作流。Job 通过 GitHub Token 轮询观察 Pull Request 活动，并运行一名员工。它和 [Issue 自动化](/zh-cn/workflows/issue-automation/)使用同一套自动化，只是事件不同。它不会自行批准、合并或发布。

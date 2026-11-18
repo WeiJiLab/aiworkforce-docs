@@ -1,11 +1,6 @@
 ---
 title: "Pull request automation"
 description: "Start an employee when a polled GitHub pull request event matches. Merge stays on the release lane."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

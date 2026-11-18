@@ -3,16 +3,12 @@ title: "创建工作流"
 description: "组合一个 Job，或由两个及以上执行器组成的交付泳道编排。Job 没有分支画布。"
 sidebar:
   label: 创建工作流
-  badge:
-    text: 部分支持
-    variant: caution
-status: limited
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "6b05fd393f086e5babddc603970bdc5b40150206999e1d3093072935c03666d3"
+  sourceHash: "12729aadffb4943317670779f32983be10339506894475067fc4b756a2fbb538"
 ---
 
 当前产品里有两种定义工作流的方式。**Job** 是一个执行器加上它的触发规则。**编排**把交付看板某条泳道上的两个或更多执行器串起来。没有第三块画布，用来描述不挂在泳道上的任意流程。[自定义工作流](/zh-cn/workflows/custom-workflows/)写的是同一条边界。

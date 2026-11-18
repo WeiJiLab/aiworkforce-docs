@@ -1,17 +1,12 @@
 ---
 title: "自定义工作流"
 description: "组合一个 Job、一条交付泳道编排，或一份技能工作流。没有另外的通用画布。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "fbc2b221379d95ec7306b369cf8914dc184dcd3e51e9fddad7a1965a1ad5ac79"
+  sourceHash: "f8940f421a48e6795b2fb189c9628b8996fdc81bb5b93f6fffe05b598f42f762"
 ---
 
 自定义工作流是产品已经保存的一种定义。它仍然使用与软件工厂和 Issue 处理相同的自动化、员工、运行和证据。离开内置泳道时，你不需要安装另一套引擎。

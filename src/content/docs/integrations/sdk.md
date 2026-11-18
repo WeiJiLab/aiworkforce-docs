@@ -1,11 +1,6 @@
 ---
 title: "SDK"
 description: "Build a small HTTP client from the deployed OpenAPI schema. No general platform SDK package is published."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

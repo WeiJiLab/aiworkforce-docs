@@ -1,18 +1,14 @@
 ---
 title: "Sentry"
 description: "在个人连接上接收 Sentry Issue 事件，并在已启用的规则匹配时启动 Job。"
-status: limited
 sidebar:
   label: Sentry
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "e6c8a80b6bd73317bbc972b813317d8cdc010fcfd427d7299ec6b359871efa63"
+  sourceHash: "83bd0f3d6ccefe03d6c7f8fcfa58cf68bb6789b2ddde195f7aead8e6dc104afe"
 ---
 
 Sentry 是接收 Issue 事件的监控连接。连接属于你本人，并且只在一个工作空间里。Issue 事件匹配已启用的规则时，可以运行一个已发布的 Job。这条连接不会更新 Sentry Issue，不会指派负责人，也不会自己生成调研报告。

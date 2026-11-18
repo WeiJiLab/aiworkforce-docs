@@ -27,6 +27,6 @@ Run the normal case, the missing input, and the out-of-scope request for an empl
 
 ## Do not describe planned work as available
 
-If a page is marked Limited or Planned, follow that boundary. Schedules, webhooks, and events are different triggers. Software Factory does not write and release code by itself. There is no general SDK package and no ACP or A2A server in this baseline.
+If a page is marked Planned, follow that boundary. Schedules, webhooks, and events are different triggers. Software Factory does not write and release code by itself. There is no general SDK package and no ACP or A2A server in this baseline.
 
 More of the same judgment is in [playbooks](/learn/) and [feedback and review](/learn/feedback-review/).

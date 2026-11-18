@@ -1,16 +1,11 @@
 ---
 title: "编码 Agent 与 Harness"
 description: "查看编码员工实际运行在哪种执行封装里。本版本没有 Harness 注册表。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "d5684400c526b8355f8b7a20133c28507a512ab8936e97c2333c09a648d47106"
+  sourceHash: "ba2d76311222b5a91678ab795522f0db501e9de5583b94776bb1ab4e55b746bb"
 ---
 
 Harness 是编码 Agent 外围的执行封装：运行时加载的指令、它可以调用的工具，以及这些工具运行的位置。AI Workforce 把模型和 Agent 循环留在平台上。工具在已配置的运行时中执行。对仓库工作，该运行时常常是交付和收集功能所引用的 Claude Code 运行时，或一台已授权的设备 worker。

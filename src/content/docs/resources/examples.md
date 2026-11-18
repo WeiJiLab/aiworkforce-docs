@@ -1,11 +1,6 @@
 ---
 title: "Example projects"
 description: "Use the documented research-assistant package as a worked example. This site does not ship a downloadable catalog."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

@@ -1,17 +1,12 @@
 ---
 title: "Issue 自动化"
 description: "从 GitHub Issue 或收件箱事项开始调查，并把已确认的工作送入交付。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1dd32a84e084c4af7949f6937568fac6757bf5e64d61d6213d6dd883b449c8f0"
+  sourceHash: "be77fdd6532bfec02cca1064f1e7aec3664d35a95993b222d6c7678afc18a230"
 ---
 
 Issue 自动化在事项出现时启动工作流，并把调查留在可以检查的运行里。当前产品可以接收 GitHub Issue，把任务导入收件箱，并把已确认的事项送到交付看板。它没有分类器、重复检测或优先级模型。

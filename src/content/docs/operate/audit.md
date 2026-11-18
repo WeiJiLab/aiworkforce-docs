@@ -1,11 +1,6 @@
 ---
 title: "Audit and compliance"
 description: "Read automation run audit records and know which actions the platform does not archive for you."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

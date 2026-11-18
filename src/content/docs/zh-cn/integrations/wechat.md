@@ -1,18 +1,14 @@
 ---
 title: "微信"
 description: "扫码从个人微信聊天，或用开发者凭据接收公众号消息。"
-status: limited
 sidebar:
   label: 微信
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "5f9fcf35faacc29afc8375e83b14f952a3646359724fc2d8a02d9ad0e5cca299"
+  sourceHash: "b8bac0bd82aa2250966ca8d7e88e70c6fa5b1e49a4137bd7ca0b844c1da42d33"
 ---
 
 微信是一条消息渠道，有两种模式。个人微信用二维码确认，不需要应用凭据。公众号使用开发者凭据和微信的服务器回调。公众号向外发送时，遵守微信自己的客服接口规则。微信不是团队工作流引擎。

@@ -1,16 +1,11 @@
 ---
 title: "可观测性"
 description: "找到一次变更的会话、运行和交付记录。没有单独的软件工厂遥测产品。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "9a867906f095ae19fcb2c783b04f4974cf83f66c11a9194720e0ab667d760674"
+  sourceHash: "f923cdae148f467d8ab278b9f9fd2f5c5a4f2c5cbc82fcd82a654cffaa62d520"
 ---
 
 这里的可观测性是指你能找到一张卡片、一段会话或一次运行发生了什么。当前产品把这些记录留在工作台、会话历史、自动化运行历史和管理员监控视图里。它不额外提供单独的追踪后端、软件工厂指标产品，或一份由本文档配置的日志导出。

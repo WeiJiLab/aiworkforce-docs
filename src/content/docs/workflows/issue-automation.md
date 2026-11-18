@@ -1,11 +1,6 @@
 ---
 title: "Issue automation"
 description: "Start from a GitHub issue or an inbox item, then investigate and route confirmed work into delivery."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

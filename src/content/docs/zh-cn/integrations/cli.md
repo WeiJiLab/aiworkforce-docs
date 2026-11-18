@@ -1,7 +1,6 @@
 ---
 title: "设备执行器 CLI"
 description: "安装、配对并操作 aiworkforce-device-exec。它在一台计算机上运行工具，不管理平台。"
-status: limited
 audience:
   - developer
   - platform-engineer
@@ -9,14 +8,11 @@ product_area: integrations
 last_verified: "2026-11-18"
 sidebar:
   label: 设备执行器 CLI
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ceb47ab9c070d6a0cb0a7fa6d44484a6a1f6e834fcbac046388bc3d6583c4f34"
+  sourceHash: "de342a23bb2bed4928b57ae597dc38a926856d0618e2527f8fc1dfeec876029e"
 ---
 
 `aiworkforce-device-exec` 是设备执行器。它配对一台 macOS 或 Linux 计算机，让 AI Workforce 在那里运行工具。平台保留对话、模型循环和授权。这个 CLI 不创建员工、不修改授权、不调用管理 API，也不是一条通用的 `aiworkforce` 管理命令。

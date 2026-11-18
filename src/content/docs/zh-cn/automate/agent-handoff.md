@@ -1,16 +1,11 @@
 ---
 title: "Agent 交接"
 description: "在会话、另一次运行或人之间传递工作。提示词里的一句话不是交接记录。"
-status: limited
-sidebar:
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "4e353c2cbf8f7f0bc93982fe5ad1aa87888acdbf64274c0b48a7cac1aff57d9a"
+  sourceHash: "c212bdeffa5cf84ce2e47a330d2a0a96bca23181a5e255fd04e5b41f72b84e7a"
 ---
 
 交接意味着下一个执行者能看到当前状态，并且上一个执行者不再拥有下一步。当前产品把这件事记在不同的地方。它不提供任意 Agent 之间的一套通用交接协议。

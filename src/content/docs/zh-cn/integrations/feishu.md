@@ -1,18 +1,14 @@
 ---
 title: "飞书与 Lark"
 description: "通过平台飞书或 Lark 应用聊天，并在飞书妙记转写就绪时启动 Job。"
-status: limited
 sidebar:
   label: 飞书
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ea23df2342f1eaf057ef927d725f78a44bff9a8beb0efeefe355ba35eb680149"
+  sourceHash: "a3068854ddb437832ffe1ccec22e2701161e7dafa9249f86eb367f522066bd13"
 ---
 
 飞书和 Lark 是同一类连接。账号品牌是 Lark 时，用的仍是同一个平台应用、同一种个人授权。产品会在连接上标出品牌，不会再做一套安装流程。

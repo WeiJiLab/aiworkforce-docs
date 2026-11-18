@@ -1,18 +1,14 @@
 ---
 title: "PagerDuty"
 description: "在个人连接上接收 PagerDuty 事件，并在已启用的规则匹配时启动 Job。"
-status: limited
 sidebar:
   label: PagerDuty
-  badge:
-    text: 部分支持
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "400708cf518244b9056117ab1da5eac11c262b201eeafa021295e45fd995c7e9"
+  sourceHash: "7c22232270012c8e291524294b9aeffdb5f419e38d1ac4ba4da63dee0614acbb"
 ---
 
 PagerDuty 是接收 Incident 事件的监控连接。连接属于你本人，并且只在一个工作空间里。事件匹配已启用的规则时，可以运行一个已发布的 Job。这条连接不会在 PagerDuty 里确认、解决或重新指派 Incident。

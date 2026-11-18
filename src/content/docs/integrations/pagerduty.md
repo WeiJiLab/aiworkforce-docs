@@ -1,12 +1,8 @@
 ---
 title: "PagerDuty"
 description: "Receive PagerDuty incident events on a personal connection and start a Job when an enabled rule matches."
-status: limited
 sidebar:
   label: PagerDuty
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

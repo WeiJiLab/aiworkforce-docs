@@ -1,11 +1,6 @@
 ---
 title: "Agent handoff"
 description: "Pass work between a session, another run, or a person. A sentence in the prompt is not a handoff record."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

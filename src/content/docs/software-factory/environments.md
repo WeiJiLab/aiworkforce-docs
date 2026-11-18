@@ -1,11 +1,6 @@
 ---
 title: "Development environments"
 description: "Place coding work on the platform runtime or an authorized device. A card does not create an isolated environment."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

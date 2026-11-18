@@ -1,11 +1,6 @@
 ---
 title: "Coding agents and harnesses"
 description: "See which execution harness a coding employee actually runs in. There is no harness registry in this release."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete

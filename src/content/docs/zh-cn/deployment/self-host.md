@@ -1,21 +1,17 @@
 ---
 title: "自托管"
 description: "在自己运维的基础设施上运行 AI Workforce 服务栈，包括本地 Compose、单机发布，以及两者的边界。"
-status: limited
 audience:
   - platform-engineer
 product_area: deployment
 last_verified: "2026-11-18"
 sidebar:
   label: 自托管
-  badge:
-    text: 部分支持
-    variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ccfa2cccc97e6dab05bf52d80a002b0e7cc5e6d0caa61775230fd40c0f37b81e"
+  sourceHash: "3bd02505e0320a3cdd9d1a9a16a6502c7243035e818a53f8a8e584ea9a367cc7"
 ---
 
 自托管是指由你们自己运行 AI Workforce 的服务：Web 应用、后端、PostgreSQL，以及这些服务保存的工作空间文件。运营方托管的部署是同一套产品，只是由别人替你们运行。使用工作空间、数字员工和工作流的方式不变。变的是谁运维这些服务，以及这些记录放在哪里。

@@ -1,12 +1,8 @@
 ---
 title: "Feishu and Lark"
 description: "Chat through the platform Feishu or Lark app, and start a Job when a Feishu Minutes transcript is ready."
-status: limited
 sidebar:
   label: Feishu
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

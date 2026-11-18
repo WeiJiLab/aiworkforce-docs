@@ -1,11 +1,6 @@
 ---
 title: "Custom workflows"
 description: "Compose a Job, a delivery-lane pipeline, or a skill workflow. There is no separate general-purpose canvas."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 last_verified: "2026-11-18"
 translation:
   source: en

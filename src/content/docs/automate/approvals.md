@@ -1,11 +1,6 @@
 ---
 title: "Approvals and notifications"
 description: "Put a person in an automation when the next step changes scope or accepts a result. There is no general notification product."
-status: limited
-sidebar:
-  badge:
-    text: Limited
-    variant: caution
 translation:
   source: en
   status: complete
