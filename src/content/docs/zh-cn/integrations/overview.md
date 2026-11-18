@@ -1,50 +1,77 @@
 ---
-title: "集成概览"
-description: "按任务选择连接方式，区分平台能力、员工授权与外部客户端兼容性。"
+title: "集成目录"
+description: "按产品分组，打开 AI Workforce 已经支持的每一项连接指南。"
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "c45c0da8a6d9036f270f53aa33b7fa922ab0d98c9577cfe8e8998011d9630be5"
+  sourceVersion: "2026-11-18"
+  sourceHash: "2004ed183709b487a2d20613fccbf7f1e10fcd9b06814a17033a4b465fd7351e"
 ---
 
-集成可以让事件进入平台、让资源可用，或让员工调用工具。先明确你需要哪一种。账号连接成功，不代表每个员工都获得访问权限，也不代表完整交付流水线已经启用。
+集成是 AI Workforce 和另一个系统之间、有名字的一条连接。用它可以让仓库变得可用，让事件启动一个 Job，把任务导入收件箱，或者让人和员工对话。连接成功之后，这项任务真正要用的授权、选中的资源和已经启用的触发规则，仍然要单独配好。
 
-## 能力矩阵
+下面的分组和产品一致：代码托管、事项导入、消息渠道、监控告警。MCP、入站 Webhook 和员工工具已经有自己的指南，这里只放链接。本产品没有 ACP 或 A2A 连接。
 
-| 分类              | 当前入口                                                   | 需要验证                                                 |
-| ----------------- | ---------------------------------------------------------- | -------------------------------------------------------- |
-| 代码托管          | GitHub、GitLab、云效 Codeup 连接与代码仓库目录             | 供应商实例、Token 权限、仓库关联、员工授权。             |
-| 业务协作          | 飞书、钉钉、Slack、Microsoft Teams、企业微信与微信渠道入口 | 供应商连接模式、已部署适配器、账号绑定及消息权限。       |
-| 监控告警          | Sentry Issue 事件与 PagerDuty Incident 事件                | 连接身份、Webhook 校验、所选资源及已启用触发规则。       |
-| 员工工具          | 来自模板、插件与可用目录项的 MCP 服务                      | 实例实际安装、连接、授权及已发现工具。                   |
-| 外部 Coding Agent | 通过 HTTP 与平台 MCP 入口暴露的已注册自动化                | 被允许且处于启用状态的 Job、凭据范围、异步运行处理。     |
-| IDE 客户端        | IDE 兼容的 HTTP/MCP 客户端、仓库及代码评审工作流           | 客户端传输与鉴权支持；不代表提供 AI Workforce 官方扩展。 |
-| 本机执行          | 通过设备 daemon 授权电脑，在会话中选用                     | 设备在线状态、批准目录、会话授权及运行时支持。           |
-| ACP / A2A         | 当前文档基线没有建立通用公开 ACP 或 A2A 端点               | 使用已有 HTTP/MCP 契约，不能把协议名称当成已实现的集成。 |
+## 代码托管
 
-不同消息入口不能互换。例如，Teams Workflow 与完整机器人具有不同的权限和交付行为，应以部署中实际配置的连接模式为准。
+工作空间凭据、仓库连接和员工授权用的是同一套做法。各家托管的差别写在各自的页面上。
 
-## 先连接一项资源
+| 连接                                               | 适合什么时候                                                                     |
+| -------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [GitHub](/zh-cn/integrations/github/)              | 代码在 GitHub 上，或者 Job 需要响应轮询到的 Issue、Pull Request、Review 或推送。 |
+| [GitLab](/zh-cn/integrations/gitlab/)              | 代码在某个 GitLab 实例上，或者交付项目要读取该实例的 Issue。                     |
+| [云效 Codeup](/zh-cn/integrations/yunxiao/)        | 代码或 Projex 工作项在阿里云云效上，包括 Region 实例。                           |
+| [代码仓库](/zh-cn/integrations/code-repositories/) | 你要看 Token、实例、仓库发现和员工授权的共同规则。                               |
 
-1. 打开「集成」，选择供应商分类。
-2. 在预期工作空间或账号范围中创建、选择连接。
-3. 完成供应商授权，确认外部身份。
-4. 选择任务需要的仓库、渠道或事件资源。
-5. 配置员工专属授权或能力。
-6. 尝试一次小范围读取或测试事件，检查记录的结果。
+## 事项导入
 
-对于没有原生目录入口的业务系统，可以使用兼容的 MCP 服务或已注册自动化集成。确认真实工具能够完成预期操作；仅在员工 Manifest 中添加服务名称属于描述性元数据。
+GitHub 和云效的导入，用的是当前登录用户自己的 Token，以及仓库或项目选择器。步骤在上面两个托管页面里。Jira 和 Linear 出现在同一个导入弹窗里，前提是管理员已经为这个工作空间接好了来源。
 
-## 连接 Coding Agent
+| 连接                                  | 适合什么时候                                                               |
+| ------------------------------------- | -------------------------------------------------------------------------- |
+| [Jira](/zh-cn/integrations/jira/)     | 管理员已经接好一个 Jira Cloud 项目，你要把未关闭的 Issue 放进 Task Inbox。 |
+| [Linear](/zh-cn/integrations/linear/) | 管理员已经接好一个 Linear 团队，你要把未关闭的 Issue 放进 Task Inbox。     |
 
-平台 `/mcp` 向已授权客户端提供已注册的自动化能力。它不同于员工连接外部 MCP 服务，也不同于静态文档的 Markdown 入口。兼容的 Coding Agent 可以发现允许调用的 Job、启动运行并检查结果，无需获得平台管理员权限。
+导入只创建收件箱任务。它不会启动会话，也不会在之后继续同步，更不会把状态写回去。
 
-编辑器支持 MCP 传输，不代表支持所有鉴权方式。请与管理员确认实际部署的入口、允许的 Host、客户端请求头及凭据类型。更适合直接控制 HTTP 请求时，参考 [API 参考](/zh-cn/developer/api-reference/)。
+## 消息渠道
+
+这些是聊天渠道。渠道可以把消息送到主员工；在渠道能接收消息时，也可以让指定会话里、允许的发送者启动一个 Job。渠道不能代替工作流、看板或 Job。
+
+| 连接                                                    | 适合什么时候                                                            |
+| ------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [飞书与 Lark](/zh-cn/integrations/feishu/)              | 人通过平台飞书或 Lark 应用聊天，或者 Job 要总结飞书妙记。               |
+| [钉钉](/zh-cn/integrations/dingtalk/)                   | 钉钉机器人通过 Stream 或 HTTP 回调接收消息。                            |
+| [Slack](/zh-cn/integrations/slack/)                     | Slack 应用通过 Socket Mode 或 Events API 接收消息，或向一个频道发通知。 |
+| [Microsoft Teams](/zh-cn/integrations/microsoft-teams/) | 一名允许的用户和机器人私聊，或让 Teams 工作流接收一条通知。             |
+| [企业微信](/zh-cn/integrations/wecom/)                  | 企业微信机器人或自建应用收发消息，或群机器人发送通知。                  |
+| [微信](/zh-cn/integrations/wechat/)                     | 个人微信里和员工聊天，或由公众号接收消息。                              |
+
+工作空间目录里有卡片的，从「集成」进入。钉钉和其他聊天渠道一起，在「连接消息渠道」里选择。
+
+## 监控告警
+
+监控连接接收的是创建它的这个人、在这个工作空间里的事件。它可以启动一个已发布的 Job。它不会自己产出一份调研报告，也不会去改外部事件。
+
+| 连接                                        | 适合什么时候                                            |
+| ------------------------------------------- | ------------------------------------------------------- |
+| [Sentry](/zh-cn/integrations/sentry/)       | Sentry Issue 被创建、解决、分配、归档或重新变为未解决。 |
+| [PagerDuty](/zh-cn/integrations/pagerduty/) | PagerDuty 事件被触发、确认、解决或升级。                |
+
+跑起来的仍是同一个 Job。日程和这类事件的差别见[调研与监控](/zh-cn/workflows/research-monitoring/)。
+
+## 工具与入站调用
+
+| 指南                                                 | 适合什么时候                                                             |
+| ---------------------------------------------------- | ------------------------------------------------------------------------ |
+| [工具与连接器](/zh-cn/integrations/employee-tools/)  | 员工要通过已安装的 MCP 服务调用外部系统。                                |
+| [MCP 集成](/zh-cn/integrations/mcp/)                 | 客户端要通过平台 MCP 端点调用已注册的 Job，或者你在运行自己的 MCP 服务。 |
+| [Webhooks](/zh-cn/integrations/webhooks/)            | 外部系统要用一次入站调用启动一个已发布的 Job。                           |
+| [监视与 Webhook](/zh-cn/automate/watchers-webhooks/) | 你正在把这个入站触发挂到 Job 上。                                        |
 
 ## 相关文档
 
-- [代码仓库连接](/zh-cn/integrations/code-repositories/)
-- [连接与检查员工工具](/zh-cn/integrations/employee-tools/)
-- [员工包 MCP 集成 · Developers](/zh-cn/build/mcp-integration/)
-- [身份认证](/zh-cn/developer/authentication/)
+- [Issue 自动化](/zh-cn/workflows/issue-automation/)
+- [Pull Request 自动化](/zh-cn/workflows/pull-request-automation/)
+- [事件驱动自动化](/zh-cn/automate/event-driven/)

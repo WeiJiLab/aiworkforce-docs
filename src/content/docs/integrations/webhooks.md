@@ -24,4 +24,4 @@ Do not invent a signature scheme. Use the authentication your deployment documen
 
 ## Know the boundary
 
-A webhook does not grant the caller permission to create employees, change grants, or merge code. It starts one Job. If that Job files an inbox item or a workbench draft, a person still confirms development. See [REST API](/developer/api-reference/) for the invocation and cancel contracts.
+A webhook does not grant the caller permission to create employees, change grants, or merge code. It starts one Job. If that Job files an inbox item or a workbench draft, a person still confirms development. See [REST API](/developer/api-reference/) for the invocation and cancel contracts. Named product connections, including the chat and monitoring hooks those products use, are in the [integration directory](/integrations/overview/).

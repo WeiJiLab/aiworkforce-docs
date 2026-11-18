@@ -61,6 +61,7 @@ The board columns are the lanes in [workflow concepts](/workflows/concepts/). Th
 
 ## Related guides
 
+- [Integration directory](/integrations/overview/)
 - [Workflow concepts](/workflows/concepts/)
 - [AI employees](/user-guide/ai-employees/)
 - [Your first Software Factory workflow](/getting-started/first-software-factory/)

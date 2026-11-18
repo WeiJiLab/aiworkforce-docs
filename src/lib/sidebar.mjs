@@ -156,7 +156,31 @@ export const PORTALS = {
         label: "Integrations",
         zh: "集成",
         collapsed: true,
-        items: ["integrations/overview", "integrations/code-repositories"],
+        items: [
+          "integrations/overview",
+          nested("Code hosting", "代码托管", [
+            "integrations/github",
+            "integrations/gitlab",
+            "integrations/yunxiao",
+            "integrations/code-repositories",
+          ]),
+          nested("Issue import", "事项导入", [
+            "integrations/jira",
+            "integrations/linear",
+          ]),
+          nested("Messaging", "消息渠道", [
+            "integrations/feishu",
+            "integrations/dingtalk",
+            "integrations/slack",
+            "integrations/microsoft-teams",
+            "integrations/wecom",
+            "integrations/wechat",
+          ]),
+          nested("Monitoring", "监控告警", [
+            "integrations/sentry",
+            "integrations/pagerduty",
+          ]),
+        ],
       },
       {
         label: "Resources",

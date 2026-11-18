@@ -11,7 +11,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2820ccb23227cfb09d3b4fc737b82dc30db9eb4689e8527d8e9b60808b8f863e"
+  sourceHash: "e18f723e85a11aad5faa204315af6e8396f8415426e5e1010c45fe2a131090e6"
 ---
 
 定时调研工作流是一个一次性或重复执行的 Job，任务是收集信息并写成文字。监控是同一 Job 模型上的另一种触发：已配置连接时的 Sentry Issue 事件或 PagerDuty 事件。两者都不是单独的调研产品，也不是单独的监控引擎。
@@ -36,7 +36,7 @@ translation:
 
 ## 监控事件有什么不同
 
-Sentry 和 PagerDuty 连接列在[集成概览](/zh-cn/integrations/overview/)。事件仍须匹配一条已启用的触发规则，员工仍须拥有自己的工具授权。告警载荷是不可信输入。它不会扩大权限，也不能证明底层事件已经修复。
+先接好 [Sentry](/zh-cn/integrations/sentry/) 或 [PagerDuty](/zh-cn/integrations/pagerduty/)，事件才能触发。事件仍须匹配一条已启用的触发规则，员工仍须拥有自己的工具授权。告警载荷是不可信输入。它不会扩大权限，也不能证明底层事件已经修复。
 
 ## 一次实际的调研
 
@@ -44,6 +44,8 @@ Sentry 和 PagerDuty 连接列在[集成概览](/zh-cn/integrations/overview/)�
 
 ## 相关指南
 
+- [Sentry](/zh-cn/integrations/sentry/)
+- [PagerDuty](/zh-cn/integrations/pagerduty/)
 - [触发与日程](/zh-cn/automate/triggers-schedules/)
 - [循环与周期性工作](/zh-cn/automate/loops/)
 - [产物与证据](/zh-cn/user-guide/artifacts-evidence/)

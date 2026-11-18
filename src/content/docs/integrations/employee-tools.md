@@ -33,6 +33,6 @@ Try a small read operation before assigning a task that writes to another system
 
 ## Related guides
 
-- [Integration overview](/integrations/overview/)
+- [Integration directory](/integrations/overview/)
 - [AI employees](/user-guide/ai-employees/)
 - [MCP package integration · Developers](/build/mcp-integration/)

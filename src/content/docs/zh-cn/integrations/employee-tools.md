@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "fbcf85b769da1b8e4c60c427d61ae6f7ad2f29f22ce29c6db95978fa0d4f3f9b"
+  sourceHash: "3b39553ac1189a037eac318f950299256050898a938288da74c0aea4d88066db"
 ---
 
 员工可以使用已配置 MCP 服务提供的工具。需要在产品中选择或检查已有连接时，按本文操作。在员工包中声明依赖的构建者应阅读 [MCP 服务](/zh-cn/build/mcp-integration/)。配置协议端点的操作者应阅读 [MCP 集成](/zh-cn/integrations/mcp/)。
@@ -34,6 +34,6 @@ translation:
 
 ## 相关文档
 
-- [集成概览](/zh-cn/integrations/overview/)
+- [集成目录](/zh-cn/integrations/overview/)
 - [数字员工](/zh-cn/user-guide/ai-employees/)
 - [员工包 MCP 集成 · Developers](/zh-cn/build/mcp-integration/)

@@ -56,7 +56,7 @@ Polling details, including the 60-second floor and the baseline on first sync, a
 5. If the Job should file inbox items, add **Collect tasks / issues** and choose the inbox or a workbench project. The collection UI requires the Claude Code runtime. A sentence in the chat is not a saved issue. An empty collection still has to record that nothing matched.
 6. Open the inbox item, route it to a workbench draft, and confirm scope, acceptance criteria, and repositories. Then follow [your first Software Factory workflow](/getting-started/first-software-factory/).
 
-Jira and Linear appear as import sources. They import only through a connection an administrator has already authorized. GitHub and Yunxiao have their own repository or project pickers. This page does not pretend each of those pickers is the same.
+Jira and Linear appear as import sources. They import only through a connection an administrator has already authorized. GitHub and Yunxiao have their own repository or project pickers. Setup for each host is in [GitHub](/integrations/github/), [Yunxiao Codeup](/integrations/yunxiao/), [Jira](/integrations/jira/), and [Linear](/integrations/linear/).
 
 ## A practical issue
 
@@ -68,6 +68,7 @@ Check both the Job and the rule. A paused source does not admit waiting events, 
 
 ## Related guides
 
+- [GitHub](/integrations/github/)
 - [Event-driven automation](/automate/event-driven/)
 - [Inbox and tasks](/user-guide/inbox-tasks/)
 - [Issue to PR](/recipes/issue-to-pr/)

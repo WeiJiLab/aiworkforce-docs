@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "02a0dcd9c5a28e7c6ed87e13f2cf1bd45dfd79905689078bdea7cf5540c8a467"
+  sourceHash: "16c4ba3bd7bfd4d9486e9a0cdf2d39ebfd4d5191d8f60d6df1bc6fcf457191a8"
 ---
 
 工作流应用是运行同一平台的一种具体方式。它不自带引擎。每个应用都使用工作流定义、用来启动并继续的自动化、员工或代码执行器、任务、运行、环境、证据、产物和人工确认。
@@ -62,6 +62,7 @@ Issue 自动化
 
 ## 相关指南
 
+- [集成目录](/zh-cn/integrations/overview/)
 - [工作流概念](/zh-cn/workflows/concepts/)
 - [数字员工](/zh-cn/user-guide/ai-employees/)
 - [你的第一个软件工厂工作流](/zh-cn/getting-started/first-software-factory/)

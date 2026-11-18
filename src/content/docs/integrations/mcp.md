@@ -21,4 +21,4 @@ The same Jobs are available over HTTP. Prefer HTTP when you want an application 
 
 Cloud business connections accept HTTP/SSE services. Device tools are mounted through the session's device authorization. A package cannot grant itself a device by naming a path. Editor support for MCP does not imply every authentication method. Verify the deployed endpoint, permitted host, client headers, and credential type.
 
-Keep credentials out of employee YAML, skill text, and chat. If two sources configure the same server name differently, resolve the conflict at the source. Then confirm the instance from [tools and connectors](/integrations/employee-tools/).
+Keep credentials out of employee YAML, skill text, and chat. If two sources configure the same server name differently, resolve the conflict at the source. Then confirm the instance from [tools and connectors](/integrations/employee-tools/). Named product connections are listed in the [integration directory](/integrations/overview/).

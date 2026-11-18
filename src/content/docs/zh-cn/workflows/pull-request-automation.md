@@ -11,7 +11,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "e43a2964b7ea7eac9e08f729b6de8e5c5371f029ffc7ef84689945cb620771ff"
+  sourceHash: "3f9d85c9735f2c85d51bc2c18285de339c6d8cc4031c6ea427dceae0dab7e525"
 ---
 
 Pull Request 自动化是一条事件驱动的工作流。Job 通过 GitHub Token 轮询观察 Pull Request 活动，并运行一名员工。它和 [Issue 自动化](/zh-cn/workflows/issue-automation/)使用同一套自动化，只是事件不同。它不会自行批准、合并或发布。
@@ -38,7 +38,7 @@ Pull Request 观察 → 规则匹配 → 一次运行 → 员工会话
 
 ## 如何配置
 
-1. 用工作空间的 GitHub Token 连接仓库，方式与 Issue 相同。
+1. 按 [GitHub](/zh-cn/integrations/github/) 中的方式，用工作空间的 GitHub Token 连接仓库。
 2. 在 Job 上选择 Pull Request 事件，以及应当唤醒员工的最窄条件。在你检查过一次手动运行之前，保持规则停用。
 3. 用样例预览。预览不创建运行，也不向 GitHub 发帖。
 4. 发布并启用。阅读运行的状态、会话和输入。输入是事件封装。它不包含 Token，也不表示运行时已经检出该提交。
@@ -50,6 +50,7 @@ Pull Request 观察 → 规则匹配 → 一次运行 → 员工会话
 
 ## 相关指南
 
+- [GitHub](/zh-cn/integrations/github/)
 - [事件驱动自动化](/zh-cn/automate/event-driven/)
 - [审阅与发布](/zh-cn/software-factory/review-release/)
 - [工作流概念](/zh-cn/workflows/concepts/)

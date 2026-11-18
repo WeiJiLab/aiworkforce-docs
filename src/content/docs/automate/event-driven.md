@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-An event-driven automation invokes a published Job when something happens. The clock is not required. Where your deployment offers them, trigger types include platform events, Issues, IM messages, and webhooks. A connector's existence does not create the subscription. The event source has to be configured and authorized before it can deliver input.
+An event-driven automation invokes a published Job when something happens. The clock is not required. Where your deployment offers them, trigger types include platform events, Issues, IM messages, and webhooks. A connector's existence does not create the subscription. The event source has to be configured and authorized before it can deliver input. Provider setup is in the [integration directory](/integrations/overview/).
 
 ## When to use an event
 

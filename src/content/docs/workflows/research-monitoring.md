@@ -35,7 +35,7 @@ Choose a new session per run when each report should stand alone. Reuse the Job'
 
 ## How a monitoring event differs
 
-Sentry and PagerDuty connections are listed in [integration overview](/integrations/overview/). The event still has to match an enabled trigger, and the employee still needs its own tool grants. An alert payload is untrusted input. It does not widen permissions and it does not prove the underlying incident is fixed.
+Connect [Sentry](/integrations/sentry/) or [PagerDuty](/integrations/pagerduty/) before the event can fire. The event still has to match an enabled trigger, and the employee still needs its own tool grants. An alert payload is untrusted input. It does not widen permissions and it does not prove the underlying incident is fixed.
 
 ## A practical research run
 
@@ -43,6 +43,8 @@ Trigger: weekdays at a time you set. Context: the question in the task, plus too
 
 ## Related guides
 
+- [Sentry](/integrations/sentry/)
+- [PagerDuty](/integrations/pagerduty/)
 - [Triggers and schedules](/automate/triggers-schedules/)
 - [Loops and recurring work](/automate/loops/)
 - [Artifacts and evidence](/user-guide/artifacts-evidence/)

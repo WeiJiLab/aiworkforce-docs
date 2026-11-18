@@ -16,7 +16,7 @@ CI/CD integration is the repository host and the pipeline resources configured o
 
 ## What to connect
 
-Connect the code host as a workspace repository, then authorize the employees that should read or write it. See [code repositories](/integrations/code-repositories/). Identify which employee and which pipeline may write, merge, or deploy. Keep the human confirmation those actions still require. A read-only credential cannot merge. A workspace credential the employee cannot use cannot merge either.
+Connect the code host as a workspace repository, then authorize the employees that should read or write it. See [code repositories](/integrations/code-repositories/). GitHub Actions bindings are covered with [GitHub](/integrations/github/). Yunxiao Flow bindings are covered with [Yunxiao Codeup](/integrations/yunxiao/). Identify which employee and which pipeline may write, merge, or deploy. Keep the human confirmation those actions still require. A read-only credential cannot merge. A workspace credential the employee cannot use cannot merge either.
 
 Configure the project's pipeline resources before you enable a lane that claims to test or release. Provider, instance, enabled state, and workspace must match the connection you intend. Deleting a platform credential does not revoke the upstream token and does not stop a session that already started.
 

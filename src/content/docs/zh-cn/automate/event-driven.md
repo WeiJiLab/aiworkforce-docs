@@ -5,10 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "9bcba432b13db88a10a772c9950a53fb6072967cfc337721bee3e38bb70b6d11"
+  sourceHash: "ca7a0007358bc8e410b5d3e1caffb8460a4ab36eb28defd4dbffa5328b80d3b0"
 ---
 
-事件驱动的自动化在某件事发生时调用已发布的 Job。不一定需要时钟。在部署提供这些类型时，触发可以包括平台事件、Issue、IM 消息和 Webhook。连接器存在，并不会创建订阅。事件源必须先配置并授权，才能送来输入。
+事件驱动的自动化在某件事发生时调用已发布的 Job。不一定需要时钟。在部署提供这些类型时，触发可以包括平台事件、Issue、IM 消息和 Webhook。连接器存在，并不会创建订阅。事件源必须先配置并授权，才能送来输入。各供应商的接法见[集成目录](/zh-cn/integrations/overview/)。
 
 ## 何时使用事件
 

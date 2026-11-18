@@ -37,7 +37,7 @@ The poll compares the open pull request list. A pull request that is opened and 
 
 ## How to configure it
 
-1. Connect the repository with the workspace GitHub token, the same way as for issues.
+1. Connect the repository with the workspace GitHub token, as described in [GitHub](/integrations/github/).
 2. On the Job, choose a pull request event and the narrowest condition that should wake the employee. Leave the rule disabled until you have inspected a manual run.
 3. Preview a sample. Preview does not create a run and does not post to GitHub.
 4. Publish and enable. Read the run's status, session, and input. The input is the event envelope. It does not include the token, and it does not mean the runtime checked out that commit.
@@ -49,6 +49,7 @@ Trigger: a pull request is marked ready for review. Context: the event's reposit
 
 ## Related guides
 
+- [GitHub](/integrations/github/)
 - [Event-driven automation](/automate/event-driven/)
 - [Review and release](/software-factory/review-release/)
 - [Workflow concepts](/workflows/concepts/)

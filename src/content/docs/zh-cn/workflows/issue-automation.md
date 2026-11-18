@@ -11,7 +11,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "86bb2e7e2c5a410211aeb2944b7da983aad534442ad9f449fbc866c50fc1e80c"
+  sourceHash: "1dd32a84e084c4af7949f6937568fac6757bf5e64d61d6213d6dd883b449c8f0"
 ---
 
 Issue 自动化在事项出现时启动工作流，并把调查留在可以检查的运行里。当前产品可以接收 GitHub Issue，把任务导入收件箱，并把已确认的事项送到交付看板。它没有分类器、重复检测或优先级模型。
@@ -57,7 +57,7 @@ GitHub Issue 轮询或收件箱导入
 5. 如果 Job 要把请求登记进收件箱，添加**收集任务 / 事项**，并选择收件箱或工作台项目。收集界面要求 Claude Code 运行时。聊天里的一句话不是已保存的事项。没有匹配项时，也必须记录这次空收集。
 6. 打开收件箱事项，把它路由到工作台草稿，并确认范围、验收标准和仓库。然后按[你的第一个软件工厂工作流](/zh-cn/getting-started/first-software-factory/)继续。
 
-Jira 和 Linear 会作为导入来源出现。它们只通过管理员已经授权的连接导入。GitHub 和云效有自己的仓库或项目选择器。本页不把这些选择器写成同一种操作。
+Jira 和 Linear 会作为导入来源出现。它们只通过管理员已经授权的连接导入。GitHub 和云效有自己的仓库或项目选择器。各来源的接法见 [GitHub](/zh-cn/integrations/github/)、[云效 Codeup](/zh-cn/integrations/yunxiao/)、[Jira](/zh-cn/integrations/jira/) 和 [Linear](/zh-cn/integrations/linear/)。
 
 ## 一个实际的 Issue
 
@@ -69,6 +69,7 @@ Jira 和 Linear 会作为导入来源出现。它们只通过管理员已经授�
 
 ## 相关指南
 
+- [GitHub](/zh-cn/integrations/github/)
 - [事件驱动自动化](/zh-cn/automate/event-driven/)
 - [收件箱与任务](/zh-cn/user-guide/inbox-tasks/)
 - [从 Issue 到 Pull Request](/zh-cn/recipes/issue-to-pr/)

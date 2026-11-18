@@ -10,7 +10,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "57e58b24741d342a1805063e5ecff972c66701be76519e90744eb6a16b517f61"
+  sourceHash: "402b2f4fecb3adaf6e2cd300f8955d873f96b1d2f3b100658cb2c5c0a17c9dba"
 ---
 
 当前产品里的 Webhook 是自动化 Job 上的入站触发。外部系统调用平台，若已启用自动执行且调用满足部署的认证，已发布的 Job 可以运行。本页是这次调用的开发者视图。把触发规则挂到 Job 上的产品步骤见[监视与 Webhook](/zh-cn/automate/watchers-webhooks/)。
@@ -25,4 +25,4 @@ translation:
 
 ## 知道边界
 
-Webhook 不会授予调用方创建员工、更改授权或合并代码的权限。它启动一个 Job。如果该 Job 登记了收件箱事项或工作台草稿，开发仍要由人确认。调用和取消契约见 [REST API](/zh-cn/developer/api-reference/)。
+Webhook 不会授予调用方创建员工、更改授权或合并代码的权限。它启动一个 Job。如果该 Job 登记了收件箱事项或工作台草稿，开发仍要由人确认。调用和取消契约见 [REST API](/zh-cn/developer/api-reference/)。有名字的产品连接，包括这些产品自己使用的聊天和监控回调，见[集成目录](/zh-cn/integrations/overview/)。

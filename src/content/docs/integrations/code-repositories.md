@@ -3,13 +3,16 @@ title: "Connect code repositories"
 description: "Configure a provider connection, associate repositories, and authorize the employees that will use them."
 sidebar:
   label: Code repositories
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
 A workspace repository is an identified code resource with a provider connection. Keep the repository identity, access credential, and employee grant distinct: you may be able to browse a repository yourself while an employee still lacks authorization to clone or modify it.
+
+Host-specific steps live on their own pages: [GitHub](/integrations/github/), [GitLab](/integrations/gitlab/), and [Yunxiao Codeup](/integrations/yunxiao/). This page is the shared connection. GitHub event polling, Projex import, and Jira or Linear imports are not part of it.
 
 ## Supported connection families
 
@@ -52,6 +55,9 @@ Deleting a platform credential does not revoke the upstream provider token or te
 
 ## Related guides
 
-- [Integration overview](/integrations/overview/)
+- [Integration directory](/integrations/overview/)
+- [GitHub](/integrations/github/)
+- [GitLab](/integrations/gitlab/)
+- [Yunxiao Codeup](/integrations/yunxiao/)
 - [Software Factory overview](/software-factory/overview/)
 - [Security and data boundaries](/deployment/security/)

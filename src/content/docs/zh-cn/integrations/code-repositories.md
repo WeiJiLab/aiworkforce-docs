@@ -3,14 +3,17 @@ title: "代码仓库连接"
 description: "配置供应商连接、关联代码仓库，并授权实际使用仓库的数字员工。"
 sidebar:
   label: 代码仓库
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "3803fb2d31e3b648cc5a1c97aeb4a250a8047fb53bd8488fccee8592d80c7b80"
+  sourceVersion: "2026-11-18"
+  sourceHash: "f24b3d240f24879ce180b8e4544a9d7fc45010f2642c68e8a7b80266f2e7c440"
 ---
 
 工作空间代码仓库是一项具有明确身份和供应商连接的代码资源。应区分仓库身份、访问凭据与员工授权：你自己能够浏览仓库，员工仍可能没有克隆或修改权限。
+
+各家托管的具体步骤在各自页面：[GitHub](/zh-cn/integrations/github/)、[GitLab](/zh-cn/integrations/gitlab/)、[云效 Codeup](/zh-cn/integrations/yunxiao/)。本页是共同的连接规则。GitHub 事件轮询、Projex 导入，以及 Jira 或 Linear 导入，不在本页范围内。
 
 ## 支持的连接类型
 
@@ -53,6 +56,9 @@ translation:
 
 ## 相关文档
 
-- [集成概览](/zh-cn/integrations/overview/)
+- [集成目录](/zh-cn/integrations/overview/)
+- [GitHub](/zh-cn/integrations/github/)
+- [GitLab](/zh-cn/integrations/gitlab/)
+- [云效 Codeup](/zh-cn/integrations/yunxiao/)
 - [软件工厂概览](/zh-cn/software-factory/overview/)
 - [安全与数据边界](/zh-cn/deployment/security/)
