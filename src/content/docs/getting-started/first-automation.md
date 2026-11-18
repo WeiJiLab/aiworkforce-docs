@@ -14,12 +14,12 @@ Create a delivery board in your workspace from a published board template. The t
 
 <picture>
   <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/en-compact.svg" />
-  <img src="/illustrations/first-workflow/en.svg" alt="Six lanes and nine pipelines in the v3 board template, followed by the steps to initialize a board and inspect a card’s run." />
+  <img src="/illustrations/first-workflow/en.svg" alt="Delivery lanes in a board template and the steps to assign employees, initialize the board, and follow a card." />
 </picture>
 
 ## 1. Choose a published board template
 
-Administrators maintain organization templates under **Admin console → Board templates**. They can also capture a template from an existing board. The illustrated AI Workforce bootstrap template (v3) is a published example with six lanes, nine pipelines, one shared MCP server, and zero shared Skills.
+Administrators maintain organization templates under **Admin console → Board templates**. They can also capture a template from an existing board.
 
 In your workspace, open **Workbench → New delivery project**. Select an available published template in the board wizard. Expand **View the full flow and automations** to see which pipelines belong to each lane. Name the board and check the lane order.
 

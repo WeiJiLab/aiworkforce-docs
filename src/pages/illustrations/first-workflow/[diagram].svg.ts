@@ -2,9 +2,7 @@ import type { APIRoute } from "astro";
 
 const copy = {
   en: {
-    title: "AI Workforce bootstrap · v3",
-    summary:
-      "Published example · 9 pipelines · 1 shared MCP server · 0 shared Skills",
+    title: "AI Workforce bootstrap template",
     lanes: [
       "Requirements",
       "Development",
@@ -34,8 +32,7 @@ const copy = {
     ],
   },
   "zh-cn": {
-    title: "AI Workforce 自举 模板 · v3",
-    summary: "已发布示例 · 9 条编排 · 共享 MCP 1 个 · 共享 Skill 0 个",
+    title: "AI Workforce 自举看板模板",
     lanes: ["需求", "开发", "测试发布", "测试验证", "合入主干", "生产发布"],
     workspace: "在工作空间用模板创建看板",
     steps: [
@@ -71,11 +68,11 @@ export const GET: APIRoute = ({ props }) => {
   };
   const t = copy[locale];
   const width = compact ? 360 : 840;
-  const height = compact ? 642 : 339;
+  const height = compact ? 605 : 310;
   const steps = t.steps
     .map(([title, line1, line2], i) => {
       const x = compact ? 16 : 14 + 206 * i;
-      const y = compact ? 209 + 107 * i : 161;
+      const y = compact ? 172 + 107 * i : 132;
       const tx = compact ? 118 : 10;
       const ty = compact ? 28 : 99;
       return `<g transform="translate(${x} ${y})"><rect class="card" width="${compact ? 328 : 191}" height="${compact ? 98 : 162}" rx="9"/>
@@ -89,18 +86,16 @@ export const GET: APIRoute = ({ props }) => {
     .map((lane, index) => {
       const columns = compact ? 3 : 6;
       const x = 15 + (index % columns) * (compact ? 111 : 136);
-      const y = (compact ? 85 : 77) + Math.floor(index / columns) * 35;
+      const y = 48 + Math.floor(index / columns) * 35;
       return `<g transform="translate(${x} ${y})"><rect class="node" width="${compact ? 105 : 130}" height="28" rx="5"/><text x="${compact ? 52 : 65}" y="19" class="lane">${lane}</text></g>`;
     })
     .join("");
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" lang="${locale}" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-labelledby="title desc">
-    <title id="title">${t.title}</title><desc id="desc">${t.steps.map((s) => s.join(" ")).join(" ")} ${t.summary}. ${t.lanes.join(", ")}</desc>
+    <title id="title">${t.title}</title><desc id="desc">${t.steps.map((s) => s.join(" ")).join(" ")} ${t.lanes.join(", ")}</desc>
     <style>text{font-family:system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#16394a}.section,.step,.node-title{font-weight:650}.section{font-size:20px}.step{font-size:17px}.node-title{font-size:16px}.small{font-size:13.5px;fill:#385768}.number{font-size:14px;fill:white;text-anchor:middle;font-weight:700}.card,.node,.drawing{fill:white;stroke:#bbd0d8}.drawing,.arrow{stroke:#235976;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.tint,.seal{fill:#ddf1f1}.arrow{fill:none}.node{fill:#e7f5ef;stroke:#9ac8bf}.lane{font-size:13px;text-anchor:middle}</style>
     <rect width="100%" height="100%" rx="12" fill="#f3f7f8"/>
     <text x="16" y="33" class="section">${t.title}</text>
-    <text x="16" y="57" class="small">${compact && locale === "en" ? "Published example · 9 pipelines" : t.summary}</text>
-    ${compact && locale === "en" ? '<text x="16" y="75" class="small">1 shared MCP server · 0 shared Skills</text>' : ""}
-    ${lanes}<text x="16" y="${compact ? 188 : 142}" class="section">${t.workspace}</text>${steps}</svg>`;
+    ${lanes}<text x="16" y="${compact ? 151 : 113}" class="section">${t.workspace}</text>${steps}</svg>`;
   return new Response(svg, {
     headers: { "Content-Type": "image/svg+xml; charset=utf-8" },
   });
