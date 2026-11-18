@@ -13,7 +13,7 @@ The site uses one reading layout for Docs, Learn, and API. A persistent top navi
 ## Decisions
 
 - Top navigation: **Docs · Learn · API · Console**. Console is the external product link from `src/lib/site.mjs`. The source repository is not linked; the product is not presented as open source.
-- The header is a full-width bar above the sidebar. Brand and Docs / Learn / API sit on the left, search in the center, and theme, language, and Console on the right. Do not move that bar into the sidebar column.
+- The header is a full-width bar above the sidebar. Brand and Docs / Learn / API sit on the left, search in the center, and theme, language, and Console on the right. Do not move that bar into the sidebar column. The header and sidebar share one chrome color and meet without a seam. The article and table of contents sit in a rounded surface on the right.
 - Each portal has its own sidebar. Route middleware keeps previous/next inside the current portal and language.
 - Docs homepage leads with software delivery, then task sections matching the Docs IA. It does not open with “Create your first AI Employee.”
 - Learn homepage asks what the reader wants to do, with three path cards. Practice playbooks remain available.
