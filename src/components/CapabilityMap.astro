@@ -14,6 +14,10 @@ const channels = [
     tools: [
       { name: "Jira", path: "integrations/jira" },
       { name: "Linear", path: "integrations/linear" },
+      {
+        name: zh ? "云效 Projex" : "Yunxiao Projex",
+        path: "integrations/yunxiao" + (zh ? "#导入-projex" : "#projex-import"),
+      },
     ],
     href: guide("user-guide/inbox-tasks"),
   },
@@ -62,13 +66,27 @@ const devops = [
     tools: [
       { name: "GitHub", path: "integrations/github" },
       { name: "GitLab", path: "integrations/gitlab" },
+      {
+        name: zh ? "云效 Codeup" : "Yunxiao Codeup",
+        path:
+          "integrations/yunxiao" +
+          (zh ? "#codeup-仓库" : "#codeup-repositories"),
+      },
     ],
   },
   {
     icon: "approve-check",
     label: zh ? "构建与测试" : "Build & test",
     href: guide("software-factory/build-test"),
-    tools: [{ name: "GitHub Actions", path: "software-factory/cicd" }],
+    tools: [
+      { name: "GitHub Actions", path: "software-factory/cicd" },
+      {
+        name: zh ? "云效 Flow" : "Yunxiao Flow",
+        path:
+          "integrations/yunxiao" +
+          (zh ? "#在交付项目上使用-flow" : "#flow-on-a-delivery-project"),
+      },
+    ],
   },
   {
     icon: "rocket",
@@ -158,25 +176,6 @@ const oversight = [
               ))
             }
           </ol>
-          <p>
-            {
-              zh ? (
-                <>
-                  <a href={guide("software-factory/orchestration")}>泳道规则</a>
-                  把就绪卡片分派给数字员工。团队审阅验证结果，决定退回修复或发布。
-                </>
-              ) : (
-                <>
-                  <a href={guide("software-factory/orchestration")}>
-                    Lane rules
-                  </a>{" "}
-                  assign ready cards to AI employees. The team reviews the
-                  results and chooses whether to return a card for fixes or
-                  approve release.
-                </>
-              )
-            }
-          </p>
         </div>
         <div class="squad">
           <a class="team" href={guide("user-guide/ai-employees")}
@@ -198,13 +197,6 @@ const oversight = [
             <Icon name="open-book" />
             {zh ? "知识与空间记忆" : "Knowledge & workspace memory"}
           </a>
-          <p>
-            {
-              zh
-                ? "员工可查阅项目资料，在不同卡片中沿用团队确认的约定。"
-                : "Employees can consult project files and reuse agreed team conventions across cards."
-            }
-          </p>
         </div>
       </div>
     </section>
@@ -408,16 +400,6 @@ const oversight = [
     overflow-wrap: anywhere;
     background: var(--docs-surface);
   }
-  .board p,
-  .memory p {
-    margin: 0;
-    font-size: 0.74rem;
-    line-height: 1.45;
-  }
-  .board p a {
-    text-decoration: underline;
-    text-underline-offset: 0.12em;
-  }
   .memory,
   .squad {
     border: 1px solid color-mix(in srgb, var(--tone) 65%, var(--docs-line));
@@ -436,9 +418,6 @@ const oversight = [
   .layer,
   .team {
     padding: 0.5rem 0.25rem;
-  }
-  .memory p {
-    padding: 0 0.5rem 0.5rem;
   }
   .platform svg {
     color: var(--tone);
