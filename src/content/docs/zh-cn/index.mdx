@@ -9,7 +9,6 @@ translation:
   sourceHash: "da628d214dc5010a2db678a305dff36511c03ed7df0d55b4a2d16b83663ad875"
 ---
 
-import HomeContent from "../../../components/HomeContent.astro";
 import CapabilityMap from "../../../components/CapabilityMap.astro";
 
 用 AI Workforce 从 Issue、事件和定期调研中收集需求，再在交付看板上跟踪一条需求如何经过人工审阅、开发、验证和发布。
@@ -29,49 +28,3 @@ import CapabilityMap from "../../../components/CapabilityMap.astro";
 1. **收集发现。** 定时调研 Job 从竞品更新日志中发现了邀请时选择角色的功能，将发现和来源一起记录到任务收件箱。[配置定时 Job](/zh-cn/automate/triggers-schedules/)
 2. **人工审阅并加入 Backlog。** 团队成员在任务收件箱审阅发现，将它作为 Story #128 转入交付项目。开始开发前，团队在卡片上确认工作范围和验收条件。[审阅需求并确认范围](/zh-cn/user-guide/human-approval/)
 3. **验证变更。** 在「交付」页签，PR #62 关联到 GitHub Actions 运行 #482。构建与测试已通过，变更已部署到测试环境，生产发布仍待执行。[接入 CI/CD 流水线](/zh-cn/software-factory/cicd/)
-
-## 现行入口
-
-本站是操作说明，对得上当前控制台。
-
-**本地启动。** 以平台仓库当前 main 为准，不要用知识库里的部署快照：[deploy/local/README.md](https://github.com/WeiJiLab/aiworkforce-platform/blob/main/deploy/local/README.md)。
-
-**知识与证据。** [aiworkforce-documents](https://github.com/WeiJiLab/aiworkforce-documents) 保存白皮书和来源证据，不是操作手册，也不是部署步骤。
-
-<HomeContent section="cta" />
-
-## 选择你的起点
-
-<HomeContent section="applications" />
-
-## 软件工厂
-
-<HomeContent section="build-software" />
-
-## 自动化工作
-
-<HomeContent section="automate-work" />
-
-## 使用数字员工
-
-<HomeContent section="use-employees" />
-
-## FDE 工作台
-
-<HomeContent section="fde" />
-
-## 在你的电脑上执行
-
-<HomeContent section="daemon" />
-
-## 运行工作流
-
-<HomeContent section="run-workflows" />
-
-## 集成
-
-<HomeContent section="integrations" />
-
-## 这些文档也可以交给 Agent 读
-
-<HomeContent section="agents" />
