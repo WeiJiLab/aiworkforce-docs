@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2c33d44bd016d1b1e0154c1fa14863c5923d189db65f18abf9d4d1b00ff33766"
+  sourceHash: "af5b22ada3c1736604a5629a787c2257adbfbdfb0a5969acf30f23cdfcdb47a3"
 ---
 
 AI Workforce 是以工作流为中心的平台。**工作流**是可复用的工作定义。**自动化**是启动并持续推动这项工作的机制。**智能体**在产品里是数字员工，负责执行具体步骤。**运行**是一次执行实例。**任务**是这次执行中的一个工作单元。
@@ -29,6 +29,14 @@ AI Workforce 是以工作流为中心的平台。**工作流**是可复用的工
 | 证据   | 与这项工作放在一起的会话、代码引用、测试记录和人工决定 |
 
 在 `/automations` 打开**自动化**管理 Job。在同一页打开**编排**管理泳道编排。在主导航打开**工作台**查看看板，地址是 `/automations?tab=board-flow`。
+
+### 试一试：用 Issue 触发自动化
+
+在下方编辑器中点击右上角的「模拟试运行」，看看开发员工会收到什么任务。再将标签改为 `enhancement`，用同一条带 `bug` 标签的 Issue 试一次。演示使用本地样例数据。
+
+<iframe src="/illustrations/automation-editor/" title="交互示例：配置并试运行 Issue 自动化" loading="lazy" style="width:100%;height:clamp(36rem, 72vh, 47rem);border:0;border-radius:12px;"></iframe>
+
+[单独打开自动化编辑器示例](/illustrations/automation-editor/)
 
 ## 生命周期
 

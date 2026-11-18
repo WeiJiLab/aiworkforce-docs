@@ -1,12 +1,18 @@
 ---
 interface Props {
-  href: string;
+  href?: string;
   label: string;
+  type?: "button" | "submit";
 }
-const { href, label } = Astro.props;
+const { href, label, type = "button" } = Astro.props;
+const Tag = href ? "a" : "button";
 ---
 
-<a class="docs-icon-button" href={href} aria-label={label}>
+<Tag
+  class="docs-icon-button"
+  {...href ? { href } : { type }}
+  aria-label={label}
+>
   <slot />
   <span class="docs-tooltip" role="tooltip">{label}</span>
-</a>
+</Tag>
