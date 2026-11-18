@@ -60,15 +60,15 @@ Draft pages are excluded from these endpoints. Content endpoints are generated f
 
 The publication branch is `pages`. GitHub Actions validates that branch and deploys the built site. Pull requests into `pages` are validated and are not deployed. `main` is not used for publication.
 
-| Setting            | Value                                        |
-| ------------------ | -------------------------------------------- |
-| Workflow           | `.github/workflows/public-docs.yml`          |
-| Publication branch | `pages`                                      |
-| Build output       | `dist`                                       |
-| Node.js            | 24                                           |
-| Site               | https://weijilab.github.io/aiworkforce-docs/ |
+| Setting            | Value                               |
+| ------------------ | ----------------------------------- |
+| Workflow           | `.github/workflows/public-docs.yml` |
+| Publication branch | `pages`                             |
+| Build output       | `dist`                              |
+| Node.js            | 24                                  |
+| Site               | https://docs.aiworkforce.run/       |
 
-`docs.aiworkforce.run` is not configured. The site is served from the GitHub Pages project path above.
+GitHub Pages is configured for `docs.aiworkforce.run`, so the site is served from the domain root.
 
 ## Product accuracy
 

@@ -6,7 +6,7 @@ import { base, origin } from "./src/lib/site.mjs";
 
 export default defineConfig({
   site: origin,
-  base,
+  ...(base && base !== "/" ? { base } : {}),
   trailingSlash: "always",
   integrations: [
     starlight({

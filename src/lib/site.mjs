@@ -1,9 +1,10 @@
-/** Publication settings for the GitHub Pages project site. */
-export const origin = "https://weijilab.github.io";
-export const base = "/aiworkforce-docs";
+/** Publication settings. The custom domain serves the site from the root. */
+export const origin = "https://docs.aiworkforce.run";
+export const base = "";
 
 export function withBase(path) {
   const suffix = path.startsWith("/") ? path : `/${path}`;
+  if (!base || base === "/") return suffix;
   return `${base}${suffix}`.replace(/\/{2,}/g, "/");
 }
 
