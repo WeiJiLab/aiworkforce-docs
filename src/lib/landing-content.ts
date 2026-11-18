@@ -6,11 +6,11 @@ export type HomeSection =
   | "use-employees"
   | "fde"
   | "run-workflows"
-  | "operate"
+  | "daemon"
   | "integrations"
   | "agents";
 export type LandingPortal = "api" | "learn" | "fde";
-export type PortalSection = "paths" | "guides" | "next";
+export type PortalSection = "paths" | "guides" | "next" | "operate";
 
 export interface LandingGuide {
   readonly title: string;
@@ -27,7 +27,7 @@ interface HomeContent {
   readonly useEmployees: readonly LandingGuide[];
   readonly fde: readonly LandingGuide[];
   readonly runWorkflows: readonly LandingGuide[];
-  readonly operate: readonly LandingGuide[];
+  readonly daemon: readonly LandingGuide[];
   readonly integrations: readonly LandingGuide[];
   readonly agents: {
     readonly title: string;
@@ -44,6 +44,7 @@ export interface PortalPath extends LandingGuide {
 export interface PortalContent {
   readonly paths: readonly PortalPath[];
   readonly guides: readonly LandingGuide[];
+  readonly operate: readonly LandingGuide[];
   readonly next: readonly LandingGuide[];
 }
 
@@ -277,37 +278,34 @@ export function getHomeContent(zh: boolean): HomeContent {
         "software-factory/evidence",
       ),
     ],
-    operate: [
+    daemon: [
       guide(
-        zh ? "项目" : "Projects",
+        zh ? "在你的电脑上执行" : "Run tools on your computer",
         zh
-          ? "交付项目与工作空间边界。"
-          : "Delivery projects and workspace boundaries.",
-        "user-guide/projects",
+          ? "Daemon 只在你管理的电脑上执行工具。对话和模型循环仍在平台。"
+          : "A daemon runs tools on a computer you manage. The conversation and model loop stay on the platform.",
+        "deployment/daemon",
       ),
       guide(
-        zh ? "权限" : "Permissions",
+        zh ? "什么时候用 Daemon" : "When to use a daemon",
         zh
-          ? "团队访问与授权边界。"
-          : "Team access and authorization boundaries.",
-        "administration/teams-access",
+          ? "代码或构建只能在你的网络里到达时，把执行放到那台电脑。"
+          : "Put execution on that computer when the code or build can only be reached from your network.",
+        "deployment/daemon",
       ),
       guide(
-        zh ? "模型与成本" : "Models and cost",
-        zh ? "模型通道与用量观察。" : "Model channels and usage visibility.",
-        "models/overview",
-      ),
-      guide(
-        zh ? "评测与治理" : "Evaluation and governance",
+        zh ? "配对与在线" : "Pair and come online",
         zh
-          ? "验收、评测与发布门禁。"
-          : "Acceptance, evaluation, and release gates.",
-        "operate/evaluation-governance",
+          ? "浏览器批准和 worker 在线是两步。离线不会退回平台执行。"
+          : "Browser approval and an online worker are separate. Offline does not fall back to the platform.",
+        "integrations/cli",
       ),
       guide(
-        zh ? "可观测性" : "Observability",
-        zh ? "运行记录与审计。" : "Run records and audit.",
-        "software-factory/observability",
+        zh ? "选择执行位置" : "Choose where execution runs",
+        zh
+          ? "平台执行、自托管服务，和已授权电脑是三件不同的事。"
+          : "Platform execution, a self-hosted service stack, and an authorized computer are different choices.",
+        "deployment/runtime-environments",
       ),
     ],
     integrations: [
@@ -414,6 +412,7 @@ export function getPortalContent(
           href: "learn/feedback-review",
         },
       ],
+      operate: [],
       next: [
         {
           title: zh ? "Docs · 快速开始" : "Docs · Quickstart",
@@ -498,6 +497,7 @@ export function getPortalContent(
           href: "developer/architecture",
         },
       ],
+      operate: [],
       next: [
         {
           title: zh ? "Docs · 集成总览" : "Docs · Integrations overview",
@@ -577,6 +577,43 @@ export function getPortalContent(
             ? "确认哪些实例收到了已发布模板"
             : "Confirm which instances received the published template",
           href: "build/publishing",
+        },
+      ],
+      operate: [
+        {
+          title: zh ? "项目" : "Projects",
+          description: zh
+            ? "交付项目与工作空间边界"
+            : "Delivery projects and workspace boundaries",
+          href: "user-guide/projects",
+        },
+        {
+          title: zh ? "权限" : "Permissions",
+          description: zh
+            ? "团队访问与授权边界"
+            : "Team access and authorization boundaries",
+          href: "administration/teams-access",
+        },
+        {
+          title: zh ? "模型与成本" : "Models and cost",
+          description: zh
+            ? "模型通道与用量观察"
+            : "Model channels and usage visibility",
+          href: "models/overview",
+        },
+        {
+          title: zh ? "评测与治理" : "Evaluation and governance",
+          description: zh
+            ? "验收、评测与发布门禁"
+            : "Acceptance, evaluation, and release gates",
+          href: "operate/evaluation-governance",
+        },
+        {
+          title: zh ? "自托管" : "Self-host",
+          description: zh
+            ? "在自己的基础设施上运行服务栈"
+            : "Run the service stack on infrastructure you operate",
+          href: "deployment/self-host",
         },
       ],
       next: [
