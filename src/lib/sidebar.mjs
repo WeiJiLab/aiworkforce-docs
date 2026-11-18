@@ -1,5 +1,5 @@
 /**
- * Docs / Learn / FDE / API portals share English and Chinese slugs.
+ * Docs / Learn / FDE / Developer portals share English and Chinese slugs.
  * File ids keep existing guide URLs when a page changes section.
  */
 
@@ -7,7 +7,7 @@ export const Portal = {
   Docs: "docs",
   Learn: "learn",
   Fde: "fde",
-  Api: "api",
+  Developer: "developer",
 };
 
 export function starlightSlug(id) {
@@ -158,7 +158,6 @@ export const PORTALS = {
         items: [
           "getting-started/introduction",
           "getting-started/core-concepts",
-          "getting-started/platform-overview",
           "resources/best-practices",
           "resources/examples",
           "resources/troubleshooting",
@@ -320,12 +319,18 @@ export const PORTALS = {
       },
     ],
   },
-  [Portal.Api]: {
-    label: "API",
-    zhLabel: "API",
-    description: ["Integrate programmatically", "程序化集成"],
-    landing: "api",
+  [Portal.Developer]: {
+    label: "Developer",
+    zhLabel: "Developer",
+    description: ["Build apps and integrations", "开发应用与集成"],
+    landing: "developer",
     groups: [
+      {
+        label: "Apps",
+        zh: "Apps",
+        collapsed: false,
+        items: ["developer/viewer-apps"],
+      },
       {
         label: "API Reference",
         zh: "API 参考",

@@ -1,6 +1,6 @@
 ---
 title: "Run your first automation Job"
-description: "Create a Job, run it once by hand, and only then enable a trigger."
+description: "Initialize lanes and pipelines from a published board template and follow the first card through a run."
 last_verified: "2026-11-18"
 prev: false
 next: false
@@ -10,32 +10,25 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Give a digital employee a small task you can check in one run. For example, ask it to list the action items in a set of meeting notes. Open the output and check each item against the notes.
+Create a delivery board in your workspace from a published board template. The template defines the lanes, their prompts and tasks, employee requirements, and automation recipes. Assign employees to the required lanes during setup. After initialization, the board maintains its own delivery policy.
 
-## Prerequisites
+<picture>
+  <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/en-compact.svg" />
+  <img src="/illustrations/first-workflow/en.svg" alt="Delivery lanes in a board template and the steps to assign employees, initialize the board, and follow a card." />
+</picture>
 
-You need a workspace you can operate and a ready employee whose responsibility matches the task. Use an employee that can finish the task from input you supply. Do not start with a Job that writes to an external system.
+## 1. Choose a published board template
 
-## 1. Define a small Job
+Administrators maintain organization templates under **Admin console → Board templates**. They can also capture a template from an existing board.
 
-Open **Automations** at `/automations`. Choose the execution employee. Describe a concrete task, the input, and an output you can check. Decide whether each run starts a new session or reuses the Job's bound session. A new session keeps runs separate. Reuse lets context accumulate, which is harder to judge on a first workflow.
+In your workspace, open **Workbench → New delivery project**. Select an available published template in the board wizard. Expand **View the full flow and automations** to see which pipelines belong to each lane. Name the board and check the lane order.
 
-## 2. Run it before you enable a trigger
+## 2. Assign employees and initialize the board
 
-Save a draft if you are still editing. **Run manually** creates an execution you can inspect now. **Publish** stores the execution configuration and does not create a run. **Enable automatic execution** allows configured triggers to invoke the Job. Publishing does not require a successful test, so inspect a manual run before you enable anything unattended.
+Choose an available digital employee instance for each required lane. Review the shared MCP servers and Skills selected by the template and adjust them as needed. Connect an external work item source if you need synchronization. Review the configuration and select **Create board**. The board and its configured automations can start once initialization checks pass. [Set up a software factory](/getting-started/first-software-factory/)
 
-Open the run and read its status, output, and session. If it fails, fix authorization, inputs, or missing tools before retrying. A paused published Job can still be run manually. That manual run does not turn automatic triggers back on.
+## 3. Follow one card through a pipeline run
 
-## Optional scheduling
+Open the board and start a requirements session, or bring an issue in from the inbox. Confirm the scope and acceptance criteria, then follow the card. Inspect the target lane’s flow to see its execution nodes. Open the corresponding pipeline run and compare the node statuses and employee session with the card to see how far the work progressed. [Configure a lane pipeline](/automate/workflow-builder/#compose-a-lane-pipeline)
 
-Add a single schedule only after the manual result is acceptable. Keep the first rule simple. A Job can have more than one scheduling rule later. Each rule belongs to that Job. Publishing still does not execute the Job. If an expected run does not appear, check both the Job state and the trigger's enabled state.
-
-Event-driven starts are covered in [event-driven automation](/automate/event-driven/). Webhook triggers are covered in [watchers and webhooks](/automate/watchers-webhooks/). A lane pipeline, which needs at least two executors, is covered in [create a workflow](/automate/workflow-builder/).
-
-## Expected result
-
-You have one Job, one inspected manual run, and at most one enabled trigger whose next run you know how to find. You have not proved that a collected business request is resolved. If the Job should file inbox items, add **Collect tasks / issues** only after the basic run is reliable. A chat summary is not a saved issue.
-
-Continue with [workflow concepts](/workflows/concepts/) to place this Job among boards and events, or with [runs and recovery](/automate/runs-recovery/) if a later run fails.
-
-To repeat this task on a schedule, see [triggers and schedules](/automate/triggers-schedules/).
+For a standalone task with one employee, create a Job. Run it manually and inspect the result before enabling a schedule. [Compose a Job](/automate/workflow-builder/#compose-a-job)

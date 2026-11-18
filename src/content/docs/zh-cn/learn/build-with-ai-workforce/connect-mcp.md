@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "f25aed49dc73c0ef9703ea864267ff1b2f271b3debee98b536277d6a1b3ced97"
+  sourceHash: "d1e8b3d5bac8a723e6d182b34e726afa0ad3faaa18c044fe076f85b2d6344db5"
 ---
 
-编写侧见[MCP 集成](/zh-cn/build/mcp-integration/)；Agent 可调用的 Automation MCP 见 API 栏目下的 [MCP](/zh-cn/integrations/mcp/)。
+编写侧见[MCP 集成](/zh-cn/build/mcp-integration/)；Agent 可调用的 Automation MCP 见 Developer 栏目下的 [MCP](/zh-cn/integrations/mcp/)。

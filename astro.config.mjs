@@ -9,8 +9,11 @@ export default defineConfig({
   ...(base && base !== "/" ? { base } : {}),
   trailingSlash: "always",
   redirects: {
-    "/developer/": "/api/",
-    "/zh-cn/developer/": "/zh-cn/api/",
+    "/api/": "/developer/",
+    "/zh-cn/api/": "/zh-cn/developer/",
+    "/getting-started/platform-overview/": "/getting-started/first-automation/",
+    "/zh-cn/getting-started/platform-overview/":
+      "/zh-cn/getting-started/first-automation/",
     "/integrations/agent-protocol/": {
       status: 301,
       destination: "/integrations/mcp/",
