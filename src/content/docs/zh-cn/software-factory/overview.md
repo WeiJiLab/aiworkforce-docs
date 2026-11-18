@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2b2c4742628a7e630f792deb8bfac747c1624dce084e7a56469f46a37f4c2b8f"
+  sourceHash: "53e1cb136e0a9b677bfbb64930df9d223aa55528a366a0e229d24be3b0d12195"
 ---
 
 软件工厂是面向工程交付的一种工作流应用。它与[看板工作台](/zh-cn/workflows/kanban-workbench/)和 [Issue 自动化](/zh-cn/workflows/issue-automation/)共用工作流、自动化、员工、运行时和证据。它不是单独的引擎。
@@ -57,7 +57,7 @@ translation:
 1. **进入。** 请求以收件箱事项或工作台草稿进入。人确认范围、验收标准和允许的仓库。见[工作进入](/zh-cn/software-factory/intake/)。
 2. **分派。** 就绪的卡片分配给应完成该工作的泳道员工。见[任务分派](/zh-cn/software-factory/dispatch/)。
 3. **执行。** 该员工在已配置的运行时中通过会话工作。后续阶段要一起测试时，批次把卡片组合起来。见 [Agent 编排](/zh-cn/software-factory/orchestration/)。
-4. **验证。** 测试准备和测试记录结果。失败可以把工作退回。业务检查把变更与已确认的验收标准比较。
+4. **验证。** 测试发布和测试验证记录结果。失败可以把工作退回。业务检查把变更与已确认的验收标准比较。
 5. **证据。** 卡片保留会话、代码引用或 Pull Request、测试结果和人工决定。见[证据与追踪](/zh-cn/software-factory/evidence/)。
 6. **发布。** 只有仓库和流水线集成可用时，合并和生产发布才会执行。批次关闭不能证明生产发布已经完成。见[审阅与发布](/zh-cn/software-factory/review-release/)。
 

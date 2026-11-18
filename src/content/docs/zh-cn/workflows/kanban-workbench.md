@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "85ad6b6dd2ad64c11593a70ae13b3ba54e426f5fecfd65cafc1f9a4d9e63a346"
+  sourceHash: "b7c740dacbaee7ac5f4f2df3ed4d65c7bc801cdd1e5c04b89b862f15b9b7ba80"
 ---
 
 看板自动化工作台就是 `/automations?tab=board-flow` 的交付工作台。它把看板变成一条持续运行的软件交付工作流。这是同一条软件工厂路径，以卡片、泳道和批次的形式被观察。它不是通用看板产品，也不是第二套引擎。

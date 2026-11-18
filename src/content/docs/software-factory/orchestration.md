@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Orchestration in Software Factory is the workbench moving cards and batches through lanes. It is not a general multi-agent runtime. Each lane session keeps its own execution context. A batch groups cards when a stage, such as test preparation or testing, operates on them together.
+Orchestration in Software Factory is the workbench moving cards and batches through lanes. It is not a general multi-agent runtime. Each lane session keeps its own execution context. A batch groups cards when a stage, such as test release or test verification, operates on them together.
 
 ## Follow the built-in lanes
 

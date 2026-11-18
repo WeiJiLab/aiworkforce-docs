@@ -55,7 +55,7 @@ Code executors on a lane are named platform capabilities, such as test admit, re
 
 ## A practical card
 
-Trigger: the card enters Development after a person marks it ready. Context: the confirmed requirements and the granted repositories. Agent: the development-lane employee, in a new session for that card. Steps: coding, then the release batch for test preparation, test verification, and production release. Verification: the test record and a comparison with the acceptance criteria. Output: the session, the code reference or pull request, and the decision. Human points: draft confirmation, questions on the card, a failed test sent back, and the release decision.
+Trigger: the card enters Development after a person marks it ready. Context: the confirmed requirements and the granted repositories. Agent: the development-lane employee, in a new session for that card. Steps: coding, then the release batch for test release, test verification, and production release. Verification: the test record and a comparison with the acceptance criteria. Output: the session, the code reference or pull request, and the decision. Human points: draft confirmation, questions on the card, a failed test sent back, and the release decision.
 
 A closed batch is not proof that production release finished. Merge and production run only when the repository and pipeline integration exist.
 

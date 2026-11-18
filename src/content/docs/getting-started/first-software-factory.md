@@ -23,7 +23,7 @@ When the card is ready, start or resume the development session from the card. K
 
 ## 3. Require verification and evidence
 
-A completed conversation is not a completed delivery. Follow the card into test preparation and testing when the board uses those built-in lanes. Read the execution record, the code reference or pull request, and the test result. A failing test can return the work for repair. If you waive a check, name the check, the reason, the scope, and the remaining risk.
+A completed conversation is not a completed delivery. Follow the card into Test release and Test verification when the board uses those built-in lanes. Read the execution record, the code reference or pull request, and the test result. A failing test can return the work for repair. If you waive a check, name the check, the reason, the scope, and the remaining risk.
 
 ## 4. Stop before an unconfigured release
 

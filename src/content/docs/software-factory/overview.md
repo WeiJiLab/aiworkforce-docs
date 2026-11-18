@@ -56,7 +56,7 @@ Execution without verification is a conversation that edited files. Verification
 1. **Intake.** A request enters as an inbox item or a workbench draft. A person confirms scope, acceptance criteria, and allowed repositories. See [work intake](/software-factory/intake/).
 2. **Dispatch.** A ready card is assigned to the lane employee that should do the work. See [task dispatch](/software-factory/dispatch/).
 3. **Execute.** That employee works in a session, on the configured runtime. Batches group cards when a later stage tests them together. See [agent orchestration](/software-factory/orchestration/).
-4. **Verify.** Test preparation and testing record results. Failures can send work back. A business check compares the change with the confirmed acceptance criteria.
+4. **Verify.** Test release and test verification record results. Failures can send work back. A business check compares the change with the confirmed acceptance criteria.
 5. **Evidence.** The card keeps the session, the code reference or pull request, the test result, and the human decision. See [evidence and trace](/software-factory/evidence/).
 6. **Release.** Merge and production release run only with working repository and pipeline integration. A closed batch is not proof that production release finished. See [review and release](/software-factory/review-release/).
 
