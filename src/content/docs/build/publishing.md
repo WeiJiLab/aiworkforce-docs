@@ -11,7 +11,9 @@ Publishing makes a package available as a template other people can use to creat
 
 ## Before you publish
 
-Validate the package and complete the task trials in [employee testing](/build/testing/). The version in `plugin.json` and `employee.yaml` should identify this behavior. Remove secrets from skills, examples, and the manifest. **Submit build** stores the build. Publishing is the later step that exposes a template.
+Validate the package and complete the task trials in [employee testing](/build/testing/). The version in `plugin.json` and `employee.yaml` should identify this behavior. **Submit build** stores the build. Publishing is the later step that exposes a template.
+
+When adapting a procedure for reuse, keep the work steps, tool requirements, and acceptance checks. Replace project-specific examples with synthetic examples and remove credentials, private references, and customer data from the package. Configure workspace-specific endpoints and permissions during setup. Confirm the receiving workspace's data and tool scope before testing the template there. See [security and permissions](/deployment/security/).
 
 A structural pass can still describe the wrong job. Read the role, the exclusions, and the entry skill once more. [Employee definition](/build/employee-definition/) is the page to correct if those do not match.
 

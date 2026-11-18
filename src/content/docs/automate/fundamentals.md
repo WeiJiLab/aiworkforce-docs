@@ -19,6 +19,8 @@ An Automation **Job** defines what work to perform and which employee or support
 
 Open **Automations** at `/automations`. Choose an execution employee in a workspace you can operate. Give the Job a concrete task, expected inputs, and an inspectable output. Begin with a small task that can be checked manually.
 
+Before enabling a trigger, agree on which work the employee can do routinely and which decisions a person keeps. Write down the allowed tools and data sources, the evidence a reviewer needs, and what the employee should report if it cannot finish within scope. Use [approvals and notifications](/automate/approvals/) to plan how people will review exceptions.
+
 Decide whether each run should use a new session or reuse the Job's bound session. A new session separates runs; reuse allows context to accumulate. When collaborators manually run a reused-session Job, it retains its bound session.
 
 ## Save, run, publish, enable
@@ -39,6 +41,10 @@ Publication does not require a successful test. Try the Job and inspect its resu
 The platform supports schedule, webhook, platform-event, Issue, and IM trigger types where available. A Job can have multiple scheduling rules; each rule belongs to one Job. Review the rule's input and enabled state as well as the Job's state.
 
 For tasks that collect actionable requests, add **Collect tasks / issues** and choose the workspace inbox or workbench project. This tool is optional. When configured, successful collection requires a server receipt; a summary in chat is not a saved Issue. A run with no matching items must record the empty-collection result. The current collection UI requires the Claude Code runtime.
+
+### Example of recurring issue intake
+
+Schedule a Job to review new defect reports from an authorized source each weekday. Ask the employee to capture the source link, observed behavior, and any available reproduction steps or missing information. Send candidates to the workspace inbox for triage. Review the first run against the source and its collection receipt. The triage owner decides which reports need clarification and which should be routed to a delivery draft. The [Issue to PR recipe](/recipes/issue-to-pr/) follows a report after that handoff.
 
 ## Inspect and recover
 

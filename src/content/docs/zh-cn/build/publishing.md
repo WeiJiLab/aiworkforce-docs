@@ -5,14 +5,16 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "a1bca99c8afad78c64af8e8419c3d17bf3b9908e8f746249702aff0f7bee316b"
+  sourceHash: "0fbf426278303fdba8d2f5ed39d602cb73da5bcd4bd5959d2ad58b0f686a9c3d"
 ---
 
 发布使员工包成为其他人可以用来创建工作空间员工的模板。它不等于创建一名员工，也不会把新版本推进已经存在的员工。
 
 ## 发布之前
 
-校验员工包，并完成[员工测试](/zh-cn/build/testing/)中的任务试验。`plugin.json` 和 `employee.yaml` 中的版本应标识这次行为。从 Skills、示例和清单中去掉密钥。**Submit build** 保存构建。发布是之后让模板可见的步骤。
+校验员工包，并完成[员工测试](/zh-cn/build/testing/)中的任务试验。`plugin.json` 和 `employee.yaml` 中的版本应标识这次行为。**Submit build** 保存构建。发布是之后让模板可见的步骤。
+
+把项目中的工作方法整理成通用模板时，保留工作步骤、工具依赖和验收标准。用虚构示例替换原项目示例，从员工包中移除凭据、内部引用和客户数据。在目标工作空间单独配置服务地址与权限，确认数据和工具的使用范围后再试跑模板。参见[安全与权限](/zh-cn/deployment/security/)。
 
 结构通过仍可能描述了错误的岗位。再读一次岗位、排除项和入口 Skill。如果它们不一致，应修改[员工定义](/zh-cn/build/employee-definition/)。
 

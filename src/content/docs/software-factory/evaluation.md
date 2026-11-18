@@ -44,6 +44,19 @@ Record the case, the session or run id, and the decision. Re-run the same cases 
 
 For a delivery card, add the engineering cases you can actually execute: the targeted test command, the pull request diff, and the acceptance criterion identifier. [Build and test](/software-factory/build-test/) is the test record. [Business verification](/software-factory/business-verification/) is the comparison with the confirmed outcome. If a pipeline is not configured, say that the test was not run. Do not record an absent command as a pass.
 
+## Pilot one repeatable workflow
+
+Start with one kind of work, such as small fixes in an existing repository. Agree on the scope, acceptance criteria, and evidence reviewers need. Establish a baseline from comparable recent tasks or from tasks your team handles through its existing process during the pilot. Use the same acceptance criteria and measurement rules for both groups.
+
+| Measure                    | What to record                                                                                                                                             |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cycle time                 | Time from confirming the task to the final review decision                                                                                                 |
+| First-pass acceptance rate | Share of reviewed tasks accepted on the first review                                                                                                       |
+| Rework and takeovers       | How often reviewers return work or people take over, and the human time spent when recorded                                                                |
+| Cost per accepted task     | Total recorded costs divided by accepted tasks in each group. Include any tracked people, model, and environment costs for retries and unsuccessful tasks. |
+
+When a task fails or needs intervention, use its [evidence and trace](/software-factory/evidence/) to capture the input, expected behavior, and observed failure as a regression case. Rerun those cases when you change the employee's instructions, skills, or tools. Review acceptance, human effort, and cost together before expanding to another workflow.
+
 ## How to use the result
 
 Failing a case returns the work: change the skill, the instructions, the tool grant, or the task framing, then run the case again. Passing these cases supports a limited claim: this employee handled these inputs under this configuration. It does not authorize a broader role, a new repository, or an unattended release.
