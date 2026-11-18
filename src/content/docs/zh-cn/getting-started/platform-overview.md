@@ -1,6 +1,6 @@
 ---
 title: "平台地图"
-description: "核心记录清楚之后，在这里找到工作流、员工、交付看板和运营所使用的界面。"
+description: "先找到交付工作台，再找到工作流、员工和运营所使用的界面。"
 sidebar:
   label: 平台地图
 last_verified: "2026-11-18"
@@ -8,10 +8,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "c912d47557af8743f6a4f39114fbd29f37032ec8f4804182425089abc301cc97"
+  sourceHash: "83f81bc7985089203fac1387dba088abe276e1d683e5f802098ffa89d4a38eb3"
 ---
 
 先阅读[核心概念](/zh-cn/getting-started/core-concepts/)。本页只列出这些记录所使用的界面。它不是另一套架构。
+
+软件变更从交付工作台开始。下面各节列出这个界面，以及其他记录所使用的界面。
 
 ## 工作流与自动化
 
@@ -37,12 +39,19 @@ translation:
 
 ## 第一个工作流
 
+软件变更：
+
+1. 打开交付项目已就绪的工作空间，或按[配置并运行交付看板](/zh-cn/getting-started/first-software-factory/)检查。
+2. 按[快速入门](/zh-cn/getting-started/quickstart/)把一条 Issue 走到经过审阅的变更。
+3. 如果同类事项还会反复进入，添加 Job，并在启用之前检查一次运行。
+
+不会修改软件的任务：
+
 1. 选择一个工作空间和一名就绪的员工。
 2. 交给它带有上下文和验收标准的任务。
 3. 检查回答、文件和支持它的证据。
 4. 如果任务应当重复或响应事件，添加 Job，并在启用之前检查一次运行。
-5. 如果任务会修改软件，开发开始之前先在交付卡片上确认请求。
 
 如果某个页面或操作不存在，检查工作空间权限和部署配置。缺少的连接或运行时必须先配置，员工才能使用。
 
-继续[你的第一个工作流](/zh-cn/getting-started/first-automation/)或[你的第一个软件工厂工作流](/zh-cn/getting-started/first-software-factory/)。
+继续[快速入门](/zh-cn/getting-started/quickstart/)或[你的第一个工作流](/zh-cn/getting-started/first-automation/)。

@@ -1,6 +1,6 @@
 ---
 title: "Platform map"
-description: "Find the screens for workflows, employees, the delivery board, and operations after the core records are clear."
+description: "Find the delivery workbench first, then the screens for workflows, employees, and operations."
 sidebar:
   label: Platform map
 last_verified: "2026-11-18"
@@ -11,6 +11,8 @@ translation:
 ---
 
 Read [core concepts](/getting-started/core-concepts/) first. This page only names the screens those records use. It is not a second architecture.
+
+For a software change, start on the delivery workbench. The sections below name that screen and the others these records use.
 
 ## Workflows and automation
 
@@ -36,12 +38,19 @@ Team access, platform configuration, model channels, runtime placement, and audi
 
 ## A first workflow
 
+For a software change:
+
+1. Open a workspace whose delivery project is ready, or follow [set up and run a delivery board](/getting-started/first-software-factory/).
+2. Follow the [quickstart](/getting-started/quickstart/) from one Issue to a reviewed change.
+3. If the same kind of intake should recur, add a Job and inspect a run before enabling it.
+
+For a task that does not change software:
+
 1. Choose a workspace and a ready employee.
 2. Give it a task with context and acceptance criteria.
 3. Inspect the response, files, and supporting evidence.
 4. If the task should recur or react to an event, add a Job and inspect a run before enabling it.
-5. If the task changes software, confirm the request on a delivery card before development starts.
 
 If a page or action is missing, check workspace permission and deployment configuration. A missing connection or runtime has to be configured before the employee can use it.
 
-Continue with [your first workflow](/getting-started/first-automation/) or [your first Software Factory workflow](/getting-started/first-software-factory/).
+Continue with the [quickstart](/getting-started/quickstart/) or [your first workflow](/getting-started/first-automation/).

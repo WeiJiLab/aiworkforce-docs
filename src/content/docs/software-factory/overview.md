@@ -7,11 +7,20 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Software Factory is one workflow application for engineering delivery. It uses the same workflow, automation, employees, runtime, and evidence as the [Kanban workbench](/workflows/kanban-workbench/) and [issue automation](/workflows/issue-automation/). It is not a separate engine.
+Software Factory is one workflow application for engineering delivery, and the default path when the work is a software change. It uses the same workflow, automation, employees, runtime, and evidence as the [Kanban workbench](/workflows/kanban-workbench/) and [issue automation](/workflows/issue-automation/). It is not a separate engine.
 
 It connects a confirmed request to employee execution, an environment that can check the change, and evidence a person uses to decide whether the change ships. The product surface is the **delivery workbench**, opened from **Automations** at `/automations?tab=board-flow`.
 
 This is not a product for unattended code generation. An agent can draft a change. The factory's job is to make the path from input to a verified delivery inspectable. The diagram below is the only architecture map. Other Software Factory pages describe one part of it.
+
+## Choose a starting point
+
+| Goal                                         | What you get                                                                                                   | Start here                                                                         |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Turn a request into work the team can accept | An inbox item or a delivery draft with a source, agreed scope, acceptance criteria, and permitted repositories | [Work intake](/software-factory/intake/)                                           |
+| Take an Issue through review                 | A delivery card linked to the change, the tested revision, and the evidence for the decision                   | [Quickstart](/getting-started/quickstart/) or [Issue to PR](/recipes/issue-to-pr/) |
+| Review a change and follow its release       | A review decision, then merge, deployment, and cleanup records when the project configures those stages        | [Review and release](/software-factory/review-release/)                            |
+| Collect requests on a recurring basis        | Inbox items or delivery drafts from configured sources, with a collection receipt to inspect                   | [Automation concepts](/automate/fundamentals/)                                     |
 
 ## Architecture
 
@@ -70,4 +79,4 @@ Before any automatic delivery, configure the workbench project and board, the re
 
 A draft is not permission to modify code. During execution, answer questions and approval requests on the card. Taking over stops automatic progress and keeps the current state. Hand the work back explicitly. Resuming a pause does not clear a takeover. An operation on a shared batch can affect every member card.
 
-[Your first Software Factory workflow](/getting-started/first-software-factory/) walks one card. [Issue to PR](/recipes/issue-to-pr/) is the longer practice. [Workflow concepts](/workflows/concepts/) explains how the board, a Job, and a run fit together. A Job that collects work into the inbox does not replace the confirmation step.
+[Quickstart](/getting-started/quickstart/) takes one Issue through review when the board is already configured. [Set up and run a delivery board](/getting-started/first-software-factory/) checks the project before that walk. [Issue to PR](/recipes/issue-to-pr/) is the longer practice. [Workflow concepts](/workflows/concepts/) explains how the board, a Job, and a run fit together. A Job that collects work into the inbox does not replace the confirmation step.

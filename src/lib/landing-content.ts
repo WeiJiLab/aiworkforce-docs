@@ -64,11 +64,11 @@ export function getHomeContent(zh: boolean): HomeContent {
   ): LandingGuide => ({ title, description, href });
   return {
     primaryCta: guide(
-      zh ? "构建你的第一个工作流" : "Build your first workflow",
+      zh ? "交付第一项变更" : "Deliver your first change",
       zh
-        ? "先手动运行一次，再启用触发规则。"
-        : "Run it once by hand, then enable a trigger.",
-      "getting-started/first-automation",
+        ? "把一条 Issue 送到交付看板，跟踪实现，并审阅验证证据。"
+        : "Take an Issue through the delivery board, then review the change and its evidence.",
+      "getting-started/quickstart",
     ),
     secondaryCta: guide(
       zh ? "查看工作流应用" : "Explore workflow applications",
@@ -218,6 +218,13 @@ export function getHomeContent(zh: boolean): HomeContent {
     ],
     guides: [
       guide(
+        zh ? "交付第一项变更" : "Deliver your first change",
+        zh
+          ? "把一条 Issue 送到交付看板，审阅代码变更和验证证据。"
+          : "Take one Issue through the delivery board and review the evidence.",
+        "getting-started/quickstart",
+      ),
+      guide(
         zh ? "自动化一个 GitHub Issue" : "Automate a GitHub issue",
         zh
           ? "用事件轮询启动 Job，再把已确认事项送入交付。"
@@ -365,10 +372,12 @@ export function getPortalContent(
           href: "learn",
         },
         {
-          title: zh ? "Docs · 在平台中使用能力" : "Docs · Use the capability",
+          title: zh
+            ? "Docs · 交付第一项变更"
+            : "Docs · Deliver your first change",
           description: zh
-            ? "创建工作空间员工，开展会话并审阅实际结果"
-            : "Create a workspace employee, start work, and review the result",
+            ? "在已配置的交付项目中，从 Issue 走到代码变更与验证证据"
+            : "Take an Issue through implementation and verification in a configured delivery project",
           href: "getting-started/quickstart",
         },
       ],
@@ -430,10 +439,12 @@ export function getPortalContent(
       ],
       next: [
         {
-          title: zh ? "Docs · 开始实际协作" : "Docs · Start working together",
+          title: zh
+            ? "Docs · 交付第一项变更"
+            : "Docs · Deliver your first change",
           description: zh
-            ? "在工作空间中创建员工，准备资料并完成第一项任务"
-            : "Create an employee, prepare context, and complete a first task in a workspace",
+            ? "将已明确的需求推进到交付看板，跟踪实现并审阅验证证据"
+            : "Route a scoped request to the delivery board, follow implementation, and review the verification evidence",
           href: "getting-started/quickstart",
         },
         {

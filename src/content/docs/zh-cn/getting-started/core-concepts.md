@@ -6,10 +6,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "516983343547576fe027b0fcf741c2a32c71bcd581acd46d0a0fb8c5cfa81e40"
+  sourceHash: "a91e29f1b6373a507a009828cc76f7dc909f12e160eb08b3961ef1e9594ce5d2"
 ---
 
 会话、收件箱事项、自动化运行和交付卡片使用同一套词。这些记录可以显示不同状态，因为它们回答的问题不同。
+
+软件变更的默认路径是交付看板上的一张已确认卡片。Issue 可以先进入收件箱，再转入这张草稿。开发在确认之后才开始。
 
 创建智能体，是让你可以调用一名员工。创建工作流，是让这项工作在对话结束之后还能继续：一份定义、一个触发、一个执行者、一次运行和证据。员工是工作流调用的执行资源。
 
@@ -73,4 +75,4 @@ translation:
 
 ## 接下来去哪里
 
-[快速开始](/zh-cn/getting-started/quickstart/)是第一次会话的最短路径。这次会话说得通之后，[你的第一个工作流](/zh-cn/getting-started/first-automation/)才添加触发。[术语表](/zh-cn/concepts/glossary/)列出中英文术语。这些记录清楚之后，再用[平台地图](/zh-cn/getting-started/platform-overview/)对照界面。
+[快速开始](/zh-cn/getting-started/quickstart/)在已配置的看板上把一条 Issue 走到经过审阅的变更。手动运行说得通之后，[你的第一个工作流](/zh-cn/getting-started/first-automation/)才添加触发。[术语表](/zh-cn/concepts/glossary/)列出中英文术语。这些记录清楚之后，再用[平台地图](/zh-cn/getting-started/platform-overview/)对照界面。

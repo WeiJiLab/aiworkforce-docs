@@ -5,14 +5,23 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "53e1cb136e0a9b677bfbb64930df9d223aa55528a366a0e229d24be3b0d12195"
+  sourceHash: "44d0f8e31eaf0e65ae611e734bd463a881a1b5e6b09b9f65a54056e7948e5951"
 ---
 
-软件工厂是面向工程交付的一种工作流应用。它与[看板工作台](/zh-cn/workflows/kanban-workbench/)和 [Issue 自动化](/zh-cn/workflows/issue-automation/)共用工作流、自动化、员工、运行时和证据。它不是单独的引擎。
+软件工厂是面向工程交付的一种工作流应用，也是软件变更的默认路径。它与[看板工作台](/zh-cn/workflows/kanban-workbench/)和 [Issue 自动化](/zh-cn/workflows/issue-automation/)共用工作流、自动化、员工、运行时和证据。它不是单独的引擎。
 
 它把已确认的请求连接到员工执行、能够检查变更的环境，以及人用来决定是否交付的证据。产品界面是**交付工作台**，从 **Automations** 的 `/automations?tab=board-flow` 进入。
 
 这不是无人值守生成代码的产品。Agent 可以起草变更。工厂要做的是让从输入到经过验证的交付这条路径可以被检查。下面这张图是唯一的架构地图。其他软件工厂页面只解释其中一段。
+
+## 选择起点
+
+| 目标                         | 你会得到什么                                                 | 从这里开始                                                                                  |
+| ---------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| 把请求变成团队可以接受的工作 | 带来源、约定范围、验收标准和允许仓库的收件箱事项或交付草稿   | [工作进入](/zh-cn/software-factory/intake/)                                                 |
+| 把一条 Issue 走到审阅        | 关联变更、受测版本和决定依据的交付卡片                       | [快速入门](/zh-cn/getting-started/quickstart/)或 [Issue 到 PR](/zh-cn/recipes/issue-to-pr/) |
+| 审阅变更并跟进发布           | 审阅决定，以及项目配置了这些阶段时的合并、部署和清理记录     | [审阅与发布](/zh-cn/software-factory/review-release/)                                       |
+| 按周期收集请求               | 来自已配置来源的收件箱事项或交付草稿，以及可以检查的采集回执 | [自动化概念](/zh-cn/automate/fundamentals/)                                                 |
 
 ## 架构
 
@@ -71,4 +80,4 @@ translation:
 
 草稿不是修改代码的许可。执行过程中，在卡片上回答问题和批准请求。接管会停止自动推进并保留当前状态。需要继续时明确交还。只恢复暂停并不能清除接管。对共享批次的操作可能影响其中每张卡片。
 
-[你的第一个软件工厂流程](/zh-cn/getting-started/first-software-factory/)走通一张卡片。[Issue 到 PR](/zh-cn/recipes/issue-to-pr/)是更完整的实践。[工作流概念](/zh-cn/workflows/concepts/)说明看板、Job 和运行如何放在一起。把工作收集到收件箱的 Job 不能代替确认步骤。
+看板已经配置好时，[快速入门](/zh-cn/getting-started/quickstart/)把一条 Issue 走到审阅。[配置并运行交付看板](/zh-cn/getting-started/first-software-factory/)在走通之前先检查项目。[Issue 到 PR](/zh-cn/recipes/issue-to-pr/)是更完整的实践。[工作流概念](/zh-cn/workflows/concepts/)说明看板、Job 和运行如何放在一起。把工作收集到收件箱的 Job 不能代替确认步骤。

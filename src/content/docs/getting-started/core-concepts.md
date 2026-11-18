@@ -10,6 +10,8 @@ translation:
 
 Use one set of words for a conversation, an inbox item, an automation run, and a delivery card. The records can show different states because they answer different questions.
 
+For a software change, the default path is a confirmed card on the delivery board. An Issue can enter the inbox and be routed to that draft before development starts.
+
 Creating an agent lets you call an employee. Creating a workflow lets that work continue after the conversation: a definition, a trigger, an executor, a run, and evidence. The employee is an execution resource the workflow calls.
 
 ## The core records
@@ -72,4 +74,4 @@ An artifact can be useful without being correct. A collected inbox item is not a
 
 ## Where to go next
 
-[Quickstart](/getting-started/quickstart/) is the shortest path through a first session. [Your first workflow](/getting-started/first-automation/) adds a trigger only after that session makes sense. The [glossary](/concepts/glossary/) lists the English and Chinese terms. The [platform map](/getting-started/platform-overview/) names the screens, after these records are clear.
+[Quickstart](/getting-started/quickstart/) takes one Issue through a reviewed change on a configured board. [Your first workflow](/getting-started/first-automation/) adds a trigger only after a manual run makes sense. The [glossary](/concepts/glossary/) lists the English and Chinese terms. The [platform map](/getting-started/platform-overview/) names the screens, after these records are clear.

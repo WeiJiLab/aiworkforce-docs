@@ -8,8 +8,9 @@ export const groups = [
     collapsed: false,
     items: [
       "getting-started/introduction",
-      "getting-started/core-concepts",
       "getting-started/quickstart",
+      "getting-started/first-software-factory",
+      "getting-started/core-concepts",
       "getting-started/first-automation",
       "getting-started/first-employee",
     ],
@@ -41,16 +42,16 @@ export const groups = [
   {
     label: "Workflow applications",
     zh: "工作流应用",
-    collapsed: true,
+    collapsed: false,
     items: [
       "workflows/applications",
       "software-factory/overview",
+      "recipes/issue-to-pr",
       "workflows/kanban-workbench",
       "workflows/issue-automation",
       "workflows/pull-request-automation",
       "workflows/research-monitoring",
       "workflows/custom-workflows",
-      "getting-started/first-software-factory",
       {
         label: "Software Factory path",
         zh: "软件工厂路径",
@@ -198,7 +199,6 @@ export const groups = [
       "learn/requirements-writing",
       "learn/blueprints-work-orders",
       "learn/feedback-review",
-      "recipes/issue-to-pr",
       "resources/best-practices",
       "resources/examples",
       "resources/troubleshooting",
