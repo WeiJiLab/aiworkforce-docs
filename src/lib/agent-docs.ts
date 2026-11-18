@@ -43,8 +43,8 @@ function homeSection(section: string, zh: boolean): string {
       return linked(content.fde);
     case "run-workflows":
       return linked(content.runWorkflows);
-    case "operate":
-      return linked(content.operate);
+    case "daemon":
+      return linked(content.daemon);
     case "integrations":
       return linked(content.integrations);
     case "agents":
@@ -73,6 +73,7 @@ function portalSection(
         .join("\n\n");
     case "guides":
     case "next":
+    case "operate":
       return content[section].map((guide) => guideLink(guide, zh)).join("\n");
     default:
       throw new Error(`Unsupported ${portal} landing section: ${section}`);

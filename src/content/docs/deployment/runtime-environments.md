@@ -26,7 +26,7 @@ The runtime enum includes several kernel names. A listed name is not proof of a 
 
 ## Connect a device
 
-Use the [Device Executor CLI](/integrations/cli/) to pair a macOS/Linux execution computer. The device makes an outbound authenticated connection; the browser does not need to reach a local listening port. The execution process runs as the host user. An approved working directory identifies context, not an OS isolation boundary.
+Read [Run tools on your computer](/deployment/daemon/) first, then pair a macOS or Linux computer with the [Device Executor CLI](/integrations/cli/). The device makes an outbound authenticated connection; the browser does not need to reach a local listening port. The execution process runs as the host user. An approved working directory identifies context, not an OS isolation boundary.
 
 The model loop remains on the platform, so file content and tool results used for a task can travel to the platform and configured model provider. Stop, disconnect, and unknown-execution states need actual worker evidence; do not delete local journals to force a computer back online.
 
