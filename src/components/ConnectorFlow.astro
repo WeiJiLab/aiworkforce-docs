@@ -1,0 +1,151 @@
+---
+import { withBase } from "../lib/site.mjs";
+
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+
+function guide(path: string): string {
+  return withBase(`${zh ? "/zh-cn" : ""}/${path}/`);
+}
+
+const steps = [
+  {
+    label: zh ? "可见活动" : "Visible activity",
+    detail: zh ? "凭据能读到" : "Credential can read it",
+    href: guide("integrations/code-repositories"),
+    human: false,
+  },
+  {
+    label: zh ? "记下观察" : "Recorded observation",
+    detail: zh ? "轮询或入站" : "Poll or inbound",
+    href: guide("automate/event-driven"),
+    human: false,
+  },
+  {
+    label: zh ? "一次运行" : "One Job run",
+    detail: zh ? "已启用的规则" : "Enabled rule",
+    href: guide("automate/runs-recovery"),
+    human: false,
+  },
+  {
+    label: zh ? "人阅读结果" : "Person reads it",
+    detail: zh ? "运行与会话" : "Run and session",
+    href: guide("user-guide/artifacts-evidence"),
+    human: true,
+  },
+];
+---
+
+<figure class="connector-flow not-content">
+  <ol
+    aria-label={zh
+      ? "外部活动怎样启动一次运行"
+      : "How external activity starts one run"}
+  >
+    {
+      steps.map((step) => (
+        <li class:list={{ "is-human": step.human }}>
+          <a href={step.href}>
+            <span class="connector-flow-label">{step.label}</span>
+            <span class="connector-flow-detail">{step.detail}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</figure>
+
+<style>
+  .connector-flow {
+    --connector-human-border: #efbe83;
+    --connector-human-bg: #382b20;
+    container-type: inline-size;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  .connector-flow ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .connector-flow li {
+    position: relative;
+    min-width: 0;
+  }
+
+  .connector-flow li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 1.15rem;
+    bottom: -1.15rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid var(--docs-accent);
+    border-bottom: 2px solid var(--docs-accent);
+    transform: rotate(45deg);
+  }
+
+  .connector-flow a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+    min-height: 4.25rem;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid var(--docs-accent);
+    border-radius: var(--docs-radius-md, 0.625rem);
+    background: var(--docs-surface);
+    color: var(--docs-ink);
+    text-decoration: none;
+    text-wrap: balance;
+  }
+
+  .connector-flow a:hover {
+    background: var(--docs-hover);
+  }
+
+  .connector-flow a:focus-visible {
+    outline: 2px solid var(--docs-accent);
+    outline-offset: 2px;
+  }
+
+  .connector-flow-label {
+    font-weight: 500;
+  }
+
+  .connector-flow-detail {
+    color: var(--docs-muted);
+    font-size: 0.875rem;
+  }
+
+  .connector-flow .is-human a {
+    border-color: var(--connector-human-border);
+    background: var(--connector-human-bg);
+  }
+
+  @container (min-width: 40rem) {
+    .connector-flow ol {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 1.75rem;
+    }
+
+    .connector-flow li:not(:last-child)::after {
+      left: auto;
+      right: -1.2rem;
+      bottom: auto;
+      top: calc(50% - 0.25rem);
+      transform: rotate(-45deg);
+    }
+  }
+</style>
+
+<style is:global>
+  :root[data-theme="light"] .connector-flow {
+    --connector-human-border: #986119;
+    --connector-human-bg: #fff7ed;
+  }
+</style>

@@ -6,10 +6,20 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "aab9e720b5ff13fc95f82a0c298f88a086ff41eea4e5796ed197e4719ce5df53"
+  sourceHash: "019d24a859806ff9b2caa7c57040e877c2c7a21c06055115c6f34b0a55643528"
 ---
 
+import ConnectorFlow from "../../../../components/ConnectorFlow.astro";
+
 集成是 AI Workforce 和另一个系统之间、有名字的一条连接。用它可以让仓库变得可用，让事件启动一个 Job，把任务导入收件箱，或者让人和员工对话。连接成功之后，这项任务真正要用的授权、选中的资源和已经启用的触发规则，仍然要单独配好。
+
+## 事件怎样启动工作
+
+连接本身不会跑 Job。凭据已经能读到的活动先被记下来，再由一条已经启用的规则把这一次观察放行为一次运行。然后由人阅读这次运行。这条连接不会提交 Review，也不会去改外部系统。
+
+<ConnectorFlow />
+
+要把结果写回去，员工必须有自己的授权。GitHub 上的活动来自轮询；轮询不会评论、打标签、提交 Review 或推送。见 [Pull Request 自动化](/zh-cn/workflows/pull-request-automation/)。Sentry 和 PagerDuty 启动的是同一种 Job，也不会修改外部事件。见[调研与监控](/zh-cn/workflows/research-monitoring/)。导入只把任务复制进收件箱，之后的变化不会继续同步。
 
 下面的分组和产品一致：代码托管、事项导入、消息渠道、监控告警。MCP、入站 Webhook 和员工工具已经有自己的指南，这里只放链接。本产品没有 ACP 或 A2A 连接。
 

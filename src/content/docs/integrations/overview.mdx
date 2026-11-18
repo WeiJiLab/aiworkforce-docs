@@ -8,7 +8,17 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
+import ConnectorFlow from "../../../components/ConnectorFlow.astro";
+
 An integration is a named connection between AI Workforce and another system. Use it to make a repository available, to let an event start a Job, to import tasks, or to carry a conversation with an employee. A successful connection still needs the grant, the selected resource, and the enabled trigger that the task actually uses.
+
+## When an event starts work
+
+A connection does not run a Job by itself. Activity the credential can already read is recorded, and an enabled rule admits that one observation as a run. A person then reads the run. The connection does not post a review or update the external system.
+
+<ConnectorFlow />
+
+Writing back requires the employee's own grant. GitHub activity is polled; the poller does not comment, label, review, or push. See [pull request automation](/workflows/pull-request-automation/). Sentry and PagerDuty start the same kind of Job and do not change the incident. See [research and monitoring](/workflows/research-monitoring/). Import copies tasks into the inbox and does not sync later changes.
 
 The groups below follow the product: code hosting, issue import, messaging, and monitoring. MCP, inbound webhooks, and employee tools already have their own guides. This directory links to them. ACP and A2A are not connections in this product.
 

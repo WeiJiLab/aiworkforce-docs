@@ -28,8 +28,8 @@
 3. Automate Work / 自动化工作
 4. Build Workflows / 构建工作流（Employees 在 Agents 下）
 5. Run Workflows / 运行工作流
-6. Operate / 运营（含 Self-host / 自托管）
-7. Integrations / 集成。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。MCP、Webhook 与员工工具仍留在 API 或「构建工作流」，目录只链接过去。不收录 ACP / A2A。
+6. Integrations / 集成。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。MCP、Webhook 与员工工具仍留在 API 或「构建工作流」，目录只链接过去。不收录 ACP / A2A。
+7. Operate / 运营（含 Self-host / 自托管）
 8. Resources / 资源
 
 ## Learn 侧栏
