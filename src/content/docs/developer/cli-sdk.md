@@ -45,7 +45,7 @@ The only device CLI is [Device Executor CLI](/integrations/cli/). That page owns
 - [SDK](/integrations/sdk/)
 - [OpenAPI reference](/integrations/openapi/)
 - [MCP](/integrations/mcp/)
-- [API home](/api/)
+- [Developer home](/developer/)
 - [Integration overview](/integrations/overview/)
 - [Runtime management](/deployment/runtime-environments/)
 - [Security and permissions](/deployment/security/)

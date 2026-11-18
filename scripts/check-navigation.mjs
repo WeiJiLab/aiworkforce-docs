@@ -209,9 +209,9 @@ for (const [route, page] of expectedPages) {
       "site nav must include FDE",
     );
     record(
-      labels.some((label) => label.startsWith("API")),
+      labels.some((label) => label.startsWith("Developer")),
       route,
-      "site nav must include API",
+      "site nav must include Developer",
     );
     record(
       !labels.some((label) => label.startsWith("GitHub")),

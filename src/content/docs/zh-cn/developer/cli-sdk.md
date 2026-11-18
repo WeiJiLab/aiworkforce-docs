@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "7ba22eede19f4917530e06de6cf4eb64afdf0b595a8149fc0f4c2bc79de41e2f"
+  sourceHash: "4ae10bac0599cfbc0dbba8a0873dd7bf0da46b560330c4716082b64def860fe9"
 ---
 
 选择接口时，先确定工作在哪里执行，以及调用者需要什么权限。平台 HTTP API、自动化 MCP 服务和设备 daemon 解决的是不同集成问题。
@@ -46,7 +46,7 @@ translation:
 - [SDK](/zh-cn/integrations/sdk/)
 - [OpenAPI 参考](/zh-cn/integrations/openapi/)
 - [MCP](/zh-cn/integrations/mcp/)
-- [API 首页](/zh-cn/api/)
+- [Developer 首页](/zh-cn/developer/)
 - [集成概览](/zh-cn/integrations/overview/)
 - [运行时管理](/zh-cn/deployment/runtime-environments/)
 - [安全与权限](/zh-cn/deployment/security/)

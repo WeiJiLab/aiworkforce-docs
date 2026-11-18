@@ -30,7 +30,7 @@ npm run check:navigation
 
 ## Content
 
-English and Chinese share the same slugs across four portals: Docs, Learn, FDE, and API. Sidebars are defined in `src/lib/sidebar.mjs` and filtered by route middleware. Top navigation also links to Console. [Navigation](NAVIGATION.md) explains the sections, support states, and redirects.
+English and Chinese share the same slugs across four portals: Docs, Learn, FDE, and Developer. Sidebars are defined in `src/lib/sidebar.mjs` and filtered by route middleware. Top navigation also links to Console. [Navigation](NAVIGATION.md) explains the sections, support states, and redirects.
 
 A page may set `status` to `available` (the default), `beta`, or `planned`. Beta and planned pages say so in the sidebar and above the article. A page describes the behavior this release supports, so it does not carry a partial-support badge. Do not describe a planned interface as something a reader can call.
 
