@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "b0b6d05daa9aa9def6526c4e4e76a3f6e5ef5e8ef07e3bf327a3d90ebca054d9"
+  sourceHash: "b24879b2b7b3708f7713abc90b3e64373a310261884bf474ccdb0cf67ecec7a6"
 ---
 
 数字员工是一份带版本的职责与能力组合，被放到可以行动的运行时里，并受权限和证据约束。这个组合不是聊天记录，聊天记录也不能证明组合是正确的。

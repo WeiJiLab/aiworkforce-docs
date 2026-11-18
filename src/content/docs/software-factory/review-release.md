@@ -21,12 +21,12 @@ Start with scope: does the change solve the agreed problem, and did it modify an
 
 The built-in delivery flow records several outcomes:
 
-| Stage              | What to inspect                                                            |
-| ------------------ | -------------------------------------------------------------------------- |
-| Development        | Code references, changed files, employee summary, and performed checks.    |
+| Stage                      | What to inspect                                                            |
+| -------------------------- | -------------------------------------------------------------------------- |
+| Development                | Code references, changed files, employee summary, and performed checks.    |
 | Test deployment (测试发布) | Candidate batch membership, repositories, and configured test deployment.  |
 | Testing (测试验证)         | Results for member cards and the revision or candidate actually exercised. |
-| Merge to main      | The recorded merge result for the passing batch.                           |
+| Merge to main              | The recorded merge result for the passing batch.                           |
 | Production (生产发布)      | Release results recorded for merged cards and their repositories.          |
 | Resource cleanup           | Cleanup outcome after the Production lane; failures may need retry.        |
 

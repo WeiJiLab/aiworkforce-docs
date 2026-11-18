@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "acd7cd88146e63e359d0df5d1d55e7068f30e7b6bad5ef5387cb91f8a5cfc655"
+  sourceHash: "7a20121a3b8b8b72bbb5e3178a9026f2c65cf7ef37a5938fe6a1163d0061439b"
 ---
 
 Issue 自动化在事项出现时启动工作流，并把调查留在可以检查的运行里。当前产品可以接收 GitHub Issue，把任务导入收件箱，并把已确认的事项送到交付看板。它没有分类器、重复检测或优先级模型。

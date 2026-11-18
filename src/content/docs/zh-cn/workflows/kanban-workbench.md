@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "07c9c0ad35cc106238f72be11e0b1b6eb70fac49aa2d5b669b75179dce0a806c"
+  sourceHash: "cb3d0a9fdd7de6b0801eb6874c8cc75cfbaabb87f6b6e588680573f36b9ec69c"
 ---
 
 看板自动化工作台从主导航的**工作台**进入，地址是 `/automations?tab=board-flow`。它把看板变成一条持续运行的软件交付工作流。这是同一条软件工厂路径，以卡片、泳道和批次的形式被观察。它不是通用看板产品，也不是第二套引擎。

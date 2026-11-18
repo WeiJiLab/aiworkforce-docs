@@ -11,12 +11,12 @@ AI Workforce combines a product workspace with employee execution and structured
 
 ## Product and execution layers
 
-| Layer                               | Responsibility                                                                            |
-| ----------------------------------- | ----------------------------------------------------------------------------------------- |
+| Layer                               | Responsibility                                                                                 |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Product interface                   | Workspaces, employee profiles, conversations, Task inbox, Automations, and delivery workbench. |
-| Application services                | Coordinate authorization, configuration, session preparation, execution, and persistence. |
-| Domain model                        | Define employees, sessions, Issues, Jobs, triggers, runs, and delivery state.             |
-| Infrastructure and runtime adapters | Connect storage, execution runtimes, MCP tools, code hosts, and external services.        |
+| Application services                | Coordinate authorization, configuration, session preparation, execution, and persistence.      |
+| Domain model                        | Define employees, sessions, Issues, Jobs, triggers, runs, and delivery state.                  |
+| Infrastructure and runtime adapters | Connect storage, execution runtimes, MCP tools, code hosts, and external services.             |
 
 The frontend is a TypeScript React application. The Python backend organizes application use cases, domain rules, and infrastructure integrations separately. Runtime integrations supply execution capabilities; available tools and execution behavior depend on the configured runtime and the employee instance.
 

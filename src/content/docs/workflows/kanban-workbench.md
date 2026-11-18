@@ -28,14 +28,14 @@ Built-in lanes:
 Requirements (需求) → Development (开发) → Test deployment (测试发布) → Testing (测试验证) → Production (生产发布) → Done (已完成)
 ```
 
-| Lane               | Key     | What moves the card                                     | Granularity                        |
-| ------------------ | ------- | ------------------------------------------------------- | ---------------------------------- |
-| Requirements       | DRAFT   | A person clarifies scope until the card is ready        | Per card                           |
-| Development        | DEV     | The lane employee codes in a session                    | Per card                           |
+| Lane                       | Key     | What moves the card                                     | Granularity                        |
+| -------------------------- | ------- | ------------------------------------------------------- | ---------------------------------- |
+| Requirements               | DRAFT   | A person clarifies scope until the card is ready        | Per card                           |
+| Development                | DEV     | The lane employee codes in a session                    | Per card                           |
 | Test deployment (测试发布) | PREPARE | Ready cards join a candidate batch                      | Batch                              |
 | Testing (测试验证)         | TEST    | Tests run and record passed or failed                   | Per card, inside the release batch |
 | Production (生产发布)      | RELEASE | Merge, wait, deploy, and verify when integration exists | Batch                              |
-| Done               | DONE    | The batch closes out                                    | Batch                              |
+| Done                       | DONE    | The batch closes out                                    | Batch                              |
 
 Inside a lane the step can be clarifying, ready, coding, running, passed, failed, merge, deploy, verify, or waiting on a person. That step is the workflow state. Changing a label without a run does not perform the work.
 
