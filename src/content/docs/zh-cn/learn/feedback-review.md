@@ -46,7 +46,7 @@ translation:
 
 交付后，把记录的结果与最初观察对照。对外说明改动时，关联实际代码或发布证据。已采集事项、已完成会话、已在生产修复的故障含义不同，应按证据支持的状态表述。
 
-新报告揭示不同问题时，应保留为新工作，避免悄悄扩大已经完成的任务。继续阅读[收件箱与任务](/zh-cn/user-guide/inbox-tasks/)和[审核与发布](/zh-cn/software-factory/review-release/)。
+新报告揭示不同问题时，应保留为新工作，避免悄悄扩大已经完成的任务。继续阅读[任务收件箱](/zh-cn/user-guide/inbox-tasks/)和[审核与发布](/zh-cn/software-factory/review-release/)。
 
 ## 延伸阅读
 

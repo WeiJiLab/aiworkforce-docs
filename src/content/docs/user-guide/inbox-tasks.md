@@ -1,5 +1,5 @@
 ---
-title: "Inbox and tasks"
+title: "Task inbox"
 description: "Review incoming requests and decide which work should proceed to delivery."
 translation:
   source: en
@@ -9,7 +9,7 @@ translation:
 
 The workspace Task inbox holds requests collected by automation or imported into the workspace. It gives each item a source and a review state so teams can decide what deserves attention before committing to execution.
 
-## Open the inbox
+## Open Task inbox
 
 Open workspace management and select **Task inbox**. Review the available views, such as waiting items, linked work, snoozed items, and archived items. Filters help narrow the list by source, type, or state.
 

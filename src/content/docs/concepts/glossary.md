@@ -19,7 +19,7 @@ This glossary is the shared vocabulary for users, builders, and developers. Engl
 | Job                 | 自动化任务   | One automation definition: the task, one executor, and that Job's triggers.                                    |
 | Pipeline            | 编排         | A graph of executors on a delivery-board lane. Requires at least two executors to enable.                      |
 | Agent               | 智能体       | The execution participant inside a workflow. The organizing product model stays Workflow → Automation → Agent. |
-| AI employee         | 数字员工     | A configured workspace form of an agent—not a separate product model. Demoted under Agents in Docs.            |
+| AI employee         | 数字员工     | A configured workspace form of an agent—not a separate product model.            |
 | Employee template   | 员工模板     | Reusable capabilities published for creating employees.                                                        |
 | Employee definition | 员工定义     | Responsibilities, inputs, outputs, and capability requirements.                                                |
 | Skill               | 技能         | A reusable method for one kind of task.                                                                        |
@@ -37,7 +37,7 @@ This glossary is the shared vocabulary for users, builders, and developers. Engl
 | Issue               | 事项 / Issue | A tracked request with its own source and review state.                                                        |
 | Delivery workbench  | 交付工作台   | The board where software-delivery cards move through lanes.                                                    |
 | Delivery card       | 交付卡片     | One engineering work item on that board.                                                                       |
-| Lane                | 泳道         | A board column with execution behavior. Built-in lanes are not hand-edited status labels.                      |
+| Lane                | 泳道         | A board column with execution behavior. Built-in lanes are not hand-edited status labels. On the Chinese interface they are 需求, 开发, 测试发布, 测试验证, 生产发布, and 已完成. On the English interface they are Requirements, Development, Test deployment, Testing, Production, and Done.                      |
 | Human review        | 人工审核     | A person's inspection and decision about work.                                                                 |
 | Dispatch            | 分派         | Assigning a ready card to the employee configured on its lane.                                                 |
 | Orchestration       | 编排推进     | The workbench moving cards and batches through lanes. The pipeline screen is also called 编排.                 |

@@ -8,7 +8,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "6a77aab7c6c84f65d567acebbc8a2895a366551570445fe97f37b62635cffc0c"
+  sourceHash: "91989b510f9dd55943551bfc3c1f6478b3ce95c6d72ed3597d291f43047f272f"
 ---
 
 云效是阿里云 DevOps 的代码托管连接，另外还有独立的 Projex 导入，以及可选的 Flow 流水线绑定。Codeup 仓库权限、Projex 工作项权限和 Flow 流水线权限，是同一类云效 Token 上的不同授权。有其中一项，不代表另外两项也有。
@@ -17,7 +17,7 @@ translation:
 
 ## 它是什么
 
-可以连接中心版 `https://codeup.aliyun.com`，也可以连接主机名以 `.devops.aliyuncs.com` 结尾的 Region 实例。中心版连接还要保存组织的原生 ID。连接可以列出 Codeup 仓库。导入的人可以用自己的 Token 和项目选择器，把 Projex 工作项导入 Task Inbox。交付项目可以绑定一条 Flow 流水线，供看板记录。
+可以连接中心版 `https://codeup.aliyun.com`，也可以连接主机名以 `.devops.aliyuncs.com` 结尾的 Region 实例。中心版连接还要保存组织的原生 ID。连接可以列出 Codeup 仓库。导入的人可以用自己的 Token 和项目选择器，把 Projex 工作项导入 Task inbox。交付项目可以绑定一条 Flow 流水线，供看板记录。
 
 ## 何时使用
 
@@ -55,7 +55,7 @@ Flow 绑定保存的是看板要观察的那条流水线。发布路径仍然使
 
 ## 连接之后能做什么
 
-被授权的员工可以在 Token 的 Codeup 权限范围内拉取和修改仓库。Projex 导入创建 Task Inbox 事项后就结束。它不打开会话，也不启动开发。事项确认之后要继续做，再走 [Issue 自动化](/zh-cn/workflows/issue-automation/)和交付看板。
+被授权的员工可以在 Token 的 Codeup 权限范围内拉取和修改仓库。Projex 导入创建 Task inbox 事项后就结束。它不打开会话，也不启动开发。事项确认之后要继续做，再走 [Issue 自动化](/zh-cn/workflows/issue-automation/)和交付看板。
 
 交付项目也可以把 Projex 配成工作项来源，单独填写项目 ID、分类 ID、版本和 Token。这次读取和一次性的收件箱导入不是同一条路径。
 

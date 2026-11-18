@@ -5,12 +5,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "44d0f8e31eaf0e65ae611e734bd463a881a1b5e6b09b9f65a54056e7948e5951"
+  sourceHash: "6b2cd829f9061e7f47299c7f518298b75a2ba8109217a9ae6a8f22163376f15d"
 ---
 
 软件工厂是面向工程交付的一种工作流应用，也是软件变更的默认路径。它与[看板工作台](/zh-cn/workflows/kanban-workbench/)和 [Issue 自动化](/zh-cn/workflows/issue-automation/)共用工作流、自动化、员工、运行时和证据。它不是单独的引擎。
 
-它把已确认的请求连接到员工执行、能够检查变更的环境，以及人用来决定是否交付的证据。产品界面是**交付工作台**，从 **Automations** 的 `/automations?tab=board-flow` 进入。
+它把已确认的请求连接到员工执行、能够检查变更的环境，以及人用来决定是否交付的证据。产品界面是**交付工作台**，从主导航的**工作台**进入。地址是 `/automations?tab=board-flow`。**自动化**是 Job 页，不是这块看板。
 
 这不是无人值守生成代码的产品。Agent 可以起草变更。工厂要做的是让从输入到经过验证的交付这条路径可以被检查。下面这张图是唯一的架构地图。其他软件工厂页面只解释其中一段。
 

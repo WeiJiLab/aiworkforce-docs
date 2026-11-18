@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ab020a6a959d029bdcc90a801432cc7bf6599fb8d2f008d9a96cd9c5e5008666"
+  sourceHash: "86ccd8010ba690b24aedcd5dfd6362f61cd8d5a4974d708ca5fa734878d48d9b"
 ---
 
 人工确认是一项决定，不是一枚状态徽章。当请求会改变范围、执行需要人才能继续，或结果将被当成已接受时，AI Workforce 需要这个决定。使用员工并不包括编辑员工包。本页讲的是你面前的这些决定。

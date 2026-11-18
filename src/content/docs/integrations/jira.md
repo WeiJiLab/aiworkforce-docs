@@ -10,7 +10,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Jira in AI Workforce is a one-time, read-only import into Task Inbox. It runs only after an administrator connects a Jira Cloud project for this workspace and for specific people. There is no Jira card in the workspace integration catalog, no project browser, and no write-back.
+Jira in AI Workforce is a one-time, read-only import into Task inbox. It runs only after an administrator connects a Jira Cloud project for this workspace and for specific people. There is no Jira card in the workspace integration catalog, no project browser, and no write-back.
 
 A Jira MCP server attached to an employee is a different path. That server is an [external connector](/integrations/employee-tools/), with its own tools and grants. It is not this import.
 
@@ -53,7 +53,7 @@ Restart the service after the deployment receives the list and the secrets. Jira
 
 ## What you can do afterward
 
-Imported tasks sit in Task Inbox. Open one, confirm scope, and route it to a workbench draft when someone should build it. The import does not create a session and does not start development. Later edits in the inbox are kept if you import the same issue again. The match is the Jira site plus the issue id. Older inbox rows that were typed in by hand, or saved by an automation under a different source key, are not merged automatically.
+Imported tasks sit in Task inbox. Open one, confirm scope, and route it to a workbench draft when someone should build it. The import does not create a session and does not start development. Later edits in the inbox are kept if you import the same issue again. The match is the Jira site plus the issue id. Older inbox rows that were typed in by hand, or saved by an automation under a different source key, are not merged automatically.
 
 ## Permissions and credentials
 
@@ -69,5 +69,5 @@ This release imports open issues once per batch. It does not subscribe to Jira w
 
 - [Integration directory](/integrations/overview/)
 - [Issue automation](/workflows/issue-automation/)
-- [Inbox and tasks](/user-guide/inbox-tasks/)
+- [Task inbox](/user-guide/inbox-tasks/)
 - [Tools and connectors](/integrations/employee-tools/)

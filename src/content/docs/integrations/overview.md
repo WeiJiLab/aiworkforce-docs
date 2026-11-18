@@ -29,8 +29,8 @@ GitHub and Yunxiao imports use a repository or project picker on the signed-in u
 
 | Connection                      | Use it when                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------- |
-| [Jira](/integrations/jira/)     | An administrator has connected a Jira Cloud project, and you want open issues in Task Inbox. |
-| [Linear](/integrations/linear/) | An administrator has connected a Linear team, and you want open issues in Task Inbox.        |
+| [Jira](/integrations/jira/)     | An administrator has connected a Jira Cloud project, and you want open issues in Task inbox. |
+| [Linear](/integrations/linear/) | An administrator has connected a Linear team, and you want open issues in Task inbox.        |
 
 Import creates inbox tasks. It does not start a session, sync later changes, or write status back.
 

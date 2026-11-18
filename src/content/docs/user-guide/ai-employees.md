@@ -19,8 +19,8 @@ A focused employee is easier to evaluate than a worker expected to handle unrela
 
 ## Create an employee
 
-1. Open workspace management and select **Employees**.
-2. Start employee creation and choose a published template.
+1. Open workspace management and select **Digital employees** (数字员工).
+2. Choose **Add digital employee** (添加数字员工) and pick a published template. **Marketplace** (市场) only browses templates. The instance is created on this tab.
 3. Read the template description and complete the configuration steps offered by the flow. Some templates offer connection or capability choices.
 4. Give the employee a name that distinguishes its role in this workspace.
 5. Submit once and wait for initialization to complete.
@@ -35,8 +35,8 @@ A template's written constraints describe intended behavior. External permission
 
 ## Maintain a useful employee
 
-When a recurring failure concerns the method, inputs, or output structure, share a reproducible example with the template builder. When a failure concerns connectivity or startup, ask a workspace manager to inspect execution resources and authorization.
+When a recurring failure concerns the method, inputs, or output structure, share a reproducible example with the template builder. When a failure concerns connectivity or startup, ask someone who can manage this workspace's digital employees to inspect initialization. Grant changes are separate: the workspace creator, a team leader, or an administrator. See [Teams and access](/administration/teams-access/).
 
 Avoid creating duplicate employees to recover from an unexplained startup failure. Resolve the initialization error, then confirm readiness with a small task.
 
-Continue with [Agent Chat](/user-guide/agent-chat/), [Skills and Plugins](/build/skills-plugins/), and [artifacts and evidence](/user-guide/artifacts-evidence/).
+Continue with [Workspace](/user-guide/workspace/), [Agent Chat](/user-guide/agent-chat/), and [artifacts and evidence](/user-guide/artifacts-evidence/).

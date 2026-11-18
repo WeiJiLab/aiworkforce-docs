@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1e36bdb02e8293cdac40f7eb3a8a8841153356880298c76f11ddcbe996b509ee"
+  sourceHash: "051284ff3cc988141301bc4e307a72d6a6a47db7f6cefba45a9837889d20a109"
 ---
 
 AI Workforce 是以工作流为中心的平台。**工作流**是可复用的工作定义。**自动化**是启动并持续推动这项工作的机制。**智能体**在产品里是数字员工，负责执行具体步骤。**运行**是一次执行实例。**任务**是这次执行中的一个工作单元。
@@ -28,7 +28,7 @@ AI Workforce 是以工作流为中心的平台。**工作流**是可复用的工
 | 任务   | 收件箱事项、交付卡片，或编排中的一个节点               |
 | 证据   | 与这项工作放在一起的会话、代码引用、测试记录和人工决定 |
 
-在 `/automations` 打开**自动化**管理 Job。在同一页打开**编排**管理泳道编排。在 `/automations?tab=board-flow` 打开交付工作台。
+在 `/automations` 打开**自动化**管理 Job。在同一页打开**编排**管理泳道编排。在主导航打开**工作台**查看看板，地址是 `/automations?tab=board-flow`。
 
 ## 生命周期
 

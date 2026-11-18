@@ -52,6 +52,6 @@ Open run history and inspect status, output, session, and any collection receipt
 
 ## Related guides
 
-- [Inbox and tasks](/user-guide/inbox-tasks/)
+- [Task inbox](/user-guide/inbox-tasks/)
 - [Issue to PR](/recipes/issue-to-pr/)
 - [MCP integration](/build/mcp-integration/)

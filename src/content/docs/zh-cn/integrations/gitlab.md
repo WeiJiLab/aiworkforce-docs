@@ -8,7 +8,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "7c4a2798b09e6d8c75086b3692c2cba21cf69b69432f584e9432d7fb8f2046c5"
+  sourceHash: "7820868af54a618a4e718c7ff6e8be55fc2570667fcfdc912bade360699eb4ec"
 ---
 
 GitLab 是针对某一个实例的代码托管连接，包括 GitLab.com。平台会列出 Token 能读取的项目，之后也可以读取已经绑定到交付项目上的仓库 Issue。它不会轮询 Merge Request，也不会把 GitHub 的 Pull Request 查看器套到 GitLab 上。
@@ -21,7 +21,7 @@ Token、实例和员工授权的共同规则见[代码仓库](/zh-cn/integration
 
 ## 何时使用
 
-员工或软件工厂项目需要 GitLab 仓库时使用它。工作依赖轮询到的 Pull Request 或 Issue 事件时，用 [GitHub](/zh-cn/integrations/github/)。要把事项一次性复制进 Task Inbox 时，用 GitHub 或[云效 Codeup](/zh-cn/integrations/yunxiao/) 的导入。GitLab 不是这些导入来源之一。
+员工或软件工厂项目需要 GitLab 仓库时使用它。工作依赖轮询到的 Pull Request 或 Issue 事件时，用 [GitHub](/zh-cn/integrations/github/)。要把事项一次性复制进 Task inbox 时，用 GitHub 或[云效 Codeup](/zh-cn/integrations/yunxiao/) 的导入。GitLab 不是这些导入来源之一。
 
 ## 两边交换什么
 
@@ -52,7 +52,7 @@ Token、实例和员工授权的共同规则见[代码仓库](/zh-cn/integration
 
 ## 限制
 
-没有 GitLab 事件轮询，没有 Merge Request 触发，也没有把 GitLab Issue 导入 Task Inbox 的功能。交付项目上的 Issue 读取是只读的。内置 Pull Request 查看器用于已连接的 GitHub 仓库。能浏览一个 GitLab 项目，不表示每个交付适配器都跑在这个实例上。要核对的是项目、员工授权，以及你实际配置的流水线。
+没有 GitLab 事件轮询，没有 Merge Request 触发，也没有把 GitLab Issue 导入 Task inbox 的功能。交付项目上的 Issue 读取是只读的。内置 Pull Request 查看器用于已连接的 GitHub 仓库。能浏览一个 GitLab 项目，不表示每个交付适配器都跑在这个实例上。要核对的是项目、员工授权，以及你实际配置的流水线。
 
 ## 相关文档
 

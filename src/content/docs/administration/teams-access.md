@@ -27,6 +27,20 @@ Open the workspace's settings and its member/access section. If you are allowed 
 
 In a team workspace, membership is required, and the owning team's grant can still be revoked. Team leadership controls adding access and deleting the team workspace. Platform role grants can target standard users, FDE users, or administrators, but a platform role is not a universal bypass of workspace authorization.
 
+## Account roles
+
+A platform role and a workspace role answer different questions. A **Member** (`NORMAL_USER`, shown as 普通成员) signs in to **Workbench** (工作台). That account does not get **FDE workbench** (FDE 工作台) or **Admin console** (管理控制台). An **FDE user** (`FDE_USER`) or a **system administrator** (`ADMIN_USER`, shown as 系统管理员) can open **FDE workbench**. Only a system administrator can open **Admin console**.
+
+| Need | Who can do it |
+| --- | --- |
+| Publish a digital employee template | An FDE user or a system administrator. **Marketplace** (市场) only browses templates, skills, and MCP servers. |
+| Publish a primary-agent template or a board template | A system administrator, in **Admin console**. |
+| Create a digital employee in a workspace | Someone who can manage digital employees: **Owner** (所有者), **Full access** (完整权限), **Team leader** (团队 leader), a team member with full access, or the system and FDE roles that include agent management. The dialog is **Add digital employee** (添加数字员工). If you cannot add one, the page says “Ask a workspace admin to add a digital employee.” (联系空间管理员添加数字员工。) |
+| An employee will not start | The same people who can manage digital employees inspect initialization. When no template is recommended, the product says to contact the space owner (空间负责人) and summon from the available catalog. |
+| Change a grant | Creating a grant: Owner, Full access, Team leader, a system administrator on a system workspace, or an FDE administrator. Revoking a grant: the workspace creator, a team leader, or an admin. |
+
+There is no workspace manager account.
+
 ## Change access carefully
 
 Before removing a member or revoking a grant, identify the workspaces and ongoing responsibilities affected. Removal or leaving a team can immediately remove access to team workspaces.

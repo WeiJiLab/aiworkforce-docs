@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "a8619c2bc311035a0162e5fd92da370f20ed724c18396b741d4368d4275d0541"
+  sourceHash: "dce2e010336da2c86cbf78ae170dc4257a84c0386523d37fa78dd5e8fe04f91a"
 ---
 
 自动化启动一条工作流并记录发生了什么。它不是工作流本身，也不只是定时任务。工作流是可复用的定义：Job 的任务、一条泳道编排，或一块交付看板。Job 是你在这里配置的自动化对象。在相应类型可用时，Job 可以由日程、Webhook、平台事件、Issue 或 IM 消息调用，也可以手动运行。下面把 Job、触发规则和运行分开，这样失败才有地方可查。共用词汇见[工作流概念](/zh-cn/workflows/concepts/)。
@@ -53,6 +53,6 @@ translation:
 
 ## 相关文档
 
-- [收件箱与任务](/zh-cn/user-guide/inbox-tasks/)
+- [任务收件箱](/zh-cn/user-guide/inbox-tasks/)
 - [从 Issue 到 PR](/zh-cn/recipes/issue-to-pr/)
 - [MCP 集成](/zh-cn/build/mcp-integration/)

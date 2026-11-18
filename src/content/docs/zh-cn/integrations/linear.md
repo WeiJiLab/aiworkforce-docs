@@ -8,10 +8,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "0fcd3768e07c4413eb0361217fda756fae0716cae3da4c07076420e5bc8c17a8"
+  sourceHash: "61b3fb3af306202537897a4804e5b87b9d15a9e4420f5ffc0dcb5392fc6340eb"
 ---
 
-在 AI Workforce 里，Linear 是一次性的、只读的 Task Inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Linear 团队之后，它才会出现。没有 Linear 的 OAuth 安装，没有团队浏览器，也不会把状态写回 Linear。
+在 AI Workforce 里，Linear 是一次性的、只读的 Task inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Linear 团队之后，它才会出现。没有 Linear 的 OAuth 安装，没有团队浏览器，也不会把状态写回 Linear。
 
 ## 它是什么
 
@@ -51,7 +51,7 @@ API 主机是 Linear 云端。部署拿到这份列表和密钥之后，重启�
 
 ## 连接之后能做什么
 
-导入的任务留在 Task Inbox。人可以打开一条，把已确认的事项送到工作台草稿。导入不创建会话，也不启动开发。同一条 Linear Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。身份是 Linear 的 Issue ID。手工录入的记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
+导入的任务留在 Task inbox。人可以打开一条，把已确认的事项送到工作台草稿。导入不创建会话，也不启动开发。同一条 Linear Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。身份是 Linear 的 Issue ID。手工录入的记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
 
 ## 权限与凭据
 
@@ -65,5 +65,5 @@ API 主机是 Linear 云端。部署拿到这份列表和密钥之后，重启�
 
 - [集成目录](/zh-cn/integrations/overview/)
 - [Issue 自动化](/zh-cn/workflows/issue-automation/)
-- [收件箱与任务](/zh-cn/user-guide/inbox-tasks/)
+- [任务收件箱](/zh-cn/user-guide/inbox-tasks/)
 - [Jira](/zh-cn/integrations/jira/)

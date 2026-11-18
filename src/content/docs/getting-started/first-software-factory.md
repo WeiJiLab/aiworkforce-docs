@@ -11,7 +11,7 @@ Start with a workspace that has no delivery board. You will create the board, co
 
 ## Before you start
 
-Use a workspace where you can create a delivery board and manage its repository and employee grants. Have an approved test repository, a test environment for the change, and a published board template with requirements, development, and verification stages. Ask your workspace administrator for the template or the required access if either is missing. Prepare a ready employee instance for each required lane using [the employee setup guide](/getting-started/first-employee/).
+Use a workspace where you can create a delivery board and manage its repository and employee grants. Have an approved test repository, a test environment for the change, and a published board template with requirements, development, and verification stages. A missing board template is published by a system administrator. If you cannot add lane employees, the workspace page says to ask a workspace admin. Prepare a ready employee instance for each required lane using [the employee setup guide](/getting-started/first-employee/).
 
 ## 1. Prepare the repository and execution grants
 
@@ -21,20 +21,22 @@ Use a workspace where you can create a delivery board and manage its repository 
 
 ## 2. Create the delivery board
 
-1. Open the **delivery workbench** at `/automations?tab=board-flow`, select your workspace, and choose **New delivery project**. The **Create board** wizard opens.
+1. Open **Workbench** (工作台) in the primary navigation. The delivery workbench is at `/automations?tab=board-flow`. Select your workspace, and choose **New delivery project**. The **Create board** wizard opens.
 2. Under **Choose a template**, select the published delivery template. Under **Basics**, name the board and review the lane order. Under **Digital employees**, assign a ready employee to each required lane.
-3. In **Shared MCP and Skill**, review the tools and skills selected by the template. In **External board and work item sources**, you can skip external board sync and work item sources for the first run. You can bring in an Issue through the inbox or open a requirements session on the board.
+3. In **Shared MCP and Skill**, review the tools and skills selected by the template. In **External board and work item sources**, you can skip external board sync and work item sources for the first run. You can bring in an Issue through Task inbox or open a requirements session on the board.
 4. In **Confirm and create**, review the configuration and select **Create board**. The template can start automations after initialization passes, so use the test workspace and check the selected template before creating the board. When initialization completes, select **Open board**. If a module fails, retry that module or use **Back to configuration** if its inputs need to change.
+
+Board settings for a project that is not saved yet show **Observe mode** (观察模式). The page says: “A new project is saved in observe mode · start it after checks pass.” (新项目先保存为观察模式 · 检查通过后再启动。) Check the configuration, then start the project.
 
 ## 3. Check the lanes and how the change will be tested
 
 1. In **Board settings**, confirm that the project is bound to the test repository. If you skipped an external Issues source during creation, bind the repository before adding that source. Open **Lane configuration** and check each required lane's **Execution identity**, then use **Lane flow** to review employee assignments and saved automations.
-2. For a board that runs automated checks, connect the project's test workflow and confirm the test deployment or environment it uses. For example, a connected GitHub repository can use a GitHub Actions workflow as a project pipeline. Start with [CI/CD integration](/software-factory/cicd/) and [GitHub](/integrations/github/). Follow the configured Test release and Test verification lanes to read the result.
+2. For a board that runs automated checks, connect the project's test workflow and confirm the test deployment or environment it uses. For example, a connected GitHub repository can use a GitHub Actions workflow as a project pipeline. Start with [CI/CD integration](/software-factory/cicd/) and [GitHub](/integrations/github/). Follow the configured Test deployment (测试发布) and Testing (测试验证) lanes to read the result.
 3. If automated checks are unavailable, choose a concrete check you can perform in a test environment and record which automated checks did not run. Keep any required gate blocked until the team has the required result or records an explicit waiver. See [quality gates](/software-factory/quality-gates/).
 
 ## 4. Verify the first card
 
-1. Use the sample form validation change in [Issue to PR](/recipes/issue-to-pr/). Bring the Issue in through the inbox. On a board with a Requirements entry lane, **New requirements session** can also start that request. Confirm the desired behavior, the acceptance criteria, and the repository on the draft before development begins.
+1. Use the sample form validation change in [Issue to PR](/recipes/issue-to-pr/). Bring the Issue in through Task inbox. On a board with a Requirements entry lane, **New requirements session** can also start that request. Confirm the desired behavior, the acceptance criteria, and the repository on the draft before development begins. Confirming the requirement does not approve the repository change or grant credentials.
 2. Follow the card through development. In **Executions**, check the session that handled the change. In **Deliverables**, open the code reference. A pull request is available when the configured delivery path produces one.
 3. Check both behaviors from the sample in the test environment. An empty field shows the corrected message, and a valid value still submits. Record the tested commit or candidate version, the environment, and the result for each acceptance criterion. If a check fails, attach the evidence, return the card for repair, and verify the new revision. Record the review decision on the card.
 

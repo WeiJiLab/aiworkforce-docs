@@ -8,7 +8,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ef00ebab20bf6778cb98ec0f24d594010b36f03ac1559420b6d2889c7de6e951"
+  sourceHash: "bce079dfa1515f1628b48cd4cd558c5f496ab4983dad146678fbc64b8e8346e1"
 ---
 
 GitHub 既是代码托管连接，也是事件来源。工作空间里的 Token 可以列出你有权访问的仓库；员工只有在被明确授权之后才能使用这个 Token；Job 可以响应平台通过轮询观察到的活动。轮询器只读。它不会评论、打标签、提交 Review、关闭事项或推送代码。
@@ -17,7 +17,7 @@ GitHub 既是代码托管连接，也是事件来源。工作空间里的 Token 
 
 ## 它是什么
 
-连接保存的是某一个 GitHub 域名上的个人访问 Token，然后指向这个 Token 能看见的仓库。事件规则监视一个已连接的仓库，把匹配到的观察入场为一次 Job 运行。Issue 导入把未关闭的 Issue 复制进 Task Inbox。软件工厂项目还可以把一个 GitHub Actions 工作流指定为看板要记录的流水线。
+连接保存的是某一个 GitHub 域名上的个人访问 Token，然后指向这个 Token 能看见的仓库。事件规则监视一个已连接的仓库，把匹配到的观察入场为一次 Job 运行。Issue 导入把未关闭的 Issue 复制进 Task inbox。软件工厂项目还可以把一个 GitHub Actions 工作流指定为看板要记录的流水线。
 
 ## 何时使用
 

@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "c35900bf9882a446aadaa1d2d1f0f060d1d0f7c3cf200c75f6b80679372b0dcb"
+  sourceHash: "b6864a2ab6fb4aa52f85eab61633d8eb7dc53a9648ece2492ea7604c92aece80"
 ---
 
 软件工厂里的编排，是工作台把卡片和批次沿泳道推进。它不是通用的多 Agent 运行时。每条泳道会话保持自己的执行上下文。当某个阶段（例如测试发布或测试验证）要一起处理多张卡片时，批次把它们组合起来。

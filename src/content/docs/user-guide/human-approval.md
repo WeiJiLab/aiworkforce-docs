@@ -13,7 +13,7 @@ Human approval is a decision, not a status badge. AI Workforce asks for it when 
 
 | Moment              | What you confirm                                     | What confirmation does not do               |
 | ------------------- | ---------------------------------------------------- | ------------------------------------------- |
-| Inbox review        | The item is real and worth a next step               | Start coding or approve a repository        |
+| Task inbox review   | The item is real and worth a next step               | Start coding or approve a repository        |
 | Workbench draft     | Scope, acceptance criteria, and allowed repositories | Grant missing credentials or fix a pipeline |
 | In-session question | A clarification the employee asked for               | Silently widen the task                     |
 | Takeover            | You are doing the next step yourself                 | Clear itself when a pause resumes           |

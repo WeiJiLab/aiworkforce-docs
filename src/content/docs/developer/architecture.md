@@ -13,7 +13,7 @@ AI Workforce combines a product workspace with employee execution and structured
 
 | Layer                               | Responsibility                                                                            |
 | ----------------------------------- | ----------------------------------------------------------------------------------------- |
-| Product interface                   | Workspaces, employee profiles, conversations, inbox, Automations, and delivery workbench. |
+| Product interface                   | Workspaces, employee profiles, conversations, Task inbox, Automations, and delivery workbench. |
 | Application services                | Coordinate authorization, configuration, session preparation, execution, and persistence. |
 | Domain model                        | Define employees, sessions, Issues, Jobs, triggers, runs, and delivery state.             |
 | Infrastructure and runtime adapters | Connect storage, execution runtimes, MCP tools, code hosts, and external services.        |
@@ -28,7 +28,7 @@ A Skill supplies a working method. A Plugin packages capabilities. MCP connects 
 
 ## Work and orchestration
 
-An Inbox Issue records an actionable item and its source observations. It can be routed into a workbench draft for requirements confirmation. Delivery cards connect confirmed requirements to lane executions, code references, verification, and human intervention. Batches coordinate cards where a stage operates on a shared candidate.
+A Task inbox item records an actionable item and its source observations. It can be routed into a workbench draft for requirements confirmation. Delivery cards connect confirmed requirements to lane executions, code references, verification, and human intervention. Batches coordinate cards where a stage operates on a shared candidate.
 
 An Automation Job stores an execution definition. Triggers invoke published Jobs when automatic execution is enabled. Each invocation creates a run with a recorded outcome. Reused-session Jobs can accumulate context; new-session Jobs keep executions separate.
 

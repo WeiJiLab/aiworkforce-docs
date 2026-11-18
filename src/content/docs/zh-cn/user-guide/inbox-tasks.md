@@ -1,16 +1,16 @@
 ---
-title: "收件箱与任务"
+title: "任务收件箱"
 description: "审阅进入空间的事项，决定哪些工作进入交付。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "abeada6b9dee6f2b0db88c8078f266d5e29df5484c4098f752cbc4dbfd43b895"
+  sourceHash: "8b815b0d29e0fb6a163a227b86519a86ea0ccbc7bbc4b62c84184ba1f8af0d11"
 ---
 
 工作空间的任务收件箱保存自动化收集或导入的请求。每条事项保留来源和审核状态，帮助团队在承诺执行前判断哪些工作需要处理。
 
-## 打开收件箱
+## 打开任务收件箱
 
 进入工作空间管理，选择**任务收件箱**。通过待处理、已关联、稍后处理、已归档等可用视图阅读事项，也可以按来源、类型或状态筛选。
 

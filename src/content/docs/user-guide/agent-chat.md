@@ -29,7 +29,7 @@ Ask the employee to distinguish completed actions from proposed next steps. A st
 
 ## Recover from an incomplete result
 
-If the employee lacks input, supply the missing material in the session. If a connection is unavailable, ask the workspace manager to check configuration and authorization. If execution fails, inspect the visible error before repeating the request; a repeated instruction will not fix an unavailable runtime.
+If the employee lacks input, supply the missing material in the session. If a connection is unavailable, ask the workspace creator, a team leader, or an administrator to check the grant. See [Teams and access](/administration/teams-access/). If execution fails, inspect the visible error before repeating the request; a repeated instruction will not fix an unavailable runtime.
 
 A successful session ends with a result that matches the acceptance criteria, supporting evidence that you can inspect, and a clear human decision about the next action.
 

@@ -63,7 +63,7 @@ A prompt that says "read only" does not replace a tool grant. A green conversati
 | Record              | What it proves                                               |
 | ------------------- | ------------------------------------------------------------ |
 | Session             | The conversation and execution context for one goal          |
-| Inbox task or issue | A tracked request, its source, and its review state          |
+| Task inbox item     | A tracked request, its source, and its review state          |
 | Automation run      | One invocation of a Job, including failure and recovery      |
 | Pipeline run        | One pass through a lane pipeline, with a status per node     |
 | Artifact            | An output, such as a report or file                          |

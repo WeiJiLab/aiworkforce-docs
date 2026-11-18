@@ -37,7 +37,7 @@ GitHub issue poll or inbox import
 | Assignment      | The Job already names its employee. The board uses the lane's employee.                  | Automatic routing across a team                      |
 | Implementation  | After confirmation, the development lane                                                 | Unattended commits from the event                    |
 | Verification    | Run inspection, then board tests and acceptance review                                   | Automatic issue resolution                           |
-| Update          | Inbox state, card evidence, and a pull request from delivery                             | GitHub write-back from the poller                    |
+| Update          | Task inbox state, card evidence, and a pull request from delivery                             | GitHub write-back from the poller                    |
 | Failure         | Failed, timed out, or rejected runs; dead-letter after repeated technical failures       | Manual replay of old events                          |
 
 Polling details, including the 60-second floor and the baseline on first sync, are in [event-driven automation](/automate/event-driven/).
@@ -65,7 +65,7 @@ Check both the Job and the rule. A paused source does not admit waiting events, 
 
 - [GitHub](/integrations/github/)
 - [Event-driven automation](/automate/event-driven/)
-- [Inbox and tasks](/user-guide/inbox-tasks/)
+- [Task inbox](/user-guide/inbox-tasks/)
 - [Issue to PR](/recipes/issue-to-pr/)
 - [Workflow concepts](/workflows/concepts/) and [applications](/workflows/applications/)
 

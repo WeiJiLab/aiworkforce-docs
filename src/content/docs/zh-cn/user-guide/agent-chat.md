@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "23462f30f0014a76c3875866588ba660710fae77bcc17a976505288335bd01a4"
+  sourceHash: "d9f927225ac95d6d25bd4ea533d963fc3293ce6c539871079b646e24e002c139"
 ---
 
 Agent 对话用于向员工交付工作，并讨论执行结果。会话将交流与相关工作组织在一起，方便你持续完善同一任务，无需每次重新说明所有决定。
@@ -30,8 +30,8 @@ Agent 对话用于向员工交付工作，并讨论执行结果。会话将交�
 
 ## 处理不完整结果
 
-缺少输入时，在会话中补充材料。连接不可用时，请工作空间管理者核对配置与授权。执行失败时，先阅读可见错误再决定是否重试；重复发送指令不会修复不可用的执行环境。
+缺少输入时，在会话中补充材料。连接不可用时，请空间创建者、团队 leader 或管理员核对授权。见[团队与访问权限](/zh-cn/administration/teams-access/)。执行失败时，先阅读可见错误再决定是否重试；重复发送指令不会修复不可用的执行环境。
 
 一次有效协作应当留下符合验收标准的结果、可检查的支持证据，以及由人作出的后续行动决定。
 
-继续阅读[产物与证据](/zh-cn/user-guide/artifacts-evidence/)和[收件箱与任务](/zh-cn/user-guide/inbox-tasks/)。
+继续阅读[产物与证据](/zh-cn/user-guide/artifacts-evidence/)和[任务收件箱](/zh-cn/user-guide/inbox-tasks/)。

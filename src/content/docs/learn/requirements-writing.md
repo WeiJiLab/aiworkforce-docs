@@ -13,7 +13,7 @@ A useful requirement lets the person requesting a change and the employee implem
 
 Keep product context separate from the individual change. Explain who uses the product, the problem they face today, the result the team wants, and the constraints that affect a solution. Link existing research or project files instead of copying a large background document into every task.
 
-For example: “Workspace managers cannot tell why an employee name was rejected. We want them to correct the input without leaving the creation flow.” That gives a reason for the change. “Rewrite the entire creation dialog” proposes an implementation and expands the scope before the problem has been agreed.
+For example: “Owners cannot tell why an employee name was rejected. We want them to correct the input without leaving the creation flow.” That gives a reason for the change. “Rewrite the entire creation dialog” proposes an implementation and expands the scope before the problem has been agreed.
 
 For a first requirement, provide:
 
@@ -34,7 +34,7 @@ Use a short overview, any terms that could be misunderstood, and a small set of 
 ```markdown
 ## Outcome
 
-Workspace managers can correct a blank employee name before submission.
+Owners can correct a blank employee name before submission.
 
 ## Terms
 
@@ -42,7 +42,7 @@ Blank name: an empty value or a value containing only whitespace.
 
 ## REQ-NAME-01 — Explain a blank name
 
-For a workspace manager creating an employee, explain why a blank name
+For an owner creating an employee, explain why a blank name
 cannot be submitted so they can supply a valid value.
 
 AC-NAME-01.1: When the name contains only whitespace, show the agreed

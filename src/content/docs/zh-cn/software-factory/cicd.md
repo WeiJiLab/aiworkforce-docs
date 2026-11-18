@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "590e7ba879791daa1d6308c08087923119677162c9f29ecf9f61ac2b4288178a"
+  sourceHash: "ea30059a45857ae6fea42ebf67b2d7e493b7e50923653ccd72851aba60417684"
 ---
 
 CI/CD 集成是软件工厂项目上配置的代码托管和流水线资源。工作台不代替你的 CI 系统，也不自带构建集群。自动合并和生产发布要求这些集成存在，并且已授权给执行员工。卡片不会创建它们。

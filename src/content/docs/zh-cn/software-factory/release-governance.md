@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "21ad756a5fe97f5cd014eb975e59aaa766643f82c0393f84293359ab69863b5c"
+  sourceHash: "8d85332e334fdbd5f0410db021b7fb789ebd0b570bc696b3c5d5b88752dd78d3"
 ---
 
 发布治理是合并、生产发布和清理的策略：哪条结果可以继续，以及谁仍然负责。审阅者穿过这些记录的路径是[审阅与发布](/zh-cn/software-factory/review-release/)。本页不重复那条路径。工作台仍把结果记在批次和卡片上，已关闭的批次不是生产部署。

@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "be77fdd6532bfec02cca1064f1e7aec3664d35a95993b222d6c7678afc18a230"
+  sourceHash: "acd7cd88146e63e359d0df5d1d55e7068f30e7b6bad5ef5387cb91f8a5cfc655"
 ---
 
 Issue 自动化在事项出现时启动工作流，并把调查留在可以检查的运行里。当前产品可以接收 GitHub Issue，把任务导入收件箱，并把已确认的事项送到交付看板。它没有分类器、重复检测或优先级模型。
@@ -66,7 +66,7 @@ Jira 和 Linear 会作为导入来源出现。它们只通过管理员已经授�
 
 - [GitHub](/zh-cn/integrations/github/)
 - [事件驱动自动化](/zh-cn/automate/event-driven/)
-- [收件箱与任务](/zh-cn/user-guide/inbox-tasks/)
+- [任务收件箱](/zh-cn/user-guide/inbox-tasks/)
 - [从 Issue 到 Pull Request](/zh-cn/recipes/issue-to-pr/)
 - [工作流概念](/zh-cn/workflows/concepts/)和[工作流应用](/zh-cn/workflows/applications/)
 

@@ -16,7 +16,7 @@ Shared connection rules are in [code repositories](/integrations/code-repositori
 
 ## What it is
 
-You connect either Yunxiao Central at `https://codeup.aliyun.com` or a Region instance whose host ends in `.devops.aliyuncs.com`. Central connections also store the organization's native id. The connection can list Codeup repositories. A person can import Projex work items into Task Inbox with their own token and a project picker. A delivery project can bind a Flow pipeline for the board to record.
+You connect either Yunxiao Central at `https://codeup.aliyun.com` or a Region instance whose host ends in `.devops.aliyuncs.com`. Central connections also store the organization's native id. The connection can list Codeup repositories. A person can import Projex work items into Task inbox with their own token and a project picker. A delivery project can bind a Flow pipeline for the board to record.
 
 ## When to use it
 
@@ -54,7 +54,7 @@ On the Software Factory project, select a Yunxiao Flow pipeline for the environm
 
 ## What you can do afterward
 
-An authorized employee can fetch and change Codeup repositories within the token's Codeup rights. Projex import creates Task Inbox items and stops. It does not open a session or start development. Route a confirmed item through [issue automation](/workflows/issue-automation/) and the delivery board when the work should continue.
+An authorized employee can fetch and change Codeup repositories within the token's Codeup rights. Projex import creates Task inbox items and stops. It does not open a session or start development. Route a confirmed item through [issue automation](/workflows/issue-automation/) and the delivery board when the work should continue.
 
 A delivery project can also read Projex as a work-item source, with its own project id, category id, edition, and token. That read is separate from the one-time inbox import.
 

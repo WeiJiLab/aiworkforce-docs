@@ -16,7 +16,7 @@ Use this page for GitHub.com and for a GitHub Enterprise instance you enter as a
 
 ## What it is
 
-The connection stores a personal access token for one GitHub origin, then points at repositories that token can see. Event rules watch one connected repository and admit a matching observation as a Job run. Issue import copies open issues into Task Inbox. A Software Factory project can also name a GitHub Actions workflow as a pipeline the board records.
+The connection stores a personal access token for one GitHub origin, then points at repositories that token can see. Event rules watch one connected repository and admit a matching observation as a Job run. Issue import copies open issues into Task inbox. A Software Factory project can also name a GitHub Actions workflow as a pipeline the board records.
 
 ## When to use it
 

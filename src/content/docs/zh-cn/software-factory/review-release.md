@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "bf08b293401bdb9e652e9c624333b7f64ef26c00eb21ab64a5e628b530272bc3"
+  sourceHash: "8a840165512791bbc2ce1b1a5f48da48dac0fbb1af4fd71213c964f6527e2d84"
 ---
 
 审核确认特定变更是否满足已确认需求。发布确认已接纳的变更是否到达目标环境。本页是这条交付流程。哪条已记录的结果可以让卡片前进、怎样的豁免才有效，见[发布治理](/zh-cn/software-factory/release-governance/)。

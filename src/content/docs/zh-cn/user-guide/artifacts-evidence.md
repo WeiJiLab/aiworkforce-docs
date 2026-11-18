@@ -34,4 +34,4 @@ translation:
 
 产物列表读取失败时，使用重新读取操作并查看报错。无法预览时，尝试产品提供的源码或项目文件视图。缺少证据时，要求员工补充具体来源或验证结果，再判断是否完成。
 
-继续阅读 [Agent 对话](/zh-cn/user-guide/agent-chat/)、[收件箱与任务](/zh-cn/user-guide/inbox-tasks/)和 [Issue 到 PR 实践](/zh-cn/recipes/issue-to-pr/)。
+继续阅读 [Agent 对话](/zh-cn/user-guide/agent-chat/)、[任务收件箱](/zh-cn/user-guide/inbox-tasks/)和 [Issue 到 PR 实践](/zh-cn/recipes/issue-to-pr/)。

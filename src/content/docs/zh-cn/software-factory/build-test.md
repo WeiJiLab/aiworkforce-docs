@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "8213a888954f029c4efcea4c610daabea09b1193fb6e902b620946c556199819"
+  sourceHash: "adea4faa01480d07f7ae3ba693d2935bff1c5a01231a8c0dbdf19973c3b33d20"
 ---
 
 构建与测试是工作台准备候选并记录已配置检查是否通过的阶段。它是关于这些检查的证据。它不是“每条验收标准都被执行过”的声明。

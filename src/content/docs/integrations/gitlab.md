@@ -20,7 +20,7 @@ You save a GitLab personal access token against the instance origin, create a wo
 
 ## When to use it
 
-Use GitLab when employees or a Software Factory project need a GitLab repository. Use [GitHub](/integrations/github/) when the work depends on polled pull request or issue events. Use the inbox import on GitHub or [Yunxiao Codeup](/integrations/yunxiao/) when the task is a one-time copy into Task Inbox. GitLab is not one of those import providers.
+Use GitLab when employees or a Software Factory project need a GitLab repository. Use [GitHub](/integrations/github/) when the work depends on polled pull request or issue events. Use the inbox import on GitHub or [Yunxiao Codeup](/integrations/yunxiao/) when the task is a one-time copy into Task inbox. GitLab is not one of those import providers.
 
 ## What moves between the systems
 
@@ -51,7 +51,7 @@ The credential belongs to the workspace. The creator is recorded, and anyone wit
 
 ## Limits
 
-There is no GitLab event poll, no merge-request trigger, and no GitLab issue import into Task Inbox. Issue reads on the delivery project are read-only. The built-in pull request viewer is for connected GitHub repositories. Being able to browse a GitLab project does not mean every delivery adapter runs against that instance. Confirm the project, the employee grant, and the pipeline you actually configured.
+There is no GitLab event poll, no merge-request trigger, and no GitLab issue import into Task inbox. Issue reads on the delivery project are read-only. The built-in pull request viewer is for connected GitHub repositories. Being able to browse a GitLab project does not mean every delivery adapter runs against that instance. Confirm the project, the employee grant, and the pipeline you actually configured.
 
 ## Related guides
 

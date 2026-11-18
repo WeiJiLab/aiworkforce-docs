@@ -8,7 +8,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-The Kanban automation workbench is the delivery workbench at `/automations?tab=board-flow`. It turns a board into a software-delivery workflow that keeps running. It is the same Software Factory path, watched as cards, lanes, and batches. It is not a general-purpose Kanban product and not a second engine.
+The Kanban automation workbench is the delivery workbench. Open **Workbench** (工作台) in the primary navigation. The address is `/automations?tab=board-flow`. It turns a board into a software-delivery workflow that keeps running. It is the same Software Factory path, watched as cards, lanes, and batches. It is not a general-purpose Kanban product and not a second engine.
 
 ## What it is
 
@@ -25,16 +25,16 @@ Use the board when several engineering items must move through the same lanes, s
 Built-in lanes:
 
 ```text
-Requirements → Development → Test release → Test verification → Production release → Done
+Requirements (需求) → Development (开发) → Test deployment (测试发布) → Testing (测试验证) → Production (生产发布) → Done (已完成)
 ```
 
 | Lane               | Key     | What moves the card                                     | Granularity                        |
 | ------------------ | ------- | ------------------------------------------------------- | ---------------------------------- |
 | Requirements       | DRAFT   | A person clarifies scope until the card is ready        | Per card                           |
 | Development        | DEV     | The lane employee codes in a session                    | Per card                           |
-| Test release       | PREPARE | Ready cards join a candidate batch                      | Batch                              |
-| Test verification  | TEST    | Tests run and record passed or failed                   | Per card, inside the release batch |
-| Production release | RELEASE | Merge, wait, deploy, and verify when integration exists | Batch                              |
+| Test deployment (测试发布) | PREPARE | Ready cards join a candidate batch                      | Batch                              |
+| Testing (测试验证)         | TEST    | Tests run and record passed or failed                   | Per card, inside the release batch |
+| Production (生产发布)      | RELEASE | Merge, wait, deploy, and verify when integration exists | Batch                              |
 | Done               | DONE    | The batch closes out                                    | Batch                              |
 
 Inside a lane the step can be clarifying, ready, coding, running, passed, failed, merge, deploy, verify, or waiting on a person. That step is the workflow state. Changing a label without a run does not perform the work.
@@ -48,16 +48,16 @@ There is no WIP limit. Parallelism is multiple cards, plus batches that group ca
 1. Create the workbench project and board. Connect repositories and any pipeline the test or release lanes should call. A card does not create those resources.
 2. Put ready employees on the lanes. Authorize those employees for the repositories they may change. A workspace repository connection is not that grant.
 3. Open **Pipeline** from Automations, choose the workspace, board, and lane, and chain that lane's executors only when the lane needs more than one. A single executor stays a Job with its own schedule.
-4. Confirm a draft before development. The requirements lane is where scope, acceptance criteria, and allowed repositories are fixed.
+4. Confirm a draft before development. The Requirements lane (需求) is where scope, acceptance criteria, and allowed repositories are fixed. Confirming the requirement does not approve a repository change or grant credentials.
 5. Watch the card's session, test record, and decision. Take over to stop automatic progress. Hand the work back explicitly. Resuming a pause does not clear a takeover.
 
 Code executors on a lane are named platform capabilities, such as test admit, release advance, and batch move. They are not arbitrary code from configuration.
 
 ## A practical card
 
-Trigger: the card enters Development after a person marks it ready. Context: the confirmed requirements and the granted repositories. Agent: the development-lane employee, in a new session for that card. Steps: coding, then the release batch for test release, test verification, and production release. Verification: the test record and a comparison with the acceptance criteria. Output: the session, the code reference or pull request, and the decision. Human points: draft confirmation, questions on the card, a failed test sent back, and the release decision.
+Trigger: the card enters Development after a person marks it ready. Context: the confirmed requirements and the granted repositories. Agent: the development-lane employee, in a new session for that card. Steps: coding, then the release batch for Test deployment (测试发布), Testing (测试验证), and Production (生产发布). Verification: the test record and a comparison with the acceptance criteria. Output: the session, the code reference or pull request, and the decision. Human points: draft confirmation, questions on the card, a failed test sent back, and the release decision.
 
-A closed batch is not proof that production release finished. Merge and production run only when the repository and pipeline integration exist.
+A closed batch is not proof that the Production lane (生产发布) finished. Merge and production run only when the repository and pipeline integration exist.
 
 ## When a card is blocked
 

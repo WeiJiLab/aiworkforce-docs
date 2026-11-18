@@ -8,10 +8,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "a3b2bea9f340d01870d307bbe62c538d659883af7af105930b837f8e79976a71"
+  sourceHash: "2e06714ed9608cd17f5de265d693f2c3fd097455b8827f66276bc6208c39e88a"
 ---
 
-在 AI Workforce 里，Jira 是一次性的、只读的 Task Inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Jira Cloud 项目之后，它才会出现。工作空间的集成目录里没有 Jira 卡片，没有项目浏览器，也不会把状态写回 Jira。
+在 AI Workforce 里，Jira 是一次性的、只读的 Task inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Jira Cloud 项目之后，它才会出现。工作空间的集成目录里没有 Jira 卡片，没有项目浏览器，也不会把状态写回 Jira。
 
 挂在员工上的 Jira MCP 服务是另一条路。那是[外部连接器](/zh-cn/integrations/employee-tools/)，有自己的工具和授权。它不是这次导入。
 
@@ -54,7 +54,7 @@ translation:
 
 ## 连接之后能做什么
 
-导入的任务留在 Task Inbox。打开一条，确认范围，需要开发时再把它送到工作台草稿。导入不创建会话，也不启动开发。同一条 Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。匹配依据是 Jira 站点加上 Issue ID。手工录入的旧记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
+导入的任务留在 Task inbox。打开一条，确认范围，需要开发时再把它送到工作台草稿。导入不创建会话，也不启动开发。同一条 Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。匹配依据是 Jira 站点加上 Issue ID。手工录入的旧记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
 
 ## 权限与凭据
 
@@ -70,5 +70,5 @@ API Token 需要能读取该项目中的 Issue。这条连接不会给员工一�
 
 - [集成目录](/zh-cn/integrations/overview/)
 - [Issue 自动化](/zh-cn/workflows/issue-automation/)
-- [收件箱与任务](/zh-cn/user-guide/inbox-tasks/)
+- [任务收件箱](/zh-cn/user-guide/inbox-tasks/)
 - [工具与连接器](/zh-cn/integrations/employee-tools/)

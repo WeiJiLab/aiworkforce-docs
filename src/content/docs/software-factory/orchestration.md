@@ -7,11 +7,11 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Orchestration in Software Factory is the workbench moving cards and batches through lanes. It is not a general multi-agent runtime. Each lane session keeps its own execution context. A batch groups cards when a stage, such as test release or test verification, operates on them together.
+Orchestration in Software Factory is the workbench moving cards and batches through lanes. It is not a general multi-agent runtime. Each lane session keeps its own execution context. A batch groups cards when a stage, such as Test deployment (测试发布) or Testing (测试验证), operates on them together.
 
 ## Follow the built-in lanes
 
-Built-in lanes are Requirements, Development, Test release, Test verification, Production release, and Done. Requirements confirms the request. Development starts or resumes a session for a ready card. Test release groups ready cards into a candidate batch. Test verification records results and can return work for repair. Production release and Done record their own outcomes. Custom boards can use a different arrangement. Read the configured lanes rather than assuming this list. Dispatch assigns the card to the lane employee. Orchestration is this movement of cards and batches, not a separate multi-agent product.
+Built-in lanes are Requirements (需求), Development (开发), Test deployment (测试发布), Testing (测试验证), Production (生产发布), and Done (已完成). Requirements (需求) confirms the request. Development (开发) starts or resumes a session for a ready card. Test deployment (测试发布) groups ready cards into a candidate batch. Testing (测试验证) records results and can return work for repair. Production (生产发布) and Done (已完成) record their own outcomes. Custom boards can use a different arrangement. Read the configured lanes rather than assuming this list. Dispatch assigns the card to the lane employee. Orchestration is this movement of cards and batches, not a separate multi-agent product.
 
 An operation on a shared batch can affect every member card. Inspect membership before you confirm. A successful conversation in development is only one record. The batch's test and merge records answer different questions.
 

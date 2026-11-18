@@ -27,7 +27,7 @@ The documentation uses the words above. The screens use these names:
 | Task       | An inbox item, a delivery card, or one node in a pipeline                                       |
 | Evidence   | The session, code reference, test record, and human decision kept with the work                 |
 
-Open **Automations** at `/automations` for Jobs. Open **Pipeline** on that screen for a lane pipeline. Open the delivery workbench at `/automations?tab=board-flow` for the board.
+Open **Automations** (自动化) at `/automations` for Jobs. Open **Pipeline** on that screen for a lane pipeline. Open **Workbench** (工作台) for the board. Its address is `/automations?tab=board-flow`.
 
 ## Lifecycle
 
@@ -45,7 +45,7 @@ Trigger → Context → Definition → Agent execution → Environment
 | Execution environment  | Where does it run?                                  | Platform runtime, a self-hosted deployment, or an authorized device. Not a per-card sandbox.                      |
 | Verification           | Did the work meet the agreed outcome?               | Tests on the board, acceptance criteria, and a human comparison. There is no automatic business score.            |
 | Evidence and artifacts | What proves the claim, and what was produced?       | Session, files, code reference or pull request, test record, and the decision on the card.                        |
-| Delivery               | Where does the result go?                           | Inbox update, pull request, review, release lane, or a message. Release still needs the integration to exist.     |
+| Delivery               | Where does the result go?                           | Task inbox update, pull request, review, release lane, or a message. Release still needs the integration to exist.     |
 | Feedback and recovery  | What happens when a person or a failure intervenes? | Human approval, takeover, hand-back, retry on a pipeline node, and a later run.                                   |
 
 A trigger does not define the work. Publishing a Job or enabling a pipeline does not create a run. A successful run does not by itself resolve a business request.
@@ -88,13 +88,13 @@ Kanban in this product is the delivery workbench, not a separate board widget on
 Built-in lanes, in delivery order:
 
 ```text
-Requirements → Development → Test release → Test verification → Production release → Done
-DRAFT           DEV            PREPARE         TEST                 RELEASE              DONE
+Requirements (需求) → Development (开发) → Test deployment (测试发布) → Testing (测试验证) → Production (生产发布) → Done (已完成)
+DRAFT → DEV → PREPARE → TEST → RELEASE → DONE
 ```
 
 A card's step is execution state: clarifying, ready, coding, running, passed, failed, merge, deploy, verify, or waiting for a person. Do not treat the column as a label someone maintains by hand. Custom lanes can be added. Their behavior comes from the board template, not from the built-in kinds.
 
-There is no WIP-limit control. Cards that share a batch move together in test release, test verification, production release, and Done. An operation on a batch can affect every member card.
+There is no WIP-limit control. Cards that share a batch move together in Test deployment (测试发布), Testing (测试验证), Production (生产发布), and Done (已完成). An operation on a batch can affect every member card.
 
 **Dispatch** assigns a confirmed card to the employee configured on the lane. **Orchestration** is the workbench moving cards and batches through those lanes, including a lane pipeline that chains executors. Dispatch does not choose a model or skip verification. Orchestration is not a general multi-agent runtime. Read [task dispatch](/software-factory/dispatch/) and [agent orchestration](/software-factory/orchestration/).
 
@@ -135,7 +135,7 @@ The first successful poll only sets a baseline. Later polls are at least 60 seco
 | Trigger      | A ready card, a lane scan, or a lane pipeline trigger                                                           | A hand-moved status that pretends to run |
 | Context      | The card, the project, allowed repositories, and the lane's employees                                           | A per-card sandbox or preview browser    |
 | Agents       | Lane employees and allowlisted code executors such as test admit, release advance, and batch move               | A catalog of other coding agents         |
-| Steps        | Confirm requirements, develop, batch for test release, record test results, then merge or release if integrated | Unattended production release            |
+| Steps        | Confirm requirements, develop, batch on Test deployment, record test results, then merge or release if integrated | Unattended deployment on the Production lane            |
 | Verification | Test results and a human comparison with the acceptance criteria                                                | An automatic business score              |
 | Output       | Session, code reference or pull request, test record, and the decision on the card                              | A second evidence product                |
 | Human        | Confirm the draft, answer the card, take over, and decide release                                               | A WIP limit                              |

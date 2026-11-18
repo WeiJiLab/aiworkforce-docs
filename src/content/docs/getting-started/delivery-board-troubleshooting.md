@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-In **Automations**, open the delivery workbench at `/automations?tab=board-flow` and select the affected board. Open the card and note its current lane, its step within that lane, and the latest execution or request. If the card is in a shared test or release batch, check which other cards belong to that batch before changing it.
+Open **Workbench** (工作台) in the primary navigation. The board is at `/automations?tab=board-flow`. Select the affected board. Open the card and note its current lane, its step within that lane, and the latest execution or request. If the card is in a shared test or release batch, check which other cards belong to that batch before changing it.
 
 | What you see                                      | What to do                                                                                                                                                                                                           | How to confirm progress                                                                                                               |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |

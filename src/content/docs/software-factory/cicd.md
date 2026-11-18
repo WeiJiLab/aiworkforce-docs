@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-CI/CD integration is the repository host and the pipeline resources configured on a Software Factory project. The workbench does not replace your CI system, and it does not ship a built-in build farm. Automated merge and production release require those integrations to exist and to be authorized for the execution employees. A card does not create them.
+CI/CD integration is the repository host and the pipeline resources configured on a Software Factory project. The workbench does not replace your CI system, and it does not ship a built-in build farm. Automated merge and the Production lane (生产发布) require those integrations to exist and to be authorized for the execution employees. A card does not create them.
 
 ## What to connect
 
@@ -17,6 +17,6 @@ Configure the project's pipeline resources before you enable a lane that claims 
 
 ## How a run uses CI
 
-Test release and test verification record the result the configured flow returns. A failure can send work back for repair. Production release records the merge outcome for a passing batch. Done scans merged cards for production release and later cleanup. A closed batch does not mean production release finished. [Release governance](/software-factory/release-governance/) separates those outcomes.
+Test deployment (测试发布) and Testing (测试验证) record the result the configured flow returns. A failure can send work back for repair. Production (生产发布) records the merge outcome for a passing batch. Done (已完成) scans merged cards for the Production lane and later cleanup. A closed batch does not mean the Production lane finished. [Release governance](/software-factory/release-governance/) separates those outcomes.
 
 If the pipeline is not configured, do not write a passing CI check into the card. Record that the automated stage did not run, and use a named manual check only when a person actually ran it. [Build and test](/software-factory/build-test/) is that record.

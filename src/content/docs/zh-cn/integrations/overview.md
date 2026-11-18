@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "2004ed183709b487a2d20613fccbf7f1e10fcd9b06814a17033a4b465fd7351e"
+  sourceHash: "aab9e720b5ff13fc95f82a0c298f88a086ff41eea4e5796ed197e4719ce5df53"
 ---
 
 集成是 AI Workforce 和另一个系统之间、有名字的一条连接。用它可以让仓库变得可用，让事件启动一个 Job，把任务导入收件箱，或者让人和员工对话。连接成功之后，这项任务真正要用的授权、选中的资源和已经启用的触发规则，仍然要单独配好。
@@ -30,8 +30,8 @@ GitHub 和云效的导入，用的是当前登录用户自己的 Token，以及�
 
 | 连接                                  | 适合什么时候                                                               |
 | ------------------------------------- | -------------------------------------------------------------------------- |
-| [Jira](/zh-cn/integrations/jira/)     | 管理员已经接好一个 Jira Cloud 项目，你要把未关闭的 Issue 放进 Task Inbox。 |
-| [Linear](/zh-cn/integrations/linear/) | 管理员已经接好一个 Linear 团队，你要把未关闭的 Issue 放进 Task Inbox。     |
+| [Jira](/zh-cn/integrations/jira/)     | 管理员已经接好一个 Jira Cloud 项目，你要把未关闭的 Issue 放进 Task inbox。 |
+| [Linear](/zh-cn/integrations/linear/) | 管理员已经接好一个 Linear 团队，你要把未关闭的 Issue 放进 Task inbox。     |
 
 导入只创建收件箱任务。它不会启动会话，也不会在之后继续同步，更不会把状态写回去。
 

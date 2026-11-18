@@ -22,7 +22,7 @@ For a software change, start on the delivery workbench. The sections below name 
 
 ## The delivery board
 
-The **delivery workbench** at `/automations?tab=board-flow` is both Software Factory and the Kanban workbench. Cards move through Requirements, Development, Test release, Test verification, Production release, and Done, or through custom lanes you configured. Creating a card does not configure a repository or a pipeline.
+Open **Workbench** (工作台) in the primary navigation. The **delivery workbench** at `/automations?tab=board-flow` is both Software Factory and the Kanban workbench. **Automations** (自动化) is the Job page, not this board. Cards move through Requirements (需求), Development (开发), Test deployment (测试发布), Testing (测试验证), Production (生产发布), and Done (已完成), or through custom lanes you configured. Creating a card does not configure a repository or a pipeline. Confirming a requirement records scope. It does not approve a repository change or grant credentials.
 
 The workspace **task inbox** reviews collected or imported requests. An inbox item has its own source and review state. Collecting it does not approve implementation.
 

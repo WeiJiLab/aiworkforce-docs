@@ -26,7 +26,7 @@ A builder defines a reusable employee. A user creates a workspace employee from 
 
 ## Before you begin
 
-You need an account on an AI Workforce deployment and access to a workspace. A workspace manager provides templates, execution resources, and connections. For a delivery workflow, the project also needs a repository connection, ready lane employees, and a way to verify the change. Availability depends on that deployment. Capabilities that are not in the current release are marked **Planned**.
+You need an account on an AI Workforce deployment and access to a workspace. A Member (`NORMAL_USER`) signs in to **Workbench** (工作台). That account does not get **FDE workbench** or **Admin console**. An FDE user or a system administrator publishes a missing digital employee template. A system administrator publishes a missing board template. Someone who can manage digital employees in the workspace checks an employee that will not start. The workspace creator, a team leader, or an administrator changes grants. There is no workspace manager account. [Teams and access](/administration/teams-access/) lists these roles. For a delivery workflow, the project also needs a repository connection, ready lane employees, and a way to verify the change. Availability depends on that deployment. Capabilities that are not in the current release are marked **Planned**.
 
 For a first change, use one small Issue with acceptance criteria a reviewer can check. For a first task that does not change software, use a small input you are allowed to share and ask for a written output with explicit acceptance criteria.
 
@@ -34,7 +34,7 @@ For a first change, use one small Issue with acceptance criteria a reviewer can 
 
 For a software change, a reviewer can open the confirmed requirement, identify the revision that was checked, read the result, and see whether the team accepted the change or returned it for repair. When work should happen again without a board, you have a Job, one inspected run, and at most one trigger you know how to find. Development does not start until the request is a confirmed delivery card.
 
-If an employee cannot start, check initialization and ask a workspace manager to inspect execution setup. If an answer or a code change lacks support, ask for the sources or the verification steps before accepting it.
+If an employee cannot start, check initialization and ask someone who can manage that workspace's digital employees. If an answer or a code change lacks support, ask for the sources or the verification steps before accepting it.
 
 ## Next steps
 

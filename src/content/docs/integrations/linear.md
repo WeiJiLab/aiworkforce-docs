@@ -10,7 +10,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Linear in AI Workforce is a one-time, read-only import into Task Inbox. It runs only after an administrator connects a Linear team for this workspace and for specific people. There is no Linear OAuth install, no team browser, and no write-back.
+Linear in AI Workforce is a one-time, read-only import into Task inbox. It runs only after an administrator connects a Linear team for this workspace and for specific people. There is no Linear OAuth install, no team browser, and no write-back.
 
 ## What it is
 
@@ -50,7 +50,7 @@ The API host is Linear's cloud API. Restart the service after the deployment rec
 
 ## What you can do afterward
 
-Imported tasks sit in Task Inbox. A person can open one and route a confirmed item to a workbench draft. The import does not create a session and does not start development. Importing the same Linear issue again skips the existing inbox record and keeps later edits. The identity is Linear's issue id. Hand-entered rows, and automation rows saved under a different source key, are not merged automatically.
+Imported tasks sit in Task inbox. A person can open one and route a confirmed item to a workbench draft. The import does not create a session and does not start development. Importing the same Linear issue again skips the existing inbox record and keeps later edits. The identity is Linear's issue id. Hand-entered rows, and automation rows saved under a different source key, are not merged automatically.
 
 ## Permissions and credentials
 
@@ -64,5 +64,5 @@ This release does not poll Linear, subscribe to Linear webhooks, or update Linea
 
 - [Integration directory](/integrations/overview/)
 - [Issue automation](/workflows/issue-automation/)
-- [Inbox and tasks](/user-guide/inbox-tasks/)
+- [Task inbox](/user-guide/inbox-tasks/)
 - [Jira](/integrations/jira/)

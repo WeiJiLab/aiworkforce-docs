@@ -11,11 +11,11 @@ This path is for someone using AI Workforce, not for someone authoring an employ
 
 ## Prerequisites
 
-You need a workspace you can access, permission to create an employee, and at least one published template. The deployment needs a working execution environment. If templates are missing, ask an administrator to publish one before continuing.
+You need a workspace you can access and permission to manage digital employees. **Owner** (所有者), **Full access** (完整权限), and **Team leader** (团队 leader) can, along with the other roles in [Teams and access](/administration/teams-access/). You also need at least one published template. The deployment needs a working execution environment. If no digital employee template is published, ask an FDE user or a system administrator to publish one. **Marketplace** (市场) only browses templates.
 
 ## 1. Choose the job, then the template
 
-Write down the outcome, the input you will supply, and what you will check. Open workspace management, go to **Employees**, and start creation. Read the template's responsibilities and pick the closest match. A template that claims unrelated jobs is harder to judge than a narrow one.
+Write down the outcome, the input you will supply, and what you will check. Open workspace management, go to **Digital employees** (数字员工), and choose **Add digital employee** (添加数字员工). The instance is created here from a published template. Read the template's responsibilities and pick the closest match. A template that claims unrelated jobs is harder to judge than a narrow one.
 
 Give the employee a name that identifies its role in this workspace. Submit once. Initialization prepares execution resources. A name in the list does not mean the employee is ready, and submitting the flow again does not repair a failed initialization.
 
@@ -46,4 +46,4 @@ You can name the employee, the input you provided, what it produced, and why you
 
 ## If it does not start
 
-Check initialization status with a workspace manager. If the employee asks for external access on this example, restate that the pasted text is the only source. Continue with [Agent Chat](/user-guide/agent-chat/) or [artifacts and evidence](/user-guide/artifacts-evidence/).
+Check initialization with someone who can manage this workspace's digital employees. The page says “Ask a workspace admin to add a digital employee” when you cannot add one yourself. If the employee asks for external access on this example, restate that the pasted text is the only source. Continue with [Agent Chat](/user-guide/agent-chat/) or [artifacts and evidence](/user-guide/artifacts-evidence/).

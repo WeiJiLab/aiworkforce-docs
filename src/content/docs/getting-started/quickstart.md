@@ -21,13 +21,13 @@ If you need to prepare a workspace, start with [delivery board setup](/getting-s
 
 ## 1. Confirm the Issue on the delivery board
 
-Open the workspace **Inbox**, review the Issue, and route it to the intended delivery project. Open the resulting draft and confirm the work scope, allowed repositories, and acceptance criteria through the card's human request.
+Open the workspace **Task inbox** (任务收件箱), review the Issue, and route it to the intended delivery project. Open the resulting draft and confirm the work scope, allowed repositories, and acceptance criteria through the card's human request. Confirming the requirement records that scope. It does not approve a repository change or grant credentials.
 
 For example, submitting the project form with an empty name should display “Enter a project name.” Submitting it with a valid name should still create the project.
 
 ## 2. Follow implementation
 
-Open the delivery workbench from **Automations** at `/automations?tab=board-flow`. Select your project and open the confirmed card. Start or resume its development session and respond to any questions or approval requests on the card.
+Open **Workbench** (工作台) in the primary navigation. The board is at `/automations?tab=board-flow`. Select your project and open the confirmed card. Start or resume its development session and respond to any questions or approval requests on the card.
 
 The development lane records a pull request or another code reference, depending on the project's repository integration. Follow that reference to inspect the change.
 
