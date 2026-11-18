@@ -1,13 +1,13 @@
 ---
 title: "Introduction"
-description: "Start from the work you need to do: use an employee, build one, or operate the platform."
+description: "Use and build AI employees, automate recurring work, and deliver verified software changes."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-AI Workforce gives a team a shared place to assign work to AI employees, inspect what they produce, and decide what happens next. The same concepts cover everyday tasks, reusable employee packages, automation, and software delivery.
+AI Workforce helps teams assign work to AI employees and review the results. Teams can start with a single task, use Automation to run recurring or event-driven work, and use Software Factory to take a confirmed engineering request through implementation and verification.
 
 People remain responsible for the result. An employee can prepare a report, investigate a request, or propose a code change. It does not approve its own scope or release its own software.
 
@@ -15,10 +15,11 @@ People remain responsible for the result. An employee can prepare a report, inve
 
 - **Use AI Workforce.** Follow the [quickstart](/getting-started/quickstart/) or [build your first AI employee](/getting-started/first-employee/) from a published template. Then learn [workspaces](/user-guide/workspace/), [Agent Chat](/user-guide/agent-chat/), and [human approval](/user-guide/human-approval/).
 - **Build AI employees.** Read [employee architecture](/build/architecture/) and define the role in [employee definition](/build/employee-definition/). Package methods as [skills](/build/skills/) and [plugins](/build/plugins/).
-- **Operate the platform.** Connect [runtime](/deployment/runtime-environments/), [teams and access](/administration/teams-access/), and [integrations](/integrations/overview/). Governance is how those controls relate, not a separate settings list.
+- **Automate recurring work.** Create [your first automation](/getting-started/first-automation/) to run a bounded task, inspect the result, and enable a trigger when it is ready.
 - **Deliver software.** Start with [Software Factory](/software-factory/overview/) when the work must move from a confirmed request to verification, evidence, and release.
+- **Operate the platform.** Set up [execution environments](/deployment/runtime-environments/), manage [teams and access](/administration/teams-access/), and configure [integrations](/integrations/overview/).
 
-A builder creates a reusable definition. A user creates a workspace employee from a published template. Automation can ask a ready employee to perform work. Software Factory uses those employees inside a delivery flow. Do not look for package-authoring steps in the user guide.
+A builder publishes a reusable template with a role, procedures, and tool requirements. A team creates a workspace employee from that template and grants it access to the resources it needs. Automation can invoke a ready employee, and Software Factory assigns ready employees to stages on the delivery board. Teams can use [evaluation](/software-factory/evaluation/) to turn recurring failures into test cases for the next template version.
 
 ## Before you begin
 

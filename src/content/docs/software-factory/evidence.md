@@ -7,21 +7,28 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Evidence supports a claim. A trace is the path across the records that hold those claims. Software Factory is useful when a reviewer can open the requirement, the session, the code reference or pull request, the test result, and the release record without guessing which chat "felt done."
+Evidence shows what happened during delivery. A trace links the confirmed requirement to the session, the code change, the verification result, and later decisions. A reviewer can follow those records to see which outcomes the evidence supports.
 
 ## Keep the records distinct
 
-| Record                         | Claim it can support                                         |
-| ------------------------------ | ------------------------------------------------------------ |
-| Confirmed requirement          | The agreed scope and acceptance criteria                     |
-| Session                        | What the employee was asked and which tools ran              |
-| Pull request or code reference | What changed                                                 |
-| Test or build record           | Which configured checks ran, and their result                |
-| Run audit                      | The automation status, output, and error for that invocation |
-| Human decision                 | Accept, return, waive, or take over                          |
+| Record                         | Claim it can support                                                           |
+| ------------------------------ | ------------------------------------------------------------------------------ |
+| Confirmed requirement          | The agreed scope and acceptance criteria                                       |
+| Session                        | What the employee was asked and which tools ran                                |
+| Pull request or code reference | What changed                                                                   |
+| Test or build record           | Which checks ran on which revision, in which environment, and with what result |
+| Run audit                      | The automation status, output, and error for that invocation                   |
+| Human decision                 | Accept, return, waive, or take over                                            |
+| Merge record                   | Which change was merged to the target branch                                   |
+| Release record                 | Which revision reached the intended environment                                |
+| Cleanup record                 | Whether the delivery flow released its resources                               |
 
-An artifact can be useful and still be wrong. A green test does not prove an unchecked criterion. A merged pull request does not prove production release. [Review and release](/software-factory/review-release/) walks those later records. [Artifacts and evidence](/user-guide/artifacts-evidence/) is the same idea for work that is not on a delivery card.
+Use the recorded checks to determine which acceptance criteria the result covers. See [Review and release](/software-factory/review-release/) for delivery stages and [Artifacts and evidence](/user-guide/artifacts-evidence/) for work outside the delivery workbench.
 
 ## Follow one change
 
-Start from the card. Note the session id, the code reference, the batch if there is one, and the decision text. If a record is missing, the claim that depended on it is unverified. Do not backfill a pass. [Observability](/software-factory/observability/) is how you find these records when something fails. [Audit and compliance](/operate/audit/) is the operational view of who invoked a run and what the platform stored.
+Start from the card and follow the session ID, the code reference, any test batch, and the recorded human decision. Match the test result to the revision that ran in the test environment. If a required record is missing, keep the outcome unverified and follow up for the evidence. The [Issue to PR recipe](/recipes/issue-to-pr/) shows this for a small change.
+
+For a testing task, finding a defect can satisfy the task's acceptance criteria if the team ran the agreed checks on the intended revision and captured the required report and logs. If a test script finishes successfully and the required logs are missing, collect those logs or rerun the test before accepting the task.
+
+Use [Observability](/software-factory/observability/) to locate records when something fails. [Audit and compliance](/operate/audit/) covers who invoked a run and what the platform stored.
