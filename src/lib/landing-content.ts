@@ -9,7 +9,7 @@ export type HomeSection =
   | "daemon"
   | "integrations"
   | "agents";
-export type LandingPortal = "api" | "learn" | "fde";
+export type LandingPortal = "developer" | "learn" | "fde";
 export type PortalSection = "paths" | "guides" | "next" | "operate";
 
 export interface LandingGuide {
@@ -330,16 +330,16 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "MCP、Webhook 与 API" : "MCP, webhooks, and API",
         zh
-          ? "程序化集成见 API 栏目。"
-          : "Programmatic integration lives under API.",
-        "api",
+          ? "程序化集成见 Developer 栏目。"
+          : "Programmatic integration lives under Developer.",
+        "developer",
       ),
     ],
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / FDE / API 分组，并标出规划中的能力。"
-        : "Read any page as Markdown. The index follows Docs, Learn, FDE, and API and marks planned capabilities.",
+        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / FDE / Developer 分组，并标出规划中的能力。"
+        : "Read any page as Markdown. The index follows Docs, Learn, FDE, and Developer and marks planned capabilities.",
       links: [
         {
           title: "llms.txt",
@@ -433,16 +433,29 @@ export function getPortalContent(
           href: "fde",
         },
         {
-          title: zh ? "API · 程序化触发" : "API · Trigger programmatically",
+          title: zh
+            ? "Developer · 程序化触发"
+            : "Developer · Trigger programmatically",
           description: zh
             ? "用已实现的 HTTP、Webhook 与 MCP 接口集成"
             : "Integrate with the implemented HTTP, webhook, and MCP surfaces",
-          href: "api",
+          href: "developer",
         },
       ],
     },
-    api: {
+    developer: {
       paths: [
+        {
+          label: "Apps",
+          title: zh ? "开发 Viewer App" : "Build a Viewer App",
+          description: zh
+            ? "为 JSON 产物添加一个可选的预览视图。"
+            : "Add an alternative preview for JSON artifacts.",
+          href: "developer/viewer-apps",
+          outcome: zh
+            ? "在文件预览中切换到自己的 App"
+            : "Select your app in the file preview",
+        },
         {
           label: zh ? "API 参考" : "API Reference",
           title: zh ? "调用当前 HTTP 接口" : "Call the current HTTP API",

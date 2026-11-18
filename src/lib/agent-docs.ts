@@ -97,7 +97,7 @@ function landingBody(body: string, zh: boolean): string {
         );
         if (name === "HomeContent") return homeSection(attributes.section, zh);
         const portal = attributes.portal;
-        if (portal !== "api" && portal !== "learn" && portal !== "fde")
+        if (portal !== "developer" && portal !== "learn" && portal !== "fde")
           throw new Error(`Unsupported landing portal: ${portal}`);
         return portalSection(portal, attributes.section, zh);
       },
@@ -109,7 +109,7 @@ export function toMarkdown(entry: CollectionEntry<"docs">): string {
   const { title, description, status } = entry.data;
   const zh = entry.id.startsWith("zh-cn/") || entry.id === "zh-cn";
   const canonicalId = markdownId(entry.id.replace(/^zh-cn(?:\/|$)/, ""));
-  const isHome = ["index", "api", "learn", "fde"].includes(canonicalId);
+  const isHome = ["index", "developer", "learn", "fde"].includes(canonicalId);
   const body = isHome ? landingBody(entry.body ?? "", zh) : (entry.body ?? "");
   const sourceLabel = zh ? "来源" : "Source";
   const supportLabel =
