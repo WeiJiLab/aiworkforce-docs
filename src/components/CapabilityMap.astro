@@ -1,5 +1,4 @@
 ---
-import logo from "../assets/logo.svg";
 import { Icon } from "@astrojs/starlight/components";
 import { localizedGuideHref } from "../lib/landing-content";
 const zh = Astro.locals.starlightRoute.locale === "zh-cn";
@@ -7,6 +6,42 @@ const guide = (path: string) => localizedGuideHref(path, zh);
 const alertExampleHref =
   guide("software-factory/signal-to-card") +
   (zh ? "#线上告警示例" : "#production-alert-example");
+const channels = [
+  {
+    icon: "list-format",
+    label: zh ? "任务收件箱" : "Task inbox",
+    tools: [
+      { name: "Jira", path: "integrations/jira" },
+      { name: "Linear", path: "integrations/linear" },
+    ],
+    href: guide("user-guide/inbox-tasks"),
+  },
+  {
+    icon: "comment",
+    label: zh ? "IM 消息渠道" : "IM channels",
+    tools: [
+      { name: zh ? "钉钉" : "DingTalk", path: "integrations/dingtalk" },
+      { name: zh ? "飞书" : "Lark", path: "integrations/feishu" },
+      { name: "Slack", path: "integrations/slack" },
+    ],
+    href: guide("integrations/overview") + (zh ? "#消息渠道" : "#messaging"),
+  },
+  {
+    icon: "window",
+    label: zh ? "员工会话" : "Employee chat",
+    detail: zh ? "与数字员工对话" : "Talk to an employee",
+    href: guide("user-guide/agent-chat"),
+  },
+  {
+    icon: "analytics",
+    label: zh ? "线上告警" : "Production alerts",
+    tools: [
+      { name: "PagerDuty", path: "integrations/pagerduty" },
+      { name: "Sentry", path: "integrations/sentry" },
+    ],
+    href: alertExampleHref,
+  },
+] as const;
 const roles = [
   {
     icon: "notes",
@@ -42,193 +77,78 @@ const oversight = [
     path: "software-factory/observability",
   },
 ] as const;
-const foundation = [
-  {
-    icon: "open-book",
-    label: zh ? "空间记忆" : "Space memory",
-    path: "user-guide/knowledge-context",
-  },
-  {
-    icon: "server",
-    label: zh ? "执行环境" : "Runtime",
-    path: "software-factory/environments",
-  },
-  {
-    icon: "laptop",
-    label: zh ? "设备执行器" : "Device executor",
-    path: "deployment/daemon",
-  },
-  ...oversight,
-] as const;
-const stages = [
-  {
-    title: zh ? "接收工作" : "Capture work",
-    nodes: [
-      {
-        label: zh ? "任务收件箱" : "Task inbox",
-        href: guide("user-guide/inbox-tasks"),
-        icon: "list-format",
-        links: [
-          { name: "Jira", href: guide("integrations/jira") },
-          { name: "Linear", href: guide("integrations/linear") },
-        ],
-      },
-      {
-        label: zh ? "IM 消息渠道" : "IM channels",
-        href:
-          guide("integrations/overview") + (zh ? "#消息渠道" : "#messaging"),
-        icon: "comment",
-        links: [
-          {
-            name: zh ? "钉钉" : "DingTalk",
-            href: guide("integrations/dingtalk"),
-          },
-          { name: zh ? "飞书" : "Lark", href: guide("integrations/feishu") },
-          { name: "Slack", href: guide("integrations/slack") },
-        ],
-      },
-      {
-        label: zh ? "员工会话" : "Employee chat",
-        href: guide("user-guide/agent-chat"),
-        icon: "window",
-      },
-      {
-        label: zh ? "线上告警" : "Production alerts",
-        href: alertExampleHref,
-        icon: "analytics",
-        links: [
-          { name: "Sentry", href: guide("integrations/sentry") },
-          { name: "PagerDuty", href: guide("integrations/pagerduty") },
-        ],
-      },
-    ],
-  },
-  {
-    title: zh ? "确认与开发" : "Scope & develop",
-    nodes: [
-      {
-        label: zh ? "人工确认卡片" : "Approve the card",
-        href: guide("user-guide/human-approval"),
-        icon: "approve-check-circle",
-        detail: zh
-          ? "确认范围和验收条件"
-          : "Agree on scope and acceptance criteria",
-      },
-      {
-        label: zh ? "交付编排" : "Orchestrate work",
-        href: guide("software-factory/orchestration"),
-        icon: "random",
-        links: [
-          {
-            name: zh ? "交付看板" : "Delivery board",
-            href: guide("workflows/kanban-workbench"),
-          },
-        ],
-      },
-      {
-        label: zh ? "数字员工小队" : "AI employee team",
-        href: guide("user-guide/ai-employees"),
-        icon: "puzzle",
-        links: roles.map((r) => ({ name: r.label, href: guide(r.path) })),
-      },
-    ],
-  },
-  {
-    title: zh ? "验证与发布" : "Verify & release",
-    nodes: [
-      {
-        label: zh ? "提交 PR" : "Open a PR",
-        href: guide("software-factory/card-to-pr"),
-        icon: "code-branch",
-        links: [{ name: "GitHub", href: guide("integrations/github") }],
-      },
-      {
-        label: zh ? "构建与测试" : "Build & test",
-        href: guide("software-factory/build-test"),
-        icon: "approve-check",
-        links: [
-          { name: "GitHub Actions", href: guide("software-factory/cicd") },
-        ],
-      },
-      {
-        label: zh ? "生产发布" : "Release",
-        href: guide("software-factory/release-governance"),
-        icon: "rocket",
-        detail: zh
-          ? "审阅证据，决定是否发布"
-          : "Review the evidence and decide whether to ship",
-      },
-      {
-        label: zh ? "交付证据" : "Delivery evidence",
-        href: guide("software-factory/evidence"),
-        icon: "link-alt",
-      },
-    ],
-  },
-] as const;
 ---
 
 <nav
   class="capability-map not-content"
   aria-label={zh ? "软件交付能力地图" : "Software delivery capability map"}
 >
-  <div class="platform">
-    <header class="brand">
-      <img src={logo.src} alt="" width="32" height="32" /><h3>AI Workforce</h3>
-    </header>
-    <div class="workflow">
-      <div class="stages">
+  <div class="topology">
+    <section class="intake">
+      <h3>
+        <Icon name="laptop" size="1.35em" />{
+          zh ? "团队协作入口" : "Team channels"
+        }
+      </h3>
+      <div class="branches">
         {
-          stages.map((stage) => (
-            <section class="stage">
-              <h4>{stage.title}</h4>
-              <div class="nodes">
-                {stage.nodes.map((node) => (
-                  <div class="node">
-                    <a class="primary" href={node.href}>
-                      <Icon name={node.icon} />
-                      {node.label}
-                    </a>
-                    {"links" in node && (
-                      <div class="links">
-                        {node.links.map((link) => (
-                          <a href={link.href}>{link.name}</a>
-                        ))}
-                      </div>
-                    )}
-                    {"detail" in node && <small>{node.detail}</small>}
-                  </div>
-                ))}
-              </div>
-            </section>
+          channels.map((c) => (
+            <div class="channel tile">
+              <Icon name={c.icon} />
+              <strong>
+                <a class="channel-title" href={c.href}>
+                  {c.label}
+                </a>
+              </strong>
+              <small>
+                {"tools" in c
+                  ? c.tools.map((tool, index) => (
+                      <>
+                        {index > 0 && " · "}
+                        <a class="provider" href={guide(tool.path)}>
+                          {tool.name}
+                        </a>
+                      </>
+                    ))
+                  : c.detail}
+              </small>
+            </div>
           ))
         }
       </div>
-      <div class="returns">
-        <a class="repair" href={guide("software-factory/pr-to-merge")}
-          ><span
-            >{
-              zh
-                ? "验证失败，退回开发修复"
-                : "Failed checks return the card to development"
-            }</span
-          ></a
+    </section>
+    <section class="platform">
+      <h3>AI Workforce</h3>
+      <div class="layers">
+        <a class="layer" href={guide("software-factory/orchestration")}
+          ><Icon name="random" />{
+            zh ? "软件交付编排" : "Delivery orchestration"
+          }</a
         >
-        <a class="incident" href={alertExampleHref}
-          ><span
-            >{
-              zh
-                ? "上线后收到告警，按规则启动新一轮调查"
-                : "A matching production alert starts a new investigation"
-            }</span
-          ></a
+        <a class="layer" href={guide("user-guide/knowledge-context")}
+          ><Icon name="open-book" />{
+            zh ? "知识与空间记忆" : "Knowledge & memory"
+          }</a
         >
+        <div class="squad">
+          <a class="team" href={guide("user-guide/ai-employees")}
+            ><Icon name="puzzle" />{zh ? "数字员工小队" : "AI employee team"}</a
+          >
+          <div class="roles">
+            {
+              roles.map((r) => (
+                <a href={guide(r.path)}>
+                  <Icon name={r.icon} />
+                  {r.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
       </div>
-    </div>
-    <section class="foundation">
-      <h4>{zh ? "平台基础能力" : "Shared platform services"}</h4><div>
+      <div class="oversight">
         {
-          foundation.map((r) => (
+          oversight.map((r) => (
             <a href={guide(r.path)}>
               <Icon name={r.icon} />
               {r.label}
@@ -237,215 +157,361 @@ const stages = [
         }
       </div>
     </section>
+    <section class="delivery">
+      <h3>{zh ? "执行与交付" : "Execution & delivery"}</h3>
+      <div class="outputs">
+        <div class="runtime tile">
+          <a href={guide("software-factory/environments")}
+            ><Icon name="server" />{zh ? "执行环境" : "Runtime"}</a
+          ><a href={guide("deployment/daemon")}
+            >{zh ? "设备执行器" : "Device executor"}</a
+          >
+        </div>
+        <div class="repo tile">
+          <a href={guide("integrations/code-repositories")}
+            ><Icon name="code-branch" />{zh ? "代码仓库" : "Repository"}</a
+          >
+          <small
+            ><a class="provider" href={guide("integrations/github")}>GitHub</a> ·
+            <a class="provider" href={guide("software-factory/card-to-pr")}
+              >{zh ? "关联 PR" : "Link a PR"}</a
+            ></small
+          >
+        </div>
+        <a class="pipeline tile" href={guide("software-factory/cicd")}
+          ><Icon name="rocket" /><strong>CI/CD</strong><small
+            >{zh ? "构建 · 测试 · 部署" : "Build · Test · Deploy"}</small
+          ></a
+        >
+      </div>
+    </section>
+    <div class="return">
+      <a href={guide("software-factory/evidence")}
+        >{zh ? "交付结果与证据" : "Delivery results & evidence"}</a
+      >
+    </div>
   </div>
+  <a class="monitor-link" href={alertExampleHref}
+    ><Icon name="analytics" />{
+      zh
+        ? "线上告警如何进入交付看板？"
+        : "How does a production alert reach the board?"
+    }
+    <Icon name="right-arrow" /></a
+  >
 </nav>
 <style>
   .capability-map {
     container-type: inline-size;
-    margin-block: 1.1rem 1.7rem;
-    --ink: light-dark(#255180, #a3c6ef);
-    --signal: light-dark(#974a16, #f5bd91);
-    --release: light-dark(#176c60, #96dfc9);
+    margin-block: 1rem 1.75rem;
+    --orange: light-dark(#9c4916, #f5b381);
+    --blue: light-dark(#2956b0, #9fbdfc);
+    --teal: light-dark(#117568, #88d8c4);
   }
-  .platform {
-    border: 1.5px solid var(--ink);
-    border-radius: 0.9rem;
-    overflow: hidden;
-    background: var(--docs-surface);
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.65rem 0.9rem;
-    background: linear-gradient(105deg, #0a2240, #204a6e);
-  }
-  h3,
-  h4 {
-    margin: 0;
-    line-height: 1.4;
-  }
-  .brand h3 {
-    color: white;
-    font-size: 1.15rem;
-  }
-  .workflow {
-    padding: 0.9rem;
-  }
-  .stages {
-    --gap: 1.5rem;
+  .topology {
     display: grid;
-    gap: var(--gap);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    border: 1px solid var(--docs-line);
+    border-radius: 0.95rem;
+    padding: 1rem;
+    background:
+      radial-gradient(
+          circle,
+          color-mix(in srgb, var(--docs-muted) 23%, transparent) 0.7px,
+          transparent 0.9px
+        )
+        0 0 / 12px 12px,
+      var(--docs-surface);
   }
-  .stage {
-    --tone: var(--signal);
-    position: relative;
+  .topology section {
     min-width: 0;
-    border-top: 3px solid var(--tone);
-    border-radius: 0.3rem;
   }
-  .stage:nth-child(2) {
-    --tone: var(--ink);
-  }
-  .stage:nth-child(3) {
-    --tone: var(--release);
-  }
-  .stage h4 {
-    font-size: 0.95rem;
-    color: var(--tone);
-    padding: 0.45rem 0.1rem;
-  }
-  .stage:not(:last-child)::after {
-    content: "↓";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    color: var(--ink);
-    font-size: 1.25rem;
-    line-height: var(--gap);
-  }
-  .nodes {
-    display: grid;
-    gap: 0.35rem;
-  }
-  .node {
-    padding: 0.4rem 0.5rem;
-    background: var(--docs-soft);
-    border-radius: 0.45rem;
+  h3 {
+    font-size: 0.96rem;
+    margin: 0;
+    text-align: center;
+    line-height: 1.45;
   }
   a {
     color: var(--docs-ink);
     text-decoration: none;
   }
   a:hover {
-    background: var(--docs-hover);
+    background-color: var(--docs-hover);
     text-decoration: underline;
     text-underline-offset: 0.18em;
   }
   a:focus-visible {
     outline: 2px solid var(--docs-accent);
     outline-offset: 2px;
+    z-index: 1;
   }
-  .primary,
-  .foundation a {
-    display: flex;
-    align-items: center;
-    gap: 0.38rem;
+  .intake {
+    --tone: var(--orange);
   }
-  .primary {
-    font-size: 0.85rem;
-    font-weight: 650;
+  .delivery,
+  .return {
+    --tone: var(--teal);
   }
-  .primary svg {
+  .intake h3,
+  .delivery h3 {
     color: var(--tone);
-    flex-shrink: 0;
-  }
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.07rem 0.5rem;
-  }
-  .links a,
-  .node small {
-    font-size: 0.75rem;
-    color: var(--docs-body);
-    line-height: 1.5;
-  }
-  .links a {
-    text-decoration: underline;
-    text-underline-offset: 0.15em;
-    text-decoration-color: var(--docs-line-hover);
-  }
-  .returns {
-    display: grid;
-    gap: 0.25rem;
-    padding-top: 0.5rem;
-  }
-  .returns a {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    font-size: 0.77rem;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--release);
+    gap: 0.4rem;
+    margin: 0.55rem 0 0.8rem;
   }
-  .returns a::before {
-    content: "↰";
-    margin-right: 0.4rem;
+  .branches,
+  .outputs {
+    display: grid;
+    gap: 1.1rem;
   }
-  .returns span {
+  .tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    min-height: 3.8rem;
+    border: 1px solid var(--tone);
+    border-radius: 0.6rem;
     background: var(--docs-surface);
-    padding: 0.2rem 0.4rem;
+    padding: 0.4rem;
+    text-align: center;
   }
-  .foundation {
-    border-top: 1px solid var(--docs-line);
-    background: var(--docs-soft);
-    padding: 0.55rem 0.9rem;
+  .channel-title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
   }
-  .foundation h4 {
-    font-size: 0.78rem;
+  .provider {
+    position: relative;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--docs-line-hover);
+    text-underline-offset: 0.18em;
+  }
+  .tile svg {
+    color: var(--tone);
+  }
+  strong,
+  .layer,
+  .team,
+  .tile > a:first-child {
+    font-size: 0.88rem;
+    font-weight: 650;
+  }
+  small,
+  .tile > a + a {
+    font-size: 0.74rem;
     color: var(--docs-body);
-    margin-bottom: 0.3rem;
   }
-  .foundation div {
+  .platform {
+    --tone: var(--blue);
+    border: 2px solid var(--tone);
+    border-radius: 0.75rem;
+    background: var(--docs-surface);
+    align-self: center;
+  }
+  .platform h3 {
+    padding: 0.55rem;
+    color: white;
+    background: #244e9c;
+    border-radius: 0.53rem 0.53rem 0 0;
+    letter-spacing: 0.015em;
+  }
+  .layers {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.6rem;
+  }
+  .layer,
+  .squad {
+    border: 1px solid color-mix(in srgb, var(--tone) 65%, var(--docs-line));
+    border-radius: 0.45rem;
+  }
+  .layer,
+  .team,
+  .roles a,
+  .oversight a,
+  .tile > a:first-child,
+  .monitor-link {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0.2rem 0.85rem;
+    justify-content: center;
+    gap: 0.42rem;
   }
-  .foundation a {
-    font-size: 0.75rem;
+  .layer,
+  .team {
+    padding: 0.5rem 0.25rem;
   }
-  @container (min-width:35rem) {
-    .stages {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+  .platform svg {
+    color: var(--tone);
+  }
+  .roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
+    padding: 0 0.4rem 0.45rem;
+  }
+  .roles a {
+    font-size: 0.78rem;
+    padding: 0.25rem;
+    border-radius: 0.35rem;
+    background: color-mix(in srgb, var(--tone) 8%, var(--docs-surface));
+  }
+  .oversight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px dashed var(--tone);
+    padding: 0.45rem 0.25rem;
+  }
+  .oversight a {
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.73rem;
+  }
+  .outputs > :not(:first-child)::before {
+    content: "↓";
+    position: absolute;
+    bottom: 100%;
+    line-height: 1.1rem;
+    color: var(--tone);
+  }
+  .tile > a {
+    padding: 0.15rem 0.3rem;
+  }
+  .return {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .return a,
+  .monitor-link {
+    font-size: 0.8rem;
+    color: var(--teal);
+    font-weight: 600;
+  }
+  .monitor-link {
+    width: fit-content;
+    margin: 0.75rem auto 0;
+    text-align: center;
+  }
+  @container (min-width:37rem) {
+    .topology {
+      --gap: 1.55rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.48fr) minmax(0, 1fr);
+      gap: 0 var(--gap);
+      align-items: center;
+      padding: 1rem 0.85rem 0.7rem;
     }
-    .stage:not(:last-child)::after {
-      content: "→";
+    .branches {
+      position: relative;
+      padding-left: 0.55rem;
+      gap: 0.55rem;
+    }
+    .branches::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1.9rem;
+      bottom: 1.9rem;
+      border-left: 1px solid var(--orange);
+    }
+    .channel {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 0.45rem;
+      justify-items: start;
+      align-content: center;
+      padding-inline: 0.7rem;
+      text-align: start;
+    }
+    .channel svg {
+      grid-row: span 2;
+    }
+    .channel::before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      width: 0.55rem;
+      border-top: 1px solid var(--orange);
+    }
+    .channel::after,
+    .runtime::before {
+      content: "⟶";
+      color: var(--tone);
+      position: absolute;
       left: 100%;
-      top: 44%;
       width: var(--gap);
       text-align: center;
+      line-height: 1;
+      font-size: 1.3rem;
     }
-    .returns {
-      position: relative;
-      display: block;
-      height: 4.5rem;
-      padding: 0;
+    .runtime::before {
+      left: auto;
+      right: 100%;
     }
-    .returns a {
-      pointer-events: none;
-      position: absolute;
+    .return {
+      grid-column: 2 / 4;
+      min-height: 2.5rem;
       align-items: flex-end;
-      top: 0;
-      border: solid currentColor;
-      border-width: 0 1.5px 1.5px;
-      border-radius: 0 0 0.45rem 0.45rem;
     }
-    .returns .repair {
-      left: 50%;
-      right: 18%;
-      height: 1.7rem;
-      color: var(--ink);
+    .return::before {
+      content: "";
+      position: absolute;
+      bottom: 0.65rem;
+      left: calc((100% - var(--gap)) * 0.298);
+      right: calc((100% - var(--gap)) * 0.202);
+      height: 1.35rem;
+      border: solid var(--teal);
+      border-width: 0 1.5px 1.5px 1.5px;
+      border-radius: 0 0 0.4rem 0.4rem;
     }
-    .returns .incident {
-      left: 15.5%;
-      right: 15.5%;
-      height: 3.55rem;
-    }
-    .returns a::before {
+    .return::after {
       content: "▴";
       position: absolute;
-      top: -0.3rem;
-      left: 0;
-      transform: translateX(-55%);
+      bottom: 1.45rem;
+      left: calc((100% - var(--gap)) * 0.298);
+      transform: translateX(-45%);
+      color: var(--teal);
     }
-    .returns span {
-      pointer-events: auto;
-      transform: translateY(50%);
+    .return a {
+      position: relative;
+      background: var(--docs-surface);
+      margin-left: 17%;
+      padding: 0 0.35rem;
+    }
+  }
+  @container (max-width:36.99rem) {
+    .intake,
+    .platform {
+      position: relative;
+    }
+    .intake::after,
+    .platform::after {
+      content: "↓";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      line-height: 1.25rem;
+      color: var(--tone);
+    }
+    .delivery h3 {
+      margin-top: 0;
+    }
+    .return {
+      margin-top: -0.4rem;
+    }
+    .return::before {
+      content: "↳";
+      color: var(--teal);
+      margin-right: 0.4rem;
     }
   }
 </style>
