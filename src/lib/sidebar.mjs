@@ -1,235 +1,338 @@
-/** Single information architecture shared by English and Chinese. File ids keep existing URLs. */
-export const homeId = "index";
+/**
+ * Docs / Learn / API portals share English and Chinese slugs.
+ * File ids keep existing guide URLs when a page changes section.
+ */
 
-export const groups = [
-  {
-    label: "Get started",
-    zh: "开始使用",
-    collapsed: false,
-    items: [
-      "getting-started/introduction",
-      "getting-started/quickstart",
-      "getting-started/first-software-factory",
-      "getting-started/core-concepts",
-      "getting-started/first-automation",
-      "getting-started/first-employee",
-    ],
-  },
-  {
-    label: "Workflows",
-    zh: "工作流",
-    collapsed: true,
-    items: [
-      "workflows/concepts",
-      "automate/fundamentals",
-      "automate/workflow-builder",
+export const Portal = {
+  Docs: "docs",
+  Learn: "learn",
+  Api: "api",
+};
+
+export function starlightSlug(id) {
+  return id.replace(/\/index$/, "") || "index";
+}
+
+export function groupPages(group) {
+  return group.items.flatMap((item) =>
+    typeof item === "string" ? [item] : groupPages(item),
+  );
+}
+
+/** Nested groups use the same shape as top-level groups (label/zh/items). */
+function nested(label, zh, items, collapsed = true) {
+  return { label, zh, collapsed, items };
+}
+
+export const PORTALS = {
+  [Portal.Docs]: {
+    label: "Docs",
+    zhLabel: "文档",
+    description: ["Product reference", "产品参考"],
+    landing: "index",
+    groups: [
       {
-        label: "Triggers and control",
-        zh: "触发与控制",
+        label: "Get started",
+        zh: "开始使用",
+        collapsed: false,
+        items: [
+          "getting-started/introduction",
+          "getting-started/quickstart",
+          "getting-started/first-software-factory",
+          "getting-started/core-concepts",
+          "getting-started/first-automation",
+          "getting-started/platform-overview",
+        ],
+      },
+      {
+        label: "Build Software",
+        zh: "构建软件",
+        collapsed: false,
+        items: [
+          "software-factory/overview",
+          "workflows/issue-automation",
+          "workflows/kanban-workbench",
+          "workflows/pull-request-automation",
+          "recipes/issue-to-pr",
+          nested("Software Factory path", "软件工厂路径", [
+            "software-factory/intake",
+            "software-factory/dispatch",
+            "software-factory/orchestration",
+            "software-factory/build-test",
+            "software-factory/business-verification",
+            "software-factory/quality-gates",
+            "software-factory/review-release",
+            "software-factory/release-governance",
+          ]),
+        ],
+      },
+      {
+        label: "Automate Work",
+        zh: "自动化工作",
         collapsed: true,
-        pages: [
+        items: [
+          "workflows/concepts",
+          "workflows/applications",
+          "automate/fundamentals",
+          "automate/workflow-builder",
           "automate/triggers-schedules",
           "automate/event-driven",
           "automate/watchers-webhooks",
           "automate/loops",
           "automate/approvals",
-          "automate/runs-recovery",
-          "automate/agent-handoff",
-        ],
-      },
-    ],
-  },
-  {
-    label: "Workflow applications",
-    zh: "工作流应用",
-    collapsed: false,
-    items: [
-      "workflows/applications",
-      "software-factory/overview",
-      "recipes/issue-to-pr",
-      "workflows/kanban-workbench",
-      "workflows/issue-automation",
-      "workflows/pull-request-automation",
-      "workflows/research-monitoring",
-      "workflows/custom-workflows",
-      {
-        label: "Software Factory path",
-        zh: "软件工厂路径",
-        collapsed: true,
-        pages: [
-          "software-factory/intake",
-          "software-factory/dispatch",
-          "software-factory/orchestration",
-          "software-factory/review-release",
-          "software-factory/release-governance",
-        ],
-      },
-    ],
-  },
-  {
-    label: "Agents and capabilities",
-    zh: "智能体与能力",
-    collapsed: true,
-    items: [
-      "user-guide/ai-employees",
-      "build/employee-definition",
-      "build/prompts-rules",
-      {
-        label: "Working with employees",
-        zh: "使用数字员工",
-        collapsed: true,
-        pages: [
-          "user-guide/workspace",
-          "user-guide/projects",
-          "user-guide/agent-chat",
-          "user-guide/sessions-planning",
-          "user-guide/inbox-tasks",
-          "user-guide/human-approval",
+          "workflows/custom-workflows",
+          "workflows/research-monitoring",
         ],
       },
       {
-        label: "Capabilities",
-        zh: "能力",
+        label: "Build Workflows",
+        zh: "构建工作流",
         collapsed: true,
-        pages: [
-          "build/skills-plugins",
-          "build/skills",
-          "build/plugins",
-          "build/tools",
-          "build/mcp-integration",
-          "user-guide/knowledge-context",
+        items: [
+          "user-guide/ai-employees",
+          nested("Employees", "数字员工", [
+            "getting-started/first-employee",
+            "build/employee-definition",
+            "build/prompts-rules",
+            "user-guide/workspace",
+            "user-guide/agent-chat",
+            "user-guide/sessions-planning",
+            "user-guide/inbox-tasks",
+            "user-guide/human-approval",
+            "user-guide/knowledge-context",
+          ]),
+          nested("Capabilities", "能力", [
+            "build/skills-plugins",
+            "build/skills",
+            "build/plugins",
+            "build/tools",
+            "build/mcp-integration",
+            "integrations/employee-tools",
+          ]),
+          nested("Composition and lifecycle", "组合与生命周期", [
+            "automate/agent-handoff",
+            "build/composition",
+            "build/hooks-subagents",
+            "build/testing",
+            "build/templates",
+            "build/publishing",
+            "build/architecture",
+          ]),
         ],
       },
       {
-        label: "Composition and lifecycle",
-        zh: "组合与生命周期",
+        label: "Run Workflows",
+        zh: "运行工作流",
         collapsed: true,
-        pages: [
-          "build/composition",
-          "build/hooks-subagents",
-          "build/testing",
-          "build/templates",
-          "build/publishing",
-          "build/architecture",
-        ],
-      },
-    ],
-  },
-  {
-    label: "Execution and operations",
-    zh: "执行与运营",
-    collapsed: true,
-    items: [
-      "deployment/runtime-environments",
-      "deployment/self-host",
-      {
-        label: "Delivery execution",
-        zh: "交付执行",
-        collapsed: true,
-        pages: [
+        items: [
+          "deployment/runtime-environments",
           "software-factory/harness",
           "software-factory/environments",
           "software-factory/cicd",
-          "software-factory/build-test",
-          "software-factory/business-verification",
+          "automate/runs-recovery",
           "software-factory/evidence",
           "user-guide/artifacts-evidence",
-          "software-factory/evaluation",
-          "software-factory/quality-gates",
-          "software-factory/observability",
         ],
       },
       {
         label: "Operate",
         zh: "运营",
         collapsed: true,
-        pages: [
-          "models/overview",
-          "deployment/security",
+        items: [
+          "user-guide/projects",
           "administration/teams-access",
           "administration/configuration",
+          "models/overview",
           "administration/analytics",
+          "software-factory/evaluation",
           "operate/evaluation-governance",
+          "software-factory/observability",
           "operate/audit",
+          "deployment/security",
+          "deployment/self-host",
+        ],
+      },
+      {
+        label: "Integrations",
+        zh: "集成",
+        collapsed: true,
+        items: ["integrations/overview", "integrations/code-repositories"],
+      },
+      {
+        label: "Resources",
+        zh: "资源",
+        collapsed: true,
+        items: [
+          "resources/best-practices",
+          "resources/examples",
+          "resources/troubleshooting",
+          "resources/releases-support",
+          "concepts/glossary",
         ],
       },
     ],
   },
-  {
-    label: "Integrations and developer",
-    zh: "集成与开发",
-    collapsed: true,
-    items: [
-      "integrations/overview",
+  [Portal.Learn]: {
+    label: "Learn",
+    zhLabel: "学习",
+    description: ["Tutorials and courses", "教程与课程"],
+    landing: "learn",
+    groups: [
       {
-        label: "Product connections",
-        zh: "产品连接",
-        collapsed: true,
-        pages: [
-          "integrations/code-repositories",
-          "integrations/employee-tools",
-          "integrations/mcp",
-          "integrations/webhooks",
+        label: "Software Factory Foundations",
+        zh: "软件工厂基础",
+        collapsed: false,
+        items: [
+          "learn/software-factory-foundations/index",
+          "learn/software-factory-foundations/what-is-ai-software-factory",
+          "learn/software-factory-foundations/how-agentic-workflows-work",
+          "learn/software-factory-foundations/from-issue-to-delivery",
+          "learn/software-factory-foundations/agents-environments-tools",
+          "learn/software-factory-foundations/verification-evidence",
+          "learn/software-factory-foundations/human-in-the-loop",
         ],
       },
       {
-        label: "Developer platform",
-        zh: "开发平台",
+        label: "Build with AI Workforce",
+        zh: "用 AI Workforce 构建",
+        collapsed: false,
+        items: [
+          "learn/build-with-ai-workforce/index",
+          "learn/build-with-ai-workforce/create-first-workflow",
+          "learn/build-with-ai-workforce/connect-github",
+          "learn/build-with-ai-workforce/build-issue-automation",
+          "learn/build-with-ai-workforce/create-an-agent",
+          "learn/build-with-ai-workforce/add-skills-tools",
+          "learn/build-with-ai-workforce/connect-mcp",
+          "learn/build-with-ai-workforce/design-handoffs",
+          "learn/build-with-ai-workforce/test-evaluate-workflow",
+          "learn/build-with-ai-workforce/publish-workflow",
+        ],
+      },
+      {
+        label: "Run a Software Factory",
+        zh: "运行软件工厂",
         collapsed: true,
-        pages: [
-          "developer/index",
-          "developer/architecture",
+        items: [
+          "learn/run-software-factory/index",
+          "learn/run-software-factory/set-up-software-factory",
+          "learn/run-software-factory/configure-environments",
+          "learn/run-software-factory/connect-cicd",
+          "learn/run-software-factory/configure-coding-agents",
+          "learn/run-software-factory/kanban-automation",
+          "learn/run-software-factory/automate-issue-processing",
+          "learn/run-software-factory/configure-verification",
+          "learn/run-software-factory/set-up-governance",
+          "learn/run-software-factory/monitor-runs-cost",
+          "learn/run-software-factory/scale-autonomous-development",
+        ],
+      },
+      {
+        label: "Practice playbooks",
+        zh: "实践手册",
+        collapsed: true,
+        items: [
+          "learn/requirements-writing",
+          "learn/blueprints-work-orders",
+          "learn/feedback-review",
+        ],
+      },
+    ],
+  },
+  [Portal.Api]: {
+    label: "API",
+    zhLabel: "API",
+    description: ["Integrate programmatically", "程序化集成"],
+    landing: "api",
+    groups: [
+      {
+        label: "API Reference",
+        zh: "API 参考",
+        collapsed: false,
+        items: [
           "developer/authentication",
           "developer/api-reference",
           "integrations/openapi",
-          "integrations/sdk",
-          "integrations/cli",
-          "developer/cli-sdk",
-          "developer/contributing",
         ],
+      },
+      {
+        label: "Developer Guides",
+        zh: "开发指南",
+        collapsed: false,
+        items: ["developer/architecture", "developer/contributing"],
+      },
+      {
+        label: "SDK / CLI",
+        zh: "SDK / CLI",
+        collapsed: true,
+        items: ["developer/cli-sdk", "integrations/sdk", "integrations/cli"],
+      },
+      {
+        label: "Webhooks",
+        zh: "Webhooks",
+        collapsed: true,
+        items: ["integrations/webhooks"],
+      },
+      {
+        label: "MCP",
+        zh: "MCP",
+        collapsed: true,
+        items: ["integrations/mcp"],
       },
     ],
   },
-  {
-    label: "Resources",
-    zh: "资源",
-    collapsed: true,
-    items: [
-      "getting-started/platform-overview",
-      "learn/index",
-      "learn/requirements-writing",
-      "learn/blueprints-work-orders",
-      "learn/feedback-review",
-      "resources/best-practices",
-      "resources/examples",
-      "resources/troubleshooting",
-      "resources/releases-support",
-      "concepts/glossary",
-    ],
-  },
-];
+};
 
-export function groupPages(group) {
-  return group.items.flatMap((item) =>
-    typeof item === "string" ? [item] : item.pages,
-  );
+export const homeId = PORTALS[Portal.Docs].landing;
+
+export function portalPages(portal) {
+  const definition = PORTALS[portal];
+  return [
+    definition.landing === "index" ? "index" : `${definition.landing}/index`,
+    ...definition.groups.flatMap(groupPages),
+  ].map((id) => (id.endsWith("/index") || id === "index" ? id : id));
 }
 
-export const orderedIds = [homeId, ...groups.flatMap(groupPages)];
+/** Normalize landing ids used as file ids in the content collection. */
+export function landingFileId(landing) {
+  return landing === "index" ? "index" : `${landing}/index`;
+}
 
-export const plannedIds = groupPages(
-  groups.find((group) => group.label === "Planned") ?? { items: [] },
+export function orderedIdsForPortal(portal) {
+  const definition = PORTALS[portal];
+  const landingId = landingFileId(definition.landing);
+  const pages = [landingId, ...definition.groups.flatMap(groupPages)];
+  const unique = [];
+  const seen = new Set();
+  for (const id of pages) {
+    const key = starlightSlug(id);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(id);
+  }
+  return unique;
+}
+
+export const orderedIds = Object.values(Portal).flatMap((portal) =>
+  orderedIdsForPortal(portal),
 );
 
-export function starlightSlug(id) {
-  return id.replace(/\/index$/, "") || "index";
-}
+/** Planned pages removed from the primary IA; keep helper for governance. */
+export const plannedIds = [];
+
+export const groups = PORTALS[Portal.Docs].groups;
 
 export function sectionFor(id) {
-  const page = id.replace(/\/index$/, "") || id;
-  return groups.find((group) =>
-    groupPages(group).some(
-      (item) => starlightSlug(item) === page || item === id,
-    ),
-  );
+  const page = starlightSlug(id.replace(/^zh-cn(?:\/|$)/, ""));
+  for (const portal of Object.values(Portal)) {
+    const definition = PORTALS[portal];
+    if (starlightSlug(landingFileId(definition.landing)) === page) {
+      return { portal, group: null, definition };
+    }
+    const group = definition.groups.find((entry) =>
+      groupPages(entry).some((item) => starlightSlug(item) === page),
+    );
+    if (group) return { portal, group, definition };
+  }
+  return undefined;
 }

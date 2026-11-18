@@ -3,12 +3,46 @@ import SiteTitle from "@astrojs/starlight/components/SiteTitle.astro";
 import Search from "@astrojs/starlight/components/Search.astro";
 import LanguageSelect from "@astrojs/starlight/components/LanguageSelect.astro";
 import ThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
+import { externalNav, getPortal, portalDestinations } from "../lib/navigation";
 
-const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const locale = Astro.locals.starlightRoute.locale;
+const zh = locale === "zh-cn";
+const current = getPortal(Astro.locals.starlightRoute.entry.id);
+const destinations = portalDestinations(locale);
+const outbound = externalNav(locale);
 ---
 
 <div class="docs-header">
   <div class="docs-brand"><SiteTitle /></div>
+  <nav class="site-nav" aria-label={zh ? "站点导航" : "Site"}>
+    {
+      destinations.map((destination) => (
+        <a
+          class="site-nav-link"
+          href={destination.href}
+          data-active={destination.id === current ? "true" : undefined}
+          aria-current={destination.id === current ? "page" : undefined}
+        >
+          {destination.label}
+        </a>
+      ))
+    }
+    {
+      outbound.map((item) => (
+        <a
+          class="site-nav-link site-nav-external"
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {item.label}
+          <span class="site-nav-external-mark" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+      ))
+    }
+  </nav>
   <div class="docs-search"><Search /></div>
   <div class="docs-preferences">
     <div class="docs-preference">

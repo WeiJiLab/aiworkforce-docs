@@ -2,23 +2,47 @@
 import SidebarPersister from "@astrojs/starlight/components/SidebarPersister.astro";
 import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
 
+import { getPortal, portalDestinations } from "../lib/navigation";
 import { withBase } from "../lib/site.mjs";
 
-const { locale, sidebar } = Astro.locals.starlightRoute;
+const { entry, locale, sidebar } = Astro.locals.starlightRoute;
 const zh = locale === "zh-cn";
+const portal = getPortal(entry.id);
+const destinations = portalDestinations(locale);
 ---
 
-<div class="portal-sidebar">
+<div class="portal-sidebar" data-portal={portal}>
   <div class="portal-directory">
     <nav
       class="portal-navigation"
+      data-portal={portal}
       data-site="workforce"
-      aria-label={zh ? "文档目录" : "Documentation"}
+      aria-label={zh ? "当前栏目目录" : "Current section navigation"}
     >
       <SidebarPersister><SidebarSublist sublist={sidebar} /></SidebarPersister>
     </nav>
   </div>
   <div class="portal-sidebar-footer">
+    <nav
+      class="portal-destinations site-nav-mobile"
+      aria-label={zh ? "切换栏目" : "Switch section"}
+    >
+      {
+        destinations.map((destination) => (
+          <a
+            class="portal-link"
+            href={destination.href}
+            data-portal-target={destination.id}
+            data-active={destination.id === portal ? "true" : undefined}
+          >
+            <span>{destination.label}</span>
+            {destination.id === portal && (
+              <span class="portal-current" aria-hidden="true" />
+            )}
+          </a>
+        ))
+      }
+    </nav>
     <a
       class="portal-support"
       href={withBase(`${zh ? "/zh-cn" : ""}/resources/releases-support/`)}

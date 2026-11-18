@@ -1,13 +1,15 @@
 ---
-title: "Using AI employees"
-description: "Choose an employee, assign work, and review the result. Package authoring lives in Build AI employees."
+title: "Agents and AI employees"
+description: "Agents execute steps inside workflows. An AI employee is the configured workspace form of an agent—not the product model."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-An AI employee is a configured worker in a workspace. Its template supplies reusable capabilities, while its workspace configuration and authorizations determine where it can work and which connected resources it can use. This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an employee package. Builders use [employee architecture](/build/architecture/).
+An **agent** is the execution participant inside a workflow. An **AI employee** is the configured worker you assign in a workspace—the product's common form of an agent, not a separate product line. Its template supplies reusable capabilities; workspace configuration and authorizations determine where it can work and which connected resources it can use.
+
+This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an employee package. Builders use [employee architecture](/build/architecture/). Software delivery still starts from [Software Factory](/software-factory/overview/), not from creating an employee first.
 
 ## Choose the right responsibility
 

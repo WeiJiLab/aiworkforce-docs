@@ -17,6 +17,21 @@ const cards = (
   items: readonly { title: string; description: string; href: string }[],
 ) =>
   items.map((item) => ({ ...item, href: localizedGuideHref(item.href, zh) }));
+
+const sectionCards: Partial<
+  Record<
+    HomeSection,
+    readonly { title: string; description: string; href: string }[]
+  >
+> = {
+  applications: content.applications,
+  "build-software": content.buildSoftware,
+  "automate-work": content.automateWork,
+  "build-workflows": content.buildWorkflows,
+  "run-workflows": content.runWorkflows,
+  operate: content.operate,
+  integrations: content.integrations,
+};
 ---
 
 {
@@ -38,61 +53,34 @@ const cards = (
   )
 }
 {
-  section === "applications" && (
-    <div class="path-grid not-content">
-      {cards(content.applications).map((item) => (
-        <a class="path-card" href={item.href}>
-          <div class="path-card-heading">
-            <h3>{item.title}</h3>
-            <span aria-hidden="true">→</span>
-          </div>
-          <p class="path-description">{item.description}</p>
-        </a>
-      ))}
-    </div>
-  )
-}
-{
-  section === "lifecycle" && (
-    <div
-      class="overview-canvas not-content"
-      role="img"
-      aria-label={content.lifecycle.description}
-    >
-      <div class="overview-flow" data-count={content.lifecycle.nodes.length}>
-        {content.lifecycle.nodes.map((node) => (
-          <div class="overview-node">
-            <p class="overview-node-title">{node.title}</p>
-            <p class="overview-node-detail">{node.detail}</p>
-          </div>
+  section !== "cta" &&
+    section !== "agents" &&
+    sectionCards[section] &&
+    (section === "applications" ? (
+      <div class="path-grid not-content">
+        {cards(sectionCards[section]!).map((item) => (
+          <a class="path-card" href={item.href}>
+            <div class="path-card-heading">
+              <h3>{item.title}</h3>
+              <span aria-hidden="true">→</span>
+            </div>
+            <p class="path-description">{item.description}</p>
+          </a>
         ))}
       </div>
-      <div class="overview-footer">
-        <span>{content.lifecycle.note}</span>
+    ) : (
+      <div class="domain-grid not-content">
+        {cards(sectionCards[section]!).map(({ title, description, href }) => (
+          <a class="domain-link" href={href}>
+            <div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </div>
+            <span aria-hidden="true">→</span>
+          </a>
+        ))}
       </div>
-    </div>
-  )
-}
-{
-  (section === "blocks" || section === "explore" || section === "guides") && (
-    <div class="domain-grid not-content">
-      {cards(
-        section === "blocks"
-          ? content.blocks
-          : section === "explore"
-            ? content.explore
-            : content.guides,
-      ).map(({ title, description, href }) => (
-        <a class="domain-link" href={href}>
-          <div>
-            <h3>{title}</h3>
-            <p>{description}</p>
-          </div>
-          <span aria-hidden="true">→</span>
-        </a>
-      ))}
-    </div>
-  )
+    ))
 }
 {
   section === "agents" && (

@@ -1,75 +1,69 @@
-# 单一信息架构
+# Docs / Learn / API 信息架构
 
-核对日期：2026-11-18。文档使用一棵侧栏，中英文页面结构相同。Docs、Developers、Learn 不再是三套独立入口。
+核对日期：2026-11-18。顶栏为 **Docs · Learn · API · GitHub · Console**。英文与中文共用相同 slug；侧栏按栏目（portal）切换，上一页 / 下一页不跨栏目、不跨语言。
 
-## 读者
+## 顶栏去向
 
-从要完成的工作选择阅读路径。每条路径的操作权限以实际部署为准。
+| 项      | 含义               | 去向                                               |
+| ------- | ------------------ | -------------------------------------------------- |
+| Docs    | 产品参考与配置     | `/` 与 `/zh-cn/`                                   |
+| Learn   | 教程与课程路径     | `/learn/` 与 `/zh-cn/learn/`                       |
+| API     | 程序化集成         | `/api/` 与 `/zh-cn/api/`                           |
+| GitHub  | 开源与代码（外链） | `https://github.com/WeiJiLab/aiworkforce-platform` |
+| Console | 产品控制台（外链） | `https://aiworkforce.run`                          |
 
-| 读者         | 要完成的事                                     | 从哪里开始             |
-| ------------ | ---------------------------------------------- | ---------------------- |
-| 交付团队     | 确认需求、在看板上跟进执行、验证变更并审阅证据 | 快速入门、软件工厂     |
-| 自动化配置者 | 设置触发条件、跟进运行、处理异常和人工审批     | 自动化工作流           |
-| 工作空间成员 | 管理任务、会话和产物，按需使用就绪的数字员工   | 工作空间与会话         |
-| 能力构建者   | 定义和验证岗位、技能、插件与工具               | 构建数字员工           |
-| 平台工程师   | 配置运行时、授权与集成，管理审计和交付门禁     | 集成与开发、运营与治理 |
+不要把 User / Builder / Platform Engineer 做成顶栏或 Docs 一级栏目；读者角色放在 Learn 路径描述里。
 
-## 侧栏
+## 产品模型
 
-顺序由 `src/lib/sidebar.mjs` 决定，英文和中文共用：
+工作流是组织单位。自动化触发并运行它。智能体（数字员工是其工作空间配置形态）在工作流内执行。软件工厂、看板自动化、Issue 自动化是工作流应用。
 
-1. 开始使用
-2. 工作流
-3. 工作流应用
-4. 智能体与能力
-5. 执行与运营
-6. 集成与开发
-7. 资源
+首页与 Docs 首屏以软件交付 / 软件工厂为主线，不以「创建第一名数字员工」开场。数字员工内容保留，并收在 Docs → Build Workflows → Agents → Employees。
 
-首页在分组之前。「开始使用」默认展开，快速开始紧跟简介，作为第一条交付路径；看板配置也在这一组。「工作流应用」默认展开，软件工厂概览和 Issue 到 PR 示例放在该组前面。上一页和下一页沿着这棵目录、并且留在当前语言。已有指南的 URL 保持不变。例外是已删除的 Agent protocol：`/integrations/agent-protocol/` 与 `/zh-cn/integrations/agent-protocol/` 跳转到对应语言的集成概览。自托管是新页面 `/deployment/self-host/`。新页面使用 `workflows/` 前缀。
+## Docs 侧栏
 
-## 概念层次
+顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定：
 
-工作流是可复用的工作定义。自动化是启动并持续推动它的机制，不是工作流的同义词。数字员工是工作流调用的执行者。软件工厂、看板工作台和 Issue 处理是同一套工作流的三种应用，不是三套引擎。
+1. Get started / 开始使用
+2. Build Software / 构建软件
+3. Automate Work / 自动化工作
+4. Build Workflows / 构建工作流（Employees 在 Agents 下）
+5. Run Workflows / 运行工作流
+6. Operate / 运营（含 Self-host / 自托管）
+7. Integrations / 集成
+8. Resources / 资源
 
-| 概念                              | 在产品里看哪里                                                         |
-| --------------------------------- | ---------------------------------------------------------------------- |
-| Workflow / Automation / Run       | 工作流概念、自动化 Job、运行                                           |
-| Agent / Employee / Skill / Plugin | 数字员工、技能、插件                                                   |
-| Tool / MCP                        | 工具与 MCP 依赖，连接成功不等于已经授权                                |
-| Kanban / Lane / Card              | 交付工作台。内置泳道是需求、开发、测试发布、测试验证、生产发布、已完成 |
-| Dispatch / Orchestration          | 分派把卡片交给泳道员工。编排推进卡片和批次，或编辑泳道上的执行器图     |
-| Verification / Evaluation         | 工作流验证对照验收标准。员工评测检查员工包或插件                       |
-| Evidence / Artifact               | 证据支持结论。产物是被检查的输出                                       |
+## Learn 侧栏
 
-先读核心概念，再进入应用。平台地图只列出界面，不作为首页要先学会的内部分层。默认的上手路径仍然是软件工厂里的一项已确认变更：数字员工执行步骤，人确认范围并审阅证据。
+三条任务路径，而不是角色标签：
 
-## 地址与支持状态
+1. Software Factory Foundations
+2. Build with AI Workforce
+3. Run a Software Factory
 
-中英文使用相同 slug。页面用 `status` 声明支持程度。已支持不显示徽标。Beta、部分支持和规划中使用侧栏徽标，不把状态写进标题。
+另保留实践手册（需求、方案与工单、反馈）。课时可以是短文，或诚实指向对应 Docs 页。
 
-| 值          | 侧栏               | 含义                                                     |
-| ----------- | ------------------ | -------------------------------------------------------- |
-| `available` | 不显示             | 当前版本按正文支持。默认值。                             |
-| `beta`      | Beta               | 可以使用，但尚未稳定。                                   |
-| `limited`   | Limited / 部分支持 | 只覆盖正文写明的场景。                                   |
-| `planned`   | Planned / 规划中   | 尚未提供。只放在侧栏底部的「规划中」，不进入上面的栏目。 |
+## API 侧栏
 
-可选治理字段是 `audience`、`product_area` 和 `last_verified`。`npm run check` 会核对状态与徽标、规划中页面是否只在规划分组，以及同一语言里是否有重复标题。
+从 Docs 的「集成与开发」中独立出来：
 
-工作流、智能体与能力、执行与运营、集成与开发使用折叠的次级分组。「开始使用」和「工作流应用」默认展开，其他一级栏目默认折叠。当前没有规划中的页面，侧栏不保留空的「规划中」分组。以后若有尚未提供的页面，再把该分组加回侧栏底部，不要放进上面的栏目。
+1. API Reference（鉴权、REST、OpenAPI）
+2. Developer Guides（架构、贡献）
+3. SDK / CLI
+4. Webhooks
+5. MCP
 
-## 给 Agent 的入口
+不收录 ACP / A2A，也不恢复 Agent Protocol 文档页。旧地址 `/integrations/agent-protocol/` 与 `/developer/` 已重定向。
 
-`/llms.txt` 按上述分组列出两种语言，并标出 limited 或 planned。`/llms-full.txt` 和每页的 `.md` 地址读取同一内容集合。Markdown 导出在非 available 的页面写明 `Support`。
+## 支持状态
+
+页面可用 `status`: `available`（默认）、`beta`、`limited`、`planned`。Beta / 部分支持 / 规划中使用侧栏徽标。当前 IA 不再保留底部「规划中」分组；规划页应移除或标明后暂不挂入主侧栏。
 
 ## 验证
-
-生产构建后运行：
 
 ```sh
 npm run check:links
 npm run check:navigation
 ```
 
-`check:navigation` 读取构建后的 HTML，确认每页只有一棵目录、目录包含全部指南且不重复、当前页标识正确、支持链接指向当前语言的更新日志与支持、语言切换保留当前文章、上一页和下一页不跨语言。新增文章必须同时加入 `src/lib/sidebar.mjs` 和中文译文。
+`check:navigation` 确认每页只有当前栏目侧栏、顶栏含 Docs/Learn/API/GitHub/Console、不含 Agent Protocol，以及语言切换与分页留在同一栏目。

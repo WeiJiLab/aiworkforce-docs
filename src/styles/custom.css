@@ -108,6 +108,43 @@ summary:focus-visible {
   min-width: 0;
   white-space: nowrap;
 }
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.site-nav::-webkit-scrollbar {
+  display: none;
+}
+.site-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--docs-radius-sm);
+  color: var(--docs-muted);
+  font-size: 0.8125rem;
+  font-weight: 550;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-nav-link:hover {
+  color: var(--docs-ink);
+  background: var(--docs-soft);
+}
+.site-nav-link[data-active="true"] {
+  color: var(--docs-ink);
+  background: color-mix(in srgb, var(--docs-accent) 14%, transparent);
+}
+.site-nav-external-mark {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
 .docs-brand .site-title {
   gap: 0.5rem;
   font-size: 1rem;
@@ -234,8 +271,15 @@ summary:focus-visible {
   background: var(--sl-color-bg-sidebar);
 }
 .portal-destinations {
-  display: grid;
+  display: none;
   gap: 0.125rem;
+}
+@media (max-width: 49.999rem) {
+  .portal-destinations.site-nav-mobile {
+    display: grid;
+    padding-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 }
 .sidebar-content :is(.portal-link, .portal-support) {
   display: flex;
@@ -938,6 +982,9 @@ summary:focus-visible {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 0.5rem;
+  }
+  .site-nav {
+    display: none;
   }
   .docs-brand .site-title {
     font-size: 0.875rem;

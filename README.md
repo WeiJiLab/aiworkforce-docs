@@ -30,13 +30,13 @@ npm run check:navigation
 
 ## Content
 
-English and Chinese share one sidebar and the same slugs. The directory is defined in `src/lib/sidebar.mjs`. There are 87 pages in each language, including the homepage. [Navigation](NAVIGATION.md) explains the sections, the support states, and the stable URLs.
+English and Chinese share the same slugs across three portals: Docs, Learn, and API. Sidebars are defined in `src/lib/sidebar.mjs` and filtered by route middleware. Top navigation also links to GitHub and Console. [Navigation](NAVIGATION.md) explains the sections, support states, and redirects.
 
 A page may set `status` to `available` (the default), `beta`, `limited`, or `planned`. Beta, limited, and planned pages say so in the sidebar and above the article. Do not describe a planned interface as something a reader can call.
 
-Content lives in `src/content/docs/`. Chinese files mirror the English paths under `zh-cn/`. Start a guide from `templates/guide.md`. Starlight supplies the H1. Use absolute links to the language-appropriate page. Add every new guide to `src/lib/sidebar.mjs`. Existing guide URLs stay valid when their section changes.
+Content lives in `src/content/docs/`. Chinese files mirror the English paths under `zh-cn/`. Start a guide from `templates/guide.md`. Starlight supplies the H1. Use absolute links to the language-appropriate page. Add every new guide to the correct portal in `src/lib/sidebar.mjs`. Existing guide URLs stay valid when their section changes; removed pages need redirects.
 
-After a production build, `npm run check:navigation` checks direct page loads, the shared sidebar, the current page, the support link, localized language targets, and pagination across both languages. Homepage section headings are written as Markdown so Starlight can generate their table of contents.
+After a production build, `npm run check:navigation` checks direct page loads, the portal sidebar, top navigation, the support link, localized language targets, and pagination within each portal. Homepage section headings are written as Markdown so Starlight can generate their table of contents.
 
 Every page requires a title, description, and translation metadata. `sourceVersion` records the reviewed product/date baseline. A Chinese page marked `complete` also records `sourceHash`, the SHA-256 of the entire English file. After reviewing a translation, compute its new hash:
 

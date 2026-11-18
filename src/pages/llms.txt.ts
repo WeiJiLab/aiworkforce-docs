@@ -1,7 +1,13 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
 import { markdownId } from "../lib/agent-docs";
-import { groupPages, groups, homeId, orderedIds } from "../lib/sidebar.mjs";
+import {
+  Portal,
+  PORTALS,
+  groupPages,
+  landingFileId,
+  orderedIds,
+} from "../lib/sidebar.mjs";
 import { absoluteUrl } from "../lib/site.mjs";
 
 function canonical(id: string): string {
@@ -19,26 +25,28 @@ export const GET: APIRoute = async () => {
       return canonical(entry.id) === want && isZh === (locale === "zh-cn");
     });
   }
-  const sections = [
-    { label: "Home", pages: [homeId] },
-    ...groups.map((group) => ({
-      label: group.label,
-      pages: groupPages(group),
-    })),
-  ];
 
   const lines = [
     "# AI Workforce Docs",
     "> Product documentation for AI Workforce. English is the default; Simplified Chinese is available under /zh-cn/.",
-    "Pages follow one information architecture in both languages. Support is available unless a line says limited or planned. Do not infer APIs or permissions from an employee instruction example.",
+    "Pages follow Docs, Learn, and API in both languages. Support is available unless a line says limited or planned. Do not infer APIs or permissions from an employee instruction example.",
     "Full documentation: " + absoluteUrl("/llms-full.txt"),
   ];
 
   for (const locale of ["", "zh-cn"]) {
     lines.push(locale === "zh-cn" ? "## 简体中文" : "## English");
-    for (const section of sections) {
-      lines.push(`### ${section.label}`);
-      for (const page of section.pages) {
+    for (const portal of Object.values(Portal)) {
+      const definition = PORTALS[portal];
+      lines.push(`### ${definition.label}`);
+      const pages = [
+        landingFileId(definition.landing),
+        ...definition.groups.flatMap(groupPages),
+      ];
+      const seen = new Set<string>();
+      for (const page of pages) {
+        const key = canonical(page);
+        if (seen.has(key)) continue;
+        seen.add(key);
         const entry = findEntry(page, locale);
         if (!entry) continue;
         const support =

@@ -2,7 +2,14 @@ import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseHTML } from "linkedom";
-import { groups, homeId, orderedIds } from "../src/lib/sidebar.mjs";
+import {
+  Portal,
+  PORTALS,
+  landingFileId,
+  orderedIds,
+  orderedIdsForPortal,
+  starlightSlug,
+} from "../src/lib/sidebar.mjs";
 import { base, origin } from "../src/lib/site.mjs";
 
 const originHost = origin;
@@ -13,12 +20,24 @@ const buildRoot = fileURLToPath(new URL("../dist/", import.meta.url));
 const locales = ["", "zh-cn"];
 const errors = [];
 
+const assignments = new Map();
+for (const portal of Object.values(Portal)) {
+  for (const id of orderedIdsForPortal(portal)) {
+    const key = starlightSlug(id);
+    if (assignments.has(key)) {
+      errors.push(`${id}: guide assigned to more than one portal`);
+    }
+    assignments.set(key, portal);
+  }
+}
+
 function routeFor(id, locale = "") {
-  const slug = id.replace(/(^|\/)index$/, "");
-  const path = `/${[locale, slug].filter(Boolean).join("/")}/`.replace(
-    /\/{2,}/g,
-    "/",
-  );
+  const slug = starlightSlug(id);
+  const path =
+    `/${[locale, slug === "index" ? "" : slug].filter(Boolean).join("/")}/`.replace(
+      /\/{2,}/g,
+      "/",
+    );
   return `${base}${path}`.replace(/\/{2,}/g, "/");
 }
 
@@ -48,16 +67,19 @@ const sourceIds = new Set(
     .filter((file) => !file.startsWith("zh-cn/"))
     .map((file) => file.replace(/\.mdx?$/, "")),
 );
-const assigned = new Set(orderedIds);
 for (const id of sourceIds) {
-  record(assigned.has(id), id, "canonical guide is missing from the sidebar");
+  record(
+    assignments.has(starlightSlug(id)),
+    id,
+    "canonical guide has no portal assignment",
+  );
   record(
     sources.some((file) => file.replace(/\.mdx?$/, "") === `zh-cn/${id}`),
     id,
     "canonical guide has no Simplified Chinese source",
   );
 }
-for (const id of assigned) {
+for (const id of orderedIds) {
   record(sourceIds.has(id), id, "sidebar guide has no English source");
 }
 for (const file of sources.filter((file) => file.startsWith("zh-cn/"))) {
@@ -71,7 +93,11 @@ for (const file of sources.filter((file) => file.startsWith("zh-cn/"))) {
 const expectedPages = new Map();
 for (const id of sourceIds) {
   for (const locale of locales) {
-    expectedPages.set(routeFor(id, locale), { id, locale });
+    expectedPages.set(routeFor(id, locale), {
+      id,
+      locale,
+      portal: assignments.get(starlightSlug(id)),
+    });
   }
 }
 
@@ -95,14 +121,12 @@ const documents = new Map(
 let sidebarLinks = 0;
 let paginationLinks = 0;
 let languageTargets = 0;
-const expectedTargetsFor = (locale) =>
-  orderedIds.map((id) => routeFor(id, locale));
 const boundaries = [];
 
 for (const [route, page] of expectedPages) {
   const document = documents.get(route);
   record(Boolean(document), route, "guide has no directly loadable built page");
-  if (!document) continue;
+  if (!document || !page.portal) continue;
 
   const canonical = document.querySelectorAll('link[rel="canonical"]');
   record(
@@ -113,23 +137,21 @@ for (const [route, page] of expectedPages) {
   );
 
   const navigation = document.querySelectorAll(".portal-navigation");
-  record(
-    navigation.length === 1,
-    route,
-    "expected exactly one documentation sidebar",
-  );
+  record(navigation.length === 1, route, "expected exactly one portal sidebar");
   const nav = navigation[0];
   if (nav) {
     record(
-      nav.getAttribute("data-site") === "workforce",
+      nav.getAttribute("data-portal") === page.portal,
       route,
-      "direct load must show the shared documentation sidebar",
+      `sidebar portal must be ${page.portal}`,
     );
     const links = [...nav.querySelectorAll("a[href]")];
     const targets = links.map((link) =>
       pathname(link.getAttribute("href"), route),
     );
-    const expectedTargets = expectedTargetsFor(page.locale);
+    const expectedTargets = orderedIdsForPortal(page.portal).map((id) =>
+      routeFor(id, page.locale),
+    );
     record(
       new Set(targets).size === targets.length,
       route,
@@ -138,7 +160,7 @@ for (const [route, page] of expectedPages) {
     record(
       sameSet(targets, expectedTargets),
       route,
-      `sidebar must contain every guide once; missing=${expectedTargets.filter((target) => !targets.includes(target)).join(",")} unexpected=${targets.filter((target) => !expectedTargets.includes(target)).join(",")}`,
+      `sidebar must contain every portal guide once; missing=${expectedTargets.filter((target) => !targets.includes(target)).join(",")} unexpected=${targets.filter((target) => !expectedTargets.includes(target)).join(",")}`,
     );
     const active = links.filter(
       (link) => link.getAttribute("aria-current") === "page",
@@ -150,14 +172,57 @@ for (const [route, page] of expectedPages) {
       "sidebar must identify this guide as the only current page",
     );
     sidebarLinks += links.length;
-    if (page.id === homeId) {
+    if (
+      starlightSlug(page.id) ===
+      starlightSlug(landingFileId(PORTALS[page.portal].landing))
+    ) {
       boundaries.push({
         locale: page.locale || "en",
+        portal: page.portal,
         first: targets[0],
         last: targets.at(-1),
-        sections: groups.map((group) => group.label),
+        sections: PORTALS[page.portal].groups.map((group) => group.label),
       });
     }
+  }
+
+  const siteNav = document.querySelectorAll(".site-nav");
+  record(siteNav.length === 1, route, "expected one site top navigation");
+  if (siteNav[0]) {
+    const labels = [...siteNav[0].querySelectorAll("a")].map((link) =>
+      link.textContent.replace(/\s+/g, " ").trim(),
+    );
+    const zh = page.locale === "zh-cn";
+    record(
+      labels.some((label) => label === (zh ? "文档" : "Docs")),
+      route,
+      "site nav must include Docs",
+    );
+    record(
+      labels.some((label) => label === (zh ? "学习" : "Learn")),
+      route,
+      "site nav must include Learn",
+    );
+    record(
+      labels.some((label) => label.startsWith("API")),
+      route,
+      "site nav must include API",
+    );
+    record(
+      labels.some((label) => label.startsWith("GitHub")),
+      route,
+      "site nav must include GitHub",
+    );
+    record(
+      labels.some((label) => label.startsWith(zh ? "控制台" : "Console")),
+      route,
+      "site nav must include Console",
+    );
+    record(
+      !labels.some((label) => /Agent Protocol|agent-protocol/i.test(label)),
+      route,
+      "Agent Protocol must not appear in site nav",
+    );
   }
 
   const support = document.querySelectorAll(".portal-support");
@@ -167,11 +232,6 @@ for (const [route, page] of expectedPages) {
       routeFor("resources/releases-support", page.locale),
     route,
     "support link must open changelog and support in this language",
-  );
-  record(
-    document.querySelectorAll(".portal-destinations").length === 0,
-    route,
-    "portal switcher must not be rendered",
   );
 
   const languageSelects = document.querySelectorAll(
@@ -204,9 +264,9 @@ for (const [route, page] of expectedPages) {
           documents
             .get(target)
             ?.querySelector(".portal-navigation")
-            ?.getAttribute("data-site") === "workforce",
+            ?.getAttribute("data-portal") === page.portal,
         route,
-        `language destination ${target} must stay in the shared sidebar`,
+        `language destination ${target} must stay in the same portal`,
       );
       languageTargets++;
     }
@@ -218,9 +278,10 @@ for (const [route, page] of expectedPages) {
     record(
       Boolean(documents.get(target)) &&
         target !== route &&
-        nextPage?.locale === page.locale,
+        nextPage?.locale === page.locale &&
+        nextPage?.portal === page.portal,
       route,
-      `pagination must stay in the same language: ${link.getAttribute("href")}`,
+      `pagination must stay in the same language and portal: ${link.getAttribute("href")}`,
     );
     paginationLinks++;
   }

@@ -2,6 +2,7 @@ import {
   defineRouteMiddleware,
   type StarlightRouteData,
 } from "@astrojs/starlight/route-data";
+import { getPortal } from "./lib/navigation";
 
 type SidebarEntry = StarlightRouteData["sidebar"][number];
 type SidebarLink = Extract<SidebarEntry, { type: "link" }>;
@@ -14,10 +15,19 @@ function links(entries: readonly SidebarEntry[]): SidebarLink[] {
 
 export const onRequest = defineRouteMiddleware((context) => {
   const route = context.locals.starlightRoute;
+  const portal = getPortal(route.entry.id);
+  const destination = route.sidebar.find(
+    (entry) => entry.type === "group" && entry.label === portal,
+  );
+  if (!destination || destination.type !== "group") {
+    throw new Error(`Missing documentation navigation for ${portal}`);
+  }
+
+  route.sidebar = destination.entries;
   const pages = links(route.sidebar);
   const current = pages.findIndex((page) => page.isCurrent);
   if (current < 0) {
-    throw new Error(`Current page is missing from navigation: ${route.id}`);
+    throw new Error(`Current page is missing from its navigation: ${route.id}`);
   }
 
   route.pagination = {

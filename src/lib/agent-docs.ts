@@ -33,22 +33,18 @@ function homeSection(section: string, zh: boolean): string {
       return linked([content.primaryCta, content.secondaryCta]);
     case "applications":
       return linked(content.applications);
-    case "lifecycle":
-      return [
-        content.lifecycle.description,
-        content.lifecycle.nodes
-          .map(
-            (node, index) => `${index + 1}. **${node.title}:** ${node.detail}`,
-          )
-          .join("\n"),
-        content.lifecycle.note,
-      ].join("\n\n");
-    case "blocks":
-      return linked(content.blocks);
-    case "explore":
-      return linked(content.explore);
-    case "guides":
-      return linked(content.guides);
+    case "build-software":
+      return linked(content.buildSoftware);
+    case "automate-work":
+      return linked(content.automateWork);
+    case "build-workflows":
+      return linked(content.buildWorkflows);
+    case "run-workflows":
+      return linked(content.runWorkflows);
+    case "operate":
+      return linked(content.operate);
+    case "integrations":
+      return linked(content.integrations);
     case "agents":
       return [
         content.agents.description,
@@ -98,7 +94,7 @@ function landingBody(body: string, zh: boolean): string {
         );
         if (name === "HomeContent") return homeSection(attributes.section, zh);
         const portal = attributes.portal;
-        if (portal !== "developers" && portal !== "learn")
+        if (portal !== "api" && portal !== "learn")
           throw new Error(`Unsupported landing portal: ${portal}`);
         return portalSection(portal, attributes.section, zh);
       },
@@ -110,7 +106,7 @@ export function toMarkdown(entry: CollectionEntry<"docs">): string {
   const { title, description, status } = entry.data;
   const zh = entry.id.startsWith("zh-cn/") || entry.id === "zh-cn";
   const canonicalId = markdownId(entry.id.replace(/^zh-cn(?:\/|$)/, ""));
-  const isHome = ["index", "developer", "learn"].includes(canonicalId);
+  const isHome = ["index", "api", "learn"].includes(canonicalId);
   const body = isHome ? landingBody(entry.body ?? "", zh) : (entry.body ?? "");
   const sourceLabel = zh ? "来源" : "Source";
   const supportLabel =

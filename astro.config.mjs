@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-import { siteSidebar } from "./src/lib/navigation.ts";
+import { portalSidebars } from "./src/lib/navigation.ts";
 import { base, origin } from "./src/lib/site.mjs";
 
 export default defineConfig({
@@ -9,20 +9,22 @@ export default defineConfig({
   ...(base && base !== "/" ? { base } : {}),
   trailingSlash: "always",
   redirects: {
+    "/developer/": "/api/",
+    "/zh-cn/developer/": "/zh-cn/api/",
     "/integrations/agent-protocol/": {
       status: 301,
-      destination: "/integrations/overview/",
+      destination: "/integrations/mcp/",
     },
     "/zh-cn/integrations/agent-protocol/": {
       status: 301,
-      destination: "/zh-cn/integrations/overview/",
+      destination: "/zh-cn/integrations/mcp/",
     },
   },
   integrations: [
     starlight({
       title: "AI Workforce",
       description:
-        "Define workflows, assemble agents, and deliver work you can verify. Documentation for AI Workforce.",
+        "Build and automate software delivery with workflows you can verify. Documentation for AI Workforce.",
       favicon: "/favicon.svg",
       disable404Route: true,
       logo: { src: "./src/assets/logo.svg", alt: "", replacesTitle: false },
@@ -39,7 +41,7 @@ export default defineConfig({
       },
       routeMiddleware: "./src/route-data.ts",
       credits: false,
-      sidebar: siteSidebar(),
+      sidebar: portalSidebars(),
     }),
   ],
 });
