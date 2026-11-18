@@ -1,184 +1,90 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" lang="zh-CN" role="img" aria-labelledby="title description">
   <title id="title">交付工作台上的 Story #128</title>
-  <desc id="description">AI Workforce 浅色交付工作台的测试验证泳道中选中了示例任务 #128。示例中，竞品调研自动化发现某产品新增了邀请时选择成员角色的功能，团队确认后形成 Story。交付页签展示 GitHub Actions 构建、测试环境部署和生产发布状态。</desc>
+  <desc id="description">交付看板简化为 Backlog、开发中和测试验证三列。Backlog 包含按角色筛选成员、重新发送邀请两条示例需求，测试验证列选中了 Story #128。示例中，竞品调研自动化发现某产品新增了邀请时选择成员角色的功能，团队确认后形成 Story。交付页签展示 GitHub Actions 构建、测试环境部署和生产发布状态。</desc>
   <defs>
     <linearGradient id="canvas" x2="1" y2="1"><stop stop-color="#0a1928"/><stop offset=".6" stop-color="#132d3b"/><stop offset="1" stop-color="#0b1b28"/></linearGradient>
     <pattern id="grid" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#668997" opacity=".23"/></pattern>
 
     <linearGradient id="glass"><stop stop-color="#223948"/><stop offset="1" stop-color="#1a2a38"/></linearGradient>
     <filter id="lift" x="-20%" y="-30%" width="155%" height="175%"><feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#01070d" flood-opacity=".56"/></filter>
-    <clipPath id="frame"><rect x="36" y="30" width="1127" height="552" rx="13"/></clipPath>
     <clipPath id="art"><rect width="1200" height="600" rx="14"/></clipPath>
     <style>
       text { font-family: MiSans, 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; fill: #eaf5f9; }
       .small { font-size: 15px; fill: #a3b7c3; } .body { font-size: 19px; }
       .mono { font-family: 'SFMono-Regular', Consolas, monospace; letter-spacing: .5px; }
+      .brand { fill: #213b4a; font-size: 23px; font-weight: 660; }
+      .context { fill: #526977; font-size: 15px; }
+      .board-heading { fill: #233e4b; font-size: 24px; font-weight: 650; }
+      .lane-title { fill: #43596a; font-size: 17px; font-weight: 620; }
+      .ticket { fill: #fff; stroke: #d7e0e5; }
+      .ticket-id { fill: #667d8b; font: 14px 'SFMono-Regular', Consolas, monospace; }
+      .ticket-title { fill: #394f5e; font-size: 18px; font-weight: 540; }
       #board:target ~ #scene .annotation { display: none; }
     </style>
   </defs>
   <view id="origin" viewBox="14 398 430 165"/>
-  <view id="story" viewBox="693 252 506 303"/>
-  <view id="board" viewBox="36 30 1127 552"/>
+  <view id="story" viewBox="678 301 508 293"/>
+  <view id="board" viewBox="78 54 1026 462"/>
   <g id="scene" clip-path="url(#art)">
     <rect width="1200" height="600" fill="url(#canvas)"/>
     <rect width="1200" height="600" fill="url(#grid)"/>
-<g id="workspace-window" clip-path="url(#frame)">
-    <rect x="36" y="30" width="1127" height="552" rx="0" fill="#eaf1f6" stroke="none"/>
-    <g transform="translate(44 36) scale(.105)"><g id="graphic-crop-base" transform="translate(-333 -98)" fill="#263a47">
+    <g id="workspace-window">
+      <rect x="83" y="57" width="1015" height="452" rx="16" fill="#f9fbfc" stroke="#b2c6cf"/>
+      <path d="M99 58h983q15 0 15 15v46H84V73q0-15 15-15Z" fill="#e9f1f5"/>
+      <g transform="translate(104 70) scale(.16)"><g id="graphic-crop-base" transform="translate(-333 -98)" fill="#263a47">
     <path d="M418.516 200.816c3.254 0 5.902 2.645 5.902 5.899v66.019l11.113-11.117v-54.902c0-9.383-7.633-17.012-17.015-17.012l-66.012.004 11.109 11.109h54.903Z"/>
     <path d="M407.094 218.14a5.557 5.557 0 0 0-7.86 0l-46.718 46.715v15.723L407.094 226a5.557 5.557 0 0 0 0-7.86Z"/>
   </g>
   <g id="graphic-crop-accent" transform="translate(-333 -98)" fill="#33B5E7">
     <path d="M496.332 189.7h-44.926c-2.015-7.778-8.168-13.907-15.957-15.895l.082-56.028-11.129 11.137-.078 49.758a5.56 5.56 0 0 0 1.625 3.933 5.563 5.563 0 0 0 4.09 1.63c6.05.034 10.961 4.968 10.961 11.023a5.557 5.557 0 0 0 5.559 5.558h60.886l-11.113-11.117Z"/>
     <path d="m507.445 109.926-54.285 54.289a5.557 5.557 0 0 0 7.86 7.86l46.425-46.427v-15.722Z"/>
-  </g>
-</g>
-    <text x="74" y="54" font-size="16" font-weight="650" style="fill:#243344">工作台</text>
-    <text x="950" y="54" font-size="12" font-weight="450" style="fill:#637487">FDE 工作台　　 管理控制台</text>
-    <circle cx="1144" cy="49" r="8" fill="#5fb7c4"/>
-    <rect x="93" y="68" width="1064" height="506" rx="10" fill="#ffffff" stroke="#d9e2e9"/>
-    <g transform="translate(56 98) scale(.83)">
-    <path d="M1 9 10 1l9 8v10H2V9m5 10v-8h6v8" fill="none" stroke="#637487" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  </g></g>
+      <text x="148" y="96" class="brand">AI Workforce</text>
+      <text x="320" y="95" class="context">工作台　/　产品研发</text>
+      <circle cx="990" cy="88" r="4" fill="#259776"/>
+      <text x="1003" y="93" class="context">自动运行</text>
+      <text x="110" y="157" class="board-heading">交付看板</text>
+      <g id="backlog" transform="translate(109 178)">
+        <rect width="301" height="282" rx="9" fill="#edf2f5"/>
+        <circle cx="17" cy="24" r="4" fill="#8c9aaa"/>
+        <text x="30" y="30" class="lane-title">Backlog</text>
+        <g transform="translate(10 46)">
+          <rect width="281" height="72" rx="7" class="ticket"/>
+          <text x="15" y="27" class="ticket-id">#131</text>
+          <text x="15" y="53" class="ticket-title">支持按角色筛选成员</text>
+        </g>
+        <g transform="translate(10 127)">
+          <rect width="281" height="72" rx="7" class="ticket"/>
+          <text x="15" y="27" class="ticket-id">#132</text>
+          <text x="15" y="53" class="ticket-title">允许重新发送邀请</text>
+        </g>
+      </g>
+      <g id="development" transform="translate(425 178)">
+        <rect width="301" height="282" rx="9" fill="#edf2f5"/>
+        <circle cx="17" cy="24" r="4" fill="#6294ac"/>
+        <text x="30" y="30" class="lane-title">开发中</text>
+        <g transform="translate(10 46)">
+          <rect width="281" height="72" rx="7" class="ticket"/>
+          <text x="15" y="27" class="ticket-id">#129</text>
+          <text x="15" y="53" class="ticket-title">记录成员权限变更</text>
+        </g>
+      </g>
+      <g id="verification" transform="translate(741 178)">
+        <rect width="329" height="282" rx="9" fill="#e9f3f4"/>
+        <circle cx="17" cy="24" r="4" fill="#138498"/>
+        <text x="30" y="30" class="lane-title">测试验证</text>
+        <g transform="translate(10 46)">
+          <rect width="309" height="72" rx="7" fill="#fff" stroke="#4593a2" stroke-width="1.6"/>
+          <text x="15" y="27" class="ticket-id" style="fill:#146a7a">#128</text>
+          <text x="15" y="53" class="ticket-title" style="fill:#184854">邀请成员时设置工作空间权限</text>
+        </g>
+      </g>
     </g>
-    <text x="65" y="132" font-size="11" font-weight="500" style="fill:#637487" text-anchor="middle">Home</text>
-    <rect x="39" y="152" width="51" height="52" rx="7" fill="#ffffff" stroke="none"/>
-    <rect x="36" y="161" width="3" height="25" rx="1" fill="#047c9e" stroke="none"/>
-    <g transform="translate(56 161) scale(.83)">
-    <path d="M1 1h7v7H1zM12 1h7v7h-7zM1 12h7v7H1zM12 12h7v7h-7z" fill="none" stroke="#047c9e" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <g class="annotation" id="selection-link">
+      <path d="M917 296v20" fill="none" stroke="#27899b" stroke-width="2"/>
+      <circle cx="917" cy="296" r="3" fill="#27899b"/>
     </g>
-    <text x="65" y="195" font-size="11" font-weight="500" style="fill:#047c9e" text-anchor="middle">工作台</text>
-    <g transform="translate(56 224) scale(.83)">
-    <path d="M1 1h7v7H1zm12 12h7v7h-7zM5 8v3q0 5 7 5" fill="none" stroke="#637487" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-    </g>
-    <text x="65" y="258" font-size="11" font-weight="500" style="fill:#637487" text-anchor="middle">自动化</text>
-    <g transform="translate(56 287) scale(.83)">
-    <path d="M1 5V3h7l2 3h9v12H1z" fill="none" stroke="#637487" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-    </g>
-    <text x="65" y="321" font-size="11" font-weight="500" style="fill:#637487" text-anchor="middle">工作空间</text>
-    <g transform="translate(56 453) scale(.83)">
-    <path d="M1 7l2-5h14l2 5v3H1zm2 3v9h14v-9m-9 9v-6h5v6" fill="none" stroke="#637487" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-    </g>
-    <text x="65" y="487" font-size="11" font-weight="500" style="fill:#637487" text-anchor="middle">市场</text>
-    <g transform="translate(56 515) scale(.83)">
-    <path d="M6 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 10v-2q0-5 5-5t6 5v2m2-15q6 1 2 6m-1 3q5 0 5 6" fill="none" stroke="#637487" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
-    </g>
-    <text x="65" y="549" font-size="11" font-weight="500" style="fill:#637487" text-anchor="middle">团队</text>
-    <text x="110" y="94" font-size="14" font-weight="450" style="fill:#637487">产品研发  ﹀</text>
-    <text x="204" y="94" font-size="15" font-weight="450" style="fill:#83b6c7">/</text>
-    <text x="224" y="94" font-size="15" font-weight="650" style="fill:#243344">AI Workforce 自举  ﹀</text>
-    <rect x="970" y="75" width="77" height="24" rx="6" fill="#e1f5ed" stroke="none"/>
-    <circle cx="980" cy="87" r="3" fill="#128767"/>
-    <text x="988" y="92" font-size="12" font-weight="600" style="fill:#19765e">自动运行</text>
-    <rect x="1061" y="75" width="26" height="24" rx="6" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="1074" y="92" font-size="15" font-weight="600" style="fill:#243344" text-anchor="middle">⟳</text>
-    <rect x="1090" y="75" width="26" height="24" rx="6" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="1103" y="92" font-size="15" font-weight="600" style="fill:#243344" text-anchor="middle">Ⅱ</text>
-    <rect x="1119" y="75" width="26" height="24" rx="6" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="1132" y="92" font-size="15" font-weight="600" style="fill:#243344" text-anchor="middle">⚙</text>
-    <path d="M108 108h1032" fill="none" stroke="#d9e2e9" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-    <text x="110" y="134" font-size="15" font-weight="650" style="fill:#243344">▦  看板</text>
-    <text x="181" y="134" font-size="14" font-weight="450" style="fill:#637487">☷  列表</text>
-    <rect x="246" y="115" width="77" height="25" rx="5" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="256" y="132" font-size="12" font-weight="450" style="fill:#405366">待处理  0</text>
-    <rect x="752" y="115" width="127" height="25" rx="6" fill="#edf3f7" stroke="none"/>
-    <text x="763" y="132" font-size="12" font-weight="450" style="fill:#405366">＋ 未组批 · 0 张等待</text>
-    <rect x="889" y="115" width="128" height="25" rx="6" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="898" y="132" font-size="12" font-weight="450" style="fill:#637487">⌕ 搜索任务或员工…</text>
-    <rect x="1028" y="115" width="92" height="25" rx="6" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="1037" y="132" font-size="12" font-weight="450" style="fill:#405366">↓  导入任务 ﹀</text>
-    <text x="1132" y="132" font-size="13" font-weight="450" style="fill:#405366">…</text>
-    <path d="M108 147h1032" fill="none" stroke="#d9e2e9" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-    <path d="M110 146h53" fill="none" stroke="#047c9e" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round"/>
-    <g id="lane-1">
-    <rect x="108" y="155" width="142" height="388" rx="7" fill="#f6f9fb" stroke="none"/>
-    <circle cx="119" cy="175" r="3.6" fill="#66728a"/>
-    <text x="129" y="180" font-size="14" font-weight="620" style="fill:#243344">需求</text>
-    <text x="216" y="179" font-size="12" font-weight="450" style="fill:#637487">0</text>
-    <text x="232" y="178" font-size="11" font-weight="450" style="fill:#637487">ⓘ</text>
-    <circle cx="179" cy="260" r="7" fill="none" stroke="#b6c3cc" stroke-width="1.6" stroke-dasharray="3 2"/>
-    <text x="179" y="285" font-size="12" font-weight="450" style="fill:#788998" text-anchor="middle">暂无任务</text>
-    </g>
-    <g id="lane-2">
-    <rect x="256" y="155" width="142" height="388" rx="7" fill="#f6f9fb" stroke="none"/>
-    <circle cx="267" cy="175" r="3.6" fill="#0e6884"/>
-    <text x="277" y="180" font-size="14" font-weight="620" style="fill:#243344">开发</text>
-    <text x="364" y="179" font-size="12" font-weight="450" style="fill:#637487">0</text>
-    <text x="380" y="178" font-size="11" font-weight="450" style="fill:#637487">ⓘ</text>
-    <circle cx="327" cy="260" r="7" fill="none" stroke="#b6c3cc" stroke-width="1.6" stroke-dasharray="3 2"/>
-    <text x="327" y="285" font-size="12" font-weight="450" style="fill:#788998" text-anchor="middle">暂无任务</text>
-    </g>
-    <g id="lane-3">
-    <rect x="404" y="155" width="142" height="388" rx="7" fill="#f6f9fb" stroke="none"/>
-    <circle cx="415" cy="175" r="3.6" fill="#35bdc1"/>
-    <text x="425" y="180" font-size="14" font-weight="620" style="fill:#243344">测试发布</text>
-    <text x="512" y="179" font-size="12" font-weight="450" style="fill:#637487">0</text>
-    <text x="528" y="178" font-size="11" font-weight="450" style="fill:#637487">ⓘ</text>
-    <circle cx="475" cy="260" r="7" fill="none" stroke="#b6c3cc" stroke-width="1.6" stroke-dasharray="3 2"/>
-    <text x="475" y="285" font-size="12" font-weight="450" style="fill:#788998" text-anchor="middle">暂无任务</text>
-    </g>
-    <g id="lane-4">
-    <rect x="552" y="155" width="142" height="388" rx="7" fill="#f6f9fb" stroke="none"/>
-    <circle cx="563" cy="175" r="3.6" fill="#915505"/>
-    <text x="573" y="180" font-size="14" font-weight="620" style="fill:#243344">测试验证</text>
-    <text x="660" y="179" font-size="12" font-weight="450" style="fill:#637487">1</text>
-    <text x="676" y="178" font-size="11" font-weight="450" style="fill:#637487">ⓘ</text>
-    <rect x="557" y="193" width="132" height="103" rx="7" fill="#ffffff" stroke="#047c9e"/>
-    <text x="567" y="212" font-size="12" font-weight="450" style="fill:#637487">128</text>
-    <circle cx="608" cy="208" r="4" fill="#ad8550"/>
-    <text x="618" y="212" font-size="11" font-weight="450" style="fill:#637487">测试</text>
-    <text x="567" y="238" font-size="14" font-weight="620" style="fill:#243344">邀请成员时设置</text>
-    <text x="567" y="257" font-size="14" font-weight="620" style="fill:#243344">工作空间权限</text>
-    <text x="567" y="281" font-size="11" font-weight="450" style="fill:#637487">测试验证中</text>
-    </g>
-    <g id="lane-5">
-    <rect x="700" y="155" width="142" height="388" rx="7" fill="#f6f9fb" stroke="none"/>
-    <circle cx="711" cy="175" r="3.6" fill="#915505"/>
-    <text x="721" y="180" font-size="14" font-weight="620" style="fill:#243344">合入主干</text>
-    <text x="808" y="179" font-size="12" font-weight="450" style="fill:#637487">0</text>
-    <text x="824" y="178" font-size="11" font-weight="450" style="fill:#637487">ⓘ</text>
-    <circle cx="771" cy="260" r="7" fill="none" stroke="#b6c3cc" stroke-width="1.6" stroke-dasharray="3 2"/>
-    <text x="771" y="285" font-size="12" font-weight="450" style="fill:#788998" text-anchor="middle">暂无任务</text>
-    </g>
-    <g id="lane-6">
-    <rect x="848" y="155" width="142" height="388" rx="7" fill="#f6f9fb" stroke="none"/>
-    <circle cx="859" cy="175" r="3.6" fill="#66728a"/>
-    <text x="869" y="180" font-size="14" font-weight="620" style="fill:#243344">生产发布</text>
-    <text x="956" y="179" font-size="12" font-weight="450" style="fill:#637487">0</text>
-    <text x="972" y="178" font-size="11" font-weight="450" style="fill:#637487">ⓘ</text>
-    <circle cx="919" cy="260" r="7" fill="none" stroke="#b6c3cc" stroke-width="1.6" stroke-dasharray="3 2"/>
-    <text x="919" y="285" font-size="12" font-weight="450" style="fill:#788998" text-anchor="middle">暂无任务</text>
-    </g>
-    <g id="lane-7">
-    <rect x="996" y="155" width="142" height="388" rx="7" fill="#f6f9fb" stroke="none"/>
-    <circle cx="1007" cy="175" r="3.6" fill="#117a5b"/>
-    <text x="1017" y="180" font-size="14" font-weight="620" style="fill:#243344">已完成</text>
-    <text x="1104" y="179" font-size="12" font-weight="450" style="fill:#637487">2</text>
-    <text x="1120" y="178" font-size="11" font-weight="450" style="fill:#637487">ⓘ</text>
-    <rect x="1001" y="193" width="132" height="103" rx="7" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="1011" y="212" font-size="12" font-weight="450" style="fill:#637487">396</text>
-    <circle cx="1052" cy="208" r="4" fill="#ad8550"/>
-    <text x="1062" y="212" font-size="11" font-weight="450" style="fill:#637487">测试</text>
-    <text x="1011" y="238" font-size="14" font-weight="620" style="fill:#243344">欢迎页补充一句</text>
-    <text x="1011" y="257" font-size="14" font-weight="620" style="fill:#243344">协作说明</text>
-    <text x="1011" y="281" font-size="11" font-weight="450" style="fill:#637487">已完成</text>
-    <rect x="1001" y="304" width="132" height="103" rx="7" fill="#ffffff" stroke="#d9e2e9"/>
-    <text x="1011" y="323" font-size="12" font-weight="450" style="fill:#637487">404</text>
-    <circle cx="1052" cy="319" r="4" fill="#ad8550"/>
-    <text x="1062" y="323" font-size="11" font-weight="450" style="fill:#637487">测试</text>
-    <text x="1011" y="349" font-size="14" font-weight="620" style="fill:#243344">统一顶部导航</text>
-    <text x="1011" y="368" font-size="14" font-weight="620" style="fill:#243344">按钮样式</text>
-    <text x="1011" y="392" font-size="11" font-weight="450" style="fill:#637487">已完成</text>
-    </g>
-    <circle cx="109" cy="559" r="3" fill="#14836c"/>
-    <text x="118" y="563" font-size="11" font-weight="450" style="fill:#637487">自动同步中</text>
-    <text x="834" y="563" font-size="11" font-weight="450" style="fill:#637487">阶段按交付规则推进 · 执行结束后仍需验证与审批</text>
-    </g>
-    <rect x="36" y="30" width="1127" height="552" rx="13" fill="none" stroke="#a8bac6"/>
-    <g class="annotation" id="selected-work-item">
-    <path d="M689 250h12q6 0 6 6v46q0 6 6 6h8" fill="none" stroke="#047c9e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-    <circle cx="689" cy="250" r="3" fill="#047c9e"/>
-    </g>
-    <g class="annotation" id="story-detail" transform="translate(711 265) scale(.86)">
+    <g class="annotation" id="story-detail" transform="translate(690 312) scale(.86)">
       <rect width="548" height="317" rx="15" fill="url(#glass)" stroke="#6e8a97" filter="url(#lift)"/>
       <rect x="25" y="24" width="94" height="25" rx="12.5" fill="#bee9ed"/>
       <text x="72" y="41" text-anchor="middle" class="mono" font-size="12" font-weight="680" style="fill:#15333d">STORY</text>
