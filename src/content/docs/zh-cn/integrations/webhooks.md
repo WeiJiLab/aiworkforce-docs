@@ -1,16 +1,18 @@
 ---
 title: "Webhooks"
-description: "从外部系统调用已发布的 Job。出站 Webhook 订阅不是一个单独的产品界面。"
+description: 在工单创建时触发 Job，从事件回执中读取运行 ID 并查询分析结果。
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "f7027d4884b9b52ace509f7a994e4a04ba47040a5df6ab9c26f8211c4df76030"
+  sourceHash: "2a40becac6ceabbeb540d010f62281cb0ee6320ad246c1982ac9b90a08a7ebcd"
 ---
 
-当前产品里的 Webhook 是自动化 Job 上的入站触发。外部系统调用平台，若已启用自动执行且调用满足部署的认证，已发布的 Job 可以运行。本页是这次调用的开发者视图。把触发规则挂到 Job 上的产品步骤见[监视与 Webhook](/zh-cn/automate/watchers-webhooks/)。
+当工单系统要在创建工单时启动分析，先为已发布的分析 Job 配置并启用 Webhook 触发规则。见[监视与 Webhook](/zh-cn/automate/watchers-webhooks/)。
 
-没有一份文档化的出站 Webhook 产品，会把每次运行事件推送到你注册的 URL。如果需要结果，轮询这次运行。`POST` 调用返回 HTTP 202 和一个运行句柄。从运行中读取 `status`、`output`、`summary` 和 `error`。202 表示工作已被接受，不是已经完成。
+工单后端向 `POST /api/automation/v1/triggers/{trigger_id}/events` 发送包含 `input` 对象的 JSON。HTTP `202` 表示已接收事件。回执的 `data.id` 是事件 ID。要查询运行，在 `data.results` 中找到对应 `definition_id` 的条目，使用其中的 `run_id`。如果该值为空，检查该项的 `disposition` 和 `message`。
+
+使用有读取权限的凭据调用 `GET /api/automation/v1/runs/{run_id}`，按 `status` 判断进度。成功后，由工单后端把 `output` 中的摘要写回工单。见 [REST API](/zh-cn/developer/api-reference/)。
 
 ## 调用你被允许调用的 Job
 

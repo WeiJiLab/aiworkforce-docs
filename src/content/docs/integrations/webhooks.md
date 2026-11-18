@@ -1,15 +1,17 @@
 ---
 title: "Webhooks"
-description: "Call a published Job from an external system. Outbound webhook subscriptions are not a separate product surface."
+description: Trigger a Job when a ticket is created and use the event receipt to look up the analysis run.
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-A webhook in the current product is an inbound trigger on an Automation Job. An external system calls the platform, and a published Job may run if automatic execution is enabled and the call meets the deployment's authentication. This page is the developer view of that call. The product steps for attaching the trigger are in [watchers and webhooks](/automate/watchers-webhooks/).
+To analyze a ticket when it is created, configure and enable a webhook trigger on the published analysis Job. See [watchers and webhooks](/automate/watchers-webhooks/).
 
-There is no documented outbound webhook product that posts every run event to a URL you register. If you need the result, poll the run. `POST` invocation returns HTTP 202 with a run handle. Read `status`, `output`, `summary`, and `error` from the run. 202 means the work was accepted, not that it finished.
+Have the ticket backend send a JSON body containing `input` to `POST /api/automation/v1/triggers/{trigger_id}/events`. HTTP `202` means the platform accepted the event. The receipt’s `data.id` identifies the event. To look up the run, find the entry for your `definition_id` in `data.results` and use its `run_id`. If that value is null, inspect the entry’s `disposition` and `message`.
+
+With a credential that can read runs, poll `GET /api/automation/v1/runs/{run_id}` for the run’s `status`. On success, have the ticket backend write the summary from `output` back to the ticket. See the [REST API](/developer/api-reference/).
 
 ## Call the Job you were allowed to call
 
