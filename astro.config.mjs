@@ -1,8 +1,18 @@
-import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
+import { defineConfig } from "astro/config";
 
 import { portalSidebars } from "./src/lib/navigation.ts";
-import { base, origin } from "./src/lib/site.mjs";
+import {
+  publishGoogleSitemap,
+  serializeSitemapItem,
+} from "./src/lib/sitemap.mjs";
+import { base, origin, withBase } from "./src/lib/site.mjs";
+
+const locales = {
+  root: { label: "English", lang: "en" },
+  "zh-cn": { label: "简体中文", lang: "zh-CN" },
+};
 
 export default defineConfig({
   site: origin,
@@ -32,10 +42,13 @@ export default defineConfig({
       disable404Route: true,
       logo: { src: "./src/assets/logo.svg", alt: "", replacesTitle: false },
       defaultLocale: "root",
-      locales: {
-        root: { label: "English", lang: "en" },
-        "zh-cn": { label: "简体中文", lang: "zh-CN" },
-      },
+      locales,
+      head: [
+        {
+          tag: "link",
+          attrs: { rel: "sitemap", href: withBase("/sitemap.xml") },
+        },
+      ],
       customCss: ["./src/styles/custom.css"],
       components: {
         Header: "./src/components/Header.astro",
@@ -46,5 +59,24 @@ export default defineConfig({
       credits: false,
       sidebar: portalSidebars(),
     }),
+    sitemap({
+      namespaces: {
+        news: false,
+        xhtml: true,
+        image: false,
+        video: false,
+      },
+      i18n: {
+        defaultLocale: "root",
+        locales: Object.fromEntries(
+          Object.entries(locales).map(([locale, config]) => [
+            locale,
+            config.lang,
+          ]),
+        ),
+      },
+      serialize: serializeSitemapItem,
+    }),
+    publishGoogleSitemap(),
   ],
 });
