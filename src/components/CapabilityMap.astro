@@ -3,6 +3,9 @@ import { Icon } from "@astrojs/starlight/components";
 import { localizedGuideHref } from "../lib/landing-content";
 const zh = Astro.locals.starlightRoute.locale === "zh-cn";
 const guide = (path: string) => localizedGuideHref(path, zh);
+const alertExampleHref =
+  guide("software-factory/signal-to-card") +
+  (zh ? "#线上告警示例" : "#production-alert-example");
 const channels = [
   {
     icon: "list-format",
@@ -21,6 +24,12 @@ const channels = [
     label: zh ? "员工会话" : "Employee chat",
     detail: zh ? "与数字员工对话" : "Talk to an employee",
     href: guide("user-guide/agent-chat"),
+  },
+  {
+    icon: "analytics",
+    label: zh ? "线上告警" : "Production alerts",
+    detail: "PagerDuty · Sentry",
+    href: alertExampleHref,
   },
 ] as const;
 const roles = [
@@ -155,10 +164,7 @@ const oversight = [
       >
     </div>
   </div>
-  <a
-    class="monitor-link"
-    href={guide("software-factory/signal-to-card") +
-      (zh ? "#线上告警示例" : "#production-alert-example")}
+  <a class="monitor-link" href={alertExampleHref}
     ><Icon name="analytics" />{
       zh
         ? "线上告警如何进入交付看板？"
@@ -367,6 +373,7 @@ const oversight = [
     .branches {
       position: relative;
       padding-left: 0.55rem;
+      gap: 0.55rem;
     }
     .branches::before {
       content: "";
@@ -375,6 +382,18 @@ const oversight = [
       top: 1.9rem;
       bottom: 1.9rem;
       border-left: 1px solid var(--orange);
+    }
+    .channel {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 0.45rem;
+      justify-items: start;
+      align-content: center;
+      padding-inline: 0.7rem;
+      text-align: start;
+    }
+    .channel svg {
+      grid-row: span 2;
     }
     .channel::before {
       content: "";
