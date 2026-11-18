@@ -997,7 +997,6 @@ summary:focus-visible {
     gap: 0;
   }
   .site-nav,
-  .site-nav-github,
   .site-nav-console {
     display: none;
   }

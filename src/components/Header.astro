@@ -10,7 +10,6 @@ const zh = locale === "zh-cn";
 const current = getPortal(Astro.locals.starlightRoute.entry.id);
 const destinations = portalDestinations(locale);
 const outbound = externalNav(locale);
-const github = outbound.find((item) => item.id === "github");
 const consoleLink = outbound.find((item) => item.id === "console");
 const newWindow = zh ? "（新窗口打开）" : " (opens in a new tab)";
 ---
@@ -37,19 +36,6 @@ const newWindow = zh ? "（新窗口打开）" : " (opens in a new tab)";
     <div class="docs-search"><Search /></div>
   </div>
   <div class="docs-header-end">
-    {
-      github && (
-        <a
-          class="site-nav-link site-nav-github"
-          href={github.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {github.label}
-          <span class="visually-hidden">{newWindow}</span>
-        </a>
-      )
-    }
     <div class="docs-preferences">
       <div class="docs-preference">
         <ThemeSelect />

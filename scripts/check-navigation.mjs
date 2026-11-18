@@ -186,7 +186,7 @@ for (const [route, page] of expectedPages) {
     }
   }
 
-  const siteNav = document.querySelectorAll(".site-nav");
+  const siteNav = document.querySelectorAll(".docs-header");
   record(siteNav.length === 1, route, "expected one site top navigation");
   if (siteNav[0]) {
     const labels = [...siteNav[0].querySelectorAll("a")].map((link) =>
@@ -209,9 +209,9 @@ for (const [route, page] of expectedPages) {
       "site nav must include API",
     );
     record(
-      labels.some((label) => label.startsWith("GitHub")),
+      !labels.some((label) => label.startsWith("GitHub")),
       route,
-      "site nav must include GitHub",
+      "site nav must not link to the source repository",
     );
     record(
       labels.some((label) => label.startsWith(zh ? "控制台" : "Console")),

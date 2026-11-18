@@ -6,7 +6,7 @@ import {
   sectionFor,
   starlightSlug,
 } from "./sidebar.mjs";
-import { consoleUrl, githubUrl, withBase } from "./site.mjs";
+import { consoleUrl, withBase } from "./site.mjs";
 
 export type PortalId = (typeof Portal)[keyof typeof Portal];
 
@@ -97,7 +97,6 @@ export function portalDestinations(locale?: string) {
 export function externalNav(locale?: string) {
   const zh = locale === "zh-cn";
   return [
-    { id: "github" as const, label: "GitHub", href: githubUrl },
     {
       id: "console" as const,
       label: zh ? "控制台" : "Console",

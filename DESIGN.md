@@ -12,8 +12,8 @@ The site uses one reading layout for Docs, Learn, and API. A persistent top navi
 
 ## Decisions
 
-- Top navigation: **Docs · Learn · API · GitHub · Console**. GitHub and Console are external links from `src/lib/site.mjs`.
-- The header is a full-width bar above the sidebar. Brand and Docs / Learn / API sit on the left, search in the center, and GitHub, theme, language, and Console on the right. Do not move that bar into the sidebar column.
+- Top navigation: **Docs · Learn · API · Console**. Console is the external product link from `src/lib/site.mjs`. The source repository is not linked; the product is not presented as open source.
+- The header is a full-width bar above the sidebar. Brand and Docs / Learn / API sit on the left, search in the center, and theme, language, and Console on the right. Do not move that bar into the sidebar column.
 - Each portal has its own sidebar. Route middleware keeps previous/next inside the current portal and language.
 - Docs homepage leads with software delivery, then task sections matching the Docs IA. It does not open with “Create your first AI Employee.”
 - Learn homepage asks what the reader wants to do, with three path cards. Practice playbooks remain available.
@@ -21,7 +21,7 @@ The site uses one reading layout for Docs, Learn, and API. A persistent top navi
 - Preserve stable guide URLs when possible. Moved or removed pages use redirects in `astro.config.mjs`.
 - Keep brand mark, navy/cyan palette, Pagefind search, theme, and language switching.
 - Custom article actions use the shared icon-only `IconButton` with Chinese accessible labels.
-- On narrow screens, Docs / Learn / API, GitHub, and Console move into the sidebar footer. The header keeps the brand, search, theme, and language.
+- On narrow screens, Docs / Learn / API and Console move into the sidebar footer. The header keeps the brand, search, theme, and language.
 
 ## Verification
 

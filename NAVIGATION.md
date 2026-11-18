@@ -1,16 +1,15 @@
 # Docs / Learn / API 信息架构
 
-核对日期：2026-11-18。顶栏为 **Docs · Learn · API · GitHub · Console**。英文与中文共用相同 slug；侧栏按栏目（portal）切换，上一页 / 下一页不跨栏目、不跨语言。
+核对日期：2026-11-18。顶栏为 **Docs · Learn · API · Console**。英文与中文共用相同 slug；侧栏按栏目（portal）切换，上一页 / 下一页不跨栏目、不跨语言。源码仓库不放进顶栏。
 
 ## 顶栏去向
 
-| 项      | 含义               | 去向                                               |
-| ------- | ------------------ | -------------------------------------------------- |
-| Docs    | 产品参考与配置     | `/` 与 `/zh-cn/`                                   |
-| Learn   | 教程与课程路径     | `/learn/` 与 `/zh-cn/learn/`                       |
-| API     | 程序化集成         | `/api/` 与 `/zh-cn/api/`                           |
-| GitHub  | 开源与代码（外链） | `https://github.com/WeiJiLab/aiworkforce-platform` |
-| Console | 产品控制台（外链） | `https://aiworkforce.run`                          |
+| 项      | 含义               | 去向                         |
+| ------- | ------------------ | ---------------------------- |
+| Docs    | 产品参考与配置     | `/` 与 `/zh-cn/`             |
+| Learn   | 教程与课程路径     | `/learn/` 与 `/zh-cn/learn/` |
+| API     | 程序化集成         | `/api/` 与 `/zh-cn/api/`     |
+| Console | 产品控制台（外链） | `https://aiworkforce.run`    |
 
 不要把 User / Builder / Platform Engineer 做成顶栏或 Docs 一级栏目；读者角色放在 Learn 路径描述里。
 
@@ -66,4 +65,4 @@ npm run check:links
 npm run check:navigation
 ```
 
-`check:navigation` 确认每页只有当前栏目侧栏、顶栏含 Docs/Learn/API/GitHub/Console、不含 Agent Protocol，以及语言切换与分页留在同一栏目。
+`check:navigation` 确认每页只有当前栏目侧栏、顶栏含 Docs/Learn/API/Console、不含源码仓库链接和 Agent Protocol，以及语言切换与分页留在同一栏目。
