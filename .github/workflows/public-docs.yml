@@ -1,9 +1,14 @@
 name: Documentation
 
 on:
-  pull_request:
   push:
-    branches: [main]
+    branches: [pages]
+  pull_request:
+    branches: [pages]
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -25,7 +30,27 @@ jobs:
       - run: npm run check:links
       - run: npm run check:navigation
       - uses: actions/upload-artifact@v4
+        if: github.event_name == 'pull_request'
         with:
           name: aiworkforce-docs
           path: dist
           retention-days: 7
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name == 'push'
+        with:
+          path: dist
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/pages'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

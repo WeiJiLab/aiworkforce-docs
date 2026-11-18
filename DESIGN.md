@@ -31,6 +31,6 @@ The interface comparison uses the supplied desktop screenshots. The category rev
 
 The guides are available in both languages. Run formatting, Astro/content checks, a production build, local link checks, and `npm run check:navigation`. The navigation check reads the built HTML to verify direct loads, one shared sidebar, active links, the support destination, language switches, and previous/next staying in the same language. Visual review should include the homepage, a long article, a page marked limited or planned, both themes, and the mobile navigation drawer, with a single theme/language pair visible in the header.
 
-## Publication boundary
+## Publication
 
-The project is intended for private preparation. The organization owner must confirm private repository visibility before source is pushed. CI validates and uploads a build artifact; it does not deploy a public site. Cloudflare configuration is preparatory. No production hosting, DNS change, or public documentation release is part of this implementation.
+GitHub Actions validates the `pages` branch and deploys that build to GitHub Pages. Pull requests into `pages` are checked and are not deployed. `main` is not the publication branch.

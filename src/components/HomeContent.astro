@@ -4,6 +4,7 @@ import {
   localizedGuideHref,
   type HomeSection,
 } from "../lib/landing-content";
+import { withBase } from "../lib/site.mjs";
 
 interface Props {
   section: HomeSection;
@@ -95,7 +96,7 @@ const { paths, domains, pathsIntro, overview, agents } = getHomeContent(zh);
       </div>
       <div class="agent-links">
         {agents.links.map((link) => (
-          <a href={link.href}>
+          <a href={link.href.startsWith("/") ? withBase(link.href) : link.href}>
             <code>{link.title}</code>
             <span>{link.description} ↗</span>
           </a>

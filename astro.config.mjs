@@ -2,9 +2,11 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 import { siteSidebar } from "./src/lib/navigation.ts";
+import { base, origin } from "./src/lib/site.mjs";
 
 export default defineConfig({
-  site: "https://docs.aiworkforce.run",
+  site: origin,
+  base,
   trailingSlash: "always",
   integrations: [
     starlight({

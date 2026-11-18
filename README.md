@@ -32,7 +32,7 @@ npm run check:navigation
 
 English and Chinese share one sidebar and the same slugs. The directory is defined in `src/lib/sidebar.mjs`. There are 87 pages in each language, including the homepage. [Navigation](NAVIGATION.md) explains the sections, the support states, and the stable URLs.
 
-A page may set `support` to `available` (the default), `limited`, or `planned`. Limited and planned pages say so in the sidebar and above the article. Do not describe a planned interface as something a reader can call.
+A page may set `status` to `available` (the default), `beta`, `limited`, or `planned`. Beta, limited, and planned pages say so in the sidebar and above the article. Do not describe a planned interface as something a reader can call.
 
 Content lives in `src/content/docs/`. Chinese files mirror the English paths under `zh-cn/`. Start a guide from `templates/guide.md`. Starlight supplies the H1. Use absolute links to the language-appropriate page. Add every new guide to `src/lib/sidebar.mjs`. Existing guide URLs stay valid when their section changes.
 
@@ -52,24 +52,23 @@ Copy that hash into the corresponding Chinese frontmatter. If translation review
 - `/llms-full.txt` is generated from all published pages.
 - `/getting-started/quickstart.md` and `/zh-cn/getting-started/quickstart.md` expose page content without navigation or scripts.
 - The English homepage is available at `/index.md`; the Chinese homepage at `/zh-cn.md`.
-- A page whose support is not `available` includes that state in the Markdown export.
+- A page whose status is not `available` includes that state in the Markdown export.
 
 Draft pages are excluded from these endpoints. Content endpoints are generated from the same collection as the website, so no duplicated text files need maintenance. Documentation MCP and downloadable integration skills are future work, not available services.
 
-## Cloudflare Pages
+## GitHub Pages
 
-When deployment is authorized, connect this repository to Cloudflare Pages with these settings:
+The publication branch is `pages`. GitHub Actions validates that branch and deploys the built site. Pull requests into `pages` are validated and are not deployed. `main` is not used for publication.
 
-| Setting                | Value                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------- |
-| Production branch      | `main`                                                                                        |
-| Root directory         | Repository root (leave blank)                                                                 |
-| Build command          | `npm ci && npm run check && npm run build && npm run check:links && npm run check:navigation` |
-| Build output directory | `dist`                                                                                        |
-| Node.js                | Select a build image with Node 22.23.4+ or Node 24+                                           |
-| Planned custom domain  | `docs.aiworkforce.run`                                                                        |
+| Setting            | Value                                        |
+| ------------------ | -------------------------------------------- |
+| Workflow           | `.github/workflows/public-docs.yml`          |
+| Publication branch | `pages`                                      |
+| Build output       | `dist`                                       |
+| Node.js            | 24                                           |
+| Site               | https://weijilab.github.io/aiworkforce-docs/ |
 
-GitHub Actions validates formatting, Astro types/schema, translations, the production build, local links, and portal navigation, and uploads the build for review. A connected Cloudflare Pages project can deploy `main` after merge and supply PR branch previews. Hosting, preview access, and DNS must be configured separately; the repository's private visibility does not provide access control for a deployed site. No hosting or DNS has been provisioned by this change.
+`docs.aiworkforce.run` is not configured. The site is served from the GitHub Pages project path above.
 
 ## Product accuracy
 

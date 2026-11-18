@@ -49,8 +49,10 @@ export interface PortalContent {
   readonly next: readonly LandingGuide[];
 }
 
+import { withBase } from "./site.mjs";
+
 export function localizedGuideHref(href: string, zh: boolean): string {
-  return `${zh ? "/zh-cn" : ""}/${href}/`;
+  return withBase(`${zh ? "/zh-cn" : ""}/${href}/`);
 }
 
 export function getHomeContent(zh: boolean): HomeContent {

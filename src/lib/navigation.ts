@@ -5,6 +5,7 @@ import {
   sectionFor,
   starlightSlug,
 } from "./sidebar.mjs";
+import { withBase } from "./site.mjs";
 
 export interface NavigationPageGroup {
   readonly label: string;
@@ -41,9 +42,10 @@ export function findSection(id: string): NavigationGroup | undefined {
 }
 
 export function sectionHref(group: NavigationGroup, locale?: string): string {
-  const base = locale === "zh-cn" ? "/zh-cn" : "";
+  const prefix = locale === "zh-cn" ? "/zh-cn" : "";
   const slug = starlightSlug(groupPages(group)[0] ?? HOME_ID);
-  return slug === "index" ? `${base}/` : `${base}/${slug}/`;
+  const path = slug === "index" ? `${prefix}/` : `${prefix}/${slug}/`;
+  return withBase(path);
 }
 
 function sidebarItems(items: NavigationGroup["items"]) {

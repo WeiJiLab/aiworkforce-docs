@@ -2,6 +2,7 @@
 import PageTitle from "@astrojs/starlight/components/PageTitle.astro";
 import IconButton from "./IconButton.astro";
 import { canonicalPage, findSection, sectionHref } from "../lib/navigation";
+import { withBase } from "../lib/site.mjs";
 
 const { entry, locale } = Astro.locals.starlightRoute;
 const zh = locale === "zh-cn";
@@ -40,7 +41,7 @@ const supportCopy =
   <div class="document-title">
     <PageTitle />
     <div class="document-actions" data-pagefind-ignore>
-      <IconButton href={`/${id}.md`} label="查看 Markdown 原文"
+      <IconButton href={withBase(`/${id}.md`)} label="查看 Markdown 原文"
         ><svg
           width="18"
           height="18"

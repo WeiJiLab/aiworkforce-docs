@@ -2,6 +2,8 @@
 import SidebarPersister from "@astrojs/starlight/components/SidebarPersister.astro";
 import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
 
+import { withBase } from "../lib/site.mjs";
+
 const { locale, sidebar } = Astro.locals.starlightRoute;
 const zh = locale === "zh-cn";
 ---
@@ -19,7 +21,7 @@ const zh = locale === "zh-cn";
   <div class="portal-sidebar-footer">
     <a
       class="portal-support"
-      href={`${zh ? "/zh-cn" : ""}/resources/releases-support/`}
+      href={withBase(`${zh ? "/zh-cn" : ""}/resources/releases-support/`)}
     >
       <svg
         viewBox="0 0 24 24"

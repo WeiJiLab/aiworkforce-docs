@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content";
+import { absoluteUrl } from "./site.mjs";
 import {
   getHomeContent,
   getPortalContent,
@@ -115,5 +116,5 @@ export function toMarkdown(entry: CollectionEntry<"docs">): string {
     status && status !== "available"
       ? `${zh ? "支持状态" : "Support"}: ${status}\n\n`
       : "";
-  return `# ${title}\n\n${description}\n\n${supportLabel}${sourceLabel}: https://docs.aiworkforce.run${pageUrl(entry.id)}\n\n${body}\n`;
+  return `# ${title}\n\n${description}\n\n${supportLabel}${sourceLabel}: ${absoluteUrl(pageUrl(entry.id))}\n\n${body}\n`;
 }

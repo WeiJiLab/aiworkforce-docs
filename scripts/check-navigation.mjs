@@ -3,8 +3,9 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseHTML } from "linkedom";
 import { groups, homeId, orderedIds } from "../src/lib/sidebar.mjs";
+import { base, origin } from "../src/lib/site.mjs";
 
-const origin = "https://docs.aiworkforce.run";
+const originHost = origin;
 const sourceRoot = fileURLToPath(
   new URL("../src/content/docs/", import.meta.url),
 );
@@ -14,15 +15,16 @@ const errors = [];
 
 function routeFor(id, locale = "") {
   const slug = id.replace(/(^|\/)index$/, "");
-  return `/${[locale, slug].filter(Boolean).join("/")}/`.replace(
+  const path = `/${[locale, slug].filter(Boolean).join("/")}/`.replace(
     /\/{2,}/g,
     "/",
   );
+  return `${base}${path}`.replace(/\/{2,}/g, "/");
 }
 
 function pathname(value, route) {
-  const url = new URL(value, `${origin}${route}`);
-  return url.origin === origin && !url.hash && !url.search
+  const url = new URL(value, `${originHost}${route}`);
+  return url.origin === originHost && !url.hash && !url.search
     ? decodeURIComponent(url.pathname)
     : undefined;
 }
@@ -77,10 +79,16 @@ const documents = new Map(
   await Promise.all(
     (await readdir(buildRoot, { recursive: true }))
       .filter((file) => file.endsWith("/index.html") || file === "index.html")
-      .map(async (file) => [
-        `/${file.replace(/index\.html$/, "")}`,
-        parseHTML(await readFile(join(buildRoot, file), "utf8")).document,
-      ]),
+      .map(async (file) => {
+        const rel = `/${file.replace(/index\.html$/, "")}`.replace(
+          /\/{2,}/g,
+          "/",
+        );
+        return [
+          `${base}${rel}`.replace(/\/{2,}/g, "/"),
+          parseHTML(await readFile(join(buildRoot, file), "utf8")).document,
+        ];
+      }),
   ),
 );
 
