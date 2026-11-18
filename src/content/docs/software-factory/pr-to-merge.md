@@ -22,8 +22,6 @@ flowchart TD
     checks -->|Check failed| fix["Development employee: repair the card"]
     decision -->|Changes needed| fix
     fix -->|Check again| checks
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class ready,decision,ship human
     class checks,fix,release agent
 ```

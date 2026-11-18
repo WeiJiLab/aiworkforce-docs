@@ -96,40 +96,33 @@ const newWindow = zh ? "（新窗口打开）" : " (opens in a new tab)";
     },
     theme: string,
   ) => {
+    const styles = getComputedStyle(document.documentElement);
+    const token = (name: string) => styles.getPropertyValue(name).trim();
     mermaid.initialize({
       startOnLoad: false,
       securityLevel: "strict",
       theme: "base",
-      fontFamily: "inherit",
-      themeVariables:
-        theme === "light"
-          ? {
-              background: "#ffffff",
-              primaryColor: "#e8f0fa",
-              primaryTextColor: "#173753",
-              primaryBorderColor: "#315d83",
-              lineColor: "#315d83",
-              secondaryColor: "#fff7ed",
-              tertiaryColor: "#f8fafc",
-              textColor: "#173753",
-              mainBkg: "#e8f0fa",
-              nodeBorder: "#315d83",
-              clusterBkg: "#f8fafc",
-            }
-          : {
-              background: "#121923",
-              primaryColor: "#1b3c4e",
-              primaryTextColor: "#f1f2f6",
-              primaryBorderColor: "#91d9ef",
-              lineColor: "#91d9ef",
-              secondaryColor: "#1b2634",
-              tertiaryColor: "#193646",
-              textColor: "#f1f2f6",
-              mainBkg: "#1b2634",
-              nodeBorder: "#91d9ef",
-              clusterBkg: "#1b2634",
-              edgeLabelBackground: "#121923",
-            },
+      fontFamily: token("--sl-font"),
+      themeVariables: {
+        darkMode: theme === "dark",
+        background: token("--docs-surface"),
+        primaryColor: token("--docs-surface"),
+        primaryTextColor: token("--docs-ink"),
+        primaryBorderColor: token("--docs-line-hover"),
+        lineColor: token("--docs-muted"),
+        secondaryColor: token("--docs-accent-soft"),
+        tertiaryColor: token("--docs-soft"),
+        clusterBkg: token("--docs-soft"),
+        clusterBorder: token("--docs-line"),
+        edgeLabelBackground: token("--docs-surface"),
+      },
+      themeCSS: `
+        .node.agent > .label-container { fill: var(--docs-soft); }
+        .node.human > .label-container {
+          fill: var(--docs-accent-soft);
+          stroke: var(--docs-accent);
+        }
+      `,
     });
     for (const mount of mounts) {
       try {

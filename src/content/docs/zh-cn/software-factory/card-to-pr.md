@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "72541b52bea32dba989489718b8757cec181e467d18913d0331fa085906c44db"
+  sourceHash: "e28557eb529d8f35a9436e22e33bef236261060210bf48393c385dca8ac0eaa3"
 ---
 
 这条回路从团队已经接受的卡片开始，或从你转入看板的收件箱事项开始。需求员工检查问题、结果、范围和目标仓库。含糊的卡片留在澄清状态，直到你确认。边界清楚的卡片进入开发。开发员工实现变更，运行已配置的检查，并在卡片上记录 Pull Request、分支或提交。
@@ -24,8 +24,6 @@ flowchart TD
     author --> review["人：审阅变更和证据"]
     review -->|退回| author
     review -->|接受| next["Pull Request → 合并"]
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class ticket,approval,review human
     class ready,spec,author agent
 ```
