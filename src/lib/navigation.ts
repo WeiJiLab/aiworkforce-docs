@@ -128,9 +128,9 @@ export function portalSidebars() {
       items: [
         {
           slug: starlightSlug(landingFileId(definition.landing)),
-          label: definition.landingLabel ?? `${definition.label} home`,
+          label: definition.landingLabel,
           translations: {
-            "zh-CN": definition.landingZh ?? `${definition.zhLabel}首页`,
+            "zh-CN": definition.landingZh,
           },
         },
         ...definition.groups.map((group) => ({

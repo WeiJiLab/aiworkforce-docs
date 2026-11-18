@@ -180,6 +180,8 @@ export const PORTALS = {
   [Portal.Learn]: {
     label: "Learn",
     zhLabel: "学习",
+    landingLabel: "Learning paths",
+    landingZh: "学习路径",
     description: ["Tutorials and courses", "教程与课程"],
     landing: "learn",
     groups: [
@@ -247,6 +249,8 @@ export const PORTALS = {
   [Portal.Build]: {
     label: "Build",
     zhLabel: "构建数字员工",
+    landingLabel: "Employee build workflow",
+    landingZh: "员工构建流程",
     description: [
       "Build employees in the FDE workbench",
       "在 FDE 工作台构建数字员工",
@@ -332,6 +336,8 @@ export const PORTALS = {
   [Portal.Developer]: {
     label: "Developer",
     zhLabel: "Developer",
+    landingLabel: "Development and integration",
+    landingZh: "开发与集成",
     description: ["Build apps and integrations", "开发应用与集成"],
     landing: "developer",
     groups: [
