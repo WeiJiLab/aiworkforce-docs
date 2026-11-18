@@ -1,4 +1,6 @@
 ---
+import { Icon } from "@astrojs/starlight/components";
+import SidebarRestorePoint from "@astrojs/starlight/components/SidebarRestorePoint.astro";
 import SidebarPersister from "@astrojs/starlight/components/SidebarPersister.astro";
 import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
 
@@ -18,6 +20,13 @@ const directoryIndex = sidebar.findIndex(
     ),
 );
 const directory = sidebar[directoryIndex];
+const currentInDirectory =
+  directory?.type === "group" &&
+  directory.entries.some((entry) =>
+    entry.type === "link"
+      ? entry.isCurrent
+      : entry.entries.some((link) => link.type === "link" && link.isCurrent),
+  );
 ---
 
 <div class="portal-sidebar" data-portal={portal}>
@@ -33,27 +42,35 @@ const directory = sidebar[directoryIndex];
           directory?.type === "group" ? (
             <>
               <SidebarSublist sublist={sidebar.slice(0, directoryIndex)} />
-              <section
+              <details
                 class="integration-directory"
-                aria-labelledby="integration-directory-title"
+                open={currentInDirectory || !directory.collapsed}
               >
-                <h2 id="integration-directory-title">{directory.label}</h2>
-                <SidebarSublist
-                  nested
-                  sublist={directory.entries.filter(
-                    (entry) => entry.type === "link",
+                <summary>
+                  <span class="group-label">
+                    <span class="large">{directory.label}</span>
+                  </span>
+                  <Icon name="right-caret" class="caret" size="1.25rem" />
+                </summary>
+                <SidebarRestorePoint />
+                <div class="integration-links">
+                  <SidebarSublist
+                    nested
+                    sublist={directory.entries.filter(
+                      (entry) => entry.type === "link",
+                    )}
+                  />
+                  {directory.entries.map(
+                    (category) =>
+                      category.type === "group" && (
+                        <>
+                          <h3>{category.label}</h3>
+                          <SidebarSublist nested sublist={category.entries} />
+                        </>
+                      ),
                   )}
-                />
-                {directory.entries.map(
-                  (category) =>
-                    category.type === "group" && (
-                      <>
-                        <h3>{category.label}</h3>
-                        <SidebarSublist nested sublist={category.entries} />
-                      </>
-                    ),
-                )}
-              </section>
+                </div>
+              </details>
               <SidebarSublist sublist={sidebar.slice(directoryIndex + 1)} />
             </>
           ) : (
@@ -103,11 +120,23 @@ const directory = sidebar[directoryIndex];
   .integration-directory {
     margin-block: 0.75rem;
   }
-  .integration-directory h2 {
-    padding: 0.25rem 0.5rem;
-    color: var(--docs-ink);
-    font-size: 0.8125rem;
-    font-weight: 600;
+  .integration-directory summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+  }
+  .integration-directory summary::-webkit-details-marker {
+    display: none;
+  }
+  .integration-directory[open] > summary :global(.caret) {
+    transform: rotate(90deg);
+  }
+  .integration-links {
+    margin-inline-start: 0.625rem;
+    padding-inline-start: 0.5rem;
+    border-inline-start: 1px solid var(--docs-line);
   }
   .integration-directory h3 {
     margin-block: 0.625rem 0.125rem;
