@@ -7,13 +7,17 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "8b7e144def821d338240959e1c572773a208ee182b8f968eb21c094819a42470"
+  sourceHash: "79412284e66b101615e5b73f17f5a1c05181d61c21826e4092d9133f273e07ad"
 ---
 
 import HomeContent from "../../../components/HomeContent.astro";
 import CapabilityMap from "../../../components/CapabilityMap.astro";
 
 **AI Workforce 是面向研发团队的 AI 软件工厂。** 它把需求、代码变更和验证结果关联到同一张交付卡片，让团队从一条 Issue 跟进到合并和发布。 [先看交付示例](#一条调研发现如何进入测试环境)
+
+## 软件工厂如何运转
+
+<CapabilityMap />
 
 ## 一条调研发现如何进入测试环境
 
@@ -26,10 +30,6 @@ import CapabilityMap from "../../../components/CapabilityMap.astro";
 3. **验证变更。** 在「交付」页签，PR #62 关联到 GitHub Actions 运行 #482。构建与测试已通过，变更已部署到测试环境，生产发布仍待执行。[接入 CI/CD 流水线](/zh-cn/software-factory/cicd/)
 
 [在自己的看板上交付一条 Issue](/zh-cn/getting-started/quickstart/)
-
-## 软件工厂如何运转
-
-<CapabilityMap />
 
 ## 选择你的起点
 
