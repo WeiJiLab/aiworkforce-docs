@@ -1,6 +1,6 @@
 ---
 title: 构建并自动化软件交付
-description: 让 Agent 实现已确认的 Issue，在交付看板上检查代码与验证证据，并记录团队的审阅决定。
+description: 通过自动化发现需求，在交付看板上跟踪每条 Story 的代码变更、CI/CD 结果和发布状态。
 prev: false
 translation:
   source: en
@@ -11,7 +11,11 @@ translation:
 
 import HomeContent from "../../../components/HomeContent.astro";
 
-把已确认的 Issue 交给 Agent 实现。在交付看板上检查代码和验证证据，再记录团队的审阅决定。
+自动化可以从外部 Issue、事件和定期调研中收集需求。在这个示例中，调研 Job 从竞品更新日志发现了新功能。团队将发现确认为 Story，在交付看板上查看关联 PR、测试环境部署结果和生产发布状态。
+
+[![交付工作台上的 Story #128，左侧是竞品新增邀请角色选项的调研发现，右侧是 GitHub Actions 的构建、测试与部署状态。](/illustrations/delivery-board.svg)](/illustrations/delivery-board.html)
+
+[放大查看工作台](/illustrations/delivery-board.html) · [配置 CI/CD 集成](/zh-cn/software-factory/cicd/)
 
 ## 现行入口
 
