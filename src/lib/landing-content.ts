@@ -65,41 +65,41 @@ export function getHomeContent(zh: boolean): HomeContent {
       "getting-started/quickstart",
     ),
     secondaryCta: guide(
-      zh ? "打开软件工厂概览" : "Open Software Factory overview",
+      zh ? "查看交付示例" : "View a delivery example",
       zh
-        ? "先看软件交付这条主线，再展开看板与 Issue 自动化。"
-        : "Start with the software delivery line, then expand into board and issue automation.",
-      "software-factory/overview",
+        ? "跟踪一次表单修复，查看验收标准、代码变更和审阅证据。"
+        : "Follow a form fix from acceptance criteria to code and verification evidence.",
+      "recipes/issue-to-pr",
     ),
     applications: [
       guide(
-        zh ? "软件工厂" : "Software Factory",
+        zh ? "在现有看板上交付" : "Deliver on an existing board",
         zh
-          ? "把需求和 Issue 交由智能体执行、验证，并形成可审阅的 Pull Request。"
-          : "Carry requirements and issues through agent execution, verification, and a reviewed pull request.",
-        "software-factory/overview",
+          ? "已有交付项目？用一条小 Issue 跑通需求确认、实现和审阅。"
+          : "Already have a delivery project? Take a small issue through confirmation, implementation, and review.",
+        "getting-started/quickstart",
       ),
       guide(
-        zh ? "看板自动化" : "Kanban Automation",
+        zh ? "配置团队交付" : "Set up team delivery",
         zh
-          ? "让交付看板按真实执行状态持续推进，而不是手工维护状态标签。"
-          : "Keep a delivery board moving from real execution state, not from hand-edited status labels.",
-        "workflows/kanban-workbench",
+          ? "创建交付看板，连接仓库，配置执行和验证，试跑第一张卡片。"
+          : "Create a delivery board, connect a repository, configure execution and verification, and try your first card.",
+        "getting-started/first-software-factory",
       ),
       guide(
-        zh ? "Issue 自动化" : "Issue Automation",
+        zh ? "从外部系统启动 Job" : "Start a Job from an external system",
         zh
-          ? "从 GitHub Issue 或收件箱事项查清情况，确认后再进入交付。"
-          : "Start from a GitHub issue or inbox item, investigate it, and route confirmed work into delivery.",
-        "workflows/issue-automation",
+          ? "用入站 Webhook 触发已发布的 Job，然后查询运行结果。"
+          : "Trigger a published Job with an inbound webhook, then query the run for its result.",
+        "integrations/webhooks",
       ),
     ],
     buildSoftware: [
       guide(
-        zh ? "软件工厂" : "Software Factory",
+        zh ? "交付流程概览" : "Delivery overview",
         zh
-          ? "端到端交付一条经过验证的变更。"
-          : "Deliver one verified change end to end.",
+          ? "了解从工作进入到审阅与发布的交付路径。"
+          : "Explore the delivery path from intake through review and release.",
         "software-factory/overview",
       ),
       guide(
@@ -119,15 +119,15 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "Pull Request 自动化" : "Pull Request Automation",
         zh
-          ? "在 PR 事件上启动审阅与检查。"
-          : "Start review and checks from pull request events.",
+          ? "轮询 GitHub PR 事件，匹配规则时启动 Job 并查看调查结果。"
+          : "Poll GitHub for pull request events, start a Job on a match, and review its findings.",
         "workflows/pull-request-automation",
       ),
       guide(
         zh ? "构建与验证" : "Build and verification",
         zh
-          ? "对照验收标准检查构建与业务结果。"
-          : "Check builds and business results against acceptance criteria.",
+          ? "核对候选版本和已配置的构建与测试结果。"
+          : "Check the release candidate and its configured build and test results.",
         "software-factory/build-test",
       ),
     ],
@@ -323,11 +323,11 @@ export function getPortalContent(
     learn: {
       paths: [
         {
-          label: zh ? "构建软件" : "Build Software",
-          title: zh ? "构建软件" : "Build Software",
+          label: zh ? "软件工厂" : "Software Factory",
+          title: zh ? "软件工厂" : "Software Factory",
           description: zh
-            ? "运行并审阅自主编码交付：从 Issue 到验证过的变更。"
-            : "Run and review autonomous coding: from an Issue to a verified change.",
+            ? "跟随一条 Issue，了解如何执行、验证和审阅变更。"
+            : "Follow one issue through implementation, verification, and review.",
           href: "learn/software-factory-foundations",
           outcome: zh
             ? "理解软件工厂主线"
@@ -405,12 +405,12 @@ export function getPortalContent(
         },
         {
           label: zh ? "Webhook" : "Webhooks",
-          title: zh ? "接收运行事件" : "Receive run events",
+          title: zh ? "通过 Webhook 触发 Job" : "Trigger a Job with a webhook",
           description: zh
-            ? "在已支持的事件上推送通知，而不是轮询每一个状态。"
-            : "Push notifications for supported events instead of polling every status.",
+            ? "从外部系统启动已发布的 Job，并查询运行结果。"
+            : "Start a published Job from an external system and query its run for the result.",
           href: "integrations/webhooks",
-          outcome: zh ? "接好一条事件通道" : "Wire one event channel",
+          outcome: zh ? "按运行 ID 查询" : "Look up a run by ID",
         },
         {
           label: "MCP",

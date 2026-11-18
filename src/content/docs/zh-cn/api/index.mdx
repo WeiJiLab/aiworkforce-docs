@@ -6,12 +6,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "68a6a90aac675ac3365857a380eb8f8caf9cc55bd3a7ae215287ce2cb17868fb"
+  sourceHash: "2fdc38d79ae1be5bb87c9786875d771721713cb07402434b98ff51f1452b7702"
 ---
 
 import PortalLanding from "../../../../components/PortalLanding.astro";
 
-只使用本基线实际提供的接口：HTTP 管理与 Automation 路由、Webhook、Automation MCP，以及设备执行 CLI。没有发布通用 SDK 包，也没有 ACP 或 A2A 服务。
+可用接口包括 HTTP 管理与 Automation 路由、入站 Webhook、Automation MCP 和设备执行 CLI。通过入站 Webhook 触发已发布的 Job 后，查询对应的运行即可获取结果。当前未发布通用 SDK 包，也未提供 ACP 或 A2A 服务。
 
 ## 选择接口
 

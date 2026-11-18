@@ -1,0 +1,24 @@
+---
+title: "Troubleshoot a blocked delivery card"
+description: "Find why a delivery card stopped, recover it from the workbench, and confirm what happened next."
+translation:
+  source: en
+  status: complete
+  sourceVersion: "2026-11-18"
+---
+
+In **Automations**, open the delivery workbench at `/automations?tab=board-flow` and select the affected board. Open the card and note its current lane, its step within that lane, and the latest execution or request. If the card is in a shared test or release batch, check which other cards belong to that batch before changing it.
+
+| What you see                                      | What to do                                                                                                                                                                                                           | How to confirm progress                                                                                                               |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| The draft is waiting for confirmation             | Clarify the intended change, acceptance criteria, and allowed repositories on the card. Respond to the pending confirmation when those details are ready.                                                            | The confirmed scope is recorded on the card. Follow the linked development session when it starts.                                    |
+| The employee asks a question or requests approval | Open the request on the card and respond with the decision and its scope.                                                                                                                                            | Check the linked session for the response and the next execution step.                                                                |
+| The employee cannot access a repository           | Check that the project uses the intended enabled workspace connection. Check the executing employee's repository grant separately. After the grant is corrected, resume from the card.                               | Confirm the linked execution can access the intended repository and revision.                                                         |
+| Someone took over the card                        | Record the work performed and explicitly hand the card back when automatic progress may continue.                                                                                                                    | Verify that the takeover has ended and the configured workflow can advance. Resuming a paused workflow leaves the takeover in effect. |
+| The pipeline is paused                            | Open the lane orchestration, address the mapping or configuration problem shown by the editor, save, and resume.                                                                                                     | Check the next eligible step and its execution record before concluding that the card advanced.                                       |
+| A required test failed                            | Open the recorded failure, identify the tested revision and environment, and check for a repair already in progress. Return the affected work through the configured lane with the failed criterion and evidence.    | Verify the revised commit or candidate and link its new result to the card.                                                           |
+| No test result is recorded                        | Check whether the configured pipeline ran for this card's candidate and whether the card was part of that batch. If the pipeline could not run, record that outcome and attach any manual checks actually performed. | A recorded check identifies the tested revision, environment, and outcome. Leave unverified checks open for review.                   |
+
+For an intake Job that failed before it created or updated a work item, start with [Runs, results, and recovery](/automate/runs-recovery/). For configuration problems, use [Set up a delivery board](/getting-started/first-software-factory/), [Code repositories](/integrations/code-repositories/), or [CI/CD integration](/software-factory/cicd/).
+
+After recovery, open the linked session and check the card's latest step. If the change was revised, use [Evidence and trace](/software-factory/evidence/) and [Quality gates](/software-factory/quality-gates/) to confirm which checks and decisions apply to the new revision.

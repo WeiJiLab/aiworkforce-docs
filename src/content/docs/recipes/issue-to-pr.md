@@ -1,51 +1,49 @@
 ---
 title: "Issue to PR"
-description: "Turn a reviewed inbox Issue into a scoped delivery card and inspect its code and verification results."
+description: "See how a small Issue goes through implementation, a failed check, and review of the repaired change."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-This recipe follows a small defect from the workspace inbox to a delivery card and its code review evidence. Use a low-impact change such as correcting a validation message. The goal is a traceable change whose requirements and verification can be inspected.
+Follow one Issue from the inbox to a review decision. A project form shows “Invalid input” when its name field is empty. The team asks for a clearer message, catches a regression in the first candidate, and verifies the repair before accepting it.
 
-## Prerequisites
-
-You need a workspace with an execution employee, an Issue that supports development delivery, and a configured workbench project. Its repositories, lane employees, and any required test pipelines must be ready. Workspace credentials must be explicitly authorized for the execution employees that need them.
+The card, code references, and results below are illustrative. You can read the example without an account. To repeat the workflow in your workspace, follow the [Quickstart](/getting-started/quickstart/).
 
 ## 1. Inspect the Issue
 
-Open the workspace's **Inbox** from workspace management. Read the source, description, and observations. Confirm that the problem is reproducible and that this Issue belongs to the intended workspace.
-
-For example, the project form shows “Invalid input” when you submit it with an empty name. Record the form, the steps to reproduce the issue, and the expected message, “Enter a project name.” If an Automation collected the Issue, open its collection receipt for the source details.
+In the workspace **Inbox**, read the Issue's source and reproduction steps. In this example, the reviewer opens the project form, leaves the name empty, and submits. They confirm the generic message and identify the frontend repository as the place to make the change. If an Automation collected the Issue, the collection receipt can help confirm where it came from.
 
 ## 2. Route it to a workbench draft
 
-Use the Issue's workbench routing action and choose the intended project. Confirm the destination. The resulting card is a **draft awaiting human confirmation**; moving an Issue does not authorize immediate development.
+Use the Issue's workbench routing action and choose the intended project. In the resulting draft, record the scope and acceptance criteria. For this card, the reviewer limits edits to the frontend repository and keeps the server validation rules in place.
 
-Open the linked draft and clarify:
+| Criterion | Expected result                                           |
+| --------- | --------------------------------------------------------- |
+| AC1       | Submitting an empty name displays “Enter a project name.” |
+| AC2       | Submitting a valid name creates the project.              |
 
-- The exact behavior to change and what is outside scope.
-- Acceptance criteria that can be checked.
-- The repositories that may be modified.
-
-For the message fix, confirm that submitting an empty name displays “Enter a project name.” and that submitting a valid name still succeeds.
-
-Complete the requirements confirmation through the card's current human request. If clarification is still needed, answer in the associated requirements session.
+The reviewer checks both criteria and confirms scope and repository access through the card's human request. This confirmation is what lets the configured delivery flow proceed. If a detail is unclear, clarify it in the associated requirements session before confirming.
 
 ## 3. Follow the execution
 
-Open the delivery workbench and inspect the card's progress and execution sessions. Configured lane orchestration picks up ready work. Watch for questions, approvals, permission failures, or test failures and respond to the recorded blocker.
+Open **Automations** and select the delivery workbench at `/automations?tab=board-flow`. Open the card, follow the development session, and respond to questions or approvals on the card. The example card links a PR from the frontend repository. Depending on the repository integration and delivery path, a card may link a branch or commit instead.
 
 If manual investigation is needed, take over and keep a written decision. Hand the work back explicitly after resolving the blocker. A shared batch may include other cards, so review its members before batch operations.
 
-## 4. Review the code and evidence
+## 4. Verify, return, and recheck
 
-Open the card's deliverables and follow the recorded code reference. Depending on the project's code-host integration and delivery path, this may be a branch, a commit, or a PR. Review the diff against the confirmed scope. For the message fix, check both submissions in the project's test environment and record the environment, the exact commit tested, and the result for each criterion. If the project tests a batch candidate, record the revision it deployed for testing.
+Follow the code reference from the card and check the diff against the confirmed scope. Then check both form submissions in the test environment. For batch testing, use the candidate revision actually deployed for testing. The reviewer can record results like these on the card and link each one to the underlying check or observation.
 
-If a check fails, return the change for repair with the reproduction steps and test result. After a fix, rerun the checks on the new commit and link the new result. Record the review decision with the evidence for that revision.
+| Tested revision | Environment              | Evidence                                                                                                 | Review decision                                                   |
+| --------------- | ------------------------ | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Candidate A     | Project test environment | Build passed. AC1 passed. AC2 failed: submitting a valid name kept the form open and created no project. | Return to development with the AC2 reproduction steps and result. |
+| Candidate B     | Project test environment | Build passed. AC1 displayed the new message. AC2 created a project and displayed its details.            | Accept candidate B for the confirmed scope and link both results. |
 
-If the project also handles merge and release, check their records separately. Confirm which revision reached production, then check the cleanup result. See [Review and release](/software-factory/review-release/) for what to check at each stage.
+After the repair, the reviewer reruns both checks on candidate B and records a new decision. The card now connects the confirmed Issue, the development session and code reference, the evidence for each tested revision, and the decision to accept the repair.
+
+If the project also handles merge and release, follow the separate records to confirm which revision merged, which revision reached production, and whether cleanup finished. See [Review and release](/software-factory/review-release/) for the checks at each stage.
 
 ## Related guides
 
