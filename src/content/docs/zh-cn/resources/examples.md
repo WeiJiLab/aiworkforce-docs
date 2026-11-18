@@ -10,7 +10,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "d92e33e8fed6a5dde3dc4b33182129797fcfa1fbc744fbde7422068774d37939"
+  sourceHash: "e0df996437efa3ec2fbbd314497ca2f82fa3b31f0f62771ff98f3519cd868358"
 ---
 
 本文档中的完整示例是一名研究助手：根据给定材料准备简报，并拒绝发布这些材料。它说明的是员工包布局，不是你的部署一定已经发布的模板，也不是可以从本站克隆的仓库。
@@ -37,4 +37,4 @@ research-assistant/
 
 没有市场，没有 zip 下载，也不保证示例的 `id` 存在于你的工作空间。构建者校验通过后，通过[发布与分发](/zh-cn/build/publishing/)发布包。使用者再从该已发布模板创建实例。
 
-端到端的工程路径使用 [Issue 到 Pull Request](/zh-cn/recipes/issue-to-pr/)和[你的第一个软件工厂流程](/zh-cn/getting-started/first-software-factory/)。这些指南跟随产品记录。它们不是额外的示例仓库。
+端到端的工程路径使用 [Issue 到 Pull Request](/zh-cn/recipes/issue-to-pr/)和[配置并运行交付看板](/zh-cn/getting-started/first-software-factory/)。这些指南跟随产品记录。它们不是额外的示例仓库。

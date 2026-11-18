@@ -36,4 +36,4 @@ Read it in this order:
 
 There is no marketplace, no zip download, and no promise that the example's `id` exists in your workspace. Publish a package through [publishing and distribution](/build/publishing/) when a builder has validated it. Users then create an instance from that published template.
 
-For an end-to-end engineering path, use [Issue to pull request](/recipes/issue-to-pr/) and [your first Software Factory workflow](/getting-started/first-software-factory/). Those guides follow product records. They are not additional sample repositories.
+For an end-to-end engineering path, use [Issue to pull request](/recipes/issue-to-pr/) and [set up and run a delivery board](/getting-started/first-software-factory/). Those guides follow product records. They are not additional sample repositories.

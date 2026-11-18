@@ -1,13 +1,13 @@
 ---
 title: "Core concepts"
-description: "See how AI employees, capabilities, automation, Software Factory, and governance work as one system."
+description: "Understand how Software Factory, automation, execution roles, and governance work together."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-AI Workforce is not a set of isolated features. Five abstractions cooperate: an employee does the work, capabilities say how, automation decides when, Software Factory carries engineering work through verification, and governance decides what is allowed to continue.
+An Issue can enter the inbox and be routed to a draft on the delivery board. The team confirms the requirement before development. Software Factory coordinates delivery, Automation starts work from a trigger, and AI employees execute within their permissions. The team uses the evidence to decide what happens next.
 
 Use the same words in a conversation, an inbox item, an automation run, and a delivery card. Those records can show different states because they answer different questions.
 
@@ -15,15 +15,19 @@ Use the same words in a conversation, an inbox item, an automation run, and a de
 
 | Abstraction      | Question it answers                                     | What you inspect                                       |
 | ---------------- | ------------------------------------------------------- | ------------------------------------------------------ |
-| AI employee      | Who is responsible for this outcome?                    | Role, workspace instance, and readiness                |
-| Capabilities     | Which methods and tools can that employee use?          | Skills, plugins, tools, and MCP dependencies           |
-| Automation       | What starts the work, and what happens after it starts? | Job, triggers, and an individual run                   |
 | Software Factory | How does engineering work reach a reviewed delivery?    | Intake, execution, verification, evidence, and release |
+| Automation       | What starts the work, and what happens after it starts? | Job, triggers, and an individual run                   |
+| AI employee      | Who performs the assigned work?                         | Role, workspace instance, and readiness                |
+| Capabilities     | Which methods and tools can that employee use?          | Skills, plugins, tools, and MCP dependencies           |
 | Governance       | What is permitted, proven, and allowed to proceed?      | Permissions, evaluation, evidence, and human decisions |
 
 A workspace groups the employees, resources, and context used together. Access to the workspace is separate from permission to manage it or to execute work.
 
 ## How they combine
+
+**Software Factory** coordinates engineering delivery on a board. Once a person confirms the requirement on a draft card, the employees assigned to its lanes can implement the change and prepare verification. The team reviews the evidence to decide whether the change is ready to merge or release. See [Software Factory](/software-factory/overview/).
+
+**Automation** turns a signal into work. A Job defines the task and executor. A schedule, webhook, platform event, Issue, or IM message can trigger a Job where the deployment supports it. Each execution creates a run record for the team to inspect. See [Automation concepts](/automate/fundamentals/).
 
 An **AI employee** is the actor. A published template supplies a reusable role; the workspace employee is the instance you actually assign. Initialization has to finish before a session is useful. Creating the instance does not author the template. Builders define the role in [Build AI employees](/build/architecture/); users choose and task a published employee in [Using AI employees](/user-guide/ai-employees/).
 
@@ -35,10 +39,6 @@ An **AI employee** is the actor. A published template supplies a reusable role; 
 - An **MCP server** exposes external tools. Naming a server in the employee manifest documents the dependency. It does not store credentials or grant access.
 
 Instructions describe intended behavior. The runtime and authorization decide which tools actually run. Read [Employee architecture](/build/architecture/) for the full composition, and [MCP servers](/build/mcp-integration/) for the employee-facing dependency. Protocol and connection setup live in [MCP integration](/integrations/mcp/).
-
-**Automation** turns a signal into work. A Job defines the task and executor. A trigger — schedule, webhook, platform event, Issue, or IM, where that type is enabled — decides when to invoke it. A run records one execution. Publishing a Job does not create a run, and a successful run does not by itself resolve a business request. Automation is a way to start and recover work, not only a cron expression. See [Automation concepts](/automate/fundamentals/).
-
-**Software Factory** is the engineering delivery system. Confirmed requirements become delivery cards. Employees execute lane work. Verification, evidence, and human review decide whether a change is ready to merge or release. It is not a promise that an agent writes code unattended. See [Software Factory](/software-factory/overview/).
 
 **Governance** connects permission, evaluation, and evidence. A prompt that says "read only" does not replace a tool grant. A green conversation does not replace a test result or an acceptance decision. People keep the decisions that change scope, take over execution, or release software.
 
@@ -68,4 +68,4 @@ The same five abstractions sit on six layers that the rest of the documentation 
 | Quality and assurance      | Verification, evidence, evaluation |
 | Work management            | Inbox, artifacts, projects         |
 
-[Platform overview](/getting-started/platform-overview/) maps these layers onto product surfaces. The [glossary](/concepts/glossary/) lists English and Chinese terms. [Quickstart](/getting-started/quickstart/) is the shortest path through a first session.
+[Platform overview](/getting-started/platform-overview/) maps these concepts to product surfaces. The [glossary](/concepts/glossary/) lists English and Chinese terms. Follow the [quickstart](/getting-started/quickstart/) to take one Issue through the delivery workbench.

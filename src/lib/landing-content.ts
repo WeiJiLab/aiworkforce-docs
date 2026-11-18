@@ -58,43 +58,59 @@ export function localizedGuideHref(href: string, zh: boolean): string {
 export function getHomeContent(zh: boolean): HomeContent {
   const paths: readonly HomePath[] = [
     {
-      portal: zh ? "使用者" : "User",
-      title: zh ? "把任务交给数字员工" : "Assign work to employees",
+      portal: zh ? "快速入门" : "Quickstart",
+      title: zh ? "交付第一项变更" : "Deliver your first change",
       description: zh
-        ? "选择员工、提供上下文、观察执行，并审阅产物后再确认下一步。"
-        : "Choose an employee, supply context, follow execution, and review the result before the next action.",
+        ? "把一条 Issue 转成交付卡片，跟踪实现，并审阅代码变更与验证证据。"
+        : "Route an Issue to the delivery board, follow implementation, and review the change and its verification evidence.",
       href: "getting-started/quickstart",
-      audience: zh ? "业务用户与团队成员" : "For people using employees",
+      audience: zh ? "已有交付项目" : "For a configured delivery project",
       icon: "learn",
     },
     {
-      portal: zh ? "构建者" : "Builder",
-      title: zh ? "定义可复用的数字员工" : "Define reusable employees",
+      portal: zh ? "自动化工作流" : "Workflow Automation",
+      title: zh ? "让工作按规则触发" : "Run work on a trigger",
       description: zh
-        ? "用职责、技能、插件和工具组成员工，再验证并发布模板。"
-        : "Compose a role from responsibilities, skills, plugins, and tools, then test and publish it.",
-      href: "build/architecture",
-      audience: zh ? "Builder 与 FDE" : "For builders and FDEs",
+        ? "手动验证一个 Job，再启用定时或事件触发，并在运行历史中检查结果。"
+        : "Check one Job in a manual run, then enable a schedule or event trigger and inspect its run history.",
+      href: "getting-started/first-automation",
+      audience: zh
+        ? "重复任务与事项采集"
+        : "For recurring jobs and work intake",
       icon: "build",
     },
     {
-      portal: zh ? "平台工程师" : "Platform engineer",
-      title: zh ? "运行、授权并治理执行" : "Run, authorize, and govern",
+      portal: zh ? "软件工厂" : "Software Factory",
+      title: zh ? "准备交付项目" : "Set up a delivery project",
       description: zh
-        ? "连接运行时、权限、模型、成本、审计和交付门禁。"
-        : "Connect runtime, permissions, models, cost, audit, and delivery gates.",
-      href: "deployment/runtime-environments",
-      audience: zh ? "平台与集成工程师" : "For platform engineers",
+        ? "了解项目如何关联看板、代码仓库、流水线资源和各泳道的执行角色。"
+        : "See how a project connects the board, repositories, pipeline resources, and the execution roles for each lane.",
+      href: "getting-started/first-software-factory",
+      audience: zh ? "首次配置交付工作台" : "For teams preparing a workbench",
       icon: "integrate",
     },
   ];
   const domains: readonly (readonly [string, string, string])[] = [
     [
-      zh ? "使用数字员工" : "Use AI Workforce",
+      zh ? "软件工厂" : "Software Factory",
       zh
-        ? "工作空间、会话、上下文、收件箱与审阅"
-        : "Workspaces, sessions, context, inbox, and review",
-      "user-guide/ai-employees",
+        ? "在交付看板上推进 Issue，验证代码变更，再按项目规则审阅与发布"
+        : "Move Issues through the board, verify changes, and follow the project’s review and release process",
+      "software-factory/overview",
+    ],
+    [
+      zh ? "自动化工作流" : "Workflow Automation",
+      zh
+        ? "管理 Job、触发规则、任务交接和失败恢复"
+        : "Manage Jobs, triggers, handoffs, and run recovery",
+      "automate/fundamentals",
+    ],
+    [
+      zh ? "工作空间与会话" : "Workspace and sessions",
+      zh
+        ? "在工作空间中协作、管理收件箱并审阅执行产物"
+        : "Collaborate in a workspace, manage the inbox, and review artifacts",
+      "user-guide/workspace",
     ],
     [
       zh ? "构建数字员工" : "Build AI employees",
@@ -102,20 +118,6 @@ export function getHomeContent(zh: boolean): HomeContent {
         ? "员工结构、技能、插件、工具与 MCP 依赖"
         : "Employee structure, skills, plugins, tools, and MCP dependencies",
       "build/architecture",
-    ],
-    [
-      zh ? "自动化工作" : "Automate work",
-      zh
-        ? "事件、周期任务、委派和人工介入，不只是定时作业"
-        : "Events, recurring work, handoff, and approval — not only schedules",
-      "automate/fundamentals",
-    ],
-    [
-      zh ? "软件工厂" : "Software Factory",
-      zh
-        ? "从需求进入、分派、执行、验证到证据和发布"
-        : "From intake and dispatch through execution, verification, evidence, and release",
-      "software-factory/overview",
     ],
     [
       zh ? "集成与开发" : "Integrations & developer",
@@ -140,60 +142,56 @@ export function getHomeContent(zh: boolean): HomeContent {
       href,
     })),
     pathsIntro: zh
-      ? "根据你希望完成的工作，从一条路径开始。"
-      : "Start with the work you want to do.",
+      ? "先在已有项目中交付一次小改动，或从配置项目和触发规则开始。"
+      : "Try a small change in an existing project, or start by setting up a project or a trigger.",
     overview: {
       description: zh
-        ? "AI Workforce 由六层抽象组成：员工能力、执行、编排、工程基础设施、质量保证和工作管理。它们共同完成从任务输入到可验证交付。"
-        : "AI Workforce is six cooperating layers: workforce capability, execution, orchestration, engineering infrastructure, quality assurance, and work management.",
-      title: zh ? "同一套产品抽象" : "One product architecture",
+        ? "软件工厂从 Issue 或需求开始，在交付看板确认范围并分派实现，完成验证后依据证据作出审阅决定。"
+        : "Software Factory takes an Issue or requirement through scope confirmation, implementation, verification, and an evidence-based review on the delivery board.",
+      title: zh ? "从 Issue 到审阅" : "From Issue to review",
       nodes: [
         {
-          caption: "CAPABILITY",
-          title: zh ? "员工能力" : "Workforce capability",
-          detail: zh
-            ? "员工 · Skills · Plugins"
-            : "Employee · Skills · Plugins",
-          icon: "build",
-        },
-        {
-          caption: "EXECUTION",
-          title: zh ? "执行" : "Execution",
-          detail: zh
-            ? "Agent · Harness · Runtime"
-            : "Agent · Harness · Runtime",
-          icon: "build",
-        },
-        {
-          caption: "ORCHESTRATION",
-          title: zh ? "编排" : "Orchestration",
-          detail: zh ? "自动化 · 任务分派" : "Automation · Dispatcher",
+          caption: "INTAKE",
+          title: zh ? "需求进入" : "Work intake",
+          detail: zh ? "收件箱 · Issue" : "Inbox · Issue",
           icon: "context",
         },
         {
-          caption: "INFRASTRUCTURE",
-          title: zh ? "工程基础设施" : "Engineering infrastructure",
-          detail: zh ? "环境 · CI/CD" : "Environment · CI/CD",
+          caption: "SCOPE",
+          title: zh ? "确认交付范围" : "Confirm scope",
+          detail: zh ? "卡片 · 验收标准" : "Card · Acceptance criteria",
           icon: "context",
         },
         {
-          caption: "QUALITY",
-          title: zh ? "质量保证" : "Quality & assurance",
+          caption: "IMPLEMENTATION",
+          title: zh ? "实现变更" : "Implement",
+          detail: zh ? "泳道分派 · 代码变更" : "Lane assignment · Code change",
+          icon: "build",
+        },
+        {
+          caption: "VERIFICATION",
+          title: zh ? "验证结果" : "Verify",
           detail: zh
-            ? "验证 · 证据 · 评测"
-            : "Verification · Evidence · Evaluation",
+            ? "测试环境 · 检查结果"
+            : "Test environment · Check results",
           icon: "review",
         },
         {
-          caption: "WORK",
-          title: zh ? "工作管理" : "Work management",
-          detail: zh ? "收件箱 · 产物 · 项目" : "Inbox · Artifacts · Projects",
+          caption: "EVIDENCE",
+          title: zh ? "核对证据" : "Inspect evidence",
+          detail: zh ? "提交版本 · 测试记录" : "Commit · Test record",
+          icon: "review",
+        },
+        {
+          caption: "REVIEW",
+          title: zh ? "人工审阅" : "Review",
+          detail: zh ? "验收或退回" : "Accept or return",
           icon: "review",
         },
       ],
       control: zh
-        ? "人在确认需求、接管执行和决定发布时保留判断。"
-        : "People keep judgment when confirming scope, taking over execution, and approving release.",
+        ? "数字员工执行泳道任务，团队确认需求范围并作出验收和发布决定。"
+        : "AI employees execute lane tasks. The team confirms scope and makes acceptance and release decisions.",
     },
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
@@ -307,10 +305,12 @@ export function getPortalContent(
           href: "learn",
         },
         {
-          title: zh ? "Docs · 在平台中使用能力" : "Docs · Use the capability",
+          title: zh
+            ? "Docs · 交付第一项变更"
+            : "Docs · Deliver your first change",
           description: zh
-            ? "创建工作空间员工，开展会话并审阅实际结果"
-            : "Create a workspace employee, start work, and review the result",
+            ? "在已配置的交付项目中，从 Issue 走到代码变更与验证证据"
+            : "Take an Issue through implementation and verification in a configured delivery project",
           href: "getting-started/quickstart",
         },
       ],
@@ -372,10 +372,12 @@ export function getPortalContent(
       ],
       next: [
         {
-          title: zh ? "Docs · 开始实际协作" : "Docs · Start working together",
+          title: zh
+            ? "Docs · 交付第一项变更"
+            : "Docs · Deliver your first change",
           description: zh
-            ? "在工作空间中创建员工，准备资料并完成第一项任务"
-            : "Create an employee, prepare context, and complete a first task in a workspace",
+            ? "将已明确的需求推进到交付看板，跟踪实现并审阅验证证据"
+            : "Route a scoped request to the delivery board, follow implementation, and review the verification evidence",
           href: "getting-started/quickstart",
         },
         {

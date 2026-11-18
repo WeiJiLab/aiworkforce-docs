@@ -1,51 +1,36 @@
 ---
 title: "Quickstart"
-description: "Create an employee from a published template and review the result of a first task."
+description: "Take an Issue from the workspace inbox through implementation, verification, and review in Software Factory."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
-Complete a small task with a workspace employee before configuring automation or adding external tools. This guide uses a short written summary so you can evaluate the result directly.
+Use Software Factory to take a small engineering request from the workspace inbox to a reviewed code change. Pick an Issue you can reproduce and verify, such as correcting a form's validation message.
 
-## Prerequisites
+## Before you start
 
-You need an AI Workforce account, access to a workspace, permission to create an employee, and at least one published template. Your deployment must have a working execution environment. Ask your workspace manager if these prerequisites are missing.
+Use a workspace with a configured delivery project and board, a [connected repository](/integrations/code-repositories/), and a test environment or pipeline for the checks you plan to run. Make sure the employees assigned to the relevant lanes are ready and have the required repository access. For configuration, see [set up and run a delivery board](/getting-started/first-software-factory/) and [create your first AI employee](/getting-started/first-employee/).
 
-## 1. Open a workspace
+## 1. Confirm the Issue on the delivery board
 
-Sign in and open **Workspaces**. Choose an existing workspace. If you have permission to create one, give it a name that describes its purpose. Keep your first experiment separate from unrelated work.
+Open the workspace **Inbox**, review the Issue, and route it to the intended delivery project. Open the resulting draft and confirm the work scope, allowed repositories, and acceptance criteria through the card's human request.
 
-## 2. Create an employee
+For the form example, submitting an empty field should show the corrected message. A valid value should still submit successfully.
 
-Open workspace management and the **Employees** tab. Start the employee creation flow, choose an available published template, and read its responsibilities. Complete the configuration shown by that template and give the employee a recognizable name.
+## 2. Follow implementation
 
-Wait for initialization to finish and the employee to become ready. Repeatedly submitting the creation flow will not repair an initialization failure; inspect the error with your manager instead.
+Open the delivery workbench from **Automations** at `/automations?tab=board-flow`. Select your project and open the confirmed card. Start or resume its development session and respond to any questions or approval requests on the card.
 
-## 3. Give it a bounded task
+The development lane records a pull request or another code reference, depending on the project's repository integration. Follow that reference to inspect the change.
 
-Open the employee's conversation and provide a short, approved source text. For example:
+## 3. Verify the change and record your decision
 
-```text
-Summarize the following release notes for a project team.
-Produce: three changes, two follow-up questions, and a source quote for each change.
-Use only the text below. Mark missing information as unknown.
-Do not modify files or contact anyone.
+Open the verification results on the card. Check the diff against the agreed scope and compare the results with each acceptance criterion. Verify which commit or candidate revision the checks ran against and which environment they used.
 
-[Paste your release notes here]
-```
+If a check fails, return the work with the failed criterion and its evidence. Recheck the new revision after the fix. The quickstart is complete when the card links the confirmed requirement, the code change, the verification evidence, and your review decision. Merge and release follow your project's configured [review and release process](/software-factory/review-release/).
 
-Replace the bracketed instruction with your own text before sending. This task does not require an external connection.
+## Next steps
 
-## 4. Review and refine
-
-Check that the response follows the requested structure and that every quote exists in the input. Ask the employee to correct a specific omission in the same session. If it creates a file, open the artifact and inspect its contents.
-
-You have completed the quickstart when you can explain what the employee did, which inputs it used, and why you accept or reject the output.
-
-## Troubleshooting
-
-If no templates appear, ask an administrator to publish one. If the employee stays unavailable, check initialization and execution setup. If external access is requested for this example, clarify that the supplied text is the only source.
-
-Continue with [Agent Chat](/user-guide/agent-chat/), [artifacts and evidence](/user-guide/artifacts-evidence/), or [employee building](/build/employee-definition/).
+Read [Issue to PR](/recipes/issue-to-pr/) for a worked example. Use [Automation](/getting-started/first-automation/) to collect recurring work before it reaches the board.
