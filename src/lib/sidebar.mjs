@@ -158,7 +158,6 @@ export const PORTALS = {
         items: [
           "getting-started/introduction",
           "getting-started/core-concepts",
-          "getting-started/platform-overview",
           "resources/best-practices",
           "resources/examples",
           "resources/troubleshooting",

@@ -9,6 +9,9 @@ export default defineConfig({
   ...(base && base !== "/" ? { base } : {}),
   trailingSlash: "always",
   redirects: {
+    "/getting-started/platform-overview/": "/getting-started/first-automation/",
+    "/zh-cn/getting-started/platform-overview/":
+      "/zh-cn/getting-started/first-automation/",
     "/developer/": "/api/",
     "/zh-cn/developer/": "/zh-cn/api/",
     "/integrations/agent-protocol/": {

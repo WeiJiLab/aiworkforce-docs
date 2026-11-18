@@ -61,4 +61,4 @@ If an employee cannot start, check initialization and ask someone who can manage
 
 ## Next steps
 
-Read [core concepts](/getting-started/core-concepts/) for the shared vocabulary. The [platform map](/getting-started/platform-overview/) names the screens. [Workflow applications](/workflows/applications/) compares the paths above.
+Read [core concepts](/getting-started/core-concepts/) for the shared vocabulary. [Workflow applications](/workflows/applications/) compares the paths above.

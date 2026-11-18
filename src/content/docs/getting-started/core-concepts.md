@@ -74,4 +74,4 @@ An artifact can be useful without being correct. A collected inbox item is not a
 
 ## Where to go next
 
-[Quickstart](/getting-started/quickstart/) takes one Issue through a reviewed change on a configured board. [Your first workflow](/getting-started/first-automation/) adds a trigger only after a manual run makes sense. The [glossary](/concepts/glossary/) lists the English and Chinese terms. The [platform map](/getting-started/platform-overview/) names the screens, after these records are clear.
+[Quickstart](/getting-started/quickstart/) takes one Issue through a reviewed change on a configured board. [Your first workflow](/getting-started/first-automation/) adds a trigger only after a manual run makes sense. The [glossary](/concepts/glossary/) lists the English and Chinese terms.

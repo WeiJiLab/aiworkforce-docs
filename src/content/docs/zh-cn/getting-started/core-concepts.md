@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "cac36a7c7cb17f8872881f5d26155542a9c8c6bb08dd6320da4b8d31837fd5b0"
+  sourceHash: "75cd79bf1305005889def62bc1f97729be911ef776c28b2d6942b15421377596"
 ---
 
 会话、收件箱事项、自动化运行和交付卡片使用同一套词。这些记录可以显示不同状态，因为它们回答的问题不同。
@@ -75,4 +75,4 @@ translation:
 
 ## 接下来去哪里
 
-[快速开始](/zh-cn/getting-started/quickstart/)在已配置的看板上把一条 Issue 走到经过审阅的变更。手动运行说得通之后，[你的第一个工作流](/zh-cn/getting-started/first-automation/)才添加触发。[术语表](/zh-cn/concepts/glossary/)列出中英文术语。这些记录清楚之后，再用[平台地图](/zh-cn/getting-started/platform-overview/)对照界面。
+[快速开始](/zh-cn/getting-started/quickstart/)在已配置的看板上把一条 Issue 走到经过审阅的变更。手动运行说得通之后，[你的第一个工作流](/zh-cn/getting-started/first-automation/)才添加触发。[术语表](/zh-cn/concepts/glossary/)列出中英文术语。
