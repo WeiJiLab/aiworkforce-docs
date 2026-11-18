@@ -1,0 +1,321 @@
+---
+import { localizedGuideHref } from "../lib/landing-content";
+
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const label = {
+  board: zh ? "交付看板" : "Delivery board",
+  example: zh ? "示例项目" : "Example project",
+  issue: zh ? "修正项目名称校验" : "Fix project name validation",
+  accepted: zh ? "需求已确认" : "Scope confirmed",
+  opened: zh ? "变更已提交" : "Change submitted",
+  verified: zh ? "验收检查通过" : "Checks passed",
+  pending: zh ? "等待团队决定" : "Awaiting decision",
+  evidence: zh ? "验收检查" : "Acceptance checks",
+  empty: zh ? "名称留空时提示必填" : "Blank name shows an error",
+  valid: zh ? "填写有效名称可以创建项目" : "A valid name creates a project",
+  description: zh
+    ? "同一项表单修复从 Issue 进入团队交付流程。选择环节打开操作指南。"
+    : "Follow one form fix through delivery. Select a stage to open its guide.",
+};
+const stages = [
+  {
+    title: zh ? "需求" : "Requirements",
+    reference: "Issue #128",
+    status: label.accepted,
+    guide: "software-factory/intake",
+  },
+  {
+    title: zh ? "开发" : "Development",
+    reference: "PR #62",
+    status: label.opened,
+    guide: "software-factory/dispatch",
+  },
+  {
+    title: zh ? "测试" : "Testing",
+    reference: zh ? "2 项检查" : "2 checks",
+    status: label.verified,
+    guide: "software-factory/build-test",
+  },
+  {
+    title: zh ? "人工审阅" : "Team review",
+    reference: "PR #62",
+    status: label.pending,
+    guide: "software-factory/review-release",
+  },
+] as const;
+---
+
+<figure class="board-preview not-content" aria-label={label.board}>
+  <div class="board-wide">
+    <svg
+      viewBox="0 0 800 346"
+      width="800"
+      height="346"
+      role="group"
+      aria-label={`${label.board} · ${label.issue}`}
+    >
+      <defs>
+        <linearGradient id="delivery-ground" x2="0.88" y2="1">
+          <stop stop-color="#143449"></stop>
+          <stop offset="1" stop-color="#081c2d"></stop>
+        </linearGradient>
+        <pattern
+          width="18"
+          height="18"
+          patternUnits="userSpaceOnUse"
+          id="delivery-grid"
+        >
+          <circle cx="1" cy="1" r="0.8" fill="#92c7dd" opacity=".23"></circle>
+        </pattern>
+      </defs>
+      <g aria-hidden="true">
+        <rect width="800" height="346" fill="url(#delivery-ground)" rx="16"
+        ></rect>
+        <rect width="800" height="346" fill="url(#delivery-grid)" rx="16"
+        ></rect>
+        <rect class="window" x="16" y="16" width="768" height="314" rx="11"
+        ></rect>
+        <path class="divider" d="M17 65h766M17 112h766"></path>
+        <rect class="board-icon" x="32" y="29" width="23" height="23" rx="5"
+        ></rect>
+        <path class="board-glyph" d="M38 35h11v11H38zM43.5 35v11"></path>
+        <text class="board-name" x="67" y="46">{label.board}</text>
+        <text class="small" x="764" y="45" text-anchor="end"
+          >{label.example}</text
+        >
+        <text class="story-name" x="32" y="94">{label.issue}</text>
+      </g>
+      {
+        stages.map((stage, index) => (
+          <g transform={`translate(${32 + index * 186} 125)`}>
+            <a
+              class:list={["stage", { review: index === stages.length - 1 }]}
+              href={localizedGuideHref(stage.guide, zh)}
+              aria-label={`${stage.title} · ${stage.reference} · ${stage.status}`}
+            >
+              <rect class="lane" width="176" height="111" rx="8" />
+              <circle class="stage-dot" cx="15" cy="17" r="3" />
+              <text x="25" y="22" class="lane-name">
+                {stage.title}
+              </text>
+              <rect class="task" x="7" y="34" width="162" height="69" rx="6" />
+              <text x="18" y="60" class="reference">
+                {stage.reference}
+              </text>
+              <text x="18" y="84" class="small">
+                {stage.status}
+              </text>
+              <path class="arrow" d="M145 54h10m-4-4 4 4-4 4" />
+            </a>
+          </g>
+        ))
+      }
+      <g
+        role="group"
+        aria-label={`${label.evidence} · ${label.empty} · ${label.valid}`}
+      >
+        <g aria-hidden="true">
+          <rect class="evidence" x="32" y="252" width="736" height="60" rx="8"
+          ></rect>
+          <text class="evidence-label" x="48" y="276">{label.evidence}</text>
+          <path class="check" d="m48 294 3 3 6-7m366 4 3 3 6-7"></path>
+          <text class="small" x="65" y="300">{label.empty}</text>
+          <text class="small" x="440" y="300">{label.valid}</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <div class="board-narrow">
+    <div class="compact-heading">
+      <span>{label.board} · {label.example}</span>
+      <strong>{label.issue}</strong>
+    </div>
+    <ol>
+      {
+        stages.map((stage) => (
+          <li>
+            <a href={localizedGuideHref(stage.guide, zh)}>
+              <span>
+                {stage.title} <strong>{stage.reference}</strong>
+              </span>
+              <span>
+                {stage.status} <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="compact-evidence">
+      <strong>{label.evidence}</strong>
+      <p>
+        {
+          zh
+            ? `${label.empty}。${label.valid}。`
+            : `${label.empty}. ${label.valid}.`
+        }
+      </p>
+    </div>
+  </div>
+  <figcaption>{label.description}</figcaption>
+</figure>
+
+<style>
+  .board-preview {
+    --board-surface: #f8fafc;
+    --board-line: #d6e2e9;
+    --board-lane: #e9f1f5;
+    --board-card: #fff;
+    --board-ink: #172f40;
+    --board-muted: #475e70;
+    --board-accent: #11718a;
+    --board-review: #91601e;
+    container-type: inline-size;
+    margin: 1.2rem 0 1.6rem;
+  }
+  .board-wide svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 0.9rem 2.4rem -1.65rem #173549;
+    fill: var(--board-ink);
+    font-family: inherit;
+  }
+  .window,
+  .evidence {
+    fill: var(--board-surface);
+    stroke: var(--board-line);
+  }
+  .evidence {
+    fill: #eaf5f5;
+  }
+  .divider {
+    stroke: var(--board-line);
+  }
+  .board-icon {
+    fill: #d9ecf2;
+  }
+  .board-glyph,
+  .arrow,
+  .check {
+    fill: none;
+    stroke: var(--board-accent);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+  }
+  .board-name {
+    font-size: 16px;
+    font-weight: 650;
+  }
+  .story-name {
+    font-size: 19px;
+    font-weight: 700;
+  }
+  .evidence-label,
+  .lane-name {
+    font-size: 15px;
+    font-weight: 650;
+  }
+  .small {
+    fill: var(--board-muted);
+    font-size: 15px;
+  }
+  .lane {
+    fill: var(--board-lane);
+  }
+  .task {
+    fill: var(--board-card);
+    stroke: var(--board-line);
+  }
+  .stage-dot {
+    fill: var(--board-accent);
+  }
+  .review .stage-dot {
+    fill: var(--board-review);
+  }
+  .reference {
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .stage:hover .task,
+  .stage:focus-visible .task {
+    fill: #f3fbfd;
+    stroke: var(--board-accent);
+    stroke-width: 2;
+  }
+  .stage:focus-visible .lane {
+    stroke: var(--board-accent);
+    stroke-width: 2;
+  }
+  figcaption {
+    margin-block-start: 0.6rem;
+    color: var(--docs-muted);
+    font-size: 0.875rem;
+  }
+  .board-narrow {
+    display: none;
+  }
+  @container (max-width: 680px) {
+    .board-wide {
+      display: none;
+    }
+    .board-narrow {
+      display: block;
+      padding: 0.875rem;
+      border-radius: 0.85rem;
+      background: #143449;
+    }
+    .compact-heading {
+      display: grid;
+      gap: 0.2rem;
+      margin-bottom: 0.75rem;
+      color: #eff8fc;
+    }
+    .compact-heading span {
+      color: #b9d5e2;
+      font-size: 0.8125rem;
+    }
+    ol {
+      display: grid;
+      gap: 0.45rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li a {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.15rem 0.7rem;
+      min-height: 2.8rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 0.4rem;
+      background: var(--board-card);
+      color: var(--board-ink);
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+    li a:hover,
+    li a:focus-visible {
+      background: #eaf5f5;
+      outline: 2px solid #8fdfef;
+    }
+    li a > span:first-child strong {
+      margin-inline-start: 0.3rem;
+    }
+    li a > span:last-child {
+      color: var(--board-muted);
+    }
+    .compact-evidence {
+      margin-top: 0.8rem;
+      color: #eff8fc;
+      font-size: 0.8125rem;
+    }
+    .compact-evidence p {
+      margin: 0;
+    }
+  }
+</style>
