@@ -1,0 +1,230 @@
+---
+import IconButton from "../../components/IconButton.astro";
+import { cards, lanes } from "../../lib/factory-kanban";
+import styles from "../../styles/factory-kanban.css?inline";
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width,initial-scale=1"
+    /><title>交付工作台 · 软件工厂看板演练</title><style
+      is:inline
+      set:html={styles}
+    ></style></head
+  >
+  <body
+    ><main>
+      <header>
+        <div class="crumb">
+          <svg viewBox="0 0 24 24" aria-hidden="true"
+            ><rect x="3" y="3" width="18" height="18" rx="3"></rect><path
+              d="M9 7v8m6-8v5"></path></svg
+          >交付工作台 <span>/</span> 示例项目
+        </div><span class="local">本地演练</span>
+      </header>
+      <div class="workspace">
+        <div class="board-title"><h1>交付看板</h1><span>3 张任务卡</span></div>
+        <div class="lanes" aria-label="交付任务看板">
+          {
+            lanes.map((lane) => (
+              <section data-lane={lane.key}>
+                <>
+                  <h2>
+                    <i />
+                    {lane.name}
+                    <small>
+                      {cards.filter((card) => card.lane === lane.key).length}
+                    </small>
+                  </h2>
+                  <div class="stack">
+                    {cards
+                      .filter((card) => card.lane === lane.key)
+                      .map((card) => (
+                        <button
+                          class="card"
+                          data-card={card.id}
+                          aria-pressed={card === cards[0]}
+                        >
+                          <span class="key">#{card.id}</span>
+                          <strong>{card.title}</strong>
+                          <span class="actor">{lane.actor}</span>
+                          <span class="state">{lane.state}</span>
+                        </button>
+                      ))}
+                  </div>
+                </>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+      <article aria-label="任务详情">
+        <div class="detail-head">
+          <div>
+            <div class="key" id="identity"></div><h2 id="title"></h2>
+          </div><span class="stage" id="stage"></span>
+        </div>
+        <div class="summary">
+          <div><h3>验收标准</h3><p id="scope"></p></div><div>
+            <h3>当前状态</h3><p id="status"></p>
+          </div>
+        </div>
+        <details id="history">
+          <summary>交付记录 <span id="total"></span></summary><ol id="records">
+          </ol>
+        </details>
+        <footer>
+          <span id="next-hint"></span><div class="tools">
+            <span id="return" hidden
+              ><IconButton label="要求修改，退回开发"
+                ><svg viewBox="0 0 24 24" aria-hidden="true"
+                  ><path d="m9 5-5 5 5 5M4 10h9a6 6 0 0 1 6 6v3"></path></svg
+                ></IconButton
+              ></span
+            ><span id="next"
+              ><IconButton label="确认范围并进入开发"
+                ><svg viewBox="0 0 24 24" aria-hidden="true"
+                  ><path d="M4 12h15m-6-6 6 6-6 6"></path></svg
+                ></IconButton
+              ></span
+            >
+          </div>
+        </footer>
+      </article>
+      <span class="sr-only" aria-live="polite" id="announcement"></span>
+      <noscript>请启用 JavaScript 以演练卡片交接。</noscript>
+    </main>
+    <script define:vars={{ cards, lanes }}>
+      const el = (id) => document.getElementById(id);
+      const laneIndex = (key) => lanes.findIndex((lane) => lane.key === key);
+      function evidence(card, lane) {
+        switch (lane) {
+          case "DRAFT":
+            return `需求草稿已记录。${card.scope}`;
+          case "DEV":
+            return `范围已确认，开发员工已在会话 DEV-${card.id} 中接手。`;
+          case "PREPARE":
+            return `开发员工已提交 PR #${card.pr}，变更已加入候选批次 RC-${card.id}。`;
+          case "TEST":
+            return `RC-${card.id} 已部署到测试环境，测试通过。${card.check}`;
+          case "RELEASE":
+            return `人工已接受 RC-${card.id} 的测试结果，等待确认发布。`;
+          case "DONE":
+            return `已确认发布。示例流水线回执记录 PR #${card.pr} 已合并、RC-${card.id} 已部署到生产，批次已收尾。`;
+        }
+      }
+      function start(card, key) {
+        return {
+          lane: key,
+          log: lanes
+            .slice(0, laneIndex(key) + 1)
+            .map((lane) => evidence(card, lane.key)),
+        };
+      }
+      const runs = new Map(
+        cards.map((card) => [card.id, start(card, card.lane)]),
+      );
+      let selected = cards[0];
+      const sections = new Map(
+        [...document.querySelectorAll("[data-lane]")].map((node) => [
+          node.dataset.lane,
+          node,
+        ]),
+      );
+      const buttons = new Map(
+        [...document.querySelectorAll("[data-card]")].map((node) => [
+          Number(node.dataset.card),
+          node,
+        ]),
+      );
+      function render() {
+        const run = runs.get(selected.id);
+        const lane = lanes[laneIndex(run.lane)];
+        const btn = buttons.get(selected.id);
+        const stack = sections.get(run.lane).querySelector(".stack");
+        if (btn.parentElement !== stack) stack.append(btn);
+        const board = document.querySelector(".lanes");
+        const laneBounds = stack.parentElement.getBoundingClientRect();
+        const boardBounds = board.getBoundingClientRect();
+        if (
+          laneBounds.left < boardBounds.left ||
+          laneBounds.right > boardBounds.right
+        )
+          board.scrollLeft += laneBounds.left - boardBounds.left;
+        btn.querySelector(".state").textContent = lane.state;
+        btn.querySelector(".actor").textContent = lane.actor;
+        for (const [id, button] of buttons)
+          button.setAttribute("aria-pressed", String(id === selected.id));
+        for (const section of sections.values())
+          section.querySelector("small").textContent =
+            section.querySelectorAll(".card").length;
+        el("identity").textContent = `任务详情  /  #${selected.id}`;
+        el("title").textContent = selected.title;
+        el("scope").textContent = selected.check;
+        el("stage").textContent = `${lane.name} · ${lane.state}`;
+        el("status").textContent = run.log.at(-1);
+        el("records").replaceChildren(
+          ...run.log.map((text) => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            return li;
+          }),
+        );
+        el("total").textContent = run.log.length;
+        el("next-hint").textContent = lane.next;
+        el("next")
+          .querySelector("button")
+          .setAttribute("aria-label", lane.next);
+        el("next").querySelector(".docs-tooltip").textContent = lane.next;
+        el("return").hidden = lane.key !== "TEST";
+      }
+      function move(key, entry) {
+        const run = runs.get(selected.id);
+        run.lane = key;
+        run.log.push(entry);
+        render();
+        el("announcement").textContent =
+          `#${selected.id} · ${el("stage").textContent}。${entry}`;
+      }
+      for (const card of cards)
+        buttons.get(card.id).addEventListener("click", () => {
+          selected = card;
+          render();
+          buttons.get(card.id).focus({ preventScroll: true });
+          el("announcement").textContent =
+            `已选择 #${card.id}，${el("stage").textContent}`;
+        });
+      el("next")
+        .querySelector("button")
+        .addEventListener("click", () => {
+          const index = laneIndex(runs.get(selected.id).lane);
+          if (index === lanes.length - 1) {
+            runs.set(selected.id, start(selected, "DRAFT"));
+            render();
+            el("announcement").textContent = `#${selected.id} 已回到需求泳道。`;
+            return;
+          }
+          const next = lanes[index + 1].key;
+          move(next, evidence(selected, next));
+        });
+      el("return")
+        .querySelector("button")
+        .addEventListener("click", () => {
+          move(
+            "DEV",
+            `人工要求补充边界用例，已退回开发。原测试记录保留在卡片中。`,
+          );
+          el("next").querySelector("button").focus();
+        });
+      render();
+      const frame = window.frameElement;
+      if (frame)
+        new ResizeObserver(() => {
+          frame.style.height = `${Math.ceil(document.querySelector("main").getBoundingClientRect().height)}px`;
+        }).observe(document.querySelector("main"));
+    </script></body
+  >
+</html>
