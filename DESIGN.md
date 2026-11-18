@@ -1,6 +1,6 @@
 # Documentation interface
 
-The site uses one reading layout for Docs, Learn, and API. A persistent top navigation switches those areas. English and Chinese share slugs. Typography, a support link, and the product's navy and cyan organize the interface.
+The site uses one reading layout for Docs, Learn, and API. A persistent top navigation switches those areas. English and Chinese share slugs. Typography and the product's navy and cyan organize the interface.
 
 ## Reference review
 

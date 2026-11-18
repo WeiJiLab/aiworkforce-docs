@@ -3,7 +3,6 @@ import SidebarPersister from "@astrojs/starlight/components/SidebarPersister.ast
 import SidebarSublist from "@astrojs/starlight/components/SidebarSublist.astro";
 
 import { externalNav, getPortal, portalDestinations } from "../lib/navigation";
-import { withBase } from "../lib/site.mjs";
 
 const { entry, locale, sidebar } = Astro.locals.starlightRoute;
 const zh = locale === "zh-cn";
@@ -56,26 +55,5 @@ const outbound = externalNav(locale);
         ))
       }
     </nav>
-    <a
-      class="portal-support"
-      href={withBase(`${zh ? "/zh-cn" : ""}/resources/releases-support/`)}
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="12" r="9"></circle>
-        <circle cx="12" cy="12" r="4"></circle>
-        <path
-          d="m5.6 5.6 3.6 3.6m5.6 5.6 3.6 3.6m0-12.8-3.6 3.6m-5.6 5.6-3.6 3.6"
-        ></path>
-      </svg>
-      <span>{zh ? "联系支持" : "Contact support"}</span>
-    </a>
   </div>
 </div>

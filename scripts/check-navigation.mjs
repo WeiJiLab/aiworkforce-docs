@@ -226,12 +226,20 @@ for (const [route, page] of expectedPages) {
   }
 
   const support = document.querySelectorAll(".portal-support");
-  record(support.length === 1, route, "expected one support link");
   record(
-    pathname(support[0]?.getAttribute("href"), route) ===
-      routeFor("resources/releases-support", page.locale),
+    support.length === 0,
     route,
-    "support link must open changelog and support in this language",
+    "sidebar must not include a support link",
+  );
+  const footerLabels = [
+    ...document.querySelectorAll(".portal-sidebar-footer a"),
+  ].map((link) => link.textContent.replace(/\s+/g, " ").trim());
+  record(
+    !footerLabels.some(
+      (label) => label === "联系支持" || label === "Contact support",
+    ),
+    route,
+    "sidebar footer must not include a contact support link",
   );
 
   const languageSelects = document.querySelectorAll(
