@@ -1,50 +1,41 @@
 ---
 title: "Set up and run a delivery board"
-description: "Check the delivery project's lanes, repositories, and pipelines, and recover blocked cards."
+description: "Create a delivery board in an existing workspace, prepare its repository and checks, and verify the first change."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-Use this guide when setting up a Software Factory board or deciding why work has stopped. To follow a single Issue on a board that is ready to use, start with [Quickstart](/getting-started/quickstart/).
+Start with a workspace that has no delivery board. You will create the board, connect the execution resources, and follow a small change through verification. If the board is already configured, go to [Quickstart](/getting-started/quickstart/).
 
-## Prerequisites
+## Before you start
 
-Open the **delivery workbench** from **Automations** at `/automations?tab=board-flow`. In the intended workspace, select a [delivery project](/user-guide/projects/) and check the configuration for the stages you will use.
+Use a workspace where you can create a delivery board and manage its repository and employee grants. Have an approved test repository, a test environment for the change, and a published board template with requirements, development, and verification stages. Ask your workspace administrator for the template or the required access if either is missing. Prepare a ready employee instance for each required lane using [the employee setup guide](/getting-started/first-employee/).
 
-| Check                      | What to confirm                                                                                                                                                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Board and lanes            | Identify where the team confirms requirements, starts development, and reviews tests. Check which actions are available on the selected board.                                                                                |
-| Repositories and grants    | Confirm the repository connection belongs to the intended workspace and is enabled. Verify that each execution employee has a grant for the repositories it needs. See [code repositories](/integrations/code-repositories/). |
-| Execution readiness        | Check that the employees assigned to the lanes are ready on the configured runtime. See [task dispatch](/software-factory/dispatch/).                                                                                         |
-| Test and release resources | Verify the [CI/CD integration](/software-factory/cicd/) and the environment for each configured stage. Merge and production release need their own working repository and pipeline integrations.                              |
+## 1. Prepare the repository and execution grants
 
-## 1. Confirm the request before development
+1. In the workspace, open **Repositories**. Use **Manage repository connections** to select a connection for your test repository's provider and instance, or create one using an approved workspace credential. Then choose **Add repository** and check the clone URL and default branch.
+2. Follow [code repositories](/integrations/code-repositories/) to grant the development employee access to the credential for the permitted repository. Check the grants for any other lane employee that needs repository access. Use a small read task to check access before asking the development employee to make a change.
+3. Check that a ready employee can run in the [development environment](/software-factory/environments/) you intend to use. If the change should produce a GitHub pull request, check that the repository connection and the employee's permitted actions cover branch and pull request creation.
 
-On the draft card, confirm the intended change, the criteria a reviewer can check, and the repositories the change may touch. If a criterion is ambiguous, leave the card in draft and ask for clarification there. When the request is ready, start or resume development from the card so the session remains linked to the requirement.
+## 2. Create the delivery board
 
-## 2. Resume work when a card is blocked
+1. Open the **delivery workbench** at `/automations?tab=board-flow`, select your workspace, and choose **New delivery project**. The **Create board** wizard opens.
+2. Under **Choose a template**, select the published delivery template. Under **Basics**, name the board and review the lane order. Under **Digital employees**, assign a ready employee to each required lane.
+3. In **Shared MCP and Skill**, review the tools and skills selected by the template. In **External board and work item sources**, you can skip external board sync and work item sources for the first run. You can bring in an Issue through the inbox or open a requirements session on the board.
+4. In **Confirm and create**, review the configuration and select **Create board**. The template can start automations after initialization passes, so use the test workspace and check the selected template before creating the board. When initialization completes, select **Open board**. If a module fails, retry that module or use **Back to configuration** if its inputs need to change.
 
-Inspect the card's current lane, active execution, and pending questions before deciding what to do next.
+## 3. Check the lanes and how the change will be tested
 
-| What you see                                  | What to check or do                                                                                                                                             |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| An employee needs input or approval           | Read the request on the card and respond with the decision and its scope.                                                                                       |
-| Execution cannot access a required repository | Check the project connection and the executing employee's grant before restarting the work.                                                                     |
-| A person has taken over                       | Record the work performed and explicitly hand the card back to continue automatic progress. Resuming a pause leaves a takeover in effect.                       |
-| A test failed                                 | Check the recorded failure and any active repair. Return the change for repair through the configured lane. Verify the revised change when the repair is ready. |
+1. In **Board settings**, confirm that the project is bound to the test repository. If you skipped an external Issues source during creation, bind the repository before adding that source. Open **Lane configuration** and check each required lane's **Execution identity**, then use **Lane flow** to review employee assignments and saved automations.
+2. For a board that runs automated checks, connect the project's test workflow and confirm the test deployment or environment it uses. For example, a connected GitHub repository can use a GitHub Actions workflow as a project pipeline. Start with [CI/CD integration](/software-factory/cicd/) and [GitHub](/integrations/github/). Follow the configured Test release and Test verification lanes to read the result.
+3. If automated checks are unavailable, choose a concrete check you can perform in a test environment and record which automated checks did not run. Keep any required gate blocked until the team has the required result or records an explicit waiver. See [quality gates](/software-factory/quality-gates/).
 
-If an action applies to a shared test batch, inspect every member card before confirming. For a Job run that failed while collecting requests, see [runs, results, and recovery](/automate/runs-recovery/).
+## 4. Verify the first card
 
-## 3. Require verification and evidence
+1. Use the sample form validation change in [Issue to PR](/recipes/issue-to-pr/). Bring the Issue in through the inbox. On a board with a Requirements entry lane, **New requirements session** can also start that request. Confirm the desired behavior, the acceptance criteria, and the repository on the draft before development begins.
+2. Follow the card through development. In **Executions**, check the session that handled the change. In **Deliverables**, open the code reference. A pull request is available when the configured delivery path produces one.
+3. Check both behaviors from the sample in the test environment. An empty field shows the corrected message, and a valid value still submits. Record the tested commit or candidate version, the environment, and the result for each acceptance criterion. If a check fails, attach the evidence, return the card for repair, and verify the new revision. Record the review decision on the card.
 
-A completed conversation is not a completed delivery. Follow the card into Test release and Test verification when the board uses those built-in lanes. Match the code reference, tested revision, environment, and results to the card's acceptance criteria. Read the execution record, the code reference or pull request, and the test result. Record the result of each required check. If the pipeline could not run, record that outcome and attach any checks run separately. A failing test can return the work for repair. When a reviewer waives a check, name the check, the reason, the scope, and the remaining risk. See [evidence and trace](/software-factory/evidence/) and [quality gates](/software-factory/quality-gates/).
-
-## 4. Follow merge, release, and cleanup
-
-For a project configured to merge and release, check each outcome as it becomes available. When a batch closes, check the recorded merge result. Use the release record to verify the revision that reached the target environment and the cleanup record to confirm that delivery resources were released. See [review and release](/software-factory/review-release/).
-
-## Expected result
-
-The team can identify the configured stages, the card and session handling a request, and the record that explains where the work is ready, blocked, or complete. Use [Issue to PR](/recipes/issue-to-pr/) to practice on a small change.
+The board is ready for the next change when the first card has a confirmed request, an execution record, a code reference, versioned verification evidence, and a recorded review decision. See [troubleshoot a delivery board](/getting-started/delivery-board-troubleshooting/) for a stopped card and [review and release](/software-factory/review-release/) to follow a change beyond review.

@@ -24,7 +24,7 @@
 顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定：
 
 1. Get started / 开始使用
-2. Build Software / 构建软件
+2. Software Factory / 软件工厂
 3. Automate Work / 自动化工作
 4. Build Workflows / 构建工作流（Employees 在 Agents 下）
 5. Run Workflows / 运行工作流

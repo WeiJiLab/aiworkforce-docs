@@ -39,14 +39,15 @@ export const PORTALS = {
           "getting-started/introduction",
           "getting-started/quickstart",
           "getting-started/first-software-factory",
+          "getting-started/delivery-board-troubleshooting",
           "getting-started/core-concepts",
           "getting-started/first-automation",
           "getting-started/platform-overview",
         ],
       },
       {
-        label: "Build Software",
-        zh: "构建软件",
+        label: "Software Factory",
+        zh: "软件工厂",
         collapsed: false,
         items: [
           "software-factory/overview",
