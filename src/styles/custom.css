@@ -1159,10 +1159,19 @@ body,
 }
 .mermaid-diagram {
   margin: 1.25rem 0;
+  padding: clamp(0.5rem, 2vw, 1rem);
   overflow-x: auto;
+  border: 1px solid var(--docs-card-border);
+  border-radius: var(--docs-radius-lg);
+  background: var(--docs-surface);
+}
+.mermaid-diagram .node > rect.label-container:is(:not([rx]), [rx="0"]) {
+  rx: var(--docs-radius-sm);
+  ry: var(--docs-radius-sm);
 }
 .mermaid-diagram svg {
   display: block;
+  margin-inline: auto;
   max-width: 100%;
   height: auto;
 }

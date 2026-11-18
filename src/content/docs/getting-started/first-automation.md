@@ -1,16 +1,16 @@
 ---
-title: "Your first workflow"
+title: "Run your first automation Job"
 description: "Create a Job, run it once by hand, and only then enable a trigger."
-sidebar:
-  label: Your first workflow
 last_verified: "2026-11-18"
+prev: false
+next: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-A first workflow here is one automation Job. The Job is the definition of a bounded task and its employee. A trigger is optional and comes after you have seen a run. This is not the delivery board, and it is not a multi-step pipeline. Those are [Software Factory](/getting-started/first-software-factory/) and [custom workflows](/workflows/custom-workflows/).
+Give a digital employee a small task you can check in one run. For example, ask it to list the action items in a set of meeting notes. Open the output and check each item against the notes.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Save a draft if you are still editing. **Run manually** creates an execution you
 
 Open the run and read its status, output, and session. If it fails, fix authorization, inputs, or missing tools before retrying. A paused published Job can still be run manually. That manual run does not turn automatic triggers back on.
 
-## 3. Add one trigger
+## Optional scheduling
 
 Add a single schedule only after the manual result is acceptable. Keep the first rule simple. A Job can have more than one scheduling rule later. Each rule belongs to that Job. Publishing still does not execute the Job. If an expected run does not appear, check both the Job state and the trigger's enabled state.
 
@@ -37,3 +37,5 @@ Event-driven starts are covered in [event-driven automation](/automate/event-dri
 You have one Job, one inspected manual run, and at most one enabled trigger whose next run you know how to find. You have not proved that a collected business request is resolved. If the Job should file inbox items, add **Collect tasks / issues** only after the basic run is reliable. A chat summary is not a saved issue.
 
 Continue with [workflow concepts](/workflows/concepts/) to place this Job among boards and events, or with [runs and recovery](/automate/runs-recovery/) if a later run fails.
+
+To repeat this task on a schedule, see [triggers and schedules](/automate/triggers-schedules/).

@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1e849dc4a83e6bf453af48d97fc15f5f3760a178f53f847a70cb29ad22fc0e9a"
+  sourceHash: "b77eb3402eeb36a020e4290f002440620bc9a62bece14cb2c7ff69b9f7ee8839"
 ---
 
 需求泳道把功能说明、导入的事项或一段粗略笔记变成团队可以接受的卡片。需求员工调研项目可以阅读的仓库，并起草范围、验收标准和未决问题。你审阅这份草稿。确认卡片之后，开发可以开始。卡片上的设计对话本身不会修改代码。
@@ -21,8 +21,6 @@ flowchart TD
     review -->|修订| design
     review -->|确认卡片| ready["卡片可以进入开发"]
     ready --> next["卡片 → Pull Request"]
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class brief,review human
     class design agent
 ```

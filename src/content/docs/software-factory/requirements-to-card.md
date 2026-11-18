@@ -20,8 +20,6 @@ flowchart TD
     review -->|Revise| design
     review -->|Confirm the card| ready["Card is ready for development"]
     ready --> next["Card → pull request"]
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class brief,review human
     class design agent
 ```

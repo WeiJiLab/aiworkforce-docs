@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "61f45c7a3bc5284599f1f99cf90049eaff2ba9c3a1df867c22ac7e1b7a24d920"
+  sourceHash: "dd0fddb721ebfcca42c8e78eeb40974df73555a247bbb4d485dd3dbe36932cee"
 ---
 
 开发记录变更之后，卡片经过测试发布和测试验证。你阅读发现和证据。检查失败，或审阅要求修改，都会把卡片退回开发员工。你接受变更之后，生产发布泳道只在项目具备可用的仓库和流水线集成时执行合并和部署。由你决定这个版本就是要交付的版本。
@@ -23,8 +23,6 @@ flowchart TD
     checks -->|检查失败| fix["开发员工：修复卡片"]
     decision -->|需要修改| fix
     fix -->|再次检查| checks
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class ready,decision,ship human
     class checks,fix,release agent
 ```

@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "8eb1edd3306328098af11325977a606eb03d0efe71d51555ef41d59abf4a09ef"
+  sourceHash: "486a73ab2af58edea1e7a9fadb9e1860894aeb1d0d759db6ad44fae0699646ae"
 ---
 
 import MonitoringRoute from "../../../../components/MonitoringRoute.astro";
@@ -23,8 +23,6 @@ flowchart TD
     inbox --> request["人：接受事项并确认卡片"]
     request --> ticket["已确认的交付卡片"]
     triager -->|还需要证据| answer["Job 员工：询问缺失的观察"]
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class feedback,request human
     class triager,answer agent
 ```

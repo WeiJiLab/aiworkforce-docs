@@ -22,8 +22,6 @@ flowchart TD
     inbox --> request["Person: accept the item and confirm a card"]
     request --> ticket["Confirmed delivery card"]
     triager -->|More evidence needed| answer["Job employee: ask for the missing observation"]
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class feedback,request human
     class triager,answer agent
 ```

@@ -23,8 +23,6 @@ flowchart TD
     author --> review["Person: review the change and its evidence"]
     review -->|Return| author
     review -->|Accept| next["Pull request → merge"]
-    classDef human fill:#fff7ed,stroke:#c2410c,color:#7c2d12
-    classDef agent fill:#e8f0fa,stroke:#315d83,color:#173753
     class ticket,approval,review human
     class ready,spec,author agent
 ```

@@ -22,15 +22,15 @@ FDE 是控制台里的独立工作台，不是读者角色标签。不要把 Use
 
 ## Docs 侧栏
 
-顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定。栏目第一项是首页链接 **Getting Started / 开始使用**，指向 `/` 与 `/zh-cn/`。其后分组为：
+顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定。栏目第一项是首页链接 **Docs home / 文档首页**，指向 `/` 与 `/zh-cn/`。其后分组为：
 
-1. Get started / 开始使用
-2. Software Factory / 软件工厂。先是四条回路：需求 → 卡片、卡片 → PR、PR → 合并、信号 → 卡片。其后是 Issue、看板和 Pull Request 自动化，以及路径细则。
+1. Get started / 开始使用。首页和侧栏提供三个任务入口：在已有看板上交付第一条 Issue、配置团队的第一个交付看板、运行第一个自动化任务。教程页尾按任务给出下一步。
+2. Software Factory / 软件工厂。先是四条回路：需求 → 卡片、卡片 → PR、PR → 合并、信号 → 卡片。其后是 Issue、看板和 Pull Request 自动化，以及路径细则。卡片排查指南放在看板工作台之后。
 3. Automate Work / 自动化工作（含 Agent handoff）
 4. Use employees / 使用数字员工
 5. Run Workflows / 运行工作流
 6. Integrations / 集成。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。员工工具挂在概览之后。MCP 与 Webhook 留在 API。不收录 ACP / A2A。
-7. Resources / 资源
+7. Resources / 资源。简介、核心概念和平台地图可在这里查阅。
 
 运行工作流的第一页是 Daemon：在你管理的电脑上执行工具。自托管服务栈不在这一组。
 
