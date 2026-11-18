@@ -48,4 +48,4 @@ You have completed the quickstart when you can explain what the employee did, wh
 
 If no templates appear, ask an administrator to publish one. If the employee stays unavailable, check initialization and execution setup. If external access is requested for this example, clarify that the supplied text is the only source.
 
-Continue with [Agent Chat](/user-guide/agent-chat/), [artifacts and evidence](/user-guide/artifacts-evidence/), or [employee building](/build/employee-definition/).
+Continue with [your first workflow](/getting-started/first-automation/) when the same task should run again, or with [Agent Chat](/user-guide/agent-chat/), [artifacts and evidence](/user-guide/artifacts-evidence/), and [employee building](/build/employee-definition/).

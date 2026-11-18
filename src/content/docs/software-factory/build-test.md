@@ -11,7 +11,7 @@ Build and test is the workbench stage that prepares a candidate and records whet
 
 ## What the lanes record
 
-Test preparation groups ready cards into a candidate batch and prepares the configured test release. Testing verifies the member cards and records results. A failure can return work for repair under the configured flow. Do not open a second repair session until you have read the active execution.
+Test release groups ready cards into a candidate batch and prepares the configured test deployment. Test verification checks the member cards and records results. A failure can return work for repair under the configured flow. Do not open a second repair session until you have read the active execution.
 
 The result you can cite is the one the lane recorded: status, scope, and the execution it belongs to. A conversation that says "tests passed" is not a substitute for that record. If no pipeline is configured, the automated stage did not run. Say so. A person may run a named command and attach the output, and that output is then the evidence. An absent command is not a pass.
 

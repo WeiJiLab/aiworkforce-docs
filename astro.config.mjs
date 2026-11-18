@@ -12,7 +12,7 @@ export default defineConfig({
     starlight({
       title: "AI Workforce",
       description:
-        "Use, build, automate, and govern AI employees. Documentation for users, builders, and platform engineers.",
+        "Define workflows, assemble agents, and deliver work you can verify. Documentation for AI Workforce.",
       favicon: "/favicon.svg",
       disable404Route: true,
       logo: { src: "./src/assets/logo.svg", alt: "", replacesTitle: false },

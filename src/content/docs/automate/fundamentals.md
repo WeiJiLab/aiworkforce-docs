@@ -1,13 +1,15 @@
 ---
 title: "Automation concepts"
 description: "Turn a signal into work with a Job, a trigger, and a run. A schedule is only one kind of trigger."
+sidebar:
+  label: Automation
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-Automation starts work and records what happened. It is not only a cron job. A Job can be invoked by a schedule, a webhook, a platform event, an Issue, or an IM message when that trigger type is available. It can also be run by hand. The sections below keep the Job, the trigger, and the run separate so a failure has a place to look.
+Automation starts a workflow and records what happened. It is not the workflow, and it is not only a cron job. The workflow is the reusable definition: a Job's task, a lane pipeline, or a delivery board. The Job is the automation object you configure here. A Job can be invoked by a schedule, a webhook, a platform event, an Issue, or an IM message when that trigger type is available. It can also be run by hand. The sections below keep the Job, the trigger, and the run separate so a failure has a place to look. The shared vocabulary is in [workflow concepts](/workflows/concepts/).
 
 Event-driven starts are in [event-driven automation](/automate/event-driven/). Inbound webhooks are in [watchers and webhooks](/automate/watchers-webhooks/). Recurring work is in [loops and recurring work](/automate/loops/). A person stepping in is in [approvals and notifications](/automate/approvals/).
 

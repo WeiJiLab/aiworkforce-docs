@@ -7,7 +7,9 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Software Factory is AI Workforce's engineering delivery system. It connects a confirmed request to employee execution, an environment that can check the change, and evidence a person uses to decide whether the change ships. The product surface is the **delivery workbench**, opened from **Automations** at `/automations?tab=board-flow`.
+Software Factory is one workflow application for engineering delivery. It uses the same workflow, automation, employees, runtime, and evidence as the [Kanban workbench](/workflows/kanban-workbench/) and [issue automation](/workflows/issue-automation/). It is not a separate engine.
+
+It connects a confirmed request to employee execution, an environment that can check the change, and evidence a person uses to decide whether the change ships. The product surface is the **delivery workbench**, opened from **Automations** at `/automations?tab=board-flow`.
 
 This is not a product for unattended code generation. An agent can draft a change. The factory's job is to make the path from input to a verified delivery inspectable. The diagram below is the only architecture map. Other Software Factory pages describe one part of it.
 
@@ -27,7 +29,7 @@ Observability, evaluation, governance, and evidence run across the whole path.
 | Coding agent           | The Claude Code runtime used by delivery and collection                                       | A catalog of other coding agents                               |
 | Harness                | The platform model loop plus the configured runtime or device                                 | A harness registry                                             |
 | Environment            | Platform execution, a self-hosted deployment, an authorized device, and a configured pipeline | A per-card sandbox, Kubernetes environment, or preview browser |
-| Build and test         | Test-preparation and testing lanes, plus the pipeline you connected                           | A built-in build farm                                          |
+| Build and test         | Test release and test verification lanes, plus the pipeline you connected                     | A built-in build farm                                          |
 | Verification           | Confirmed acceptance criteria and a human comparison                                          | An automatic business score                                    |
 | Evidence               | Session, code reference, test record, and the decision on the card                            | A second tracing product                                       |
 | Gates, review, release | Lane checks, human review, merge, and production when integration exists                      | Unattended autonomous delivery                                 |
@@ -54,11 +56,11 @@ Execution without verification is a conversation that edited files. Verification
 1. **Intake.** A request enters as an inbox item or a workbench draft. A person confirms scope, acceptance criteria, and allowed repositories. See [work intake](/software-factory/intake/).
 2. **Dispatch.** A ready card is assigned to the lane employee that should do the work. See [task dispatch](/software-factory/dispatch/).
 3. **Execute.** That employee works in a session, on the configured runtime. Batches group cards when a later stage tests them together. See [agent orchestration](/software-factory/orchestration/).
-4. **Verify.** Test preparation and testing record results. Failures can send work back. A business check compares the change with the confirmed acceptance criteria.
+4. **Verify.** Test release and test verification record results. Failures can send work back. A business check compares the change with the confirmed acceptance criteria.
 5. **Evidence.** The card keeps the session, the code reference or pull request, the test result, and the human decision. See [evidence and trace](/software-factory/evidence/).
 6. **Release.** Merge and production release run only with working repository and pipeline integration. A closed batch is not proof that production release finished. See [review and release](/software-factory/review-release/).
 
-Built-in lanes are requirements, development, test preparation, testing, merge to main, and completion. Custom boards can arrange work differently. Available actions depend on the selected board.
+Built-in lanes, in order, are Requirements, Development, Test release, Test verification, Production release, and Done. A card's step inside a lane is execution state, not a hand-edited label. Custom boards can arrange work differently. Available actions depend on the selected board. There is no WIP limit.
 
 ## What you configure first
 
@@ -68,4 +70,4 @@ Before any automatic delivery, configure the workbench project and board, the re
 
 A draft is not permission to modify code. During execution, answer questions and approval requests on the card. Taking over stops automatic progress and keeps the current state. Hand the work back explicitly. Resuming a pause does not clear a takeover. An operation on a shared batch can affect every member card.
 
-[Your first Software Factory workflow](/getting-started/first-software-factory/) walks one card. [Issue to PR](/recipes/issue-to-pr/) is the longer practice. [Automation concepts](/automate/fundamentals/) explains Jobs that collect work into the inbox or the workbench. Those Jobs do not replace the confirmation step.
+[Your first Software Factory workflow](/getting-started/first-software-factory/) walks one card. [Issue to PR](/recipes/issue-to-pr/) is the longer practice. [Workflow concepts](/workflows/concepts/) explains how the board, a Job, and a run fit together. A Job that collects work into the inbox does not replace the confirmation step.

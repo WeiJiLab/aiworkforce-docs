@@ -1,46 +1,60 @@
 ---
 title: "Core concepts"
-description: "See how AI employees, capabilities, automation, Software Factory, and governance work as one system."
+description: "Workflow defines the work, automation starts it, and an employee executes it. Runs, tasks, and evidence stay separate records."
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-AI Workforce is not a set of isolated features. Five abstractions cooperate: an employee does the work, capabilities say how, automation decides when, Software Factory carries engineering work through verification, and governance decides what is allowed to continue.
+Use one set of words for a conversation, an inbox item, an automation run, and a delivery card. The records can show different states because they answer different questions.
 
-Use the same words in a conversation, an inbox item, an automation run, and a delivery card. Those records can show different states because they answer different questions.
+Creating an agent lets you call an employee. Creating a workflow lets that work continue after the conversation: a definition, a trigger, an executor, a run, and evidence. The employee is an execution resource the workflow calls.
 
-## Five abstractions
+## The core records
 
-| Abstraction      | Question it answers                                     | What you inspect                                       |
-| ---------------- | ------------------------------------------------------- | ------------------------------------------------------ |
-| AI employee      | Who is responsible for this outcome?                    | Role, workspace instance, and readiness                |
-| Capabilities     | Which methods and tools can that employee use?          | Skills, plugins, tools, and MCP dependencies           |
-| Automation       | What starts the work, and what happens after it starts? | Job, triggers, and an individual run                   |
-| Software Factory | How does engineering work reach a reviewed delivery?    | Intake, execution, verification, evidence, and release |
-| Governance       | What is permitted, proven, and allowed to proceed?      | Permissions, evaluation, evidence, and human decisions |
+| Record     | Question it answers                                 | What you inspect                                        |
+| ---------- | --------------------------------------------------- | ------------------------------------------------------- |
+| Workflow   | How should this kind of work be performed?          | Board lanes, a lane pipeline, or a skill workflow       |
+| Automation | What starts it, and what keeps the next run coming? | The Job or pipeline trigger. Not a synonym of workflow. |
+| Agent      | Who performs a step?                                | A digital employee, or a lane's code executor           |
+| Run        | What happened this time?                            | One Job run or one pipeline run                         |
+| Task       | What is the unit of work?                           | An inbox item, a delivery card, or a pipeline node      |
+| Evidence   | What supports the claim that the work is done?      | Session, diff, test, and the human decision             |
 
 A workspace groups the employees, resources, and context used together. Access to the workspace is separate from permission to manage it or to execute work.
 
 ## How they combine
 
-An **AI employee** is the actor. A published template supplies a reusable role; the workspace employee is the instance you actually assign. Initialization has to finish before a session is useful. Creating the instance does not author the template. Builders define the role in [Build AI employees](/build/architecture/); users choose and task a published employee in [Using AI employees](/user-guide/ai-employees/).
+A **workflow** is reusable. On a delivery board it is the lanes and their rules. In Automations → Pipeline it is a graph of that lane's executors. Inside an employee package it is the workflow declared on a skill. [Workflow concepts](/workflows/concepts/) is the full map, including what is not on the screen.
+
+**Automation** is the Job or the pipeline trigger. A trigger can be manual, a schedule, a webhook, a polled GitHub event, an Issue, an IM message, or the board noticing a ready card. Publishing does not create a run. See [automation concepts](/automate/fundamentals/).
+
+An **AI employee** is the actor. A published template supplies a reusable role. The workspace employee is the instance you assign. Initialization has to finish before a session is useful. Builders define the role in [employee definition](/build/employee-definition/). Users choose a published employee in [AI employees](/user-guide/ai-employees/).
 
 **Capabilities** are how that actor works:
 
-- A **Skill** is a reusable method for one kind of task.
-- A **Plugin** packages skills and related agents.
+- A **skill** is a reusable method for one kind of task.
+- A **plugin** packages skills and related agents.
 - A **tool** performs an operation.
 - An **MCP server** exposes external tools. Naming a server in the employee manifest documents the dependency. It does not store credentials or grant access.
 
-Instructions describe intended behavior. The runtime and authorization decide which tools actually run. Read [Employee architecture](/build/architecture/) for the full composition, and [MCP servers](/build/mcp-integration/) for the employee-facing dependency. Protocol and connection setup live in [MCP integration](/integrations/mcp/).
+Instructions describe intended behavior. The runtime and authorization decide which tools actually run.
 
-**Automation** turns a signal into work. A Job defines the task and executor. A trigger — schedule, webhook, platform event, Issue, or IM, where that type is enabled — decides when to invoke it. A run records one execution. Publishing a Job does not create a run, and a successful run does not by itself resolve a business request. Automation is a way to start and recover work, not only a cron expression. See [Automation concepts](/automate/fundamentals/).
+**Software Factory** carries a confirmed engineering request through the board. It is one [workflow application](/workflows/applications/), together with issue handling and scheduled work. It is not a promise that an agent writes code unattended.
 
-**Software Factory** is the engineering delivery system. Confirmed requirements become delivery cards. Employees execute lane work. Verification, evidence, and human review decide whether a change is ready to merge or release. It is not a promise that an agent writes code unattended. See [Software Factory](/software-factory/overview/).
+## Capabilities, control, and proof
 
-**Governance** connects permission, evaluation, and evidence. A prompt that says "read only" does not replace a tool grant. A green conversation does not replace a test result or an acceptance decision. People keep the decisions that change scope, take over execution, or release software.
+| Need                  | Where it lives                                     | Do not confuse it with                                     |
+| --------------------- | -------------------------------------------------- | ---------------------------------------------------------- |
+| Dispatch              | Assigning a ready card to the lane employee        | Orchestration, which moves cards and batches through lanes |
+| Orchestration         | The workbench and a lane pipeline                  | A general multi-agent runtime                              |
+| Workflow verification | Tests, acceptance criteria, and a human comparison | Employee evaluation, which checks a package or plugin      |
+| Artifact              | The file, report, or code change                   | Evidence, which is why you believe the artifact            |
+| Runtime               | Where the session executes                         | The environment's repositories, devices, and pipelines     |
+
+A prompt that says "read only" does not replace a tool grant. A green conversation does not replace a test result. People keep the decisions that change scope, take over execution, or release software.
 
 ## Records that must stay distinct
 
@@ -49,23 +63,13 @@ Instructions describe intended behavior. The runtime and authorization decide wh
 | Session             | The conversation and execution context for one goal          |
 | Inbox task or issue | A tracked request, its source, and its review state          |
 | Automation run      | One invocation of a Job, including failure and recovery      |
+| Pipeline run        | One pass through a lane pipeline, with a status per node     |
 | Artifact            | An output, such as a report or file                          |
 | Evidence            | Support for a claim: a source, test, linked session, or diff |
 | Delivery card       | Engineering work moving through a configured board           |
 
-An artifact can be useful without being correct. A collected inbox item is not approval to change code. A delivery card keeps requirements, executions, and human decisions together; the card's existence does not configure a repository or a pipeline.
+An artifact can be useful without being correct. A collected inbox item is not approval to change code. A delivery card keeps requirements, executions, and human decisions together. The card does not configure a repository or a pipeline.
 
-## Shared layers
+## Where to go next
 
-The same five abstractions sit on six layers that the rest of the documentation uses:
-
-| Layer                      | Belongs here                       |
-| -------------------------- | ---------------------------------- |
-| Workforce capability       | Employee, Skills, Plugins          |
-| Execution                  | Agent, harness, runtime            |
-| Orchestration              | Automation and dispatch            |
-| Engineering infrastructure | Environment and CI/CD              |
-| Quality and assurance      | Verification, evidence, evaluation |
-| Work management            | Inbox, artifacts, projects         |
-
-[Platform overview](/getting-started/platform-overview/) maps these layers onto product surfaces. The [glossary](/concepts/glossary/) lists English and Chinese terms. [Quickstart](/getting-started/quickstart/) is the shortest path through a first session.
+[Quickstart](/getting-started/quickstart/) is the shortest path through a first session. [Your first workflow](/getting-started/first-automation/) adds a trigger only after that session makes sense. The [glossary](/concepts/glossary/) lists the English and Chinese terms. The [platform map](/getting-started/platform-overview/) names the screens, after these records are clear.

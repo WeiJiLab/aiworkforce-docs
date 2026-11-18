@@ -22,6 +22,6 @@ Configure the project's pipeline resources before you enable a lane that claims 
 
 ## How a run uses CI
 
-Test preparation and testing record the result the configured flow returns. A failure can send work back for repair. Merge to main records the merge outcome for a passing batch. Completion scans merged cards for production release and later cleanup. A closed batch does not mean production release finished. [Release governance](/software-factory/release-governance/) separates those outcomes.
+Test release and test verification record the result the configured flow returns. A failure can send work back for repair. Production release records the merge outcome for a passing batch. Done scans merged cards for production release and later cleanup. A closed batch does not mean production release finished. [Release governance](/software-factory/release-governance/) separates those outcomes.
 
 If the pipeline is not configured, do not write a passing CI check into the card. Record that the automated stage did not run, and use a named manual check only when a person actually ran it. [Build and test](/software-factory/build-test/) is that record.

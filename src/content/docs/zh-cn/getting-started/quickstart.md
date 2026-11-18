@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "e2c8c19d27f02bf986ea988fa6bab39a0c7f8557e63cab89697a00d4fdf59a33"
+  sourceHash: "9b232816cb465d895efae94a8c5d17065b335a74ea2991dc91e2d5eb95c82a62"
 ---
 
 先与工作空间员工完成一项小任务，再配置自动化或外部工具。本教程使用短文摘要，方便你直接核对执行结果。
@@ -49,4 +49,4 @@ translation:
 
 没有可选模板时，请管理员先发布模板。员工持续不可用时，检查初始化与执行配置。示例任务要求外部访问时，再次说明只能使用已提供的原文。
 
-接下来阅读 [Agent 对话](/zh-cn/user-guide/agent-chat/)、[产物与证据](/zh-cn/user-guide/artifacts-evidence/)，或开始了解[员工构建](/zh-cn/build/employee-definition/)。
+接下来阅读[你的第一个工作流](/zh-cn/getting-started/first-automation/)，让同一项任务再次运行；或阅读 [Agent 对话](/zh-cn/user-guide/agent-chat/)、[产物与证据](/zh-cn/user-guide/artifacts-evidence/)，以及[员工构建](/zh-cn/build/employee-definition/)。
