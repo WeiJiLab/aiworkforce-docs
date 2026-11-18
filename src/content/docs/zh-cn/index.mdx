@@ -1,6 +1,6 @@
 ---
 title: 构建并自动化软件交付
-description: 让 Agent 实现已确认的 Issue，在交付看板上检查代码与验证证据，并记录团队的审阅决定。
+description: 从外部 Issue 和事件收集需求，通过自动化整理 Story，再在交付看板上检查代码、测试和审阅决定。
 prev: false
 translation:
   source: en
@@ -11,7 +11,11 @@ translation:
 
 import HomeContent from "../../../components/HomeContent.astro";
 
-把已确认的 Issue 交给 Agent 实现。在交付看板上检查代码和验证证据，再记录团队的审阅决定。
+从 GitHub Issue、IM 消息或 Webhook 事件收集需求。自动化 Job 将事项登记到任务收件箱，转入项目后形成 Story。团队确认验收条件，再在交付看板上跟踪实现、测试和审阅。
+
+[![从外部信号到交付看板：Issue 触发收集 Job，Story 确认后进入开发、测试与团队审阅。](/illustrations/delivery-board.svg)](/illustrations/delivery-board.html)
+
+[放大查看各环节](/illustrations/delivery-board.html)
 
 ## 现行入口
 
