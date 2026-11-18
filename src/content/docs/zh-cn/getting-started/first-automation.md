@@ -8,10 +8,15 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "99227624596b885739489b93555ae7b5d9d8560688204e2496b029bf152e8e7a"
+  sourceHash: "d5c664325bd3ced315c844fc1e609ebd4aad35b07a485e1c7e80de23ed1df91f"
 ---
 
-这里的第一个工作流是一个自动化 Job。Job 定义一项有边界的任务和它的员工。触发规则是可选的，放在你看到一次运行之后。这不是交付看板，也不是多步骤编排。那些分别是[软件工厂](/zh-cn/getting-started/first-software-factory/)和[自定义工作流](/zh-cn/workflows/custom-workflows/)。
+从一条 Issue 开始。先让开发员工整理复现步骤，再用原文核对它的输出。
+
+<picture>
+  <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/zh-cn-compact.svg" />
+  <img src="/illustrations/first-workflow/zh-cn.svg" alt="先定义 Job，手动运行并核对复现步骤，再按需添加日程。需要起草测试用例时，在泳道编排中连接开发与测试节点。" />
+</picture>
 
 ## 前提
 
@@ -32,6 +37,12 @@ translation:
 只有手动结果可以接受之后，才添加一条日程。第一条规则保持简单。以后一个 Job 可以有多条调度规则。每条规则都属于这个 Job。发布仍然不会执行 Job。如果预期的运行没有出现，同时检查 Job 的状态和触发规则是否启用。
 
 事件驱动的启动见[事件驱动自动化](/zh-cn/automate/event-driven/)。Webhook 触发见[监视与 Webhook](/zh-cn/automate/watchers-webhooks/)。至少需要两个执行器的泳道编排列在[创建工作流](/zh-cn/automate/workflow-builder/)。
+
+## 可选：让测试员工接手复现步骤
+
+如果这项工作还需要一份测试用例，在**自动化 → 编排**选择工作空间、看板和泳道。用该泳道的两个执行器建立节点：开发员工整理复现步骤，测试员工根据这些步骤起草用例。
+
+将两个节点用「成功」连线连接，把开发节点输出的复现步骤映射为测试节点的必填输入。保存并启用编排后，手动运行一次。在编排运行记录里检查两个节点的状态，再对照复现步骤阅读测试用例。[查看泳道编排的配置步骤](/zh-cn/automate/workflow-builder/#组合一条泳道编排)。
 
 ## 预期结果
 

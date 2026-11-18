@@ -45,7 +45,6 @@ export const PORTALS = {
           "getting-started/delivery-board-troubleshooting",
           "getting-started/core-concepts",
           "getting-started/first-automation",
-          "getting-started/platform-overview",
         ],
       },
       {

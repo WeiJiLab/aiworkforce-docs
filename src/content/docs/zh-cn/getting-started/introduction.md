@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "782db3d8b68e4de7da3d81d0b8ee2cba01264971e7699f973a71d79e2a93f50c"
+  sourceHash: "1e822c49a7c20b880571e755bfdd88ebaf6458c7bd2f2b6817e58bca84be4e47"
 ---
 
 AI Workforce 是以工作流为中心的平台。工作流定义工作如何完成。自动化启动这条工作流并让它持续运行。数字员工是执行步骤的智能体。人仍然对范围、接管和发布负责。
@@ -39,4 +39,4 @@ AI Workforce 是以工作流为中心的平台。工作流定义工作如何完�
 
 ## 下一步
 
-阅读[核心概念](/zh-cn/getting-started/core-concepts/)了解共用词汇。[平台地图](/zh-cn/getting-started/platform-overview/)列出界面。[工作流应用](/zh-cn/workflows/applications/)比较上面这些路径。
+阅读[核心概念](/zh-cn/getting-started/core-concepts/)了解共用词汇。[工作流应用](/zh-cn/workflows/applications/)比较上面这些路径。

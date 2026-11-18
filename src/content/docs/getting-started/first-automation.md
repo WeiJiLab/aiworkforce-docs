@@ -10,7 +10,12 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-A first workflow here is one automation Job. The Job is the definition of a bounded task and its employee. A trigger is optional and comes after you have seen a run. This is not the delivery board, and it is not a multi-step pipeline. Those are [Software Factory](/getting-started/first-software-factory/) and [custom workflows](/workflows/custom-workflows/).
+Start with one issue. Ask a developer to write up the steps to reproduce it, then check the steps against the original report.
+
+<picture>
+  <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/en-compact.svg" />
+  <img src="/illustrations/first-workflow/en.svg" alt="Define a Job, check its output in a manual run, then add a schedule if needed. To draft a test case, connect the developer and QA nodes in a lane pipeline." />
+</picture>
 
 ## Prerequisites
 
@@ -31,6 +36,12 @@ Open the run and read its status, output, and session. If it fails, fix authoriz
 Add a single schedule only after the manual result is acceptable. Keep the first rule simple. A Job can have more than one scheduling rule later. Each rule belongs to that Job. Publishing still does not execute the Job. If an expected run does not appear, check both the Job state and the trigger's enabled state.
 
 Event-driven starts are covered in [event-driven automation](/automate/event-driven/). Webhook triggers are covered in [watchers and webhooks](/automate/watchers-webhooks/). A lane pipeline, which needs at least two executors, is covered in [create a workflow](/automate/workflow-builder/).
+
+## Optional: hand the reproduction steps to QA
+
+When you also need a test case, open **Automations → Pipeline** and choose a workspace, board, and lane. Create two nodes using that lane’s executors. The developer writes the reproduction steps. The QA engineer uses those steps to draft a test case.
+
+Connect the nodes with a success edge. Map the developer’s output to the QA node’s required input. Save and enable the pipeline, then run it manually. Open the pipeline run to check both node statuses and compare the test case with the reproduction steps. [See how to configure a lane pipeline](/automate/workflow-builder/#compose-a-lane-pipeline).
 
 ## Expected result
 
