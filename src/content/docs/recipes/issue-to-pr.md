@@ -4,7 +4,7 @@ description: "Turn a reviewed inbox Issue into a scoped delivery card and inspec
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-18"
 ---
 
 This recipe follows a small defect from the workspace inbox to a delivery card and its code review evidence. Use a low-impact change such as correcting a validation message. The goal is a traceable change whose requirements and verification can be inspected.
@@ -17,7 +17,7 @@ You need a workspace with an execution employee, an Issue that supports developm
 
 Open the workspace's **Inbox** from workspace management. Read the source, description, and observations. Confirm that the problem is reproducible and that this Issue belongs to the intended workspace.
 
-For example, describe the current validation message, the expected replacement, and the screen where it appears. Include steps that someone else can use to verify the result. If the Issue was collected by an Automation, inspect its collection receipt rather than relying only on the run's chat summary.
+For example, the project form shows “Invalid input” when you submit it with an empty name. Record the form, the steps to reproduce the issue, and the expected message, “Enter a project name.” If an Automation collected the Issue, open its collection receipt for the source details.
 
 ## 2. Route it to a workbench draft
 
@@ -29,6 +29,8 @@ Open the linked draft and clarify:
 - Acceptance criteria that can be checked.
 - The repositories that may be modified.
 
+For the message fix, confirm that submitting an empty name displays “Enter a project name.” and that submitting a valid name still succeeds.
+
 Complete the requirements confirmation through the card's current human request. If clarification is still needed, answer in the associated requirements session.
 
 ## 3. Follow the execution
@@ -39,12 +41,14 @@ If manual investigation is needed, take over and keep a written decision. Hand t
 
 ## 4. Review the code and evidence
 
-Open the card's deliverables and follow the recorded branch, commit, or PR reference. Review the actual diff and test results against the confirmed acceptance criteria. PR availability depends on the configured code-host integration and delivery path; use the actual recorded reference.
+Open the card's deliverables and follow the recorded code reference. Depending on the project's code-host integration and delivery path, this may be a branch, a commit, or a PR. Review the diff against the confirmed scope. For the message fix, check both submissions in the project's test environment and record the environment, the exact commit tested, and the result for each criterion. If the project tests a batch candidate, record the revision it deployed for testing.
 
-Continue to inspect merge and release results if the project is configured to perform them. A linked PR or an employee's completion message does not by itself prove that testing, merge, or production release finished.
+If a check fails, return the change for repair with the reproduction steps and test result. After a fix, rerun the checks on the new commit and link the new result. Record the review decision with the evidence for that revision.
+
+If the project also handles merge and release, check their records separately. Confirm which revision reached production, then check the cleanup result. See [Review and release](/software-factory/review-release/) for what to check at each stage.
 
 ## Related guides
 
 - [Software Factory overview](/software-factory/overview/)
 - [Inbox and tasks](/user-guide/inbox-tasks/)
-- [Artifacts and evidence](/user-guide/artifacts-evidence/)
+- [Evidence and trace](/software-factory/evidence/)
