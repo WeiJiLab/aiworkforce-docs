@@ -90,7 +90,7 @@
       src="delivery-board-en.svg"
       width="1200"
       height="600"
-      alt="Story #128 on the delivery board, with a competitive research finding on the left and GitHub Actions results on the right"
+      alt="Story #128 on the delivery board, with a research finding approved by the team and added to the backlog, alongside GitHub Actions results"
     />
     <figcaption>
       <fieldset hidden>
@@ -99,8 +99,8 @@
           ><input type="radio" name="view" value="" checked />Overview</label
         >
         <label
-          ><input type="radio" name="view" value="origin" />Research
-          finding</label
+          ><input type="radio" name="view" value="origin" />Research and
+          review</label
         >
         <label
           ><input type="radio" name="view" value="story" />CI/CD results</label
@@ -108,15 +108,16 @@
         <label><input type="radio" name="view" value="board" />Board</label>
       </fieldset>
       <p aria-live="polite">
-        The team turned a competitive research finding into Story #128 and
-        tracks the code change and pipeline results in the Delivery tab.
+        The team reviewed the finding and added it to the backlog as Story #128
+        after approval. The Delivery tab tracks the code change and pipeline
+        results.
       </p>
     </figcaption>
   </figure>
   <script>
     const captions = {
       origin:
-        "A scheduled research job reads a competitor’s release notes and finds that users can choose a role when inviting members. The team confirms the requirement as Story #128.",
+        "A scheduled research job reads a competitor’s release notes and finds that users can choose a role when inviting members. The team reviews the finding and adds it to the backlog as Story #128 after approval.",
       story:
         "PR #62 links to GitHub Actions run #482. The build and tests passed, and the change is deployed to the test environment. Production release is pending.",
       board:
