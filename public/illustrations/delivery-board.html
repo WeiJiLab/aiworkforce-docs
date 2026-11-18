@@ -100,7 +100,7 @@
         <label
           ><input type="radio" name="view" value="story" />CI/CD 交付</label
         >
-        <label><input type="radio" name="view" value="board" />原始看板</label>
+        <label><input type="radio" name="view" value="board" />完整看板</label>
       </fieldset>
       <p aria-live="polite">
         竞品更新监测发现了新的邀请权限选项。团队将发现确认为 Story
@@ -114,7 +114,8 @@
         "示例中的定时调研 Job 读取竞品更新日志，发现邀请成员时可以选择角色。团队确认这项需求后，将它转为 Story #128。",
       story:
         "PR #62 关联到 GitHub Actions 运行 #482。构建与测试通过，变更已部署到测试环境，生产发布仍待执行。",
-      board: "在看板的开发中一列找到 #128，继续跟踪验证与发布进度。",
+      board:
+        "在测试验证泳道找到 #128。向右可以看到合入主干、生产发布和已完成三个阶段。",
     };
     const diagram = document.querySelector("img");
     const caption = document.querySelector("figcaption p");
