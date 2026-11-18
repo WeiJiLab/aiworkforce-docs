@@ -7,4 +7,4 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Employee is an execution model under Agents. Create one with [Create your first AI employee](/getting-started/first-employee/) and [Employee definition](/build/employee-definition/).
+An employee is the workspace form of an agent. Install a published template with [Build your first AI employee](/getting-started/first-employee/). Author the package in the [FDE workbench](/fde/), starting from [Employee definition](/build/employee-definition/).

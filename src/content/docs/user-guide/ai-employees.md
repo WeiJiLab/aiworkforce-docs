@@ -9,7 +9,7 @@ translation:
 
 An **agent** is the execution participant inside a workflow. An **AI employee** is the configured worker you assign in a workspace—the product's common form of an agent, not a separate product line. Its template supplies reusable capabilities; workspace configuration and authorizations determine where it can work and which connected resources it can use.
 
-This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an employee package. Builders use [employee architecture](/build/architecture/). Software delivery still starts from [Software Factory](/software-factory/overview/), not from creating an employee first.
+This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an employee package. Builders use the [FDE workbench](/fde/) and [employee architecture](/build/architecture/). Software delivery still starts from [Software Factory](/software-factory/overview/), not from creating an employee first.
 
 ## Choose the right responsibility
 

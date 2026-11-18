@@ -3,12 +3,13 @@ export type HomeSection =
   | "applications"
   | "build-software"
   | "automate-work"
-  | "build-workflows"
+  | "use-employees"
+  | "fde"
   | "run-workflows"
   | "operate"
   | "integrations"
   | "agents";
-export type LandingPortal = "api" | "learn";
+export type LandingPortal = "api" | "learn" | "fde";
 export type PortalSection = "paths" | "guides" | "next";
 
 export interface LandingGuide {
@@ -23,7 +24,8 @@ interface HomeContent {
   readonly applications: readonly LandingGuide[];
   readonly buildSoftware: readonly LandingGuide[];
   readonly automateWork: readonly LandingGuide[];
-  readonly buildWorkflows: readonly LandingGuide[];
+  readonly useEmployees: readonly LandingGuide[];
+  readonly fde: readonly LandingGuide[];
   readonly runWorkflows: readonly LandingGuide[];
   readonly operate: readonly LandingGuide[];
   readonly integrations: readonly LandingGuide[];
@@ -170,8 +172,15 @@ export function getHomeContent(zh: boolean): HomeContent {
           : "Loops, watchers, and board consumption.",
         "automate/loops",
       ),
+      guide(
+        zh ? "智能体交接" : "Agent handoffs",
+        zh
+          ? "在步骤之间传递上下文与责任。"
+          : "Pass context and responsibility between steps.",
+        "automate/agent-handoff",
+      ),
     ],
-    buildWorkflows: [
+    useEmployees: [
       guide(
         zh ? "智能体" : "Agents",
         zh
@@ -180,32 +189,55 @@ export function getHomeContent(zh: boolean): HomeContent {
         "user-guide/ai-employees",
       ),
       guide(
-        zh ? "技能与插件" : "Skills and plugins",
+        zh ? "从模板创建员工" : "Create an employee from a template",
         zh
-          ? "可复用的工作方法与能力包。"
-          : "Reusable methods and capability packages.",
-        "build/skills-plugins",
+          ? "在工作空间里安装已发布模板，并验收第一份结果。"
+          : "Install a published template in a workspace and review its first result.",
+        "getting-started/first-employee",
       ),
       guide(
-        zh ? "工具与 MCP" : "Tools and MCP",
+        zh ? "工作空间" : "Workspace",
         zh
-          ? "一次操作，或 MCP 服务暴露的外部工具。"
-          : "An operation, or tools exposed by an MCP server.",
-        "build/mcp-integration",
+          ? "组织员工、权限、连接和待处理工作。"
+          : "Organize employees, permissions, connections, and incoming work.",
+        "user-guide/workspace",
       ),
       guide(
-        zh ? "智能体交接" : "Agent handoffs",
+        zh ? "对话与收件箱" : "Chat and inbox",
         zh
-          ? "在步骤之间传递上下文与责任。"
-          : "Pass context and responsibility between steps.",
-        "automate/agent-handoff",
+          ? "交任务，并决定哪些事项进入交付。"
+          : "Assign a task, and decide which requests enter delivery.",
+        "user-guide/agent-chat",
+      ),
+    ],
+    fde: [
+      guide(
+        zh ? "FDE 工作台" : "FDE workbench",
+        zh
+          ? "发现客户工作、构建员工包、发布并评测。"
+          : "Discover customer work, build an employee package, publish it, and evaluate it.",
+        "fde",
       ),
       guide(
-        zh ? "工作流配置" : "Workflow configuration",
+        zh ? "数字员工构建器" : "Employee builder",
         zh
-          ? "用构建器组合触发、执行与审批。"
-          : "Compose triggers, execution, and approvals in the builder.",
-        "automate/workflow-builder",
+          ? "在需求工作树里迭代 Plugin，再校验并提交。"
+          : "Iterate a Plugin in a requirement worktree, then validate and submit.",
+        "fde/builder",
+      ),
+      guide(
+        zh ? "标准数字员工市场" : "Standard employee marketplace",
+        zh
+          ? "同步内部员工，或把外部插件转成一次构建。"
+          : "Sync internal employees, or turn an external plugin into a build.",
+        "fde/market",
+      ),
+      guide(
+        zh ? "发布与分发" : "Publishing",
+        zh
+          ? "把校验过的员工包发布为模板。"
+          : "Publish a validated employee package as a template.",
+        "build/publishing",
       ),
     ],
     runWorkflows: [
@@ -304,8 +336,8 @@ export function getHomeContent(zh: boolean): HomeContent {
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / API 分组，并标出规划中的能力。"
-        : "Read any page as Markdown. The index follows Docs, Learn, and API and marks planned capabilities.",
+        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / FDE / API 分组，并标出规划中的能力。"
+        : "Read any page as Markdown. The index follows Docs, Learn, FDE, and API and marks planned capabilities.",
       links: [
         {
           title: "llms.txt",
@@ -391,6 +423,13 @@ export function getPortalContent(
           href: "getting-started/quickstart",
         },
         {
+          title: zh ? "FDE · 构建数字员工" : "FDE · Build an employee",
+          description: zh
+            ? "在 FDE 工作台定义岗位、迭代 Plugin 并发布模板"
+            : "Define a role, iterate a Plugin, and publish a template in the FDE workbench",
+          href: "fde",
+        },
+        {
           title: zh ? "API · 程序化触发" : "API · Trigger programmatically",
           description: zh
             ? "用已实现的 HTTP、Webhook 与 MCP 接口集成"
@@ -473,6 +512,87 @@ export function getPortalContent(
             ? "按课程路径配置自动化与智能体"
             : "Follow the course path to configure automations and agents",
           href: "learn/build-with-ai-workforce",
+        },
+      ],
+    },
+    fde: {
+      paths: [
+        {
+          label: zh ? "客户发现" : "Discovery",
+          title: zh ? "收集现场材料" : "Collect field material",
+          description: zh
+            ? "用访谈机器人和会议助手记录客户现场，事实仍要人确认。"
+            : "Record customer fieldwork with interview bots and meeting assistants. A person still confirms the facts.",
+          href: "fde/bots",
+          outcome: zh
+            ? "留下可回看的访谈和会议"
+            : "Keep a reviewable interview or meeting",
+        },
+        {
+          label: zh ? "构建" : "Build",
+          title: zh ? "在构建器里改 Plugin" : "Change a Plugin in the builder",
+          description: zh
+            ? "在需求工作树中对话、校验员工包，再提交构建。"
+            : "Talk in a requirement worktree, validate the package, and submit the build.",
+          href: "fde/builder",
+          outcome: zh ? "提交一次通过校验的构建" : "Submit one validated build",
+        },
+        {
+          label: zh ? "发布" : "Publish",
+          title: zh ? "把员工包变成模板" : "Turn a package into a template",
+          description: zh
+            ? "从标准市场选择或转换插件，再发布工作空间可以安装的模板。"
+            : "Choose or convert a plugin from the standard marketplace, then publish a template a workspace can install.",
+          href: "fde/market",
+          outcome: zh
+            ? "工作空间能安装这个模板"
+            : "A workspace can install the template",
+        },
+      ],
+      guides: [
+        {
+          title: zh ? "员工定义" : "Employee definition",
+          description: zh
+            ? "把岗位写成职责、输入、输出和约束"
+            : "Write the role as responsibility, inputs, outputs, and constraints",
+          href: "build/employee-definition",
+        },
+        {
+          title: zh ? "Agent 指令" : "Agent instructions",
+          description: zh
+            ? "把岗位、任务和仓库指引放在各自的层"
+            : "Put role, task, and repository guidance in their own layers",
+          href: "build/prompts-rules",
+        },
+        {
+          title: zh ? "Skills 与 Plugins" : "Skills and plugins",
+          description: zh
+            ? "看清同一个员工包如何拆分"
+            : "See how one employee package is divided",
+          href: "build/skills-plugins",
+        },
+        {
+          title: zh ? "发布与分发" : "Publishing",
+          description: zh
+            ? "确认哪些实例收到了已发布模板"
+            : "Confirm which instances received the published template",
+          href: "build/publishing",
+        },
+      ],
+      next: [
+        {
+          title: zh ? "文档 · 从模板创建员工" : "Docs · Create from a template",
+          description: zh
+            ? "使用者在工作空间安装已发布模板"
+            : "A workspace user installs a published template",
+          href: "getting-started/first-employee",
+        },
+        {
+          title: zh ? "学习 · 创建智能体" : "Learn · Create an agent",
+          description: zh
+            ? "课程里的短路径，详细步骤在本栏目"
+            : "The short course path; the reference stays in this portal",
+          href: "learn/build-with-ai-workforce/create-an-agent",
         },
       ],
     },

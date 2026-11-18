@@ -29,7 +29,7 @@ export const GET: APIRoute = async () => {
   const lines = [
     "# AI Workforce Docs",
     "> Product documentation for AI Workforce. English is the default; Simplified Chinese is available under /zh-cn/.",
-    "Pages follow Docs, Learn, and API in both languages. Support is available unless a line says planned. Do not infer APIs or permissions from an employee instruction example.",
+    "Pages follow Docs, Learn, FDE, and API in both languages. Support is available unless a line says planned. Do not infer APIs or permissions from an employee instruction example.",
     "Full documentation: " + absoluteUrl("/llms-full.txt"),
   ];
 

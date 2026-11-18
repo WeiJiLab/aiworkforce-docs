@@ -5,12 +5,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "322abb787669153b96b967717303684cc06d70161905a0e202ae06e46ea4ba7d"
+  sourceHash: "9757b43c4fc6a92fc6fddb4e9954d2e732a3ec0184126d7bf8f67a6e6afa4bf1"
 ---
 
 **智能体**是工作流内的执行参与者。**数字员工**是你在工作空间中指派的已配置工作者——产品里常见的智能体形态，而不是另一条产品线。模板提供可复用能力；工作空间配置和授权决定它在哪里执行，以及可以使用哪些已连接资源。
 
-本指南说明如何选择员工、分配任务、提供上下文、观察执行并审阅结果。它不说明如何编写员工包。构建者使用[员工架构](/zh-cn/build/architecture/)。软件交付仍从[软件工厂](/zh-cn/software-factory/overview/)开始，而不是先创建一名数字员工。
+本指南说明如何选择员工、分配任务、提供上下文、观察执行并审阅结果。它不说明如何编写员工包。构建者使用 [FDE 工作台](/zh-cn/fde/)和[员工架构](/zh-cn/build/architecture/)。软件交付仍从[软件工厂](/zh-cn/software-factory/overview/)开始，而不是先创建一名数字员工。
 
 ## 先选择明确职责
 

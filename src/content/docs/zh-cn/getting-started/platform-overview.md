@@ -8,7 +8,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "b5b953c33ffb70c5f79bb3c805bfa87723fa6f329560008572ae0948d745c778"
+  sourceHash: "218ec80427f955a8b50318183c24653df4a322eb250b8215eaf25df37d7cb02b"
 ---
 
 先阅读[核心概念](/zh-cn/getting-started/core-concepts/)。本页只列出这些记录所使用的界面。它不是另一套架构。
@@ -31,7 +31,7 @@ translation:
 
 打开**工作空间**选择工作发生的地方。选择一名员工并开始对话。会话把这次对话和它的执行历史放在一起。产物用来检查生成的文件；运行时支持时，也可以检查文件变更。
 
-使用者从已发布模板创建员工。构建者在发布之前定义岗位、输入、输出、技能和工具依赖。新岗位从[员工定义](/zh-cn/build/employee-definition/)开始。把工具名写进指令并不会授予访问权。
+使用者从已发布模板创建员工。构建者在发布之前，于 [FDE 工作台](/zh-cn/fde/)定义岗位、输入、输出、技能和工具依赖。新岗位从[员工定义](/zh-cn/build/employee-definition/)开始。把工具名写进指令并不会授予访问权。
 
 ## 运营与集成
 
