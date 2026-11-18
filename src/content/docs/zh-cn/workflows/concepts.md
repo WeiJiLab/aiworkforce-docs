@@ -30,6 +30,14 @@ AI Workforce 是以工作流为中心的平台。**工作流**是可复用的工
 
 在 `/automations` 打开**自动化**管理 Job。在同一页打开**编排**管理泳道编排。在主导航打开**工作台**查看看板，地址是 `/automations?tab=board-flow`。
 
+### 试一试：用 Issue 触发自动化
+
+在下方编辑器中点击右上角的「模拟试运行」，看看开发员工会收到什么任务。再将标签改为 `enhancement`，用同一条带 `bug` 标签的 Issue 试一次。演示使用本地样例数据。
+
+<iframe src="/illustrations/automation-editor/" title="交互示例：配置并试运行 Issue 自动化" loading="lazy" style="width:100%;height:clamp(36rem, 72vh, 47rem);border:0;border-radius:12px;"></iframe>
+
+[单独打开自动化编辑器示例](/illustrations/automation-editor/)
+
 ## 生命周期
 
 ```text

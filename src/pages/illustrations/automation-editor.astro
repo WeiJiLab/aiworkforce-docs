@@ -1,0 +1,458 @@
+---
+import IconButton from "../../components/IconButton.astro";
+
+const settings = [
+  ["执行器", "Agent"],
+  ["执行会话模式", "每次新建"],
+  ["任务并发上限", "1"],
+  ["执行超时", "900 秒"],
+  ["队列时限", "3600 秒"],
+  ["调用方式", "说明 + 输入"],
+  ["工具模式", "标准工具"],
+];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    /><title>自动化编辑器 · 交互示例</title></head
+  >
+  <body>
+    <main>
+      <form id="editor">
+        <header>
+          <div class="crumb">
+            <svg viewBox="0 0 24 24" aria-hidden="true"
+              ><rect x="2" y="3" width="6" height="6" rx="1.5"></rect><rect
+                x="16"
+                y="15"
+                width="6"
+                height="6"
+                rx="1.5"></rect><path d="M5 9v5a4 4 0 0 0 4 4h7M8 6h6"
+              ></path></svg
+            >自动化 <span>／</span> 新建
+          </div>
+          <div class="actions">
+            <small>本地演示</small><IconButton type="submit" label="模拟试运行"
+              ><svg viewBox="0 0 24 24" aria-hidden="true"
+                ><path d="m7 4 13 8-13 8z"></path></svg
+              ></IconButton
+            >
+          </div>
+        </header>
+        <div class="sheet">
+          <input
+            class="name"
+            aria-label="自动化名称"
+            name="job"
+            value="新 Issue 分诊"
+            maxlength="64"
+            required
+          />
+          <p class="subtitle">从仓库收集新问题，交给数字员工调查。</p>
+          <div class="meta">
+            <span class="draft">草稿</span><span>Loop V2 Test</span><select
+              name="employee"
+              aria-label="执行员工"
+              ><option>开发 Developer</option><option>测试 QA</option></select
+            >
+          </div>
+          <div class="columns">
+            <section aria-label="自动化定义">
+              <h2>触发条件</h2>
+              <div class="rule">
+                <div class="rule-row">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"
+                    ><circle cx="6" cy="5" r="2.5"></circle><circle
+                      cx="6"
+                      cy="19"
+                      r="2.5"></circle><circle cx="18" cy="6" r="2.5"
+                    ></circle><path d="M6 8v8m0-3h5a7 7 0 0 0 7-5"></path></svg
+                  ><select name="event" aria-label="GitHub 事件"
+                    ><option value="opened">Issue · 打开</option><option
+                      value="closed">Issue · 关闭</option
+                    ></select
+                  ><span>在</span><code>demo/product</code>
+                </div>
+                <label class="rule-row"
+                  >标签<select name="tag" aria-label="标签"
+                    ><option value="any">任意标签</option><option>bug</option
+                    ><option>enhancement</option></select
+                  ></label
+                >
+              </div>
+              <div class="defaults">
+                <span>Skill<strong>未选择</strong></span><span
+                  >模型<strong>继承员工模型</strong></span
+                ><span>思考等级<strong>默认</strong></span>
+              </div>
+              <label class="task"
+                >任务说明<textarea name="task" rows="2" maxlength="600" required
+                  >阅读 Issue，整理复现步骤，并列出需要补充的信息。</textarea
+                ></label
+              >
+            </section>
+            <aside>
+              <h2>运行配置</h2><dl>
+                {
+                  settings.map(([label, value]) => (
+                    <div>
+                      <>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </>
+                    </div>
+                  ))
+                }
+              </dl>
+            </aside>
+          </div>
+        </div>
+        <footer>
+          <div class="sample">
+            <span class="mark" aria-hidden="true">◎</span><b>示例事件</b><code
+              >#128</code
+            ><span>Issue 已打开</span><span class="tag">bug</span>
+          </div>
+          <output aria-live="polite" id="result"
+            >点击右上角的 ▷，查看这条事件能否触发运行。</output
+          >
+        </footer>
+      </form>
+    </main>
+    <script is:inline>
+      const editor = document.querySelector("#editor");
+      const result = document.querySelector("#result");
+      const hint = result.textContent;
+      const frame = window.frameElement;
+      if (frame) {
+        const main = document.querySelector("main");
+        new ResizeObserver(() => {
+          frame.style.height = `${Math.ceil(main.getBoundingClientRect().height)}px`;
+        }).observe(main);
+      }
+      editor.addEventListener("input", () => {
+        result.textContent = hint;
+        delete result.dataset.state;
+      });
+      editor.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(editor);
+        const mismatches = [];
+        if (data.get("event") !== "opened")
+          mismatches.push("事件是「打开」，规则要求「关闭」");
+        if (!["bug", "any"].includes(data.get("tag")))
+          mismatches.push("Issue 只有 bug 标签，规则要求 enhancement");
+        result.dataset.state = mismatches.length ? "skipped" : "matched";
+        result.textContent = mismatches.length
+          ? `已跳过 · ${mismatches.join("；")}。`
+          : `已匹配 · 模拟运行「${data.get("job")}」。${data.get("employee")} 收到任务：${data.get("task")}`;
+      });
+    </script>
+  </body>
+</html>
+<style is:inline>
+  * {
+    box-sizing: border-box;
+  }
+  :root {
+    color-scheme: light;
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      "PingFang SC",
+      "Microsoft YaHei",
+      sans-serif;
+    color: #233644;
+    background: #edf3f5;
+    font-size: 14px;
+  }
+  body {
+    margin: 0;
+  }
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: clamp(8px, 2.4vw, 28px);
+  }
+  form {
+    background: white;
+    border: 1px solid #bdcfd5;
+    border-radius: 14px;
+    box-shadow: 0 5px 16px #2449580c;
+  }
+  header,
+  .sheet,
+  footer {
+    padding: 16px clamp(14px, 3vw, 32px);
+  }
+  header,
+  .crumb,
+  .actions,
+  .meta,
+  .rule-row,
+  .sample {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  header {
+    justify-content: space-between;
+    border-bottom: 1px solid #dae4e8;
+    padding-block: 10px;
+  }
+  .crumb {
+    font-weight: 600;
+  }
+  .crumb span,
+  small,
+  .subtitle,
+  dt {
+    color: #576b79;
+  }
+  small {
+    font-size: 12px;
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 1.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    flex: none;
+  }
+  .crumb svg,
+  .mark {
+    color: #137769;
+  }
+  .docs-icon-button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #e0f3ec;
+    border: 1px solid #a4d5c5;
+    color: #096955;
+    cursor: pointer;
+  }
+  .docs-icon-button:hover {
+    background: #cfecdf;
+  }
+  .docs-tooltip {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: calc(100% + 4px);
+    padding: 5px 8px;
+    white-space: nowrap;
+    font-size: 12px;
+    border-radius: 5px;
+    background: #223641;
+    color: white;
+    visibility: hidden;
+  }
+  .docs-icon-button:is(:focus-visible, :hover) .docs-tooltip {
+    visibility: visible;
+  }
+  :is(select, input, textarea, button):focus-visible {
+    outline: 2px solid #16816f;
+    outline-offset: 2px;
+  }
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+  .name {
+    width: 100%;
+    padding: 2px 0;
+    border: 0;
+    font-weight: 650;
+    font-size: clamp(22px, 3vw, 30px);
+  }
+  .subtitle {
+    margin: 4px 0 12px;
+  }
+  .meta {
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  .draft {
+    border-right: 1px solid #d2dde0;
+    padding-right: 12px;
+  }
+  .draft::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #899da6;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  select {
+    background-color: #edf6f7;
+    border: 1px solid #d5e4e6;
+    border-radius: 6px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .columns {
+    display: grid;
+    grid-template-columns: minmax(0, 2.35fr) minmax(155px, 1fr);
+    gap: clamp(12px, 3vw, 30px);
+    margin-top: 19px;
+  }
+  h2,
+  .task {
+    font-size: 14px;
+    font-weight: 650;
+    margin: 0 0 9px;
+  }
+  .rule {
+    padding: 12px;
+    border: 1px solid #cfdde2;
+    border-radius: 9px;
+  }
+  .rule-row {
+    flex-wrap: wrap;
+    gap: 7px;
+    font-size: 13px;
+  }
+  .rule-row + .rule-row {
+    margin-top: 9px;
+  }
+  code {
+    font:
+      12px ui-monospace,
+      monospace;
+  }
+  .rule code {
+    padding: 6px 8px;
+    background: #eef4f6;
+    border-radius: 5px;
+  }
+  .defaults {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 15px 0;
+    color: #516570;
+    font-size: 12px;
+  }
+  .defaults strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 450;
+    color: #293d49;
+  }
+  .task,
+  textarea {
+    display: block;
+    width: 100%;
+  }
+  textarea {
+    border: 1px solid #cfdde2;
+    border-radius: 8px;
+    margin: 7px 0 0;
+    padding: 9px 11px;
+    line-height: 1.65;
+    font-weight: 400;
+    resize: vertical;
+  }
+  aside {
+    border-left: 1px solid #d8e3e6;
+    padding-left: clamp(12px, 2.6vw, 25px);
+  }
+  dl {
+    margin: 0;
+    font-size: 13px;
+  }
+  dl div {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 6px 0;
+  }
+  dl div:nth-child(2) {
+    border-bottom: 1px solid #e0e9eb;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+  }
+  dd {
+    margin: 0;
+  }
+  footer {
+    border-top: 1px solid #cfdfdc;
+    background: #f2f8f6;
+    border-radius: 0 0 14px 14px;
+  }
+  .sample {
+    flex-wrap: wrap;
+    gap: 7px;
+    font-size: 13px;
+  }
+  .mark {
+    font-size: 19px;
+  }
+  .tag {
+    background: #dcf0e7;
+    color: #22604d;
+    border-radius: 8px;
+    padding: 1px 7px;
+  }
+  output {
+    display: block;
+    margin-top: 5px;
+    line-height: 1.6;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+    color: #51646c;
+  }
+  output[data-state="matched"] {
+    color: #11624d;
+  }
+  output[data-state="skipped"] {
+    color: #805920;
+  }
+  @media (max-width: 580px) {
+    .columns {
+      grid-template-columns: 1fr;
+    }
+    aside {
+      border: 0;
+      border-top: 1px solid #dae4e8;
+      padding: 12px 0 0;
+    }
+    dl {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3px 14px;
+    }
+    dl div,
+    dl div:nth-child(2) {
+      border: 0;
+      padding: 3px 0;
+      margin: 0;
+    }
+  }
+  @media (max-width: 380px) {
+    dl {
+      font-size: 12px;
+    }
+    .meta {
+      gap: 8px;
+    }
+  }
+</style>
