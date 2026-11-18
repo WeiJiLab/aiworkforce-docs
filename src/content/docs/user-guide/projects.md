@@ -18,7 +18,7 @@ A workspace is where people and employees collaborate. A **project** in the curr
 
 Open the delivery workbench from **Automations** at `/automations?tab=board-flow`. The project ties together:
 
-- The board and its lanes. Built-in lanes include requirements, development, test preparation, testing, merge to main, and completion. Custom boards can differ.
+- The board and its lanes. Built-in lanes are Requirements, Development, Test release, Test verification, Production release, and Done. Custom boards can differ.
 - Repository connections the cards are allowed to use.
 - Pipeline resources required before automated merge or production release.
 - The employees that execute lane work.

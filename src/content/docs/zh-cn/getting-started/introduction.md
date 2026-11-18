@@ -1,32 +1,42 @@
 ---
 title: "简介"
-description: "用软件工厂和自动化工作流，将研发需求推进为经过验证的变更。"
+description: "先完成一项经过验证的软件变更，再用同一套工作流处理自动化和数字员工。"
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "33d88d0b229e844d4b23d606b3920bf29fa8c0888d0f3772897e0a590de5358d"
+  sourceHash: "6d20eb22ee98f9540086125e373a48e58d782a9485a86a61c21aeb4e213f20e6"
 ---
 
-AI Workforce 帮助研发团队把需求推进为可以验证和审阅的变更。[软件工厂](/zh-cn/software-factory/overview/)在交付工作台上用卡片跟进每项变更。卡片关联已确认的需求、实现结果、验证证据和团队的审阅决定。
+AI Workforce 是以工作流为中心的平台。工作流定义工作如何完成。自动化启动这条工作流并让它持续运行。数字员工是执行步骤的智能体。人仍然对范围、接管和发布负责。
 
-[自动化工作流](/zh-cn/automate/fundamentals/)负责发起周期性或事件驱动的任务。例如，用定时 Job 收集缺陷报告，交给团队分流。开发前，由人确认交付卡片的范围与验收标准。数字员工负责执行看板分派的工作，并返回证据供人审阅。
+同一套模型覆盖一次性任务、来自 GitHub 的事件、日程，以及持续消耗卡片的交付看板。软件工厂、看板工作台和 Issue 处理是这个模型的应用。它们不是三个产品。
+
+默认的第一条路径是一项经过验证的软件变更。[软件工厂](/zh-cn/software-factory/overview/)为每项变更在交付工作台上提供一张卡片。卡片把已确认的需求、实现、验证证据和团队决定连在一起。
 
 ## 选择路径
 
-- **交付第一项变更。** 按[快速入门](/zh-cn/getting-started/quickstart/)将一条 Issue 推进到变更审阅。需要完整示例时，参见[从 Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。
-- **自动收集需求或处理重复工作。** 试用[你的第一个自动化](/zh-cn/getting-started/first-automation/)，先检查一次手动运行，再启用触发规则。
-- **配置交付项目。** [配置看板](/zh-cn/getting-started/first-software-factory/)所需的仓库访问权限与验证资源。如果泳道需要数字员工，可以[从模板创建员工](/zh-cn/getting-started/first-employee/)，或[定义可复用的岗位](/zh-cn/build/employee-definition/)。
-- **审阅与发布变更。** 按[审阅与发布](/zh-cn/software-factory/review-release/)跟进已配置项目的验证、合并和部署。
+- **交付第一项变更。** 按[快速入门](/zh-cn/getting-started/quickstart/)把一条 Issue 变成经过审阅的变更。完整示例见[从 Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。需要看板规则时阅读[看板工作台](/zh-cn/workflows/kanban-workbench/)。
+- **配置看板。** 项目、仓库或泳道员工还没准备好时，按[配置并运行交付看板](/zh-cn/getting-started/first-software-factory/)检查。
+- **运行第一个工作流。** 按[你的第一个工作流](/zh-cn/getting-started/first-automation/)创建 Job，检查一次手动运行，然后再启用触发规则。需要稳定用词时阅读[工作流概念](/zh-cn/workflows/concepts/)。
+- **使用员工。** 按[构建你的第一个数字员工](/zh-cn/getting-started/first-employee/)，从已发布模板创建员工。然后使用[工作空间](/zh-cn/user-guide/workspace/)和 [Agent 对话](/zh-cn/user-guide/agent-chat/)。
+- **响应 Issue。** 用 [Issue 自动化](/zh-cn/workflows/issue-automation/)接收 GitHub Issue 或收件箱事项。开发开始之前先确认。
+
+构建者定义可复用的员工。使用者从已发布模板创建工作空间员工。自动化要求一名就绪的员工执行工作。看板在交付工作流里使用这些员工。员工包的编写步骤在[构建数字员工](/zh-cn/build/employee-definition/)里，不在使用指南里。
 
 ## 开始之前
 
-你需要 AI Workforce 账号和工作空间访问权。跑通交付流程前，选择一个已连接仓库、配置了就绪泳道员工、且具备验证条件的工作台项目。需要权限或配置时，请联系工作空间管理员。文档将部分可用的能力标为**部分支持**，将未来能力标为**规划中**。
+你需要某个 AI Workforce 部署上的账号，以及一个工作空间的访问权。工作空间管理员提供模板、执行资源和连接。交付工作流还需要仓库连接、就绪的泳道员工，以及验证变更的方法。可用能力取决于该部署。本文档把部分支持标为**部分支持**，把当前版本尚未提供的能力标为**规划中**。
+
+第一次软件变更请使用一条小 Issue，并写上审阅者能够核对的验收标准。如果第一次任务不会修改软件，请使用你可以分享的小段输入，并要求带有明确验收标准的书面输出。
 
 ## 怎样算完成
 
-第一项变更完成审阅时，审阅者能够打开已确认的需求、找到受测版本、查看验证结果，并确认团队是接受了变更，还是退回修复。先选一条验收标准明确的小 Issue。
+对于软件变更，审阅者能够打开已确认的需求，识别被检查的版本，阅读结果，并看到团队是接受了变更还是退回修复。当工作还应在没有看板的情况下再次发生时，你有一个 Job、一次检查过的运行，以及至多一条你知道去哪里找的触发规则。开发开始之前，请求必须已经是一张已确认的交付卡片。
+
+如果员工无法启动，检查初始化，并请工作空间管理员查看执行配置。如果回答或代码变更缺少依据，接受之前先要求来源或验证步骤。
 
 ## 下一步
 
-查阅[平台概览](/zh-cn/getting-started/platform-overview/)定位产品入口，阅读[核心概念](/zh-cn/getting-started/core-concepts/)了解各环节留下哪些记录。
+阅读[核心概念](/zh-cn/getting-started/core-concepts/)了解共用词汇。[平台地图](/zh-cn/getting-started/platform-overview/)列出界面。[工作流应用](/zh-cn/workflows/applications/)比较上面这些路径。

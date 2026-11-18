@@ -1,32 +1,56 @@
 ---
-title: "Platform overview"
-description: "Find the delivery workbench, workflow automation, workspace sessions, and execution setup."
+title: "Platform map"
+description: "Find the delivery workbench first, then the screens for workflows, employees, and operations."
+sidebar:
+  label: Platform map
+last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-AI Workforce gives engineering teams a delivery workbench for software changes and automation for recurring or event-driven work. Use the [core concepts](/getting-started/core-concepts/) to understand the records each surface creates.
+Read [core concepts](/getting-started/core-concepts/) first. This page only names the screens those records use. It is not a second architecture.
 
-## Deliver in the Software Factory
+For a software change, start on the delivery workbench. The sections below name that screen and the others these records use.
 
-Open the **delivery workbench** from Automations at `/automations?tab=board-flow`. The [project](/user-guide/projects/) configures the board, repositories, and lane employees. Follow a delivery card to confirm scope, track implementation and verification, and review the result.
+## Workflows and automation
 
-The workspace [Task inbox](/user-guide/inbox-tasks/) holds collected or imported requests. Route a reviewed request to a workbench draft and confirm it before starting development. Try the [quickstart](/getting-started/quickstart/) to follow one Issue through the workbench.
+**Automations** at `/automations` holds Jobs, triggers, and runs. Saving a draft, publishing, enabling automatic execution, and running manually are different actions. Triggers can be schedules, webhooks, platform events, issues, or IM messages where that type is available.
 
-## Automate recurring or event-driven work
+**Pipeline** on the same screen edits a lane pipeline: two or more executors on a delivery-board lane, with success and failure edges. A one-executor task stays a Job.
 
-Open **Automations** at `/automations` to configure Jobs, triggers, and runs. Set up a schedule or an available event trigger, run the Job by hand, and inspect the output before enabling automatic execution. For tasks that collect actionable requests, configure a destination in the inbox or the workbench. See [Automation concepts](/automate/fundamentals/).
+## The delivery board
 
-## Work in a workspace
+The **delivery workbench** at `/automations?tab=board-flow` is both Software Factory and the Kanban workbench. Cards move through Requirements, Development, Test release, Test verification, Production release, and Done, or through custom lanes you configured. Creating a card does not configure a repository or a pipeline.
 
-Open **Workspaces** to choose where work happens. Select a ready employee and start a session for direct work such as investigating a request or refining a design. The session keeps the conversation and execution history together. [Artifacts and evidence](/user-guide/artifacts-evidence/) helps you review the resulting files and records.
+The workspace **task inbox** reviews collected or imported requests. An inbox item has its own source and review state. Collecting it does not approve implementation.
 
-## Configure execution
+## Employees and context
 
-Set up the [repository connection](/integrations/code-repositories/), [runtime](/deployment/runtime-environments/), and relevant [pipeline resources](/software-factory/cicd/) for your project. Grant each lane employee access to the resources it needs. Teams can use a published template to create an employee or use [employee architecture](/build/architecture/) to define roles, skills, and tool dependencies.
+Open **Workspaces** to choose where work happens. Select an employee and start a conversation. A session keeps that conversation and its execution history together. Artifacts let you inspect produced files and, when the runtime supports it, file changes.
 
-## Operate
+Users create employees from published templates. Builders define the role, inputs, outputs, skills, and tool dependencies before publishing. [Employee definition](/build/employee-definition/) is the starting point for a new role. Putting a tool name in instructions does not grant access.
 
-Use [teams and access](/administration/teams-access/) for workspace access and [platform governance](/operate/evaluation-governance/) for the relationship between grants, tool authorization, model routing, cost, audit, and quality gates. If an action is missing, check workspace permissions and deployment configuration.
+## Operate and integrate
+
+Team access, platform configuration, model channels, runtime placement, and audit answer different operational questions. [Security](/deployment/security/) and [runtime](/deployment/runtime-environments/) are the boundaries. [Integrations](/integrations/overview/) covers repositories, chat channels including Slack and DingTalk, and monitoring events. Changing one screen does not repair another.
+
+## A first workflow
+
+For a software change:
+
+1. Open a workspace whose delivery project is ready, or follow [set up and run a delivery board](/getting-started/first-software-factory/).
+2. Follow the [quickstart](/getting-started/quickstart/) from one Issue to a reviewed change.
+3. If the same kind of intake should recur, add a Job and inspect a run before enabling it.
+
+For a task that does not change software:
+
+1. Choose a workspace and a ready employee.
+2. Give it a task with context and acceptance criteria.
+3. Inspect the response, files, and supporting evidence.
+4. If the task should recur or react to an event, add a Job and inspect a run before enabling it.
+
+If a page or action is missing, check workspace permission and deployment configuration. A missing connection or runtime has to be configured before the employee can use it.
+
+Continue with the [quickstart](/getting-started/quickstart/) or [your first workflow](/getting-started/first-automation/).

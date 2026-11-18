@@ -25,33 +25,34 @@ function guideLink(guide: LandingGuide, zh: boolean): string {
 }
 
 function homeSection(section: string, zh: boolean): string {
-  const { overview, paths, pathsIntro, domains, agents } = getHomeContent(zh);
+  const content = getHomeContent(zh);
+  const linked = (guides: readonly LandingGuide[]) =>
+    guides.map((guide) => guideLink(guide, zh)).join("\n");
   switch (section) {
-    case "overview":
+    case "cta":
+      return linked([content.primaryCta, content.secondaryCta]);
+    case "applications":
+      return linked(content.applications);
+    case "lifecycle":
       return [
-        overview.description,
-        `**${overview.title}**`,
-        overview.nodes
+        content.lifecycle.description,
+        content.lifecycle.nodes
           .map(
             (node, index) => `${index + 1}. **${node.title}:** ${node.detail}`,
           )
           .join("\n"),
-        overview.control,
+        content.lifecycle.note,
       ].join("\n\n");
-    case "paths":
-      return [
-        pathsIntro,
-        ...paths.map(
-          (path) =>
-            `### [${path.title}](${localizedGuideHref(path.href, zh)})\n\n${path.portal} · ${path.audience}\n\n${path.description}`,
-        ),
-      ].join("\n\n");
-    case "domains":
-      return domains.map((guide) => guideLink(guide, zh)).join("\n");
+    case "blocks":
+      return linked(content.blocks);
+    case "explore":
+      return linked(content.explore);
+    case "guides":
+      return linked(content.guides);
     case "agents":
       return [
-        agents.description,
-        agents.links.map((guide) => guideLink(guide, zh)).join("\n"),
+        content.agents.description,
+        content.agents.links.map((guide) => guideLink(guide, zh)).join("\n"),
       ].join("\n\n");
     default:
       throw new Error(`Unsupported homepage section: ${section}`);

@@ -1,14 +1,16 @@
 ---
 title: "自动化概念"
 description: "用 Job、触发规则和运行把信号变成工作。日程只是一种触发。"
+sidebar:
+  label: 自动化
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "6e3570c7988405ff5a415ce0efd602dbe11487c1b1ed2aa38fd56f11c46b961c"
+  sourceHash: "a8619c2bc311035a0162e5fd92da370f20ed724c18396b741d4368d4275d0541"
 ---
 
-自动化启动工作并记录发生了什么。它不只是定时任务。在相应类型可用时，Job 可以由日程、Webhook、平台事件、Issue 或 IM 消息调用，也可以手动运行。下面把 Job、触发规则和运行分开，这样失败才有地方可查。
+自动化启动一条工作流并记录发生了什么。它不是工作流本身，也不只是定时任务。工作流是可复用的定义：Job 的任务、一条泳道编排，或一块交付看板。Job 是你在这里配置的自动化对象。在相应类型可用时，Job 可以由日程、Webhook、平台事件、Issue 或 IM 消息调用，也可以手动运行。下面把 Job、触发规则和运行分开，这样失败才有地方可查。共用词汇见[工作流概念](/zh-cn/workflows/concepts/)。
 
 事件驱动的启动见[事件驱动自动化](/zh-cn/automate/event-driven/)。入站 Webhook 见[监视与 Webhook](/zh-cn/automate/watchers-webhooks/)。重复工作见[循环与周期性工作](/zh-cn/automate/loops/)。人介入的步骤见[批准与通知](/zh-cn/automate/approvals/)。
 

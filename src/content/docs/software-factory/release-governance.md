@@ -14,8 +14,8 @@ Release governance is the policy for merge, production release, and cleanup: whi
 ## Three outcomes
 
 1. **Merge.** A passing batch can be merged when the project has a working repository integration and the execution employees are authorized. The batch records the merge outcome.
-2. **Production release.** After a successful merge, completion scans merged cards and progresses the configured production release. A closed batch does not mean this step finished.
-3. **Cleanup.** Resource cleanup follows through the completion lane. A failed cleanup stays visible. It does not rewrite a release that succeeded, and a successful release does not hide a failed cleanup.
+2. **Production release.** After a successful merge, Done scans merged cards and progresses the configured production release. A closed batch does not mean this step finished.
+3. **Cleanup.** Resource cleanup follows through the Done lane. A failed cleanup stays visible. It does not rewrite a release that succeeded, and a successful release does not hide a failed cleanup.
 
 Custom boards may arrange these steps differently. Follow the configured lanes. [Review and release](/software-factory/review-release/) is the reviewer's path through the same records.
 

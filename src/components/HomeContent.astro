@@ -12,18 +12,55 @@ interface Props {
 
 const { section } = Astro.props;
 const zh = Astro.locals.starlightRoute.locale === "zh-cn";
-const { paths, domains, pathsIntro, overview, agents } = getHomeContent(zh);
+const content = getHomeContent(zh);
+const cards = (
+  items: readonly { title: string; description: string; href: string }[],
+) =>
+  items.map((item) => ({ ...item, href: localizedGuideHref(item.href, zh) }));
 ---
 
 {
-  section === "overview" && (
+  section === "cta" && (
+    <div class="home-cta not-content">
+      <a
+        class="home-cta-primary"
+        href={localizedGuideHref(content.primaryCta.href, zh)}
+      >
+        {content.primaryCta.title}
+      </a>
+      <a
+        class="home-cta-secondary"
+        href={localizedGuideHref(content.secondaryCta.href, zh)}
+      >
+        {content.secondaryCta.title}
+      </a>
+    </div>
+  )
+}
+{
+  section === "applications" && (
+    <div class="path-grid not-content">
+      {cards(content.applications).map((item) => (
+        <a class="path-card" href={item.href}>
+          <div class="path-card-heading">
+            <h3>{item.title}</h3>
+            <span aria-hidden="true">→</span>
+          </div>
+          <p class="path-description">{item.description}</p>
+        </a>
+      ))}
+    </div>
+  )
+}
+{
+  section === "lifecycle" && (
     <div
       class="overview-canvas not-content"
       role="img"
-      aria-label={overview.description}
+      aria-label={content.lifecycle.description}
     >
-      <div class="overview-flow" data-count={overview.nodes.length}>
-        {overview.nodes.map((node) => (
+      <div class="overview-flow" data-count={content.lifecycle.nodes.length}>
+        {content.lifecycle.nodes.map((node) => (
           <div class="overview-node">
             <p class="overview-node-title">{node.title}</p>
             <p class="overview-node-detail">{node.detail}</p>
@@ -31,71 +68,43 @@ const { paths, domains, pathsIntro, overview, agents } = getHomeContent(zh);
         ))}
       </div>
       <div class="overview-footer">
-        <span>{overview.control}</span>
+        <span>{content.lifecycle.note}</span>
       </div>
     </div>
   )
 }
 {
-  section === "paths" && (
-    <section
-      class="home-section not-content"
-      aria-label={zh ? "选择你的起步入口" : "Choose your starting point"}
-    >
-      <div class="home-section-heading">
-        <p>{pathsIntro}</p>
-      </div>
-      <div class="path-grid">
-        {paths.map((path) => (
-          <a class="path-card" href={localizedGuideHref(path.href, zh)}>
-            <div class="path-card-heading">
-              <h3>
-                <span class="path-name">{path.portal}</span> {path.title}
-              </h3>
-              <span aria-hidden="true">→</span>
-            </div>
-            <p class="path-description">
-              {path.description}
-              <span class="path-outcome"> · {path.audience}</span>
-            </p>
-          </a>
-        ))}
-      </div>
-    </section>
-  )
-}
-{
-  section === "domains" && (
-    <section
-      class="home-section not-content"
-      aria-label={zh ? "使用与管理平台" : "Use and manage the platform"}
-    >
-      <div class="domain-grid">
-        {domains.map(({ title, description, href }) => (
-          <a class="domain-link" href={localizedGuideHref(href, zh)}>
-            <>
-              <div>
-                <>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                </>
-              </div>
-              <span aria-hidden="true">→</span>
-            </>
-          </a>
-        ))}
-      </div>
-    </section>
+  (section === "blocks" || section === "explore" || section === "guides") && (
+    <div class="domain-grid not-content">
+      {cards(
+        section === "blocks"
+          ? content.blocks
+          : section === "explore"
+            ? content.explore
+            : content.guides,
+      ).map(({ title, description, href }) => (
+        <a class="domain-link" href={href}>
+          <div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+          <span aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
   )
 }
 {
   section === "agents" && (
-    <section class="agent-section not-content" aria-label={agents.title}>
+    <section
+      class="agent-section not-content"
+      aria-label={content.agents.title}
+    >
       <div>
-        <p>{agents.description}</p>
+        <p>{content.agents.description}</p>
       </div>
       <div class="agent-links">
-        {agents.links.map((link) => (
+        {content.agents.links.map((link) => (
           <a href={link.href.startsWith("/") ? withBase(link.href) : link.href}>
             <code>{link.title}</code>
             <span>{link.description} ↗</span>

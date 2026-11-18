@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ca4ce887ea639f172911d2a6dc58529b4b7427fec79f55d08fecb9833304ee1f"
+  sourceHash: "49d198a7622ad4f1eaab2f0ca3128cfcdda61d30676e496ff4d73e1e496ff121"
 ---
 
 配置软件工厂看板，或排查卡片为何停止推进时，可以按本页检查。如果看板已就绪，想先走通一项 Issue，请从[快速入门](/zh-cn/getting-started/quickstart/)开始。
@@ -40,7 +40,7 @@ translation:
 
 ## 3. 要求验证和证据
 
-对照卡片的验收标准，核对代码引用、受测版本、环境和测试结果。记录每项必需检查的结果。流水线未能执行时，说明实际情况，并附上单独执行的检查结果。审阅者豁免某项检查时，应记录原因、适用范围和剩余风险。参见[证据与追踪](/zh-cn/software-factory/evidence/)和[质量门禁](/zh-cn/software-factory/quality-gates/)。
+对话结束不等于交付结束。看板使用内置泳道时，继续跟到测试发布和测试验证。对照卡片的验收标准，核对代码引用、受测版本、环境和测试结果。阅读执行记录、代码引用或 Pull Request，以及测试结果。记录每项必需检查的结果。流水线未能执行时，说明实际情况，并附上单独执行的检查结果。失败的测试可以把工作退回修复。如果你豁免某项检查，写明检查项、原因、范围和剩余风险。参见[证据与追踪](/zh-cn/software-factory/evidence/)和[质量门禁](/zh-cn/software-factory/quality-gates/)。
 
 ## 4. 跟进合并、发布和资源清理
 

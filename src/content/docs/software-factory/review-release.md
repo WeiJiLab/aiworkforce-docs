@@ -24,13 +24,13 @@ The built-in delivery flow records several outcomes:
 | Stage              | What to inspect                                                            |
 | ------------------ | -------------------------------------------------------------------------- |
 | Development        | Code references, changed files, employee summary, and performed checks.    |
-| Test preparation   | Candidate batch membership, repositories, and configured test deployment.  |
-| Testing            | Results for member cards and the revision or candidate actually exercised. |
+| Test release       | Candidate batch membership, repositories, and configured test deployment.  |
+| Test verification  | Results for member cards and the revision or candidate actually exercised. |
 | Merge to main      | The recorded merge result for the passing batch.                           |
 | Production release | Release results recorded for merged cards and their repositories.          |
 | Resource cleanup   | Cleanup outcome after production release; failures may need retry.         |
 
-After a successful merge, the batch closes. Production release proceeds by scanning merged cards, and resource cleanup follows through the completion lane. A closed batch therefore does not, by itself, mean production release or cleanup finished. Custom boards may use a different arrangement; follow the configured lanes and records.
+After a successful merge, the batch closes. Production release proceeds by scanning merged cards, and resource cleanup follows through the Done lane. A closed batch therefore does not, by itself, mean production release or cleanup finished. Custom boards may use a different arrangement; follow the configured lanes and records.
 
 ## Make a precise human decision
 

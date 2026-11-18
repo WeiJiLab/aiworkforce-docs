@@ -39,7 +39,7 @@ If an action applies to a shared test batch, inspect every member card before co
 
 ## 3. Require verification and evidence
 
-Match the code reference, tested revision, environment, and results to the card's acceptance criteria. Record the result of each required check. If the pipeline could not run, record that outcome and attach any checks run separately. When a reviewer waives a check, record the reason, scope, and remaining risk. See [evidence and trace](/software-factory/evidence/) and [quality gates](/software-factory/quality-gates/).
+A completed conversation is not a completed delivery. Follow the card into Test release and Test verification when the board uses those built-in lanes. Match the code reference, tested revision, environment, and results to the card's acceptance criteria. Read the execution record, the code reference or pull request, and the test result. Record the result of each required check. If the pipeline could not run, record that outcome and attach any checks run separately. A failing test can return the work for repair. When a reviewer waives a check, name the check, the reason, the scope, and the remaining risk. See [evidence and trace](/software-factory/evidence/) and [quality gates](/software-factory/quality-gates/).
 
 ## 4. Follow merge, release, and cleanup
 
