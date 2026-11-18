@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "fb03e9f253da870fda187727a74cc991b25ec2b45f5c6045d47ebc0e6d49b238"
+  sourceHash: "4ba4ce5e631e65d6f36bd61f37909fa818d060ade4c7cf472bdfcad3cbbbece4"
 ---
 
 平台负责员工对话、模型循环、任务状态与授权；执行环境决定工具在哪里运行。自行托管平台、选择运行内核和选择设备有关联，但其中任何一项都不会自动补齐另外两项。
@@ -27,7 +27,7 @@ translation:
 
 ## 连接设备
 
-使用[设备执行器 CLI](/zh-cn/integrations/cli/)配对 macOS/Linux 执行电脑。设备发起经过认证的出站连接，浏览器无需访问本地监听端口。执行进程使用主机用户权限，批准的工作目录用于标识上下文，不是操作系统隔离边界。
+先读[在你的电脑上执行工具](/zh-cn/deployment/daemon/)，再按[设备执行器 CLI](/zh-cn/integrations/cli/)配对 macOS 或 Linux 电脑。设备发起经过认证的出站连接，浏览器无需访问本地监听端口。执行进程使用主机用户权限，批准的工作目录用于标识上下文，不是操作系统隔离边界。
 
 模型循环仍在平台运行，因此任务使用的文件内容和工具结果可能传到平台及配置的模型供应商。停止、断开和未知执行状态需要真实 Worker 证据，不要通过删除本地执行日志强行恢复在线。
 

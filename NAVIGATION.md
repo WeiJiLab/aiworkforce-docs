@@ -30,18 +30,20 @@ FDE 是控制台里的独立工作台，不是读者角色标签。不要把 Use
 4. Use employees / 使用数字员工
 5. Run Workflows / 运行工作流
 6. Integrations / 集成。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。员工工具挂在概览之后。MCP 与 Webhook 留在 API。不收录 ACP / A2A。
-7. Operate / 运营（含 Self-host / 自托管）
-8. Resources / 资源
+7. Resources / 资源
+
+运行工作流的第一页是 Daemon：在你管理的电脑上执行工具。自托管服务栈不在这一组。
 
 ## FDE 侧栏
 
-对齐控制台里的 FDE 工作台。构建者参考页仍使用原来的 `/build/` 地址。
+对齐控制台里的 FDE 工作台。构建者参考页仍使用原来的 `/build/` 地址。运营从文档栏目移到这里，地址不变。
 
 1. Customer discovery / 客户发现：访谈机器人、邀请、会议助手、会议记录
 2. Build / 构建：构建器，以及员工定义、指令、架构、能力与组合
 3. Publish and marketplace / 发布与市场
 4. Configuration / 配置：渠道配置，仅管理员
 5. Evaluation / 评测：员工测试，以及仅管理员的 Agent 评估
+6. Operate / 运营：项目、权限、模型、评测与治理、审计、安全、自托管
 
 ## Learn 侧栏
 

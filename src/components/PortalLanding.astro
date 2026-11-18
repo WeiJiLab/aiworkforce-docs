@@ -14,7 +14,12 @@ interface Props {
 const { portal, section } = Astro.props;
 const zh = Astro.locals.starlightRoute.locale === "zh-cn";
 const active = getPortalContent(portal, zh);
-const guides = section === "next" ? active.next : active.guides;
+const guides =
+  section === "next"
+    ? active.next
+    : section === "operate"
+      ? active.operate
+      : active.guides;
 ---
 
 {
