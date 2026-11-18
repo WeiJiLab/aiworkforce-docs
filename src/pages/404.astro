@@ -28,8 +28,8 @@ import "../styles/custom.css";
 <style>
   body {
     margin: 0;
-    color: #18324f;
-    background: #f3f7fa;
+    color: var(--docs-ink);
+    background: var(--sl-color-gray-7);
     font-family: var(--sl-font);
   }
   main {
@@ -38,16 +38,16 @@ import "../styles/custom.css";
     padding: 2rem;
   }
   a {
-    color: #08789b;
+    color: var(--docs-accent);
     text-decoration: none;
   }
   .brand {
     font-size: 1rem;
     font-weight: 650;
-    color: #18324f;
+    color: var(--docs-ink);
   }
   .brand span {
-    color: #5f7488;
+    color: var(--docs-muted);
     font-weight: 400;
     margin-left: 0.5rem;
   }
@@ -55,7 +55,7 @@ import "../styles/custom.css";
     margin-top: 5rem;
     font-size: 0.85rem;
     letter-spacing: 0.2em;
-    color: #08789b;
+    color: var(--docs-accent);
   }
   h1 {
     font-size: clamp(2rem, 6vw, 3rem);
@@ -63,7 +63,7 @@ import "../styles/custom.css";
     line-height: 1.2;
   }
   p {
-    color: #5f7488;
+    color: var(--docs-muted);
     line-height: 1.8;
   }
   nav {

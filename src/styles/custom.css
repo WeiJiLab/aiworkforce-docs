@@ -1,4 +1,4 @@
-/* A quiet reading surface, with the product's navy ink and one cyan accent. */
+/* Front-office console colors from platform brand-tokens.css. */
 :root {
   --sl-font: "MiSans", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   --sl-nav-height: 3rem;
@@ -13,31 +13,34 @@
   --sl-text-h3: 1rem;
   --sl-text-h4: 1rem;
   --sl-line-height: 1.75;
-  --sl-color-white: #edf0f3;
-  --sl-color-gray-1: #dce1e5;
-  --sl-color-gray-2: #b8c1c9;
-  --sl-color-gray-3: #98a4ae;
-  --sl-color-gray-4: #687681;
-  --sl-color-gray-5: #333c43;
-  --sl-color-gray-6: #22292e;
-  --sl-color-black: #171d21;
-  --sl-color-accent: #66bfd4;
-  --sl-color-accent-low: #193b45;
-  --sl-color-accent-high: #98d4e3;
-  --sl-color-bg-nav: #171d21;
-  --sl-color-bg-sidebar: #1b2125;
-  --sl-color-hairline: #333c43;
-  --sl-color-hairline-light: #2c353c;
-  --sl-color-hairline-shade: #333c43;
-  --sl-color-bg-inline-code: #222c32;
-  --docs-surface: #171d21;
-  --docs-soft: #1f272c;
-  --docs-ink: #edf0f3;
-  --docs-body: #c2cbd2;
-  --docs-muted: #98a4ae;
-  --docs-line: #333c43;
-  --docs-accent: #82cbdc;
-  --docs-accent-soft: #193b45;
+  /* html[data-front-theme="dark"]: card content, muted rail, action-300 accent text. */
+  --sl-color-white: #f1f2f6;
+  --sl-color-gray-1: #f1f2f6;
+  --sl-color-gray-2: #c4c8d2;
+  --sl-color-gray-3: #979eae;
+  --sl-color-gray-4: #667085;
+  --sl-color-gray-5: #2b3442;
+  --sl-color-gray-6: #1b2634;
+  --sl-color-black: #121923;
+  --sl-color-accent-low: #1b3c4e;
+  --sl-color-accent: #91d9ef;
+  --sl-color-accent-high: #91d9ef;
+  --sl-color-bg-nav: #121923;
+  --sl-color-bg-sidebar: #1b2634;
+  --sl-color-hairline-light: #222b38;
+  --sl-color-hairline: #2b3442;
+  --sl-color-hairline-shade: #2b3442;
+  --sl-color-bg-inline-code: #0f151f;
+  --docs-surface: #121923;
+  --docs-soft: #1b2634;
+  --docs-hover: #193646;
+  --docs-ink: #f1f2f6;
+  --docs-body: #c4c8d2;
+  --docs-muted: #979eae;
+  --docs-line: #2b3442;
+  --docs-line-hover: #508ca5;
+  --docs-accent: #91d9ef;
+  --docs-accent-soft: #1b3c4e;
   --docs-toc-width: 13rem;
   /* The platform's front-office radii: navigation, controls, and surfaces. */
   --docs-radius-sm: 0.5rem;
@@ -46,32 +49,35 @@
 }
 
 :root[data-theme="light"] {
-  --sl-color-white: #182e40;
-  --sl-color-gray-1: #253949;
-  --sl-color-gray-2: #46545f;
-  --sl-color-gray-3: #6c7780;
-  --sl-color-gray-4: #8e989f;
-  --sl-color-gray-5: #dce1e2;
-  --sl-color-gray-6: #f3f4f2;
-  --sl-color-gray-7: #f8f9f7;
-  --sl-color-black: #fdfdfc;
-  --sl-color-accent: #087b99;
-  --sl-color-accent-low: #eaf4f6;
-  --sl-color-accent-high: #07627a;
-  --sl-color-bg-nav: #fdfdfc;
-  --sl-color-bg-sidebar: #f8f9f7;
-  --sl-color-hairline: #e5e8e7;
-  --sl-color-hairline-light: #e8eae8;
-  --sl-color-hairline-shade: #e5e8e7;
-  --sl-color-bg-inline-code: #f0f3f2;
-  --docs-surface: #fdfdfc;
-  --docs-soft: #f5f7f5;
-  --docs-ink: #182e40;
-  --docs-body: #46545f;
-  --docs-muted: #6c7780;
-  --docs-line: #e5e8e7;
-  --docs-accent: #087b99;
-  --docs-accent-soft: #eaf4f6;
+  /* html[data-front-theme="light"]: white content, pale rail, neutral-950 ink, action-600. */
+  --sl-color-white: #11151d;
+  --sl-color-gray-1: #11151d;
+  --sl-color-gray-2: #3f4857;
+  --sl-color-gray-3: #667085;
+  --sl-color-gray-4: #979eae;
+  --sl-color-gray-5: #dde1e6;
+  --sl-color-gray-6: #eaf1f7;
+  --sl-color-gray-7: #f4f8fc;
+  --sl-color-black: #ffffff;
+  --sl-color-accent-low: #e3f3fa;
+  --sl-color-accent: #08789b;
+  --sl-color-accent-high: #06607e;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #eaf1f7;
+  --sl-color-hairline-light: #e8eaed;
+  --sl-color-hairline: #dde1e6;
+  --sl-color-hairline-shade: #dde1e6;
+  --sl-color-bg-inline-code: #edf3f7;
+  --docs-surface: #ffffff;
+  --docs-soft: #eaf1f7;
+  --docs-hover: #f0f9fc;
+  --docs-ink: #11151d;
+  --docs-body: #3f4857;
+  --docs-muted: #667085;
+  --docs-line: #dde1e6;
+  --docs-line-hover: #6ea6ba;
+  --docs-accent: #08789b;
+  --docs-accent-soft: #e3f3fa;
 }
 
 html {
@@ -175,7 +181,7 @@ summary:focus-visible {
   white-space: nowrap;
 }
 .site-nav-console:hover {
-  background: var(--docs-soft);
+  background: var(--docs-hover);
 }
 .visually-hidden {
   position: absolute;
@@ -215,7 +221,7 @@ summary:focus-visible {
   font-size: 0.875rem;
 }
 .docs-search button[data-open-modal]:hover {
-  border-color: var(--sl-color-gray-4);
+  border-color: var(--docs-line-hover);
 }
 .docs-search button[data-open-modal] > svg {
   width: 1rem;
@@ -413,7 +419,7 @@ summary:focus-visible {
   font-weight: 550;
 }
 .sidebar-content a:hover {
-  background: var(--docs-soft);
+  background: var(--docs-hover);
   color: var(--docs-ink);
 }
 .sidebar-content a[aria-current="page"] {
@@ -521,7 +527,7 @@ summary:focus-visible {
 }
 .docs-icon-button:hover {
   color: var(--docs-accent);
-  background: var(--docs-soft);
+  background: var(--docs-hover);
 }
 .docs-tooltip {
   position: absolute;
@@ -734,8 +740,8 @@ summary:focus-visible {
     background-color 150ms ease;
 }
 .path-card:hover {
-  border-color: var(--sl-color-gray-4);
-  background: var(--docs-soft);
+  border-color: var(--docs-line-hover);
+  background: var(--docs-hover);
 }
 .path-card-heading {
   display: flex;
