@@ -95,14 +95,14 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "Issue 自动化" : "Issue Automation",
         zh
-          ? "从 GitHub Issue 或收件箱事项启动调查，并把已确认的工作送入交付。"
+          ? "从 GitHub Issue 或收件箱事项把情况查清，确认后再进入交付。"
           : "Start from a GitHub issue or inbox item, investigate it, and route confirmed work into delivery.",
         "workflows/issue-automation",
       ),
     ],
     lifecycle: {
       description: zh
-        ? "一次工作从触发开始，经过上下文和数字员工，到执行、验证和交付。"
+        ? "一次工作从触发开始，带上上下文，由数字员工执行，再经过验证，直到交付。"
         : "Work starts with a trigger, then context and employees, then execution, verification, and delivery.",
       nodes: [
         {
@@ -139,14 +139,14 @@ export function getHomeContent(zh: boolean): HomeContent {
         },
       ],
       note: zh
-        ? "人在确认范围、接管执行和决定发布时保留判断。"
+        ? "确认范围、接管执行和决定发布，仍然由人负责。"
         : "People keep judgment when confirming scope, taking over execution, and approving release.",
     },
     blocks: [
       guide(
         zh ? "智能体与数字员工" : "Agents and employees",
         zh
-          ? "执行工作流中具体步骤的参与者。"
+          ? "负责执行工作流里的具体步骤。"
           : "The participants that perform steps inside a workflow.",
         "user-guide/ai-employees",
       ),
@@ -160,7 +160,7 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "工具与 MCP" : "Tools and MCP",
         zh
-          ? "一次操作，或由 MCP 服务暴露的外部工具。"
+          ? "一次操作，或 MCP 服务暴露的外部工具。"
           : "An operation, or external tools exposed by an MCP server.",
         "build/mcp-integration",
       ),
@@ -174,7 +174,7 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "运行时与环境" : "Runtime and environments",
         zh
-          ? "执行发生的基础设施和工作空间资源。"
+          ? "工作实际运行所在的基础设施和工作空间资源。"
           : "The infrastructure and workspace resources where execution happens.",
         "deployment/runtime-environments",
       ),
@@ -227,7 +227,7 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "自动化一个 GitHub Issue" : "Automate a GitHub issue",
         zh
-          ? "用事件轮询启动 Job，再把已确认事项送入交付。"
+          ? "轮询到 Issue 事件后启动 Job，确认过的事项再进入交付。"
           : "Start a Job from a polled issue event, then send confirmed work into delivery.",
         "workflows/issue-automation",
       ),
@@ -248,14 +248,14 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "自动化 Pull Request 审阅" : "Automate pull request reviews",
         zh
-          ? "在 PR 事件上启动员工。合并仍由发布泳道和人决定。"
+          ? "收到 Pull Request 事件后启动员工。合并仍由发布泳道和人决定。"
           : "Start an employee on a pull request event. Merge stays with the release lane and a person.",
         "workflows/pull-request-automation",
       ),
       guide(
         zh ? "创建定时调研工作流" : "Create a scheduled research workflow",
         zh
-          ? "用日程触发一名员工，并由人审阅产物。"
+          ? "按日程让一名员工开始工作，再由人审阅产物。"
           : "Schedule one employee, then review the artifact yourself.",
         "workflows/research-monitoring",
       ),
@@ -263,7 +263,7 @@ export function getHomeContent(zh: boolean): HomeContent {
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "每页可读取 Markdown 原文。索引按同一套信息架构分组，并标出部分支持或规划中的能力。"
+        ? "每一页都有 Markdown 原文可以读。索引按同一套结构分组，并标出部分支持或规划中的能力。"
         : "Read any page as Markdown. The index follows this information architecture and marks limited or planned capabilities.",
       links: [
         {
