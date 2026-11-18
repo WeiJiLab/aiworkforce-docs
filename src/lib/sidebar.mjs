@@ -29,8 +29,8 @@ export const PORTALS = {
   [Portal.Docs]: {
     label: "Docs",
     zhLabel: "文档",
-    landingLabel: "Docs home",
-    landingZh: "文档首页",
+    landingLabel: "Getting Started",
+    landingZh: "开始使用",
     description: ["Product reference", "产品参考"],
     landing: "index",
     groups: [
