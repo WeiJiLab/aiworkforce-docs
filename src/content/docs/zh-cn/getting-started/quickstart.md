@@ -1,11 +1,13 @@
 ---
-title: "快速入门"
+title: "在已有看板上交付第一条 Issue"
 description: "用已有交付看板推进一条 Issue，审阅代码变更和验证证据。"
+prev: false
+next: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "357d1e809b72dd79d048443ff5f45441ecfe0dec22558300ec33306d4bc4312e"
+  sourceHash: "4eef11e5e1b698a2560d6b3c0cc3eb53914d56ec45829966550e2e114676d9ce"
 ---
 
 用已有的软件工厂看板完成一条 Issue 的交付审阅。完成后，卡片会关联已确认的需求、代码引用、验证证据和你的审阅决定。

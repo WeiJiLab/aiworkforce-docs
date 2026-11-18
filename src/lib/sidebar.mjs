@@ -29,8 +29,8 @@ export const PORTALS = {
   [Portal.Docs]: {
     label: "Docs",
     zhLabel: "文档",
-    landingLabel: "Getting Started",
-    landingZh: "开始使用",
+    landingLabel: "Docs home",
+    landingZh: "文档首页",
     description: ["Product reference", "产品参考"],
     landing: "index",
     groups: [
@@ -39,13 +39,9 @@ export const PORTALS = {
         zh: "开始使用",
         collapsed: false,
         items: [
-          "getting-started/introduction",
           "getting-started/quickstart",
           "getting-started/first-software-factory",
-          "getting-started/delivery-board-troubleshooting",
-          "getting-started/core-concepts",
           "getting-started/first-automation",
-          "getting-started/platform-overview",
         ],
       },
       {
@@ -60,6 +56,7 @@ export const PORTALS = {
           "software-factory/signal-to-card",
           "workflows/issue-automation",
           "workflows/kanban-workbench",
+          "getting-started/delivery-board-troubleshooting",
           "workflows/pull-request-automation",
           "recipes/issue-to-pr",
           nested("Software Factory path", "软件工厂路径", [
@@ -159,6 +156,9 @@ export const PORTALS = {
         zh: "资源",
         collapsed: true,
         items: [
+          "getting-started/introduction",
+          "getting-started/core-concepts",
+          "getting-started/platform-overview",
           "resources/best-practices",
           "resources/examples",
           "resources/troubleshooting",

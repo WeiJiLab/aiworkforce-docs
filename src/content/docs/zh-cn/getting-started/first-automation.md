@@ -1,17 +1,17 @@
 ---
-title: "你的第一个工作流"
+title: "运行第一个自动化任务"
 description: "创建 Job，先手动运行一次，然后再启用触发规则。"
-sidebar:
-  label: 你的第一个工作流
 last_verified: "2026-11-18"
+prev: false
+next: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "99227624596b885739489b93555ae7b5d9d8560688204e2496b029bf152e8e7a"
+  sourceHash: "150fae69df1c0e4c00479849d8a7220592712177fd805b584d965a3b5552b003"
 ---
 
-这里的第一个工作流是一个自动化 Job。Job 定义一项有边界的任务和它的员工。触发规则是可选的，放在你看到一次运行之后。这不是交付看板，也不是多步骤编排。那些分别是[软件工厂](/zh-cn/getting-started/first-software-factory/)和[自定义工作流](/zh-cn/workflows/custom-workflows/)。
+用一个 Job 请数字员工完成一项可以当场验收的小任务。例如，给它一段会议记录，请它列出行动项；打开运行结果，逐条对照原文。
 
 ## 前提
 
@@ -27,7 +27,7 @@ translation:
 
 打开运行，阅读状态、输出和会话。如果失败，先修复授权、输入或缺失的工具，再重试。已暂停的已发布 Job 仍可手动运行。这次手动运行不会把自动触发重新打开。
 
-## 3. 添加一条触发规则
+## 可选：让任务定时运行
 
 只有手动结果可以接受之后，才添加一条日程。第一条规则保持简单。以后一个 Job 可以有多条调度规则。每条规则都属于这个 Job。发布仍然不会执行 Job。如果预期的运行没有出现，同时检查 Job 的状态和触发规则是否启用。
 
@@ -38,3 +38,5 @@ translation:
 你有一个 Job、一次检查过的手动运行，以及至多一条已启用、并且你知道下一次运行去哪里找的触发规则。你还没有证明被收集的业务请求已经解决。如果 Job 要把事项登记进收件箱，等基本运行可靠之后再添加**收集任务 / 事项**。聊天摘要不是已保存的事项。
 
 用[工作流概念](/zh-cn/workflows/concepts/)把这个 Job 放到看板和事件之中。如果后来的运行失败，继续看[运行与恢复](/zh-cn/automate/runs-recovery/)。
+
+需要重复执行这项任务时，见[触发器与定时调度](/zh-cn/automate/triggers-schedules/)。
