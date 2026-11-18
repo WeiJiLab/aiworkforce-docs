@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Follow one Issue from the inbox to a review decision. A project form shows “Invalid input” when its name field is empty. The team asks for a clearer message, catches a regression in the first candidate, and verifies the repair before accepting it.
+Follow one Issue from the inbox to a review decision. This walkthrough is one pass through [Card → pull request](/software-factory/card-to-pr/). A project form shows “Invalid input” when its name field is empty. The team asks for a clearer message, catches a regression in the first candidate, and verifies the repair before accepting it.
 
 The card, code references, and results below are illustrative. You can read the example without an account. To repeat the workflow in your workspace, follow the [Quickstart](/getting-started/quickstart/).
 

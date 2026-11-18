@@ -36,17 +36,17 @@ Trigger → Context → Definition → Agent execution → Environment
         → Verification → Evidence → Delivery → Feedback
 ```
 
-| Stage                  | What it answers                                     | In this release                                                                                                   |
-| ---------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Trigger                | What starts the work?                               | Manual run, schedule, webhook, GitHub event poll, Issue, IM message, or a board lane. See the limits below.       |
-| Context                | What may the executor read?                         | Workspace, repository connection, issue or card, session memory, and employee knowledge.                          |
-| Workflow definition    | What are the steps and dependencies?                | One Job, a lane pipeline of executors, or a skill workflow. A free-form process canvas is not a separate product. |
-| Agent execution        | Who performs the step?                              | The Job's employee, a lane employee, or an allowlisted board code executor.                                       |
-| Execution environment  | Where does it run?                                  | Platform runtime, a self-hosted deployment, or an authorized device. Not a per-card sandbox.                      |
-| Verification           | Did the work meet the agreed outcome?               | Tests on the board, acceptance criteria, and a human comparison. There is no automatic business score.            |
-| Evidence and artifacts | What proves the claim, and what was produced?       | Session, files, code reference or pull request, test record, and the decision on the card.                        |
-| Delivery               | Where does the result go?                           | Task inbox update, pull request, review, release lane, or a message. Release still needs the integration to exist.     |
-| Feedback and recovery  | What happens when a person or a failure intervenes? | Human approval, takeover, hand-back, retry on a pipeline node, and a later run.                                   |
+| Stage                  | What it answers                                     | In this release                                                                                                    |
+| ---------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Trigger                | What starts the work?                               | Manual run, schedule, webhook, GitHub event poll, Issue, IM message, or a board lane. See the limits below.        |
+| Context                | What may the executor read?                         | Workspace, repository connection, issue or card, session memory, and employee knowledge.                           |
+| Workflow definition    | What are the steps and dependencies?                | One Job, a lane pipeline of executors, or a skill workflow. A free-form process canvas is not a separate product.  |
+| Agent execution        | Who performs the step?                              | The Job's employee, a lane employee, or an allowlisted board code executor.                                        |
+| Execution environment  | Where does it run?                                  | Platform runtime, a self-hosted deployment, or an authorized device. Not a per-card sandbox.                       |
+| Verification           | Did the work meet the agreed outcome?               | Tests on the board, acceptance criteria, and a human comparison. There is no automatic business score.             |
+| Evidence and artifacts | What proves the claim, and what was produced?       | Session, files, code reference or pull request, test record, and the decision on the card.                         |
+| Delivery               | Where does the result go?                           | Task inbox update, pull request, review, release lane, or a message. Release still needs the integration to exist. |
+| Feedback and recovery  | What happens when a person or a failure intervenes? | Human approval, takeover, hand-back, retry on a pipeline node, and a later run.                                    |
 
 A trigger does not define the work. Publishing a Job or enabling a pipeline does not create a run. A successful run does not by itself resolve a business request.
 
@@ -130,15 +130,15 @@ The first successful poll only sets a baseline. Later polls are at least 60 seco
 
 ## Example C. Kanban-driven Software Factory
 
-| Piece        | This release                                                                                                    | Not this release                         |
-| ------------ | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| Trigger      | A ready card, a lane scan, or a lane pipeline trigger                                                           | A hand-moved status that pretends to run |
-| Context      | The card, the project, allowed repositories, and the lane's employees                                           | A per-card sandbox or preview browser    |
-| Agents       | Lane employees and allowlisted code executors such as test admit, release advance, and batch move               | A catalog of other coding agents         |
-| Steps        | Confirm requirements, develop, batch on Test deployment, record test results, then merge or release if integrated | Unattended deployment on the Production lane            |
-| Verification | Test results and a human comparison with the acceptance criteria                                                | An automatic business score              |
-| Output       | Session, code reference or pull request, test record, and the decision on the card                              | A second evidence product                |
-| Human        | Confirm the draft, answer the card, take over, and decide release                                               | A WIP limit                              |
+| Piece        | This release                                                                                                      | Not this release                             |
+| ------------ | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| Trigger      | A ready card, a lane scan, or a lane pipeline trigger                                                             | A hand-moved status that pretends to run     |
+| Context      | The card, the project, allowed repositories, and the lane's employees                                             | A per-card sandbox or preview browser        |
+| Agents       | Lane employees and allowlisted code executors such as test admit, release advance, and batch move                 | A catalog of other coding agents             |
+| Steps        | Confirm requirements, develop, batch on Test deployment, record test results, then merge or release if integrated | Unattended deployment on the Production lane |
+| Verification | Test results and a human comparison with the acceptance criteria                                                  | An automatic business score                  |
+| Output       | Session, code reference or pull request, test record, and the decision on the card                                | A second evidence product                    |
+| Human        | Confirm the draft, answer the card, take over, and decide release                                                 | A WIP limit                                  |
 
 Walk one card in [your first Software Factory workflow](/getting-started/first-software-factory/). The board relationship is in [Kanban automation workbench](/workflows/kanban-workbench/).
 

@@ -5,10 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "0cee496668bd12f9c7d9cc552f244a732bca4fe0856810f11f5aa91bee81231f"
+  sourceHash: "6d5d08966e0407b53b379785e54a4265f3e4132b4d7c0e3dc07750524282a17e"
 ---
 
-客户反馈和监控信号是做决定的输入。在让员工实施变更前，先明确实际观察到了什么、是否能够复现，以及团队希望改善什么结果。AI Workforce 通过工作空间任务收件箱提供研判入口；本指南不假定存在独立的反馈主题模块。
+客户反馈和监控信号是做决定的输入。在让员工实施变更前，先明确实际观察到了什么、是否能够复现，以及团队希望改善什么结果。报告如何成为卡片，见[信号到卡片](/zh-cn/software-factory/signal-to-card/)。AI Workforce 通过工作空间任务收件箱提供研判入口；本指南不假定存在独立的反馈主题模块。
 
 ## 保留原始观察
 

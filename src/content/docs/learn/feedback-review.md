@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-17"
 ---
 
-Customer feedback and monitoring signals are inputs to a decision. Before asking an employee to implement a change, establish what was observed, whether it is reproducible, and which outcome the team intends to improve. AI Workforce's workspace Task inbox provides the review surface; this guide does not assume a separate feedback-theme module.
+Customer feedback and monitoring signals are inputs to a decision. Before asking an employee to implement a change, establish what was observed, whether it is reproducible, and which outcome the team intends to improve. How a report becomes a card is [Signal → card](/software-factory/signal-to-card/). AI Workforce's workspace Task inbox provides the review surface; this guide does not assume a separate feedback-theme module.
 
 ## Preserve the observation
 

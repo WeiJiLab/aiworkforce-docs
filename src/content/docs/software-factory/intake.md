@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Intake is how a request becomes a delivery draft. The backlog is the set of drafts and cards a team has not yet accepted into development. Collecting an item is not that acceptance.
+Intake is how a request becomes a delivery draft. The backlog is the set of drafts and cards a team has not yet accepted into development. Collecting an item is not that acceptance. A feature brief follows [Requirements → card](/software-factory/requirements-to-card/) until the card is confirmed.
 
 ## Where requests enter
 

@@ -5,10 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "66c14c72266f5228a9a5b20c0df66cf5719e2ae9173dd1b9a77cfbbb50e31226"
+  sourceHash: "285c71ab19a59804c40b88a6fb3575719f90b54288521ca098ccc286e851dbf7"
 ---
 
-进入是请求变成交付草稿的方式。待办是团队尚未接受进入开发的草稿和卡片。收集到一项，并不是这项接受。
+进入是请求变成交付草稿的方式。待办是团队尚未接受进入开发的草稿和卡片。收集到一项，并不是这项接受。功能说明按[需求到卡片](/zh-cn/software-factory/requirements-to-card/)推进，直到卡片被确认。
 
 ## 请求从哪里进入
 

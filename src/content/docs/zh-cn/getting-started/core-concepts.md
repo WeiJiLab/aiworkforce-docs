@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "a045443765de1ebf39aa5ca2ccbd762ca9b81018172e739ec8de842d007e50b7"
+  sourceHash: "cac36a7c7cb17f8872881f5d26155542a9c8c6bb08dd6320da4b8d31837fd5b0"
 ---
 
 会话、收件箱事项、自动化运行和交付卡片使用同一套词。这些记录可以显示不同状态，因为它们回答的问题不同。

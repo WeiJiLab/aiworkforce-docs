@@ -96,39 +96,46 @@ export function getHomeContent(zh: boolean): HomeContent {
     ],
     buildSoftware: [
       guide(
-        zh ? "交付流程概览" : "Delivery overview",
+        zh ? "软件工厂概览" : "Software Factory overview",
         zh
-          ? "了解从工作进入到审阅与发布的交付路径。"
-          : "Explore the delivery path from intake through review and release.",
+          ? "用四条回路把需求、实现、审阅和反馈连成可重复的交付。"
+          : "Connect requirements, implementation, review, and feedback into four delivery loops.",
         "software-factory/overview",
       ),
       guide(
-        zh ? "Issue 自动化" : "Issue Automation",
+        zh ? "配置软件工厂" : "Configure the factory",
         zh
-          ? "把事项整理、确认并送入交付。"
-          : "Triage, confirm, and route issues into delivery.",
-        "workflows/issue-automation",
+          ? "连接代码托管和运行位置，指派泳道员工，并启动第一张卡片。"
+          : "Connect a code host and runtime, assign lane employees, and start the first card.",
+        "getting-started/first-software-factory",
       ),
       guide(
-        zh ? "看板自动化" : "Kanban Automation",
+        zh ? "需求 → 卡片" : "Requirements → card",
         zh
-          ? "按泳道推进持续交付。"
-          : "Move continuous delivery work through lanes.",
-        "workflows/kanban-workbench",
+          ? "把功能说明收成经过审阅的范围和一张已确认的卡片。"
+          : "Turn a feature brief into a reviewed scope and a confirmed card.",
+        "software-factory/requirements-to-card",
       ),
       guide(
-        zh ? "Pull Request 自动化" : "Pull Request Automation",
+        zh ? "卡片 → PR" : "Card → pull request",
         zh
-          ? "轮询 GitHub PR 事件，匹配规则时启动 Job 并查看调查结果。"
-          : "Poll GitHub for pull request events, start a Job on a match, and review its findings.",
-        "workflows/pull-request-automation",
+          ? "实现已确认的卡片，并留下供审阅的变更。"
+          : "Implement a confirmed card and record a change for review.",
+        "software-factory/card-to-pr",
       ),
       guide(
-        zh ? "构建与验证" : "Build and verification",
+        zh ? "PR → 合并" : "Pull request → merge",
         zh
-          ? "核对候选版本和已配置的构建与测试结果。"
-          : "Check the release candidate and its configured build and test results.",
-        "software-factory/build-test",
+          ? "在人接受合并和发布之前，审阅、修复并核对变更。"
+          : "Review, repair, and verify a change before a person accepts merge and release.",
+        "software-factory/pr-to-merge",
+      ),
+      guide(
+        zh ? "信号 → 卡片" : "Signal → card",
+        zh
+          ? "调查反馈和事件，再决定哪一项后续工作成为卡片。"
+          : "Investigate feedback and incidents, then decide which follow-up becomes a card.",
+        "software-factory/signal-to-card",
       ),
     ],
     automateWork: [

@@ -9,7 +9,7 @@ translation:
   sourceVersion: "2026-11-17"
 ---
 
-Review establishes whether a particular change satisfies its confirmed requirement. Release establishes whether the accepted change reached the intended environment. This page is that delivery flow. The rules for which recorded result may move a card, and which waiver is valid, are [release governance](/software-factory/release-governance/).
+Review establishes whether a particular change satisfies its confirmed requirement. Release establishes whether the accepted change reached the intended environment. This page is the checklist for that delivery flow. The loop around it is [Pull request → merge](/software-factory/pr-to-merge/). The rules for which recorded result may move a card, and which waiver is valid, are [release governance](/software-factory/release-governance/).
 
 ## Prepare a reviewable change
 
@@ -21,12 +21,12 @@ Start with scope: does the change solve the agreed problem, and did it modify an
 
 The built-in delivery flow records several outcomes:
 
-| Stage              | What to inspect                                                            |
-| ------------------ | -------------------------------------------------------------------------- |
-| Development        | Code references, changed files, employee summary, and performed checks.    |
+| Stage                      | What to inspect                                                            |
+| -------------------------- | -------------------------------------------------------------------------- |
+| Development                | Code references, changed files, employee summary, and performed checks.    |
 | Test deployment (测试发布) | Candidate batch membership, repositories, and configured test deployment.  |
 | Testing (测试验证)         | Results for member cards and the revision or candidate actually exercised. |
-| Merge to main      | The recorded merge result for the passing batch.                           |
+| Merge to main              | The recorded merge result for the passing batch.                           |
 | Production (生产发布)      | Release results recorded for merged cards and their repositories.          |
 | Resource cleanup           | Cleanup outcome after the Production lane; failures may need retry.        |
 

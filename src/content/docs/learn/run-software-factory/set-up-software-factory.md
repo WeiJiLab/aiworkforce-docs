@@ -7,4 +7,4 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Hands-on setup: [First Software Factory](/getting-started/first-software-factory/).
+Hands-on setup: [Configure the Software Factory](/getting-started/first-software-factory/). The four loops start from [Software Factory overview](/software-factory/overview/).

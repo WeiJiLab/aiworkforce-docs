@@ -65,3 +65,111 @@ const newWindow = zh ? "（新窗口打开）" : " (opens in a new tab)";
     }
   </div>
 </div>
+
+<script>
+  const themeName = () =>
+    document.documentElement.dataset.theme === "light" ? "light" : "dark";
+
+  const diagramSource = (pre: Element) => {
+    const code = pre.querySelector("code");
+    const text =
+      code instanceof HTMLElement
+        ? code.innerText
+        : pre instanceof HTMLElement
+          ? pre.innerText
+          : (pre.textContent ?? "");
+    return text.replace(/\n$/, "").trim();
+  };
+
+  const isMermaid = (pre: Element) =>
+    /mermaid/i.test(
+      `${pre.getAttribute("data-language") ?? ""} ${pre.querySelector("code")?.className ?? ""}`,
+    );
+
+  const mounts: { source: string; figure: HTMLElement }[] = [];
+  let sequence = 0;
+
+  const draw = async (
+    mermaid: {
+      initialize: (config: object) => void;
+      render: (id: string, source: string) => Promise<{ svg: string }>;
+    },
+    theme: string,
+  ) => {
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      fontFamily: "inherit",
+      themeVariables:
+        theme === "light"
+          ? {
+              background: "#ffffff",
+              primaryColor: "#e8f0fa",
+              primaryTextColor: "#173753",
+              primaryBorderColor: "#315d83",
+              lineColor: "#315d83",
+              secondaryColor: "#fff7ed",
+              tertiaryColor: "#f8fafc",
+              textColor: "#173753",
+              mainBkg: "#e8f0fa",
+              nodeBorder: "#315d83",
+              clusterBkg: "#f8fafc",
+            }
+          : {
+              background: "#121923",
+              primaryColor: "#1b3c4e",
+              primaryTextColor: "#f1f2f6",
+              primaryBorderColor: "#91d9ef",
+              lineColor: "#91d9ef",
+              secondaryColor: "#1b2634",
+              tertiaryColor: "#193646",
+              textColor: "#f1f2f6",
+              mainBkg: "#1b2634",
+              nodeBorder: "#91d9ef",
+              clusterBkg: "#1b2634",
+              edgeLabelBackground: "#121923",
+            },
+    });
+    for (const mount of mounts) {
+      try {
+        const { svg } = await mermaid.render(
+          `mermaid-diagram-${sequence++}`,
+          mount.source,
+        );
+        mount.figure.innerHTML = svg;
+      } catch (error) {
+        console.error("Mermaid render failed", error);
+        const fallback = document.createElement("pre");
+        fallback.textContent = mount.source;
+        mount.figure.replaceChildren(fallback);
+      }
+    }
+  };
+
+  const blocks = [...document.querySelectorAll("pre")].filter(isMermaid);
+  if (blocks.length) {
+    const mermaid = (await import("mermaid")).default;
+    for (const pre of blocks) {
+      const source = diagramSource(pre);
+      const host = pre.closest(".expressive-code") ?? pre;
+      const figure = document.createElement("figure");
+      figure.className = "mermaid-diagram";
+      host.replaceWith(figure);
+      mounts.push({ source, figure });
+    }
+    let renderedTheme = themeName();
+    await draw(mermaid, renderedTheme);
+    new MutationObserver(() => {
+      const next = themeName();
+      if (next === renderedTheme) return;
+      renderedTheme = next;
+      draw(mermaid, next).catch((error) => {
+        console.error("Mermaid theme update failed", error);
+      });
+    }).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+  }
+</script>

@@ -7,10 +7,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "8a840165512791bbc2ce1b1a5f48da48dac0fbb1af4fd71213c964f6527e2d84"
+  sourceHash: "01a6f6fbfd698a62c9e51f0fa68482279f72e692174b92f20b9728f4550d465b"
 ---
 
-审核确认特定变更是否满足已确认需求。发布确认已接纳的变更是否到达目标环境。本页是这条交付流程。哪条已记录的结果可以让卡片前进、怎样的豁免才有效，见[发布治理](/zh-cn/software-factory/release-governance/)。
+审核确认特定变更是否满足已确认需求。发布确认已接纳的变更是否到达目标环境。本页是这条交付流程的核对清单。围绕它的回路是 [Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/)。哪条已记录的结果可以让卡片前进、怎样的豁免才有效，见[发布治理](/zh-cn/software-factory/release-governance/)。
 
 ## 准备可审核的变更
 

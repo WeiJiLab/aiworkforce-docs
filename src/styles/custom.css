@@ -1157,6 +1157,16 @@ body,
     height: 21px;
   }
 }
+.mermaid-diagram {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+}
+.mermaid-diagram svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

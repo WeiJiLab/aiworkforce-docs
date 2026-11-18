@@ -5,10 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "aac5465f5b42e9e1f8a068e69272d96ab6649ae3fa7d0a34c41b0e9164bb80cf"
+  sourceHash: "4ea1cae31bb27e6e2ebf9da2b08074b3cd890a16b311183bc6e2683212398d5f"
 ---
 
-项目表单在名称留空时只提示「输入无效」。团队希望给出更明确的提示，第一次验证时却发现正常提交也失败了。本案例展示如何从收件箱接手这条 Issue，并在修复后作出审阅决定。
+项目表单在名称留空时只提示「输入无效」。团队希望给出更明确的提示，第一次验证时却发现正常提交也失败了。本案例是[卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)的一次走通，展示如何从收件箱接手这条 Issue，并在修复后作出审阅决定。
 
 下文中的卡片、代码引用和验证结果均为示例，无需登录即可阅读。要在自己的工作空间动手，按[快速入门](/zh-cn/getting-started/quickstart/)操作。
 

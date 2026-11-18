@@ -12,12 +12,12 @@ AI Workforce is a workflow-native platform. A workflow defines how work is perfo
 
 The same model covers a one-shot task, an event from GitHub, a schedule, and a delivery board that keeps consuming cards. Software Factory, the Kanban workbench, and issue handling are applications of that model. They are not three products.
 
-The default first path is a verified software change. [Software Factory](/software-factory/overview/) gives each change a card on the delivery workbench. The card links the confirmed requirement, the implementation, the verification evidence, and the team's decision.
+The default first path is a verified software change. [Software Factory](/software-factory/overview/) moves that change through four loops on the delivery workbench: [requirements to a card](/software-factory/requirements-to-card/), [a card to a pull request](/software-factory/card-to-pr/), [a pull request to merge](/software-factory/pr-to-merge/), and [a signal back to a card](/software-factory/signal-to-card/). The card links the confirmed requirement, the implementation, the verification evidence, and the team's decision.
 
 ## Choose your path
 
 - **Deliver your first change.** Follow the [quickstart](/getting-started/quickstart/) to turn one Issue into a reviewed change. Use [Issue to PR](/recipes/issue-to-pr/) for a worked example, and the [Kanban workbench](/workflows/kanban-workbench/) when you need the board's rules.
-- **Set up the board.** Follow [set up and run a delivery board](/getting-started/first-software-factory/) when the project, repositories, or lane employees are not ready yet.
+- **Configure the factory.** Follow [Configure the Software Factory](/getting-started/first-software-factory/) when the project, repositories, or lane employees are not ready yet.
 - **Run a first workflow.** Follow [your first workflow](/getting-started/first-automation/) to create a Job, inspect one manual run, and only then enable a trigger. Read [workflow concepts](/workflows/concepts/) when you need the words to stay stable.
 - **Use an employee.** Follow [build your first AI employee](/getting-started/first-employee/) from a published template. Then use [workspaces](/user-guide/workspace/) and [Agent Chat](/user-guide/agent-chat/).
 - **React to an issue.** Use [issue automation](/workflows/issue-automation/) to ingest a GitHub issue or an inbox item. Confirm it before development starts.

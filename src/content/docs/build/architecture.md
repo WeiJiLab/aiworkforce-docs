@@ -20,7 +20,7 @@ Builders use this model when they define a role. Users meet the same model as a 
 | Capabilities                | Skills, plugins, tools, MCP dependencies                  | `skills/`, plugin metadata, tool grants, `mcp_servers`   |
 | Execution                   | Runtime, sessions, handoff                                | Workspace session and the configured runtime or device   |
 | Governance                  | Permissions, evaluation, evidence                         | Grants, package validation, reviewed outputs             |
-| Deliverables                | Tasks, artifacts, reports, actions                        | Task inbox items, files, and delivery records                 |
+| Deliverables                | Tasks, artifacts, reports, actions                        | Task inbox items, files, and delivery records            |
 
 These parts are composed. A skill without a responsibility is a method with no job. A responsibility without a tool grant is an intention. An execution without evidence is a conversation.
 

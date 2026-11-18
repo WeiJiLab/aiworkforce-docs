@@ -60,15 +60,15 @@ A prompt that says "read only" does not replace a tool grant. A green conversati
 
 ## Records that must stay distinct
 
-| Record              | What it proves                                               |
-| ------------------- | ------------------------------------------------------------ |
-| Session             | The conversation and execution context for one goal          |
-| Task inbox item     | A tracked request, its source, and its review state          |
-| Automation run      | One invocation of a Job, including failure and recovery      |
-| Pipeline run        | One pass through a lane pipeline, with a status per node     |
-| Artifact            | An output, such as a report or file                          |
-| Evidence            | Support for a claim: a source, test, linked session, or diff |
-| Delivery card       | Engineering work moving through a configured board           |
+| Record          | What it proves                                               |
+| --------------- | ------------------------------------------------------------ |
+| Session         | The conversation and execution context for one goal          |
+| Task inbox item | A tracked request, its source, and its review state          |
+| Automation run  | One invocation of a Job, including failure and recovery      |
+| Pipeline run    | One pass through a lane pipeline, with a status per node     |
+| Artifact        | An output, such as a report or file                          |
+| Evidence        | Support for a claim: a source, test, linked session, or diff |
+| Delivery card   | Engineering work moving through a configured board           |
 
 An artifact can be useful without being correct. A collected inbox item is not approval to change code. A delivery card keeps requirements, executions, and human decisions together. The card does not configure a repository or a pipeline.
 
