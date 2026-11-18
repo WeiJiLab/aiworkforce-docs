@@ -1,0 +1,239 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import { localizedGuideHref } from "../lib/landing-content";
+
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const stages = [
+  {
+    title: zh ? "协作入口" : "Work intake",
+    nodes: [
+      {
+        icon: "comment",
+        label: zh ? "IM 消息渠道" : "IM channels",
+        detail: zh ? "钉钉、飞书、Slack 等" : "DingTalk, Lark, Slack…",
+        guide: "integrations/overview",
+        anchor: zh ? "消息渠道" : "messaging",
+      },
+      {
+        icon: "list-format",
+        label: zh ? "任务收件箱" : "Task inbox",
+        detail: zh ? "审阅导入的工单" : "Triage imported issues",
+        guide: "user-guide/inbox-tasks",
+      },
+      {
+        icon: "window",
+        label: zh ? "员工会话" : "Employee chat",
+        detail: zh ? "与员工澄清需求" : "Clarify a request",
+        guide: "user-guide/agent-chat",
+      },
+    ],
+  },
+  {
+    title: zh ? "平台编排" : "Orchestration",
+    nodes: [
+      {
+        icon: "random",
+        label: zh ? "交付编排" : "Delivery flow",
+        detail: zh ? "协调卡片与泳道" : "Coordinate cards and lanes",
+        guide: "software-factory/orchestration",
+      },
+      {
+        icon: "puzzle",
+        label: zh ? "数字员工" : "AI employees",
+        detail: zh ? "设置职责与工具" : "Set roles and tools",
+        guide: "user-guide/ai-employees",
+      },
+      {
+        icon: "open-book",
+        label: zh ? "知识与记忆" : "Knowledge",
+        detail: zh ? "维护团队上下文" : "Curate team memory",
+        guide: "user-guide/knowledge-context",
+      },
+    ],
+  },
+  {
+    title: zh ? "执行与交付" : "Execution & delivery",
+    nodes: [
+      {
+        icon: "laptop",
+        label: zh ? "设备执行器" : "Device executor",
+        detail: zh ? "在自己的电脑运行工具" : "Run tools on your device",
+        guide: "deployment/daemon",
+      },
+      {
+        icon: "code-branch",
+        label: zh ? "卡片到 PR" : "Card to PR",
+        detail: zh ? "关联可审阅的变更" : "Link the code change",
+        guide: "software-factory/card-to-pr",
+      },
+      {
+        icon: "rocket",
+        label: zh ? "CI/CD 流水线" : "CI/CD pipeline",
+        detail: zh ? "跟踪构建、测试与部署" : "Track builds and deploys",
+        guide: "software-factory/cicd",
+      },
+    ],
+  },
+] as const;
+---
+
+<nav
+  class="capability-map not-content"
+  aria-label={zh ? "软件交付能力地图" : "Software delivery capability map"}
+>
+  <div class="stages">
+    {
+      stages.map((stage) => (
+        <section class="stage">
+          <h3>{stage.title}</h3>
+          {stage.nodes.map((node) => (
+            <a
+              class="node"
+              href={
+                localizedGuideHref(node.guide, zh) +
+                ("anchor" in node ? `#${node.anchor}` : "")
+              }
+            >
+              <span class="symbol">
+                <Icon name={node.icon} />
+              </span>
+              <span class="copy">
+                <strong>{node.label}</strong>
+                <small>{node.detail}</small>
+              </span>
+              <Icon name="right-caret" class="caret" />
+            </a>
+          ))}
+        </section>
+      ))
+    }
+  </div>
+  <a
+    class="evidence"
+    href={localizedGuideHref("software-factory/evidence", zh)}
+  >
+    <Icon name="link-alt" /><strong
+      >{zh ? "交付证据" : "Delivery evidence"}</strong
+    >
+    <small
+      >{
+        zh
+          ? "从执行结果追溯到需求和人工决定"
+          : "Trace results back to requirements and decisions"
+      }</small
+    ><Icon name="right-arrow" />
+  </a>
+</nav>
+
+<style>
+  .capability-map {
+    container-type: inline-size;
+    margin-block: 1rem 1.75rem;
+  }
+  .stages {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .stage {
+    --tone: light-dark(#985626, #fac28e);
+    position: relative;
+    min-width: 0;
+    display: grid;
+    gap: 0.4rem;
+    align-content: start;
+    padding: 0.6rem;
+    border: 1px solid var(--docs-line);
+    border-top: 3px solid var(--tone);
+    border-radius: var(--docs-radius-md);
+    background: var(--docs-soft);
+  }
+  .stage:nth-child(2) {
+    --tone: var(--docs-accent);
+  }
+  .stage:nth-child(3) {
+    --tone: light-dark(#147768, #7cdbca);
+  }
+  .stage:not(:last-child)::after {
+    content: "↓";
+    position: absolute;
+    inset: 100% 0 auto;
+    text-align: center;
+    line-height: 1.25rem;
+    color: var(--docs-muted);
+  }
+  .stage h3 {
+    margin: 0;
+    padding: 0.2rem 0.25rem 0.35rem;
+    color: var(--tone);
+    font-size: 0.93rem;
+  }
+  .node,
+  .evidence {
+    color: var(--docs-ink);
+    text-decoration: none;
+    border: 1px solid var(--docs-line);
+    border-radius: var(--docs-radius-sm);
+  }
+  .node {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.55rem 0.45rem;
+    min-height: 4.3rem;
+    background: var(--docs-surface);
+  }
+  .symbol {
+    display: grid;
+    place-items: center;
+    color: var(--tone);
+  }
+  .copy {
+    display: grid;
+    gap: 0.12rem;
+  }
+  strong {
+    font-size: 0.875rem;
+    line-height: 1.35;
+  }
+  small {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--docs-muted);
+  }
+  .caret {
+    color: var(--docs-muted);
+  }
+  .evidence {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    margin-top: 0.75rem;
+    padding: 0.65rem 0.8rem;
+    background: var(--docs-soft);
+  }
+  .evidence > :last-child {
+    margin-inline-start: auto;
+  }
+  a:hover,
+  a:focus-visible {
+    border-color: var(--docs-line-hover);
+    background: var(--docs-hover);
+  }
+  a:focus-visible {
+    outline: 2px solid var(--docs-accent);
+    outline-offset: 2px;
+  }
+  @container (min-width: 37rem) {
+    .stages {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .stage:not(:last-child)::after {
+      content: "→";
+      inset: 50% auto auto 100%;
+      width: 1.25rem;
+      transform: translateY(-50%);
+    }
+  }
+</style>
