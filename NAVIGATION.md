@@ -60,12 +60,12 @@ FDE 是控制台里的独立工作台，不是读者角色标签。不要把 Use
 
 从 Docs 的「集成与开发」中独立出来：
 
-1. Apps（开发 Viewer App）
-2. API Reference（鉴权、REST、OpenAPI）
-3. Developer Guides（架构、贡献）
-4. SDK / CLI
-5. Webhooks
-6. MCP
+1. API Reference（鉴权、REST、OpenAPI）
+2. Developer Guides（架构、贡献）
+3. SDK / CLI
+4. Webhooks
+5. MCP
+6. Apps（内置 Viewer Apps、开发 Viewer App）
 
 不收录 ACP / A2A，也不恢复 Agent Protocol 文档页。旧地址 `/integrations/agent-protocol/` 与 `/api/` 已重定向。
 

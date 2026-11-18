@@ -9,7 +9,7 @@ translation:
 
 Viewer Apps render artifacts inside the platform’s file preview. Build **JSON Size** to show a filename and the UTF-8 byte count of its preview text. You can switch between this view and the built-in JSON formatter on the same file.
 
-You need the platform source and the pnpm version specified in `frontend/package.json`. Work in `frontend/`, alongside the built-in apps for Markdown, HTML, JSON, code, OpenAPI, and pull requests.
+You need the platform source and the pnpm version specified in `frontend/package.json`. Work in `frontend/`. For examples, see the [built-in Viewer Apps](/developer/built-in-viewers/).
 
 ## Create the app package
 

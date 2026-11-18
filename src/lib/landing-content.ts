@@ -446,17 +446,6 @@ export function getPortalContent(
     developer: {
       paths: [
         {
-          label: "Apps",
-          title: zh ? "开发 Viewer App" : "Build a Viewer App",
-          description: zh
-            ? "为 JSON 产物添加一个可选的预览视图。"
-            : "Add an alternative preview for JSON artifacts.",
-          href: "developer/viewer-apps",
-          outcome: zh
-            ? "在文件预览中切换到自己的 App"
-            : "Select your app in the file preview",
-        },
-        {
           label: zh ? "API 参考" : "API Reference",
           title: zh ? "调用当前 HTTP 接口" : "Call the current HTTP API",
           description: zh
@@ -482,6 +471,19 @@ export function getPortalContent(
             : "Expose registered Job tools through Automation MCP.",
           href: "integrations/mcp",
           outcome: zh ? "核对 MCP 边界" : "Confirm the MCP boundary",
+        },
+        {
+          label: "Apps",
+          title: zh
+            ? "了解内置 Viewer Apps"
+            : "Explore the built-in Viewer Apps",
+          description: zh
+            ? "按产物选择查看器，预览文档、图表和代码变更。"
+            : "Choose a viewer for documents, diagrams, or code changes.",
+          href: "developer/built-in-viewers",
+          outcome: zh
+            ? "继续学习如何开发自己的 App"
+            : "Learn how to build your own app",
         },
       ],
       guides: [

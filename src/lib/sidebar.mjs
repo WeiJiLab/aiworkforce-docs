@@ -336,12 +336,6 @@ export const PORTALS = {
     landing: "developer",
     groups: [
       {
-        label: "Apps",
-        zh: "Apps",
-        collapsed: false,
-        items: ["developer/viewer-apps"],
-      },
-      {
         label: "API Reference",
         zh: "API 参考",
         collapsed: false,
@@ -374,6 +368,12 @@ export const PORTALS = {
         zh: "MCP",
         collapsed: true,
         items: ["integrations/mcp"],
+      },
+      {
+        label: "Apps",
+        zh: "Apps",
+        collapsed: false,
+        items: ["developer/built-in-viewers", "developer/viewer-apps"],
       },
     ],
   },
