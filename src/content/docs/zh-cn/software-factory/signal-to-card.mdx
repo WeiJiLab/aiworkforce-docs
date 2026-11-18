@@ -7,8 +7,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ea69e3bb3bb7d2257217acea4e1a228960864f692f735237bc9cbc2a5f7962ed"
+  sourceHash: "8eb1edd3306328098af11325977a606eb03d0efe71d51555ef41d59abf4a09ef"
 ---
+
+import MonitoringRoute from "../../../../components/MonitoringRoute.astro";
 
 信号是可能值得做工程工作的报告：导入或轮询到的事项、启动 Job 的消息，或监控事件。Job 员工调查并写下发现。Job 上配置了**收集任务 / 事项**，并且运行记录了服务端回执时，可以保存一条收件箱事项。收件箱事项一直等待，直到人接受它并确认一张交付卡片。确认卡片之后，开发才被允许。调查本身不修改代码，创建收件箱事项也不会。
 
@@ -34,6 +36,10 @@ flowchart TD
 **事件。** [Sentry](/zh-cn/integrations/sentry/)和 [PagerDuty](/zh-cn/integrations/pagerduty/)可以在事项或事件到达时启动已发布的 Job。运行里保存发现。Job 不更新外部事件，也不打开 Pull Request。代码修复仍然从已确认的卡片开始。
 
 确认任何内容之前，如何把观察和假设分开，见[把反馈转成经过研判的工作](/zh-cn/learn/feedback-review/)。
+
+## 线上告警示例
+
+<MonitoringRoute />
 
 ## 你在哪些地方参与
 
