@@ -83,6 +83,11 @@ const devops = [
     ],
   },
 ] as const;
+const boardLanes = [
+  { name: zh ? "需求" : "Scope", step: zh ? "确认范围" : "Confirm" },
+  { name: zh ? "开发" : "Dev", step: zh ? "Agent 执行" : "Run agent" },
+  { name: zh ? "验证" : "Verify", step: zh ? "审阅结果" : "Review" },
+];
 const roles = [
   {
     icon: "notes",
@@ -132,25 +137,47 @@ const oversight = [
       cards={channels}
       guide={guide}
     />
-    <a
-      class="bridge inbound"
-      href={guide("integrations/overview")}
-      aria-label={zh ? "协作集成指南" : "Collaboration integration guides"}
-      ><Icon name="link" /><span>{zh ? "集成" : "Integration"}</span></a
+    <a class="bridge inbound" href={guide("software-factory/signal-to-card")}
+      ><Icon name="link" /><span>{zh ? "转入看板" : "Route work"}</span></a
     >
     <section class="platform">
       <h3>AI Workforce</h3>
       <div class="layers">
-        <a class="layer" href={guide("software-factory/orchestration")}
-          ><Icon name="random" />{
-            zh ? "软件交付编排" : "Delivery orchestration"
-          }</a
-        >
-        <a class="layer" href={guide("user-guide/knowledge-context")}
-          ><Icon name="open-book" />{
-            zh ? "知识与空间记忆" : "Knowledge & memory"
-          }</a
-        >
+        <div class="board">
+          <a class="board-title" href={guide("workflows/kanban-workbench")}>
+            <Icon name="list-format" />
+            {zh ? "Kanban 驱动的工作台" : "Kanban-driven workbench"}
+          </a>
+          <ol class="board-lanes" role="list">
+            {
+              boardLanes.map(({ name, step }) => (
+                <li>
+                  <span class="lane-name">{name}</span>
+                  <span class="lane-card">{step}</span>
+                </li>
+              ))
+            }
+          </ol>
+          <p>
+            {
+              zh ? (
+                <>
+                  <a href={guide("software-factory/orchestration")}>泳道规则</a>
+                  把就绪卡片分派给数字员工。团队审阅验证结果，决定退回修复或发布。
+                </>
+              ) : (
+                <>
+                  <a href={guide("software-factory/orchestration")}>
+                    Lane rules
+                  </a>{" "}
+                  assign ready cards to AI employees. The team reviews the
+                  results and chooses whether to return a card for fixes or
+                  approve release.
+                </>
+              )
+            }
+          </p>
+        </div>
         <div class="squad">
           <a class="team" href={guide("user-guide/ai-employees")}
             ><Icon name="puzzle" />{zh ? "数字员工小队" : "AI employee team"}</a
@@ -166,23 +193,26 @@ const oversight = [
             }
           </div>
         </div>
-      </div>
-      <div class="oversight">
-        {
-          oversight.map((r) => (
-            <a href={guide(r.path)}>
-              <Icon name={r.icon} />
-              {r.label}
-            </a>
-          ))
-        }
+        <div class="memory">
+          <a class="layer" href={guide("user-guide/knowledge-context")}>
+            <Icon name="open-book" />
+            {zh ? "知识与空间记忆" : "Knowledge & workspace memory"}
+          </a>
+          <p>
+            {
+              zh
+                ? "员工可查阅项目资料，在不同卡片中沿用团队确认的约定。"
+                : "Employees can consult project files and reuse agreed team conventions across cards."
+            }
+          </p>
+        </div>
       </div>
     </section>
     <a
       class="bridge outbound"
       href={guide("software-factory/cicd")}
       aria-label={zh ? "DevOps 集成指南" : "DevOps integration guide"}
-      ><Icon name="link" /><span>{zh ? "集成" : "Integration"}</span></a
+      ><Icon name="link" /><span>{zh ? "执行交付" : "Run CI/CD"}</span></a
     >
     <CapabilityStack
       title="DevOps"
@@ -193,9 +223,19 @@ const oversight = [
     />
     <div class="return">
       <a href={guide("software-factory/evidence")}
-        >{zh ? "交付结果与证据" : "Delivery results & evidence"}</a
+        >{zh ? "结果回写卡片" : "Record results on the card"}</a
       >
     </div>
+  </div>
+  <div class="oversight">
+    {
+      oversight.map((r) => (
+        <a href={guide(r.path)}>
+          <Icon name={r.icon} />
+          {r.label}
+        </a>
+      ))
+    }
   </div>
   <a class="monitor-link" href={alertExampleHref}
     ><Icon name="analytics" />{
@@ -304,7 +344,80 @@ const oversight = [
     gap: 0.5rem;
     padding: 0.6rem;
   }
-  .layer,
+  .board {
+    padding: 0.45rem;
+    border: 1px solid var(--tone);
+    border-radius: 0.45rem;
+    background: color-mix(in srgb, var(--tone) 8%, var(--docs-surface));
+  }
+  .board-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    color: var(--tone);
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+  }
+  .board-title svg {
+    flex-shrink: 0;
+  }
+  .board-lanes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+    margin: 0.45rem 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.7rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .board-lanes li {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 0.2rem;
+    position: relative;
+    min-width: 0;
+    padding: 0.2rem;
+    border-radius: 0.25rem;
+    background: color-mix(in srgb, var(--tone) 12%, var(--docs-surface));
+  }
+  .board-lanes li + li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -0.34rem;
+    width: 0.22rem;
+    height: 0.22rem;
+    border: solid var(--tone);
+    border-width: 1px 1px 0 0;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .lane-name {
+    font-weight: 650;
+  }
+  .lane-card {
+    display: grid;
+    place-items: center;
+    padding: 0.22rem 0.12rem;
+    border-radius: 0.2rem;
+    overflow-wrap: anywhere;
+    background: var(--docs-surface);
+  }
+  .board p,
+  .memory p {
+    margin: 0;
+    font-size: 0.74rem;
+    line-height: 1.45;
+  }
+  .board p a {
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+  .memory,
   .squad {
     border: 1px solid color-mix(in srgb, var(--tone) 65%, var(--docs-line));
     border-radius: 0.45rem;
@@ -323,6 +436,9 @@ const oversight = [
   .team {
     padding: 0.5rem 0.25rem;
   }
+  .memory p {
+    padding: 0 0.5rem 0.5rem;
+  }
   .platform svg {
     color: var(--tone);
   }
@@ -339,15 +455,14 @@ const oversight = [
     background: color-mix(in srgb, var(--tone) 8%, var(--docs-surface));
   }
   .oversight {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px dashed var(--tone);
-    padding: 0.45rem 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 1.2rem;
+    margin-top: 0.75rem;
   }
   .oversight a {
-    flex-direction: column;
-    gap: 0.1rem;
-    font-size: 0.73rem;
+    font-size: 0.8rem;
   }
   .return {
     display: flex;
