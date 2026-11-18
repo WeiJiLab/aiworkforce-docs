@@ -1,4 +1,5 @@
 ---
+import logo from "../assets/logo.svg";
 import { Icon } from "@astrojs/starlight/components";
 import { localizedGuideHref } from "../lib/landing-content";
 const zh = Astro.locals.starlightRoute.locale === "zh-cn";
@@ -16,7 +17,7 @@ const channels = [
   {
     icon: "comment",
     label: zh ? "IM 消息渠道" : "IM channels",
-    detail: zh ? "钉钉 · 飞书 · Slack" : "DingTalk · Lark · Slack",
+    detail: zh ? "接收团队消息" : "Receive team messages",
     href: guide("integrations/overview") + (zh ? "#消息渠道" : "#messaging"),
   },
   {
@@ -28,7 +29,7 @@ const channels = [
   {
     icon: "analytics",
     label: zh ? "线上告警" : "Production alerts",
-    detail: "PagerDuty · Sentry",
+    detail: zh ? "按规则启动调查" : "Trigger an investigation",
     href: alertExampleHref,
   },
 ] as const;
@@ -67,6 +68,65 @@ const oversight = [
     path: "software-factory/observability",
   },
 ] as const;
+const foundation = [
+  {
+    icon: "open-book",
+    label: zh ? "空间记忆" : "Space memory",
+    path: "user-guide/knowledge-context",
+  },
+  {
+    icon: "server",
+    label: zh ? "执行环境" : "Runtime",
+    path: "software-factory/environments",
+  },
+  {
+    icon: "laptop",
+    label: zh ? "设备执行器" : "Device executor",
+    path: "deployment/daemon",
+  },
+  ...oversight,
+] as const;
+const integrations = [
+  {
+    title: zh ? "工单来源" : "Issue tracking",
+    detail: zh ? "只读导入到任务收件箱" : "Read-only import into the inbox",
+    tools: [
+      { name: "Jira", path: "integrations/jira" },
+      { name: "Linear", path: "integrations/linear" },
+    ],
+  },
+  {
+    title: zh ? "团队消息" : "Messaging",
+    detail: zh
+      ? "接收消息或发送通知"
+      : "Receive messages or send notifications",
+    tools: [
+      { name: zh ? "钉钉" : "DingTalk", path: "integrations/dingtalk" },
+      { name: zh ? "飞书" : "Lark", path: "integrations/feishu" },
+      { name: "Slack", path: "integrations/slack" },
+    ],
+  },
+  {
+    title: zh ? "代码与流水线" : "Code & CI",
+    detail: zh
+      ? "关联 PR，读取流水线结果"
+      : "Link PRs and read workflow results",
+    tools: [
+      { name: "GitHub", path: "integrations/github" },
+      { name: "GitHub Actions", path: "software-factory/cicd" },
+    ],
+  },
+  {
+    title: zh ? "线上监控" : "Monitoring",
+    detail: zh
+      ? "接收 Issue 和 Incident 事件"
+      : "Receive issue and incident events",
+    tools: [
+      { name: "Sentry", path: "integrations/sentry" },
+      { name: "PagerDuty", path: "integrations/pagerduty" },
+    ],
+  },
+] as const;
 ---
 
 <nav
@@ -74,137 +134,152 @@ const oversight = [
   aria-label={zh ? "软件交付能力地图" : "Software delivery capability map"}
 >
   <div class="topology">
-    <section class="intake">
-      <h3>
-        <Icon name="laptop" size="1.35em" />{
-          zh ? "团队协作入口" : "Team channels"
-        }
-      </h3>
-      <div class="branches">
-        {
-          channels.map((c) => (
-            <a class="channel tile" href={c.href}>
-              <>
-                <Icon name={c.icon} />
-                <strong>{c.label}</strong>
-                <small>{c.detail}</small>
-              </>
-            </a>
-          ))
-        }
-      </div>
-    </section>
     <section class="platform">
-      <h3>AI Workforce</h3>
-      <div class="layers">
-        <a class="layer" href={guide("software-factory/orchestration")}
-          ><Icon name="random" />{
-            zh ? "软件交付编排" : "Delivery orchestration"
-          }</a
-        >
-        <a class="layer" href={guide("user-guide/knowledge-context")}
-          ><Icon name="open-book" />{
-            zh ? "知识与空间记忆" : "Knowledge & memory"
-          }</a
-        >
-        <div class="squad">
-          <a class="team" href={guide("user-guide/ai-employees")}
-            ><Icon name="puzzle" />{zh ? "数字员工小队" : "AI employee team"}</a
-          >
-          <div class="roles">
+      <header class="brand">
+        <img src={logo.src} alt="" width="35" height="35" /><h3>
+          AI Workforce
+        </h3>
+      </header>
+      <div class="workspace">
+        <section class="intake">
+          <h4>{zh ? "团队协作入口" : "Team channels"}</h4>
+          <div class="channels">
             {
-              roles.map((r) => (
-                <a href={guide(r.path)}>
-                  <Icon name={r.icon} />
-                  {r.label}
+              channels.map((c) => (
+                <a class="channel" href={c.href}>
+                  <>
+                    <Icon name={c.icon} />
+                    <span>
+                      <>
+                        <strong>{c.label}</strong>
+                        <small>{c.detail}</small>
+                      </>
+                    </span>
+                  </>
                 </a>
               ))
             }
           </div>
-        </div>
+        </section>
+        <section class="workbench">
+          <h4>{zh ? "软件交付工作台" : "Delivery workbench"}</h4>
+          <a class="lane" href={guide("software-factory/orchestration")}
+            ><Icon name="random" />{zh ? "交付编排" : "Orchestration"}</a
+          >
+          <div class="squad">
+            <a class="squad-title" href={guide("user-guide/ai-employees")}
+              ><Icon name="puzzle" />{
+                zh ? "数字员工小队" : "AI employee team"
+              }</a
+            ><div class="roles">
+              {
+                roles.map((r) => (
+                  <a href={guide(r.path)}>
+                    <Icon name={r.icon} />
+                    {r.label}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+          <div class="delivery">
+            <a href={guide("workflows/kanban-workbench")}
+              ><Icon name="list-format" />{
+                zh ? "交付看板" : "Delivery board"
+              }</a
+            ><a href={guide("software-factory/evidence")}
+              ><Icon name="link-alt" />{zh ? "交付证据" : "Evidence"}</a
+            >
+          </div>
+        </section>
       </div>
-      <div class="oversight">
+      <section class="foundation">
+        <h4>{zh ? "平台基础能力" : "Shared platform services"}</h4><div>
+          {
+            foundation.map((r) => (
+              <a href={guide(r.path)}>
+                <Icon name={r.icon} />
+                {r.label}
+              </a>
+            ))
+          }
+        </div>
+      </section>
+    </section>
+    <section class="external">
+      <h3><Icon name="link" />{zh ? "外部系统" : "External systems"}</h3>
+      <div class="connections">
         {
-          oversight.map((r) => (
-            <a href={guide(r.path)}>
-              <Icon name={r.icon} />
-              {r.label}
-            </a>
+          integrations.map((group) => (
+            <section class="connection">
+              <>
+                <h4>{group.title}</h4>
+                <div class="tools">
+                  {group.tools.map((tool) => (
+                    <a href={guide(tool.path)}>{tool.name}</a>
+                  ))}
+                </div>
+                <small>{group.detail}</small>
+              </>
+            </section>
           ))
         }
       </div>
-    </section>
-    <section class="delivery">
-      <h3>{zh ? "执行与交付" : "Execution & delivery"}</h3>
-      <div class="outputs">
-        <div class="runtime tile">
-          <a href={guide("software-factory/environments")}
-            ><Icon name="server" />{zh ? "执行环境" : "Runtime"}</a
-          ><a href={guide("deployment/daemon")}
-            >{zh ? "设备执行器" : "Device executor"}</a
-          >
-        </div>
-        <div class="repo tile">
-          <a href={guide("integrations/code-repositories")}
-            ><Icon name="code-branch" />{zh ? "代码仓库" : "Repository"}</a
-          ><a href={guide("software-factory/card-to-pr")}
-            >{zh ? "关联 PR" : "Link a PR"}</a
-          >
-        </div>
-        <a class="pipeline tile" href={guide("software-factory/cicd")}
-          ><Icon name="rocket" /><strong>CI/CD</strong><small
-            >{zh ? "构建 · 测试 · 部署" : "Build · Test · Deploy"}</small
-          ></a
-        >
-      </div>
-    </section>
-    <div class="return">
-      <a href={guide("software-factory/evidence")}
-        >{zh ? "交付结果与证据" : "Delivery results & evidence"}</a
+      <a class="catalog" href={guide("integrations/overview")}
+        >{zh ? "查看集成目录" : "Integration guides"}<Icon
+          name="right-arrow"
+        /></a
       >
-    </div>
+    </section>
   </div>
-  <a class="monitor-link" href={alertExampleHref}
-    ><Icon name="analytics" />{
-      zh
-        ? "线上告警如何进入交付看板？"
-        : "How does a production alert reach the board?"
-    }
-    <Icon name="right-arrow" /></a
-  >
 </nav>
 <style>
   .capability-map {
     container-type: inline-size;
-    margin-block: 1rem 1.75rem;
-    --orange: light-dark(#9c4916, #f5b381);
-    --blue: light-dark(#2956b0, #9fbdfc);
-    --teal: light-dark(#117568, #88d8c4);
+    margin-block: 1.1rem 1.7rem;
+    --brand: light-dark(#254f84, #a7c7ee);
+    --outside: light-dark(#166a61, #9ed4c5);
   }
   .topology {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
-    border: 1px solid var(--docs-line);
-    border-radius: 0.95rem;
-    padding: 1rem;
-    background:
-      radial-gradient(
-          circle,
-          color-mix(in srgb, var(--docs-muted) 23%, transparent) 0.7px,
-          transparent 0.9px
-        )
-        0 0 / 12px 12px,
-      var(--docs-surface);
+    gap: 1.1rem;
+    align-items: start;
   }
-  .topology section {
+  .platform,
+  .external,
+  .workspace > * {
     min-width: 0;
   }
-  h3 {
-    font-size: 0.96rem;
+  .platform {
+    border: 2px solid var(--brand);
+    border-radius: 0.9rem;
+    overflow: hidden;
+    background: var(--docs-surface);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 0.85rem;
+    background: linear-gradient(105deg, #0a2240, #204a6e);
+    color: white;
+  }
+  .brand img {
+    border-radius: 0.48rem;
+  }
+  h3,
+  h4 {
     margin: 0;
-    text-align: center;
-    line-height: 1.45;
+    line-height: 1.35;
+  }
+  .brand h3 {
+    color: white;
+    font-size: 1.18rem;
+    letter-spacing: -0.025em;
+  }
+  h4 {
+    font-size: 0.87rem;
+    color: var(--docs-ink);
   }
   a {
     color: var(--docs-ink);
@@ -218,260 +293,197 @@ const oversight = [
   a:focus-visible {
     outline: 2px solid var(--docs-accent);
     outline-offset: 2px;
-    z-index: 1;
   }
-  .intake {
-    --tone: var(--orange);
+  .workspace {
+    padding: 0.8rem;
+    display: grid;
+    gap: 1rem;
   }
-  .delivery,
-  .return {
-    --tone: var(--teal);
+  .workspace h4 {
+    margin-bottom: 0.6rem;
+    color: var(--brand);
   }
-  .intake h3,
-  .delivery h3 {
-    color: var(--tone);
+  .channels,
+  .workbench {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .workbench {
+    align-content: start;
+  }
+  .workbench h4 {
+    margin-bottom: 0.25rem;
+  }
+  .channel,
+  .lane,
+  .squad,
+  .delivery {
+    border: 1px solid var(--docs-line);
+    border-radius: 0.48rem;
+  }
+  .channel {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    margin: 0.55rem 0 0.8rem;
-  }
-  .branches,
-  .outputs {
-    display: grid;
-    gap: 1.1rem;
-  }
-  .tile {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.15rem;
-    min-height: 3.8rem;
-    border: 1px solid var(--tone);
-    border-radius: 0.6rem;
-    background: var(--docs-surface);
-    padding: 0.4rem;
-    text-align: center;
-  }
-  .tile svg {
-    color: var(--tone);
-  }
-  strong,
-  .layer,
-  .team,
-  .tile a:first-child {
-    font-size: 0.88rem;
-    font-weight: 650;
-  }
-  small,
-  .tile a + a {
-    font-size: 0.74rem;
-    color: var(--docs-body);
-  }
-  .platform {
-    --tone: var(--blue);
-    border: 2px solid var(--tone);
-    border-radius: 0.75rem;
-    background: var(--docs-surface);
-    align-self: center;
-  }
-  .platform h3 {
-    padding: 0.55rem;
-    color: white;
-    background: #244e9c;
-    border-radius: 0.53rem 0.53rem 0 0;
-    letter-spacing: 0.015em;
-  }
-  .layers {
-    display: grid;
     gap: 0.5rem;
-    padding: 0.6rem;
-  }
-  .layer,
-  .squad {
-    border: 1px solid color-mix(in srgb, var(--tone) 65%, var(--docs-line));
-    border-radius: 0.45rem;
-  }
-  .layer,
-  .team,
-  .roles a,
-  .oversight a,
-  .tile a:first-child,
-  .monitor-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.42rem;
-  }
-  .layer,
-  .team {
-    padding: 0.5rem 0.25rem;
+    min-height: 2.75rem;
+    padding: 0.32rem 0.48rem;
   }
   .platform svg {
-    color: var(--tone);
+    flex-shrink: 0;
+    color: var(--brand);
+  }
+  strong,
+  small {
+    display: block;
+    line-height: 1.4;
+  }
+  strong,
+  .lane,
+  .squad-title {
+    font-size: 0.84rem;
+    font-weight: 650;
+  }
+  small {
+    font-size: 0.72rem;
+    color: var(--docs-muted);
+  }
+  .lane,
+  .squad-title,
+  .roles a,
+  .delivery a,
+  .foundation a,
+  .catalog,
+  .external h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .lane,
+  .squad-title {
+    padding: 0.52rem;
+  }
+  .squad {
+    background: color-mix(in srgb, var(--brand) 5%, var(--docs-surface));
+  }
+  .roles,
+  .delivery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .roles {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.3rem;
-    padding: 0 0.4rem 0.45rem;
+    padding: 0 0.4rem 0.4rem;
+    gap: 0.25rem;
   }
   .roles a {
-    font-size: 0.78rem;
-    padding: 0.25rem;
-    border-radius: 0.35rem;
-    background: color-mix(in srgb, var(--tone) 8%, var(--docs-surface));
+    background: var(--docs-surface);
+    border-radius: 0.3rem;
   }
-  .oversight {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px dashed var(--tone);
-    padding: 0.45rem 0.25rem;
+  .roles a,
+  .delivery a {
+    padding: 0.35rem;
+    line-height: 1.3;
+    font-size: 0.76rem;
   }
-  .oversight a {
-    flex-direction: column;
-    gap: 0.1rem;
-    font-size: 0.73rem;
-  }
-  .outputs > :not(:first-child)::before {
-    content: "↓";
-    position: absolute;
-    bottom: 100%;
-    line-height: 1.1rem;
-    color: var(--tone);
-  }
-  .tile a {
-    padding: 0.15rem 0.3rem;
-  }
-  .return {
-    display: flex;
+  .delivery a {
     justify-content: center;
-    align-items: center;
+  }
+  .foundation {
+    border-top: 1px solid var(--docs-line);
+    background: var(--docs-soft);
+    padding: 0.65rem 0.8rem;
+  }
+  .foundation h4 {
+    font-size: 0.78rem;
+    color: var(--docs-body);
+    margin-bottom: 0.35rem;
+  }
+  .foundation div {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.2rem;
+  }
+  .foundation a {
+    font-size: 0.75rem;
+    padding: 0.28rem 0.1rem;
+    line-height: 1.25;
+  }
+  .external {
     position: relative;
+    border: 1px dashed color-mix(in srgb, var(--outside) 60%, var(--docs-line));
+    padding: 0.75rem;
+    border-radius: 0.8rem;
+    background: color-mix(in srgb, var(--outside) 4%, var(--docs-surface));
   }
-  .return a,
-  .monitor-link {
-    font-size: 0.8rem;
-    color: var(--teal);
-    font-weight: 600;
+  .external h3,
+  .catalog {
+    color: var(--outside);
+    font-size: 0.93rem;
   }
-  .monitor-link {
-    width: fit-content;
-    margin: 0.75rem auto 0;
-    text-align: center;
+  .connections {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0.7rem 0;
+  }
+  .connection {
+    border-inline-start: 2px solid
+      color-mix(in srgb, var(--outside) 48%, var(--docs-line));
+    padding-inline-start: 0.5rem;
+  }
+  .connection h4 {
+    color: var(--docs-body);
+    font-size: 0.73rem;
+    font-weight: 550;
+  }
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.5rem;
+    margin: 0.15rem 0;
+  }
+  .tools a {
+    color: var(--outside);
+    line-height: 1.45;
+    font-size: 0.84rem;
+    font-weight: 650;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--outside) 35%, transparent);
+    text-underline-offset: 0.16em;
+  }
+  .catalog {
+    border-top: 1px solid var(--docs-line);
+    padding-top: 0.45rem;
+    font-size: 0.78rem;
+  }
+  @container (min-width:24rem) {
+    .workspace {
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    }
   }
   @container (min-width:37rem) {
     .topology {
-      --gap: 1.55rem;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.48fr) minmax(0, 1fr);
-      gap: 0 var(--gap);
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr);
       align-items: center;
-      padding: 1rem 0.85rem 0.7rem;
     }
-    .branches {
-      position: relative;
-      padding-left: 0.55rem;
-      gap: 0.55rem;
-    }
-    .branches::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 1.9rem;
-      bottom: 1.9rem;
-      border-left: 1px solid var(--orange);
-    }
-    .channel {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 0 0.45rem;
-      justify-items: start;
-      align-content: center;
-      padding-inline: 0.7rem;
-      text-align: start;
-    }
-    .channel svg {
-      grid-row: span 2;
-    }
-    .channel::before {
+    .external::before {
       content: "";
       position: absolute;
       right: 100%;
-      width: 0.55rem;
-      border-top: 1px solid var(--orange);
-    }
-    .channel::after,
-    .runtime::before {
-      content: "⟶";
-      color: var(--tone);
-      position: absolute;
-      left: 100%;
-      width: var(--gap);
-      text-align: center;
-      line-height: 1;
-      font-size: 1.3rem;
-    }
-    .runtime::before {
-      left: auto;
-      right: 100%;
-    }
-    .return {
-      grid-column: 2 / 4;
-      min-height: 2.5rem;
-      align-items: flex-end;
-    }
-    .return::before {
-      content: "";
-      position: absolute;
-      bottom: 0.65rem;
-      left: calc((100% - var(--gap)) * 0.298);
-      right: calc((100% - var(--gap)) * 0.202);
-      height: 1.35rem;
-      border: solid var(--teal);
-      border-width: 0 1.5px 1.5px 1.5px;
-      border-radius: 0 0 0.4rem 0.4rem;
-    }
-    .return::after {
-      content: "▴";
-      position: absolute;
-      bottom: 1.45rem;
-      left: calc((100% - var(--gap)) * 0.298);
-      transform: translateX(-45%);
-      color: var(--teal);
-    }
-    .return a {
-      position: relative;
-      background: var(--docs-surface);
-      margin-left: 17%;
-      padding: 0 0.35rem;
+      top: 50%;
+      width: 1.1rem;
+      border-top: 2px dotted var(--outside);
     }
   }
   @container (max-width:36.99rem) {
-    .intake,
-    .platform {
-      position: relative;
-    }
-    .intake::after,
-    .platform::after {
-      content: "↓";
+    .external::before {
+      content: "";
       position: absolute;
-      top: 100%;
+      bottom: 100%;
       left: 50%;
-      line-height: 1.25rem;
-      color: var(--tone);
+      height: 1.1rem;
+      border-left: 2px dotted var(--outside);
     }
-    .delivery h3 {
-      margin-top: 0;
-    }
-    .return {
-      margin-top: -0.4rem;
-    }
-    .return::before {
-      content: "↳";
-      color: var(--teal);
-      margin-right: 0.4rem;
+    .connections {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>
