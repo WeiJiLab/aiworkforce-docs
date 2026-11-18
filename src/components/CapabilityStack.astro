@@ -116,9 +116,29 @@ const { title, icon, side, cards, guide } = Astro.props;
     outline-offset: 2px;
   }
   @container (min-width:37rem) {
+    .devops {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+    }
+    .devops::before,
+    .devops::after {
+      content: "";
+      flex: 1;
+    }
+    .devops::after {
+      /* Carry one stroke from the card midpoint around the return bend. */
+      --tail: calc(var(--return-height) - var(--return-baseline));
+      flex-basis: var(--tail);
+      margin: 0 calc((100% - var(--rail)) / 2 - 0.5px) calc(-1 * var(--tail))
+        auto;
+      width: 1rem;
+      border: solid var(--tone);
+      border-width: 0 1px 1px 0;
+      border-bottom-right-radius: 0.4rem;
+    }
     .cards {
       position: relative;
-      --rail: 0.45rem;
     }
     .intake .cards {
       margin-right: var(--rail);

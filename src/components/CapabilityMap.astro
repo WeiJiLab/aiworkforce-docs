@@ -138,7 +138,7 @@ const oversight = [
       guide={guide}
     />
     <a class="bridge inbound" href={guide("software-factory/signal-to-card")}
-      ><Icon name="link" /><span>{zh ? "转入看板" : "Route work"}</span></a
+      ><Icon name="link" /><span>{zh ? "人工确认" : "Confirm"}</span></a
     >
     <section class="platform">
       <h3>AI Workforce</h3>
@@ -223,7 +223,7 @@ const oversight = [
     />
     <div class="return">
       <a href={guide("software-factory/evidence")}
-        >{zh ? "结果回写卡片" : "Record results on the card"}</a
+        >{zh ? "同步交付结果" : "Sync delivery results"}</a
       >
     </div>
   </div>
@@ -376,6 +376,7 @@ const oversight = [
     text-align: center;
   }
   .board-lanes li {
+    margin: 0;
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 0.2rem;
@@ -484,6 +485,13 @@ const oversight = [
   @container (min-width:37rem) {
     .topology {
       --bridge: 3.3rem;
+      --rail: 0.45rem;
+      --return-height: 2.65rem;
+      --return-baseline: 0.6rem;
+      /* Distance from the grid edge to the center of the inset DevOps card. */
+      --return-end: calc(
+        (100% - 2 * var(--bridge)) / 6.9 - var(--rail) / 2 - 0.5px
+      );
       grid-template-columns:
         minmax(0, 1fr) var(--bridge) minmax(0, 1.45fr) var(--bridge)
         minmax(0, 1fr);
@@ -516,21 +524,21 @@ const oversight = [
     }
     .return {
       grid-column: 1/-1;
-      min-height: 2.65rem;
+      height: var(--return-height);
       align-items: flex-end;
       padding-inline-start: 50%;
-      padding-inline-end: calc((100% - 2 * var(--bridge)) / 6.9);
+      padding-inline-end: var(--return-end);
     }
     .return::before {
       content: "";
       position: absolute;
       left: 50%;
-      right: calc((100% - 2 * var(--bridge)) / 6.9);
-      bottom: 0.6rem;
-      top: 0.2rem;
+      right: calc(var(--return-end) + 0.5rem);
+      bottom: var(--return-baseline);
+      top: 0;
       border: solid var(--teal);
-      border-width: 0 1px 1px;
-      border-radius: 0 0 0.4rem 0.4rem;
+      border-width: 0 0 1px 1px;
+      border-bottom-left-radius: 0.4rem;
     }
     .return::after {
       content: "▴";
