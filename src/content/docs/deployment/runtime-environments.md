@@ -51,7 +51,7 @@ No maintained Kubernetes operator or Helm chart is established by this baseline.
 
 ## Connect a device
 
-Use the [device CLI](/developer/cli-sdk/) to pair a macOS/Linux execution computer. The device makes an outbound authenticated connection; the browser does not need to reach a local listening port. The execution process runs as the host user. An approved working directory identifies context, not an OS isolation boundary.
+Use the [Device Executor CLI](/integrations/cli/) to pair a macOS/Linux execution computer. The device makes an outbound authenticated connection; the browser does not need to reach a local listening port. The execution process runs as the host user. An approved working directory identifies context, not an OS isolation boundary.
 
 The model loop remains on the platform, so file content and tool results used for a task can travel to the platform and configured model provider. Stop, disconnect, and unknown-execution states need actual worker evidence; do not delete local journals to force a computer back online.
 

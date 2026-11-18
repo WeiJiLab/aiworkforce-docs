@@ -1,6 +1,8 @@
 ---
-title: "MCP servers"
+title: "MCP dependencies"
 description: "Declare the MCP servers an employee depends on. Connection and protocol setup are a separate guide."
+sidebar:
+  label: MCP dependencies
 translation:
   source: en
   status: complete

@@ -1,7 +1,7 @@
 ---
 title: "Agent 协议"
 description: "当前面向 Agent 的接口是 HTTP 和自动化 MCP。本版本没有 ACP 和 A2A 服务。"
-support: planned
+status: planned
 sidebar:
   badge:
     text: 规划中
@@ -10,7 +10,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "636b3b58cf3b8156d2fbb776b95b54078a30de7551e04a93d80159f89dc8d5a7"
+  sourceHash: "dc3b01a4e7d715790b81526bc534f7610012091ab5fc58d7397af74bd7e6fc02"
 ---
 
 Agent 协议本应是外部 Agent 发现工作、调用工作并读取结果的一套文档化方式。本基线不包含捆绑的 IDE 扩展，也不包含通用的 ACP 或 A2A 服务。不要对着 AI Workforce 上一个假定的 ACP 或 A2A 端点实现。

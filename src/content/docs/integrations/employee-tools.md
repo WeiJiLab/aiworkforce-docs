@@ -1,6 +1,8 @@
 ---
 title: "Tools and connectors"
 description: "Select available MCP tools, authorize the external account, and check the employee's connection."
+sidebar:
+  label: External connectors
 translation:
   source: en
   status: complete

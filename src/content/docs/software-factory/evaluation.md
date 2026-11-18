@@ -1,8 +1,9 @@
 ---
 title: "Agent evaluation"
 description: "Judge whether an employee did the job you defined, using checks and examples rather than a fluent reply."
-support: limited
+status: limited
 sidebar:
+  label: Execution evaluation
   badge:
     text: Limited
     variant: caution
@@ -12,7 +13,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-Evaluation answers a narrow question: did this employee, on this task, produce a result that meets the responsibility and the acceptance criteria? A confident reply, a long session, or a green conversation is not that answer.
+Execution evaluation answers a narrow question: did this employee, on this task, produce a result that meets the responsibility and the acceptance criteria? A confident reply, a long session, or a green conversation is not that answer. Platform controls — grants, models, cost, and audit — are [platform governance](/operate/evaluation-governance/), not a second score for the same task.
 
 The current product can validate an employee package, run a task, and keep execution, test, and delivery records. It does not provide a separate evaluation product, a hosted scoreboard, or an automatic promotion gate based on a benchmark suite. Use the checks below with the records you already have. [Quality gates](/software-factory/quality-gates/) are how a recorded result blocks or allows delivery. [Agent evaluation and governance](/operate/evaluation-governance/) is how those checks sit next to permissions, models, and audit.
 

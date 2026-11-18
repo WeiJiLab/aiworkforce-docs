@@ -1,6 +1,8 @@
 ---
-title: "CLI, SDK, and protocol access"
-description: "Use the interfaces that exist today: HTTP, Automation MCP, and the device execution client."
+title: "Interface overview"
+description: "Choose HTTP, Automation MCP, the device executor, or a client you generate. Each interface has one home page."
+sidebar:
+  label: Interface overview
 translation:
   source: en
   status: complete
@@ -23,7 +25,7 @@ Do not install an assumed `aiworkforce` npm or pip package based on its name. An
 
 ## Use HTTP from your application
 
-Start with the [API reference](/developer/api-reference/). Retrieve the deployed backend's `/openapi.json`, select only the endpoints your application needs, and keep credentials in your application's existing secret store.
+Start with the [REST API](/developer/api-reference/). Retrieve the deployed backend's `/openapi.json`, as described in the [OpenAPI reference](/integrations/openapi/), and keep credentials in your application's existing secret store. Building that client is the [SDK](/integrations/sdk/) guide. There is no supported general Python or TypeScript SDK package.
 
 Your client should set the expected Bearer token, validate the response envelope, preserve an idempotency key while retrying one invocation, and poll asynchronous run status. Log the run ID and outcome instead of the secret or entire sensitive input. A small client around these operations is often sufficient; code generation should be reviewed against the deployed schema.
 
@@ -33,25 +35,13 @@ An administrator can expose the platform's Streamable HTTP MCP endpoint at `/mcp
 
 Invocation supplies the Job's `input` and an `idempotency_key`. It returns an asynchronous run handle, which the client must inspect. Token expiry, revocation, Job allowlist, and current authorization are rechecked; an established transport does not permanently grant access.
 
-## Operate a device worker
+## Operate a device
 
-The native client is named `aiworkforce-device-exec`. Obtain a compatible binary from your maintainer; release-install automation requires actual published release assets. Developers of the daemon can build it with `cargo build --locked` in its own repository.
-
-```bash
-aiworkforce-device-exec connect --workspace /absolute/project/path \
-  --platform https://platform.example.org
-aiworkforce-device-exec status --json
-aiworkforce-device-exec doctor --json
-aiworkforce-device-exec stop
-```
-
-Replace the platform origin and directory. Pairing asks for trusted host-execution consent and opens a browser authorization flow; `--no-browser` supports headless use. A browser approval is separate from the worker reaching the platform's online execution state.
-
-`start`, `restart`, and `disconnect` manage the connection lifecycle. `service --format launchd` or `service --format systemd` prints a service definition for separate review and installation; connecting does not silently install an OS service. Device commands execute with the host user's permissions, not inside an implied filesystem sandbox.
+The only device CLI is [Device Executor CLI](/integrations/cli/). That page owns install, pairing, headless use, service definitions, and recovery. This overview does not repeat those commands.
 
 ## Related guides
 
-- [CLI](/integrations/cli/)
+- [Device Executor CLI](/integrations/cli/)
 - [SDK](/integrations/sdk/)
 - [OpenAPI reference](/integrations/openapi/)
 - [Agent protocol](/integrations/agent-protocol/)

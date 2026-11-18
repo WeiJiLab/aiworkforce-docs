@@ -1,6 +1,8 @@
 ---
 title: "Connect code repositories"
 description: "Configure a provider connection, associate repositories, and authorize the employees that will use them."
+sidebar:
+  label: Code repositories
 translation:
   source: en
   status: complete

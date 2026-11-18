@@ -1,7 +1,7 @@
 ---
 title: "Employee testing"
 description: "Test an employee package with structural validation and a small set of task trials."
-support: limited
+status: limited
 sidebar:
   badge:
     text: Limited

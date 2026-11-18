@@ -1,14 +1,16 @@
 ---
 title: "发布治理"
 description: "把合并、生产发布和清理分开，并让人对每个结果负责。"
+sidebar:
+  label: 发布治理
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "fe9eb04ed8d0341aa0c65f83883324fb552889fe87dbb1db02762937f5627371"
+  sourceHash: "d4b9100ab14b3b2e07141df74811aa8ada3067747572521dbd0528686a83fc07"
 ---
 
-发布治理决定一项已通过审阅的变更是否可以合并，以及之后是否可以到达生产。这是不同的结果。工作台把它们记在批次和卡片上。它不会把已关闭的批次当成生产部署。
+发布治理是合并、生产发布和清理的策略：哪条结果可以继续，以及谁仍然负责。审阅者穿过这些记录的路径是[审阅与发布](/zh-cn/software-factory/review-release/)。本页不重复那条路径。工作台仍把结果记在批次和卡片上，已关闭的批次不是生产部署。
 
 ## 三个结果
 

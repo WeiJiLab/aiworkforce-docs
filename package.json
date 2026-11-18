@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check && node scripts/check-content.mjs",
+    "check": "astro check && node scripts/check-content.mjs && node scripts/check-governance.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:navigation": "node scripts/check-navigation.mjs",
     "format": "prettier --write .",

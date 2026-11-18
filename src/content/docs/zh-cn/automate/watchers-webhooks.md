@@ -1,16 +1,16 @@
 ---
 title: "监视与 Webhook"
 description: "用来自外部的 Webhook 启动 Job。当前版本没有单独的 Watcher 资源。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "f948e6c56bfc1e410cf4cd12fccf6c8ec4fc75b22f80344fc06760585df6c29c"
+  sourceHash: "b863db8b7f9fc49c01b4567f2deb29d7394bfe51600ed30cf597886fbcde1cb2"
 ---
 
 Webhook 触发让外部系统通过调用平台来启动已发布的 Job。当前版本没有一个单独的 Watcher 对象替你轮询任意系统。如果需要平台发现变化，使用受支持的事件触发或日程。见[事件驱动自动化](/zh-cn/automate/event-driven/)。

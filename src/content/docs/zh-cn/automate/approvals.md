@@ -1,16 +1,16 @@
 ---
 title: "批准与通知"
 description: "当下一步会改变范围或接受结果时，让人进入自动化。当前版本没有通用的通知产品。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "928abe2ee44f50db122b072532b880c0af8b5f95afea6dbf3c20c41dbca422fe"
+  sourceHash: "5a0b30b953f280de5e57be3f3021305c3f71d1506d1f66e6413eb01ed182ba5c"
 ---
 
 批准是记录下来的人工决定。通知是让某人知道有决定在等待。当前产品把决定记在收件箱事项、自动化运行和交付卡片上。在该类型可用时，IM 可以作为一种触发。本版本没有单独的通知中心、升级策略或邮箱产品。

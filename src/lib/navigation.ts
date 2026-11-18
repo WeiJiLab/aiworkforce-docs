@@ -1,9 +1,23 @@
-import { groups, homeId, sectionFor, starlightSlug } from "./sidebar.mjs";
+import {
+  groupPages,
+  groups,
+  homeId,
+  sectionFor,
+  starlightSlug,
+} from "./sidebar.mjs";
+
+export interface NavigationPageGroup {
+  readonly label: string;
+  readonly zh: string;
+  readonly collapsed?: boolean;
+  readonly pages: readonly string[];
+}
 
 export interface NavigationGroup {
   readonly label: string;
   readonly zh: string;
-  readonly pages: readonly string[];
+  readonly collapsed?: boolean;
+  readonly items: readonly (string | NavigationPageGroup)[];
 }
 
 export const GROUPS: readonly NavigationGroup[] = groups;
@@ -22,14 +36,26 @@ export function canonicalPage(id: string): string {
 export function findSection(id: string): NavigationGroup | undefined {
   const page = canonicalPage(id);
   return GROUPS.find((group) =>
-    group.pages.some((item) => canonicalPage(item) === page),
+    groupPages(group).some((item: string) => canonicalPage(item) === page),
   );
 }
 
 export function sectionHref(group: NavigationGroup, locale?: string): string {
   const base = locale === "zh-cn" ? "/zh-cn" : "";
-  const slug = starlightSlug(group.pages[0] ?? HOME_ID);
+  const slug = starlightSlug(groupPages(group)[0] ?? HOME_ID);
   return slug === "index" ? `${base}/` : `${base}/${slug}/`;
+}
+
+function sidebarItems(items: NavigationGroup["items"]) {
+  return items.map((item) => {
+    if (typeof item === "string") return starlightSlug(item);
+    return {
+      label: item.label,
+      translations: { "zh-CN": item.zh },
+      collapsed: item.collapsed !== false,
+      items: item.pages.map((page) => starlightSlug(page)),
+    };
+  });
 }
 
 /** Starlight resolves translated labels and page titles before rendering. */
@@ -43,8 +69,8 @@ export function siteSidebar() {
     ...GROUPS.map((group) => ({
       label: group.label,
       translations: { "zh-CN": group.zh },
-      collapsed: false,
-      items: group.pages.map((page) => starlightSlug(page)),
+      collapsed: group.collapsed === true,
+      items: sidebarItems(group.items),
     })),
   ];
 }

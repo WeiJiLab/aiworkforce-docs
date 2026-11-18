@@ -1,14 +1,16 @@
 ---
 title: "Agent 评测与治理"
 description: "看清授权、工具权限、模型路由、成本、审计和质量门禁如何约束同一名员工。"
+sidebar:
+  label: 平台治理
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "1889d94e24594fc8faa098a4ae829e98939608d60e0e2a921b4a7de6fb7cd8c3"
+  sourceHash: "58dba6a22e7a1929b729b8b85d2c4767dcc6056806416d68fec4a1cb4242cfc5"
 ---
 
-治理是这些控制之间的关系，不是一个设置页面。员工可以在工作空间里可见，却仍然不能调用某个工具。模型可以被选中，却仍然贵得不适合这项任务。测试可以失败，并且只有人把豁免写下来时才能被豁免。本页说明这些控制如何相遇。检查本身在 [Agent 评测](/zh-cn/software-factory/evaluation/)和[质量门禁](/zh-cn/software-factory/quality-gates/)。
+平台治理说明授权、工具权限、模型路由、成本、审计和质量门禁如何配合。它不是对一项任务的第二次评测。任务检查在[执行评测](/zh-cn/software-factory/evaluation/)。员工可以在工作空间里可见，却仍然不能调用某个工具。
 
 ## 一名员工，几项决定
 

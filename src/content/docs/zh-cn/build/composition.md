@@ -1,16 +1,16 @@
 ---
 title: "Agent 组合"
 description: "把有边界的任务委派给另一个 Agent，不要把正文里的提及当成真正的交接。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "a01b846f355c2039a67fea9f159e755385db9c476894dcd8fde119e232c369bf"
+  sourceHash: "f4de207ea5ea34ac4f3a47a4cd8cdbf096a5b61b410cadfe792c0334844d4eb2"
 ---
 
 组合是一名员工把任务的一部分委派给另一个 Agent，并仍然对结果负责。当前员工包把 subagent 放在 `agents/*.md`，把 hooks 当作执行扩展。某个运行时是否真的调用它们，要在追踪里核实。在 Skill 里写下“subagent”并不会创建委派。

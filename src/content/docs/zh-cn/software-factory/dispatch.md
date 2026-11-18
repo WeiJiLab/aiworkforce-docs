@@ -1,16 +1,16 @@
 ---
 title: "任务分派"
 description: "把就绪的交付卡片分配给应完成该工作的泳道员工。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "fdd66b324dae73491d21caa3223d77521f2dec8e3c0c40e26a719a0366911e11"
+  sourceHash: "bdb0ab0184fa5ba52c16e94dd53d34596eaaea0745896f0ecd96e858375a9989"
 ---
 
 分派是已确认的卡片到达员工的方式。在当前工作台里，这由看板、泳道和项目上配置的员工完成。没有一个带有自己的队列、优先级语言或全局 worker 池的独立分派服务。不要描述部署并没有运行的调度器。

@@ -1,16 +1,16 @@
 ---
 title: "员工测试"
 description: "用结构校验和一小组建任务试验来测试员工包。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "bf5cd81db005c86fa7f30c960de351443a7166516ebe4f2cadc52a2d0d9ab7cc"
+  sourceHash: "991efdd1b6e6662b5ac720b80752c75c71e4767a66f09128d1708ddd645cecab"
 ---
 
 测试员工是两种不同的检查。校验告诉你员工包在结构上完整。任务试验告诉你岗位在你选择的输入上如何表现。产品在员工构建器中提供 **Validate** 和 **Submit build**。它不为员工包提供单独的测试运行器或已存储的基准套件。如何记录你手工运行的试验，见 [Agent 评测](/zh-cn/software-factory/evaluation/)。

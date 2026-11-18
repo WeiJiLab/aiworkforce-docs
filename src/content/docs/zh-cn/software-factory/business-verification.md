@@ -1,16 +1,16 @@
 ---
 title: "业务验证"
 description: "把变更与已确认的验收标准比较。产品不会自行给业务结果打分。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "06e054b19c9e787ab9fc66fd9790786d8cc063f2bfdadf36d38f156cab8a73c1"
+  sourceHash: "b6269d037c880c313790996f076a6763a416224500ea860188c84a4cf06d00e4"
 ---
 
 业务验证问的是：对需要该结果的人来说，变更是否做了已确认需求所说的事。测试可以支持这个答案。测试不能代替它。当前工作台记录需求、测试结果和人工决定。它不包含单独的业务验证产品、指标目录或自动验收分数。

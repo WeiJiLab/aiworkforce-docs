@@ -1,7 +1,7 @@
 ---
 title: "CI/CD integration"
 description: "Connect the repository and pipeline resources a board needs before merge or release can run."
-support: limited
+status: limited
 sidebar:
   badge:
     text: Limited

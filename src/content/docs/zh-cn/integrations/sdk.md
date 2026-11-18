@@ -1,16 +1,16 @@
 ---
 title: "SDK"
 description: "根据已部署的 OpenAPI schema 编写一个小的 HTTP 客户端。没有发布通用平台 SDK 包。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "bcf5b2dbabc3c9051a93dc60424219b3cf42ce6f8fed8e5a59e835a3c286671d"
+  sourceHash: "3ebb4bc4c028b71c9c349b5ab02443a2b96d9c4626a79da123bce4f5c07be7ef"
 ---
 
 本基线没有受支持的、面向平台 API 的通用 Python 或 TypeScript SDK 包。不要因为名字看起来合理就安装一个 `aiworkforce` 包。内部运行时依赖不是公开 SDK。

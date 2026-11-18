@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
 import { markdownId } from "../lib/agent-docs";
-import { groups, homeId, orderedIds } from "../lib/sidebar.mjs";
+import { groupPages, groups, homeId, orderedIds } from "../lib/sidebar.mjs";
 
 function canonical(id: string): string {
   return id.replace(/^zh-cn(?:\/|$)/, "").replace(/\/?index$/, "") || "index";
@@ -20,7 +20,10 @@ export const GET: APIRoute = async () => {
   }
   const sections = [
     { label: "Home", pages: [homeId] },
-    ...groups.map((group) => ({ label: group.label, pages: group.pages })),
+    ...groups.map((group) => ({
+      label: group.label,
+      pages: groupPages(group),
+    })),
   ];
 
   const lines = [
@@ -38,8 +41,8 @@ export const GET: APIRoute = async () => {
         const entry = findEntry(page, locale);
         if (!entry) continue;
         const support =
-          entry.data.support && entry.data.support !== "available"
-            ? ` (${entry.data.support})`
+          entry.data.status && entry.data.status !== "available"
+            ? ` (${entry.data.status})`
             : "";
         lines.push(
           `- [${entry.data.title}](https://docs.aiworkforce.run/${markdownId(entry.id)}.md)${support}: ${entry.data.description}`,

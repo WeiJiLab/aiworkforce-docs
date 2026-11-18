@@ -1,16 +1,16 @@
 ---
 title: "工作流构建"
 description: "组合 Job、它的触发规则和目的地。当前版本没有单独的图编辑器。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "3edc7ba3d4d5be244224ee7bcbd8be7368f3e0eaafeaad4ed840d43215bc0102"
+  sourceHash: "1095348ebbcb13b985728376eb8d83bcd4dcf44613242cc49c4b28d8238c73dd"
 ---
 
 当前产品里的工作流，是一个自动化 Job，加上挂在它上面的触发规则和可选的收集目的地。没有一个可视化图编辑器把节点、分支和循环存成另一份文档。不要在 Automations 界面之外寻找一张并不存在的画布。

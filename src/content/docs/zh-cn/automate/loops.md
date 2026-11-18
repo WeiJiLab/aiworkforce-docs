@@ -1,16 +1,16 @@
 ---
 title: "循环与周期性工作"
 description: "用日程或连续运行重复一个 Job。工作流编辑器里没有循环块。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "45745650ffd24262d2900d9bb5f270c53e47134b0b8d25c2d0760fb43c2119c6"
+  sourceHash: "d9ac6a293b5c9486eb9fdbd1acf84e7a7dbd5201c09817e973dcdb4d86904573"
 ---
 
 周期性工作是带一条或多条日程规则的 Job，或因为上一次输出要求再做一遍而由你启动的一系列运行。工作流编辑器没有循环节点、迭代计数器或“对每一项”的块。该边界见[工作流构建](/zh-cn/automate/workflow-builder/)。

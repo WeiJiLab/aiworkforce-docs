@@ -1,14 +1,16 @@
 ---
 title: "审阅与发布"
 description: "逐项核对代码、验证、合并、生产发布与资源回收的证据，并作出明确的人工决定。"
+sidebar:
+  label: 审阅与发布
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "99edb540433ac4fb94ce568a4d86047f635463c7789a2ffc41999d77e7cea8ee"
+  sourceHash: "dea13026dd055e090ae01fc358d49545ee2da9f04c1c3c0bb6f139f444d13c7c"
 ---
 
-审核确认特定变更是否满足已确认需求，发布确认已接纳变更是否到达目标环境。在交付工作台中，应逐步查看实际记录，避免根据卡片会话或已有 PR 推断整个交付已经完成。
+审核确认特定变更是否满足已确认需求。发布确认已接纳的变更是否到达目标环境。本页是这条交付流程。哪条已记录的结果可以让卡片前进、怎样的豁免才有效，见[发布治理](/zh-cn/software-factory/release-governance/)。
 
 ## 准备可审核的变更
 

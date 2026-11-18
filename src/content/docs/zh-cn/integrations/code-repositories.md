@@ -1,11 +1,13 @@
 ---
 title: "代码仓库连接"
 description: "配置供应商连接、关联代码仓库，并授权实际使用仓库的数字员工。"
+sidebar:
+  label: 代码仓库
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "b551cfad7615a53b5dcd999718aacec3a75fedf4f9714a2a7d2404ea9504ebac"
+  sourceHash: "3803fb2d31e3b648cc5a1c97aeb4a250a8047fb53bd8488fccee8592d80c7b80"
 ---
 
 工作空间代码仓库是一项具有明确身份和供应商连接的代码资源。应区分仓库身份、访问凭据与员工授权：你自己能够浏览仓库，员工仍可能没有克隆或修改权限。

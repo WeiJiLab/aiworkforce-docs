@@ -1,13 +1,15 @@
 ---
 title: "Agent evaluation and governance"
 description: "See how grants, tool authorization, model routing, cost, audit, and quality gates control the same employee."
+sidebar:
+  label: Platform governance
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-Governance is the relationship between controls, not a settings screen. An employee can be visible in a workspace and still be unable to call a tool. A model can be selected and still be too expensive for the task. A test can fail and still be waived only when a person writes the waiver down. This page shows how those controls meet. The checks themselves are in [agent evaluation](/software-factory/evaluation/) and [quality gates](/software-factory/quality-gates/).
+Platform governance is how grants, tool authorization, model routing, cost, audit, and quality gates relate. It is not a second evaluation of a task. Task checks live in [execution evaluation](/software-factory/evaluation/). This page shows how those controls meet.
 
 ## One employee, several decisions
 

@@ -1,7 +1,7 @@
 ---
 title: "Agent composition"
 description: "Delegate a bounded task to another agent without treating a mention in prose as a real handoff."
-support: limited
+status: limited
 sidebar:
   badge:
     text: Limited

@@ -1,7 +1,7 @@
 ---
 title: "Projects"
 description: "Use a Software Factory project to configure a board, repositories, and lane employees. It is not a second workspace."
-support: limited
+status: limited
 sidebar:
   badge:
     text: Limited

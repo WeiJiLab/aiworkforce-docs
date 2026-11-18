@@ -5,10 +5,10 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ce00d055e7da979048dafb4e856af47367ce8d78267739a5bdd67933d1b8fd33"
+  sourceHash: "e56f974d6e5cda50ca6a67aaba7982efa980dc447f2e90c1729b148b21ce4e24"
 ---
 
-本页是协议和连接指南。员工包如何声明对某个服务的依赖，见 [MCP 服务](/zh-cn/build/mcp-integration/)。两页必须一致：清单条目是名称和描述。它不包含端点、密钥或授权。
+本页是服务集成：平台 MCP 端点和外部 MCP 服务。员工包如何给依赖命名，见 [MCP 依赖](/zh-cn/build/mcp-integration/)。两页必须一致：清单条目是名称和描述。它不包含端点、密钥或授权。
 
 ## 平台自动化 MCP
 

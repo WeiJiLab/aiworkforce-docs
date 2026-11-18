@@ -12,17 +12,17 @@ This page collects the interfaces a builder or platform engineer uses to reach A
 
 ## Choose an interface
 
-| Need                               | Start here                                      |
-| ---------------------------------- | ----------------------------------------------- |
-| Call the platform over HTTP        | [REST API](/developer/api-reference/)           |
-| Authenticate a person or a machine | [Authentication](/developer/authentication/)    |
-| See the deployed schema            | [OpenAPI reference](/integrations/openapi/)     |
-| Let an agent call registered Jobs  | [MCP integration](/integrations/mcp/)           |
-| Pair an execution computer         | [CLI](/integrations/cli/)                       |
-| Build an application client        | [SDK](/integrations/sdk/)                       |
-| Understand what is not provided    | [Agent protocol](/integrations/agent-protocol/) |
+| Need                               | Start here                                   |
+| ---------------------------------- | -------------------------------------------- |
+| Call the platform over HTTP        | [REST API](/developer/api-reference/)        |
+| Authenticate a person or a machine | [Authentication](/developer/authentication/) |
+| See the deployed schema            | [OpenAPI reference](/integrations/openapi/)  |
+| Let an agent call registered Jobs  | [MCP integration](/integrations/mcp/)        |
+| Pair an execution computer         | [Device Executor CLI](/integrations/cli/)    |
+| Build an application client        | [SDK](/integrations/sdk/)                    |
+| Compare the interfaces             | [Interface overview](/developer/cli-sdk/)    |
 
-The [interface matrix](/developer/cli-sdk/) compares those choices, including the current limit: there is no supported general Python or TypeScript SDK package, and no bundled ACP or A2A server.
+The [interface overview](/developer/cli-sdk/) compares those choices. There is no supported general Python or TypeScript SDK package. ACP and A2A are not provided; that boundary is recorded in [Agent protocol](/integrations/agent-protocol/), which stays out of this section because it is planned.
 
 ## Verify one workflow
 

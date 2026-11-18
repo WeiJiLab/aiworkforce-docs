@@ -1,7 +1,7 @@
 ---
 title: "Agent protocol"
 description: "The current agent-facing interfaces are HTTP and Automation MCP. ACP and A2A servers are not in this release."
-support: planned
+status: planned
 sidebar:
   badge:
     text: Planned

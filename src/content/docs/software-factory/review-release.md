@@ -1,13 +1,15 @@
 ---
 title: "Review and release"
 description: "Follow code, verification, merge, production release, and cleanup evidence while making explicit human decisions."
+sidebar:
+  label: Review and release
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
 ---
 
-Review establishes whether a particular change satisfies its confirmed requirement. Release establishes whether the accepted change reached the intended environment. In the delivery workbench, inspect the records for each step rather than inferring completion from a card's conversation or the presence of a PR.
+Review establishes whether a particular change satisfies its confirmed requirement. Release establishes whether the accepted change reached the intended environment. This page is that delivery flow. The rules for which recorded result may move a card, and which waiver is valid, are [release governance](/software-factory/release-governance/).
 
 ## Prepare a reviewable change
 

@@ -1,7 +1,7 @@
 ---
 title: "Observability"
 description: "Find the session, run, and delivery records for a change. There is no separate Software Factory telemetry product."
-support: limited
+status: limited
 sidebar:
   badge:
     text: Limited

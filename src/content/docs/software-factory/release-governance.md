@@ -1,13 +1,15 @@
 ---
 title: "Release governance"
 description: "Separate merge, production release, and cleanup, and keep a person responsible for each outcome."
+sidebar:
+  label: Release governance
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-Release governance decides whether a change that passed review is allowed to merge and, later, to reach production. Those are different outcomes. The workbench records them on the batch and the card. It does not treat a closed batch as a production deployment.
+Release governance is the policy for merge, production release, and cleanup: which result is allowed to proceed, and who remains responsible. The path a reviewer walks through the records is [review and release](/software-factory/review-release/). This page does not repeat that path.
 
 ## Three outcomes
 

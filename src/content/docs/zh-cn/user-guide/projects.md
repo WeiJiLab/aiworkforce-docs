@@ -1,16 +1,16 @@
 ---
 title: "项目"
 description: "用软件工厂项目配置看板、仓库和泳道员工。它不是第二个工作空间。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "ec499d4351062567931457f7a8b0716ec6a42e1cc7ddcce11120dafc090f2e26"
+  sourceHash: "8a507dc579836062e08a5a6a5b6e81061d9a0c7d7c31a757f5cfd52ae8b0d9c9"
 ---
 
 工作空间是人和员工协作的地方。当前产品里的**项目**是软件工厂的工作台项目：看板、仓库、流水线资源，以及分配到泳道的员工。没有另一个跨工作空间的项目对象。交付工作需要这套配置时使用本页。日常任务留在工作空间和收件箱。

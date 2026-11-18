@@ -8,17 +8,21 @@ const zh = locale === "zh-cn";
 const id = entry.id.replace(/\/?index$/, "") || "index";
 const section = findSection(entry.id);
 const isHome = canonicalPage(entry.id) === "index";
-const support = entry.data.support ?? "available";
+const support = entry.data.status ?? "available";
 const supportCopy =
-  support === "limited"
+  support === "beta"
     ? zh
-      ? "有限制：当前版本只覆盖本页写明的场景。"
-      : "Limited: the current release covers only the scenarios this page describes."
-    : support === "planned"
+      ? "Beta：可以使用，但行为尚未稳定。以本页写明的边界为准。"
+      : "Beta: you can use this, but the behavior is not stable yet. Follow the boundaries on this page."
+    : support === "limited"
       ? zh
-        ? "规划中：当前版本尚未提供此能力。本页只说明预期边界，避免把它当成已经支持的功能。"
-        : "Planned: this capability is not in the current release. This page records the intended boundary so it is not treated as available."
-      : "";
+        ? "部分支持：当前版本只覆盖本页写明的场景。"
+        : "Limited: the current release covers only the scenarios this page describes."
+      : support === "planned"
+        ? zh
+          ? "规划中：当前版本尚未提供此能力。本页只说明边界，避免把它当成已经支持的功能。"
+          : "Planned: this capability is not in the current release. This page records the boundary so it is not treated as available."
+        : "";
 ---
 
 <header class="document-heading">

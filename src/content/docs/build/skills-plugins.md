@@ -1,70 +1,29 @@
 ---
-title: "Skills and plugins"
-description: "See how skills and plugins fit in one employee package, then follow the dedicated guides."
+title: "Capabilities overview"
+description: "See how skills, plugins, tools, and MCP dependencies divide one employee package."
+sidebar:
+  label: Capabilities overview
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
 ---
 
-This page is the overview. [Skills](/build/skills/) shows how to write one reusable method. [Plugins](/build/plugins/) shows how that method is packaged, versioned, and applied. Use those pages for the task you are doing. The steps below keep the shared package facts in one place.
+This page maps the capability pages. It does not replace them. Write the method in [Skills](/build/skills/). Package it in [Plugins](/build/plugins/). Decide what may run in [Tools](/build/tools/). Declare the external service the role expects in [MCP dependencies](/build/mcp-integration/). Connection setup for that service is [MCP integration](/integrations/mcp/), not a second copy of this page.
 
-A **Skill** describes a repeatable way to complete a task. A **Plugin** packages capabilities such as skills and subagents. An employee definition adds the role, boundaries, inputs, and expected outputs that make those capabilities useful as a job.
+| Page                  | Owns                                               | Does not own                              |
+| --------------------- | -------------------------------------------------- | ----------------------------------------- |
+| Capabilities overview | How the pieces fit in one package                  | A second copy of the skill or plugin file |
+| Skills                | `SKILL.md`: inputs, method, output                 | Publication and grants                    |
+| Plugins               | Package metadata, version, and application         | The steps of the method                   |
+| Tools                 | The difference between a declared tool and a grant | MCP transport and authentication          |
+| MCP dependencies      | The server name the role expects                   | The endpoint, credential, and client      |
 
-## Write one useful skill
-
-Create `skills/main/SKILL.md` inside an employee package. The directory name is the skill identity used by the employee manifest and workflow references. Give the skill a clear description and executable instructions:
-
-```markdown
----
-name: main
-description: Prepare a research brief from materials supplied by the user.
----
-
-## Inputs
-
-Ask for research_materials if none are available.
-Use research_question to focus the brief when supplied.
-
-## Method
-
-1. Read the supplied materials.
-2. Separate supported findings from assumptions.
-3. Cite the source for each finding.
-4. List unanswered questions.
-
-## Output
-
-Return a research_brief with findings, references, and open questions.
-Do not publish or send it externally.
-```
-
-Make the method specific enough to follow and the output easy to inspect. A skill that only says “be helpful” gives the user no stable expectation.
-
-## Compose the package
-
-Employee packages include `.claude-plugin/plugin.json`, `.aiworkforce/employee.yaml`, `.aiworkforce/router.md`, and a README. For example, package metadata can contain:
-
-```json
-{
-  "name": "research-assistant",
-  "version": "0.1.0",
-  "description": "Prepare research briefs from supplied materials."
-}
-```
-
-The employee's `entry_skill` must identify an existing skill. Subagents, when needed, live in `agents/*.md`. Keep reusable methods in skills rather than duplicating the same instructions across several agents.
-
-## Apply and verify
-
-Validate the package in the builder and resolve reported errors before submitting the build. Try the role with representative inputs and check that it produces the promised result. Package validation also detects issues such as missing files and exposed credentials; it does not replace a real task evaluation.
-
-Published templates and enabled packages determine which capabilities can be applied to an employee instance. Open the employee profile and refresh **Methods and capabilities** to inspect the instance's actual skills and tools. Updating a source package does not by itself prove that a running instance has received that update.
-
-If a skill is absent, first check the selected template, package version, and whether the configuration was applied. If the method requires external access, configure and authorize the relevant MCP service separately.
+A **Skill** is a reusable method. A **Plugin** packages skills and related agents. The [employee definition](/build/employee-definition/) adds the role, boundaries, inputs, and outputs. The research-assistant files live in those guides. Validate the package, then open the instance and refresh **Methods and capabilities**. A valid package is not proof the running instance received it, and a server name in the manifest is not a connection.
 
 ## Related guides
 
-- [Employee definition](/build/employee-definition/)
-- [MCP integration](/build/mcp-integration/)
-- [Agent chat](/user-guide/agent-chat/)
+- [Employee architecture](/build/architecture/)
+- [Skills](/build/skills/)
+- [Plugins](/build/plugins/)
+- [MCP dependencies](/build/mcp-integration/)

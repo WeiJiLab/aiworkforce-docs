@@ -1,7 +1,7 @@
 ---
 title: "Task dispatch"
 description: "Assign a ready delivery card to the lane employee that should do the work."
-support: limited
+status: limited
 sidebar:
   badge:
     text: Limited

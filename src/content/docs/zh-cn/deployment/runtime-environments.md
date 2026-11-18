@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "652857f3167b43d97b234d6c5d44188cd9c6fb25fc54b38be922a1747af580bc"
+  sourceHash: "c3411adaebabdcb89725938ba299eae4dfbba9858fb49b56ad0e950730946116"
 ---
 
 平台负责员工对话、模型循环、任务状态与授权；执行环境决定工具在哪里运行。自行托管平台、选择运行内核和选择设备有关联，但其中任何一项都不会自动补齐另外两项。
@@ -52,7 +52,7 @@ curl 'http://localhost:8080/api/health/ready'
 
 ## 连接设备
 
-使用[设备 CLI](/zh-cn/developer/cli-sdk/)配对 macOS/Linux 执行电脑。设备发起经过认证的出站连接，浏览器无需访问本地监听端口。执行进程使用主机用户权限，批准的工作目录用于标识上下文，不是操作系统隔离边界。
+使用[设备执行器 CLI](/zh-cn/integrations/cli/)配对 macOS/Linux 执行电脑。设备发起经过认证的出站连接，浏览器无需访问本地监听端口。执行进程使用主机用户权限，批准的工作目录用于标识上下文，不是操作系统隔离边界。
 
 模型循环仍在平台运行，因此任务使用的文件内容和工具结果可能传到平台及配置的模型供应商。停止、断开和未知执行状态需要真实 Worker 证据，不要通过删除本地执行日志强行恢复在线。
 

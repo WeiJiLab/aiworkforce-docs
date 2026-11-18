@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-This page is the protocol and connection guide. How an employee package declares a dependency on a server is [MCP servers](/build/mcp-integration/). The two pages must agree: a manifest entry is a name and a description. It does not contain the endpoint, the secret, or the grant.
+This page is the service integration: the platform MCP endpoint and external MCP servers. How an employee package names a dependency is [MCP dependencies](/build/mcp-integration/). The two pages must agree: a manifest entry is a name and a description. It does not contain the endpoint, the secret, or the grant.
 
 ## Platform Automation MCP
 

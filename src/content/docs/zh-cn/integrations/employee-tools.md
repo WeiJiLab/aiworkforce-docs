@@ -1,11 +1,13 @@
 ---
 title: "工具与连接器"
 description: "选择可用 MCP 工具，完成外部账号授权，并检查员工的实际连接。"
+sidebar:
+  label: 外部连接器
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "a733deac2f3a4d2d89e752400f4b72275a0f97da28264363c7da9dd9069eb2c7"
+  sourceHash: "fbcf85b769da1b8e4c60c427d61ae6f7ad2f29f22ce29c6db95978fa0d4f3f9b"
 ---
 
 员工可以使用已配置 MCP 服务提供的工具。需要在产品中选择或检查已有连接时，按本文操作。在员工包中声明依赖的构建者应阅读 [MCP 服务](/zh-cn/build/mcp-integration/)。配置协议端点的操作者应阅读 [MCP 集成](/zh-cn/integrations/mcp/)。

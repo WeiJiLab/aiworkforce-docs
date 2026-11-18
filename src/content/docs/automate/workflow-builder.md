@@ -1,7 +1,7 @@
 ---
 title: "Workflow builder"
 description: "Compose a Job, its triggers, and its destination. The current release has no separate graph editor."
-support: limited
+status: limited
 sidebar:
   badge:
     text: Limited

@@ -1,16 +1,16 @@
 ---
 title: "CI/CD 集成"
 description: "在合并或发布能够运行之前，接上看板所需的仓库和流水线资源。"
-support: limited
+status: limited
 sidebar:
   badge:
-    text: 有限制
+    text: 部分支持
     variant: caution
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "63e99696f6f8daf7f556cb301b7de156b39c681eb21d7d2fba78dc98e87b8813"
+  sourceHash: "0e82e83c308b4de989045177f45d2afb49f7ef70a1ec061b96e4007efc80c7c9"
 ---
 
 CI/CD 集成是软件工厂项目上配置的代码托管和流水线资源。工作台不代替你的 CI 系统，也不自带构建集群。自动合并和生产发布要求这些集成存在，并且已授权给执行员工。卡片不会创建它们。
