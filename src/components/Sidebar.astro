@@ -9,6 +9,15 @@ const zh = locale === "zh-cn";
 const portal = getPortal(entry.id);
 const destinations = portalDestinations(locale);
 const outbound = externalNav(locale);
+const directoryIndex = sidebar.findIndex(
+  (entry) =>
+    entry.type === "group" &&
+    entry.entries.some(
+      (child) =>
+        child.type === "link" && child.href.endsWith("/integrations/overview/"),
+    ),
+);
+const directory = sidebar[directoryIndex];
 ---
 
 <div class="portal-sidebar" data-portal={portal}>
@@ -19,7 +28,39 @@ const outbound = externalNav(locale);
       data-site="workforce"
       aria-label={zh ? "当前栏目目录" : "Current section navigation"}
     >
-      <SidebarPersister><SidebarSublist sublist={sidebar} /></SidebarPersister>
+      <SidebarPersister>
+        {
+          directory?.type === "group" ? (
+            <>
+              <SidebarSublist sublist={sidebar.slice(0, directoryIndex)} />
+              <section
+                class="integration-directory"
+                aria-labelledby="integration-directory-title"
+              >
+                <h2 id="integration-directory-title">{directory.label}</h2>
+                <SidebarSublist
+                  nested
+                  sublist={directory.entries.filter(
+                    (entry) => entry.type === "link",
+                  )}
+                />
+                {directory.entries.map(
+                  (category) =>
+                    category.type === "group" && (
+                      <>
+                        <h3>{category.label}</h3>
+                        <SidebarSublist nested sublist={category.entries} />
+                      </>
+                    ),
+                )}
+              </section>
+              <SidebarSublist sublist={sidebar.slice(directoryIndex + 1)} />
+            </>
+          ) : (
+            <SidebarSublist sublist={sidebar} />
+          )
+        }
+      </SidebarPersister>
     </nav>
   </div>
   <div class="portal-sidebar-footer">
@@ -57,3 +98,22 @@ const outbound = externalNav(locale);
     </nav>
   </div>
 </div>
+
+<style>
+  .integration-directory {
+    margin-block: 0.75rem;
+  }
+  .integration-directory h2 {
+    padding: 0.25rem 0.5rem;
+    color: var(--docs-ink);
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+  .integration-directory h3 {
+    margin-block: 0.625rem 0.125rem;
+    padding-inline: 0.5rem;
+    color: var(--docs-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+</style>
