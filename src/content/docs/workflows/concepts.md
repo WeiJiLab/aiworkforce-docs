@@ -8,6 +8,16 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
+## Try an issue trigger
+
+Select **Simulate a run** (▷) in the editor to see which instructions the developer receives. Then change **Label** to `enhancement` and try the same issue again. The sample issue has the `bug` label, so the second run is skipped. The demo uses local sample data.
+
+<iframe src="/illustrations/automation-editor/en/" title="Interactive example: configure and test an issue automation" style="width:100%;height:clamp(36rem, 72vh, 47rem);border:0;border-radius:12px;"></iframe>
+
+[Open the automation editor on its own](/illustrations/automation-editor/en/)
+
+## Workflows, automation, and runs
+
 AI Workforce is a workflow-native platform. A **workflow** is the reusable definition of how work is performed. **Automation** is the mechanism that starts that work and keeps it running. An **agent** — in the product, a digital employee — executes specific steps. A **run** is one execution instance. A **task** is one unit of work inside that instance.
 
 Those words are not three product modules and not three engines. Software Factory, the delivery board, and issue handling are applications of the same workflow.
@@ -28,14 +38,6 @@ The documentation uses the words above. The screens use these names:
 | Evidence   | The session, code reference, test record, and human decision kept with the work                 |
 
 Open **Automations** (自动化) at `/automations` for Jobs. Open **Pipeline** on that screen for a lane pipeline. Open **Workbench** (工作台) for the board. Its address is `/automations?tab=board-flow`.
-
-### Try an issue trigger
-
-Select **Simulate a run** (▷) in the editor to see which instructions the developer receives. Then change **Label** to `enhancement` and try the same issue again. The sample issue has the `bug` label, so the second run is skipped. The demo uses local sample data.
-
-<iframe src="/illustrations/automation-editor/en/" title="Interactive example: configure and test an issue automation" loading="lazy" style="width:100%;height:clamp(36rem, 72vh, 47rem);border:0;border-radius:12px;"></iframe>
-
-[Open the automation editor on its own](/illustrations/automation-editor/en/)
 
 ## Lifecycle
 
