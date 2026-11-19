@@ -56,7 +56,6 @@ export const PORTALS = {
           "software-factory/signal-to-card",
           "workflows/issue-automation",
           "workflows/kanban-workbench",
-          "getting-started/delivery-board-troubleshooting",
           "workflows/pull-request-automation",
           "recipes/issue-to-pr",
           nested("Software Factory path", "软件工厂路径", [
@@ -69,13 +68,7 @@ export const PORTALS = {
             "software-factory/review-release",
             "software-factory/release-governance",
           ]),
-          nested("Interviews and meetings", "访谈与会议", [
-            "build/bots",
-            "build/invites",
-            "build/meeting-assistants",
-            "build/meeting-records",
-            "build/channels",
-          ]),
+          "getting-started/delivery-board-troubleshooting",
         ],
       },
       {
