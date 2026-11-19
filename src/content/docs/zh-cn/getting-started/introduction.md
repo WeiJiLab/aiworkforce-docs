@@ -5,11 +5,11 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "4b4a45bca6f7d10df62323a4c35e7f5006d136bb58f5453d5eb83696c83e7e94"
+  sourceVersion: "2026-11-19"
+  sourceHash: "996daad9c2cfe02b8b1f2db88aa32b1f6abb61467547fb8d53da11a79b7190a6"
 ---
 
-AI Workforce 是以工作流为中心的平台。工作流定义工作如何完成。自动化启动这条工作流并让它持续运行。数字员工是执行步骤的智能体。人仍然对范围、接管和发布负责。
+AI Workforce 是以工作流为中心的平台。工作流定义工作如何完成。自动化启动这条工作流并让它持续运行。数字员工是由平台管理运行的智能体（managed agents）。团队从岗位模板创建员工，授予仓库和工具访问权限。员工执行工作流步骤时，平台检查授权、驱动模型调用并保存会话记录。团队决定工作范围、何时接管以及是否发布。
 
 同一套模型覆盖一次性任务、来自 GitHub 的事件、日程，以及持续消耗卡片的交付看板。软件工厂、看板工作台和 Issue 处理是这个模型的应用。它们不是三个产品。
 

@@ -10,7 +10,7 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 Self-hosting means your organization runs the AI Workforce services: the web application, the backend, PostgreSQL, and the workspace files those services store. An operator-hosted deployment is the same product, run for you. People still use workspaces, employees, and workflows. What changes is who operates the services and where those records live.
@@ -19,13 +19,15 @@ This page covers the install and release assets in the platform repository. The 
 
 [Runtime management](/deployment/runtime-environments/) is the choice between an operator-hosted deployment, this self-hosted stack, and an authorized device. This page is the procedure for the stack.
 
-## When to run it yourself
+## Running managed agents on enterprise infrastructure
 
-Run the stack yourself when the database, workspace files, and session history need to stay on infrastructure you operate.
+| What your organization needs to control              | What to configure                                                                                                                                  | Who operates it                                                                                                                                                 |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Where session history and workspace files are stored | Deploy the platform, PostgreSQL, and persistent volumes on a host you operate.                                                                     | The AI Workforce backend calls the model, checks permissions, and saves records. Your organization operates the services, backs up data, and installs upgrades. |
+| Which machine can work on project files              | Pair the device executor on the computer holding the files and select it when creating the session. An operator can continue to host the platform. | The platform manages sessions and authorization. Tools run with the device user's OS permissions, which determine which files they can access.                  |
+| Which service receives inference requests            | Configure the model endpoint for the employee's runtime. To keep inference inside your network, choose an endpoint that performs inference there.  | The platform sends the prompts, file contents, and tool results needed for inference to that endpoint.                                                          |
 
-Use an operator-hosted deployment when you want an account on a deployment someone else already runs. You then skip PostgreSQL, upgrades, backups, TLS, and the host that serves the application.
-
-Use an [authorized device](/integrations/cli/) when tools must run on a particular computer and the platform can stay where it is. The platform keeps the conversation, the model loop, and authorization. Pairing a computer does not install the web application or the database.
+For example, an employee can test a private repository change on a paired development machine. If your organization also needs custody of session history, deploy the platform on a host you operate. The model endpoint configuration determines where inference requests go. [Choose a session execution location](/deployment/daemon/session-execution/) · [Configure a model channel](/administration/configuration/)
 
 ## What you can run
 
