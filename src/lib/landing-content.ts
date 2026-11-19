@@ -224,7 +224,9 @@ export function getHomeContent(zh: boolean): HomeContent {
         "user-guide/artifacts-evidence",
       ),
       guide(
-        zh ? "从模板创建第一个数字员工" : "Create your first AI employee from a template",
+        zh
+          ? "从模板创建第一个数字员工"
+          : "Create your first AI employee from a template",
         zh
           ? "在工作空间里选用已发布模板，并验收第一份结果。"
           : "Use a published template in a workspace and review its first result.",

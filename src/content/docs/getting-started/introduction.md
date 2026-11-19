@@ -8,7 +8,7 @@ translation:
   sourceVersion: "2026-11-19"
 ---
 
-AI Workforce is a workflow-native platform. A workflow defines how work is performed. Automation starts that workflow and keeps it running. Digital employees are managed agents. Your team creates an employee from a role template and grants access to repositories and tools. As the employee executes workflow steps, AI Workforce checks permissions, calls the model, and saves the session history. Your team decides the scope, when to take over, and whether to release.
+AI Workforce is an AI development platform for software R&D. Your team defines the steps of a task in a workflow. Automation starts that workflow and keeps it running. Digital employees are managed agents. Your team creates an employee from a role template and grants access to repositories and tools. As the employee executes workflow steps, AI Workforce checks permissions, calls the model, and saves the session history. Your team decides the scope, when to take over, and whether to release.
 
 The same model covers a one-shot task, an event from GitHub, a schedule, and a delivery board that keeps consuming cards. Software Factory, the Kanban workbench, and issue handling are applications of that model. They are not three products.
 

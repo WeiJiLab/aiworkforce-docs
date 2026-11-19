@@ -18,7 +18,7 @@ Select **Simulate a run** (▷) in the editor to see which instructions the deve
 
 ## Workflows, automation, and runs
 
-AI Workforce is a workflow-native platform. A **workflow** is the reusable definition of how work is performed. **Automation** is the mechanism that starts that work and keeps it running. An **agent** — in the product, a digital employee — executes specific steps. A **run** is one execution instance. A **task** is one unit of work inside that instance.
+In AI Workforce, a **workflow** defines a set of steps you can reuse. **Automation** is the mechanism that starts that work and keeps it running. An **agent** — in the product, a digital employee — executes specific steps. A **run** is one execution instance. A **task** is one unit of work inside that instance.
 
 Those words are not three product modules and not three engines. Software Factory, the delivery board, and issue handling are applications of the same workflow.
 
