@@ -4,7 +4,7 @@ description: "Choose between platform execution, a self-hosted deployment, and a
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 The platform controls the employee's conversation, model loop, task state, and authorization. The execution environment determines where tools operate. Hosting the platform yourself, choosing a runtime kernel, and selecting a device are related choices, but none automatically supplies the other two.
@@ -33,6 +33,7 @@ The model loop remains on the platform, so file content and tool results used fo
 ## Related guides
 
 - [Self-host](/deployment/self-host/)
+- [Worker scheduling (planned)](/developer/execution-environment-scheduling/)
 - [Platform architecture](/developer/architecture/)
 - [Security and data boundaries](/deployment/security/)
 - [Code repositories](/integrations/code-repositories/)

@@ -158,6 +158,8 @@ Start two regular Claude Code employee sessions as the device owner. Before the 
 
 From the daemon checkout, run `python3 tests/kubernetes/test_lifecycle.py` to reproduce execution, cancellation, lease expiry, reconnect, eviction, and fencing after an abrupt exit in a disposable k3d cluster. The test uses a local controller in the Pod. Run a small platform session after deployment to check your WSS route and device authentication.
 
+For the proposed queue that would assign the next session to a free device, see [Worker scheduling (planned)](/developer/execution-environment-scheduling/).
+
 ## Network and data
 
 | Stays on the deployment                                                                    | Can leave the deployment                                                                                                  |

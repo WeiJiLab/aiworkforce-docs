@@ -25,6 +25,8 @@ function nested(label, zh, items, collapsed = true) {
   return { label, zh, collapsed, items };
 }
 
+const workerSchedulingGuide = "developer/execution-environment-scheduling";
+
 export const PORTALS = {
   [Portal.Docs]: {
     label: "Docs",
@@ -348,7 +350,11 @@ export const PORTALS = {
         label: "Developer Guides",
         zh: "开发指南",
         collapsed: false,
-        items: ["developer/architecture", "developer/contributing"],
+        items: [
+          "developer/architecture",
+          workerSchedulingGuide,
+          "developer/contributing",
+        ],
       },
       {
         label: "SDK / CLI",
@@ -412,8 +418,8 @@ export const orderedIds = Object.values(Portal).flatMap((portal) =>
   orderedIdsForPortal(portal),
 );
 
-/** Planned pages removed from the primary IA; keep helper for governance. */
-export const plannedIds = [];
+/** Guides that describe planned capabilities, checked against their frontmatter. */
+export const plannedIds = [workerSchedulingGuide];
 
 export const groups = PORTALS[Portal.Docs].groups;
 

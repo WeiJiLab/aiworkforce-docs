@@ -4,8 +4,8 @@ description: "在平台执行、自托管部署与已授权设备 Worker 之间�
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "4ba4ce5e631e65d6f36bd61f37909fa818d060ade4c7cf472bdfcad3cbbbece4"
+  sourceVersion: "2026-11-19"
+  sourceHash: "b121ffac9267459db70cae8793c31c40da79c97256cbe522843198cef49c5087"
 ---
 
 平台负责员工对话、模型循环、任务状态与授权；执行环境决定工具在哪里运行。自行托管平台、选择运行内核和选择设备有关联，但其中任何一项都不会自动补齐另外两项。
@@ -34,6 +34,7 @@ translation:
 ## 相关文档
 
 - [自托管](/zh-cn/deployment/self-host/)
+- [执行环境调度（规划中）](/zh-cn/developer/execution-environment-scheduling/)
 - [平台架构](/zh-cn/developer/architecture/)
 - [安全与数据边界](/zh-cn/deployment/security/)
 - [代码仓库连接](/zh-cn/integrations/code-repositories/)
