@@ -11,7 +11,7 @@ Intake is how a request becomes a delivery draft. The backlog is the set of draf
 
 ## Where requests enter
 
-A workspace Task inbox holds collected or imported requests. An automation can add items when **Collect tasks / issues** is configured and the run records a server receipt. A chat summary is not a saved Issue. Items can also be routed into a workbench project, where they become drafts.
+A workspace Task inbox holds collected or imported requests. An automation can add items when **Collect tasks / issues** is configured and the run records a server receipt. A chat summary is not a saved Issue. Items can also be routed into a workbench project, where they become drafts. See [Task inbox](/user-guide/inbox-tasks/) for how to review and route items.
 
 A draft waits for a person. Confirm the scope, the acceptance criteria, and the repositories the change may touch. Confirming a requirement does not grant repository credentials and does not make an unconfigured pipeline usable. If the criteria are still ambiguous, leave the card as a draft. See [human approval](/user-guide/human-approval/).
 

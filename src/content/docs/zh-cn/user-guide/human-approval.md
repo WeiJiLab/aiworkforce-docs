@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "aaa4ae83c45b62745862fcc390258e32826876149952bbb38fb88b3d0fa9c044"
+  sourceHash: "d01a768c6845090ec136e4e9f9dc1425966fdeac82c76d4a376c83a75b14eab3"
 ---
 
 人工确认是一项决定，不是一枚状态徽章。当请求会改变范围、执行需要人才能继续，或结果将被当成已接受时，AI Workforce 需要这个决定。使用员工并不包括编辑 Agent 包。本页讲的是你面前的这些决定。
@@ -20,7 +20,7 @@ translation:
 | 接管         | 下一步由你自己来做         | 在恢复暂停时自行清除     |
 | 审阅         | 产物或变更符合你写下的标准 | 证明没跑的测试已经通过   |
 
-收集到的收件箱事项不是批准。流畅的回答不是批准。接受结果意味着你能指出输出和证据。如何阅读输出，见[产物与证据](/zh-cn/user-guide/artifacts-evidence/)。
+收集到的收件箱事项不是批准。流畅的回答不是批准。决定是否接受结果时，先检查输出和支持它的证据。见[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。
 
 ## 接管并交还
 

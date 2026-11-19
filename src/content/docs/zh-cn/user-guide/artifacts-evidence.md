@@ -1,11 +1,11 @@
 ---
-title: "产物与证据"
+title: "审阅结果与产物"
 description: "验收前检查生成文件、文件变更、信息来源与验证结果。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "103d247db5d908f9274532914a845c4f88cdf1771b8b6ff0a99c64d1cca4816c"
+  sourceHash: "3f086616d791eac2cce365b32ac2094fc7eb9ddc7dbe4e7ea9f3e5fc22f00678"
 ---
 
 产物是员工生成的报告、源文件或关联 Pull Request 等输出。证据则解释为什么可以相信有关工作的判断。接受结果前，应同时检查二者。
@@ -34,4 +34,4 @@ translation:
 
 产物列表读取失败时，使用重新读取操作并查看报错。无法预览时，尝试产品提供的源码或项目文件视图。缺少证据时，要求员工补充具体来源或验证结果，再判断是否完成。
 
-继续阅读 [Agent 对话](/zh-cn/user-guide/agent-chat/)、[任务收件箱](/zh-cn/user-guide/inbox-tasks/)和 [Issue 到 PR 实践](/zh-cn/recipes/issue-to-pr/)。
+继续阅读 [把任务交给数字员工](/zh-cn/user-guide/agent-chat/)、[任务收件箱](/zh-cn/user-guide/inbox-tasks/)和 [Issue 到 PR 实践](/zh-cn/recipes/issue-to-pr/)。

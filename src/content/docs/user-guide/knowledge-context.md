@@ -1,5 +1,5 @@
 ---
-title: "Knowledge and context"
+title: "Provide task context"
 description: "Provide task materials, maintain reviewed workspace memory, and distinguish connected sources from model context."
 translation:
   source: en
@@ -39,4 +39,4 @@ This workflow does not promise automatic indexing, synchronization, or exhaustiv
 
 Check the workspace, source location, memory status, and employee authorization. Ask which source was actually used. Supply the missing excerpt or a precise file reference, then rerun the smallest relevant part of the task.
 
-See [workspace](/user-guide/workspace/), [MCP integration](/build/mcp-integration/), and [artifacts and evidence](/user-guide/artifacts-evidence/).
+After sending the task, see [Track execution progress](/user-guide/sessions-planning/). For workspace and connection settings, see [Workspace](/user-guide/workspace/) and [MCP integration](/build/mcp-integration/).

@@ -37,4 +37,4 @@ A useful workspace has employees with clear responsibilities, resources that mat
 
 If an employee or item is missing, confirm that you opened the correct workspace and have access. If a management action is unavailable, check your permissions. If execution cannot reach a resource, inspect both the connection and the employee's authorization.
 
-Continue with [Agent Chat](/user-guide/agent-chat/) and [artifacts and evidence](/user-guide/artifacts-evidence/).
+Continue with [Assign a task to a digital employee](/user-guide/agent-chat/) and [Review results and artifacts](/user-guide/artifacts-evidence/).

@@ -23,7 +23,7 @@ Evidence shows what happened during delivery. A trace links the confirmed requir
 | Release record                 | Which revision reached the intended environment                                |
 | Cleanup record                 | Whether the delivery flow released its resources                               |
 
-Use the recorded checks to determine which acceptance criteria the result covers. See [Review and release](/software-factory/review-release/) for delivery stages and [Artifacts and evidence](/user-guide/artifacts-evidence/) for work outside the delivery workbench.
+Use the recorded checks to determine which acceptance criteria the result covers. See [Review and release](/software-factory/review-release/) for delivery stages and [Review results and artifacts](/user-guide/artifacts-evidence/) for work outside the delivery workbench.
 
 ## Follow one change
 

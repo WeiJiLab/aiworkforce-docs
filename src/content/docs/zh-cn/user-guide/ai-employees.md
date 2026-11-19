@@ -1,14 +1,14 @@
 ---
-title: "智能体与数字员工"
-description: "智能体在工作流中执行步骤。数字员工是工作空间里已配置的智能体形态，不是产品模型本身。"
+title: "托管智能体与数字员工"
+description: "在工作空间使用托管智能体。从已发布的模板创建数字员工，分配任务并审阅结果。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "70bb3c2bb046226f970b3e891d1861d6534854f532dca81682fd1736a8ff7fb8"
+  sourceHash: "4c51e581c5200e0ffea53ce633d34e9118eb880ca5bb04832caa86992448c910"
 ---
 
-**智能体**是工作流内的执行参与者。**数字员工**是你在工作空间中指派的已配置工作者——产品里常见的智能体形态，而不是另一条产品线。模板提供可复用能力；工作空间配置和授权决定它在哪里执行，以及可以使用哪些已连接资源。
+AI Workforce 管理**托管智能体**的会话和工具授权。在工作空间中，从模板创建的托管智能体称为**数字员工**，你可以把任务交给它。已发布的模板定义员工的职责和能力。工作空间配置和授权决定它在哪里运行、可以使用哪些已连接的资源。
 
 本指南说明如何选择员工、分配任务、提供上下文、观察执行并审阅结果。它不说明如何编写 Agent 包。构建者使用 [定制与扩展](/zh-cn/build/)和[员工架构](/zh-cn/build/architecture/)。软件交付仍从[软件工厂](/zh-cn/software-factory/overview/)开始，而不是先创建一名数字员工。
 
@@ -40,4 +40,4 @@ translation:
 
 不要为了从未解释清楚的启动失败而重复创建员工。先解决初始化错误，再用一个小任务确认就绪。
 
-继续阅读[工作空间](/zh-cn/user-guide/workspace/)、[Agent 对话](/zh-cn/user-guide/agent-chat/)和[产物与证据](/zh-cn/user-guide/artifacts-evidence/)。
+继续阅读[工作空间](/zh-cn/user-guide/workspace/)、[把任务交给数字员工](/zh-cn/user-guide/agent-chat/)和[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。

@@ -1,5 +1,5 @@
 ---
-title: "Artifacts and evidence"
+title: "Review results and artifacts"
 description: "Inspect generated files, file changes, sources, and verification results before accepting work."
 translation:
   source: en
@@ -33,4 +33,4 @@ For inbox items, evidence may include a source URL and an excerpt. Keep that obs
 
 If the artifact list fails to load, use its reload action and inspect the reported error. If a preview is unavailable, try the source or project-file view offered by the product. If evidence is missing, ask the employee for the specific source or verification result rather than accepting an unsupported completion claim.
 
-Continue with [Agent Chat](/user-guide/agent-chat/), [inbox and tasks](/user-guide/inbox-tasks/), and the [Issue to PR recipe](/recipes/issue-to-pr/).
+Continue with [Assign a task to a digital employee](/user-guide/agent-chat/), [inbox and tasks](/user-guide/inbox-tasks/), and the [Issue to PR recipe](/recipes/issue-to-pr/).

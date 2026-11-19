@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "811b075a851967c9b0429bb8bf1bc49ba5aa6c9bdeb652a6ba2ef3bf479f1e21"
+  sourceHash: "00bb49b098e6d67a0e16ee9b215c0d09ea0a3d16fa0eb9a97e9bde9ffdaa37a1"
 ---
 
 数字员工是一份带版本的职责与能力组合，被放到可以行动的运行时里，并受权限和证据约束。这个组合不是聊天记录，聊天记录也不能证明组合是正确的。
@@ -81,4 +81,4 @@ research-assistant/
 
 - [Agent 定义](/zh-cn/build/employee-definition/)
 - [模板](/zh-cn/build/templates/)
-- [使用数字员工](/zh-cn/user-guide/ai-employees/)
+- [托管智能体与数字员工](/zh-cn/user-guide/ai-employees/)

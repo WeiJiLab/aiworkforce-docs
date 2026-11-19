@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "adec3016ddb4ac145c564514d5fa6c8b277da7c6a78eea4674c16724969b0f22"
+  sourceHash: "839e1498fa109403956066548cb8383d4b09b75e07a06342a6eedc7cc2b84fbb"
 ---
 
 证据说明交付过程中实际发生了什么。追踪把已确认的需求、执行会话、代码变更、验证结果和后续决定串起来。审阅者可以沿着记录核对哪些结论有证据支持。
@@ -24,7 +24,7 @@ translation:
 | 发布记录                | 哪个版本已部署到目标环境                 |
 | 资源回收记录            | 交付流程使用的资源是否已回收             |
 
-根据实际执行的检查，判断结果覆盖了哪些验收标准。各交付阶段见[审阅与发布](/zh-cn/software-factory/review-release/)。交付工作台之外的任务可参考[产物与证据](/zh-cn/user-guide/artifacts-evidence/)。
+根据实际执行的检查，判断结果覆盖了哪些验收标准。各交付阶段见[审阅与发布](/zh-cn/software-factory/review-release/)。交付工作台之外的任务可参考[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。
 
 ## 跟踪一项变更
 

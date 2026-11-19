@@ -189,32 +189,46 @@ export function getHomeContent(zh: boolean): HomeContent {
     ],
     useEmployees: [
       guide(
-        zh ? "智能体" : "Agents",
+        zh ? "把任务交给数字员工" : "Assign a task to a digital employee",
         zh
-          ? "工作流内的执行参与者。数字员工是其中一种配置形态。"
-          : "Execution participants inside a workflow. Employees are one configured form.",
-        "user-guide/ai-employees",
-      ),
-      guide(
-        zh ? "从模板创建员工" : "Create an employee from a template",
-        zh
-          ? "在工作空间里安装已发布模板，并验收第一份结果。"
-          : "Install a published template in a workspace and review its first result.",
-        "getting-started/first-employee",
-      ),
-      guide(
-        zh ? "工作空间" : "Workspace",
-        zh
-          ? "组织员工、权限、连接和待处理工作。"
-          : "Organize employees, permissions, connections, and incoming work.",
-        "user-guide/workspace",
-      ),
-      guide(
-        zh ? "对话与收件箱" : "Chat and inbox",
-        zh
-          ? "交任务，并决定哪些事项进入交付。"
-          : "Assign a task, and decide which requests enter delivery.",
+          ? "打开会话，给员工一个目标和清楚的验收标准。"
+          : "Open a session and give the employee a goal and acceptance criteria.",
         "user-guide/agent-chat",
+      ),
+      guide(
+        zh ? "提供任务上下文" : "Provide task context",
+        zh
+          ? "提供任务所需的文档、文件与团队约定。"
+          : "Supply the documents, files, and team agreements the task needs.",
+        "user-guide/knowledge-context",
+      ),
+      guide(
+        zh ? "查看执行进度" : "Track execution progress",
+        zh
+          ? "查看会话状态、执行计划和工具动作。"
+          : "Check session status, execution plans, and tool activity.",
+        "user-guide/sessions-planning",
+      ),
+      guide(
+        zh ? "人工确认" : "Human approval",
+        zh
+          ? "在需要时确认范围、回应请求或接管执行。"
+          : "Confirm scope, respond to requests, or take over execution.",
+        "user-guide/human-approval",
+      ),
+      guide(
+        zh ? "审阅结果与产物" : "Review results and artifacts",
+        zh
+          ? "按验收标准检查生成文件、变更和验证证据。"
+          : "Check generated files, changes, and evidence against the acceptance criteria.",
+        "user-guide/artifacts-evidence",
+      ),
+      guide(
+        zh ? "从模板创建第一个数字员工" : "Create your first AI employee from a template",
+        zh
+          ? "在工作空间里选用已发布模板，并验收第一份结果。"
+          : "Use a published template in a workspace and review its first result.",
+        "getting-started/first-employee",
       ),
     ],
     build: [

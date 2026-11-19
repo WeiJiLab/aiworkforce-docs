@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "ccf1f294e46aef5f36fc79c9240043a317cf6e9f53aad93d5253c45c42dbf58c"
+  sourceHash: "f1ac512bdbaba69499544da8f218b719263f69462b5eba3f412f5a08f91de718"
 ---
 
 这条路径面向使用 AI Workforce 的人，不是编写 Agent 包的人。你选择已发布模板，等到工作空间员工就绪，交给它一项有边界的任务，然后审阅结果。需要定义新岗位的构建者从 [定制与扩展](/zh-cn/build/)的[Agent 定义](/zh-cn/build/employee-definition/)开始。
@@ -47,4 +47,4 @@ translation:
 
 ## 如果无法开始
 
-请能管理该空间数字员工的人一起检查初始化状态。不能添加时，页面写的是「联系空间管理员添加数字员工」。如果员工在这个例子里要求外部访问，重申粘贴的文本是唯一来源。继续阅读 [Agent 对话](/zh-cn/user-guide/agent-chat/)或[产物与证据](/zh-cn/user-guide/artifacts-evidence/)。
+请能管理该空间数字员工的人一起检查初始化状态。不能添加时，页面写的是「联系空间管理员添加数字员工」。如果员工在这个例子里要求外部访问，重申粘贴的文本是唯一来源。继续阅读 [把任务交给数字员工](/zh-cn/user-guide/agent-chat/)或[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。

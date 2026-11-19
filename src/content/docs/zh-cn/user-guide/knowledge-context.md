@@ -1,11 +1,11 @@
 ---
-title: "知识与上下文"
+title: "提供任务上下文"
 description: "提供任务资料，维护经过审核的空间记忆，并区分外部知识来源与模型上下文。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "e7f34ed10293c393dc397b61122d40cfc0e28d5f5b594aeeaf774d196f82fd30"
+  sourceHash: "a0791812ee6277e70f702b14142bdacd743d199324957fdcd0852f43f24d2178"
 ---
 
 员工需要相关上下文才能完成有效工作。AI Workforce 当前提供任务消息与附件、项目文件、空间记忆，以及经过授权的连接。它们是不同的信息来源，不能因为文档可访问，就假定员工已自动阅读全部内容。
@@ -40,4 +40,4 @@ translation:
 
 检查工作空间、资料位置、记忆状态和员工授权。询问实际使用了哪个来源；补充缺失原文或精确文件引用，再执行与问题相关的最小任务范围。
 
-继续阅读[工作空间](/zh-cn/user-guide/workspace/)、[MCP 集成](/zh-cn/build/mcp-integration/)和[产物与证据](/zh-cn/user-guide/artifacts-evidence/)。
+发出任务后，参阅[查看执行进度](/zh-cn/user-guide/sessions-planning/)。工作空间和连接设置见[工作空间](/zh-cn/user-guide/workspace/)和[MCP 集成](/zh-cn/build/mcp-integration/)。

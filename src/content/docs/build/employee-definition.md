@@ -11,7 +11,7 @@ Define the tasks an agent accepts, the capabilities it needs, and how to check i
 
 `Role → Responsibility → Invocation scenarios → Capabilities → Constraints → Evaluation`
 
-Workspace users do not upload this file when they create an employee. They select a published template. Start with [Using AI employees](/user-guide/ai-employees/) for that path, and with [employee architecture](/build/architecture/) for the surrounding model.
+Workspace users do not upload this file when they create an employee. They select a published template. Start with [Managed agents and digital employees](/user-guide/ai-employees/) for that path, and with [employee architecture](/build/architecture/) for the surrounding model.
 
 ## Before you begin
 

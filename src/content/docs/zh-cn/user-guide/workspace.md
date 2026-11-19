@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "d65b4faacb8ac546a3a1ce93a8b777f43d1d8af540042851dfd2d1c86e55c360"
+  sourceHash: "6922ad443cc6677d2023156178b0c579603cf1911e2cccfcfa1eda559229f80a"
 ---
 
 工作空间是与数字员工协作的共享上下文。它将相关员工与资源组织在一起，帮助你找到合适的员工，并检查相应工作记录。
@@ -38,4 +38,4 @@ translation:
 
 找不到员工或事项时，先确认是否打开正确空间，以及是否具有访问权限。管理操作不可用时检查权限；执行无法访问资源时，同时检查连接状态和员工授权。
 
-继续阅读 [Agent 对话](/zh-cn/user-guide/agent-chat/)和[产物与证据](/zh-cn/user-guide/artifacts-evidence/)。
+继续阅读 [把任务交给数字员工](/zh-cn/user-guide/agent-chat/)和[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。

@@ -19,7 +19,7 @@ Human approval is a decision, not a status badge. AI Workforce asks for it when 
 | Takeover            | You are doing the next step yourself                 | Clear itself when a pause resumes           |
 | Review              | The artifact or change meets the criteria you named  | Prove an unrun test passed                  |
 
-A collected inbox item is not approval. A fluent answer is not approval. Accepting a result means you can point at the output and the evidence. [Artifacts and evidence](/user-guide/artifacts-evidence/) is how you read that output.
+A collected inbox item is not approval. A fluent answer is not approval. When deciding whether to accept a result, check the output and its supporting evidence. See [Review results and artifacts](/user-guide/artifacts-evidence/).
 
 ## Take over and hand back
 

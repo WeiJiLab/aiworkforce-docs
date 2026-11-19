@@ -5,14 +5,14 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "9fdbc6f4150eeb55b4d6d46d90e3eb44ea0d0d50eccfddf0a86671968487cddb"
+  sourceHash: "c7f80b917607553171dece300d8ebc00d480964721cfb98043d0e068de3f9e69"
 ---
 
 先定义 Agent 接受什么任务、能使用哪些能力，以及怎样判断结果合格。本页以研究助手为例，把它作为数字员工交给团队使用。这个 Agent 包通过 `employee.yaml` 描述岗位，并把岗位要求逐项落实到插件和评测中。
 
 `岗位 → 职责 → 调用场景 → 能力 → 约束 → 评测`
 
-工作空间用户创建员工时不上传这个文件。他们选择已发布模板。使用路径见[使用数字员工](/zh-cn/user-guide/ai-employees/)。周围的模型见[员工架构](/zh-cn/build/architecture/)。
+工作空间用户创建员工时不上传这个文件。他们选择已发布模板。使用路径见[托管智能体与数字员工](/zh-cn/user-guide/ai-employees/)。周围的模型见[员工架构](/zh-cn/build/architecture/)。
 
 ## 开始之前
 

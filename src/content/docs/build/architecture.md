@@ -80,4 +80,4 @@ research-assistant/
 
 - [Agent definition](/build/employee-definition/)
 - [Templates](/build/templates/)
-- [Using AI employees](/user-guide/ai-employees/)
+- [Managed agents and digital employees](/user-guide/ai-employees/)

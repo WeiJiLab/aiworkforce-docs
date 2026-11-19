@@ -1,13 +1,13 @@
 ---
-title: "Agents and AI employees"
-description: "Agents execute steps inside workflows. An AI employee is the configured workspace form of an agent—not the product model."
+title: "Managed agents and digital employees"
+description: "Use managed agents to do work in your workspace. Create a digital employee from a published template, assign tasks, and review results."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
 ---
 
-An **agent** is the execution participant inside a workflow. An **AI employee** is the configured worker you assign in a workspace—the product's common form of an agent, not a separate product line. Its template supplies reusable capabilities; workspace configuration and authorizations determine where it can work and which connected resources it can use.
+AI Workforce manages sessions and tool permissions for **managed agents**. In the workspace, you create and assign them as **digital employees**. A published template defines the employee’s role and capabilities. Workspace settings and permissions determine where it can run and which connected resources it can use.
 
 This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an Agent Package. To author an Agent Package, see [Customize & Extend](/build/) and [employee architecture](/build/architecture/). Software delivery still starts from [Software Factory](/software-factory/overview/), not from creating an employee first.
 
@@ -39,4 +39,4 @@ When a recurring failure concerns the method, inputs, or output structure, share
 
 Avoid creating duplicate employees to recover from an unexplained startup failure. Resolve the initialization error, then confirm readiness with a small task.
 
-Continue with [Workspace](/user-guide/workspace/), [Agent Chat](/user-guide/agent-chat/), and [artifacts and evidence](/user-guide/artifacts-evidence/).
+Continue with [Workspace](/user-guide/workspace/), [Assign a task to a digital employee](/user-guide/agent-chat/), and [Review results and artifacts](/user-guide/artifacts-evidence/).
