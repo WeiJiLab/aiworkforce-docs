@@ -328,6 +328,7 @@ export const PORTALS = {
           "software-factory/observability",
           "operate/audit",
           "deployment/security",
+          "deployment/managed-agents",
           "deployment/self-host",
         ],
       },
