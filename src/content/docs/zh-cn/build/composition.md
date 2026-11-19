@@ -4,11 +4,11 @@ description: "把有边界的任务委派给另一个 Agent，不要把正文里
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "b3fbb81161b27b12c0d87c8204869cecaa3147669edb136b931eab43e2409fa6"
+  sourceVersion: "2026-11-19"
+  sourceHash: "82e9042a64aa672b4e968bb48cd79bfaff9e3011ab7dafda324257f5cf6ec4d5"
 ---
 
-组合是一名员工把任务的一部分委派给另一个 Agent，并仍然对结果负责。当前员工包把 subagent 放在 `agents/*.md`，把 hooks 当作执行扩展。某个运行时是否真的调用它们，要在追踪里核实。在 Skill 里写下“subagent”并不会创建委派。
+组合是一名员工把任务的一部分委派给另一个 Agent，并仍然对结果负责。当前 Agent 包把 subagent 放在 `agents/*.md`，把 hooks 当作执行扩展。某个运行时是否真的调用它们，要在追踪里核实。在 Skill 里写下“subagent”并不会创建委派。
 
 没有一个单独的多 Agent 产品能保证父 Agent、子 Agent 和共享记忆一定存在。在把工作流描述成已委派之前，使用本页的检查。
 
@@ -22,7 +22,7 @@ translation:
 
 用一项父任务试一次：一个有支持的结论、一个没有支持的结论、一个含糊的来源。确认子 Agent 返回的区分被父 Agent 用进最终结果。打开执行追踪，寻找实际的委派，而不是只看最终正文。
 
-如果追踪里没有子调用，就是父 Agent 自己做了工作，或忽略了指令。在把岗位写成一组 Agent 之前，先修复员工包或运行时支持。这些扩展点的实现检查见 [Hooks 与 subagents](/zh-cn/build/hooks-subagents/)。
+如果追踪里没有子调用，就是父 Agent 自己做了工作，或忽略了指令。在把岗位写成一组 Agent 之前，先修复 Agent 包或运行时支持。这些扩展点的实现检查见 [Hooks 与 subagents](/zh-cn/build/hooks-subagents/)。
 
 ## 守住边界
 

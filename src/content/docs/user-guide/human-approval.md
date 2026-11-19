@@ -4,10 +4,10 @@ description: "Decide when a person must confirm scope, take over execution, or a
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-Human approval is a decision, not a status badge. AI Workforce asks for it when a request would change scope, when execution needs a person to continue, and when a result is about to be treated as accepted. Using an employee does not include editing the employee package. This page is about the decisions in front of you.
+Human approval is a decision, not a status badge. AI Workforce asks for it when a request would change scope, when execution needs a person to continue, and when a result is about to be treated as accepted. Using an employee does not include editing the Agent Package. This page is about the decisions in front of you.
 
 ## Where a person decides
 

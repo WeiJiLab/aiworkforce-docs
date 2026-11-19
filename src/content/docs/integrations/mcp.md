@@ -4,10 +4,10 @@ description: "Connect to the platform MCP endpoint and to external MCP servers. 
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-This page is the service integration: the platform MCP endpoint and external MCP servers. How an employee package names a dependency is [MCP dependencies](/build/mcp-integration/). The two pages must agree: a manifest entry is a name and a description. It does not contain the endpoint, the secret, or the grant.
+This page is the service integration: the platform MCP endpoint and external MCP servers. How an Agent Package names a dependency is [MCP dependencies](/build/mcp-integration/). The two pages must agree: a manifest entry is a name and a description. It does not contain the endpoint, the secret, or the grant.
 
 ## Platform Automation MCP
 

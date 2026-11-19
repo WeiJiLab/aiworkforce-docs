@@ -7,7 +7,7 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 There are two ways to define a workflow in the current product. A **Job** is one executor plus its triggers. A **pipeline** chains two or more executors on a delivery-board lane. There is no third canvas for an arbitrary process that is not attached to a lane. [Custom workflows](/workflows/custom-workflows/) states the same boundary.
@@ -38,4 +38,4 @@ A node can fan out over a list and retry a failed run. The graph rejects a cycle
 
 ## What you still cannot draw
 
-A person in the middle uses [approvals and notifications](/automate/approvals/) or a delivery-card takeover. A skill can declare conditions, branches, parallel steps, and human approval inside the employee package. Confirm those steps in the runtime trace. Writing them in prose does not create them. See [agent composition](/build/composition/).
+A person in the middle uses [approvals and notifications](/automate/approvals/) or a delivery-card takeover. A skill can declare conditions, branches, parallel steps, and human approval inside the Agent Package. Confirm those steps in the runtime trace. Writing them in prose does not create them. See [agent composition](/build/composition/).

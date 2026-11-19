@@ -4,11 +4,11 @@ description: "判断何时必须由人确认范围、接管执行，或在他人
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "86ccd8010ba690b24aedcd5dfd6362f61cd8d5a4974d708ca5fa734878d48d9b"
+  sourceVersion: "2026-11-19"
+  sourceHash: "aaa4ae83c45b62745862fcc390258e32826876149952bbb38fb88b3d0fa9c044"
 ---
 
-人工确认是一项决定，不是一枚状态徽章。当请求会改变范围、执行需要人才能继续，或结果将被当成已接受时，AI Workforce 需要这个决定。使用员工并不包括编辑员工包。本页讲的是你面前的这些决定。
+人工确认是一项决定，不是一枚状态徽章。当请求会改变范围、执行需要人才能继续，或结果将被当成已接受时，AI Workforce 需要这个决定。使用员工并不包括编辑 Agent 包。本页讲的是你面前的这些决定。
 
 ## 人在哪里做决定
 

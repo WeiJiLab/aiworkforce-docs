@@ -206,12 +206,13 @@ for (const [route, page] of expectedPages) {
     record(
       [...siteNav[0].querySelectorAll("a")].some(
         (link) =>
-          link.textContent.trim() === (zh ? "构建数字员工" : "Build") &&
+          link.textContent.trim() ===
+            (zh ? "定制与扩展" : "Customize & Extend") &&
           pathname(link.getAttribute("href"), route) ===
             routeFor("build", page.locale),
       ),
       route,
-      "site nav must link to the localized Build portal",
+      "site nav must link to the localized Customize & Extend portal",
     );
     record(
       labels.some((label) => label.startsWith("Developer")),

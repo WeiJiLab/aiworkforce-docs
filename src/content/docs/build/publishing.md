@@ -1,13 +1,13 @@
 ---
 title: "Publishing and distribution"
-description: "Publish a validated employee package as a template and confirm which instances received it."
+description: "Publish a validated Agent Package as a template and confirm which instances received it."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-Publishing makes a package available as a template other people can use to create workspace employees. It is not the same as creating one employee, and it does not push the new version into employees that already exist.
+Publishing makes an Agent Package available as a template other people can use to create workspace employees. It is not the same as creating one employee, and it does not push the new version into employees that already exist.
 
 ## Before you publish
 
@@ -15,7 +15,7 @@ Validate the package and complete the task trials in [employee testing](/build/t
 
 When adapting a procedure for reuse, keep the work steps, tool requirements, and acceptance checks. Replace project-specific examples with synthetic examples and remove credentials, private references, and customer data from the package. Configure workspace-specific endpoints and permissions during setup. Confirm the receiving workspace's data and tool scope before testing the template there. See [security and permissions](/deployment/security/).
 
-A structural pass can still describe the wrong job. Read the role, the exclusions, and the entry skill once more. [Employee definition](/build/employee-definition/) is the page to correct if those do not match.
+A structural pass can still describe the wrong job. Read the role, the exclusions, and the entry skill once more. [Agent definition](/build/employee-definition/) is the page to correct if those do not match.
 
 ## What consumers receive
 

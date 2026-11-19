@@ -5,7 +5,7 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 A custom workflow is one of the definitions the product already stores. It still uses the same automation, employees, runs, and evidence as Software Factory and issue handling. You do not install another engine to leave the built-in lanes.
@@ -16,7 +16,7 @@ A custom workflow is one of the definitions the product already stores. It still
 | -------------- | --------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------- |
 | Job            | Automations → the execution Job                     | One employee or one allowlisted code executor                | Manual, schedule, webhook, GitHub event, Issue, IM |
 | Lane pipeline  | Automations → Pipeline, after you pick a board lane | That lane's agent tasks and code executors                   | Manual or cron, and only after at least two nodes  |
-| Skill workflow | The employee package, as a workflow on a skill      | Skill, subagent, tool, approval, parallel, condition, branch | When that skill runs inside a session              |
+| Skill workflow | The Agent Package, as a workflow on a skill         | Skill, subagent, tool, approval, parallel, condition, branch | When that skill runs inside a session              |
 
 The pipeline canvas is real. It is not a canvas for an arbitrary business process detached from a board. Creating a pipeline asks for a workspace, a board, and a lane because the nodes are that lane's executors. Edges continue on success, on failure, or always. A node can also wait until its `when` conditions hold, map inputs from the trigger or an upstream node, fan out over a list, and retry. Enable the pipeline only after you save. If an upstream contract changes, the pipeline can pause until the mapping is fixed.
 

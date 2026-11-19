@@ -6,7 +6,7 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 Model Context Protocol (MCP) lets an employee use tools exposed by external services. This page is the employee dependency: which server the role expects, and how that declaration differs from a working connection. Protocol, endpoint, and client setup are in [MCP integration](/integrations/mcp/). Do not maintain two conflicting copies of the connection steps. Discovering a server, configuring it, installing it, and authorizing the external account are separate steps. A server listed in a template is not proof that a tool call will succeed.
@@ -33,7 +33,7 @@ If the tool is missing, check that the intended configuration reached the instan
 
 ## Verify the applied configuration
 
-Apply the template or plugin to a test instance, then follow [Connect and check employee tools in Docs](/integrations/employee-tools/) to inspect the instance, authorize its account, and perform a small read operation. Keep package metadata, installed configuration, and external-account authorization as separate checks.
+Apply the template or plugin to a test instance, then follow [Connect and check employee tools in Docs](/integrations/employee-tools/) to inspect the instance, authorize its account, and perform a small read operation. Keep Agent Package metadata, installed configuration, and external-account authorization as separate checks.
 
 ## Related guides
 

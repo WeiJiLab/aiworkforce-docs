@@ -4,10 +4,10 @@ description: "Delegate a bounded task to another agent without treating a mentio
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-Composition is how one employee delegates part of a task to another agent and still owns the result. The current package layout supports subagents as `agents/*.md` and hooks as execution extensions. Whether a particular runtime invokes them is something you verify in the trace. Writing the word "subagent" in a skill does not create a delegation.
+Composition is how one employee delegates part of a task to another agent and still owns the result. The current Agent Package layout supports subagents as `agents/*.md` and hooks as execution extensions. Whether a particular runtime invokes them is something you verify in the trace. Writing the word "subagent" in a skill does not create a delegation.
 
 There is no separate multi-agent product that guarantees a parent, a child, and a shared memory. Use the checks on this page before you describe a workflow as delegated.
 

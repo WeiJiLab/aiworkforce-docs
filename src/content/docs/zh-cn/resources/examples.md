@@ -4,11 +4,11 @@ description: "把文档中的研究助手包当作完整示例。本站不提供
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "1dc36fd5ff6588b67b643d253d377fbc84467277845a98f5772fa19924bfb28e"
+  sourceVersion: "2026-11-19"
+  sourceHash: "9ac3a65c9b2f5c3a9fc60eb7c3e6afb76cb4936827aecc64a9ba8131fa11e947"
 ---
 
-本文档中的完整示例是一名研究助手：根据给定材料准备简报，并拒绝发布这些材料。它说明的是员工包布局，不是你的部署一定已经发布的模板，也不是可以从本站克隆的仓库。
+本文档中的完整示例是一名研究助手：根据给定材料准备简报，并拒绝发布这些材料。它说明的是 Agent 包布局，不是你的部署一定已经发布的模板，也不是可以从本站克隆的仓库。
 
 ## 示例包含什么
 
@@ -24,7 +24,7 @@ research-assistant/
 按这个顺序阅读：
 
 1. [员工架构](/zh-cn/build/architecture/)看组成部分。
-2. [员工定义](/zh-cn/build/employee-definition/)看岗位链路和清单字段。
+2. [Agent 定义](/zh-cn/build/employee-definition/)看岗位链路和清单字段。
 3. [Skills](/zh-cn/build/skills/)看 `SKILL.md`。
 4. [员工测试](/zh-cn/build/testing/)和 [Agent 评测](/zh-cn/software-factory/evaluation/)看三个请求和评测案例。
 

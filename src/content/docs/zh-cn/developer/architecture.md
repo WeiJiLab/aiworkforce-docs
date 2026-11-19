@@ -4,8 +4,8 @@ description: "理解工作空间、员工、会话、自动化和交付记录之
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "9334d2b75a599cf78e3caa11cc5b5122685f2e51bccfce7ecedbfe05fdb73560"
+  sourceVersion: "2026-11-19"
+  sourceHash: "1e52ab4c8db2e30562606c98cc481e4b0f8cc9c09003664751ca0d520aa14df0"
 ---
 
 AI Workforce 将产品工作空间、员工执行与结构化工作记录连接起来。同一个员工可以参与交互会话、自动化运行或交付泳道，而每个入口保留各自的任务与执行上下文。
@@ -44,6 +44,6 @@ Skill 提供工作方法，Plugin 打包能力，MCP 连接外部工具。这些
 ## 相关文档
 
 - [核心概念](/zh-cn/getting-started/core-concepts/)
-- [员工定义](/zh-cn/build/employee-definition/)
+- [Agent 定义](/zh-cn/build/employee-definition/)
 - [自动化基础](/zh-cn/automate/fundamentals/)
 - [软件工厂概览](/zh-cn/software-factory/overview/)

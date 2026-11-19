@@ -1,5 +1,5 @@
 /**
- * Docs / Learn / Build / Developer portals share English and Chinese slugs.
+ * Docs / Learn / Customize & Extend / Developer portals share English and Chinese slugs.
  * File ids keep existing guide URLs when a page changes section.
  */
 
@@ -251,19 +251,19 @@ export const PORTALS = {
     ],
   },
   [Portal.Build]: {
-    label: "Build",
-    zhLabel: "构建数字员工",
-    landingLabel: "Employee build workflow",
-    landingZh: "员工构建流程",
+    label: "Customize & Extend",
+    zhLabel: "定制与扩展",
+    landingLabel: "Customize & Extend overview",
+    landingZh: "定制与扩展概览",
     description: [
-      "Build employees in the FDE workbench",
-      "在 FDE 工作台构建数字员工",
+      "Customize agent capabilities for your workflows",
+      "为业务工作流定制 Agent 能力",
     ],
     landing: "build",
     groups: [
       {
-        label: "Customer discovery",
-        zh: "客户发现",
+        label: "Requirements discovery",
+        zh: "需求发现",
         collapsed: false,
         items: [
           "build/bots",
@@ -273,30 +273,43 @@ export const PORTALS = {
         ],
       },
       {
-        label: "Build",
-        zh: "构建",
+        label: "Agent design and build",
+        zh: "Agent 构建",
         collapsed: false,
         items: [
           "build/builder",
           "build/employee-definition",
           "build/prompts-rules",
           "build/architecture",
-          nested("Capabilities", "能力", [
-            "build/skills-plugins",
-            "build/skills",
-            "build/plugins",
-            "build/tools",
-            "build/mcp-integration",
-          ]),
-          nested("Composition", "组合", [
-            "build/composition",
-            "build/hooks-subagents",
-          ]),
         ],
       },
       {
-        label: "Publish and marketplace",
-        zh: "发布与市场",
+        label: "Capability extensions",
+        zh: "能力扩展",
+        collapsed: true,
+        items: [
+          "build/skills-plugins",
+          "build/skills",
+          "build/plugins",
+          "build/tools",
+          "build/mcp-integration",
+        ],
+      },
+      {
+        label: "Agent collaboration",
+        zh: "Agent 协作",
+        collapsed: true,
+        items: ["build/composition", "build/hooks-subagents"],
+      },
+      {
+        label: "Testing and evaluation",
+        zh: "测试与评测",
+        collapsed: true,
+        items: ["build/testing", "build/agent-tests"],
+      },
+      {
+        label: "Templates and publishing",
+        zh: "模板与发布",
         collapsed: true,
         items: [
           "build/templates",
@@ -306,16 +319,10 @@ export const PORTALS = {
         ],
       },
       {
-        label: "Configuration",
-        zh: "配置",
+        label: "Channel integration",
+        zh: "渠道集成",
         collapsed: true,
         items: ["build/channels"],
-      },
-      {
-        label: "Evaluation",
-        zh: "评测",
-        collapsed: true,
-        items: ["build/testing", "build/agent-tests"],
       },
       {
         label: "Operate",

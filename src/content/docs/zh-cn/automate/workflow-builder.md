@@ -7,8 +7,8 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "12729aadffb4943317670779f32983be10339506894475067fc4b756a2fbb538"
+  sourceVersion: "2026-11-19"
+  sourceHash: "1a3bdf9129465611eb874a3735b61d6bb1bc1cb57518445c9cb54a5dc54a30a8"
 ---
 
 当前产品里有两种定义工作流的方式。**Job** 是一个执行器加上它的触发规则。**编排**把交付看板某条泳道上的两个或更多执行器串起来。没有第三块画布，用来描述不挂在泳道上的任意流程。[自定义工作流](/zh-cn/workflows/custom-workflows/)写的是同一条边界。
@@ -39,4 +39,4 @@ translation:
 
 ## 仍然不能画出来的部分
 
-过程中的人使用[批准与通知](/zh-cn/automate/approvals/)或交付卡片上的接管。技能可以在员工包里声明条件、分支、并行步骤和人工确认。这些步骤要在运行轨迹里确认。写在正文里并不会创建它们。见 [Agent 组合](/zh-cn/build/composition/)。
+过程中的人使用[批准与通知](/zh-cn/automate/approvals/)或交付卡片上的接管。技能可以在 Agent 包里声明条件、分支、并行步骤和人工确认。这些步骤要在运行轨迹里确认。写在正文里并不会创建它们。见 [Agent 组合](/zh-cn/build/composition/)。

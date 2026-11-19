@@ -4,18 +4,18 @@ description: "Agents execute steps inside workflows. An AI employee is the confi
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 An **agent** is the execution participant inside a workflow. An **AI employee** is the configured worker you assign in a workspace—the product's common form of an agent, not a separate product line. Its template supplies reusable capabilities; workspace configuration and authorizations determine where it can work and which connected resources it can use.
 
-This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an employee package. Builders use the [FDE workbench](/build/) and [employee architecture](/build/architecture/). Software delivery still starts from [Software Factory](/software-factory/overview/), not from creating an employee first.
+This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an Agent Package. To author an Agent Package, see [Customize & Extend](/build/) and [employee architecture](/build/architecture/). Software delivery still starts from [Software Factory](/software-factory/overview/), not from creating an employee first.
 
 ## Choose the right responsibility
 
 Before creating an employee, write down the job you want it to perform. Include expected inputs, the output you will review, and any actions that require human confirmation. Compare those needs with the published templates available in your workspace.
 
-A focused employee is easier to evaluate than a worker expected to handle unrelated responsibilities. If no suitable template exists, ask a builder to create one using an [employee definition](/build/employee-definition/).
+A focused employee is easier to evaluate than a worker expected to handle unrelated responsibilities. If no suitable template exists, ask a builder to create one using an [agent definition](/build/employee-definition/).
 
 ## Create an employee
 

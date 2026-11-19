@@ -6,8 +6,8 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "cb0e0cb822660438e14f095461f460dd0b93ce91776310a5be009ae05f35f66f"
+  sourceVersion: "2026-11-19"
+  sourceHash: "1b719c4b178ba6e63eea15926c6d1af9a509fb569ae4fded254a6c15714e6151"
 ---
 
 模型上下文协议（Model Context Protocol，MCP）让员工能够使用外部服务提供的工具。本页讲的是员工依赖：岗位期望哪个服务，以及这种声明与可用连接有何不同。协议、端点和客户端配置见 [MCP 集成](/zh-cn/integrations/mcp/)。不要维护两份互相矛盾的连接步骤。发现服务、配置、安装和外部账号授权是不同的步骤。模板中列出某个服务，并不能证明工具调用一定成功。
@@ -34,7 +34,7 @@ Builder 通过现有模板与插件管理入口维护配置，应用到实例后
 
 ## 验证已应用的配置
 
-将模板或插件应用到测试实例，再按 [Docs 中的连接与检查员工工具](/zh-cn/integrations/employee-tools/) 检查实例、完成账号授权，并尝试一次小范围读取。分别核对员工包元数据、已安装的连接配置和外部账号授权。
+将模板或插件应用到测试实例，再按 [Docs 中的连接与检查员工工具](/zh-cn/integrations/employee-tools/) 检查实例、完成账号授权，并尝试一次小范围读取。分别核对 Agent 包元数据、已安装的连接配置和外部账号授权。
 
 ## 相关文档
 

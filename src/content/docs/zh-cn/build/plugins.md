@@ -4,15 +4,15 @@ description: "把 Skills 和相关 agents 打成包，使岗位可以版本化�
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "df294ad3faedcb5ceb52e16f9a93d1186136d3b7fa6f96c958ad95652bbdb888"
+  sourceVersion: "2026-11-19"
+  sourceHash: "04d07fa8179cebf0402c0e800562a92f3464d940529a8691cc48a506adec406a"
 ---
 
 Plugin 是岗位外围的包。Skill 是包里的一种方法。员工定义给这个包一个岗位、边界和入口 Skill。使用者不会在创建员工的界面安装这个包。已发布模板或已启用的包应用到工作空间实例时，他们才会得到它。
 
 ## 包元数据
 
-员工包包含 `.claude-plugin/plugin.json`、`.aiworkforce/employee.yaml`、`.aiworkforce/router.md`、README 和 `skills/`。最小插件文件：
+Agent 包包含 `.claude-plugin/plugin.json`、`.aiworkforce/employee.yaml`、`.aiworkforce/router.md`、README 和 `skills/`。最小插件文件：
 
 ```json
 {
@@ -26,7 +26,7 @@ Plugin 是岗位外围的包。Skill 是包里的一种方法。员工定义给�
 
 ## 什么放进插件
 
-可复用方法放在 [Skills](/zh-cn/build/skills/)。岗位链路放在[员工定义](/zh-cn/build/employee-definition/)。只有父 Agent 必须委派一项有边界的任务时，才把 subagent 放进 `agents/*.md`。见 [Agent 组合](/zh-cn/build/composition/)。
+可复用方法放在 [Skills](/zh-cn/build/skills/)。岗位链路放在[Agent 定义](/zh-cn/build/employee-definition/)。只有父 Agent 必须委派一项有边界的任务时，才把 subagent 放进 `agents/*.md`。见 [Agent 组合](/zh-cn/build/composition/)。
 
 连接名称可以作为 MCP 依赖写下来。凭据、令牌和主机密钥不属于插件。应用插件不会授权外部账号。这一段缺口由[工具](/zh-cn/build/tools/)和 [MCP 服务](/zh-cn/build/mcp-integration/)说明。
 

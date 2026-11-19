@@ -4,8 +4,8 @@ description: 管理员把数字员工排进测试套件，或在 FDE 工作台�
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "7d43eb2c8356146188a50e74fd5c3c22e2aaa216eb5e484a61d227f5d72442fc"
+  sourceVersion: "2026-11-19"
+  sourceHash: "a08a3c528c38f8eda0d9286d097fd3157faf0c2acd712bd84baf0b8afdf128f6"
 ---
 
 **Agent 评估**只对管理员开放。其他 FDE 用户在导航里看不到它。页面有两个页签：**Agent 评估**和 **Agent 评测**。
@@ -14,7 +14,7 @@ translation:
 
 **创建测试**选择一名数字员工和一个测试套件。创建后测试立即排队。列表显示总数；测试处于排队或执行中时，每 5 秒刷新一次。打开一个测试，可以查看每个用例的状态、分数和耗时。
 
-员工列表或套件列表为空，表示没有可选项。这个页签不编写套件，也不移动交付卡片。员工包结构仍用[员工测试](/zh-cn/build/testing/)里的 **Validate**。根据已有记录判断一次交付任务，见[执行评测](/zh-cn/software-factory/evaluation/)。
+员工列表或套件列表为空，表示没有可选项。这个页签不编写套件，也不移动交付卡片。Agent 包结构仍用[员工测试](/zh-cn/build/testing/)里的 **Validate**。根据已有记录判断一次交付任务，见[执行评测](/zh-cn/software-factory/evaluation/)。
 
 ## 评测一个插件
 

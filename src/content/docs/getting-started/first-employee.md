@@ -1,13 +1,13 @@
 ---
-title: "Build your first AI employee"
+title: "Create your first AI employee from a template"
 description: "Create a workspace employee from a published template and accept or reject its first result."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-This path is for someone using AI Workforce, not for someone authoring an employee package. You select a published template, wait until the workspace employee is ready, give it one bounded task, and review the result. Builders who need to define a new role start in the [FDE workbench](/build/), at [employee definition](/build/employee-definition/).
+This path is for someone using AI Workforce, not for someone authoring an Agent Package. You select a published template, wait until the workspace employee is ready, give it one bounded task, and review the result. Builders who need to define a new role start in [Customize & Extend](/build/), at [agent definition](/build/employee-definition/).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Ask for a specific correction in the same session when something is missing. Sta
 
 ## Expected result
 
-You can name the employee, the input you provided, what it produced, and why you accept or reject that output. You have not published a template or granted a new tool. Those steps belong to the [FDE workbench](/build/) and [employee architecture](/build/architecture/).
+You can name the employee, the input you provided, what it produced, and why you accept or reject that output. You have not published a template or granted a new tool. Those steps belong to [Customize & Extend](/build/) and [employee architecture](/build/architecture/).
 
 ## If it does not start
 

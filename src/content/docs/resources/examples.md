@@ -4,10 +4,10 @@ description: "Use the documented research-assistant package as a worked example.
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-The worked example in this documentation is a research assistant that prepares a brief from supplied materials and refuses to publish them. It is an illustration of the package layout, not a template your deployment has necessarily published, and not a repository you can clone from this site.
+The worked example in this documentation is a research assistant that prepares a brief from supplied materials and refuses to publish them. It is an illustration of the Agent Package layout, not a template your deployment has necessarily published, and not a repository you can clone from this site.
 
 ## What the example contains
 
@@ -23,7 +23,7 @@ research-assistant/
 Read it in this order:
 
 1. [Employee architecture](/build/architecture/) for the parts.
-2. [Employee definition](/build/employee-definition/) for the role chain and the manifest fields.
+2. [Agent definition](/build/employee-definition/) for the role chain and the manifest fields.
 3. [Skills](/build/skills/) for `SKILL.md`.
 4. [Employee testing](/build/testing/) and [agent evaluation](/software-factory/evaluation/) for the three requests and the evaluation cases.
 

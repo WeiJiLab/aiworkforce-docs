@@ -1,35 +1,35 @@
 ---
-title: Build AI employees
-description: Discover customer work, build an employee package, publish it, and evaluate it from the FDE workbench.
+title: Customize & Extend
+description: Define agent behavior for a business workflow, extend and combine capabilities, and publish a tested Agent Package as a reusable template.
 prev: false
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 import PortalLanding from "../../../components/PortalLanding.astro";
 
-To build an AI employee, define its role and use the [employee builder](/build/builder/) to create and validate its package. Publish the package as a template that others can install in a workspace. For help installing a published template, see [Agents and AI employees](/user-guide/ai-employees/).
+When a Software Factory task needs a new agent capability, define the expected output and choose the skill, plugin, or tool that will produce it. If several agents share the work, specify how they hand off each task. Test the **Agent Package** against real scenarios, then publish it as a template your team can install.
 
-Open **FDE workbench** (FDE 工作台) in the console header. The route is `/fde/`. A signed-in user who is neither an FDE user nor an administrator sees a permission notice. **Channel configuration** (渠道配置) and **Agent tests** (Agent 评估) appear only for administrators.
+To use an existing template, [install it in your workspace](/getting-started/first-employee/). To connect an application through the API or SDK, see [Developer](/developer/).
 
-## Choose the work
+## From discovery to publication
 
 <PortalLanding portal="build" section="paths" />
 
-Customer discovery records interviews and meetings. It does not confirm a role, a fact, or an acceptance criterion. Those still need a person who owns the domain.
-
-## Package reference
+## Build and configuration reference
 
 <PortalLanding portal="build" section="guides" />
 
-## After a template exists
+Open **FDE workbench** (`/fde/`) in the console to build and publish. FDE users and administrators can enter the workbench. **Channel configuration** and **Agent tests** require administrator access.
+
+## Use a template in a workspace
 
 <PortalLanding portal="build" section="next" />
 
 ## Operate
 
-Projects, access, models, evaluation, audit, and self-hosting the service stack are in this portal. Connecting a daemon so tools run on a computer stays in Docs: [Run tools on your computer](/deployment/daemon/).
-
 <PortalLanding portal="build" section="operate" />
+
+To run tools on your own computer, [connect a daemon](/deployment/daemon/).

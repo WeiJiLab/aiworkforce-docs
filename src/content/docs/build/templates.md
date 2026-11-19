@@ -4,10 +4,10 @@ description: "Use a published template as the starting point for a workspace emp
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-A template is a published employee package that a workspace can instantiate. It is the unit users see when they create an employee. The package files are what builders edit. Keep those two moments separate.
+A template is a published Agent Package that a workspace can instantiate. It is the unit users see when they create an employee. The package files are what builders edit. Keep those two moments separate.
 
 ## What a template should contain
 
@@ -19,7 +19,7 @@ Use [employee architecture](/build/architecture/) as the checklist:
 - Tool and MCP dependencies documented as dependencies, not as embedded secrets.
 - A version and a short README that says what the employee will and will not do.
 
-The research assistant used in [employee definition](/build/employee-definition/) and [skills](/build/skills/) is the worked example in this documentation. It is not a downloadable catalog item unless your deployment has published that template. [Example projects](/resources/examples/) points at the same package.
+The research assistant used in [agent definition](/build/employee-definition/) and [skills](/build/skills/) is the worked example in this documentation. It is not a downloadable catalog item unless your deployment has published that template. [Example projects](/resources/examples/) points at the same package.
 
 ## Create from a template
 

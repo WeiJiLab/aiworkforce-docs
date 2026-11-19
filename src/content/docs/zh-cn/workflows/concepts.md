@@ -5,8 +5,8 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "573012f9280b77cbe5df1b1a7cdef5786f5de7f9aa53be61aac3642557925fcd"
+  sourceVersion: "2026-11-19"
+  sourceHash: "26077c4e346832fd8079d01ad7c805c09627f82aae5d3e98953f614a92593368"
 ---
 
 ## 试一试：用 Issue 触发自动化
@@ -70,7 +70,7 @@ AI Workforce 是以工作流为中心的平台。**工作流**是可复用的工
 | 执行     | 员工会话或代码执行器。                                                          |
 | 控制     | 编排连线条件、节点的 `when` 条件、重试、上游失败策略和人工确认。                |
 | 环境     | 运行前已经配置的运行时位置、设备、仓库和流水线资源。                            |
-| 验证     | 测试泳道、验收标准和审阅。它不同于员工包评测。                                  |
+| 验证     | 测试泳道、验收标准和审阅。它不同于 Agent 包评测。                               |
 | 输出     | 产物、收件箱事项、卡片更新和 Pull Request。                                     |
 | 可观测性 | 运行历史、会话、节点状态，以及模型渠道上的成本。本版本不包括第二套追踪产品。    |
 
@@ -111,7 +111,7 @@ DRAFT   DEV     PREPARE     TEST         RELEASE      DONE
 
 ## 验证不是员工评测
 
-工作流验证问的是这次运行有没有达到验收标准：测试、记录下来的比较和人工决定。员工评测问的是员工包或插件是否按定义工作。一段流畅的会话两者都不是。见[业务验证](/zh-cn/software-factory/business-verification/)和[执行评测](/zh-cn/software-factory/evaluation/)。
+工作流验证问的是这次运行有没有达到验收标准：测试、记录下来的比较和人工决定。员工评测问的是 Agent 包或插件是否按定义工作。一段流畅的会话两者都不是。见[业务验证](/zh-cn/software-factory/business-verification/)和[执行评测](/zh-cn/software-factory/evaluation/)。
 
 ## 示例 A. GitHub Issue
 

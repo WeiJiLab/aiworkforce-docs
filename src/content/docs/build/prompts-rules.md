@@ -4,7 +4,7 @@ description: "Put responsibilities, task instructions, and repository guidance i
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 Use prompts to describe the job, the current task, and how success will be checked. Keep reusable role instructions separate from one request's input so an employee can handle more than one example reliably.
@@ -38,9 +38,9 @@ Put the supplied page in the input, rather than allowing it to redefine the empl
 
 ## Understand repository rules
 
-AI Workforce does not provide a universal importer for Cursor Rules, Augment instructions, or every IDE's settings. In the Claude Code runtime, project instructions follow that runtime's supported configuration sources. Platform-managed instance instructions may be materialized as `CLAUDE.md`; do not treat that generated file as the source employee package.
+AI Workforce does not provide a universal importer for Cursor Rules, Augment instructions, or every IDE's settings. In the Claude Code runtime, project instructions follow that runtime's supported configuration sources. Platform-managed instance instructions may be materialized as `CLAUDE.md`; do not treat that generated file as the source Agent Package.
 
-The employee package validator rejects a root `CLAUDE.md`. Maintain the package's role and router in `.aiworkforce/`, methods in skills, and repository contributor instructions in `AGENTS.md`. Do not add a second instruction hierarchy merely to make a package pass validation.
+The Agent Package validator rejects a root `CLAUDE.md`. Maintain the package's role and router in `.aiworkforce/`, methods in skills, and repository contributor instructions in `AGENTS.md`. Do not add a second instruction hierarchy merely to make a package pass validation.
 
 ## Verify the effective behavior
 
@@ -50,6 +50,6 @@ Natural-language rules guide behavior; workspace permissions, employee credentia
 
 ## Related guides
 
-- [Employee definition](/build/employee-definition/)
+- [Agent definition](/build/employee-definition/)
 - [Skills and plugins](/build/skills-plugins/)
 - [Hooks and subagents](/build/hooks-subagents/)

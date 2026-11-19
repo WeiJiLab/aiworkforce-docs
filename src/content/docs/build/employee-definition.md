@@ -1,13 +1,13 @@
 ---
-title: "Employee definition"
+title: "Agent definition"
 description: "Define a role as responsibility, invocation, capabilities, constraints, and the evaluation that checks them."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
-An employee definition turns a package into a job a person can delegate. This is the central page in Build AI employees. The chain below is how a role, a plugin, and an evaluation stay about the same job:
+Define the tasks an agent accepts, the capabilities it needs, and how to check its output. This example packages a research assistant as a digital employee for a team. Its Agent Package uses `employee.yaml` to describe the role and connect each requirement to a plugin capability and an evaluation.
 
 `Role → Responsibility → Invocation scenarios → Capabilities → Constraints → Evaluation`
 
@@ -17,7 +17,9 @@ Workspace users do not upload this file when they create an employee. They selec
 
 Use one bounded outcome. A research assistant that prepares a brief from supplied materials is a complete example. Adding publishing, ticket updates, and code changes to the same role makes the later evaluation meaningless.
 
-## Package structure
+<div id="package-structure" aria-hidden="true"></div>
+
+## Agent Package structure
 
 ```text
 research-assistant/

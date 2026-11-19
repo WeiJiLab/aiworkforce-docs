@@ -4,14 +4,16 @@ description: "Create a reusable skill with explicit inputs, a method, and an out
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 A skill is a reusable method for one kind of task. It is not the employee, and it is not a tool. The employee definition says which skill is the entry point. The skill says how to do that work. Several employees can use the same method only when their responsibilities still match it. Packaging and distribution of the surrounding plugin are covered in [plugins](/build/plugins/) and [skills and plugins](/build/skills-plugins/).
 
-## Put the skill in the package
+<div id="put-the-skill-in-the-package" aria-hidden="true"></div>
 
-Create `skills/main/SKILL.md` for the entry skill. The directory name is the identity used by `entry_skill` and by workflow references. This example matches the research assistant in [employee definition](/build/employee-definition/):
+## Add the skill to the Agent Package
+
+Create `skills/main/SKILL.md` for the entry skill. The directory name is the identity used by `entry_skill` and by workflow references. This example matches the research assistant in [agent definition](/build/employee-definition/):
 
 ```markdown
 ---
@@ -57,6 +59,6 @@ If the method needs an external system, that dependency is an [MCP server](/buil
 
 ## Related guides
 
-- [Employee definition](/build/employee-definition/)
+- [Agent definition](/build/employee-definition/)
 - [Plugins](/build/plugins/)
 - [Employee testing](/build/testing/)

@@ -4,7 +4,7 @@ description: "See what an AI employee is made of, from role and instructions thr
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 An AI employee is a versioned bundle of responsibility and capability, placed into a runtime that can act, and governed by permissions and evidence. The bundle is not the chat transcript, and the chat transcript is not proof that the bundle is correct.
@@ -28,7 +28,7 @@ These parts are composed. A skill without a responsibility is a method with no j
 
 The role names one job. Goals say what a useful result is. Scope says which inputs and systems the job may touch. Invocation rules say when this employee should be chosen and when the request belongs somewhere else.
 
-That chain is the spine of [employee definition](/build/employee-definition/):
+That chain is the spine of [agent definition](/build/employee-definition/):
 
 `Role → Responsibility → Invocation scenarios → Capabilities → Constraints → Evaluation`
 
@@ -78,6 +78,6 @@ research-assistant/
 
 ## Related guides
 
-- [Employee definition](/build/employee-definition/)
+- [Agent definition](/build/employee-definition/)
 - [Templates](/build/templates/)
 - [Using AI employees](/user-guide/ai-employees/)

@@ -1,36 +1,36 @@
 ---
-title: 构建数字员工
-description: 在 FDE 工作台发现客户工作、构建员工包、发布模板，并做管理员评测。
+title: 定制与扩展
+description: 根据业务场景定义 Agent 行为，扩展和组合能力，评测后把 Agent 包发布为工作空间可安装的模板。
 prev: false
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "d0247aaaa3aaa28f3d630726170212352e447b70b645a8f226dc4a7ca63daa9d"
+  sourceVersion: "2026-11-19"
+  sourceHash: "dcd70c9e40ad5e180daf91234978c80913471ab8ab80985bd2f114757301ef06"
 ---
 
 import PortalLanding from "../../../../components/PortalLanding.astro";
 
-先定义数字员工的岗位，再用[数字员工构建器](/zh-cn/build/builder/)创建并校验员工包。把员工包发布为模板后，其他人就可以在工作空间中安装它。从模板安装数字员工的步骤见[智能体与数字员工](/zh-cn/user-guide/ai-employees/)。
+当软件工厂中的一项任务需要新的 Agent 能力时，先明确它要交付什么，再选择 Skill、Plugin 或 Tool 来实现。需要多个 Agent 配合时，定义好任务如何交接。用真实场景验证 **Agent 包**中的能力，再将它发布为模板，供团队安装。
 
-在控制台顶栏打开 **FDE 工作台**。路径是 `/fde/`。既不是 FDE 用户也不是管理员的登录用户会看到权限说明。**渠道配置**和 **Agent 评估**只对管理员显示。
+已有合适的模板？直接[在工作空间安装数字员工](/zh-cn/getting-started/first-employee/)。要通过 API 或 SDK 接入自己的应用，请看 [Developer](/zh-cn/developer/)。
 
-## 选择要做的事
+## 从需求到发布
 
 <PortalLanding portal="build" section="paths" />
 
-客户发现记录访谈和会议。它不确认岗位、事实或验收标准。这些仍要由掌握该领域的人确认。
-
-## 员工包参考
+## 构建与配置参考
 
 <PortalLanding portal="build" section="guides" />
 
-## 模板发布之后
+在控制台打开 **FDE 工作台**（`/fde/`）进行构建和发布。FDE 用户和管理员可以进入工作台，其中 **渠道配置** 和 **Agent 评估** 需要管理员权限。
+
+## 在工作空间使用模板
 
 <PortalLanding portal="build" section="next" />
 
 ## 运营
 
-项目、访问权限、模型、评测、审计，以及自己运行服务栈，都在这个栏目。把 Daemon 接到一台电脑上执行工具，留在文档：[在你的电脑上执行工具](/zh-cn/deployment/daemon/)。
-
 <PortalLanding portal="build" section="operate" />
+
+要让工具在自己的电脑上运行，请看[接入 Daemon](/zh-cn/deployment/daemon/)。

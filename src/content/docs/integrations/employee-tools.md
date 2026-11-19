@@ -6,10 +6,10 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-19"
 ---
 
-An employee can use tools exposed by a configured MCP service. Use this guide when choosing or checking an existing connection in the product. Builders who declare the dependency on an employee package should use [MCP servers](/build/mcp-integration/). Operators who configure the protocol endpoint should use [MCP integration](/integrations/mcp/).
+An employee can use tools exposed by a configured MCP service. Use this guide when choosing or checking an existing connection in the product. Builders who declare the dependency on an Agent Package should use [MCP servers](/build/mcp-integration/). Operators who configure the protocol endpoint should use [MCP integration](/integrations/mcp/).
 
 ## Choose the capability
 
@@ -35,4 +35,4 @@ Try a small read operation before assigning a task that writes to another system
 
 - [Integration directory](/integrations/overview/)
 - [AI employees](/user-guide/ai-employees/)
-- [MCP package integration · Developers](/build/mcp-integration/)
+- [MCP dependencies in an Agent Package](/build/mcp-integration/)

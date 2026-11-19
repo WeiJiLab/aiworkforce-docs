@@ -29,7 +29,7 @@ export const GET: APIRoute = async () => {
   const lines = [
     "# AI Workforce Docs",
     "> Product documentation for AI Workforce. English is the default; Simplified Chinese is available under /zh-cn/.",
-    "Pages follow Docs, Learn, Build, and Developer in both languages. Support is available unless a line says planned. Do not infer APIs or permissions from an employee instruction example.",
+    "Pages follow Docs, Learn, Customize & Extend, and Developer in both languages. Support is available unless a line says planned. Do not infer APIs or permissions from an employee instruction example.",
     "Full documentation: " + absoluteUrl("/llms-full.txt"),
   ];
 
@@ -37,7 +37,9 @@ export const GET: APIRoute = async () => {
     lines.push(locale === "zh-cn" ? "## 简体中文" : "## English");
     for (const portal of Object.values(Portal)) {
       const definition = PORTALS[portal];
-      lines.push(`### ${definition.label}`);
+      lines.push(
+        `### ${locale === "zh-cn" ? definition.zhLabel : definition.label}`,
+      );
       const pages = [
         landingFileId(definition.landing),
         ...definition.groups.flatMap(groupPages),

@@ -4,8 +4,8 @@ description: "把岗位职责、任务说明和仓库指引放在合适的位置
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "546cfcb4632fc16b94f4710bc21cd608f64747f78ec83ba11920058bdf363c12"
+  sourceVersion: "2026-11-19"
+  sourceHash: "a13e82e08acf9227df4324f5882356aa34f5eb584e2103ffb44e6fcfea7a9f69"
 ---
 
 提示词应说明岗位、当前任务，以及如何判断结果合格。把可复用的岗位指令与单次请求的输入分开，员工才能稳定处理不同样例。
@@ -39,9 +39,9 @@ translation:
 
 ## 理解仓库规则
 
-AI Workforce 没有为 Cursor Rules、Augment 指令及所有 IDE 设置提供通用导入器。使用 Claude Code 运行时时，项目指令遵循该运行时支持的配置来源。平台管理的实例指令可能生成到 `CLAUDE.md`，不要把该生成文件当成员工包的源定义。
+AI Workforce 没有为 Cursor Rules、Augment 指令及所有 IDE 设置提供通用导入器。使用 Claude Code 运行时时，项目指令遵循该运行时支持的配置来源。平台管理的实例指令可能生成到 `CLAUDE.md`，不要把该生成文件当成 Agent 包的源定义。
 
-员工包校验会拒绝根目录 `CLAUDE.md`。岗位和路由维护在 `.aiworkforce/`，工作方法放在技能中，仓库贡献者指令放在 `AGENTS.md`。不要为了通过包校验新增第二套指令层级。
+Agent 包校验会拒绝根目录 `CLAUDE.md`。岗位和路由维护在 `.aiworkforce/`，工作方法放在技能中，仓库贡献者指令放在 `AGENTS.md`。不要为了通过包校验新增第二套指令层级。
 
 ## 检查实际行为
 
@@ -51,6 +51,6 @@ AI Workforce 没有为 Cursor Rules、Augment 指令及所有 IDE 设置提供�
 
 ## 相关文档
 
-- [员工定义](/zh-cn/build/employee-definition/)
+- [Agent 定义](/zh-cn/build/employee-definition/)
 - [Skills 与 Plugins](/zh-cn/build/skills-plugins/)
 - [Hooks 与子 Agent](/zh-cn/build/hooks-subagents/)

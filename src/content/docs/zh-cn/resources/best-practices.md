@@ -4,15 +4,15 @@ description: "使用员工、构建员工、自动化工作或交付变更时，
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "f3b856f3cf644844c28fdfdde5bc007aa6b90c4def2db626d0e5f8d9e30aedff"
+  sourceVersion: "2026-11-19"
+  sourceHash: "749f3e10acfa7583693431feb53b62149a8a2d13ab6d2a21cdd0521948a31d9e"
 ---
 
 这些实践是其余文档反复写明的约束。它们不是一项新功能。
 
 ## 先定义工作，再写提示词
 
-写下结果、输入、排除项，以及人将使用的检查。把稳定策略放进员工定义和 Skill。把这次请求的材料放进会话。一段很长的聊天提示词不应该是职责的唯一副本。见[员工定义](/zh-cn/build/employee-definition/)和[需求写作](/zh-cn/learn/requirements-writing/)。
+写下结果、输入、排除项，以及人将使用的检查。把稳定策略放进员工定义和 Skill。把这次请求的材料放进会话。一段很长的聊天提示词不应该是职责的唯一副本。见[Agent 定义](/zh-cn/build/employee-definition/)和[需求写作](/zh-cn/learn/requirements-writing/)。
 
 ## 分开记录
 
@@ -20,7 +20,7 @@ translation:
 
 ## 窄授权
 
-在员工包里点名工具或仓库时，只把它当作依赖。在必须使用它的员工上授予它。工作空间连接不是这项授权。提示词也不是。
+在 Agent 包里点名工具或仓库时，只把它当作依赖。在必须使用它的员工上授予它。工作空间连接不是这项授权。提示词也不是。
 
 ## 证明结果
 

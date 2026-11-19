@@ -4,15 +4,15 @@ description: "将专门工作交给子 Agent，并理解生命周期 Hook 对运
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "93b70166f53c137d026cc0ea6da20a99427cd0b32b3042d25a4c4bf93e6d4e5a"
+  sourceVersion: "2026-11-19"
+  sourceHash: "2423fa4fcd42358de3a6a445d6acc8829667c0b417babe3523efdb3126cbb49b"
 ---
 
 子 Agent 负责一项有边界的专门工作；Hook 在运行时事件发生时执行逻辑。两者都会影响执行，但用途不同：需要推理并返回可审阅结果时使用子 Agent，需要确定性的运行时响应时才考虑 Hook。
 
 ## 定义专注的子 Agent
 
-员工包可以在 `agents/*.md` 中包含子 Agent 文档，文件名就是包内流程引用使用的标识。例如创建 `agents/source-reviewer.md`：
+Agent 包可以在 `agents/*.md` 中包含子 Agent 文档，文件名就是包内流程引用使用的标识。例如创建 `agents/source-reviewer.md`：
 
 ```markdown
 ---

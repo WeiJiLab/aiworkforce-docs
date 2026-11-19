@@ -16,7 +16,7 @@ The default first path is a verified software change. [Software Factory](/softwa
 
 Choose a tutorial based on the board, repository, or employee you have available. [Find your starting point](/#choose-your-starting-point).
 
-A builder defines a reusable employee. A user creates a workspace employee from a published template. Automation asks a ready employee to perform work. The board uses those employees inside a delivery workflow. Package-authoring steps stay in [Build AI employees](/build/employee-definition/), not in the user guide.
+A builder defines a reusable employee. A user creates a workspace employee from a published template. Automation asks a ready employee to perform work. The board uses those employees inside a delivery workflow. To write an Agent Package, see [Customize & Extend](/build/).
 
 ## Your turn to review
 

@@ -4,11 +4,11 @@ description: "把已发布模板当作工作空间员工的起点，并知道它
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "3a692f2a2436904d819ff0ae2088dc310ab9c8fec6ec1a64f983efb55a4233db"
+  sourceVersion: "2026-11-19"
+  sourceHash: "9813bfd697f30d717129046d6b7500e716e0864d1d1ae6bc5be5fe68b6588cd2"
 ---
 
-模板是工作空间可以实例化的已发布员工包。它是使用者创建员工时看到的单位。构建者编辑的是包文件。把这两个时刻分开。
+模板是工作空间可以实例化的已发布 Agent 包。它是使用者创建员工时看到的单位。构建者编辑的是包文件。把这两个时刻分开。
 
 ## 模板应包含什么
 
@@ -20,11 +20,11 @@ translation:
 - 写成依赖、而不是嵌入密钥的工具和 MCP 依赖。
 - 版本，以及简短的 README，说明员工会做什么、不会做什么。
 
-[员工定义](/zh-cn/build/employee-definition/)和 [Skills](/zh-cn/build/skills/)里的研究助手是本文档中的完整例子。除非你的部署发布了该模板，否则它不是可下载目录中的一项。[示例项目](/zh-cn/resources/examples/)指向同一个包。
+[Agent 定义](/zh-cn/build/employee-definition/)和 [Skills](/zh-cn/build/skills/)里的研究助手是本文档中的完整例子。除非你的部署发布了该模板，否则它不是可下载目录中的一项。[示例项目](/zh-cn/resources/examples/)指向同一个包。
 
 ## 从模板创建
 
-使用者按[构建你的第一个数字员工](/zh-cn/getting-started/first-employee/)操作。他们选择模板，为实例命名，并等待初始化。有些模板提供连接选项。这些选项配置实例。它们不让使用者改写岗位。
+使用者按[从模板创建第一个数字员工](/zh-cn/getting-started/first-employee/)操作。他们选择模板，为实例命名，并等待初始化。有些模板提供连接选项。这些选项配置实例。它们不让使用者改写岗位。
 
 如果没有合适的模板，不要用很长的提示词去拉一个无关模板。请构建者发布一个更窄的模板。提示词可以补充任务上下文。它不应该是职责存在的唯一位置。
 

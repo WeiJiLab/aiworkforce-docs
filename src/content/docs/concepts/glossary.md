@@ -5,7 +5,7 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 This glossary is the shared vocabulary for users, builders, and developers. English names remain the reference for technical identifiers. Chinese explanations describe the same concepts in product language.
@@ -54,7 +54,7 @@ A session, an inbox issue, and a run are also distinct. A run may collect an iss
 
 Use **artifact** for the output itself and **evidence** for what supports a conclusion. A report is an artifact. Its source excerpts are evidence.
 
-Workflow verification checks this run against acceptance criteria. Employee evaluation checks a package or plugin. Do not use one word for both.
+Workflow verification checks this run against acceptance criteria. Employee evaluation checks an Agent Package or plugin. Do not use one word for both.
 
 ## Writing and translation
 

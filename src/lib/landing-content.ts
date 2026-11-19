@@ -219,14 +219,14 @@ export function getHomeContent(zh: boolean): HomeContent {
     ],
     build: [
       guide(
-        zh ? "构建数字员工" : "Build AI employees",
+        zh ? "定制与扩展" : "Customize & Extend",
         zh
-          ? "发现客户工作、构建员工包、发布并评测。"
-          : "Discover customer work, build an employee package, publish it, and evaluate it.",
+          ? "定义 Agent 行为，扩展能力，评测后将 Agent 包发布为模板。"
+          : "Define and extend agent behavior, then test and publish the Agent Package as a template.",
         "build",
       ),
       guide(
-        zh ? "数字员工构建器" : "Employee builder",
+        zh ? "Agent 构建器" : "Agent builder",
         zh
           ? "在需求工作树里迭代 Plugin，再校验并提交。"
           : "Iterate a Plugin in a requirement worktree, then validate and submit.",
@@ -242,8 +242,8 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "发布与分发" : "Publishing",
         zh
-          ? "把校验过的员工包发布为模板。"
-          : "Publish a validated employee package as a template.",
+          ? "把校验过的 Agent 包发布为模板。"
+          : "Publish a validated Agent Package as a template.",
         "build/publishing",
       ),
     ],
@@ -340,8 +340,8 @@ export function getHomeContent(zh: boolean): HomeContent {
     agents: {
       title: zh ? "供 Agent 阅读" : "Documentation for agents",
       description: zh
-        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / Build / Developer 分组，并标出规划中的能力。"
-        : "Read any page as Markdown. The index follows Docs, Learn, Build, and Developer and marks planned capabilities.",
+        ? "每页可读取 Markdown 原文。索引按 Docs / Learn / Customize & Extend / Developer 分组，并标出规划中的能力。"
+        : "Read any page as Markdown. The index follows Docs, Learn, Customize & Extend, and Developer and marks planned capabilities.",
       links: [
         {
           title: "llms.txt",
@@ -428,10 +428,10 @@ export function getPortalContent(
           href: "getting-started/quickstart",
         },
         {
-          title: zh ? "构建数字员工" : "Build an AI employee",
+          title: zh ? "定制与扩展" : "Customize & Extend",
           description: zh
-            ? "在 FDE 工作台定义岗位、迭代 Plugin 并发布模板"
-            : "Define a role, iterate a Plugin, and publish a template in the FDE workbench",
+            ? "为软件工厂的任务定制、评测和发布 Agent 能力"
+            : "Customize, evaluate, and publish agent capabilities for Software Factory tasks",
           href: "build",
         },
         {
@@ -552,65 +552,90 @@ export function getPortalContent(
     build: {
       paths: [
         {
-          label: zh ? "客户发现" : "Discovery",
-          title: zh ? "收集现场材料" : "Collect field material",
+          label: zh ? "需求发现" : "Discovery",
+          title: zh ? "确认要解决的问题" : "Identify the problem",
           description: zh
-            ? "用访谈机器人和会议助手记录客户现场，事实仍要人确认。"
-            : "Record customer fieldwork with interview bots and meeting assistants. A person still confirms the facts.",
+            ? "用访谈、会议记录收集业务场景，请业务负责人确认验收标准。"
+            : "Record business scenarios in interviews and meetings. Ask the domain owner to confirm the acceptance criteria.",
           href: "build/bots",
-          outcome: zh
-            ? "留下可回看的访谈和会议"
-            : "Keep a reviewable interview or meeting",
+          outcome: zh ? "一组可验证的需求" : "Agreed acceptance criteria",
         },
         {
-          label: zh ? "构建" : "Build",
-          title: zh ? "在构建器里改 Plugin" : "Change a Plugin in the builder",
+          label: zh ? "Agent 构建" : "Design",
+          title: zh ? "定义 Agent 行为" : "Define agent behavior",
           description: zh
-            ? "在需求工作树中对话、校验员工包，再提交构建。"
-            : "Talk in a requirement worktree, validate the package, and submit the build.",
-          href: "build/builder",
-          outcome: zh ? "提交一次通过校验的构建" : "Submit one validated build",
+            ? "写清 Agent 接受哪些输入、交付什么结果，以及何时应请求人工处理。"
+            : "Specify the inputs, expected outputs, and when the agent should ask a person for help.",
+          href: "build/employee-definition",
+          outcome: zh
+            ? "可测试的职责与边界"
+            : "Testable responsibilities and boundaries",
         },
         {
-          label: zh ? "发布" : "Publish",
-          title: zh ? "把员工包变成模板" : "Turn a package into a template",
+          label: zh ? "能力扩展" : "Build",
+          title: zh ? "扩展 Agent 能力" : "Extend agent capabilities",
           description: zh
-            ? "从标准市场选择或转换插件，再发布工作空间可以安装的模板。"
-            : "Choose or convert a plugin from the standard marketplace, then publish a template a workspace can install.",
-          href: "build/market",
-          outcome: zh
-            ? "工作空间能安装这个模板"
-            : "A workspace can install the template",
+            ? "用 Skill 描述方法，把可复用能力放入 Plugin，按任务需要声明工具和 MCP 依赖。"
+            : "Write the method as a skill, package reusable capabilities in a plugin, and declare tool and MCP dependencies.",
+          href: "build/skills-plugins",
+          outcome: zh ? "可复用的 Agent 包" : "A reusable Agent Package",
+        },
+        {
+          label: zh ? "Agent 协作" : "Compose",
+          title: zh ? "安排多个 Agent 协作" : "Coordinate multiple agents",
+          description: zh
+            ? "把独立的子任务交给专门的 Agent，约定交接的输入和返回结果。"
+            : "Delegate a bounded task to a specialist and specify the input and the result it should return.",
+          href: "build/composition",
+          outcome: zh ? "明确的交接条件" : "An explicit handoff",
+        },
+        {
+          label: zh ? "测试与评测" : "Evaluate",
+          title: zh ? "验证能力和边界" : "Test behavior and boundaries",
+          description: zh
+            ? "先校验 Agent 包的结构，再检查正常请求、缺少输入和超出范围的请求。"
+            : "Validate the Agent Package, then test routine requests, missing inputs, and out-of-scope requests.",
+          href: "build/testing",
+          outcome: zh ? "可复查的测试结果" : "Reviewable test results",
+        },
+        {
+          label: zh ? "模板与发布" : "Publish",
+          title: zh ? "发布可安装的模板" : "Publish an installable template",
+          description: zh
+            ? "把通过测试的 Agent 包发布为模板，再核对目标工作空间实际使用的版本和能力。"
+            : "Publish the tested Agent Package as a template and verify which version and capabilities the workspace received.",
+          href: "build/publishing",
+          outcome: zh ? "团队可安装的模板" : "A template the team can install",
         },
       ],
       guides: [
         {
-          title: zh ? "员工定义" : "Employee definition",
+          title: zh ? "Agent 构建器" : "Agent builder",
           description: zh
-            ? "把岗位写成职责、输入、输出和约束"
-            : "Write the role as responsibility, inputs, outputs, and constraints",
-          href: "build/employee-definition",
+            ? "在 FDE 工作台编辑 Plugin，校验 Agent 包并提交构建"
+            : "Edit a plugin in the FDE workbench, validate the Agent Package, and submit the build",
+          href: "build/builder",
         },
         {
           title: zh ? "Agent 指令" : "Agent instructions",
           description: zh
-            ? "把岗位、任务和仓库指引放在各自的层"
-            : "Put role, task, and repository guidance in their own layers",
+            ? "分别编写岗位、任务与仓库指引"
+            : "Write guidance for the role, task, and repository",
           href: "build/prompts-rules",
         },
         {
-          title: zh ? "Skills 与 Plugins" : "Skills and plugins",
+          title: zh ? "Hooks 与子 Agent" : "Hooks and subagents",
           description: zh
-            ? "看清同一个员工包如何拆分"
-            : "See how one employee package is divided",
-          href: "build/skills-plugins",
+            ? "定义子任务并检查运行时支持的 Hook"
+            : "Define subtasks and check which hooks the runtime supports",
+          href: "build/hooks-subagents",
         },
         {
-          title: zh ? "发布与分发" : "Publishing",
+          title: zh ? "渠道集成" : "Channel integration",
           description: zh
-            ? "确认哪些实例收到了已发布模板"
-            : "Confirm which instances received the published template",
-          href: "build/publishing",
+            ? "为访谈配置语言、决策和语音渠道（管理员）"
+            : "Configure language, decision, and voice channels for interviews (administrators)",
+          href: "build/channels",
         },
       ],
       operate: [

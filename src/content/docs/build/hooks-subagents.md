@@ -4,14 +4,14 @@ description: "Split specialized work into subagents and understand the runtime-s
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-19"
 ---
 
 Subagents delegate a bounded part of a task to a specialized agent. Hooks run logic at runtime events. Both affect execution, but they serve different purposes: use a subagent for reasoning work with an output to review, and a hook for a deterministic runtime reaction.
 
 ## Define a focused subagent
 
-Employee packages can include subagent documents at `agents/*.md`. The filename is the identity used by package workflow references. For example, create `agents/source-reviewer.md`:
+Agent Packages can include subagent documents at `agents/*.md`. The filename is the identity used by package workflow references. For example, create `agents/source-reviewer.md`:
 
 ```markdown
 ---

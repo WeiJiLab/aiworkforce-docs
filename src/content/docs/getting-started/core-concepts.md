@@ -5,7 +5,7 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 Use one set of words for a conversation, an inbox item, an automation run, and a delivery card. The records can show different states because they answer different questions.
@@ -29,11 +29,11 @@ A workspace groups the employees, resources, and context used together. Access t
 
 ## How they combine
 
-A **workflow** is reusable. On a delivery board it is the lanes and their rules. In Automations → Pipeline it is a graph of that lane's executors. Inside an employee package it is the workflow declared on a skill. [Workflow concepts](/workflows/concepts/) is the full map, including what is not on the screen.
+A **workflow** is reusable. On a delivery board it is the lanes and their rules. In Automations → Pipeline it is a graph of that lane's executors. Inside an Agent Package it is the workflow declared on a skill. [Workflow concepts](/workflows/concepts/) is the full map, including what is not on the screen.
 
 **Automation** is the Job or the pipeline trigger. A trigger can be manual, a schedule, a webhook, a polled GitHub event, an Issue, an IM message, or the board noticing a ready card. Publishing does not create a run. See [automation concepts](/automate/fundamentals/).
 
-An **AI employee** is the actor. A published template supplies a reusable role. The workspace employee is the instance you assign. Initialization has to finish before a session is useful. Builders define the role in [employee definition](/build/employee-definition/). Users choose a published employee in [AI employees](/user-guide/ai-employees/).
+An **AI employee** is the actor. A published template supplies a reusable role. The workspace employee is the instance you assign. Initialization has to finish before a session is useful. Builders define the role in [agent definition](/build/employee-definition/). Users choose a published employee in [AI employees](/user-guide/ai-employees/).
 
 **Capabilities** are how that actor works:
 

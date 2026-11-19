@@ -6,11 +6,11 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "3b39553ac1189a037eac318f950299256050898a938288da74c0aea4d88066db"
+  sourceVersion: "2026-11-19"
+  sourceHash: "c1b179f5a2ee2b8e5d7f59a35c6fbe2ea7ce3f226343d93b60f5da13629fb871"
 ---
 
-员工可以使用已配置 MCP 服务提供的工具。需要在产品中选择或检查已有连接时，按本文操作。在员工包中声明依赖的构建者应阅读 [MCP 服务](/zh-cn/build/mcp-integration/)。配置协议端点的操作者应阅读 [MCP 集成](/zh-cn/integrations/mcp/)。
+员工可以使用已配置 MCP 服务提供的工具。需要在产品中选择或检查已有连接时，按本文操作。在 Agent 包中声明依赖的构建者应阅读 [MCP 服务](/zh-cn/build/mcp-integration/)。配置协议端点的操作者应阅读 [MCP 集成](/zh-cn/integrations/mcp/)。
 
 ## 选择所需能力
 
@@ -36,4 +36,4 @@ translation:
 
 - [集成目录](/zh-cn/integrations/overview/)
 - [数字员工](/zh-cn/user-guide/ai-employees/)
-- [员工包 MCP 集成 · Developers](/zh-cn/build/mcp-integration/)
+- [Agent 包的 MCP 依赖](/zh-cn/build/mcp-integration/)

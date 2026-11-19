@@ -5,7 +5,7 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 ## Try an issue trigger
@@ -69,7 +69,7 @@ A trigger does not define the work. Publishing a Job or enabling a pipeline does
 | Execution     | The employee session or the code executor.                                                                  |
 | Control       | Pipeline edge conditions, node `when` predicates, retry, upstream-failure policy, and human approval.       |
 | Environment   | Runtime placement, device, repository, and pipeline resources configured before the run.                    |
-| Verification  | Test lanes, acceptance criteria, and review. Distinct from employee-package evaluation.                     |
+| Verification  | Test lanes, acceptance criteria, and review. Distinct from evaluation of the Agent Package.                 |
 | Output        | Artifacts, inbox items, card updates, and pull requests.                                                    |
 | Observability | Run history, session, node status, and cost on the model channel. A second tracing product is not included. |
 

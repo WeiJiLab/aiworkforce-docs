@@ -4,11 +4,11 @@ description: "连接平台 MCP 端点和外部 MCP 服务。员工依赖在另�
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "ae9b11ebe206c4fe0b68b6604197ea1059ac4cdd8a1a3813b8be6aee2646294a"
+  sourceVersion: "2026-11-19"
+  sourceHash: "7c1b05c3190d6eedfb04b3d85dc5c64fecb33e4c1b5cde71cd82b01a055357e2"
 ---
 
-本页是服务集成：平台 MCP 端点和外部 MCP 服务。员工包如何给依赖命名，见 [MCP 依赖](/zh-cn/build/mcp-integration/)。两页必须一致：清单条目是名称和描述。它不包含端点、密钥或授权。
+本页是服务集成：平台 MCP 端点和外部 MCP 服务。Agent 包如何给依赖命名，见 [MCP 依赖](/zh-cn/build/mcp-integration/)。两页必须一致：清单条目是名称和描述。它不包含端点、密钥或授权。
 
 ## 平台自动化 MCP
 
@@ -20,6 +20,6 @@ translation:
 
 ## 外部 MCP 服务
 
-云端业务连接接受 HTTP/SSE 服务。设备工具通过会话的设备授权挂载。员工包不能靠写一个路径来授予自己设备。编辑器支持 MCP，并不代表每种认证方式都可用。核实已部署的端点、允许的主机、客户端头和凭据类型。
+云端业务连接接受 HTTP/SSE 服务。设备工具通过会话的设备授权挂载。Agent 包不能靠写一个路径来授予自己设备。编辑器支持 MCP，并不代表每种认证方式都可用。核实已部署的端点、允许的主机、客户端头和凭据类型。
 
 不要把凭据放进员工 YAML、Skill 文本或聊天。如果两个来源对同一个服务名给出了不同配置，在来源处解决冲突。然后从[工具与连接器](/zh-cn/integrations/employee-tools/)确认实例。有名字的产品连接列在[集成目录](/zh-cn/integrations/overview/)。

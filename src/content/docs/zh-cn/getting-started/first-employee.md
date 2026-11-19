@@ -1,14 +1,14 @@
 ---
-title: "构建你的第一个数字员工"
+title: "从模板创建第一个数字员工"
 description: "从已发布模板创建工作空间员工，并接受或拒绝它的第一份结果。"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "84d818b04d80531dc35bf6528d5e21706a826abb8d4073b1d8bba146c2e39f01"
+  sourceVersion: "2026-11-19"
+  sourceHash: "ccf1f294e46aef5f36fc79c9240043a317cf6e9f53aad93d5253c45c42dbf58c"
 ---
 
-这条路径面向使用 AI Workforce 的人，不是编写员工包的人。你选择已发布模板，等到工作空间员工就绪，交给它一项有边界的任务，然后审阅结果。需要定义新岗位的构建者从 [FDE 工作台](/zh-cn/build/)的[员工定义](/zh-cn/build/employee-definition/)开始。
+这条路径面向使用 AI Workforce 的人，不是编写 Agent 包的人。你选择已发布模板，等到工作空间员工就绪，交给它一项有边界的任务，然后审阅结果。需要定义新岗位的构建者从 [定制与扩展](/zh-cn/build/)的[Agent 定义](/zh-cn/build/employee-definition/)开始。
 
 ## 前提
 
@@ -43,7 +43,7 @@ translation:
 
 ## 预期结果
 
-你能说出员工是谁、你提供了什么输入、它产出了什么，以及你为什么接受或拒绝这份输出。你还没有发布模板，也没有授予新工具。这些步骤属于 [FDE 工作台](/zh-cn/build/)和[员工架构](/zh-cn/build/architecture/)。
+你能说出员工是谁、你提供了什么输入、它产出了什么，以及你为什么接受或拒绝这份输出。你还没有发布模板，也没有授予新工具。这些步骤属于 [定制与扩展](/zh-cn/build/)和[员工架构](/zh-cn/build/architecture/)。
 
 ## 如果无法开始
 

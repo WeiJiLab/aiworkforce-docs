@@ -4,7 +4,7 @@ description: "Understand how workspaces, employees, sessions, automation, and de
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-19"
 ---
 
 AI Workforce combines a product workspace with employee execution and structured work records. The same employee can participate in an interactive session, an Automation run, or a delivery lane, while each entry point retains its own task and execution context.
@@ -43,6 +43,6 @@ This documentation site is a separate static Astro application. Its Pagefind sea
 ## Related guides
 
 - [Core concepts](/getting-started/core-concepts/)
-- [Employee definition](/build/employee-definition/)
+- [Agent definition](/build/employee-definition/)
 - [Automation fundamentals](/automate/fundamentals/)
 - [Software Factory overview](/software-factory/overview/)

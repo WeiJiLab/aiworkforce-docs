@@ -5,7 +5,7 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 A scheduled research workflow is a one-shot or recurring Job whose task is to gather and write up information. Monitoring is a different trigger on the same Job model: a Sentry issue event or a PagerDuty incident event, when that connection is configured. Neither one is a separate research product or a separate monitoring engine.
@@ -47,4 +47,4 @@ Trigger: weekdays at a time you set. Context: the question in the task, plus too
 
 ## Limits
 
-There is no research-agent template, no open-ended monitor that runs until cancelled as its own product, and no workflow-level score for a written report. Employee-package evaluation is a separate check. See [execution evaluation](/software-factory/evaluation/).
+There is no research-agent template, no open-ended monitor that runs until cancelled as its own product, and no workflow-level score for a written report. Evaluation of the Agent Package is a separate check. See [execution evaluation](/software-factory/evaluation/).

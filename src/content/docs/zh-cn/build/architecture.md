@@ -4,13 +4,13 @@ description: "了解数字员工由什么组成：职责、指令、能力、执
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "b24879b2b7b3708f7713abc90b3e64373a310261884bf474ccdb0cf67ecec7a6"
+  sourceVersion: "2026-11-19"
+  sourceHash: "811b075a851967c9b0429bb8bf1bc49ba5aa6c9bdeb652a6ba2ef3bf479f1e21"
 ---
 
 数字员工是一份带版本的职责与能力组合，被放到可以行动的运行时里，并受权限和证据约束。这个组合不是聊天记录，聊天记录也不能证明组合是正确的。
 
-构建者用这个模型定义岗位。使用者遇到的是从已发布模板创建的工作空间员工。创建流程里不编辑这份员工包。
+构建者用这个模型定义岗位。使用者遇到的是从已发布模板创建的工作空间员工。创建流程里不编辑这份 Agent 包。
 
 ## 员工模型
 
@@ -20,7 +20,7 @@ translation:
 | 指令       | 策略、任务上下文、会话可以记住什么 | 岗位指令、当前请求、运行时指引                 |
 | 能力       | Skills、Plugins、工具、MCP 依赖    | `skills/`、插件元数据、工具授权、`mcp_servers` |
 | 执行       | 运行时、会话、交接                 | 工作空间会话，以及已配置的运行时或设备         |
-| 治理       | 权限、评测、证据                   | 授权、员工包校验、经过审阅的输出               |
+| 治理       | 权限、评测、证据                   | 授权、Agent 包校验、经过审阅的输出             |
 | 交付物     | 任务、产物、报告、行动             | 收件箱事项、文件和交付记录                     |
 
 这些部分是组合关系。没有职责的 Skill 只是没有岗位的方法。没有工具授权的职责只是意图。没有证据的执行只是一段对话。
@@ -29,7 +29,7 @@ translation:
 
 岗位只命名一件工作。目标说明什么结果有用。范围说明这项工作可以接触哪些输入和系统。调用规则说明何时应该选择这名员工，以及请求应交给别处的情况。
 
-这条链路是[员工定义](/zh-cn/build/employee-definition/)的主干：
+这条链路是[Agent 定义](/zh-cn/build/employee-definition/)的主干：
 
 `岗位 → 职责 → 调用场景 → 能力 → 约束 → 评测`
 
@@ -48,7 +48,7 @@ translation:
 | 工具     | 运行时被允许执行的一项操作       |
 | MCP 服务 | 岗位预期要调用的外部服务         |
 
-清单中的 `mcp_servers` 只有名称和描述。连接配置、安装和账号授权是分开的步骤。构建者见 [MCP 服务](/zh-cn/build/mcp-integration/)，操作者见 [MCP 集成](/zh-cn/integrations/mcp/)。不要把凭据放进员工包。
+清单中的 `mcp_servers` 只有名称和描述。连接配置、安装和账号授权是分开的步骤。构建者见 [MCP 服务](/zh-cn/build/mcp-integration/)，操作者见 [MCP 集成](/zh-cn/integrations/mcp/)。不要把凭据放进 Agent 包。
 
 [Skills](/zh-cn/build/skills/) 和 [Plugins](/zh-cn/build/plugins/) 给出目录结构。[工具](/zh-cn/build/tools/)区分声明的工具和已授权的工具。
 
@@ -60,7 +60,7 @@ translation:
 
 ## 治理与交付物
 
-员工包校验检查结构：必需文件、清单字段、Skill 引用，以及是否暴露凭据。它不能证明员工把工作做好了。[员工测试](/zh-cn/build/testing/)用来尝试正常请求、缺失输入和超出范围的请求。[发布](/zh-cn/build/publishing/)把经过检查的员工包放到工作空间可以创建实例的位置。更新源员工包，并不能证明已有实例已经收到变更。
+Agent 包校验检查结构：必需文件、清单字段、Skill 引用，以及是否暴露凭据。它不能证明员工把工作做好了。[员工测试](/zh-cn/build/testing/)用来尝试正常请求、缺失输入和超出范围的请求。[发布](/zh-cn/build/publishing/)把经过检查的 Agent 包放到工作空间可以创建实例的位置。更新源 Agent 包，并不能证明已有实例已经收到变更。
 
 交付物是人要审阅的东西：任务、产物、报告，或仍需批准的行动。证据是这些交付物的依据。评测把结果与职责和验收标准比较。工程工作中的这种比较见 [Agent 评测](/zh-cn/software-factory/evaluation/)。同一想法也适用于任何员工，使用你实际能够运行的检查。
 
@@ -79,6 +79,6 @@ research-assistant/
 
 ## 相关指南
 
-- [员工定义](/zh-cn/build/employee-definition/)
+- [Agent 定义](/zh-cn/build/employee-definition/)
 - [模板](/zh-cn/build/templates/)
 - [使用数字员工](/zh-cn/user-guide/ai-employees/)

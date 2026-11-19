@@ -5,8 +5,8 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "5bae3a5ddd6e220f3b2ad35b85a8b19445794a823a8e48a10a7e825e14594296"
+  sourceVersion: "2026-11-19"
+  sourceHash: "93065a23146c5616366bcb04b624adf024a213ea92a1003882829db0d4795f3b"
 ---
 
 定时调研工作流是一个一次性或重复执行的 Job，任务是收集信息并写成文字。监控是同一 Job 模型上的另一种触发：已配置连接时的 Sentry Issue 事件或 PagerDuty 事件。两者都不是单独的调研产品，也不是单独的监控引擎。
@@ -48,4 +48,4 @@ translation:
 
 ## 限制
 
-没有调研 Agent 模板，没有作为独立产品、一直运行到被取消的监控，也没有针对书面报告的工作流评分。员工包评测是另一项单独的检查。见[执行评测](/zh-cn/software-factory/evaluation/)。
+没有调研 Agent 模板，没有作为独立产品、一直运行到被取消的监控，也没有针对书面报告的工作流评分。Agent 包评测是另一项单独的检查。见[执行评测](/zh-cn/software-factory/evaluation/)。

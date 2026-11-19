@@ -4,14 +4,14 @@ description: "Apply the same boundaries when you use an employee, build one, aut
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-19"
 ---
 
 These practices are the constraints the rest of the documentation keeps repeating. They are not a new feature.
 
 ## Define the job before the prompt
 
-Write the outcome, the inputs, the exclusions, and the check a person will use. Put stable policy in the employee definition and the skill. Put this request's materials in the session. A long chat prompt should not be the only copy of the responsibility. See [employee definition](/build/employee-definition/) and [requirements writing](/learn/requirements-writing/).
+Write the outcome, the inputs, the exclusions, and the check a person will use. Put stable policy in the employee definition and the skill. Put this request's materials in the session. A long chat prompt should not be the only copy of the responsibility. See [agent definition](/build/employee-definition/) and [requirements writing](/learn/requirements-writing/).
 
 ## Separate records
 
@@ -19,7 +19,7 @@ A session, an inbox item, a run, an artifact, and a delivery card answer differe
 
 ## Authorize narrowly
 
-Name the tool or repository in the package only as a dependency. Grant it on the employee that must use it. A workspace connection is not that grant. A prompt is not that grant.
+Name the tool or repository in the Agent Package only as a dependency. Grant it on the employee that must use it. A workspace connection is not that grant. A prompt is not that grant.
 
 ## Prove the result
 

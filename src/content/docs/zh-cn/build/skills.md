@@ -4,15 +4,17 @@ description: "编写可复用 Skill：写明输入、方法和人可以检查的
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "be53715b5b1297a01d69b70b89cade3288efaf1d91b6f9fc071c6056b846c4a8"
+  sourceVersion: "2026-11-19"
+  sourceHash: "a97974c95c8fe2588f54ee9c6743e2273a1cf0f55ed227a4c3aad5b5395dd378"
 ---
 
 Skill 是某一类任务的可复用方法。它不是员工，也不是工具。员工定义指定哪个 Skill 是入口。Skill 说明如何完成这项工作。只有职责仍然匹配时，多名员工才能共用同一种方法。外围插件的打包和分发见 [Plugins](/zh-cn/build/plugins/) 与 [Skills 和 Plugins](/zh-cn/build/skills-plugins/)。
 
-## 把 Skill 放进员工包
+<div id="把-skill-放进员工包" aria-hidden="true"></div>
 
-为入口 Skill 创建 `skills/main/SKILL.md`。目录名就是 `entry_skill` 和工作流引用使用的标识。下面的例子对应[员工定义](/zh-cn/build/employee-definition/)中的研究助手：
+## 把 Skill 放进 Agent 包
+
+为入口 Skill 创建 `skills/main/SKILL.md`。目录名就是 `entry_skill` 和工作流引用使用的标识。下面的例子对应[Agent 定义](/zh-cn/build/employee-definition/)中的研究助手：
 
 ```markdown
 ---
@@ -52,12 +54,12 @@ If the request is to send, publish, or change an external system, stop and say t
 
 ## 确认跑起来的是这个 Skill
 
-提交构建前先校验员工包。然后用有材料、无材料、超出范围的请求各试一次。发布后打开员工资料并刷新 **Methods and capabilities**，查看实例上的 Skills。Skill 缺失通常说明模板、包版本或已应用的配置不是你刚编辑的那一份。更新源文件并不能证明正在运行的实例已经改变。
+提交构建前先校验 Agent 包。然后用有材料、无材料、超出范围的请求各试一次。发布后打开员工资料并刷新 **Methods and capabilities**，查看实例上的 Skills。Skill 缺失通常说明模板、包版本或已应用的配置不是你刚编辑的那一份。更新源文件并不能证明正在运行的实例已经改变。
 
 如果方法需要外部系统，该依赖是单独配置和授权的 [MCP 服务](/zh-cn/build/mcp-integration/)或[工具](/zh-cn/build/tools/)。Skill 可以说明何时使用它。Skill 不能授予它。
 
 ## 相关指南
 
-- [员工定义](/zh-cn/build/employee-definition/)
+- [Agent 定义](/zh-cn/build/employee-definition/)
 - [Plugins](/zh-cn/build/plugins/)
 - [员工测试](/zh-cn/build/testing/)

@@ -4,19 +4,19 @@ description: "智能体在工作流中执行步骤。数字员工是工作空间
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "80c0b12414b00257e47e94bff0ae4ef6dbf1085539ec63cf6cd35d74d891ee51"
+  sourceVersion: "2026-11-19"
+  sourceHash: "70bb3c2bb046226f970b3e891d1861d6534854f532dca81682fd1736a8ff7fb8"
 ---
 
 **智能体**是工作流内的执行参与者。**数字员工**是你在工作空间中指派的已配置工作者——产品里常见的智能体形态，而不是另一条产品线。模板提供可复用能力；工作空间配置和授权决定它在哪里执行，以及可以使用哪些已连接资源。
 
-本指南说明如何选择员工、分配任务、提供上下文、观察执行并审阅结果。它不说明如何编写员工包。构建者使用 [FDE 工作台](/zh-cn/build/)和[员工架构](/zh-cn/build/architecture/)。软件交付仍从[软件工厂](/zh-cn/software-factory/overview/)开始，而不是先创建一名数字员工。
+本指南说明如何选择员工、分配任务、提供上下文、观察执行并审阅结果。它不说明如何编写 Agent 包。构建者使用 [定制与扩展](/zh-cn/build/)和[员工架构](/zh-cn/build/architecture/)。软件交付仍从[软件工厂](/zh-cn/software-factory/overview/)开始，而不是先创建一名数字员工。
 
 ## 先选择明确职责
 
 创建前，写下希望员工承担的工作，包括预期输入、需要审核的输出，以及必须由人确认的操作。将这些要求与工作空间中可用的已发布模板对照。
 
-职责聚焦的员工更容易评估。如果没有适合的模板，可以请构建者根据[员工定义](/zh-cn/build/employee-definition/)创建新模板。
+职责聚焦的员工更容易评估。如果没有适合的模板，可以请构建者根据[Agent 定义](/zh-cn/build/employee-definition/)创建新模板。
 
 ## 创建员工
 

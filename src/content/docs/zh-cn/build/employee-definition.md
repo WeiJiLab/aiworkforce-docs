@@ -1,14 +1,14 @@
 ---
-title: "员工定义"
+title: "Agent 定义"
 description: "把岗位写成职责、调用场景、能力、约束，以及用来检查它们的评测。"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "6c12680f745cf387d93f9c5b247721ef22a875778de67395a5072b312022774b"
+  sourceVersion: "2026-11-19"
+  sourceHash: "9fdbc6f4150eeb55b4d6d46d90e3eb44ea0d0d50eccfddf0a86671968487cddb"
 ---
 
-员工定义把员工包变成一个人可以委派的岗位。这是“构建数字员工”里最核心的一篇。下面这条链路让岗位、插件和评测讨论的是同一件工作：
+先定义 Agent 接受什么任务、能使用哪些能力，以及怎样判断结果合格。本页以研究助手为例，把它作为数字员工交给团队使用。这个 Agent 包通过 `employee.yaml` 描述岗位，并把岗位要求逐项落实到插件和评测中。
 
 `岗位 → 职责 → 调用场景 → 能力 → 约束 → 评测`
 
@@ -18,7 +18,9 @@ translation:
 
 只写一个有边界的结果。根据给定材料准备简报的研究助手是一个完整例子。把发布、更新工单和修改代码放进同一个岗位，会使后面的评测失去意义。
 
-## 包结构
+<div id="包结构" aria-hidden="true"></div>
+
+## Agent 包结构
 
 ```text
 research-assistant/
