@@ -4,21 +4,21 @@ description: "在自己运维的基础设施上运行 AI Workforce 服务栈，�
 audience:
   - platform-engineer
 product_area: deployment
-last_verified: "2026-11-18"
+last_verified: "2026-11-19"
 sidebar:
   label: 自托管平台
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "d33b3bde0599c19d0d36883c726a94fbdd0ac1921a4a029e64b937f75442588f"
+  sourceHash: "2f6f01cfe5aff1679426ee0245c35f020a62ae0c41b5a42c42a3e17c52446d68"
 ---
 
 自托管是指由你们自己运行 AI Workforce 的服务：Web 应用、后端、PostgreSQL，以及这些服务保存的工作空间文件。运营方托管的部署是同一套产品，只是由别人替你们运行。使用工作空间、数字员工和工作流的方式不变。变的是谁运维这些服务，以及这些记录放在哪里。
 
-本页只写平台仓库里已经有的安装和发布资产。能够按步骤启动的是本地开发栈。发布资产是该仓库环境入口使用的单机 Compose 更新。本基线没有 Kubernetes、Helm，也没有公开的镜像拉取命令，所以这些都不在本页里。
+平台服务提供本地开发栈和面向单机的 Compose 发布流程。设备执行器也可以单独部署到 Kubernetes，连接已有的平台。
 
-[运行时管理](/zh-cn/deployment/runtime-environments/)用来选择运营方托管、这套自托管栈，或已授权设备。本页是运行这套服务栈的步骤。
+如果还在选择平台和设备的部署位置，先看[运行时管理](/zh-cn/deployment/runtime-environments/)。
 
 ## 企业如何部署和管理数字员工
 
@@ -32,13 +32,13 @@ translation:
 
 ## 可以运行什么
 
-| 布局               | 它是什么                                                                           | 预期                                                                                             |
-| ------------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 本地开发栈         | `deploy/local`：Compose、源码挂载、前后端热更新、本地数据卷                        | 只供自己使用的开发环境。这是从一份源码检出就能启动的路径。                                       |
-| 主机模式开发       | `deploy/local/deploy.sh`：PostgreSQL 在 Compose 里，API 和前端进程在主机上         | 同一目录里的另一个开发入口。中断进程后它会停。                                                   |
-| 单机发布           | `deploy/shared/compose`：PostgreSQL 16、后端镜像、前端镜像和 Caddy，由环境入口启动 | 一台主机原地更新，更新期间这台主机有一段不可用时间。不要在源码目录里直接运行共享发布脚本。       |
-| Kubernetes 或 Helm | 本基线没有维护中的 Operator 或 Chart                                               | 只有在自己保留迁移顺序、数据卷、运行时归属和就绪检查时，才另行打包这些服务。                     |
-| 多机滚动更新       | 尚未实现                                                                           | 发布路径在一台主机上更新，迁移和启动期间会停掉正在运行的应用。负载均衡和共享存储不在这条路径里。 |
+| 布局                      | 它是什么                                                                           | 预期                                                                                             |
+| ------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 本地开发栈                | `deploy/local`：Compose、源码挂载、前后端热更新、本地数据卷                        | 只供自己使用的开发环境。这是从一份源码检出就能启动的路径。                                       |
+| 主机模式开发              | `deploy/local/deploy.sh`：PostgreSQL 在 Compose 里，API 和前端进程在主机上         | 同一目录里的另一个开发入口。中断进程后它会停。                                                   |
+| 单机发布                  | `deploy/shared/compose`：PostgreSQL 16、后端镜像、前端镜像和 Caddy，由环境入口启动 | 一台主机原地更新，更新期间这台主机有一段不可用时间。不要在源码目录里直接运行共享发布脚本。       |
+| 平台的 Kubernetes 或 Helm | 本基线没有维护中的 Operator 或 Chart                                               | 只有在自己保留迁移顺序、数据卷、运行时归属和就绪检查时，才另行打包这些服务。                     |
+| 多机滚动更新              | 尚未实现                                                                           | 发布路径在一台主机上更新，迁移和启动期间会停掉正在运行的应用。负载均衡和共享存储不在这条路径里。 |
 
 发布镜像由该环境的构建产出。本指南不增加公开镜像名，也不提供 `docker pull` 命令。发布主机的配置是环境入口已经校验过的运行配置契约。把 `deploy/local/.env` 拷到发布主机上，并不是那份契约。
 
@@ -130,6 +130,30 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 `down` 停止容器并保留数据卷。`down --volumes` 会删除本地数据库、工作空间文件和依赖缓存。这些卷属于本地 Compose 项目，这条命令不会删掉另一台发布主机上的数据。
 
 `bash deploy/local/deploy.sh` 是主机模式的开发入口。它用 Compose 启动 PostgreSQL，执行同样的 expand 和 DBOS 步骤，然后在主机上运行 API 和前端，直到你中断它。这台主机需要事先装好后端和前端的工具链。希望整套服务都在容器里时，使用上面的 Compose 文件。
+
+## 在 Kubernetes 上运行设备执行器
+
+可在 Kubernetes 中运行一个已授权的 Linux 设备执行器，连接现有 AI Workforce 平台。daemon 主动连接平台的 WSS 端点，Pod 无需入站端口。平台继续管理会话、授权和模型调用。任务以 Pod 用户身份运行，应只派发你信任的任务。
+
+1. 从平台取得一个专用设备的 token、设备 ID 和授权用户 ID。在目标命名空间创建名为 `awf-device` 的 Secret，键名为 `token`、`device-id` 和 `actor-id`。每个执行器使用不同的设备凭据。
+2. 在 `aiworkforce-daemon` 源码检出中构建镜像，推送到集群能拉取的镜像仓库。
+
+   ```sh
+   docker build -t registry.example.com/aiworkforce-device-exec:example .
+   docker push registry.example.com/aiworkforce-device-exec:example
+   ```
+
+3. 在 `deploy/kubernetes/device.yaml` 中替换镜像地址，把 `AWF_CONTROL_URL` 改成平台的 `wss://你的平台域名/api/daemon/v2/connect`。为两个 PVC 使用集群默认 StorageClass 或显式指定 StorageClass。状态卷须允许 UID `10001` 在 `/var/lib/awf` 下创建并拥有 `device` 目录。
+4. 在 Secret 所在的命名空间应用清单。查看日志，并在平台确认设备在线后再发起会话。
+
+   ```sh
+   kubectl -n YOUR_NAMESPACE apply -f deploy/kubernetes/device.yaml
+   kubectl -n YOUR_NAMESPACE logs deployment/awf-device
+   ```
+
+每个设备部署一个副本。`/workspace` 和 `/var/lib/awf` 使用各自的 PVC。Pod 重建时保留状态卷。若上次的执行没有确认停止，新的 Pod 会保留隔离状态并拒绝新租约。遇到这种情况，保留 journal 供排查。
+
+在 daemon 源码检出中运行 `python3 tests/kubernetes/test_lifecycle.py`，可在临时 k3d 集群复现执行、取消、租约到期、断线重连、驱逐和非正常退出后的隔离。这个测试使用 Pod 内的本地控制端。部署后在平台再跑一次小会话，验证实际 WSS 路由和设备鉴权。
 
 ## 网络与数据
 
