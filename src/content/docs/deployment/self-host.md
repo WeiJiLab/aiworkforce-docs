@@ -134,7 +134,7 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 
 You can run one authorized Linux device executor on Kubernetes and connect it to an existing AI Workforce platform. The daemon opens an outbound WSS connection, so the Pod needs no incoming port. The platform continues to manage sessions, authorization, and model calls. Dispatch workloads you trust to run with the Pod user's permissions.
 
-1. Obtain a dedicated token, device ID, and authorized actor ID from the platform. Create a Secret named `awf-device` in the target namespace with the keys `token`, `device-id`, and `actor-id`. Use a separate device credential for each executor.
+1. Sign in as the device owner. Over HTTPS, call `POST /api/local-execution/machines` with a name such as `{"name":"k8s-worker-a"}`. The `data.token` and `data.machine.id` fields supply `token` and `device-id`. Use the same account’s `data.id` from `GET /api/auth/me` for `actor-id`, as a string. Store the three values in the `awf-device` Secret in the target namespace through your secret manager. Keep the token out of logs and manifests.
 2. Build the image from your `aiworkforce-daemon` checkout and push it to a registry your cluster can pull from.
 
    ```sh
@@ -150,7 +150,11 @@ You can run one authorized Linux device executor on Kubernetes and connect it to
    kubectl -n YOUR_NAMESPACE logs deployment/awf-device
    ```
 
-Run one replica per device. `/workspace` and `/var/lib/awf` use separate PVCs. Keep the state PVC through Pod replacement. When a previous execution did not reach confirmed stop, the new Pod stays quarantined and refuses new leases. Preserve the journal for review.
+Each device runs as a single-replica Deployment. To add a second device, register it separately and apply the [daemon manifest](https://github.com/WeiJiLab/aiworkforce-daemon/blob/main/deploy/kubernetes/device.yaml) in a second namespace with its own Secret and two PVCs. Increasing the replica count on the first Deployment would reuse its identity and volumes.
+
+Start two regular Claude Code employee sessions as the device owner. Before the first message, select a different device in each session. Ask both sessions to write different markers to the same relative filename, then read the markers back. Check each result against the file in the corresponding Pod. Each device admits one active turn. When the selected device is busy, the platform returns a busy result even if the second device is idle.
+
+`/workspace` and `/var/lib/awf` use separate PVCs. Keep the state PVC through Pod replacement. When a previous execution did not reach confirmed stop, the new Pod stays quarantined and refuses new leases. Preserve the journal for review.
 
 From the daemon checkout, run `python3 tests/kubernetes/test_lifecycle.py` to reproduce execution, cancellation, lease expiry, reconnect, eviction, and fencing after an abrupt exit in a disposable k3d cluster. The test uses a local controller in the Pod. Run a small platform session after deployment to check your WSS route and device authentication.
 
