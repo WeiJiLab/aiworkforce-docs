@@ -54,12 +54,12 @@ for (const file of files) {
     if (status === "planned") {
       record(
         plannedIds.includes(id),
-        `${file}: planned pages belong in the Planned sidebar group`,
+        `${file}: planned pages must be registered in plannedIds`,
       );
     } else {
       record(
         !plannedIds.includes(id),
-        `${file}: only planned pages belong in the Planned group`,
+        `${file}: only planned pages may be registered in plannedIds`,
       );
       record(
         primary.has(id),
