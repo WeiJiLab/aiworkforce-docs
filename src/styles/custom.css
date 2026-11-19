@@ -498,6 +498,113 @@ body,
   border-top: 0;
   padding-top: 1rem;
 }
+/* Keep Starlight's pagination at the bottom of the article scrollport. */
+@media screen {
+  html:has(.pagination-links > a) {
+    --docs-pagination-safe-area: 0px;
+    --docs-pagination-scroll-padding: calc(
+      4rem + var(--docs-pagination-safe-area)
+    );
+    scroll-padding-block-end: var(--docs-pagination-scroll-padding);
+  }
+  .main-frame > .lg\:sl-flex:has(.pagination-links > a),
+  .main-pane:has(.pagination-links > a) {
+    scroll-padding-block-end: var(--docs-pagination-scroll-padding);
+  }
+  .main-pane:has(.pagination-links > a),
+  .main-pane main:has(.pagination-links > a),
+  .content-panel:has(> .sl-container > footer > .pagination-links > a),
+  .sl-container:has(> footer > .pagination-links > a) {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-pane main:has(.pagination-links > a),
+  .content-panel:has(> .sl-container > footer > .pagination-links > a),
+  .sl-container:has(> footer > .pagination-links > a) {
+    flex: 1 0 auto;
+    padding-block-end: 0;
+  }
+  .sl-container:has(> footer > .pagination-links > a) {
+    inline-size: 100%;
+  }
+  .sl-container:has(> footer > .pagination-links > a) > .sl-markdown-content {
+    padding-block-end: 1.5rem;
+  }
+  .sl-container > footer:has(> .pagination-links > a) {
+    position: sticky;
+    z-index: 1;
+    inset-block-end: 0;
+    margin-block-start: auto;
+    padding-block: 0.25rem calc(0.25rem + var(--docs-pagination-safe-area));
+    border-block-start: 1px solid var(--docs-line);
+    background: var(--docs-surface);
+  }
+  .pagination-links:empty,
+  footer:has(> .pagination-links) > .meta:empty {
+    display: none;
+  }
+  .pagination-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .pagination-links a {
+    min-block-size: 2.75rem;
+    padding: 0.25rem 0.5rem;
+    border: 0;
+    box-shadow: none;
+    color: var(--docs-muted);
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .pagination-links a:hover {
+    background: var(--docs-hover);
+  }
+  .pagination-links a:focus-visible {
+    outline-offset: -2px;
+  }
+  .pagination-links a[rel="next"] {
+    grid-column: 2;
+  }
+  .pagination-links svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+  .pagination-links a > span {
+    min-inline-size: 0;
+  }
+  .pagination-links br {
+    display: none;
+  }
+  .pagination-links .link-title {
+    display: block;
+    overflow: hidden;
+    color: var(--docs-ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.125rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pagination-links a:hover .link-title {
+    color: var(--docs-accent);
+  }
+}
+@media screen and (50rem <= width < 80rem) {
+  .main-pane:has(.pagination-links > a) {
+    min-block-size: 100%;
+  }
+}
+@media screen and (width < 50rem) {
+  html:has(.pagination-links > a) {
+    --docs-pagination-safe-area: env(safe-area-inset-bottom, 0px);
+  }
+  .main-pane:has(.pagination-links > a) {
+    /* Subtract the card's 8px bottom gutter and its two 1px borders. */
+    min-block-size: calc(
+      100dvb - var(--sl-nav-height) - var(--sl-mobile-toc-height) - 10px
+    );
+  }
+}
 .document-heading {
   padding-bottom: 1rem;
 }
