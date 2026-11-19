@@ -15,6 +15,21 @@ const locales = {
   "zh-cn": { label: "简体中文", lang: "zh-CN" },
 };
 
+// Preserve bookmarks to the retired Learn track and its link-only lessons.
+const retiredLearnPages = {
+  "": "/software-factory/overview/",
+  "set-up-software-factory/": "/getting-started/first-software-factory/",
+  "configure-environments/": "/software-factory/environments/",
+  "connect-cicd/": "/software-factory/cicd/",
+  "configure-coding-agents/": "/software-factory/harness/",
+  "kanban-automation/": "/workflows/kanban-workbench/",
+  "automate-issue-processing/": "/workflows/issue-automation/",
+  "configure-verification/": "/software-factory/quality-gates/",
+  "set-up-governance/": "/software-factory/release-governance/",
+  "monitor-runs-cost/": "/software-factory/observability/",
+  "scale-autonomous-development/": "/workflows/custom-workflows/",
+};
+
 export default defineConfig({
   site: origin,
   ...(base && base !== "/" ? { base } : {}),
@@ -22,6 +37,14 @@ export default defineConfig({
   redirects: {
     ...Object.fromEntries(
       legacyBuildRoutes.map(({ from, to }) => [`/${from}/`, `/${to}/`]),
+    ),
+    ...Object.fromEntries(
+      ["", "/zh-cn"].flatMap((locale) =>
+        Object.entries(retiredLearnPages).map(([lesson, destination]) => [
+          `${locale}/learn/run-software-factory/${lesson}`,
+          { status: 301, destination: `${locale}${destination}` },
+        ]),
+      ),
     ),
     "/api/": "/developer/",
     "/zh-cn/api/": "/zh-cn/developer/",

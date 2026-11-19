@@ -48,13 +48,12 @@ Customize & Extend 是文档栏目，中文名为「定制与扩展」。控制�
 
 ## Learn 侧栏
 
-三条任务路径，而不是角色标签：
+两条学习路径：
 
 1. Software Factory Foundations
 2. Build with AI Workforce
-3. Run a Software Factory
 
-另保留实践手册（需求、方案与工单、反馈）。课时可以是短文，或指向对应的 文档或定制与扩展参考页。
+另保留实践手册（需求、方案与工单、反馈）。
 
 ## Developer 侧栏
 

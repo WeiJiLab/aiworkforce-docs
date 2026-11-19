@@ -401,15 +401,6 @@ export function getPortalContent(
           href: "learn/build-with-ai-workforce",
           outcome: zh ? "发布一条可用工作流" : "Publish a working workflow",
         },
-        {
-          label: zh ? "运行软件工厂" : "Run a Software Factory",
-          title: zh ? "运行软件工厂" : "Run a Software Factory",
-          description: zh
-            ? "部署、运营并治理 AI 交付：环境、CI/CD、看板与成本。"
-            : "Deploy, operate, and govern AI delivery: environments, CI/CD, boards, and cost.",
-          href: "learn/run-software-factory",
-          outcome: zh ? "稳定运行交付流水线" : "Operate a delivery pipeline",
-        },
       ],
       guides: [
         {
