@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="86" viewBox="0 0 240 86" fill="none">
+  <defs>
+    <linearGradient id="ticket" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#36566b"/><stop offset="1" stop-color="#213a4b"/></linearGradient>
+  </defs>
+  <g transform="translate(22 18) rotate(-4 33 23)">
+    <rect x="3" y="4" width="65" height="48" rx="6" fill="#102434"/>
+    <rect width="65" height="48" rx="6" fill="url(#ticket)" stroke="#94ceba"/>
+    <path d="M1 8Q1 1 8 1H57Q64 1 64 8" stroke="#a4e5cb"/>
+    <text x="9" y="23" fill="#dcf7ee" font-family="monospace" font-size="14">#128</text>
+    <path d="M10 32h40m-40 6h22" stroke="#7fa9b1" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <path d="M116 44h27m-5-5 5 5-5 5" stroke="#91adc3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(182 54) scale(.76)" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-18,-6 48,21.72 13,36.42 -53,8.7" fill="#122b39" stroke="none"/>
+    <polygon points="-18,-10 48,17.72 13,32.42 -53,4.7" fill="#486c87" stroke="none"/>
+    <polygon points="-53,4.7 13,32.42 13,28.42 -53,0.7" fill="#80a6c5" stroke="none"/>
+    <polygon points="48,17.72 13,32.42 13,28.42 48,13.72" fill="#41657c" stroke="none"/>
+    <polygon points="22,-5.16 29,-2.22 29,-42.22 22,-45.16" fill="#bdd8de" stroke="none"/>
+    <polygon points="35,-4.74 29,-2.22 29,-42.22 35,-44.74" fill="#82a6bd" stroke="none"/>
+    <polygon points="28,-48.52 37,-44.74 29,-41.38 20,-45.16" fill="#def5ee" stroke="none"/>
+    <polygon points="28,-46.84 33,-44.74 29,-43.06 24,-45.16" fill="#53758a" stroke="none"/>
+    <polygon points="42,12.88 13,25.06 13,-4.94 42,-17.12" fill="#7094ae" stroke="none"/>
+    <polygon points="-47,-0.14 -27,8.26 -27,-21.74 -47,-19.14" fill="#9ab9d0" stroke="none"/>
+    <polygon points="-18,-31.32 2,-33.92 -27,-21.74 -47,-19.14" fill="#c3eadf" stroke="#6eacb1"/>
+    <polygon points="2,-22.92 -27,-10.74 -27,-21.74 2,-33.92" fill="#577b92" stroke="none"/>
+    <polygon points="-43,-4.46 -39,-2.78 -39,-9.78 -43,-11.46" fill="#38596f" stroke="none"/>
+    <polygon points="-36,-1.52 -32,0.16 -32,-6.84 -36,-8.52" fill="#38596f" stroke="none"/>
+    <polygon points="-27,8.26 -7,16.66 -7,-13.34 -27,-10.74" fill="#9ab9d0" stroke="none"/>
+    <polygon points="2,-22.92 22,-25.52 -7,-13.34 -27,-10.74" fill="#c3eadf" stroke="#6eacb1"/>
+    <polygon points="22,-14.52 -7,-2.34 -7,-13.34 22,-25.52" fill="#577b92" stroke="none"/>
+    <polygon points="-23,3.94 -19,5.62 -19,-1.38 -23,-3.06" fill="#38596f" stroke="none"/>
+    <polygon points="-16,6.88 -12,8.56 -12,1.56 -16,-0.12" fill="#38596f" stroke="none"/>
+    <polygon points="-7,16.66 13,25.06 13,-4.94 -7,-2.34" fill="#9ab9d0" stroke="none"/>
+    <polygon points="22,-14.52 42,-17.12 13,-4.94 -7,-2.34" fill="#c3eadf" stroke="#6eacb1"/>
+    <polygon points="-3,12.34 1,14.02 1,7.02 -3,5.34" fill="#38596f" stroke="none"/>
+    <polygon points="4,15.28 8,16.96 8,9.96 4,8.28" fill="#38596f" stroke="none"/>
+    <polygon points="37,14.98 24,20.44 24,3.44 37,-2.02" fill="#36586b" stroke="none"/>
+  </g>
+</svg>

@@ -11,43 +11,38 @@ translation:
 
 工作流应用是运行同一平台的一种具体方式。它不自带引擎。每个应用都使用工作流定义、用来启动并继续的自动化、员工或代码执行器、任务、运行、环境、证据、产物和人工确认。
 
-## 选择一个应用
-
-```text
-软件工厂         已确认的工程工作 → 经过验证的交付
-看板工作台       同一条交付路径，在看板上被观察并持续推进
-Issue 自动化     外部 Issue 或收件箱事项 → 已确认的卡片
-Pull Request     GitHub PR 事件 → 一次员工运行
-调研             日程 → 由人审阅的产物
-自定义           Job、泳道编排或技能工作流
-```
-
-| 应用         | 你定义的工作流            | 由什么启动                          | 今天可以完成什么                           | 接着读                                                    |
-| ------------ | ------------------------- | ----------------------------------- | ------------------------------------------ | --------------------------------------------------------- |
-| 软件工厂     | 看板泳道及其员工          | 一张已确认的卡片                    | 执行、测试记录、证据，以及人作出的发布决定 | [概览](/zh-cn/software-factory/overview/)                 |
-| 看板工作台   | 这些泳道、批次和泳道编排  | 卡片状态、泳道扫描、编排触发        | 软件交付在看板上持续推进                   | [工作台](/zh-cn/workflows/kanban-workbench/)              |
-| Issue 自动化 | 一个 Job，路由之后是工厂  | GitHub Issue 轮询、收件箱导入或收集 | 收件箱事项，以及确认后的交付卡片           | [Issue](/zh-cn/workflows/issue-automation/)               |
-| Pull Request | 绑定 PR 事件的 Job        | 轮询到的 PR、Review 和评论事件      | 一次员工运行。不会自动合并。               | [Pull Request](/zh-cn/workflows/pull-request-automation/) |
-| 调研与监控   | 一个定时 Job              | Cron，或 Sentry、PagerDuty 事件     | 经过审阅的产物，或由事件启动的运行         | [调研](/zh-cn/workflows/research-monitoring/)             |
-| 自定义       | Job、泳道编排或技能工作流 | 手动、Cron，或 Job 上的触发规则     | 界面实际保存下来的执行器图                 | [自定义工作流](/zh-cn/workflows/custom-workflows/)        |
-
 ## 共用的路径
 
-```text
-软件工厂
-  Issue 或草稿 → 确认 → 分派 → 员工 → 环境
-        → 构建与测试 → 验证 → 证据 → PR → 发布决定
+<figure class="application-route not-content" aria-label="从外部 Issue 到发布决定">
+  <div class="application-flow">
+    <div class="route-stage intake-stage"><img src="/illustrations/application-intake.svg" width="240" height="86" alt="" />Issue 自动化</div>
+    <span class="step">外部 Issue<small>进入收件箱</small></span>
+    <span class="step">人工确认<small>生成交付卡片</small></span>
+    <div class="route-stage factory-stage"><img src="/illustrations/application-delivery.svg" width="240" height="86" alt="" />软件工厂</div>
+    <span class="step">员工执行</span>
+    <span class="step">测试验证</span>
+    <span class="step decision">发布决定<small>人审阅证据与 PR</small></span>
+    <span class="retry">失败退回修正</span>
+  </div>
+  <figcaption><strong>看板工作台</strong>在泳道上跟踪这张卡片，查看运行记录和交付证据。</figcaption>
+</figure>
 
-看板工作台
-  泳道上的卡片 → 泳道规则 → 由泳道员工领取
-        → 运行 → 证据 → 下一泳道，或在验证失败时退回
+## 选择一个应用
 
-Issue 自动化
-  Issue 事件或导入 → 收件箱 → 人工确认
-        → 上面的软件工厂路径
-```
+### 推进软件交付
 
-看板的列就是[工作流概念](/zh-cn/workflows/concepts/)中的泳道。它们不是软件工厂旁边的第二套看板。工作台用来观察并继续软件工厂的工作。
+- [把外部 Issue 转成交付卡片](/zh-cn/workflows/issue-automation/)。Issue 自动化将事项收进收件箱，你确认范围后再转为交付卡片。
+- [交付一张已确认的卡片](/zh-cn/software-factory/overview/)。软件工厂按泳道分派员工执行和测试，由你审阅证据并决定是否发布。
+- [查看卡片进度并推进下一步](/zh-cn/workflows/kanban-workbench/)。在看板工作台查看卡片所在的泳道和运行记录，验证通过后推进，失败时退回修正。
+
+### 响应事件或定期运行
+
+- [让员工跟进 PR 评审或评论](/zh-cn/workflows/pull-request-automation/)。GitHub PR 事件匹配规则时，Job 启动一次员工运行。合并由人决定。
+- [安排定期调研或响应告警](/zh-cn/workflows/research-monitoring/)。用定时 Job 生成可审阅的报告，或用 Sentry、PagerDuty 告警启动调查。
+
+### 定义团队自己的流程
+
+- [组合自定义工作流](/zh-cn/workflows/custom-workflows/)。用 Job 运行独立任务，用泳道编排推进卡片，或用技能工作流复用一组步骤。
 
 ## 始终共用的概念
 
