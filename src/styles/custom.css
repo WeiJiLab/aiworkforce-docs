@@ -1247,8 +1247,14 @@ body,
   width: 5.4rem;
   height: auto;
 }
-.application-flow .intake-stage { grid-column: 1 / 3; color: #ffdb9d; }
-.application-flow .factory-stage { grid-column: 3 / 6; color: #bbd9ff; }
+.application-flow .intake-stage {
+  grid-column: 1 / 3;
+  color: #ffdb9d;
+}
+.application-flow .factory-stage {
+  grid-column: 3 / 6;
+  color: #bbd9ff;
+}
 .application-flow .step {
   grid-row: 2;
   position: relative;
@@ -1262,7 +1268,10 @@ body,
   line-height: 1.45;
 }
 .application-flow .step small,
-.application-route figcaption { font-size: 0.8125rem; color: #c5d9eb; }
+.application-route figcaption {
+  font-size: 0.8125rem;
+  color: #c5d9eb;
+}
 .application-flow .step:not(.decision)::after {
   content: "→" / "";
   position: absolute;
@@ -1299,11 +1308,25 @@ body,
   padding-top: 0.65rem;
   border-top: 1px dashed #557579;
 }
-.application-route figcaption strong { color: #a3efd6; margin-right: 0.65rem; }
+.application-route figcaption strong {
+  color: #a3efd6;
+  margin-right: 0.65rem;
+}
 @container (max-width: 35rem) {
-  .application-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .application-flow .factory-stage { grid-area: 3 / 1 / 4 / -1; margin-top: 0.75rem; }
-  .application-flow .factory-stage ~ .step { grid-row: 4; }
-  .application-flow .step:has(+ .factory-stage)::after { content: "↓" / ""; }
-  .application-flow .retry { grid-area: 5 / 1 / 6 / 3; }
+  .application-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .application-flow .factory-stage {
+    grid-area: 3 / 1 / 4 / -1;
+    margin-top: 0.75rem;
+  }
+  .application-flow .factory-stage ~ .step {
+    grid-row: 4;
+  }
+  .application-flow .step:has(+ .factory-stage)::after {
+    content: "↓" / "";
+  }
+  .application-flow .retry {
+    grid-area: 5 / 1 / 6 / 3;
+  }
 }
