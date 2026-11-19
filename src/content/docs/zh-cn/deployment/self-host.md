@@ -11,7 +11,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "2f6f01cfe5aff1679426ee0245c35f020a62ae0c41b5a42c42a3e17c52446d68"
+  sourceHash: "2a6c3e9d7943bff3cc5437a5b4ca36e82fa7479f17e6e79a80382009c7bab2dd"
 ---
 
 自托管是指由你们自己运行 AI Workforce 的服务：Web 应用、后端、PostgreSQL，以及这些服务保存的工作空间文件。运营方托管的部署是同一套产品，只是由别人替你们运行。使用工作空间、数字员工和工作流的方式不变。变的是谁运维这些服务，以及这些记录放在哪里。
@@ -135,7 +135,7 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 
 可在 Kubernetes 中运行一个已授权的 Linux 设备执行器，连接现有 AI Workforce 平台。daemon 主动连接平台的 WSS 端点，Pod 无需入站端口。平台继续管理会话、授权和模型调用。任务以 Pod 用户身份运行，应只派发你信任的任务。
 
-1. 从平台取得一个专用设备的 token、设备 ID 和授权用户 ID。在目标命名空间创建名为 `awf-device` 的 Secret，键名为 `token`、`device-id` 和 `actor-id`。每个执行器使用不同的设备凭据。
+1. 以设备所有者身份登录，通过 HTTPS 调用 `POST /api/local-execution/machines`，请求体可以是 `{"name":"k8s-worker-a"}`。返回的 `data.token` 和 `data.machine.id` 对应 `token` 和 `device-id`。用同一账号调用 `GET /api/auth/me`，将 `data.id` 转成字符串作为 `actor-id`。通过团队的密钥管理工具把这三项写入目标命名空间的 `awf-device` Secret，避免在日志或清单中记录 token。
 2. 在 `aiworkforce-daemon` 源码检出中构建镜像，推送到集群能拉取的镜像仓库。
 
    ```sh
@@ -151,7 +151,11 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
    kubectl -n YOUR_NAMESPACE logs deployment/awf-device
    ```
 
-每个设备部署一个副本。`/workspace` 和 `/var/lib/awf` 使用各自的 PVC。Pod 重建时保留状态卷。若上次的执行没有确认停止，新的 Pod 会保留隔离状态并拒绝新租约。遇到这种情况，保留 journal 供排查。
+每台设备使用一个单副本 Deployment。增加第二台时，另行注册设备，在第二个命名空间准备独立的 Secret 和两块 PVC，再应用同一份 [daemon 清单](https://github.com/WeiJiLab/aiworkforce-daemon/blob/main/deploy/kubernetes/device.yaml)。直接增加第一个 Deployment 的副本数会复用其身份和卷。
+
+用设备所有者的账号新建两个普通 Claude Code 员工会话，在首条消息前分别选中两台设备。让两个会话在相同相对路径下写入不同标记并读回，和各自 Pod 中的文件核对。每台设备同时接纳一个活跃回合。选中的设备忙时，平台返回占用提示，即使另一台设备空闲也是如此。
+
+`/workspace` 和 `/var/lib/awf` 使用各自的 PVC。Pod 重建时保留状态卷。若上次的执行没有确认停止，新的 Pod 会保留隔离状态并拒绝新租约。遇到这种情况，保留 journal 供排查。
 
 在 daemon 源码检出中运行 `python3 tests/kubernetes/test_lifecycle.py`，可在临时 k3d 集群复现执行、取消、租约到期、断线重连、驱逐和非正常退出后的隔离。这个测试使用 Pod 内的本地控制端。部署后在平台再跑一次小会话，验证实际 WSS 路由和设备鉴权。
 
