@@ -22,7 +22,7 @@ Customize & Extend 是文档栏目，中文名为「定制与扩展」。控制�
 
 ## Docs 侧栏
 
-顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定。栏目第一项是首页链接 **Getting Started / 开始使用**，指向 `/` 与 `/zh-cn/`。其后分组为：
+顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定。栏目第一项是首页链接 **Docs home / 文档首页**，指向 `/` 与 `/zh-cn/`。其后分组为：
 
 1. Get started / 开始使用。首页和侧栏提供三个任务入口：在已有看板上交付第一条 Issue、配置团队的第一个交付看板、运行第一个自动化任务。教程页尾按任务给出下一步。
 2. Software Factory / 软件工厂。先是四条回路：需求 → 卡片、卡片 → PR、PR → 合并、信号 → 卡片。其后是 Issue、看板和 Pull Request 自动化，以及路径细则。卡片排查指南放在看板工作台之后。
