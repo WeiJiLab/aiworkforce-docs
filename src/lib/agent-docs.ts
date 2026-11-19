@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content";
+import { managedAgentScenarios } from "./managed-agents";
 import { absoluteUrl } from "./site.mjs";
 import {
   getHomeContent,
@@ -110,7 +111,19 @@ export function toMarkdown(entry: CollectionEntry<"docs">): string {
   const zh = entry.id.startsWith("zh-cn/") || entry.id === "zh-cn";
   const canonicalId = markdownId(entry.id.replace(/^zh-cn(?:\/|$)/, ""));
   const isHome = ["index", "developer", "learn", "build"].includes(canonicalId);
-  const body = isHome ? landingBody(entry.body ?? "", zh) : (entry.body ?? "");
+  let body = entry.body ?? "";
+  if (isHome) body = landingBody(body, zh);
+  if (canonicalId === "deployment/managed-agents") {
+    body = body.replace(/^import ManagedAgentExplorer .*\n/m, "").replace(
+      "<ManagedAgentExplorer />",
+      managedAgentScenarios(zh)
+        .map(
+          (scenario) =>
+            `### ${scenario.label}\n\n${scenario.locations.join(" → ")}\n\n${scenario.result} [${scenario.link}](${localizedGuideHref(scenario.guide, zh)})`,
+        )
+        .join("\n\n"),
+    );
+  }
   const sourceLabel = zh ? "来源" : "Source";
   const supportLabel =
     status && status !== "available"

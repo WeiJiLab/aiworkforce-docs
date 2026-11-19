@@ -120,14 +120,18 @@ export const PORTALS = {
         ],
       },
       {
-        label: "Self-Hosted Machines",
-        zh: "自托管机器",
+        label: "Managed Agents",
+        zh: "Managed Agents",
         collapsed: true,
         items: [
-          "deployment/daemon",
-          "deployment/daemon/my-machines",
-          "deployment/daemon/session-execution",
-          "deployment/daemon/troubleshooting",
+          "deployment/managed-agents",
+          "deployment/self-host",
+          nested("Self-Hosted Machines", "自托管机器", [
+            "deployment/daemon",
+            "deployment/daemon/my-machines",
+            "deployment/daemon/session-execution",
+            "deployment/daemon/troubleshooting",
+          ]),
         ],
       },
       {
@@ -328,8 +332,6 @@ export const PORTALS = {
           "software-factory/observability",
           "operate/audit",
           "deployment/security",
-          "deployment/managed-agents",
-          "deployment/self-host",
         ],
       },
     ],

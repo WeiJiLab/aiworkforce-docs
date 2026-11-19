@@ -1,0 +1,98 @@
+---
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { localizedGuideHref } from "../lib/landing-content";
+import { managedAgentScenarios } from "../lib/managed-agents";
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const roles = zh
+  ? ["执行设备", "AI Workforce 平台", "模型端点"]
+  : ["Execution device", "AI Workforce platform", "Model endpoint"];
+const jobs = zh
+  ? ["运行仓库测试", "保存会话，检查授权", "执行推理"]
+  : [
+      "Runs repository tests",
+      "Stores sessions and checks permissions",
+      "Runs inference",
+    ];
+const flows = zh
+  ? ["返回文件内容与测试结果", "发送提示与所需工具结果"]
+  : [
+      "Returns file content and test output",
+      "Sends prompts and relevant tool results",
+    ];
+---
+
+<Tabs>
+  {
+    managedAgentScenarios(zh).map((scenario) => (
+      <TabItem label={scenario.label}>
+        <figure class="deployment-flow">
+          <figcaption>
+            {zh ? "一次测试的数据流" : "Data flow for a test run"}
+          </figcaption>
+          {roles.map((role, i) => (
+            <>
+              {i > 0 && (
+                <div class="transfer">
+                  <span aria-hidden="true">↓</span> {flows[i - 1]}
+                </div>
+              )}
+              <div class="station">
+                <div>
+                  <strong>{role}</strong>
+                  <small>{jobs[i]}</small>
+                </div>
+                <b>{scenario.locations[i]}</b>
+              </div>
+            </>
+          ))}
+        </figure>
+        <p>{scenario.result}</p>
+        <a href={localizedGuideHref(scenario.guide, zh)}>{scenario.link} →</a>
+      </TabItem>
+    ))
+  }
+</Tabs>
+<style>
+  .deployment-flow {
+    margin: 0;
+    padding: clamp(0.85rem, 3vw, 1.5rem);
+    background: var(--docs-soft);
+    border: 1px solid var(--docs-line);
+    border-radius: 0.8rem;
+  }
+  .deployment-flow figcaption {
+    font-weight: 650;
+    margin: 0 0 0.8rem;
+    color: var(--docs-ink);
+  }
+  .station {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--docs-surface);
+    border: 1px solid var(--docs-line);
+    border-inline-start: 3px solid var(--docs-accent);
+    border-radius: 0.35rem;
+    padding: 0.65rem 0.9rem;
+  }
+  .station small {
+    display: block;
+    color: var(--docs-muted);
+  }
+  .station b {
+    font-size: 0.82rem;
+    text-align: end;
+    color: var(--docs-ink);
+  }
+  .deployment-flow .transfer {
+    margin: 0;
+    padding: 0.25rem 1rem;
+    font-size: 0.8rem;
+    color: var(--docs-muted);
+  }
+  .deployment-flow .station,
+  .station :is(b, div, small) {
+    margin: 0;
+  }
+</style>

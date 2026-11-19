@@ -6,7 +6,7 @@ audience:
 product_area: deployment
 last_verified: "2026-11-18"
 sidebar:
-  label: Self-host
+  label: Self-host the platform
 translation:
   source: en
   status: complete

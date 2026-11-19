@@ -6,12 +6,12 @@ audience:
 product_area: deployment
 last_verified: "2026-11-18"
 sidebar:
-  label: 自托管
+  label: 自托管平台
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "578615a274ce234d3392b0a33265a590fbf94e2ff57248ec6873d6e01039521e"
+  sourceHash: "d33b3bde0599c19d0d36883c726a94fbdd0ac1921a4a029e64b937f75442588f"
 ---
 
 自托管是指由你们自己运行 AI Workforce 的服务：Web 应用、后端、PostgreSQL，以及这些服务保存的工作空间文件。运营方托管的部署是同一套产品，只是由别人替你们运行。使用工作空间、数字员工和工作流的方式不变。变的是谁运维这些服务，以及这些记录放在哪里。

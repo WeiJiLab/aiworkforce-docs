@@ -2,35 +2,24 @@
 title: "企业 Managed Agents"
 description: "在企业管理的基础设施上运行数字员工。了解平台保存什么、工具在哪里执行，以及哪些数据会送到模型端点。"
 last_verified: "2026-11-19"
+sidebar:
+  label: 企业部署概览
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "6009c32fba8b9958b6284e38d1d8491521b583dd4ec74fcd32d3c526f1ac339d"
+  sourceHash: "c849ce8285fc3e90ed96e76a5ef088eb7ba2a14c838bdd0bfdb472045338e20f"
 ---
 
-把私有仓库的一项修复交给数字员工，让它在能访问内部测试服务的开发机上验证变更。团队决定员工可以访问哪个仓库、用哪台设备、调用哪个模型。AI Workforce 管理会话、检查工具授权，并保存执行记录供团队审阅。
+import ManagedAgentExplorer from "../../../../components/ManagedAgentExplorer.astro";
 
-## 一次私有仓库测试在哪里运行？
+把私有仓库的一项修复交给数字员工。AI Workforce 管理会话和工具授权，你的团队决定员工能访问哪个仓库、在哪里测试，以及用哪个模型。审阅者可以沿着执行记录，从测试输出查到待合并的代码版本。
 
-下图以企业自托管平台、使用已配对的开发机和外部模型服务为例。箭头表示任务数据的流向。设备主动向平台建立连接，再通过这条连接接收命令、返回结果。
+## 在你的基础设施上运行一次测试
 
-```mermaid
-flowchart TB
-  accTitle: 企业 Managed Agents 的执行与数据流
-  accDescr: 企业网络内的平台保存会话并检查授权。开发机运行命令并返回测试结果。平台把所需上下文发给外部模型端点，收到回复后继续会话。
-  subgraph org[企业运维的基础设施]
-    device["已配对的开发机<br/>私有仓库 · 测试工具"]
-    platform["AI Workforce 平台<br/>会话记录 · 授权 · 模型循环"]
-    device -->|文件内容、测试结果| platform
-    platform -->|已授权的工具调用| device
-  end
-  subgraph provider[模型供应商的基础设施]
-    model["模型端点<br/>执行推理"]
-  end
-  platform -->|提示与任务所需的工具结果| model
-  model -->|模型回复| platform
-```
+假设开发机已经能访问私有仓库和内部测试服务。选择一种部署方式，查看同一份测试输出会经过哪些系统。设备主动连接平台，在这条连接上接收命令并返回结果。
+
+<ManagedAgentExplorer />
 
 ## 按企业要求选择部署位置
 
@@ -39,6 +28,11 @@ flowchart TB
 **测试必须在指定设备上运行。** 在发送第一条消息前，为会话选择已配对的在线设备。工具以该设备上的操作系统用户身份运行，配对目录是起始目录，文件访问范围由系统权限决定。如果任务只需平台已连接的资源，可以直接选用平台执行。[选择会话执行位置](/zh-cn/deployment/daemon/session-execution/)
 
 **推理请求必须留在内网。** 为员工的运行内核配置在内网完成推理的模型端点。若使用图中的外部端点，它会收到本次调用所需的提示、读取的文件内容和工具结果，即使仓库和会话数据库都部署在企业机器上。[配置模型渠道](/zh-cn/administration/configuration/)
+
+## 团队还能委派哪些工作？
+
+- **定时巡检。** 把检查定义为 Job，先手动运行一次，核对输出，再绑定日程。每次触发都有独立的运行记录。[配置定时任务](/zh-cn/automate/triggers-schedules/)
+- **交接给下一位员工。** 在工作流中写明前一阶段交付什么、下一位员工需要哪些输入，以及何时需要人工决定。[设计工作交接](/zh-cn/automate/agent-handoff/)
 
 ## 团队如何验收这次修复？
 

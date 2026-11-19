@@ -1,6 +1,6 @@
 # Docs / Learn / Build / Developer 信息架构
 
-核对日期：2026-11-18。顶栏为 **Docs · Learn · Build · Developer · Console**。英文与中文共用相同 slug；侧栏按栏目（portal）切换，上一页 / 下一页不跨栏目、不跨语言。源码仓库不放进顶栏。
+核对日期：2026-11-19。顶栏为 **Docs · Learn · Build · Developer · Console**。英文与中文共用相同 slug；侧栏按栏目（portal）切换，上一页 / 下一页不跨栏目、不跨语言。源码仓库不放进顶栏。
 
 ## 顶栏去向
 
@@ -29,11 +29,9 @@ Build 是文档栏目，中文名为「构建数字员工」。控制台中对�
 3. Automate Work / 自动化工作（含 Agent handoff）
 4. Use employees / 使用数字员工
 5. Run Workflows / 运行工作流
-6. Self-Hosted Machines / 自托管机器。原 Daemon 地址作为概览，下面是我的机器、会话执行位置和故障排查。
+6. Managed Agents。先从企业部署概览比较运行位置，再查看自托管平台指南。「自托管机器」子组收录设备概览、我的机器、会话执行位置和故障排查。
 7. Integrations / 集成。点击一级栏目「集成」可展开或收起目录。展开后，灰色分类标题下直接列出所有连接器。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。员工工具挂在概览之后。MCP 与 Webhook 留在 Developer。不收录 ACP / A2A。
 8. Resources / 资源。简介、核心概念和平台地图可在这里查阅。
-
-自托管服务栈的部署指南位于 Build → 运营。
 
 ## Build 侧栏
 
@@ -44,7 +42,7 @@ Build 是文档栏目，中文名为「构建数字员工」。控制台中对�
 3. Publish and marketplace / 发布与市场
 4. Configuration / 配置：渠道配置，仅管理员
 5. Evaluation / 评测：员工测试，以及仅管理员的 Agent 评估
-6. Operate / 运营：项目、权限、模型、评测与治理、审计、安全、自托管
+6. Operate / 运营：项目、权限、模型、评测与治理、审计、安全
 
 ## Learn 侧栏
 
