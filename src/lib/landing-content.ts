@@ -552,90 +552,61 @@ export function getPortalContent(
     build: {
       paths: [
         {
-          label: zh ? "需求发现" : "Discovery",
-          title: zh ? "确认要解决的问题" : "Identify the problem",
+          label: zh ? "构建" : "Build",
+          title: zh ? "构建 Agent 包" : "Build an Agent Package",
           description: zh
-            ? "用访谈、会议记录收集业务场景，请业务负责人确认验收标准。"
-            : "Record business scenarios in interviews and meetings. Ask the domain owner to confirm the acceptance criteria.",
-          href: "build/bots",
-          outcome: zh ? "一组可验证的需求" : "Agreed acceptance criteria",
+            ? "在 FDE 工作台编辑 Plugin，运行 Validate 校验结构，再提交构建。"
+            : "Edit the plugin in the FDE workbench, run Validate, and submit the build.",
+          href: "build/builder",
+          outcome: zh ? "已校验的构建" : "A validated build",
         },
         {
-          label: zh ? "Agent 构建" : "Design",
-          title: zh ? "定义 Agent 行为" : "Define agent behavior",
+          label: zh ? "测试" : "Test",
+          title: zh ? "测试 Agent 行为" : "Test agent behavior",
           description: zh
-            ? "写清 Agent 接受哪些输入、交付什么结果，以及何时应请求人工处理。"
-            : "Specify the inputs, expected outputs, and when the agent should ask a person for help.",
-          href: "build/employee-definition",
-          outcome: zh
-            ? "可测试的职责与边界"
-            : "Testable responsibilities and boundaries",
-        },
-        {
-          label: zh ? "能力扩展" : "Build",
-          title: zh ? "扩展 Agent 能力" : "Extend agent capabilities",
-          description: zh
-            ? "用 Skill 描述方法，把可复用能力放入 Plugin，按任务需要声明工具和 MCP 依赖。"
-            : "Write the method as a skill, package reusable capabilities in a plugin, and declare tool and MCP dependencies.",
-          href: "build/skills-plugins",
-          outcome: zh ? "可复用的 Agent 包" : "A reusable Agent Package",
-        },
-        {
-          label: zh ? "Agent 协作" : "Compose",
-          title: zh ? "安排多个 Agent 协作" : "Coordinate multiple agents",
-          description: zh
-            ? "把独立的子任务交给专门的 Agent，约定交接的输入和返回结果。"
-            : "Delegate a bounded task to a specialist and specify the input and the result it should return.",
-          href: "build/composition",
-          outcome: zh ? "明确的交接条件" : "An explicit handoff",
-        },
-        {
-          label: zh ? "测试与评测" : "Evaluate",
-          title: zh ? "验证能力和边界" : "Test behavior and boundaries",
-          description: zh
-            ? "先校验 Agent 包的结构，再检查正常请求、缺少输入和超出范围的请求。"
-            : "Validate the Agent Package, then test routine requests, missing inputs, and out-of-scope requests.",
+            ? "分别测试正常请求、缺少输入和超出职责范围的请求。"
+            : "Test a routine request, a request with missing inputs, and one outside the role’s scope.",
           href: "build/testing",
-          outcome: zh ? "可复查的测试结果" : "Reviewable test results",
+          outcome: zh ? "可复查的结果" : "Reviewable results",
         },
         {
-          label: zh ? "模板与发布" : "Publish",
-          title: zh ? "发布可安装的模板" : "Publish an installable template",
+          label: zh ? "发布" : "Publish",
+          title: zh ? "发布模板" : "Publish a template",
           description: zh
-            ? "把通过测试的 Agent 包发布为模板，再核对目标工作空间实际使用的版本和能力。"
-            : "Publish the tested Agent Package as a template and verify which version and capabilities the workspace received.",
+            ? "发布通过测试的版本，再到目标工作空间核对实例应用的版本和能力。"
+            : "Publish the tested version, then check the version and capabilities applied to an instance in the target workspace.",
           href: "build/publishing",
-          outcome: zh ? "团队可安装的模板" : "A template the team can install",
+          outcome: zh ? "可安装的模板" : "An installable template",
         },
       ],
       guides: [
         {
-          title: zh ? "Agent 构建器" : "Agent builder",
+          title: "Skills",
           description: zh
-            ? "在 FDE 工作台编辑 Plugin，校验 Agent 包并提交构建"
-            : "Edit a plugin in the FDE workbench, validate the Agent Package, and submit the build",
-          href: "build/builder",
+            ? "编写可复用的方法、输入和输出格式"
+            : "Describe a reusable method, its inputs, and its output format",
+          href: "build/skills",
         },
         {
-          title: zh ? "Agent 指令" : "Agent instructions",
+          title: "Plugins",
           description: zh
-            ? "分别编写岗位、任务与仓库指引"
-            : "Write guidance for the role, task, and repository",
-          href: "build/prompts-rules",
+            ? "组织 Skills 和相关 Agent，并为能力设置版本"
+            : "Organize skills and related agents in a versioned plugin",
+          href: "build/plugins",
         },
         {
-          title: zh ? "Hooks 与子 Agent" : "Hooks and subagents",
+          title: zh ? "工具与权限" : "Tools and permissions",
           description: zh
-            ? "定义子任务并检查运行时支持的 Hook"
-            : "Define subtasks and check which hooks the runtime supports",
-          href: "build/hooks-subagents",
+            ? "声明需要哪些工具，再为实例配置实际访问权限"
+            : "Declare tool requirements and configure access for the instance",
+          href: "build/tools",
         },
         {
-          title: zh ? "渠道集成" : "Channel integration",
+          title: zh ? "MCP 依赖" : "MCP dependencies",
           description: zh
-            ? "为访谈配置语言、决策和语音渠道（管理员）"
-            : "Configure language, decision, and voice channels for interviews (administrators)",
-          href: "build/channels",
+            ? "在清单中声明服务，按工作空间配置连接与授权"
+            : "Declare services in the manifest and configure connections and access for the workspace",
+          href: "build/mcp-integration",
         },
       ],
       operate: [

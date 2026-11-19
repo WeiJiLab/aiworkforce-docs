@@ -1,33 +1,52 @@
 ---
 title: 定制与扩展
-description: 根据业务场景定义 Agent 行为，扩展和组合能力，评测后把 Agent 包发布为工作空间可安装的模板。
+description: 定义 Agent 的职责和指令，配置 Skills、工具与 MCP 依赖，再测试并发布模板。
 prev: false
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "dcd70c9e40ad5e180daf91234978c80913471ab8ab80985bd2f114757301ef06"
+  sourceHash: "fd4cd4218086090290463958bd2e25f23f1ba6cb1901fb1e157cedc13ee199f0"
 ---
 
 import PortalLanding from "../../../../components/PortalLanding.astro";
 
-当软件工厂中的一项任务需要新的 Agent 能力时，先明确它要交付什么，再选择 Skill、Plugin 或 Tool 来实现。需要多个 Agent 配合时，定义好任务如何交接。用真实场景验证 **Agent 包**中的能力，再将它发布为模板，供团队安装。
+一个 **Agent 包**定义可复用的岗位和工作方法。通过测试的版本可以发布为模板，供团队在工作空间创建数字员工。
 
-已有合适的模板？直接[在工作空间安装数字员工](/zh-cn/getting-started/first-employee/)。要通过 API 或 SDK 接入自己的应用，请看 [Developer](/zh-cn/developer/)。
+## 定义 Agent
 
-## 从需求到发布
+写清 Agent 要交付什么、需要哪些输入，以及何时应交回人工。研究助手的完整示例见 [Agent 定义](/zh-cn/build/employee-definition/)。
 
-<PortalLanding portal="build" section="paths" />
+| 文件                         | 配置内容                                                |
+| ---------------------------- | ------------------------------------------------------- |
+| `.aiworkforce/employee.yaml` | 岗位职责、输入、输出、约束和入口 Skill（`entry_skill`） |
+| `.aiworkforce/router.md`     | 如何调用入口 Skill，怎样处理输入缺失和超出范围的请求    |
+| `skills/<skill-id>/SKILL.md` | 任务的执行方法、检查步骤和输出格式                      |
+| `.claude-plugin/plugin.json` | Plugin 的标识、版本和说明                               |
 
-## 构建与配置参考
+会话和仓库中的指令写在哪一层，见 [Agent 指令](/zh-cn/build/prompts-rules/)。
+
+<div id="构建与配置参考" aria-hidden="true"></div>
+
+## 配置能力
 
 <PortalLanding portal="build" section="guides" />
 
-在控制台打开 **FDE 工作台**（`/fde/`）进行构建和发布。FDE 用户和管理员可以进入工作台，其中 **渠道配置** 和 **Agent 评估** 需要管理员权限。
+需要委派给子 Agent 时，先约定子任务的输入和预期结果，见 [Agent 组合](/zh-cn/build/composition/)。
+
+<div id="从需求到发布" aria-hidden="true"></div>
+
+## 构建、测试与发布
+
+在控制台打开 **FDE 工作台**（`/fde/`）构建和发布。FDE 用户和管理员可以进入工作台，管理员还可以运行 [FDE Agent 评估](/zh-cn/build/agent-tests/)。
+
+<PortalLanding portal="build" section="paths" />
 
 ## 在工作空间使用模板
 
 <PortalLanding portal="build" section="next" />
+
+通过 API 或 SDK 接入自己的应用，请看 [Developer](/zh-cn/developer/)。
 
 ## 运营
 

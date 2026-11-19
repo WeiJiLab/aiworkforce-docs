@@ -69,6 +69,13 @@ export const PORTALS = {
             "software-factory/review-release",
             "software-factory/release-governance",
           ]),
+          nested("Interviews and meetings", "访谈与会议", [
+            "build/bots",
+            "build/invites",
+            "build/meeting-assistants",
+            "build/meeting-records",
+            "build/channels",
+          ]),
         ],
       },
       {
@@ -262,31 +269,20 @@ export const PORTALS = {
     landing: "build",
     groups: [
       {
-        label: "Requirements discovery",
-        zh: "需求发现",
+        label: "Define an agent",
+        zh: "定义 Agent",
         collapsed: false,
         items: [
-          "build/bots",
-          "build/invites",
-          "build/meeting-assistants",
-          "build/meeting-records",
-        ],
-      },
-      {
-        label: "Agent design and build",
-        zh: "Agent 构建",
-        collapsed: false,
-        items: [
-          "build/builder",
           "build/employee-definition",
           "build/prompts-rules",
+          "build/builder",
           "build/architecture",
         ],
       },
       {
-        label: "Capability extensions",
-        zh: "能力扩展",
-        collapsed: true,
+        label: "Configure capabilities",
+        zh: "配置能力",
+        collapsed: false,
         items: [
           "build/skills-plugins",
           "build/skills",
@@ -317,12 +313,6 @@ export const PORTALS = {
           "build/market",
           "build/marketplace",
         ],
-      },
-      {
-        label: "Channel integration",
-        zh: "渠道集成",
-        collapsed: true,
-        items: ["build/channels"],
       },
       {
         label: "Operate",

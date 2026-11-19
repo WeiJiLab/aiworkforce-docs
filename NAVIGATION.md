@@ -25,7 +25,7 @@ Customize & Extend 是文档栏目，中文名为「定制与扩展」。控制�
 顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定。栏目第一项是首页链接 **Docs home / 文档首页**，指向 `/` 与 `/zh-cn/`。其后分组为：
 
 1. Get started / 开始使用。首页和侧栏提供三个任务入口：在已有看板上交付第一条 Issue、配置团队的第一个交付看板、运行第一个自动化任务。教程页尾按任务给出下一步。
-2. Software Factory / 软件工厂。先是四条回路：需求 → 卡片、卡片 → PR、PR → 合并、信号 → 卡片。其后是 Issue、看板和 Pull Request 自动化，以及路径细则。卡片排查指南放在看板工作台之后。
+2. Software Factory / 软件工厂。先是四条回路：需求 → 卡片、卡片 → PR、PR → 合并、信号 → 卡片。其后是 Issue、看板和 Pull Request 自动化，以及路径细则。卡片排查指南放在看板工作台之后。访谈机器人、访谈邀请、会议助手、会议记录和 FDE 渠道配置收在「访谈与会议」子组，继续使用原 `/build/` 地址。
 3. Automate Work / 自动化工作（含 Agent handoff）
 4. Use employees / 使用数字员工
 5. Run Workflows / 运行工作流
@@ -37,14 +37,14 @@ Customize & Extend 是文档栏目，中文名为「定制与扩展」。控制�
 
 栏目首页是 `/build/`。旧 `/fde/` 文档链接按语言跳转到对应的 `/build/` 页面。运营从文档栏目移到这里，地址不变。
 
-1. 需求发现：访谈机器人、邀请、会议助手、会议记录
-2. Agent 构建：构建器、Agent 定义、指令与架构
-3. 能力扩展：Skills、Plugins、Tools、MCP 依赖
-4. Agent 协作：组合、Hooks 与子 Agent
-5. 测试与评测：结构校验、任务测试与管理员评测
-6. 模板与发布：模板、发布、市场与分发
-7. 渠道集成：FDE 渠道配置（管理员）
-8. 运营：项目、权限、模型、评测与治理、审计、安全
+栏目首页先提供 Agent 包配置参考，再引导读者构建、测试与发布。
+
+1. 定义 Agent（Define an agent）：Agent 定义、指令、构建器和架构
+2. 配置能力（Configure capabilities）：Skills、Plugins、Tools 和 MCP 依赖
+3. Agent 协作：组合、Hooks 与子 Agent
+4. 测试与评测：结构校验、任务测试与管理员评测
+5. 模板与发布：模板、发布、市场与分发
+6. 运营：项目、权限、模型、评测与治理、审计、安全
 
 ## Learn 侧栏
 

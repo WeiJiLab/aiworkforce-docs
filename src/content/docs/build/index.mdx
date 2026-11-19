@@ -1,6 +1,6 @@
 ---
 title: Customize & Extend
-description: Define agent behavior for a business workflow, extend and combine capabilities, and publish a tested Agent Package as a reusable template.
+description: Define a role and its instructions, configure skills, tools, and MCP dependencies, then test and publish a template.
 prev: false
 translation:
   source: en
@@ -10,23 +10,42 @@ translation:
 
 import PortalLanding from "../../../components/PortalLanding.astro";
 
-When a Software Factory task needs a new agent capability, define the expected output and choose the skill, plugin, or tool that will produce it. If several agents share the work, specify how they hand off each task. Test the **Agent Package** against real scenarios, then publish it as a template your team can install.
+An **Agent Package** defines a reusable role and how it works. Publish a tested version as a template so a workspace can create a digital employee from it.
 
-To use an existing template, [install it in your workspace](/getting-started/first-employee/). To connect an application through the API or SDK, see [Developer](/developer/).
+## Define an agent
 
-## From discovery to publication
+Specify the result the agent should deliver, the inputs it needs, and when to hand the task back to a person. For a complete research assistant example, see [Agent definition](/build/employee-definition/).
 
-<PortalLanding portal="build" section="paths" />
+| File                         | What to configure                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| `.aiworkforce/employee.yaml` | Responsibilities, inputs, outputs, constraints, and `entry_skill`                |
+| `.aiworkforce/router.md`     | How to invoke the entry Skill and handle missing inputs or out-of-scope requests |
+| `skills/<skill-id>/SKILL.md` | The method, checks, and output format for a task                                 |
+| `.claude-plugin/plugin.json` | Plugin identifier, version, and description                                      |
 
-## Build and configuration reference
+For guidance that belongs to a session or repository, see [Agent instructions](/build/prompts-rules/).
+
+<div id="build-and-configuration-reference" aria-hidden="true"></div>
+
+## Configure capabilities
 
 <PortalLanding portal="build" section="guides" />
 
-Open **FDE workbench** (`/fde/`) in the console to build and publish. FDE users and administrators can enter the workbench. **Channel configuration** and **Agent tests** require administrator access.
+To delegate work with defined inputs and outputs, see [Agent composition](/build/composition/).
+
+<div id="from-discovery-to-publication" aria-hidden="true"></div>
+
+## Build, test, and publish
+
+Open **FDE workbench** (`/fde/`) in the console to build and publish. FDE users and administrators can enter the workbench. Administrators can also run [FDE Agent tests](/build/agent-tests/).
+
+<PortalLanding portal="build" section="paths" />
 
 ## Use a template in a workspace
 
 <PortalLanding portal="build" section="next" />
+
+For API and SDK integrations, see [Developer](/developer/).
 
 ## Operate
 
