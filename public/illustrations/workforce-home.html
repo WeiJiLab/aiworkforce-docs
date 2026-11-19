@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Home 演练 · 把任务交给数字员工</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      body {
+        margin: 0;
+      }
+
+      #workforce-home {
+        --shell: light-dark(#eaf2f7, #21323d);
+        --paper: light-dark(#fff, #18242d);
+        --ink: light-dark(#182531, #eaf2f6);
+        --muted: light-dark(#536679, #b4c4ce);
+        --line: light-dark(#dce5ea, #3a4e59);
+        --active: light-dark(#e3f3f9, #193e4e);
+        --teal: light-dark(#087091, #8fdbea);
+        --soft: light-dark(#f3f5f6, #25343d);
+        font:
+          14px/1.6 Inter,
+          system-ui,
+          sans-serif;
+        background: var(--shell);
+        color: var(--ink);
+        border-radius: 12px;
+        padding: 0 8px 8px;
+        container-type: inline-size;
+      }
+      #workforce-home * {
+        box-sizing: border-box;
+      }
+      #workforce-home [hidden] {
+        display: none !important;
+      }
+      #workforce-home button,
+      #workforce-home select,
+      #workforce-home textarea {
+        font: inherit;
+        color: inherit;
+      }
+      #workforce-home button,
+      #workforce-home select,
+      #workforce-home summary {
+        cursor: pointer;
+      }
+      #workforce-home button {
+        border: 0;
+        background: transparent;
+        border-radius: 7px;
+        padding: 7px 9px;
+        text-align: left;
+      }
+      #workforce-home svg {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        flex-shrink: 0;
+      }
+      #workforce-home .top,
+      #workforce-home .head,
+      #workforce-home .tools,
+      #workforce-home nav button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      #workforce-home .top {
+        padding: 9px 6px;
+      }
+      #workforce-home .top small {
+        margin-left: auto;
+        color: var(--muted);
+      }
+      #workforce-home .shell {
+        display: grid;
+        grid-template-columns: 50px minmax(148px, 20%) minmax(0, 1fr);
+      }
+      #workforce-home .rail {
+        color: var(--teal);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: start;
+        gap: 3px;
+        background: var(--paper);
+        padding: 10px 4px;
+        border-radius: 9px;
+        margin: 12px 6px 0 0;
+        font-size: 11px;
+      }
+      #workforce-home nav,
+      #workforce-home main {
+        min-width: 0;
+        background: var(--paper);
+        border: 1px solid var(--line);
+      }
+      #workforce-home nav {
+        border-radius: 10px 0 0 10px;
+        border-right: 0;
+        padding-bottom: 10px;
+      }
+      #workforce-home main {
+        border-radius: 0 10px 10px 0;
+      }
+      #workforce-home .head {
+        height: 46px;
+        padding: 0 14px;
+        border-bottom: 1px solid var(--line);
+        font-weight: 600;
+      }
+      #workforce-home nav button {
+        width: calc(100% - 12px);
+        margin: 4px 6px;
+      }
+      #workforce-home nav button[aria-pressed="true"] {
+        background: var(--soft);
+        font-weight: 600;
+      }
+      #workforce-home nav button:hover,
+      #workforce-home .rail:hover {
+        background: var(--active);
+      }
+      #workforce-home nav details {
+        padding: 1px 6px;
+      }
+      #workforce-home nav summary {
+        padding: 6px;
+        font-weight: 550;
+      }
+      #workforce-home nav .caption,
+      #workforce-home .line {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      #workforce-home nav .caption {
+        margin: 12px 12px 2px;
+      }
+      #workforce-home .ready {
+        color: var(--teal);
+        font-size: 12px;
+        font-weight: 500;
+      }
+      #workforce-home .chat {
+        padding: 16px clamp(14px, 4vw, 48px);
+        display: grid;
+        gap: 10px;
+      }
+      #workforce-home .chat p {
+        margin: 0;
+      }
+      #workforce-home .bubble {
+        justify-self: end;
+        background: var(--soft);
+        border-radius: 13px 13px 2px 13px;
+        padding: 7px 13px;
+      }
+      #workforce-home table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+      }
+      #workforce-home td,
+      #workforce-home th {
+        border: 1px solid var(--line);
+        text-align: left;
+        padding: 4px 9px;
+      }
+      #workforce-home th {
+        background: var(--shell);
+      }
+      #workforce-home .composer {
+        border: 1px solid var(--line);
+        padding: 8px 10px;
+        border-radius: 12px;
+        margin-top: 6px;
+      }
+      #workforce-home textarea {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        resize: vertical;
+        min-height: 44px;
+      }
+      #workforce-home select {
+        max-width: 100%;
+        border: 0;
+        background: var(--soft);
+        border-radius: 5px;
+        padding: 3px;
+      }
+      #workforce-home .tools {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      #workforce-home .tools button {
+        background: var(--active);
+        color: var(--teal);
+      }
+      #workforce-home [data-result] {
+        overflow-wrap: anywhere;
+        color: var(--teal);
+      }
+      #workforce-home .drawer {
+        padding: 16px;
+        display: grid;
+        gap: 12px;
+      }
+      #workforce-home .drawer summary {
+        color: var(--muted);
+      }
+      #workforce-home .drawer p {
+        margin: 0;
+      }
+      @container (max-width:620px) {
+        #workforce-home .shell {
+          grid-template-columns: 124px minmax(0, 1fr);
+        }
+        #workforce-home .rail {
+          display: none;
+        }
+        #workforce-home .chat {
+          padding: 12px;
+        }
+        #workforce-home nav button {
+          font-size: 13px;
+        }
+      }
+      @container (max-width:430px) {
+        #workforce-home .shell {
+          display: block;
+        }
+        #workforce-home nav {
+          border: 1px solid var(--line);
+          border-radius: 8px 8px 0 0;
+          display: flex;
+          align-items: start;
+          flex-wrap: wrap;
+          padding: 4px;
+        }
+        #workforce-home nav > .head,
+        #workforce-home nav > .caption,
+        #workforce-home .extras {
+          display: none;
+        }
+        #workforce-home nav > button {
+          width: auto;
+        }
+        #workforce-home nav details {
+          flex: 1;
+        }
+        #workforce-home main {
+          border-radius: 0 0 8px 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="workforce-home" aria-label="Home 交互预览" lang="zh-CN">
+      <div class="top">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="3" width="7" height="7" rx="2" />
+          <rect x="14" y="14" width="7" height="7" rx="2" />
+          <path d="M6.5 10v7.5H14" /></svg
+        ><b>工作台</b><small>Home 演练</small>
+      </div>
+      <div class="shell">
+        <button class="rail" data-home aria-label="返回 Home">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="m3 10 9-7 9 7v11H3z M9 21v-8h6v8" /></svg
+          >Home
+        </button>
+        <nav aria-label="Home 导航">
+          <div class="head">Home</div>
+          <button data-home aria-pressed="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M21 11a9 9 0 0 1-13 8l-5 2 1.5-5A9 9 0 1 1 21 11z"
+              /></svg
+            >主智能体
+          </button>
+          <div class="caption">工作空间</div>
+          <details open>
+            <summary>产品研发团队</summary>
+            <div class="extras" style="padding-left: 14px; color: var(--muted)">
+              开发 Developer<br />测试 Tester<br />产品经理
+            </div>
+            <button data-employee aria-pressed="false">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="7" width="18" height="13" rx="4" />
+                <path d="M12 7V3 M8 12v3m8-3v3" /></svg
+              >测试发布
+            </button>
+          </details>
+          <details class="extras">
+            <summary>我的工作空间</summary>
+            <div style="padding-left: 16px">架构师<br />SPEC 专员</div>
+          </details>
+        </nav>
+        <main>
+          <section data-view="home">
+            <div class="head">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="7" width="18" height="13" rx="4" />
+                <path d="M12 7V3 M8 12v3m8-3v3" /></svg
+              >主智能体 <span class="ready">● 已就绪</span>
+            </div>
+            <div class="chat">
+              <p class="bubble" data-question>我有几个员工？</p>
+              <div class="line">✓　执行总结　 本轮执行完成</div>
+              <p data-answer></p>
+              <table>
+                <thead>
+                  <tr>
+                    <th>员工</th>
+                    <th>职责</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <form class="composer">
+                <textarea rows="2" aria-label="主智能体消息">
+产品研发团队 有哪些员工？</textarea>
+                <div class="tools">
+                  <label
+                    ><svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linejoin="round"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 6h6l2 2h10v12H3z" />
+                    </svg>
+                    <select aria-label="工作空间提示">
+                      <option value="auto">自动选择</option>
+                      <option>产品研发团队</option>
+                      <option>我的工作空间</option>
+                    </select></label
+                  ><button type="submit">发送 ↑</button>
+                </div>
+              </form>
+              <p class="line" role="status" data-help></p>
+            </div>
+          </section>
+          <section data-view="employee" hidden>
+            <div class="head">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="7" width="18" height="13" rx="4" />
+                <path d="M12 7V3 M8 12v3m8-3v3" /></svg
+              >测试发布 <span class="ready">执行中</span>
+            </div>
+            <div class="drawer">
+              <div class="line">产品研发团队　/　自动化　/　测试部署 · v1</div>
+              <p class="bubble">部署测试环境 · 第 1 版</p>
+              <details>
+                <summary>执行过程　工具调用 16 次　失败 1 次</summary>
+                <p>流水线已启动，部署结果待核对。</p>
+              </details>
+              <p>
+                流水线已启动，运行编号为
+                <b>53</b
+                >。我会跟踪同一次运行，并在成功后核对测试环境版本和就绪状态。
+              </p>
+              <form class="composer">
+                <textarea rows="2" aria-label="给测试发布的消息">
+请在流水线 53 结束后，贴出实际部署版本和就绪检查结果。</textarea>
+                <div class="tools">
+                  <span class="line">思考中</span
+                  ><button type="submit">排队发送</button>
+                </div>
+              </form>
+              <p data-result role="status"></p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </section>
+    <script>
+      (() => {
+        const root = document.getElementById("workforce-home");
+        const home = root.querySelector('[data-view="home"]');
+        const employee = root.querySelector('[data-view="employee"]');
+        const picker = home.querySelector("select");
+        const question = home.querySelector("textarea");
+        const teams = {
+          我的工作空间: [
+            ["架构师", "设计架构方案"],
+            ["SPEC 专员", "整理需求规格"],
+          ],
+          产品研发团队: [
+            ["开发", "实现功能"],
+            ["发布", "跟踪发布流水线"],
+            ["测试", "验收并记录结果"],
+            ["产品经理", "澄清需求"],
+            ["测试发布", "部署到测试环境"],
+            ["合入主干", "合并已验收的版本"],
+          ],
+        };
+        function showHome(active) {
+          home.hidden = !active;
+          employee.hidden = active;
+          root
+            .querySelector("nav [data-home]")
+            .setAttribute("aria-pressed", String(active));
+          root
+            .querySelector("[data-employee]")
+            .setAttribute("aria-pressed", String(!active));
+        }
+        function showTeam(team, text) {
+          const staff = teams[team];
+          home.querySelector("[data-question]").textContent = text;
+          home.querySelector("[data-answer]").textContent =
+            `「${team}」里有 ${staff.length} 位数字员工。`;
+          const body = home.querySelector("tbody");
+          body.replaceChildren();
+          for (const person of staff) {
+            const row = body.insertRow();
+            for (const value of person) row.insertCell().textContent = value;
+          }
+        }
+        showTeam("我的工作空间", "我有几个员工？");
+        root
+          .querySelectorAll("[data-home]")
+          .forEach((button) => (button.onclick = () => showHome(true)));
+        root.querySelector("[data-employee]").onclick = () => showHome(false);
+        picker.onchange = () => {
+          question.value =
+            picker.value === "auto"
+              ? "我有几个员工？"
+              : `${picker.value} 有哪些员工？`;
+        };
+        home.querySelector("form").onsubmit = (event) => {
+          event.preventDefault();
+          const text = question.value.trim();
+          const help = home.querySelector("[data-help]");
+          if (!text || !/员工|团队|成员|谁|多少人/.test(text)) {
+            help.textContent = "试着问「产品研发团队 有哪些员工？」";
+            question.focus();
+            return;
+          }
+          const named = Object.keys(teams).find((name) =>
+            text.toLowerCase().includes(name.toLowerCase()),
+          );
+          const team =
+            named || (picker.value === "auto" ? "我的工作空间" : picker.value);
+          showTeam(team, text);
+          help.textContent = "已更新员工列表";
+          question.value = "";
+          question.placeholder = "输入消息开始对话…";
+        };
+        employee.querySelector("form").onsubmit = (event) => {
+          event.preventDefault();
+          const input = employee.querySelector("textarea");
+          if (input.value.trim()) {
+            employee.querySelector("[data-result]").textContent =
+              `演练消息已排队 · ${input.value.trim()}`;
+            input.value = "";
+          }
+        };
+        for (const input of root.querySelectorAll("textarea")) {
+          input.onkeydown = (event) => {
+            if (
+              event.key === "Enter" &&
+              !event.shiftKey &&
+              !event.isComposing &&
+              event.keyCode !== 229
+            ) {
+              event.preventDefault();
+              input.form.requestSubmit();
+            }
+          };
+        }
+      })();
+    </script>
+  </body>
+</html>

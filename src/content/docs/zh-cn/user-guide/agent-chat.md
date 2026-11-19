@@ -10,6 +10,14 @@ translation:
 
 在工作空间里选择一名已就绪的数字员工，打开会话。告诉它需要交付什么结果，以及你会怎么检查。如果工作空间还没有合适的员工，先看[从模板创建第一个数字员工](/zh-cn/getting-started/first-employee/)。
 
+## 试一试：从 Home 找到数字员工
+
+在主智能体里问「产品研发团队有哪些员工？」，再点左侧的「测试发布」，给正在跟踪流水线的员工补一句验收要求。点「主智能体」可以回到刚才的名单。演练使用示例数据。
+
+<iframe src="/illustrations/workforce-home.html" title="交互示例：从 Home 查看团队并跟进员工会话" style="width:100%;height:clamp(34rem, 72vh, 46rem);border:0;border-radius:12px;"></iframe>
+
+[单独打开 Home 演练](/illustrations/workforce-home.html)
+
 ## 开启有效会话
 
 选择符合员工职责的目标，在同一条请求里写清期望输出、限制和验收标准。附上任务需要的资料，或指出它们的位置。见[提供任务上下文](/zh-cn/user-guide/knowledge-context/)。
