@@ -4,7 +4,7 @@ description: "Run the AI Workforce service stack on infrastructure you operate, 
 audience:
   - platform-engineer
 product_area: deployment
-last_verified: "2026-11-18"
+last_verified: "2026-11-19"
 sidebar:
   label: Self-host the platform
 translation:
@@ -15,9 +15,9 @@ translation:
 
 Self-hosting means your organization runs the AI Workforce services: the web application, the backend, PostgreSQL, and the workspace files those services store. An operator-hosted deployment is the same product, run for you. People still use workspaces, employees, and workflows. What changes is who operates the services and where those records live.
 
-This page covers the install and release assets in the platform repository. The covered path is the local development stack. The release assets are a single-host Compose update used by that repository's environment entrypoints. Kubernetes, Helm, and a public image pull command are outside this page because this baseline does not provide them.
+The platform provides a local development stack and a single-host Compose release. You can also deploy a device executor separately on Kubernetes and connect it to an existing platform.
 
-[Runtime management](/deployment/runtime-environments/) is the choice between an operator-hosted deployment, this self-hosted stack, and an authorized device. This page is the procedure for the stack.
+See [Runtime management](/deployment/runtime-environments/) to choose where to run the platform and devices.
 
 ## Running managed agents on enterprise infrastructure
 
@@ -31,13 +31,13 @@ For example, an employee can test a private repository change on a paired develo
 
 ## What you can run
 
-| Layout                       | What it is                                                                                                             | What to expect                                                                                                                                   |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Local development stack      | `deploy/local`: Compose, source mounts, frontend and backend reload, local volumes                                     | A private development environment. It is the path you can start from a checkout.                                                                 |
-| Host-mode development        | `deploy/local/deploy.sh`: PostgreSQL in Compose, API and frontend processes on the host                                | Another development entry in the same directory. It stops when you interrupt it.                                                                 |
-| Single-host release          | `deploy/shared/compose`: PostgreSQL 16, backend image, frontend image, and Caddy, started by an environment entrypoint | An in-place update of one host, with a window where that host is down. The shared release script is not a command to run from a source checkout. |
-| Kubernetes or Helm           | No maintained operator or chart in this baseline                                                                       | Package the services yourself only if you keep migration order, volumes, runtime ownership, and readiness.                                       |
-| Multi-machine rolling update | Not implemented                                                                                                        | The release path updates one host and stops it during migration and startup. A load balancer and shared storage are not included.                |
+| Layout                              | What it is                                                                                                             | What to expect                                                                                                                                   |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Local development stack             | `deploy/local`: Compose, source mounts, frontend and backend reload, local volumes                                     | A private development environment. It is the path you can start from a checkout.                                                                 |
+| Host-mode development               | `deploy/local/deploy.sh`: PostgreSQL in Compose, API and frontend processes on the host                                | Another development entry in the same directory. It stops when you interrupt it.                                                                 |
+| Single-host release                 | `deploy/shared/compose`: PostgreSQL 16, backend image, frontend image, and Caddy, started by an environment entrypoint | An in-place update of one host, with a window where that host is down. The shared release script is not a command to run from a source checkout. |
+| Kubernetes or Helm for the platform | No maintained operator or chart in this baseline                                                                       | Package the services yourself only if you keep migration order, volumes, runtime ownership, and readiness.                                       |
+| Multi-machine rolling update        | Not implemented                                                                                                        | The release path updates one host and stops it during migration and startup. A load balancer and shared storage are not included.                |
 
 Release images are produced for the environment's build. This guide does not add a public image name or a `docker pull` command. Configuration for a release host is the runtime contract that entrypoint already validates. Copying `deploy/local/.env` into a release host is not that contract.
 
@@ -129,6 +129,30 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 `down` stops the containers and keeps the volumes. `down --volumes` deletes the local database, workspace files, and dependency caches. Those volumes belong to the local Compose project, so this command does not delete a separate release host.
 
 `bash deploy/local/deploy.sh` is the host-mode development entry. It starts PostgreSQL with Compose, runs the same expand and DBOS steps, then runs the API and the frontend on the host until you interrupt it. That host needs the backend and frontend toolchains already installed. Use the Compose file above when you want the whole stack in containers.
+
+## Run a device executor on Kubernetes
+
+You can run one authorized Linux device executor on Kubernetes and connect it to an existing AI Workforce platform. The daemon opens an outbound WSS connection, so the Pod needs no incoming port. The platform continues to manage sessions, authorization, and model calls. Dispatch workloads you trust to run with the Pod user's permissions.
+
+1. Obtain a dedicated token, device ID, and authorized actor ID from the platform. Create a Secret named `awf-device` in the target namespace with the keys `token`, `device-id`, and `actor-id`. Use a separate device credential for each executor.
+2. Build the image from your `aiworkforce-daemon` checkout and push it to a registry your cluster can pull from.
+
+   ```sh
+   docker build -t registry.example.com/aiworkforce-device-exec:example .
+   docker push registry.example.com/aiworkforce-device-exec:example
+   ```
+
+3. Update the image in `deploy/kubernetes/device.yaml` and set `AWF_CONTROL_URL` to the platform's `wss://your-platform.example.com/api/daemon/v2/connect` endpoint. Use the cluster's default StorageClass for both claims or specify one on each. The state volume must allow UID `10001` to create and own the `device` directory under `/var/lib/awf`.
+4. Apply the manifest in the Secret's namespace. Check the logs and confirm that the device appears online in the platform before starting a session.
+
+   ```sh
+   kubectl -n YOUR_NAMESPACE apply -f deploy/kubernetes/device.yaml
+   kubectl -n YOUR_NAMESPACE logs deployment/awf-device
+   ```
+
+Run one replica per device. `/workspace` and `/var/lib/awf` use separate PVCs. Keep the state PVC through Pod replacement. When a previous execution did not reach confirmed stop, the new Pod stays quarantined and refuses new leases. Preserve the journal for review.
+
+From the daemon checkout, run `python3 tests/kubernetes/test_lifecycle.py` to reproduce execution, cancellation, lease expiry, reconnect, eviction, and fencing after an abrupt exit in a disposable k3d cluster. The test uses a local controller in the Pod. Run a small platform session after deployment to check your WSS route and device authentication.
 
 ## Network and data
 
