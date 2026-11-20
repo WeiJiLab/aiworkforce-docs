@@ -3,11 +3,11 @@ title: "Linear"
 description: "Import open Linear issues after an administrator connects a team for this workspace."
 sidebar:
   label: Linear
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Linear in AI Workforce is a one-time, read-only import into Task inbox. It runs only after an administrator connects a Linear team for this workspace and for specific people. There is no Linear OAuth install, no team browser, and no write-back.
@@ -46,11 +46,25 @@ Add a source to the deployment's issue-import list. Store the API key in the sec
 | Scope       | The Linear team key.                                              |
 | Credentials | The variable name for a personal API key that can read that team. |
 
-The API host is Linear's cloud API. Restart the service after the deployment receives the list and the secret. There is no self-hosted Linear endpoint in this import.
+Set the backend environment variable `ISSUE_IMPORT_SOURCES` to a JSON array. Replace the sample IDs and scope with the approved workspace, users, and Linear team. Set `LINEAR_IMPORT_TOKEN` through your secret store. Restart the backend after deployment supplies the array and credentials.
+
+```json
+[
+  {
+    "id": "linear-example",
+    "name": "Linear team import",
+    "provider": "linear",
+    "workspace_id": 42,
+    "user_ids": [101],
+    "scope": "ENG",
+    "token_env": "LINEAR_IMPORT_TOKEN"
+  }
+]
+```
 
 ## What you can do afterward
 
-Imported tasks sit in Task inbox. A person can open one and route a confirmed item to a workbench draft. The import does not create a session and does not start development. Importing the same Linear issue again skips the existing inbox record and keeps later edits. The identity is Linear's issue id. Hand-entered rows, and automation rows saved under a different source key, are not merged automatically.
+Imported tasks and their copied descriptions are stored in the workspace’s Task inbox. A person can open one and route a confirmed item to a workbench draft. The import does not create a session and does not start development. Importing the same Linear issue again skips the existing inbox record and keeps later edits. The identity is Linear's issue id. Hand-entered rows, and automation rows saved under a different source key, are not merged automatically.
 
 ## Permissions and credentials
 

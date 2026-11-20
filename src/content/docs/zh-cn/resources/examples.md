@@ -4,8 +4,8 @@ description: "把文档中的研究助手包当作完整示例。本站不提供
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
-  sourceHash: "9ac3a65c9b2f5c3a9fc60eb7c3e6afb76cb4936827aecc64a9ba8131fa11e947"
+  sourceVersion: "2026-11-20"
+  sourceHash: "ce18b8b9fb5d34d7106b94694828236780eb00ad35c503da818255dd6b475e3b"
 ---
 
 本文档中的完整示例是一名研究助手：根据给定材料准备简报，并拒绝发布这些材料。它说明的是 Agent 包布局，不是你的部署一定已经发布的模板，也不是可以从本站克隆的仓库。
@@ -16,7 +16,7 @@ translation:
 research-assistant/
 ├── .claude-plugin/plugin.json
 ├── .aiworkforce/employee.yaml
-├── .aiworkforce/router.md
+├── .aiworkforce/rule.md
 ├── README.md
 └── skills/main/SKILL.md
 ```

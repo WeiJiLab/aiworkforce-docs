@@ -3,12 +3,12 @@ title: "Jira"
 description: "管理员为这个工作空间接好 Jira Cloud 项目之后，导入未关闭的 Issue。"
 sidebar:
   label: Jira
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "2e06714ed9608cd17f5de265d693f2c3fd097455b8827f66276bc6208c39e88a"
+  sourceVersion: "2026-11-20"
+  sourceHash: "f67e364cff87e00432717783b9b2dc3e4e6e667690f19fdd5c08166cb85c7eb1"
 ---
 
 在 AI Workforce 里，Jira 是一次性的、只读的 Task inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Jira Cloud 项目之后，它才会出现。工作空间的集成目录里没有 Jira 卡片，没有项目浏览器，也不会把状态写回 Jira。
@@ -50,11 +50,27 @@ translation:
 | 站点     | Cloud 站点，形如 `https://<site>.atlassian.net`。                    |
 | 凭据     | 能读取该项目的 API Token 的变量名，以及 Atlassian 账号邮箱的变量名。 |
 
-部署拿到这份列表和密钥之后，重启服务。不接受 Jira Server 和 Jira Data Center。站点必须是 Atlassian Cloud 的 HTTPS 地址。
+把后端环境变量 `ISSUE_IMPORT_SOURCES` 设为 JSON 数组。将示例编号和范围替换为已获准的工作空间、用户与 Jira 项目。通过密钥库提供 `JIRA_IMPORT_TOKEN` 和 `JIRA_IMPORT_EMAIL`。部署注入数组与凭据后，重启后端。
+
+```json
+[
+  {
+    "id": "jira-example",
+    "name": "Jira project import",
+    "provider": "jira",
+    "workspace_id": 42,
+    "user_ids": [101],
+    "scope": "ENG",
+    "token_env": "JIRA_IMPORT_TOKEN",
+    "site": "https://example.atlassian.net",
+    "email_env": "JIRA_IMPORT_EMAIL"
+  }
+]
+```
 
 ## 连接之后能做什么
 
-导入的任务留在 Task inbox。打开一条，确认范围，需要开发时再把它送到工作台草稿。导入不创建会话，也不启动开发。同一条 Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。匹配依据是 Jira 站点加上 Issue ID。手工录入的旧记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
+导入的任务及复制的描述保存在工作空间的任务收件箱。打开一条，确认范围，需要开发时再把它送到工作台草稿。导入不创建会话，也不启动开发。同一条 Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。匹配依据是 Jira 站点加上 Issue ID。手工录入的旧记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
 
 ## 权限与凭据
 

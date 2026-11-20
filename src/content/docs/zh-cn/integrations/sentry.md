@@ -3,12 +3,12 @@ title: "Sentry"
 description: "在个人连接上接收 Sentry Issue 事件，并在已启用的规则匹配时启动 Job。"
 sidebar:
   label: Sentry
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "83bd0f3d6ccefe03d6c7f8fcfa58cf68bb6789b2ddde195f7aead8e6dc104afe"
+  sourceVersion: "2026-11-20"
+  sourceHash: "995fd992b2410a02426b70f7aed081eac900be9424056f4984b6786d425da12e"
 ---
 
 Sentry 是接收 Issue 事件的监控连接。连接属于你本人，并且只在一个工作空间里。Issue 事件匹配已启用的规则时，可以运行一个已发布的 Job。这条连接不会更新 Sentry Issue，不会指派负责人，也不会自己生成调研报告。
@@ -57,7 +57,7 @@ Token 需要上面的组织、项目和 Issue 读取权限。Client Secret 用�
 
 没有 OAuth 安装向导，不会写回 Sentry，不会自动授予 MCP，也没有历史回填。Webhook 是否送达，不会被存成一份已核实的远端健康结果。界面会说明 Webhook 仍要在 Sentry 里确认。Issue hook 不提供环境筛选。签名后完全相同的正文会被当成同一次投递。真实回归通常会改变 last seen 或 count 一类字段，从而得到新的身份。
 
-只处理 Issue 这一类资源。其他 Sentry 资源在确认后忽略。未验证或已停用的连接会拒绝事件。来源暂停时保留身份，但不运行 Job。重新打开后，旧事件不会重放。
+Sentry Issue 事件要求连接已验证。暂停已验证的连接后，符合条件的事件仍可接收并保存。平台会跳过这些事件的规则评估，重新启用连接也不会重放。其他 Sentry 资源在确认后忽略。
 
 ## 相关文档
 

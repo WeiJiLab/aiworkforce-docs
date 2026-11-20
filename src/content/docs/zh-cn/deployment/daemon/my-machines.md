@@ -6,19 +6,19 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "a3134a91e9a70fee527dfc7c052eaf07cdf09d662f5ada3606c874679c1cc554"
+  sourceVersion: "2026-11-20"
+  sourceHash: "18c533a3a81a6141bfd989c3d1010db123586e63233c2d9315cbdaf458299fac"
 ---
 
 ## 配对电脑
 
-向部署管理员取得适用于这台 macOS 或 Linux 电脑的 `aiworkforce-daemon`，以 `aiworkforce-daemon` 为名安装到 `PATH` 中的目录。准备好要授权的项目目录、平台的 HTTPS 地址，以及能登录该平台的账号。
+向部署管理员取得适用于这台 macOS 或 Linux 电脑的 `aiworkforce-device-exec`，以 `aiworkforce-device-exec` 为名安装到 `PATH` 中的目录。准备好要授权的项目目录、平台的 HTTPS 地址，以及能登录该平台的账号。
 
 在电脑上运行以下命令，将两个示例值换成你的项目绝对路径和平台地址。
 
 ```bash
-aiworkforce-daemon doctor --json
-aiworkforce-daemon connect \
+aiworkforce-device-exec doctor --json
+aiworkforce-device-exec connect \
   --workspace /absolute/project/path \
   --platform https://platform.example.org
 ```
@@ -27,10 +27,10 @@ aiworkforce-daemon connect \
 
 ## 确认上线
 
-批准后，CLI 会启动后台 worker。运行 `aiworkforce-daemon status --json`，确认 worker 在线。随后就可以[为会话选择这台电脑](/zh-cn/deployment/daemon/session-execution/)。
+批准后，CLI 会启动后台 worker。运行 `aiworkforce-device-exec status --json`，确认 worker 在线。随后就可以[为会话选择这台电脑](/zh-cn/deployment/daemon/session-execution/)。
 
 ## 管理已连接的电脑
 
-在个人设置的**设备连接**中查看在线状态、标记默认设备或撤销授权。`stop` 暂停本机 worker 并保留配对，`start` 可再次启动。要解除配对，运行 `aiworkforce-daemon disconnect`。
+在个人设置的**设备连接**中查看在线状态、标记默认设备或撤销授权。`stop` 暂停本机 worker 并保留配对，`start` 可再次启动。要解除配对，运行 `aiworkforce-device-exec disconnect`。
 
 如需开机启动，可用 `service --format launchd` 或 `service --format systemd` 生成服务定义，核对运行账号、目录和平台地址后自行安装。完整命令见[设备执行器 CLI](/zh-cn/integrations/cli/)。

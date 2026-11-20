@@ -4,7 +4,7 @@ description: "Turn a business problem into bounded requirements, observable acce
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 A useful requirement lets the person requesting a change and the employee implementing it agree on the same observable result. Write it before authorizing development. This guide uses a hypothetical validation-message change to show the method; the example describes a proposed change, not a feature promised by AI Workforce.
@@ -69,7 +69,7 @@ Split work when outcomes can be accepted independently. Keep changes together wh
 
 ## Confirm the draft in AI Workforce
 
-Open an appropriate Issue from the workspace Task inbox and use its workbench action to prepare a draft in the intended project. Review the requirements, acceptance criteria, and editable repositories in the requirements conversation. Respond to the card's current requirement-confirmation request when the revision is ready.
+Open an appropriate Issue from **Task inbox** and choose **Create workbench draft**. Select a project with a ready Requirements employee and submit the drawer. In the requirements conversation, review the criteria and the card’s editable repositories. Respond to a requirement-confirmation request if your board presents one. See [Task inbox](/user-guide/inbox-tasks/).
 
 If the employee discovers a material gap, clarify the draft before confirming. Confirming a requirement establishes the agreed work; it does not grant missing repository credentials or make an unconfigured delivery pipeline usable.
 

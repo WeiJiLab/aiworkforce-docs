@@ -4,7 +4,7 @@ description: "Use a Software Factory project to configure a board, repositories,
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 A workspace is where people and employees collaborate. A **project** in the current product is the Software Factory workbench project: the board, the repositories, the pipeline resources, and the employees assigned to lanes. There is no separate cross-workspace project object. Use this page when delivery work needs that configuration. Everyday tasks stay in the workspace and Task inbox.
@@ -18,10 +18,10 @@ Open **Workbench** (工作台) in the primary navigation. The delivery workbench
 - Pipeline resources required before automated merge or the Production lane.
 - The employees that execute lane work.
 
-A new project is saved in observe mode. Board settings says: “A new project is saved in observe mode · start it after checks pass.” Confirming requirements on a draft does not approve a repository change. Creating a card, or even creating the project, does not authorize those employees. Repository credentials belong to the workspace. Each execution employee still needs its own grant. See [code repositories](/integrations/code-repositories/).
+A board created from a published template activates when initialization succeeds. Review its configuration in the creation wizard before submitting it. Repository credentials belong to the workspace, and each execution employee needs an applicable grant. Review the card’s write scope before development. If the board has no repositories configured and the card has no explicit write scope, supported development flows can use the development employee’s existing workspace repository grants. See [code repositories](/integrations/code-repositories/).
 
 ## What stays outside the project
 
-Task inbox items, chat sessions, and automation runs are not projects. An inbox item can be routed into a workbench draft. A Job can collect items into the inbox or into a workbench project. Neither step confirms requirements. Confirmation is a human decision on the draft. See [work intake](/software-factory/intake/) and [human approval](/user-guide/human-approval/).
+An inbox item can be routed into a workbench draft. A Job can collect items into the inbox or directly into a workbench project. The draft then follows the target board’s [intake rules](/software-factory/intake/).
 
 If the work does not change software, you do not need a project. Use a workspace employee and review the artifact.

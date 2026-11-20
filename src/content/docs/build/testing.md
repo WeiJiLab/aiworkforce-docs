@@ -4,16 +4,20 @@ description: "Test an Agent Package with structural validation and a small set o
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
-Testing an employee means two different checks. Validation tells you the package is structurally complete. A task trial tells you the role behaved on inputs you chose. The [employee builder](/build/builder/) provides **Validate** and **Submit build**. Administrators can also queue a stored suite from [FDE Agent tests](/build/agent-tests/). [Execution evaluation](/software-factory/evaluation/) shows how to judge one delivery task from the records you already have. The three trials below are the hand-run check while you change the package.
+Test an employee at three points. Validate the package structure, run draft evaluations before submitting the build, and try the published package on the workspace employee that will use it.
 
 <div id="validate-the-package" aria-hidden="true"></div>
 
 ## Validate the Agent Package
 
-Run **Validate** before **Submit build**. Fix missing files, missing manifest fields, unknown skill references, conflicting boundaries, and exposed credentials. A valid result is not a quality score. Publish only after the trials below match the responsibility.
+Run **Validate** in the builder. Fix missing files, manifest fields, unknown Skill references, conflicting boundaries, and exposed credentials before evaluating the draft.
+
+## Evaluate the current draft
+
+A system administrator can open **Agent evaluation** from the bound build and select **Current draft** under **Build and regression**. Use that draft to run the available evaluation cases before **Submit build**. See [FDE Agent tests](/build/agent-tests/).
 
 ## Try three requests
 

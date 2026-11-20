@@ -3,12 +3,12 @@ title: "PagerDuty"
 description: "在个人连接上接收 PagerDuty 事件，并在已启用的规则匹配时启动 Job。"
 sidebar:
   label: PagerDuty
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "7c22232270012c8e291524294b9aeffdb5f419e38d1ac4ba4da63dee0614acbb"
+  sourceVersion: "2026-11-20"
+  sourceHash: "f4574246effc2d5e08231573bf77239021b31f6002ebde7d88c7a4694fd06278"
 ---
 
 PagerDuty 是接收 Incident 事件的监控连接。连接属于你本人，并且只在一个工作空间里。事件匹配已启用的规则时，可以运行一个已发布的 Job。这条连接不会在 PagerDuty 里确认、解决或重新指派 Incident。
@@ -53,7 +53,7 @@ Token 加密保存，API 不返回它。你是所有者、并且订阅还没有�
 
 ## 限制
 
-没有 OAuth 安装向导，不会写回 Incident，不会自动授予 MCP，也没有历史回填。未验证或已停用的连接会拒绝事件。来源暂停期间到达的事件不会运行 Job，重新打开也不会重放。只处理原生的 Incident 事件结构。
+PagerDuty 使用手动配置的连接，处理原生 Incident 事件。暂停已验证的连接后，符合条件的事件仍可接收并保存。平台会跳过这些事件的规则评估，重新启用连接也不会重放。集成只读取新事件，不会写回 Incident、授予 MCP 权限或回填历史。
 
 ## 相关文档
 

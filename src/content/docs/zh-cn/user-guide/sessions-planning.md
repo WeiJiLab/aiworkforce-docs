@@ -4,8 +4,8 @@ description: "查看会话状态、跟进执行计划，并核对数字员工调
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "9b984a1660cf6fd9c7373b1253541499976c4f8e365d23ee11fed7e72ffb6b11"
+  sourceVersion: "2026-11-20"
+  sourceHash: "d1d486ecd6d625ba8060732b50b605f272795779ceccb24efdf4598b61e20d19"
 ---
 
 会话连接你的请求、员工执行和生成文件。发出任务后，通过会话状态、执行计划和工具活动了解已经完成了哪些步骤，以及员工是否需要你的输入。
@@ -35,6 +35,6 @@ translation:
 
 ## 清空会话
 
-清空对话会重置消息和模型上下文，取消当前执行回合及尚未处理的排队消息。它不会还原工作空间文件，也不会删除已有工单。操作前阅读确认说明。
+使用云端执行的可编辑主智能体会话在输入区提供**清空上下文**。它会重置消息与模型上下文，取消当前回合，并清除尚未处理的排队消息。工作空间文件和已有工单会保留。
 
 工作完成后，继续[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。遇到执行问题，见[问题排查](/zh-cn/resources/troubleshooting/)。

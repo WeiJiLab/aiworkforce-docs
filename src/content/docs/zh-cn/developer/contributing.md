@@ -4,15 +4,15 @@ description: "在本地运行文档站，提交准确、双语、便于审核的
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "82d941726e4fb930b264b88030e2872b396f8c57cfd26402ece2bef4524f0c05"
+  sourceVersion: "2026-11-20"
+  sourceHash: "f4c977555dca130bfd2c7105c9a3ea21194f2d44f3e1efb9803b1c48959acc44"
 ---
 
 你可以通过澄清步骤、修正产品行为或补充有用示例来改进 AI Workforce Docs。内容应来自在产品或当前源码中能够核实的行为，并写清前提和限制，让读者能够复现结果。
 
 ## 本地运行
 
-文档站维护在 `aiworkforce-docs` 仓库根目录。目前仓库保持私有，仅仓库成员可以访问，站点尚未部署。使用 `package.json` 支持的 Node 版本，按锁文件安装依赖：
+公开文档源码维护在 `aiworkforce-docs`。本地开发时，使用 `package.json` 支持的 Node 版本，并按锁文件安装依赖。
 
 ```bash
 cd aiworkforce-docs
@@ -61,7 +61,7 @@ npm run check:links
 
 保持改动聚焦。说明读者遇到的问题、改动后的行为和已经完成的验证；必要时关联能够解释修正原因的产品变更。人工审核应覆盖技术准确性、术语、翻译和公开信息范围。
 
-获得部署授权后，可以通过 Cloudflare Pages 从仓库根目录构建，将根目录设置留空，构建命令设为 `npm run build`，输出目录设为 `dist/`。项目连接、仓库权限、预览访问权限和自定义域名需要单独配置；仓库是否私有不会自动决定已部署站点的访问权限。
+提交面向 `main` 的 Pull Request。GitHub Actions 会验证变更，并将构建后的网站作为制品上传。推送到 `main` 并通过验证后，工作流会把 `dist/` 发布到 GitHub Pages。发布站点为 [AI Workforce Docs](https://docs.aiworkforce.run/)。
 
 ## 相关文档
 

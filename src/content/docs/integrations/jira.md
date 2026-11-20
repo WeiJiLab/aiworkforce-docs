@@ -3,11 +3,11 @@ title: "Jira"
 description: "Import open Jira Cloud issues after an administrator connects a project for this workspace."
 sidebar:
   label: Jira
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Jira in AI Workforce is a one-time, read-only import into Task inbox. It runs only after an administrator connects a Jira Cloud project for this workspace and for specific people. There is no Jira card in the workspace integration catalog, no project browser, and no write-back.
@@ -49,11 +49,27 @@ Add a source to the deployment's issue-import list. The token value and the acco
 | Site        | The Cloud site, `https://<site>.atlassian.net`.                                                 |
 | Credentials | Variable names for an API token that can read the project, and for the Atlassian account email. |
 
-Restart the service after the deployment receives the list and the secrets. Jira Server and Jira Data Center are not accepted. The site must be Atlassian Cloud HTTPS.
+Set the backend environment variable `ISSUE_IMPORT_SOURCES` to a JSON array. Replace the sample IDs and scope with the approved workspace, users, and Jira project. Set `JIRA_IMPORT_TOKEN` and `JIRA_IMPORT_EMAIL` through your secret store. Restart the backend after deployment supplies the array and credentials.
+
+```json
+[
+  {
+    "id": "jira-example",
+    "name": "Jira project import",
+    "provider": "jira",
+    "workspace_id": 42,
+    "user_ids": [101],
+    "scope": "ENG",
+    "token_env": "JIRA_IMPORT_TOKEN",
+    "site": "https://example.atlassian.net",
+    "email_env": "JIRA_IMPORT_EMAIL"
+  }
+]
+```
 
 ## What you can do afterward
 
-Imported tasks sit in Task inbox. Open one, confirm scope, and route it to a workbench draft when someone should build it. The import does not create a session and does not start development. Later edits in the inbox are kept if you import the same issue again. The match is the Jira site plus the issue id. Older inbox rows that were typed in by hand, or saved by an automation under a different source key, are not merged automatically.
+Imported tasks and their copied descriptions are stored in the workspace’s Task inbox. Open one, confirm scope, and route it to a workbench draft when someone should build it. The import does not create a session and does not start development. Later edits in the inbox are kept if you import the same issue again. The match is the Jira site plus the issue id. Older inbox rows that were typed in by hand, or saved by an automation under a different source key, are not merged automatically.
 
 ## Permissions and credentials
 

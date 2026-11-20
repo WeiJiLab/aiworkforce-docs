@@ -1,13 +1,13 @@
 ---
-title: "Run your first automation Job"
+title: "Follow the first run on a delivery board"
 description: "Initialize lanes and pipelines from a published board template and follow the first card through a run."
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 prev: false
 next: false
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Create a delivery board in your workspace from a published board template. The template defines the lanes, their prompts and tasks, employee requirements, and automation recipes. Assign employees to the required lanes during setup. After initialization, the board maintains its own delivery policy.
@@ -25,10 +25,10 @@ In your workspace, open **Workbench → New delivery project**. Select an availa
 
 ## 2. Assign employees and initialize the board
 
-Choose an available digital employee instance for each required lane. Review the shared MCP servers and Skills selected by the template and adjust them as needed. Connect an external work item source if you need synchronization. Review the configuration and select **Create board**. The board and its configured automations can start once initialization checks pass. [Set up a software factory](/getting-started/first-software-factory/)
+Choose an available digital employee instance for each required lane. Review the shared MCP servers and Skills selected by the template and adjust them as needed. Connect an external work item source if you need synchronization. Review the configuration and select **Create board**. After successful initialization, the board activates with its configured automations. [Set up a software factory](/getting-started/first-software-factory/)
 
 ## 3. Follow one card through a pipeline run
 
-Open the board and start a requirements session, or bring an issue in from the inbox. Confirm the scope and acceptance criteria, then follow the card. Inspect the target lane’s flow to see its execution nodes. Open the corresponding pipeline run and compare the node statuses and employee session with the card to see how far the work progressed. [Configure a lane pipeline](/automate/workflow-builder/#compose-a-lane-pipeline)
+Open the board and start a requirements session or create a draft from **Task inbox**. Review scope and acceptance criteria and answer any requested confirmation. The standard intake orchestration can move clarified cards automatically. Use **Lane flow** to locate the orchestration run and compare its nodes and session with the card. See [Workflow builder](/automate/workflow-builder/#compose-a-lane-pipeline).
 
 For a standalone task with one employee, create a Job. Run it manually and inspect the result before enabling a schedule. [Compose a Job](/automate/workflow-builder/#compose-a-job)

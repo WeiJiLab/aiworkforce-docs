@@ -3,11 +3,11 @@ title: "Connect code repositories"
 description: "Configure a provider connection, associate repositories, and authorize the employees that will use them."
 sidebar:
   label: Code repositories
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 A workspace repository is an identified code resource with a provider connection. Keep the repository identity, access credential, and employee grant distinct: you may be able to browse a repository yourself while an employee still lacks authorization to clone or modify it.
@@ -32,6 +32,8 @@ An instance origin is an HTTPS domain, without an embedded username/password, re
 4. Add the intended repository and check its clone URL and default branch.
 5. Explicitly authorize each employee that should use the credential.
 6. Start a small employee task that reads a known file and inspect its result.
+
+**Reclone** replaces the workspace copy. **Remove** deletes that copy and requires you to remove existing project references first. Both operations discard local changes and unpushed commits in the workspace copy. Save the changes to an approved location before confirming.
 
 Credentials are workspace resources; their creator is recorded but is not the sole person permitted to manage them. Current workspace access determines who can manage their metadata and grants. Secret values are not returned in the normal management response.
 

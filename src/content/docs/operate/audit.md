@@ -4,10 +4,10 @@ description: "Read automation run audit records and know which actions the platf
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
-Audit answers who invoked a piece of work and what the platform stored about that invocation. The current contract is the automation run audit view, `GET /api/automation/v1/runs/{run_id}/audit`, for a caller who can read the run. Session history, delivery-card decisions, and administrator monitoring are separate records. Together they are not a compliance product, a retention policy, or an export that satisfies a named regulation by itself.
+The automation audit view records what the platform stored for a Run. An authorized reader can fetch it through `GET /api/automation/v1/runs/{run_id}/audit`. Keep caller attribution in the invoking system’s audit logs. Session history, delivery decisions, and administrator monitoring have their own records.
 
 ## What you can read
 

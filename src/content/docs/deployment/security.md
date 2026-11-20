@@ -4,7 +4,7 @@ description: "Understand workspace permissions, execution credentials, network a
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Review access at the resource and execution levels. A person can be authorized to manage a workspace while an employee still needs a separate credential grant. A job can be allowed to run while its external provider refuses a particular operation.
@@ -24,6 +24,8 @@ Sensitive configuration is encrypted through the backend's secret-cipher service
 Personal Automation Tokens are separately scoped to allowed Jobs and support expiry and revocation. Device secrets are created by the pairing flow and kept in owner-only daemon state. Provider secrets, platform login credentials, and device credentials should remain in their respective stores, not in skill text or shared examples.
 
 Revoking an employee grant changes subsequent authorization checks; it does not prove an already started process has stopped. Deleting a provider credential from the platform does not revoke the corresponding upstream token. Record both actions when retiring access.
+
+Some settings responses available to system administrators can contain plaintext credential values. Keep raw configuration responses in restricted storage and redact them before sharing logs or screenshots.
 
 ## Network boundaries
 

@@ -6,11 +6,11 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "30345ae10dfa1e1c1fbe229f2fa10c74a548b350e055be104a07e1c0ee9fcbfc"
+  sourceVersion: "2026-11-20"
+  sourceHash: "7d8817c922ba117af6b2fa4b879e415090dfcd05fac3484dca098f771b4f198f"
 ---
 
-先在配对的电脑上运行 `aiworkforce-daemon doctor --json` 检查本机环境，再用 `aiworkforce-daemon status --json` 查看 worker 是否在线。
+先在配对的电脑上运行 `aiworkforce-device-exec doctor --json` 检查本机环境，再用 `aiworkforce-device-exec status --json` 查看 worker 是否在线。
 
 | 你看到的                      | 要检查的                                                                                 |
 | ----------------------------- | ---------------------------------------------------------------------------------------- |

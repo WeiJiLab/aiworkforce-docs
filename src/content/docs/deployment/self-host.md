@@ -4,13 +4,13 @@ description: "Run the AI Workforce service stack on infrastructure you operate, 
 audience:
   - platform-engineer
 product_area: deployment
-last_verified: "2026-11-19"
+last_verified: "2026-11-20"
 sidebar:
   label: Self-host the platform
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 Self-hosting means your organization runs the AI Workforce services: the web application, the backend, PostgreSQL, and the workspace files those services store. An operator-hosted deployment is the same product, run for you. People still use workspaces, employees, and workflows. What changes is who operates the services and where those records live.
@@ -135,7 +135,7 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 You can run one authorized Linux device executor on Kubernetes and connect it to an existing AI Workforce platform. The daemon opens an outbound WSS connection, so the Pod needs no incoming port. The platform continues to manage sessions, authorization, and model calls. Dispatch workloads you trust to run with the Pod user's permissions.
 
 1. Sign in as the device owner. Over HTTPS, call `POST /api/local-execution/machines` with a name such as `{"name":"k8s-worker-a"}`. The `data.token` and `data.machine.id` fields supply `token` and `device-id`. Use the same account’s `data.id` from `GET /api/auth/me` for `actor-id`, as a string. Store the three values in the `awf-device` Secret in the target namespace through your secret manager. Keep the token out of logs and manifests.
-2. Build the image from your `aiworkforce-daemon` checkout and push it to a registry your cluster can pull from.
+2. Build the image from the `aiworkforce-daemon` repository at `2d52f1de45835675fd03ec3be3482de1da1be595`, the revision used for this Kubernetes procedure. Use `deploy/kubernetes/device.yaml` from that same checkout. Push the resulting image to a registry your cluster can pull from.
 
    ```sh
    docker build -t registry.example.com/aiworkforce-device-exec:example .
@@ -150,7 +150,7 @@ You can run one authorized Linux device executor on Kubernetes and connect it to
    kubectl -n YOUR_NAMESPACE logs deployment/awf-device
    ```
 
-Each device runs as a single-replica Deployment. To add a second device, register it separately and apply the [daemon manifest](https://github.com/WeiJiLab/aiworkforce-daemon/blob/main/deploy/kubernetes/device.yaml) in a second namespace with its own Secret and two PVCs. Increasing the replica count on the first Deployment would reuse its identity and volumes.
+Each device runs as a single-replica Deployment. To add a second device, register it separately and apply the [daemon manifest](https://github.com/WeiJiLab/aiworkforce-daemon/blob/2d52f1de45835675fd03ec3be3482de1da1be595/deploy/kubernetes/device.yaml) in a second namespace with its own Secret and two PVCs. Increasing the replica count on the first Deployment would reuse its identity and volumes.
 
 Start two regular Claude Code employee sessions as the device owner. Before the first message, select a different device in each session. Ask both sessions to write different markers to the same relative filename, then read the markers back. Check each result against the file in the corresponding Pod. Each device admits one active turn. When the selected device is busy, the platform returns a busy result even if the second device is idle.
 
@@ -178,7 +178,16 @@ There is no separate vendor host list to allow beyond the endpoints you configur
 
 On the local stack, run the same `up --build` after you update the source. Keep the env file and the volumes when you need the same database.
 
-On the release path, one host is updated in place. The running application stops, the expand migration runs, and the new images start. A failed release attempts to restore the previous images and configuration. The database is not downgraded, so an expand migration has to keep working with the previous application version. The release path then checks that the DBOS schema is already present. Starting the release image does not apply DBOS DDL. The local entrypoint does run that DBOS step before the API starts. Treat those as different procedures.
+On the release path, one host is updated in place. The release stops the application, runs the expand migration, and starts the new images. A failed release attempts to restore the previous images and configuration. The database retains the expand migration, so it must remain compatible with the previous application version.
+
+When Automation is enabled, prepare the DBOS system schema before starting the release. With the intended release image and `backend` service configuration pointed at the release PostgreSQL instance, run the following commands from the release Compose directory. Use the same Compose project and environment as deployment. Run the migration in the agreed maintenance window with credentials that can apply the DBOS DDL.
+
+```bash
+docker compose run --rm --no-deps backend python -m scripts.run_dbos_migrations migrate
+docker compose run --rm --no-deps backend python -m scripts.run_dbos_migrations verify
+```
+
+The release script runs the read-only verification. For the local development stack, the local entry point applies DBOS migrations before API startup.
 
 The test and production release entrypoints skip creating a new database and file backup on each release. A backup script remains, and an operator can run it on its own. Verify a backup before you depend on it. Existing backups are kept. A deleted record in the product is not proof that a backup, or the model provider, has dropped its copy.
 

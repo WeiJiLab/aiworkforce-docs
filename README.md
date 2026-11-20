@@ -2,7 +2,7 @@
 
 A static product documentation site built with Astro and Starlight, maintained in the `aiworkforce-docs` repository. English is served at `/`; Simplified Chinese at `/zh-cn/`. The site shares the platform's navy/cyan palette, brand mark, and system font stack.
 
-The project is being prepared for private review. Confirm that GitHub repository visibility is private before uploading source or creating a pull request. The documentation site has not been deployed.
+The repository and published documentation are public. Keep private operational details and credentials out of contributions.
 
 ## Local development
 
@@ -58,12 +58,12 @@ Draft pages are excluded from these endpoints. Content endpoints are generated f
 
 ## GitHub Pages
 
-The publication branch is `pages`. GitHub Actions validates that branch and deploys the built site. Pull requests into `pages` are validated and are not deployed. `main` is not used for publication.
+GitHub Actions validates pull requests into `main`. A push to `main` builds and publishes the site after validation succeeds. Pull request builds are available as artifacts.
 
 | Setting            | Value                               |
 | ------------------ | ----------------------------------- |
 | Workflow           | `.github/workflows/public-docs.yml` |
-| Publication branch | `pages`                             |
+| Publication branch | `main`                              |
 | Build output       | `dist`                              |
 | Node.js            | 24                                  |
 | Site               | https://docs.aiworkforce.run/       |

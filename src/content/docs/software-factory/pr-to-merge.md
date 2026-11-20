@@ -6,24 +6,25 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
-After development records a change, the card moves through Test deployment (测试发布) and Testing (测试验证). You read the findings and the evidence. A failed check, or a review that asks for changes, sends the card back to the development employee. When you accept the change, the Production (生产发布) lane merges and deploys only where the project has a working repository and pipeline integration. You decide that the revision is the one to ship.
+After development records a change, the card moves through Test deployment (测试发布) and Testing (测试验证). A failed check or a review asking for changes returns the card for repair. With the required integration and grants in place, the Production lane can merge a passing batch. Production deployment is a separate step with its own result. The batch policy determines which release actions need an explicit approval.
 
-People are marked in the diagram. Employees and lane checks run the other steps.
+This example shows a team reviewing the change before merge. Check the batch policy for the approval steps required on your board.
 
 ```mermaid
 flowchart TD
     ready["Person: accept the change for review"] --> checks["Test deployment and Testing"]
     checks --> decision["Person: review the findings and evidence"]
-    decision -->|Accept| release["Production lane: merge and deploy when connected"]
-    release --> ship["Person: confirm the revision that shipped"]
+    decision -->|Accept| release["Merge the passing batch"]
+    release --> deploy["Deploy to production when configured"]
+    deploy --> ship["Person: verify the deployed revision"]
     checks -->|Check failed| fix["Development employee: repair the card"]
     decision -->|Changes needed| fix
     fix -->|Check again| checks
     class ready,decision,ship human
-    class checks,fix,release agent
+    class checks,fix,release,deploy agent
 ```
 
 Test deployment and Testing are board lanes, not a sequence of separate reviewer products. The test employee records results for the candidate that was actually exercised. [Pull request automation](/workflows/pull-request-automation/) can also start a Job when a polled GitHub pull request event matches. That Job investigates. It does not merge, and it does not approve the pull request unless the employee, using its own grant, actually submitted a review.

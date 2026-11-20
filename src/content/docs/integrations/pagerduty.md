@@ -3,11 +3,11 @@ title: "PagerDuty"
 description: "Receive PagerDuty incident events on a personal connection and start a Job when an enabled rule matches."
 sidebar:
   label: PagerDuty
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 PagerDuty is a monitoring connection for incident events. The connection belongs to you in one workspace. When an incident event matches an enabled rule, a published Job can run. The connection does not acknowledge, resolve, or reassign the incident in PagerDuty.
@@ -52,7 +52,7 @@ After a subscription exists, the API token cannot be replaced on this connection
 
 ## Limits
 
-There is no OAuth install wizard, no write-back to incidents, no automatic MCP grant, and no historical backfill. Events for an unverified or disabled connection are rejected. A paused source does not run the Job for events that arrive while it is paused, and turning it back on does not replay them. Only the native incident event shape is processed.
+PagerDuty uses manually configured connections and processes native incident events. A verified connection can still accept and store eligible events while paused. The platform skips rule evaluation for those deliveries and does not replay them on re-enable. The integration reads new events without changing incidents, granting MCP access, or backfilling history.
 
 ## Related guides
 

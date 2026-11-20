@@ -4,19 +4,19 @@ description: "连接平台 MCP 端点和外部 MCP 服务。员工依赖在另�
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
-  sourceHash: "7c1b05c3190d6eedfb04b3d85dc5c64fecb33e4c1b5cde71cd82b01a055357e2"
+  sourceVersion: "2026-11-20"
+  sourceHash: "c61f85876ff8b405852ea436dadcc1de5b87f8280d38139344118a10e01b7b05"
 ---
 
 本页是服务集成：平台 MCP 端点和外部 MCP 服务。Agent 包如何给依赖命名，见 [MCP 依赖](/zh-cn/build/mcp-integration/)。两页必须一致：清单条目是名称和描述。它不包含端点、密钥或授权。
 
 ## 平台自动化 MCP
 
-管理员可以把平台的 Streamable HTTP MCP 端点暴露在 `/mcp`，并配置允许的主机和来源。发现工具。不要编造工具名。服务暴露有资格的已注册 Job 工具；当凭据范围允许时，还有 `automation_get_run` 和 `automation_cancel_run`。
+管理员可为 `/mcp` 的 Streamable HTTP MCP 端点配置允许的主机与来源。发现和调用 Job 工具时，使用 Personal Automation Token。平台 PAT 用于平台身份认证，不携带自动化 scope。`automation_get_run` 和 `automation_cancel_run` 分别需要读取和取消 scope。
 
-调用传入 Job 的 `input` 和 `idempotency_key`。它返回一个异步运行句柄。检查该运行。令牌过期、撤销、Job 允许列表和当前授权会在请求时再次检查。一条已经打开的连接不是永久授权。
+使用当前凭据发现结果中的工具名。工作空间共享 Job 的发现和调用会分别检查访问权限。用获准的输入验证调用。调用传入 Job 的 `input` 和 `idempotency_key`，返回异步 Run 句柄。已有 Run 的访问及撤权规则见[认证](/zh-cn/developer/authentication/)。
 
-同样的 Job 也可以通过 HTTP 使用。你要做应用客户端时优先用 HTTP。兼容的 Agent 应调用已注册工作时，优先用这个 MCP 端点。两种接口都不编辑运行时配置。
+共享 Job 未出现在发现结果时，检查 Job 发布状态、工作空间访问权限和 Token 允许列表。也可通过 [REST API](/zh-cn/developer/api-reference/) 使用获准 Job 的 definition ID。
 
 ## 外部 MCP 服务
 

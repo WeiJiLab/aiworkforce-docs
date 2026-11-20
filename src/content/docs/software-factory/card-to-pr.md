@@ -6,12 +6,12 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
-This loop starts from a card the team has accepted, or from an inbox issue you route onto the board. The requirements employee checks the problem, the outcome, the scope, and the target repositories. An ambiguous card stays in clarification until you confirm it. A bounded card proceeds to Development. The development employee implements the change, runs the checks it is configured to run, and records a pull request, branch, or commit on the card.
+The requirements employee checks the problem, outcome, scope, and target repositories. A clarified card follows the target board’s [intake rules](/software-factory/intake/) into Development. The development employee implements the change, runs configured checks, and records its pull request, branch, or commit on the card.
 
-People are marked in the diagram. Employees run the other steps.
+This example shows a board flow that requests a scope review.
 
 ```mermaid
 flowchart TD
@@ -27,7 +27,7 @@ flowchart TD
     class ready,spec,author agent
 ```
 
-You can also open a development session for a task that is already specific. If the session needs a scope decision, the card waits for your confirmation before the change proceeds. A passing check does not record your acceptance.
+Open the development session from the card after the lane dispatches it. If the session needs a scope decision, the card waits for your confirmation before the change proceeds. A passing check does not record your acceptance.
 
 The worked example is [Issue to PR](/recipes/issue-to-pr/). The click path on an existing board is the [quickstart](/getting-started/quickstart/).
 

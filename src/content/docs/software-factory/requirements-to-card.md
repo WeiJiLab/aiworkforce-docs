@@ -6,12 +6,12 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
-The Requirements lane turns a feature brief, an imported issue, or a rough note into a card the team can accept. The requirements employee researches the repositories the project can read and drafts scope, acceptance criteria, and open questions. You review that draft. Confirming the card lets development start. A design conversation on the card does not, by itself, change code.
+The Requirements lane turns a brief, an imported issue, or a rough note into a delivery card. The requirements employee researches readable repositories and drafts scope, acceptance criteria, and open questions. When clarification records the card as `READY`, the board can dispatch it to Development. A human confirmation can be part of the configured workflow.
 
-People are marked in the diagram. Employees run the other steps.
+This example shows a team reviewing the draft before handing it off. Check the target board’s intake rules for the configured steps.
 
 ```mermaid
 flowchart TD
@@ -36,10 +36,10 @@ Leave the card in Requirements while a criterion is still ambiguous. See [human 
 
 ## Lane employees
 
-| Employee              | Role in this loop                                                                                              |
-| --------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Requirements employee | Researches, drafts scope and criteria, and waits for confirmation.                                             |
-| Development employee  | Implements the card after you confirm it. The handoff is [Card → pull request](/software-factory/card-to-pr/). |
+| Employee              | Role in this loop                                                                                                       |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Requirements employee | Researches, drafts scope and criteria, and asks for any required decisions.                                             |
+| Development employee  | Implements the card after the board admits it to Development. See [Card → pull request](/software-factory/card-to-pr/). |
 
 Assign a ready employee to the Requirements lane in the board wizard or in **Lane configuration**. The employee needs a grant only for repositories it should read. A grant to read is not a grant to push.
 

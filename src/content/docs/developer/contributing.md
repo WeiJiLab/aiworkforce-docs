@@ -4,14 +4,14 @@ description: "Run the documentation site locally and submit accurate, bilingual,
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 Help improve AI Workforce Docs by fixing an unclear step, correcting product behavior, or adding a useful example. Start from behavior you can verify in the product or its current source. Describe prerequisites and limits so readers can reproduce the result.
 
 ## Run the site locally
 
-The site is maintained at the root of the `aiworkforce-docs` repository. The repository is currently private, access is limited to repository members, and the site has not been deployed. Use a Node version supported by `package.json` and install the locked dependencies:
+The public documentation source is maintained in `aiworkforce-docs`. For local development, use a Node version supported by `package.json` and install the locked dependencies.
 
 ```bash
 cd aiworkforce-docs
@@ -60,7 +60,7 @@ Review both language routes, navigation, narrow-screen layout, and code examples
 
 Keep the change focused. Explain the reader's problem, the resulting behavior, and the validation you performed. Link relevant product changes when they explain a correction. Human review should confirm technical accuracy, terminology, translation, and the absence of private information.
 
-When deployment is authorized, Cloudflare Pages can build from the repository root with `npm run build` and publish `dist/`; leave its root-directory setting blank. Connecting the project, repository permissions, preview access, and the custom domain are separate hosting setup steps. Repository visibility alone does not control access to a deployed site.
+Open the pull request against `main`. GitHub Actions validates the pull request and uploads the built site as an artifact. A push to `main` publishes `dist/` to GitHub Pages after validation succeeds. The published site is [AI Workforce Docs](https://docs.aiworkforce.run/).
 
 ## Related guides
 

@@ -6,25 +6,26 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "dd0fddb721ebfcca42c8e78eeb40974df73555a247bbb4d485dd3dbe36932cee"
+  sourceVersion: "2026-11-20"
+  sourceHash: "8315f4bcb34b04ff1e71be11b012f2821282decf89ede6d9f12341f39e590d09"
 ---
 
-开发记录变更之后，卡片经过测试发布和测试验证。你阅读发现和证据。检查失败，或审阅要求修改，都会把卡片退回开发员工。你接受变更之后，生产发布泳道只在项目具备可用的仓库和流水线集成时执行合并和部署。由你决定这个版本就是要交付的版本。
+开发记录变更后，卡片进入测试发布和测试验证。检查失败或审阅要求修改时，退回卡片返修。具备所需集成和授权后，生产发布泳道可以合入通过的批次。生产部署是独立步骤，有自己的结果记录。哪些发布动作需要显式审批由批次策略决定。
 
-图中标出的是人。其余步骤由员工和泳道检查执行。
+图中示例包含团队在合入前审阅变更的步骤。看板要求的审批步骤以批次策略为准。
 
 ```mermaid
 flowchart TD
     ready["人：接受变更进入审阅"] --> checks["测试发布和测试验证"]
     checks --> decision["人：审阅发现和证据"]
-    decision -->|接受| release["发布泳道：已连接时合并并部署"]
-    release --> ship["人：确认实际交付的版本"]
+    decision -->|接受| release["合入通过的批次"]
+    release --> deploy["按配置部署到生产"]
+    deploy --> ship["人：核对实际部署的版本"]
     checks -->|检查失败| fix["开发员工：修复卡片"]
     decision -->|需要修改| fix
     fix -->|再次检查| checks
     class ready,decision,ship human
-    class checks,fix,release agent
+    class checks,fix,release,deploy agent
 ```
 
 测试发布和测试验证是看板泳道，不是一串独立的审阅产品。测试员工记录实际跑过的那个候选版本的结果。[Pull Request 自动化](/zh-cn/workflows/pull-request-automation/)也可以在轮询到匹配的 GitHub Pull Request 事件时启动 Job。这个 Job 做调查。它不合并；除非员工用自己的授权实际提交了审阅，它也不会批准 Pull Request。

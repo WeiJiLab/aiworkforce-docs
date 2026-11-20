@@ -4,7 +4,7 @@ description: "Select the correct Bearer credential for management APIs, Automati
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 AI Workforce uses different credentials for different callers. Treat tokens as opaque secrets and send the credential expected by the endpoint. A login token, a Personal Automation Token, a provider token, and a device credential are not interchangeable.
@@ -40,9 +40,9 @@ Do not infer the token format from a JWT library. The current implementation use
 
 ## Create a scoped machine credential
 
-For external automation, sign in as a user who can operate the target Job, then issue a Personal Automation Token with only the necessary scopes and explicit `allowed_definition_ids`. Supported invocation scopes include `automation:invoke`, `automation:read`, and `automation:cancel`. Add an expiry appropriate to the integration's lifetime.
+For external automation, sign in as a user who can operate the target Job. Use `POST /api/automation-tokens` to choose only the required scopes (`automation:invoke`, `automation:read`, or `automation:cancel`), set the Job IDs in `allowed_definition_ids`, and configure `expires_at`. The general **Tokens** form in Automations grants all three scopes for the selected Jobs and has no expiry field.
 
-Creation returns the plaintext token; later list responses return metadata. Store it in the caller's existing secret store. Revocation, expiry, current workspace access, and the Job allowlist are checked again when requests arrive. Giving a caller a Job token does not give it permission to create arbitrary employees or replace the registered execution configuration.
+Creation returns the plaintext token. Store it in the caller’s secret store. Token validation checks expiry and revocation. Job invocation also checks the caller’s current access to the Job. Run status, audit, and cancellation use the token’s scopes, Job allowlist, and ownership of the existing Run. When removing workspace access, revoke the associated Personal Automation Tokens directly to cut off their access to existing Runs.
 
 ## Recover from rejected access
 

@@ -3,11 +3,11 @@ title: "Feishu and Lark"
 description: "Chat through the platform Feishu or Lark app, and start a Job when a Feishu Minutes transcript is ready."
 sidebar:
   label: Feishu
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Feishu and Lark are one connection family. Lark is the same platform app and the same personal authorization when the account brand is Lark. The product shows the brand on the connection. It does not add a second setup.
@@ -32,10 +32,12 @@ A Minutes event carries the minute token, title, URL, and transcript. The transc
 
 ## Connect it
 
+Choose the setup surface for your purpose. **Connect a messaging channel** saves an Automation connection. **Messaging channels** in the primary session saves the primary session binding. See [Messaging](/integrations/overview/#messaging).
+
 ### Chat
 
 1. An administrator opens the platform Feishu settings, scans to create or bind the Feishu or Lark app, and enables it. Binding a new app invalidates previous user identities and task-group routes. Those people authorize again.
-2. Open **Integrations** or **message channels**, choose Feishu, and scan with the Feishu or Lark mobile app. The QR code expires and can be refreshed. You do not enter an app secret.
+2. In the selected setup screen, choose Feishu and scan with the Feishu or Lark mobile app. Refresh the code if it expires.
 3. After the identity is connected, turn chat on if the screen still asks for that step. Send a message to the bot to continue the primary session.
 
 Missing document, meeting, or Minutes permissions on the app do not block chat. Those operations wait until the administrator completes the permission check.

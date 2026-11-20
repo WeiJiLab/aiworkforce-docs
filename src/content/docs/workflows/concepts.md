@@ -114,15 +114,15 @@ Workflow verification asks whether this run met the acceptance criteria: tests, 
 
 ## Example A. GitHub issue
 
-| Piece        | This release                                                                                     | Not this release                                             |
-| ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| Trigger      | Issue opened, closed, reopened, labeled, or commented, observed by GitHub token polling          | A GitHub App, a repository webhook, or instant delivery      |
-| Context      | Whitelisted event fields, the workspace, and the repository connection                           | Checkout of the event SHA; the event does not prove that     |
-| Agent        | The Job's execution employee                                                                     | Automatic assignee selection                                 |
-| Steps        | The Job runs. It may collect an inbox item. A person confirms scope before development.          | A built-in classifier, duplicate detector, or priority model |
-| Verification | You inspect the run. Delivery verification applies only after the item becomes a confirmed card. | An automatic resolution of the GitHub issue                  |
-| Output       | A run, an optional inbox item, and later a pull request if the board executes the card           | A write-back to GitHub from the event adapter                |
-| Human        | Confirm the draft. Answer questions on the card.                                                 | Unattended implementation                                    |
+| Piece        | This release                                                                                              | Not this release                                             |
+| ------------ | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Trigger      | Issue opened, closed, reopened, labeled, or commented, observed by GitHub token polling                   | A GitHub App, a repository webhook, or instant delivery      |
+| Context      | Whitelisted event fields, the workspace, and the repository connection                                    | Checkout of the event SHA; the event does not prove that     |
+| Agent        | The Job's execution employee                                                                              | Automatic assignee selection                                 |
+| Steps        | The Job runs and can collect an inbox item or workbench draft. The target board applies its intake rules. | A built-in classifier, duplicate detector, or priority model |
+| Verification | You inspect the run. Delivery verification applies only after the item becomes a confirmed card.          | An automatic resolution of the GitHub issue                  |
+| Output       | A run, an optional inbox item, and later a pull request if the board executes the card                    | A write-back to GitHub from the event adapter                |
+| Human        | Confirm the draft. Answer questions on the card.                                                          | Unattended implementation                                    |
 
 The first successful poll only sets a baseline. Later polls are at least 60 seconds apart and observe state changes, not a full webhook stream. Details are in [event-driven automation](/automate/event-driven/). The practice path is [issue automation](/workflows/issue-automation/).
 

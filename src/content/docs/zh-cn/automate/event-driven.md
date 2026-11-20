@@ -4,8 +4,8 @@ description: "用平台事件、Issue 或 IM 消息启动 Job，而不是只等�
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "ca7a0007358bc8e410b5d3e1caffb8460a4ab36eb28defd4dbffa5328b80d3b0"
+  sourceVersion: "2026-11-20"
+  sourceHash: "71feebfe4e271f2736de21fbec0b9c9c8fae914cfa7452e2cd51ea963d0a8b5e"
 ---
 
 事件驱动的自动化在某件事发生时调用已发布的 Job。不一定需要时钟。在部署提供这些类型时，触发可以包括平台事件、Issue、IM 消息和 Webhook。连接器存在，并不会创建订阅。事件源必须先配置并授权，才能送来输入。各供应商的接法见[集成目录](/zh-cn/integrations/overview/)。
@@ -18,7 +18,7 @@ translation:
 
 事件可能送达不止一次。给 Job 一个它能识别的输入，收集收件箱事项时使用稳定的来源标识。上一次收集成功，并不表示这次运行更新了该事项。发布 Job 不会运行它。只有手动运行显示出你期望的输出之后，才启用自动执行。
 
-当前的收集界面需要 Claude Code 运行时。聊天摘要不是已保存的 Issue。从收集事项生成的工作台草稿，在开发之前仍需要[人工确认](/zh-cn/user-guide/human-approval/)。
+收集界面需要 Claude Code，已保存事项会记入运行回执。直投工作台项目的事项会生成草稿。草稿完成澄清并成为 `READY` 后，启用标准接入编排的看板可以自动将它送入开发。团队要求逐张人工审阅时，先确认看板的[接入规则](/zh-cn/software-factory/intake/)。
 
 ## 如果事件一直不来
 

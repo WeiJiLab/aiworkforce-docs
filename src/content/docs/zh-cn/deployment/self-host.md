@@ -4,14 +4,14 @@ description: "在自己运维的基础设施上运行 AI Workforce 服务栈，�
 audience:
   - platform-engineer
 product_area: deployment
-last_verified: "2026-11-19"
+last_verified: "2026-11-20"
 sidebar:
   label: 自托管平台
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
-  sourceHash: "9a50b25a4cc1ca4b03b877fbe995816260cc425c1473739307c424b5c5436fbe"
+  sourceVersion: "2026-11-20"
+  sourceHash: "c4ee5f24ae5703266b8952af17818e1b0ec358310c074a82d99637ed3b926cd8"
 ---
 
 自托管是指由你们自己运行 AI Workforce 的服务：Web 应用、后端、PostgreSQL，以及这些服务保存的工作空间文件。运营方托管的部署是同一套产品，只是由别人替你们运行。使用工作空间、数字员工和工作流的方式不变。变的是谁运维这些服务，以及这些记录放在哪里。
@@ -136,7 +136,7 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 可在 Kubernetes 中运行一个已授权的 Linux 设备执行器，连接现有 AI Workforce 平台。daemon 主动连接平台的 WSS 端点，Pod 无需入站端口。平台继续管理会话、授权和模型调用。任务以 Pod 用户身份运行，应只派发你信任的任务。
 
 1. 以设备所有者身份登录，通过 HTTPS 调用 `POST /api/local-execution/machines`，请求体可以是 `{"name":"k8s-worker-a"}`。返回的 `data.token` 和 `data.machine.id` 对应 `token` 和 `device-id`。用同一账号调用 `GET /api/auth/me`，将 `data.id` 转成字符串作为 `actor-id`。通过团队的密钥管理工具把这三项写入目标命名空间的 `awf-device` Secret，避免在日志或清单中记录 token。
-2. 在 `aiworkforce-daemon` 源码检出中构建镜像，推送到集群能拉取的镜像仓库。
+2. 用 `aiworkforce-daemon` 仓库的 `2d52f1de45835675fd03ec3be3482de1da1be595` 修订构建镜像。下文的 `deploy/kubernetes/device.yaml` 也使用同一修订。将镜像推送到集群能拉取的仓库。
 
    ```sh
    docker build -t registry.example.com/aiworkforce-device-exec:example .
@@ -151,7 +151,7 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
    kubectl -n YOUR_NAMESPACE logs deployment/awf-device
    ```
 
-每台设备使用一个单副本 Deployment。增加第二台时，另行注册设备，在第二个命名空间准备独立的 Secret 和两块 PVC，再应用同一份 [daemon 清单](https://github.com/WeiJiLab/aiworkforce-daemon/blob/main/deploy/kubernetes/device.yaml)。直接增加第一个 Deployment 的副本数会复用其身份和卷。
+每台设备使用一个单副本 Deployment。增加第二台时，另行注册设备，在第二个命名空间准备独立的 Secret 和两块 PVC，再应用同一份 [daemon 清单](https://github.com/WeiJiLab/aiworkforce-daemon/blob/2d52f1de45835675fd03ec3be3482de1da1be595/deploy/kubernetes/device.yaml)。直接增加第一个 Deployment 的副本数会复用其身份和卷。
 
 用设备所有者的账号新建两个普通 Claude Code 员工会话，在首条消息前分别选中两台设备。让两个会话在相同相对路径下写入不同标记并读回，和各自 Pod 中的文件核对。每台设备同时接纳一个活跃回合。选中的设备忙时，平台返回占用提示，即使另一台设备空闲也是如此。
 
@@ -179,7 +179,16 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 
 本地栈在更新源码后，用同一条 `up --build` 再启动。需要同一套数据库时，保留 env 文件和数据卷。
 
-发布路径在一台主机上原地更新。正在运行的应用会先停，然后执行 expand 迁移，再启动新镜像。发布失败时会尝试恢复之前的镜像和配置。数据库不会自动降级，因此 expand 迁移必须仍能配合上一版应用工作。发布路径接着检查 DBOS schema 是否已经存在。启动发布镜像不会执行 DBOS 的 DDL。本地入口会在 API 启动前执行这一步。把它们当成两套不同的步骤。
+发布路径在一台主机上原地更新。发布脚本停止应用、执行 expand 迁移，再启动新镜像。发布失败时会尝试恢复之前的镜像和配置。数据库会保留 expand 迁移，所以迁移必须兼容上一版应用。
+
+启用自动化时，在发布前准备 DBOS 系统 schema。从发布 Compose 目录运行下面的命令，让 `backend` 服务使用本次发布镜像并连接发布所用的 PostgreSQL。使用与部署相同的 Compose 项目和环境。在约定的维护窗口内，用有权执行 DBOS DDL 的凭据运行迁移。
+
+```bash
+docker compose run --rm --no-deps backend python -m scripts.run_dbos_migrations migrate
+docker compose run --rm --no-deps backend python -m scripts.run_dbos_migrations verify
+```
+
+发布脚本会执行只读验证。本地开发栈由本地入口在 API 启动前应用 DBOS 迁移。
 
 测试和生产的发布入口每次发布都不新建数据库和文件备份。备份脚本还在，运维人员可以单独运行。依赖某份备份之前，先验证它。已经存在的备份会保留。在产品里删掉一条记录，不能证明备份或模型供应商也丢掉了副本。
 

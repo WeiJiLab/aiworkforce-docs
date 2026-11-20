@@ -1,11 +1,11 @@
 ---
 title: "Pull request automation"
 description: "Start an employee when a polled GitHub pull request event matches. Merge stays on the release lane."
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Pull request automation is an event-driven workflow. A Job watches pull request activity through GitHub token polling and runs one employee. It is the same automation model as [issue automation](/workflows/issue-automation/), with a different event. It does not approve, merge, or release on its own.
@@ -16,7 +16,7 @@ You define the Job, the repository source, and the pull request conditions. Auto
 
 ## When to use it
 
-Use it to react to a pull request being opened, updated, marked ready, commented, or reviewed. Use the [Kanban workbench](/workflows/kanban-workbench/) when the platform itself is producing the change and must carry it through test and release. Use issue automation when the source is an issue rather than a pull request.
+Use it to react to a pull request opening, a changed head SHA, a ready-for-review transition, a comment, or a review. Use the [Kanban workbench](/workflows/kanban-workbench/) when the platform itself is producing the change and must carry it through test and release. Use issue automation when the source is an issue rather than a pull request.
 
 ## How it works
 
@@ -26,7 +26,7 @@ Pull request observation → rule match → one Run → employee session
         → release lane, only if this change is already on the board
 ```
 
-Supported observations are pull request open, head update, ready for review, close, merge, reopen, labels, conversation comments, review submission or dismissal, and line comments. Conditions can include the target branch, draft state, review state, label, or comment text. Several conditions on one rule match with OR.
+Supported observations are pull request open, head SHA change, ready for review, close, merge, reopen, labels, conversation comments, review submission or dismissal, and line comments. Conditions can include the target branch, draft state, review state, label, or comment text. Several conditions on one rule match with OR.
 
 The poll compares the open pull request list. A pull request that is opened and closed between two polls can be missed. Review scans cover pull requests updated in the last seven days. Pending reviews do not trigger. Bot authors do not trigger. `Checks completed` and resolved review threads are not events in this release.
 

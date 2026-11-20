@@ -3,12 +3,12 @@ title: "钉钉"
 description: "通过 Stream 长连接或 HTTP 回调接收钉钉机器人消息，并由允许的发送者启动 Job。"
 sidebar:
   label: 钉钉
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "add15471cf28846f1bec92622043a6c6522cbd4e1d4e04f8dbd5e2176b6ca052"
+  sourceVersion: "2026-11-20"
+  sourceHash: "cd4fef3ecf7d8af48a71229b8ea8d443319799d37b2782e6a382ac717e2af0d9"
 ---
 
 钉钉是一条消息渠道。机器人接收企业里的消息，并用文本回复。自动化写明会话和发送者之后，它也可以启动一个 Job。钉钉不运行工作流、看板或交付泳道。
@@ -29,8 +29,10 @@ translation:
 
 ## 如何连接
 
+按使用场景选择入口。**连接消息渠道**保存自动化连接。主会话的**消息渠道**保存主会话绑定。见[消息渠道](/zh-cn/integrations/overview/#消息渠道)。
+
 1. 在钉钉开放平台创建企业内部应用，启用机器人并发布。不想暴露公网地址时选 Stream；要让钉钉调用你的部署时选 HTTP。
-2. 打开「连接消息渠道」，选择钉钉。钉钉和其他聊天渠道在同一个对话框里。
+2. 在所选入口选择钉钉。
 3. 填写 Client ID（也叫 AppKey）、Client Secret（也叫 AppSecret），以及你自己的企业成员 User ID。
 4. 需要在渠道列表里区分时，给渠道起名。保存。
 5. HTTP 模式要把回调路径 `/api/im/dingtalk/webhook` 配到部署可公开访问的 HTTPS 地址上，并打开钉钉要求的消息事件。

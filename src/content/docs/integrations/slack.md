@@ -3,11 +3,11 @@ title: "Slack"
 description: "Receive Slack messages over Socket Mode or the Events API, or post notifications to one channel."
 sidebar:
   label: Slack
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Slack is a messaging channel. Socket Mode and the Events API receive messages and can start a Job. The incoming-webhook mode only posts to one channel. Slack does not replace the Job, the board, or a code host.
@@ -24,12 +24,14 @@ Use Socket Mode when the deployment should not expose a public callback. Use the
 
 Inbound modes can deliver a message event to the primary session and to an automation. The Job input includes the provider, channel, event id, conversation id, sender id, and text. Slack can also emit a channel-created event when the app is subscribed to it. Webhook mode sends an outbound notification and does not receive messages, so it cannot be an automation event source.
 
-The primary session accepts messages from the Slack member id you enter. For Socket Mode, send the bot a private message after saving so the session has a reply target.
+For a Socket Mode primary session binding, the member ID limits the sender. Send the bot a private message after saving so the session has a reply target. Events API setup uses a workspace ID, bot token, and signing secret.
 
 ## Connect it
 
+Choose the setup surface for your purpose. **Connect a messaging channel** saves an Automation connection. **Messaging channels** in the primary session saves the primary session binding. See [Messaging](/integrations/overview/#messaging).
+
 1. Create the app at the Slack API console and install it in the workspace.
-2. Open **Integrations** or **Connect a messaging channel** and choose Slack.
+2. Choose Slack in the selected setup screen.
 3. Pick the mode and enter the credentials for that mode.
 
 | Mode        | What you enter                                                                                                   | What else Slack needs                                                                  |

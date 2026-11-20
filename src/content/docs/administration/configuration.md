@@ -4,7 +4,7 @@ description: "Choose the correct configuration scope for preferences, credential
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 Configuration exists at several scopes. Change the setting that controls the failing capability rather than copying credentials or model values between unrelated screens.
@@ -26,7 +26,7 @@ Administrators open **Runtime kernels** and choose the relevant kernel. The inte
 
 Pydantic AI separates language, decision, and voice channel configuration. A configured voice channel does not by itself add a working voice entry to the primary agent. Decision routing has its own configuration and validation; it is not the same as selecting the chat model.
 
-After saving, verify that the intended model appears for an eligible employee or session. Use a short task to check connectivity before changing multiple employees. A saved channel is not proof that its endpoint is reachable.
+In Pydantic AI settings, enable the saved channel for its intended purpose. Each purpose can have one enabled channel. Check that the intended model appears for an eligible employee or session, then run a short task to verify connectivity.
 
 ## Configure credentials and devices
 

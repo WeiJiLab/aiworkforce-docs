@@ -4,14 +4,14 @@ description: "Inspect generated files, file changes, sources, and verification r
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 An artifact is something an employee produces, such as a report, source file, or linked pull request. Evidence explains why you should trust a claim about that work. Review both before accepting a result.
 
 ## Inspect session outputs
 
-Open the employee session and use its artifact resources to find produced files and changed files. Select a file to open its supported preview or source view. When the session has an associated pull request, use the PR entry to inspect it.
+In a cloud session, use the artifact resources to find generated or changed files and open a supported preview or source view. A device session disables attachment upload, the session file and artifact lists, and generated-file previews. For a file kept on an authorized device, review it there or ask for an approved output location. Follow an associated PR link when available.
 
 A file listed in the session is an output to review. It does not, by itself, prove that the employee used the right input or satisfied the task's acceptance criteria.
 

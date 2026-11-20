@@ -3,12 +3,12 @@ title: "Linear"
 description: "管理员为这个工作空间接好 Linear 团队之后，导入未关闭的 Issue。"
 sidebar:
   label: Linear
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "61b3fb3af306202537897a4804e5b87b9d15a9e4420f5ffc0dcb5392fc6340eb"
+  sourceVersion: "2026-11-20"
+  sourceHash: "5314fa4c2c2ef1a2a2edb53fdea43ef48a36649cb4d11a5b15e24f3e5cc5cb2c"
 ---
 
 在 AI Workforce 里，Linear 是一次性的、只读的 Task inbox 导入。只有管理员为这个工作空间、并为指定的人接好一个 Linear 团队之后，它才会出现。没有 Linear 的 OAuth 安装，没有团队浏览器，也不会把状态写回 Linear。
@@ -47,11 +47,25 @@ translation:
 | 范围     | Linear 团队 key。                              |
 | 凭据     | 能读取该团队的个人 API key 的变量名。          |
 
-API 主机是 Linear 云端。部署拿到这份列表和密钥之后，重启服务。这次导入没有自建 Linear 地址。
+把后端环境变量 `ISSUE_IMPORT_SOURCES` 设为 JSON 数组。将示例编号和范围替换为已获准的工作空间、用户与 Linear 团队。通过密钥库提供 `LINEAR_IMPORT_TOKEN`。部署注入数组与凭据后，重启后端。
+
+```json
+[
+  {
+    "id": "linear-example",
+    "name": "Linear team import",
+    "provider": "linear",
+    "workspace_id": 42,
+    "user_ids": [101],
+    "scope": "ENG",
+    "token_env": "LINEAR_IMPORT_TOKEN"
+  }
+]
+```
 
 ## 连接之后能做什么
 
-导入的任务留在 Task inbox。人可以打开一条，把已确认的事项送到工作台草稿。导入不创建会话，也不启动开发。同一条 Linear Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。身份是 Linear 的 Issue ID。手工录入的记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
+导入的任务及复制的描述保存在工作空间的任务收件箱。人可以打开一条，把已确认的事项送到工作台草稿。导入不创建会话，也不启动开发。同一条 Linear Issue 再次导入时，会跳过已有的收件箱记录，并保留后来的修改。身份是 Linear 的 Issue ID。手工录入的记录，以及自动化用另一个来源键保存的记录，不会被自动合并。
 
 ## 权限与凭据
 

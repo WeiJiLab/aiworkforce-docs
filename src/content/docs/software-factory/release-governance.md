@@ -6,7 +6,7 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Release governance is the policy for merge, the Production lane (生产发布), and cleanup: which result is allowed to proceed, and who remains responsible. The path a reviewer walks through the records is [review and release](/software-factory/review-release/). This page does not repeat that path.
@@ -14,14 +14,14 @@ Release governance is the policy for merge, the Production lane (生产发布), 
 ## Three outcomes
 
 1. **Merge.** A passing batch can be merged when the project has a working repository integration and the execution employees are authorized. The batch records the merge outcome.
-2. **Production (生产发布).** After a successful merge, Done (已完成) scans merged cards and progresses the configured production deployment. A closed batch does not mean this step finished.
+2. **Production (生产发布).** A separate orchestration in the Production lane can deploy merged changes according to the configured release schedule and target. Check the production result on the cards after merge.
 3. **Cleanup.** Resource cleanup follows through the Done lane. A failed cleanup stays visible. It does not rewrite a release that succeeded, and a successful release does not hide a failed cleanup.
 
 Custom boards may arrange these steps differently. Follow the configured lanes. [Review and release](/software-factory/review-release/) is the reviewer's path through the same records.
 
 ## What must already be true
 
-Automated merge and the Production lane require the code host, the pipeline resources, and the employee grants. The card supplies none of them. Identify who may write, merge, or deploy, and keep the human confirmation that workflow still requires. A waived test does not become a release approval. Name the waiver separately.
+Automated merge and production require working repository and pipeline integrations plus the relevant employee grants. Check the batch’s required approvals for **Merge** and **Deploy to production** separately. The initial approval list is empty unless configured. When an action has no required approval, it can proceed automatically once the other conditions are met. A test waiver note does not satisfy a test gate or an approval.
 
 Taking over a card stops automatic progress. Hand it back explicitly before you expect the release lane to continue. Ending the platform's pull-request follow-up does not close the external pull request.
 

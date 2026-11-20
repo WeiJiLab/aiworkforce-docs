@@ -4,11 +4,11 @@ description: "阅读自动化运行的审计记录，并知道哪些操作平台
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "566662d28d117bdbd3e08ab386df26a6d875a78275ed9a15afbd44eac9cd6573"
+  sourceVersion: "2026-11-20"
+  sourceHash: "5f4800bc3e2d426fda074b7d50a092ee621683db97d509f0c5b9ecbce8506454"
 ---
 
-审计回答谁调用了一项工作，以及平台为这次调用存了什么。当前契约是自动化运行审计视图 `GET /api/automation/v1/runs/{run_id}/audit`，调用方需要能够读取该运行。会话历史、交付卡片上的决定和管理员监控是分开的记录。它们合在一起也不是合规产品、保留策略，或一份自行满足某项法规的导出。
+自动化审计视图记录平台为 Run 保存的信息。有读取权限的调用方可通过 `GET /api/automation/v1/runs/{run_id}/audit` 获取。调用人身份应由调用系统记入自己的审计日志。会话历史、交付决定和管理员监控各有独立记录。
 
 ## 你可以读到什么
 

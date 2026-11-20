@@ -4,7 +4,7 @@ description: "Turn an incoming request into a confirmed draft before any employe
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Intake is how a request becomes a delivery draft. The backlog is the set of drafts and cards a team has not yet accepted into development. Collecting an item is not that acceptance. A feature brief follows [Requirements → card](/software-factory/requirements-to-card/) until the card is confirmed.
@@ -13,7 +13,7 @@ Intake is how a request becomes a delivery draft. The backlog is the set of draf
 
 A workspace Task inbox holds collected or imported requests. An automation can add items when **Collect tasks / issues** is configured and the run records a server receipt. A chat summary is not a saved Issue. Items can also be routed into a workbench project, where they become drafts. See [Task inbox](/user-guide/inbox-tasks/) for how to review and route items.
 
-A draft waits for a person. Confirm the scope, the acceptance criteria, and the repositories the change may touch. Confirming a requirement does not grant repository credentials and does not make an unconfigured pipeline usable. If the criteria are still ambiguous, leave the card as a draft. See [human approval](/user-guide/human-approval/).
+Review the draft’s scope, acceptance criteria, and allowed repositories. When the board asks for a human decision, answer it on the card. A standard board with intake orchestration enabled can dispatch a clarified (`READY`) card to Development automatically. Check that configuration before routing a draft that needs mandatory review. See [human approval](/user-guide/human-approval/).
 
 ## Keep the backlog inspectable
 

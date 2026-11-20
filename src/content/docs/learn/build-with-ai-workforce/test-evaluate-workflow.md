@@ -4,7 +4,7 @@ description: "Validate Agent Packages and compare runs against acceptance criter
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
-Structural checks live in [Testing](/build/testing/). Delivery verification is covered in [Evaluation](/software-factory/evaluation/) and [Evaluation governance](/operate/evaluation-governance/).
+Validate the package in the builder. For a first release, ask a system administrator to open **Agent evaluation** from the build and run **Current draft** in **Build and regression**. After the template is available, test the installed workspace employee against the acceptance criteria. See [Employee testing](/build/testing/) and [FDE Agent tests](/build/agent-tests/).

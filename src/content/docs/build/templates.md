@@ -4,7 +4,7 @@ description: "Use a published template as the starting point for a workspace emp
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 A template is a published Agent Package that a workspace can instantiate. It is the unit users see when they create an employee. The package files are what builders edit. Keep those two moments separate.
@@ -29,4 +29,4 @@ If no template fits, do not stretch an unrelated template with a long prompt. As
 
 ## Change control
 
-Changing a template affects employees created from it afterward. It does not prove existing instances changed. Record the template version in the handoff to the team. When a capability is missing on an instance, compare the instance's applied package with the template you think they used before editing either one.
+Syncing a marketplace entry can overwrite the configuration of an existing template. Check the target before syncing. The displayed version is a template label. Package selection resolves the configured Plugin source. To reproduce an instance’s capabilities, record the Plugin revision that was actually applied and check it against the current marketplace source. New employees use the template configuration in effect when they are created.

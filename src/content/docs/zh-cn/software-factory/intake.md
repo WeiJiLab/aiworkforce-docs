@@ -4,8 +4,8 @@ description: "在任何员工修改代码之前，把进入的请求变成已确
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "5021340558ee0b612fb53990f0123c52fd3aa47c4f5d6c486872c70bc353b8e5"
+  sourceVersion: "2026-11-20"
+  sourceHash: "ac08c20344fd9c5b71f0179b16023b007ba6fb31d90ebf370481ce7b416d1a21"
 ---
 
 进入是请求变成交付草稿的方式。待办是团队尚未接受进入开发的草稿和卡片。收集到一项，并不是这项接受。功能说明按[需求到卡片](/zh-cn/software-factory/requirements-to-card/)推进，直到卡片被确认。
@@ -14,7 +14,7 @@ translation:
 
 工作空间任务收件箱保存收集或导入的请求。当配置了**收集任务 / 事项**并且运行记录了服务端回执时，自动化可以添加事项。聊天摘要不是已保存的 Issue。事项也可以进入工作台项目，并在那里成为草稿。审阅和流转事项的操作见[任务收件箱](/zh-cn/user-guide/inbox-tasks/)。
 
-草稿等待人。确认范围、验收标准，以及变更可以接触的仓库。确认需求不会授予仓库凭据，也不会让未配置的流水线变得可用。标准仍然含糊时，让卡片保持草稿。见[人工确认](/zh-cn/user-guide/human-approval/)。
+核对草稿的范围、验收标准和允许变更的仓库。看板要求人工决定时，在卡片上答复。标准看板启用需求接入编排后，可自动将已澄清（`READY`）的卡片派发到开发。需要强制审阅时，先检查目标看板的配置，再转入草稿。见[人工确认](/zh-cn/user-guide/human-approval/)。
 
 ## 让待办可以被检查
 

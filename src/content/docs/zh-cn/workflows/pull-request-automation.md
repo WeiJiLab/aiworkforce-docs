@@ -1,12 +1,12 @@
 ---
 title: "Pull Request 自动化"
 description: "当轮询到的 GitHub Pull Request 事件匹配时启动员工。合并仍留在发布泳道。"
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "41f97621ec318416ad21a2550a7b3cae82b3dc6435fc1b6cc62d6b525b69e5c1"
+  sourceVersion: "2026-11-20"
+  sourceHash: "312fac3a57b99ea7a7c2eddfe7524df73327fb6a80f4fcfb9c3f9d58b5d94f5c"
 ---
 
 Pull Request 自动化是一条事件驱动的工作流。Job 通过 GitHub Token 轮询观察 Pull Request 活动，并运行一名员工。它和 [Issue 自动化](/zh-cn/workflows/issue-automation/)使用同一套自动化，只是事件不同。它不会自行批准、合并或发布。
@@ -17,7 +17,7 @@ Pull Request 自动化是一条事件驱动的工作流。Job 通过 GitHub Toke
 
 ## 何时使用
 
-用它响应 Pull Request 的打开、更新、转为可审阅、评论或 Review。当平台自己在产出变更，并且必须把它送过测试和发布时，使用[看板工作台](/zh-cn/workflows/kanban-workbench/)。来源是 Issue 而不是 Pull Request 时，使用 Issue 自动化。
+用它响应 Pull Request 打开、head SHA 变化、转为可审阅、评论或 Review。当平台自己在产出变更，并且必须把它送过测试和发布时，使用[看板工作台](/zh-cn/workflows/kanban-workbench/)。来源是 Issue 而不是 Pull Request 时，使用 Issue 自动化。
 
 ## 如何工作
 
@@ -27,7 +27,7 @@ Pull Request 观察 → 规则匹配 → 一次运行 → 员工会话
         → 只有这项变更已经在看板上时，才进入发布泳道
 ```
 
-已支持的观察包括：PR 打开、head 更新、转为可审阅、关闭、合并、重新打开、标签、会话评论、Review 提交或撤销，以及代码行评论。条件可以包括目标分支、草稿状态、Review 状态、标签或评论文本。同一条规则上的多个条件按 OR 匹配。
+已支持的观察包括：PR 打开、head SHA 变化、转为可审阅、关闭、合并、重新打开、标签、会话评论、Review 提交或撤销，以及代码行评论。条件可以包括目标分支、草稿状态、Review 状态、标签或评论文本。同一条规则上的多个条件按 OR 匹配。
 
 轮询比较当前打开的 Pull Request 列表。在两次轮询之间打开又关闭的 PR 可能观察不到。Review 扫描最近 7 天更新过的 PR。PENDING review 不触发。作者为 Bot 时不触发。本版本没有 `Checks completed`，也没有 Review 讨论串已解决事件。
 

@@ -3,11 +3,11 @@ title: "WeCom"
 description: "Receive WeCom messages with a smart bot or a custom app, or post a notice with a group bot."
 sidebar:
   label: WeCom
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 WeCom (企业微信) is a messaging channel for an enterprise. A smart bot and a custom app can receive messages and reply. A group bot can only post a notice to one group. WeCom does not replace the Job or the delivery board.
@@ -26,8 +26,10 @@ Inbound modes can pass a message to the primary session and, through an automati
 
 ## Connect it
 
+Choose the setup surface for your purpose. **Connect a messaging channel** saves an Automation connection. **Messaging channels** in the primary session saves the primary session binding. See [Messaging](/integrations/overview/#messaging).
+
 1. In the WeCom admin console, create the smart bot, the custom app, or the group bot.
-2. Open **Integrations** or **Connect a messaging channel** and choose WeCom.
+2. Choose WeCom in the selected setup screen.
 3. Enter the credentials for the mode.
 
 | Mode       | What you enter                                                                     | Callback                                           |

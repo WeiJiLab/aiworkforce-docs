@@ -3,11 +3,11 @@ title: "Sentry"
 description: "Receive Sentry issue events on a personal connection and start a Job when an enabled rule matches."
 sidebar:
   label: Sentry
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Sentry is a monitoring connection for issue events. The connection belongs to you in one workspace. When an issue event matches an enabled rule, a published Job can run. The connection does not update the Sentry issue, assign an owner, or file a research report.
@@ -56,7 +56,7 @@ The token needs the organization, project, and issue reads above. The client sec
 
 There is no OAuth install wizard, no write-back to Sentry, no automatic MCP grant, and no historical backfill. Webhook delivery status is not stored as a verified remote health check. The screen says the webhook still needs to be confirmed in Sentry. Issue hooks do not offer an environment filter. Identical signed bodies are treated as the same delivery. A real regression usually changes fields such as last seen or count, and then has a new identity.
 
-Only the issue resource is processed. Other Sentry resources are acknowledged and ignored. An unverified or disabled connection rejects events. Pausing the source keeps the identity and does not run the Job. Old events are not replayed when you turn it back on.
+Sentry issue events require a verified connection. A verified connection can still accept and store eligible events while paused. The platform skips rule evaluation for those deliveries and does not replay them when you enable the connection again. Other Sentry resources are acknowledged and ignored.
 
 ## Related guides
 
