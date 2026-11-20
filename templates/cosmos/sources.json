@@ -1,0 +1,309 @@
+[
+  {
+    "slug": "accessibility-audit-pr",
+    "source": "https://www.augmentcode.com/workflows/qa/accessibility-audit-pr",
+    "summary": "对界面变更检查键盘操作、焦点与无障碍体验。",
+    "sha256": "80fa9a8f498beb39280129097eabdd721b82e1ec90fcd11b30e8b44b73ad26bb"
+  },
+  {
+    "slug": "api-contract-drift-detector",
+    "source": "https://www.augmentcode.com/workflows/coding/api-contract-drift-detector",
+    "summary": "对照接口实现与 API 契约，将偏差提交维护者。",
+    "sha256": "50ad848ccc73cbb766b5f48491e4742c12d4f7a74c51a7b889ea5b8b31716c35"
+  },
+  {
+    "slug": "architecture-review-before-implementation",
+    "source": "https://www.augmentcode.com/workflows/coding/architecture-review-before-implementation",
+    "summary": "架构师在开发前评审方案，记录约束、取舍与负责人。",
+    "sha256": "40f2707a3322a71c8a88854f256f664d43daf35fa362c0c664121a48ce320263"
+  },
+  {
+    "slug": "ask-channel-kb-answer-drafting",
+    "source": "https://www.augmentcode.com/workflows/support/ask-channel-kb-answer-drafting",
+    "summary": "客服员工从知识库检索依据，起草客户答复，交人工复核。",
+    "sha256": "5f3c2462706c670fdc2ecc339e316432f216f471e03f1a83611e294ad2dbef4f"
+  },
+  {
+    "slug": "auditor-evidence-response",
+    "source": "https://www.augmentcode.com/workflows/security/auditor-evidence-response",
+    "summary": "按审计请求匹配证据、责任人与有效期，组织答复。",
+    "sha256": "218190d78eccd370adba837f0fcf817d0125837d496c047cb2ca3021c3442910"
+  },
+  {
+    "slug": "backlog-dispatcher",
+    "source": "https://www.augmentcode.com/workflows/devops/backlog-dispatcher",
+    "summary": "根据待办的范围和责任人派单，跟踪交接。",
+    "sha256": "4860f4fbebc152a55f387881dbca7c23b5cc535ed2de7dcfa40d0834cfa087df"
+  },
+  {
+    "slug": "backlog-prioritization",
+    "source": "https://www.augmentcode.com/workflows/data/backlog-prioritization",
+    "summary": "按影响、投入和置信度排序产品待办。",
+    "sha256": "e872f228542c552daea6a792d7cdccefd52da7338e4e5214f1e1b2f9607b7805"
+  },
+  {
+    "slug": "backlog-scrub-and-kickoff",
+    "source": "https://www.augmentcode.com/workflows/coding/backlog-scrub-and-kickoff",
+    "summary": "产品梳理积压需求，澄清待决项，交付可启动的工单。",
+    "sha256": "9f1efb9f8d600a92bc955079d2ad5a449c89528841a95f081b62ae8ee7cbb85e"
+  },
+  {
+    "slug": "backup-verification-and-incident",
+    "source": "https://www.augmentcode.com/workflows/observability/backup-verification-and-incident",
+    "summary": "验证备份可恢复性，针对失败项建立跟进记录。",
+    "sha256": "b8f8521ce2f2723309a0a388c03c94794ee9e971d129ed25960862fbf6d81424"
+  },
+  {
+    "slug": "canary-slo-auto-rollback",
+    "source": "https://www.augmentcode.com/workflows/devops/canary-slo-auto-rollback",
+    "summary": "核对灰度发布指标与 SLO，将异常交给值班人决策。",
+    "sha256": "eae1aa7e609e3de2bc0aabbffc0b86433aa182f637595934ab6fb46b29a36904"
+  },
+  {
+    "slug": "ci-build-failure-autofix",
+    "source": "https://www.augmentcode.com/workflows/devops/ci-build-failure-autofix",
+    "summary": "定位 CI 构建失败，开发修复，复核原检查。",
+    "sha256": "95acd2fee64140c0299869b356ec2b4b249672857fb1685209b0f79e2d399664"
+  },
+  {
+    "slug": "codebase-health-scorecard",
+    "source": "https://www.augmentcode.com/workflows/devops/codebase-health-scorecard",
+    "summary": "生成代码库健康指标与趋势，维护人跟进改进项。",
+    "sha256": "7fe15c955675a4c03c8ac0405978d9c2617dde2e5d073435e1e2358560e73388"
+  },
+  {
+    "slug": "continuous-code-simplification",
+    "source": "https://www.augmentcode.com/workflows/coding/continuous-code-simplification",
+    "summary": "分批重构复杂代码，验证行为一致性。",
+    "sha256": "fee02cb0584b74813941ae8da1c7e7d92d712a1689285df6fc3495988be43799"
+  },
+  {
+    "slug": "continuous-privacy-compliance",
+    "source": "https://www.augmentcode.com/workflows/security/continuous-privacy-compliance",
+    "summary": "核对数据处理与隐私要求，记录偏差和整改人。",
+    "sha256": "fe80d4c211a2563cf116c6fb072bd43a73f8a6e014489cf333bf34fa0c4641f0"
+  },
+  {
+    "slug": "aiwo-analyst",
+    "source": "https://www.augmentcode.com/workflows/data/cosmos-analyst",
+    "summary": "分析员工核对数据口径与来源，交付带证据的结论。",
+    "sha256": "588b55dfeed879bd4a8e43431398c8567c749c4d1df80e5cc1771861792fd2cd",
+    "source_slug": "cosmos-analyst"
+  },
+  {
+    "slug": "deep-code-reviewer",
+    "source": "https://www.augmentcode.com/workflows/coding/deep-code-reviewer",
+    "summary": "代码审查员工核对变更风险与测试覆盖，作者处理发现。",
+    "sha256": "188822c66e0e1e3c9ec62616eda4af1ea054311e6136314e3853ebf8101344cc"
+  },
+  {
+    "slug": "docs-update-on-pr-merge",
+    "source": "https://www.augmentcode.com/workflows/coding/docs-update-on-pr-merge",
+    "summary": "在 PR 合并后核对用户文档，提交文档维护者复核。",
+    "sha256": "36053f4fd8621c229e38839db41b0e9b6c1df50b28836c8d80a543ab4c3677e8"
+  },
+  {
+    "slug": "documentation-readiness-gate-before-ga",
+    "source": "https://www.augmentcode.com/workflows/release/documentation-readiness-gate-before-ga",
+    "summary": "在正式发布前核对说明、升级指南与已知限制。",
+    "sha256": "da42f3ea3def0f9fb612a696b4292422e6d00b621930a8159c7bff7bac335ea6"
+  },
+  {
+    "slug": "e2e-playwright-pr-verification",
+    "source": "https://www.augmentcode.com/workflows/qa/e2e-playwright-pr-verification",
+    "summary": "用 Playwright 运行端到端验收并记录失败证据。",
+    "sha256": "e3769321fc9fb4c98ae0341cf846ebdc153b761e0d9f7f4ee35169aafc7ded5d"
+  },
+  {
+    "slug": "email-triage-and-response",
+    "source": "https://www.augmentcode.com/workflows/support/email-triage-and-response",
+    "summary": "对客服邮件分诊、分配负责人并准备答复草稿。",
+    "sha256": "f5b473ee86e4cfb0da0bfb7e7cf25e487ee5eaed5a68e88a8e50fc89214904f9"
+  },
+  {
+    "slug": "epic-decomposition-agent-orchestration",
+    "source": "https://www.augmentcode.com/workflows/devops/epic-decomposition-agent-orchestration",
+    "summary": "大型 Epic 按成果拆解，多名数字员工分工协作并汇总交付。",
+    "sha256": "44354df2640099e6f9be11cc021ef6869bbab9d25bdc2615f9ee5a7f57282c0c"
+  },
+  {
+    "slug": "feature-flag-cleanup",
+    "source": "https://www.augmentcode.com/workflows/coding/feature-flag-cleanup",
+    "summary": "跟踪过期功能开关的调用点与清理进度。",
+    "sha256": "f1933412f40d8fac7305e5103c2139a11bd99fbd6bc34277e65eb47f1b1b01b4"
+  },
+  {
+    "slug": "figma-to-code",
+    "source": "https://www.augmentcode.com/workflows/coding/figma-to-code",
+    "summary": "设计员工从 Figma 整理交互规格，开发实现后交设计复核。",
+    "sha256": "33ca765d5c57fe5713721e56f2fda7b32372b5f949bd0b2333d9f96ded4c4114"
+  },
+  {
+    "slug": "flaky-test-auto-quarantine",
+    "source": "https://www.augmentcode.com/workflows/qa/flaky-test-auto-quarantine",
+    "summary": "识别不稳定测试，记录重跑证据与跟进责任人。",
+    "sha256": "14d5560a3f435dba43f920cafb23b06e6cd7fe7ba95226ae550480f200e52673"
+  },
+  {
+    "slug": "heavy-query-sandbox-optimiser",
+    "source": "https://www.augmentcode.com/workflows/database/heavy-query-sandbox-optimiser",
+    "summary": "在测试数据上比较慢查询的执行计划与性能。",
+    "sha256": "3dc213ae83e96680924caea61762bd2b09e2070abec328f84bf3fed56ee9b64b"
+  },
+  {
+    "slug": "incident-root-cause-correlation",
+    "source": "https://www.augmentcode.com/workflows/observability/incident-root-cause-correlation",
+    "summary": "关联故障时间、发布活动和指标变化，归纳可能原因。",
+    "sha256": "407e26b88a6221f0051b89bc55ec840253b1b693f730ab46c4396e58b8aab69f"
+  },
+  {
+    "slug": "legacy-code-migration",
+    "source": "https://www.augmentcode.com/workflows/coding/legacy-code-migration",
+    "summary": "分段迁移遗留代码，比较行为与回归结果。",
+    "sha256": "cc0aaafb2eb17f74eb9cee78593762186134c8c7cbbed90a83ca4f6c35e98c46"
+  },
+  {
+    "slug": "license-compliance-continuous-audit",
+    "source": "https://www.augmentcode.com/workflows/security/license-compliance-continuous-audit",
+    "summary": "核对依赖许可证，例外项由合规负责人审阅。",
+    "sha256": "360504512c29ac191e21539a9d5d1a856fe26d3061fd22e78c63257338e68e80"
+  },
+  {
+    "slug": "meeting-notes-to-pr",
+    "source": "https://www.augmentcode.com/workflows/coding/meeting-notes-to-pr",
+    "summary": "从会议纪要提取决定和验收条件，开发提交待审 PR。",
+    "sha256": "68adbfb47301273745e711d99b55a6ceed21eb8ba8120c895cff19e8dc0877e4"
+  },
+  {
+    "slug": "monitoring-alert-investigation",
+    "source": "https://www.augmentcode.com/workflows/observability/monitoring-alert-investigation",
+    "summary": "从监控告警定位影响范围，交给值班人分级处理。",
+    "sha256": "3f2c4cc8a24b096940f020e1bfe341fb0562c3fd4fbc8ecd01cef9bf24d97c6b"
+  },
+  {
+    "slug": "multi-channel-ticket-dedup-sync",
+    "source": "https://www.augmentcode.com/workflows/support/multi-channel-ticket-dedup-sync",
+    "summary": "按来源与关联信息归并重复工单，核对状态与负责人。",
+    "sha256": "140179dee3d22676c8b91eab662777dc5373796091f4c1ff333a31b30ca7dee9"
+  },
+  {
+    "slug": "network-health-and-intrusion",
+    "source": "https://www.augmentcode.com/workflows/network/network-health-and-intrusion",
+    "summary": "汇总网络健康指标和异常流量，交值班团队研判。",
+    "sha256": "d813099fec81f876ae51030c67802f4a1845a21bbaa2adf92671f9aca24a9f4e"
+  },
+  {
+    "slug": "pair-reviewer",
+    "source": "https://www.augmentcode.com/workflows/coding/pair-reviewer",
+    "summary": "两名审阅者分别检查代码，汇总发现与待裁决项。",
+    "sha256": "960d635e2b3629280e51c63030bbf9b797d4fcc714dd775b3b9d1fddc8c07b2c"
+  },
+  {
+    "slug": "performance-regression-gate",
+    "source": "https://www.augmentcode.com/workflows/qa/performance-regression-gate",
+    "summary": "比较候选版本与基线性能，发现回归时交负责员工裁决。",
+    "sha256": "8b782dcbbfa4265a328dd3cfc96b0ed3f61cbeab05093b6e0cd0063d2d496b2c"
+  },
+  {
+    "slug": "personal-assistant",
+    "source": "https://www.augmentcode.com/workflows/devops/personal-assistant",
+    "summary": "归集个人待办、会议与行动项，按优先级整理。",
+    "sha256": "1a79434354947ecd2e447c0e7742376e575c35dd25150c34e38a0f46d96872b9"
+  },
+  {
+    "slug": "pr-auto-maintenance",
+    "source": "https://www.augmentcode.com/workflows/coding/pr-auto-maintenance",
+    "summary": "跟踪开放 PR 的审阅与检查，维护员工逐项跟进。",
+    "sha256": "a47bf96997d6305152740f4fa70bf5e233cd204a1d62aaacece344b1c61d5dc1"
+  },
+  {
+    "slug": "pr-review-triage",
+    "source": "https://www.augmentcode.com/workflows/coding/pr-review-triage",
+    "summary": "分类 PR 审阅意见，把阻塞项交给作者处理。",
+    "sha256": "e63c3338c99e17f0ede76f39cde1d842980359040070f154b86b9b61001b77b7"
+  },
+  {
+    "slug": "project-builder",
+    "source": "https://www.augmentcode.com/workflows/coding/project-builder",
+    "summary": "明确项目范围，围绕可验证的里程碑交付实现。",
+    "sha256": "6d5a1f1f37bba82fa7c87511fea2bc17213df5c3df7c4c95270032a1b0fbb0c4"
+  },
+  {
+    "slug": "prompt-eval-regression-gate",
+    "source": "https://www.augmentcode.com/workflows/ai/prompt-eval-regression-gate",
+    "summary": "对照基线评测提示词质量、成本与延迟，记录回归证据。",
+    "sha256": "77c58843d56a773e06972673216d823bdcf58f32b8b14f62ec9a0a2b76f6d85f"
+  },
+  {
+    "slug": "runbook-auto-execution",
+    "source": "https://www.augmentcode.com/workflows/observability/runbook-auto-execution",
+    "summary": "根据运维事件查找手册，核对处置权限与执行证据。",
+    "sha256": "a40035ccadc799b400b928ed1655e84fe37f3b6b5ea7be8f194a7841827c6219"
+  },
+  {
+    "slug": "safe-dependency-update",
+    "source": "https://www.augmentcode.com/workflows/devops/safe-dependency-update",
+    "summary": "评估依赖升级风险并执行回归验证，提交维护者审阅。",
+    "sha256": "ea4d4190dc3e89d95c552105635f3ca9d16b4c127f4923122ea0e28c563bf46c"
+  },
+  {
+    "slug": "safe-schema-migration-pipeline",
+    "source": "https://www.augmentcode.com/workflows/database/safe-schema-migration-pipeline",
+    "summary": "评审数据库迁移兼容性，验证变更与回滚方案。",
+    "sha256": "741e22c018c0fb72b76ff073fd981507789ecaeace284bab02affec63384ce18"
+  },
+  {
+    "slug": "secret-rotation-expiry-gate",
+    "source": "https://www.augmentcode.com/workflows/security/secret-rotation-expiry-gate",
+    "summary": "记录凭据到期时间，安排轮换和交接验证。",
+    "sha256": "10c5262f2e1c9ed80e04ef494fd73ecdd3d232d7cc146bbe3d783bd126457d83"
+  },
+  {
+    "slug": "slack-feedback-to-pr",
+    "source": "https://www.augmentcode.com/workflows/coding/slack-feedback-to-pr",
+    "summary": "从 Slack 反馈整理复现条件，开发提交修复 PR。",
+    "sha256": "855b7e910b5dacab22660cc2ef5cf0d02e1ecd9c71cce7e01164c76f08e69a70"
+  },
+  {
+    "slug": "sop-policy-self-update",
+    "source": "https://www.augmentcode.com/workflows/devops/sop-policy-self-update",
+    "summary": "根据执行反馈修订 SOP，交流程负责人确认。",
+    "sha256": "b4413950b9dd809bd551597f71cf3bf5f26018739f79b7eb06f05e99af2aa37c"
+  },
+  {
+    "slug": "spec-to-gherkin-tests",
+    "source": "https://www.augmentcode.com/workflows/qa/spec-to-gherkin-tests",
+    "summary": "从验收标准提取 Gherkin 场景，业务与测试共同审阅。",
+    "sha256": "a0aed750b66dd185daa049ddf97e719a1c8d28eee3c254d6a09ab5c9755db200"
+  },
+  {
+    "slug": "synthetic-eval-dataset-from-prod",
+    "source": "https://www.augmentcode.com/workflows/ai/synthetic-eval-dataset-from-prod",
+    "summary": "从脱敏样本构建合成评测集，检查覆盖情况。",
+    "sha256": "0bdd8a6a260bc7617ccad072ef67a1cce6413a15fab30303faba68e4106d3ce9"
+  },
+  {
+    "slug": "technical-debt-scanner",
+    "source": "https://www.augmentcode.com/workflows/coding/technical-debt-scanner",
+    "summary": "分析技术债影响与处理成本，形成可跟进事项。",
+    "sha256": "f078ff2a7ed3b3499f85482a8eb8567988693ba0b377b4ff7b71a9cd00ce21a4"
+  },
+  {
+    "slug": "test-coverage-gap-auto-pr",
+    "source": "https://www.augmentcode.com/workflows/qa/test-coverage-gap-auto-pr",
+    "summary": "识别测试覆盖缺口，提交新用例与审阅请求。",
+    "sha256": "d52113c1112fce8823ed1c7f03ca61c559960101e4e6b6658433b1f208fc57bf"
+  },
+  {
+    "slug": "threat-model-from-prd",
+    "source": "https://www.augmentcode.com/workflows/security/threat-model-from-prd",
+    "summary": "从产品设计整理信任边界与风险，评审缓解措施。",
+    "sha256": "ffea4f1e8da2b9b45819755c0f32b97a731c75261533ae384c8f046106a35fc6"
+  },
+  {
+    "slug": "ticket-dispatcher",
+    "source": "https://www.augmentcode.com/workflows/support/ticket-dispatcher",
+    "summary": "按优先级和团队职责分派支持工单，保留交接记录。",
+    "sha256": "bb6700239aa783bc1babae39794ad643a6b64088d1177b9f3c7168f98674c49c"
+  }
+]

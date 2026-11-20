@@ -2,3 +2,5 @@ node_modules/
 dist/
 .astro/
 package-lock.json
+# Preserve the upstream prompt bytes recorded in the archive manifest.
+templates/cosmos/originals/
