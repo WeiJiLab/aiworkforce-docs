@@ -57,6 +57,21 @@ A batch-level response can resume every member card. Read the membership before 
 2. Assign the test and release employees the template marks as required. Authorize them for the repositories and pipeline resources those lanes call.
 3. Open a card whose development lane has recorded a code reference, or mark that change ready for Test deployment. Read the delivery workbench, the pipeline run, and any question waiting on the card.
 
+## Template for a merge decision
+
+Use this when a candidate has been built for a batch. Record the test result on each card. Before acting on the batch, check its members and the candidate revision the evidence covers.
+
+```text
+Batch under review — [batch, member cards and PRs] [candidate commit per repository]
+Verification — [card and criterion → environment, tested revision, result, evidence]
+Decision — [ready to merge / return for repair / waiting] [reason and affected cards]
+Approval — [decision record if the batch policy requires approval]
+Merge outcome — [actual merge commit or pending]
+Production outcome — [deployed revision and run evidence, or pending / not configured]
+```
+
+**Example.** Batch B-9 contains C-17 and PR #58. The tester downloads both CSV samples from the candidate and attaches them to C-17. If the empty result still contains orders, return C-17 with the failing sample and retest the repaired candidate. If both checks pass and the batch is approved as required, record the resulting merge commit. Leave production pending until the deployment run identifies the deployed revision.
+
 ## Next step
 
 Continue with [Signal → card](/software-factory/signal-to-card/) when feedback or an incident should become the next piece of work. [Evidence and trace](/software-factory/evidence/) is the map of the records this loop leaves behind.

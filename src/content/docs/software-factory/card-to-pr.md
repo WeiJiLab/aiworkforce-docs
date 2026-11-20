@@ -56,6 +56,20 @@ The development employee needs a repository grant that covers the actions you ex
 3. Route a ready inbox issue to the project, or confirm a card that a requirements session already drafted.
 4. Open the card from **Workbench** (工作台). The delivery workbench is at `/automations?tab=board-flow`. Follow **Executions** to the session and **Deliverables** to the code reference.
 
+## Template for a development handoff
+
+The development employee fills this in when the change is ready for review. Record it on the card and link the PR so the reviewer can open the diff and reproduce the checks.
+
+```text
+Card and scope — [card reference] [confirmed acceptance criteria]
+Change — [repository, what changed, why]
+Code to review — [PR if opened, otherwise branch] [exact commit]
+Checks — [acceptance criterion → check run → result and evidence]
+Gaps or review request — [what was not verified] [what the reviewer should decide]
+```
+
+**Example.** For C-17, the CSV query now uses the order list’s filter. The developer records PR #58 and its head commit on the card. The test run on that commit passes both cases. One matching order produces one data row, and no matches produce the header only. Link the test run and ask the reviewer to check the downloadable file in the test environment.
+
 ## Next step
 
 Continue with [Pull request → merge](/software-factory/pr-to-merge/) for verification, repair, and the release decision. [Review and release](/software-factory/review-release/) is the checklist for each recorded stage.
