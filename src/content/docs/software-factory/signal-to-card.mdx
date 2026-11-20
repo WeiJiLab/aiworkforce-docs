@@ -6,7 +6,7 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 import MonitoringRoute from "../../../components/MonitoringRoute.astro";
@@ -65,6 +65,20 @@ The Job employee does not need permission to push. The development employee does
 5. Open the run and the inbox item. Read the finding, the source identity, and the next action. Route a development-ready item to a board and confirm the card.
 
 [Runs, results, and recovery](/automate/runs-recovery/) covers a failed, timed-out, or rejected run. A paused source does not admit waiting events. Turning it back on starts a new baseline.
+
+## Template for a signal investigation
+
+Copy this into the investigating Job’s findings. If the Job collects an inbox item, keep the source and run receipt with it so the reviewer can check the report.
+
+```text
+Source and original report — [source ID or link] [what the reporter saw]
+Reproduction — [environment, steps, expected and actual behavior]
+Evidence — [observation or artifact] [what is still a hypothesis]
+Disposition — [follow up / request evidence / archive] [reason]
+Handoff — [inbox item and run receipt, if collected] [card, once accepted and confirmed]
+```
+
+**Example.** In Issue #42 a user reports that exporting a filtered order list includes all orders. The investigator reproduces it with three sample orders. The screen shows one row, the CSV contains three. Attach the sample CSV to the finding. The reviewer accepts the item for follow-up and asks how an empty result should export before confirming the card.
 
 ## Next step
 
