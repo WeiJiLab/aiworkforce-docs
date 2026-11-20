@@ -3,12 +3,12 @@ title: "微信"
 description: "扫码从个人微信聊天，或用开发者凭据接收公众号消息。"
 sidebar:
   label: 微信
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "b8bac0bd82aa2250966ca8d7e88e70c6fa5b1e49a4137bd7ca0b844c1da42d33"
+  sourceVersion: "2026-11-20"
+  sourceHash: "fa12ec28f351cb641ec3cc33ef96aed698ab73a550b39c7905f402752b3520a0"
 ---
 
 微信是一条消息渠道，有两种模式。个人微信用二维码确认，不需要应用凭据。公众号使用开发者凭据和微信的服务器回调。公众号向外发送时，遵守微信自己的客服接口规则。微信不是团队工作流引擎。
@@ -27,9 +27,11 @@ translation:
 
 ## 如何连接
 
+按使用场景选择入口。**连接消息渠道**保存自动化连接。主会话的**消息渠道**保存主会话绑定。见[消息渠道](/zh-cn/integrations/overview/#消息渠道)。
+
 ### 个人微信
 
-1. 打开「连接消息渠道」，选择微信，再选个人微信。
+1. 在所选入口选择微信，再选个人微信。
 2. 用手机微信扫描二维码并确认。不需要 App ID、密钥或回调地址。
 3. 从该账号继续和主员工对话。
 

@@ -4,7 +4,7 @@ description: "Start a Job from an inbound webhook. There is no separate Watcher 
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 A webhook trigger lets an external system start a published Job by calling the platform. The current release does not have a separate Watcher object that polls arbitrary systems on your behalf. If you need the platform to notice a change, use a supported event trigger or a schedule. See [event-driven automation](/automate/event-driven/).
@@ -21,4 +21,4 @@ Do not put the webhook secret in a skill or in a chat. Store it with the other i
 
 The caller may retry. The Job should use stable identities and an idempotency key when it starts work through the API. Request idempotency does not make every tool inside the run idempotent. Review existing outputs before you retry a run that already wrote somewhere.
 
-Enable automatic execution only after a signed or otherwise authenticated test call produces the run you expect. An unsigned example in documentation is not a working subscription.
+Publish and activate the Job and enable the webhook rule in a test workspace before sending the first authenticated event. Use a small, approved input and check the event receipt and its Run. Keep the production rule paused until the test is satisfactory. See the [developer webhook contract](/integrations/webhooks/).

@@ -4,18 +4,18 @@ description: "Connect to the platform MCP endpoint and to external MCP servers. 
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 This page is the service integration: the platform MCP endpoint and external MCP servers. How an Agent Package names a dependency is [MCP dependencies](/build/mcp-integration/). The two pages must agree: a manifest entry is a name and a description. It does not contain the endpoint, the secret, or the grant.
 
 ## Platform Automation MCP
 
-An administrator can expose the platform's Streamable HTTP MCP endpoint at `/mcp`, with the permitted hosts and origins configured. Discover tools. Do not invent tool names. The server exposes eligible registered Job tools, plus `automation_get_run` and `automation_cancel_run` when the credential's scopes allow them.
+An administrator configures permitted hosts and origins for the Streamable HTTP MCP endpoint at `/mcp`. Use a Personal Automation Token to discover and invoke Job tools. The platform PAT authenticates a platform identity and carries no Automation scopes. The tools `automation_get_run` and `automation_cancel_run` require the relevant read or cancel scope.
 
-Invocation takes the Job `input` and an `idempotency_key`. It returns an asynchronous run handle. Inspect that run. Token expiry, revocation, the Job allowlist, and current authorization are checked again on the request. An open connection is not a permanent grant.
+Use a tool name returned by discovery for your credential. Discovery and invocation apply separate access checks for shared workspace Jobs. Verify access by testing an approved input. Invocation accepts the Job `input` and an `idempotency_key` and returns an asynchronous Run handle. See [authentication](/developer/authentication/) for the access and revocation rules on existing Runs.
 
-The same Jobs are available over HTTP. Prefer HTTP when you want an application client. Prefer this MCP endpoint when a compatible agent should call registered work. Neither interface edits runtime configuration.
+To integrate a shared Job that is missing from discovery, check the Job’s publication state, workspace access, and token allowlist. The [REST API](/developer/api-reference/) also accepts an authorized Job’s definition ID.
 
 ## External MCP servers
 

@@ -3,12 +3,12 @@ title: "企业微信"
 description: "用智能机器人或自建应用接收企业微信消息，或用群机器人发送通知。"
 sidebar:
   label: 企业微信
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "f1f5e28461cfa1f8f541b264e20e838dc67f3ee526094f5c0c796108c508908e"
+  sourceVersion: "2026-11-20"
+  sourceHash: "048a807860d9c98e17203470fd324aa333c154e8892fd29dc0a4e59d7b047b14"
 ---
 
 企业微信是面向企业的消息渠道。智能机器人和自建应用可以接收并回复消息。群机器人只能向一个群发通知。企业微信不能代替 Job 或交付看板。
@@ -27,8 +27,10 @@ translation:
 
 ## 如何连接
 
+按使用场景选择入口。**连接消息渠道**保存自动化连接。主会话的**消息渠道**保存主会话绑定。见[消息渠道](/zh-cn/integrations/overview/#消息渠道)。
+
 1. 在企业微信管理后台创建智能机器人、自建应用或群机器人。
-2. 打开「集成」或「连接消息渠道」，选择企业微信。
+2. 在所选入口选择企业微信。
 3. 按模式填写凭据。
 
 | 模式       | 要填写的内容                                                          | 回调                                        |

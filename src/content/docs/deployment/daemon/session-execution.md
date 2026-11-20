@@ -6,10 +6,10 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
-Start an employee session and open **Execution location** before sending the first message. Select an online computer you own. If it is missing, check its pairing and online status under **Device connections** in personal settings. See [My machines](/deployment/daemon/my-machines/).
+Start a session for a Claude Code employee you can run. Under **Execution location**, select an online computer you own that advertises `device_rpc`. A computer marked **update client** needs a newer device client. For a regular session, make the selection before sending the first message. See [My machines](/deployment/daemon/my-machines/).
 
 ## Check the working directory and permissions
 
@@ -17,4 +17,4 @@ Tool commands run as the operating-system user on the selected computer. The `--
 
 ## Change the execution location
 
-The location is fixed after the first message. If the device goes offline or its authorization is revoked, the session does not fall back to platform execution. Marking a default computer in Device connections leaves existing sessions as they are. To use a different computer or the platform, start a session and select the location before the first message.
+A regular session locks its execution location as soon as it starts. Start a new regular session to choose a different location. The owner of an eligible idle automation session can switch location between turns. The next turn uses the location you select, and switching back resumes that location’s runtime context. If a selected device goes offline or is revoked, execution stays bound to that device until you switch or start a new session. A preferred device setting applies as a choice in the picker.

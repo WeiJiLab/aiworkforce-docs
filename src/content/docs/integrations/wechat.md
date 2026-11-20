@@ -3,11 +3,11 @@ title: "WeChat"
 description: "Chat from personal WeChat by scanning a QR code, or receive Official Account messages with developer credentials."
 sidebar:
   label: WeChat
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 WeChat is a messaging channel with two modes. Personal WeChat uses a QR confirmation and needs no app credentials. An Official Account uses developer credentials and WeChat's server callback. Sending from the Official Account follows WeChat's own customer-service rules. WeChat is not a team workflow engine.
@@ -26,9 +26,11 @@ Personal chat carries the conversation to the primary session. An Official Accou
 
 ## Connect it
 
+Choose the setup surface for your purpose. **Connect a messaging channel** saves an Automation connection. **Messaging channels** in the primary session saves the primary session binding. See [Messaging](/integrations/overview/#messaging).
+
 ### Personal WeChat
 
-1. Open **Connect a messaging channel** and choose WeChat, then personal WeChat.
+1. Choose WeChat, then personal WeChat, in the selected setup screen.
 2. Scan the QR code with WeChat on your phone and confirm. No App ID, secret, or callback URL is required.
 3. Continue the conversation with the primary employee from that account.
 

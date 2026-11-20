@@ -4,8 +4,8 @@ description: "为管理 API、自动化调用和设备执行选择正确的 Bear
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
-  sourceHash: "b4d32b0878ba6100b75b62266cc06feafae9e8c3482dc364bff670b6781a74fe"
+  sourceVersion: "2026-11-20"
+  sourceHash: "de8a12ecfe812ea9e6845c7b88b281060336666819b2985d52cebd9abde85ca9"
 ---
 
 AI Workforce 为不同调用者使用不同凭据。将 Token 视为不透明的密钥，并使用端点要求的凭据。登录 Token、Personal Automation Token、供应商 Token 与设备凭据不能互换。
@@ -41,9 +41,9 @@ curl 'http://localhost:8080/api/auth/me' \
 
 ## 创建有范围的机器凭据
 
-外部自动化应先以有权限操作目标 Job 的用户登录，再签发 Personal Automation Token，只授予所需 scope，并明确 `allowed_definition_ids`。调用相关 scope 包括 `automation:invoke`、`automation:read` 和 `automation:cancel`。根据集成使用周期设置有效期。
+外部自动化应由有权操作目标 Job 的用户登录后配置。通过 `POST /api/automation-tokens` 选择所需 scope（`automation:invoke`、`automation:read` 或 `automation:cancel`），在 `allowed_definition_ids` 中指定 Job，按使用周期设置 `expires_at`。自动化页面的通用**令牌**表单会为所选 Job 签发三个 scope，表单中没有有效期字段。
 
-创建响应返回 Token 明文，后续列表只返回元数据。将其保存在调用端已有的密钥存储中。每次请求仍会检查撤销状态、有效期、当前工作空间访问与 Job 允许列表。授予 Job Token，不等于允许调用者创建任意员工或替换已注册执行配置。
+创建响应返回 Token 明文，请将它保存在调用方的密钥库中。Token 校验会检查有效期和撤销状态。调用 Job 时也会检查调用方当前对 Job 的访问权限。读取 Run 状态、审计和取消 Run 依据 Token 的 scope、Job 允许列表及已有 Run 的归属。收回工作空间访问权限时，请直接撤销相关 Personal Automation Token，收回这些 Token 对已有 Run 的访问。
 
 ## 处理访问拒绝
 

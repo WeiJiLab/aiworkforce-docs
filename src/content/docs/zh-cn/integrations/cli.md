@@ -1,34 +1,34 @@
 ---
 title: "设备执行器 CLI"
-description: "安装、配对并操作 aiworkforce-daemon。它在一台计算机上运行工具，不管理平台。"
+description: "安装、配对并操作 aiworkforce-device-exec。它在一台计算机上运行工具，不管理平台。"
 audience:
   - developer
   - platform-engineer
 product_area: integrations
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 sidebar:
   label: 设备执行器 CLI
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "374e94ba884e67e18a5b51e895b2c548f48a9103350098c0a3053d1f473fed33"
+  sourceVersion: "2026-11-20"
+  sourceHash: "573811ccd2e0ed40fd53dccf7b7b0e713f88771c1cafa441b06e8c4560afad37"
 ---
 
-`aiworkforce-daemon` 是设备执行器。它配对一台 macOS 或 Linux 计算机，让 AI Workforce 在那里运行工具。平台保留对话、模型循环和授权。这个 CLI 不创建员工、不修改授权、不调用管理 API，也不是一条通用的 `aiworkforce` 管理命令。
+`aiworkforce-device-exec` 是设备执行器。它配对一台 macOS 或 Linux 计算机，让 AI Workforce 在那里运行工具。平台保留对话、模型循环和授权。这个 CLI 不创建员工、不修改授权、不调用管理 API，也不是一条通用的 `aiworkforce` 管理命令。
 
-限制就在这个范围。没有受支持的 npm 或 pip 包，本基线也不发布公开下载地址或校验和清单。向你的部署维护者获取二进制文件。
+客户端以独立的 macOS 和 Linux 可执行文件发行。在控制台打开**添加执行设备**，即可找到发布页及当前部署的配对命令。
 
 HTTP、MCP 和 SDK 的接口对照在[接口总览](/zh-cn/developer/cli-sdk/)。不要把设备操作步骤再抄到那一页。
 
 ## 安装与验证
 
-1. **获取发行版本。** 向维护者索取与这台计算机操作系统匹配的 `aiworkforce-daemon`。守护进程的开发者可以在它自己的仓库里用 `cargo build --locked` 构建。只有一个包名，并不是安装路径。
-2. **核对拿到的文件。** 确认文件名，以及维护者预期的就是这个构建。发布流程没有公布校验和时，本文档不能替你验证校验和。
-3. **检查运行环境。** 支持的主机是 macOS 和 Linux。将二进制文件以 `aiworkforce-daemon` 为名安装到 `PATH` 中的目录，然后运行：
+1. **下载发行版本。** 从弹窗打开发布页，或向部署维护者获取发布压缩包。选择与操作系统和 CPU 架构匹配的 `aiworkforce-device-exec` 压缩包。
+2. **校验下载。** 解压前，将压缩包的 SHA-256 摘要与发行版 `SHA256SUMS` 对应条目比较。
+3. **检查运行环境。** 支持的主机是 macOS 和 Linux。将二进制文件以 `aiworkforce-device-exec` 为名安装到 `PATH` 中的目录，然后运行：
 
 ```bash
-aiworkforce-daemon doctor --json
+aiworkforce-device-exec doctor --json
 ```
 
 `doctor` 报告这台机器能否承担执行。阅读 JSON。这里失败是环境问题，不是平台故障。
@@ -36,7 +36,7 @@ aiworkforce-daemon doctor --json
 4. **执行配对。** 使用你的部署的平台地址。下面的主机是占位符，不是线上服务：
 
 ```bash
-aiworkforce-daemon connect \
+aiworkforce-device-exec connect \
   --workspace /absolute/project/path \
   --platform https://platform.example.org
 ```
@@ -46,7 +46,7 @@ aiworkforce-daemon connect \
 5. **验证连接状态。** 浏览器批准和 worker 在线是两个步骤。批准主机执行之后运行：
 
 ```bash
-aiworkforce-daemon status --json
+aiworkforce-device-exec status --json
 ```
 
 只有 `status` 显示 worker 在线，配对才完成。只在浏览器里批准，本身并不算完成。
@@ -75,8 +75,8 @@ aiworkforce-daemon status --json
 先生成定义，审阅之后，再用操作系统的工具安装。连接本身不会安装服务。
 
 ```bash
-aiworkforce-daemon service --format launchd
-aiworkforce-daemon service --format systemd
+aiworkforce-device-exec service --format launchd
+aiworkforce-device-exec service --format systemd
 ```
 
 审阅工作目录、平台源，以及服务将以哪个用户运行。审阅之后再用 `launchctl` 或 `systemctl` 安装或移除。`stop` 停止当前进程。它不会卸载你自己安装的服务单元。卸载方式与安装方式相同，然后如果 worker 应忘记这次配对，再运行 `disconnect`。

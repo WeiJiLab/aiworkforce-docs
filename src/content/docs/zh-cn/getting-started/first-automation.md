@@ -1,14 +1,14 @@
 ---
-title: "运行第一个自动化任务"
+title: "跟进交付看板的首次运行"
 description: "用已发布的看板模板初始化泳道和编排，跟进第一张卡片的执行。"
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 prev: false
 next: false
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "3171db818e92851cafa4a493f9ee5a5ca27e0d3bd39eb7d2f8831cdfb6e6a9ba"
+  sourceVersion: "2026-11-20"
+  sourceHash: "7dd0ceb282a2f792ca3062fbc1b33a305caef36cfb560cefbe9c3cbab548d829"
 ---
 
 工作空间可以从已发布的看板模板创建交付看板。模板定义泳道及其提示词、任务、员工要求和自动化配方。创建时为必配泳道指派员工，初始化后由这块看板维护自己的交付策略。
@@ -26,10 +26,10 @@ translation:
 
 ## 2. 指派员工，初始化看板
 
-为每条标记为必配的泳道选择可用的数字员工实例。核对模板预选的共享 MCP 和 Skill，按需调整。需要同步外部工作项时再配置来源。检查配置后点击**创建看板**。初始化检查通过后，看板及其配置的自动化可以启动。[配置软件工厂](/zh-cn/getting-started/first-software-factory/)
+为每条标记为必配的泳道选择可用的数字员工实例。核对模板预选的共享 MCP 和 Skill，按需调整。需要同步外部工作项时再配置来源。检查配置后点击**创建看板**。初始化成功后，看板及已配置的自动化会启用。[配置软件工厂](/zh-cn/getting-started/first-software-factory/)
 
 ## 3. 用一张卡片核对编排运行
 
-进入看板，在需求泳道新建需求会话或从收件箱转入一条 Issue。确认范围和验收标准后，跟进这张卡片。到目标泳道的**泳道流程**核对执行节点，再打开对应的编排运行，对照卡片查看节点状态和员工会话。团队可以据此确认这次交付执行到了哪一步。[配置泳道编排](/zh-cn/automate/workflow-builder/#组合一条泳道编排)
+进入看板，在需求泳道新建需求会话，或从**任务收件箱**创建草稿。核对范围和验收标准，出现确认请求时在卡片上答复。启用标准接入编排后，可自动推进已澄清卡片。在**泳道流程**打开对应的编排运行，对照卡片核对节点和员工会话。见[工作流构建器](/zh-cn/automate/workflow-builder/#组合一条泳道编排)。
 
 如果只需让一个员工完成一项独立任务，可以创建一个 Job，手动运行并检查结果后，再按需启用定时触发。[创建 Job](/zh-cn/automate/workflow-builder/#组合一个-job)

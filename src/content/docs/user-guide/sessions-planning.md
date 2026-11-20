@@ -4,7 +4,7 @@ description: "Check session status, follow an execution plan, and see what tools
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 A session connects your request, the employee’s execution, and the resulting files. After you send a task, use the session status, execution plan, and tool activity to see what has happened and whether the employee needs your input.
@@ -34,6 +34,6 @@ When an authorization request appears, read the tool name and input preview befo
 
 ## Clear a conversation
 
-Clearing a conversation resets its messages and model context and cancels the current turn and unhandled queued messages. It does not restore workspace files or remove existing work orders. Review the confirmation before proceeding.
+**Clear context** is in the composer of an editable main-agent session that uses cloud execution. It resets messages and model context, cancels the current turn, and clears unhandled queued messages. Workspace files and existing work orders are retained.
 
 When the work is ready to check, see [Review results and artifacts](/user-guide/artifacts-evidence/). For execution problems, see [troubleshooting](/resources/troubleshooting/).

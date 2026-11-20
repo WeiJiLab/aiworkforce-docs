@@ -4,14 +4,14 @@ description: "Assign a ready delivery card to the lane employee that should do t
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Dispatch is how a confirmed card reaches an employee. In the current workbench, that happens by the board, the lane, and the employees configured on the project. There is no separate dispatcher service with its own queue, priority language, or global worker pool. Do not describe a scheduler the deployment does not run.
 
 ## Assign the card you confirmed
 
-A card is ready after a person has confirmed scope, acceptance criteria, and allowed repositories. Start or resume the development session from that card. The employee must already be ready, and it must hold a grant for the repository it should change. A repository connection on the workspace is not that grant.
+A card is ready for development when the Requirements lane records it as clarified (`READY`). With the standard intake orchestration enabled, the lane moves the card into Development and dispatches its session once the board and execution prerequisites are satisfied. Open that session from the card. The lane employee must be ready and have the repository grants needed for the work.
 
 Custom lanes can coordinate by card or by batch. Available actions depend on the selected board. Dispatching a card onto a lane does not create the pipeline, the test environment, or the production permission.
 

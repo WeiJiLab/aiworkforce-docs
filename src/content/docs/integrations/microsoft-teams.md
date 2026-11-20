@@ -3,11 +3,11 @@ title: "Microsoft Teams"
 description: "Chat privately with one allowed Teams user through a bot, or send a notification through a Teams workflow."
 sidebar:
   label: Microsoft Teams
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Microsoft Teams is a messaging channel with two modes that do different jobs. The app bot holds a private chat with one allowed user. The workflow mode posts a notification to a fixed conversation and does not receive messages. Neither mode is a Teams workflow engine inside AI Workforce.
@@ -26,13 +26,15 @@ Bot messages from the allowed user can reach the primary session and can start a
 
 ## Connect it
 
+Choose the setup surface for your purpose. **Connect a messaging channel** saves an Automation connection. **Messaging channels** in the primary session saves the primary session binding. See [Messaging](/integrations/overview/#messaging).
+
 ### App bot
 
 1. Create an Azure Bot, enable the Microsoft Teams channel, and install the bot in Teams as a personal app.
-2. Open **Integrations** or **Connect a messaging channel**, choose Microsoft Teams, and choose the app bot.
+2. Choose Microsoft Teams and select the app bot in the selected setup screen.
 3. Enter the Microsoft App ID, the client secret from the app registration, and the allowed Teams user. Prefer that user's Microsoft Entra object id. A UPN or email works only when the Teams message actually includes that field.
 4. For a single-tenant app, enter the Entra directory id. Leave the tenant empty for a multi-tenant app.
-5. Save. The product checks the credentials. If the allowed user is missing, the channel reports that it will not receive messages until you save again with that user.
+5. Confirm that **Allowed Teams user** is filled in, then save. The app-bot form requires this field and checks the Microsoft credentials.
 6. Send a private chat so the reply address can be stored. The callback path to publish on the bot is `/api/im/teams/webhook`, on the deployment's public HTTPS origin.
 
 ### Workflow notifications

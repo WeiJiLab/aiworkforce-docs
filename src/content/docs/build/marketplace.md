@@ -4,10 +4,10 @@ description: Set the Git repository and token that the FDE marketplace and Agent
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
-Open **Employee marketplace** (数字员工市场) in the FDE workbench configuration group. The page asks for a repository URL and a Git token. The default repository is `aiworkforce-internal-agents`. The token can reuse the secret already saved on the server for the openstar-agents market, and you can replace that token here.
+A system administrator opens **Admin console → Employee marketplace** and configures the shared marketplace repository URL and Git token.
 
 Initialize the builder from this page before the [Agent builder](/build/builder/) can open a session. This page does not edit a Plugin. Edit the Agent Package in the builder. Find plugins you can convert in the [standard employee marketplace](/build/market/).
 

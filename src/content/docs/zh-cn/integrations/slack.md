@@ -3,12 +3,12 @@ title: "Slack"
 description: "通过 Socket Mode 或 Events API 接收 Slack 消息，或向一个频道发送通知。"
 sidebar:
   label: Slack
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "fa97e660b38b67a6907be0d363fe1e04dc42fbc7b1fbe25709aaf8544918e6d3"
+  sourceVersion: "2026-11-20"
+  sourceHash: "29ba0d553092744684c20a9ba76a89f8147f5aae0d0f1d82ef62cb4f050d86d7"
 ---
 
 Slack 是一条消息渠道。Socket Mode 和 Events API 能接收消息，也可以启动 Job。Incoming Webhook 模式只向一个频道发通知。Slack 不能代替 Job、看板或代码托管。
@@ -25,12 +25,14 @@ Slack 是一条消息渠道。Socket Mode 和 Events API 能接收消息，也�
 
 入站模式可以把消息事件送到主会话，也可以送到自动化。Job 输入包含供应商、渠道、事件 ID、会话 ID、发送者 ID 和正文。应用订阅了频道创建时，Slack 还可以发出 channel-created 事件。Webhook 模式只向外发通知，不接收消息，因此不能当作自动化的事件来源。
 
-主会话只接受你填写的那个 Slack 成员 ID。Socket Mode 保存后，先给机器人发一条私聊，会话才有回复目标。
+通过 Socket Mode 绑定主会话时，填写的成员 ID 用于限定发送者。保存后给机器人发一条私聊，让会话获得回复目标。Events API 表单使用工作空间 ID、Bot Token 和签名密钥。
 
 ## 如何连接
 
+按使用场景选择入口。**连接消息渠道**保存自动化连接。主会话的**消息渠道**保存主会话绑定。见[消息渠道](/zh-cn/integrations/overview/#消息渠道)。
+
 1. 在 Slack API 控制台创建应用，并安装到工作空间。
-2. 打开「集成」或「连接消息渠道」，选择 Slack。
+2. 在所选入口选择 Slack。
 3. 选择模式，填写该模式的凭据。
 
 | 模式        | 要填写的内容                                                                                               | Slack 侧还要做的事                                                  |

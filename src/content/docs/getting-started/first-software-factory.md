@@ -6,7 +6,7 @@ next: false
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 First-run setup connects the tools a delivery board needs, chooses where employees run, and prepares the board for its first card. Connect a code host before the first change. Add messaging or an external issue source when you want those signals on the board. If the board is already configured, go to the [quickstart](/getting-started/quickstart/).
@@ -55,15 +55,15 @@ The platform keeps the conversation, the model loop, and authorization. Commands
 2. Under **Choose a template**, select the published delivery template. Under **Basics**, name the board and review the lane order.
 3. Under **Digital employees**, assign a ready employee to each required lane. The Requirements employee clarifies scope. The Development employee implements a confirmed card. Testing records results. Production carries merge and deploy when those integrations exist.
 4. In **Shared MCP and Skill**, review the tools and skills selected by the template. In **External board and work item sources**, skip external sync for the first run if the issue source above is not ready. You can bring an issue in through Task inbox or open a requirements session on the board.
-5. In **Confirm and create**, review the configuration and select **Create board**. The template can start automations after initialization passes, so use the test workspace and check the selected template before creating the board. When initialization completes, select **Open board**. If a module fails, retry that module, or use **Back to configuration** when its inputs need to change.
+5. In **Confirm and create**, review the configuration and select **Create board**. After successful initialization, select **Open board**. If a module fails, retry that module or use **Back to configuration** to adjust its inputs.
 
-Board settings for a project that is not saved yet show **Observe mode** (观察模式). The page says: “A new project is saved in observe mode · start it after checks pass.” (新项目先保存为观察模式 · 检查通过后再启动。) Check the configuration, then start the project.
+The template wizard shows **Activates after creation**. Successful initialization enables the board and its configured automations. They can run when triggered. Review lane assignments, repository grants, and any external sources on **Confirm and create** before you select **Create board**. Use a test workspace and repository for the first run.
 
 ### 3. Check the lanes and the verification path
 
 1. In **Board settings**, confirm that the project is bound to the test repository. If you skipped an external issues source during creation, bind the repository before adding that source. Open **Lane configuration** and check each required lane's **Execution identity**. Use **Lane flow** to review employee assignments and saved automations.
 2. For automated checks, connect the project's test workflow and the test deployment it uses. A connected GitHub repository can use a GitHub Actions workflow as a project pipeline. Start with [CI/CD integration](/software-factory/cicd/) and [GitHub](/integrations/github/). Read the result on the Test deployment (测试发布) and Testing (测试验证) lanes.
-3. When automated checks are not available yet, choose a concrete check you can perform in a test environment and record which automated checks did not run. Keep a required gate blocked until the team has the result or records an explicit waiver. See [quality gates](/software-factory/quality-gates/).
+3. When automated checks are unavailable, record which checks did not run and what you observed in the test environment. The standard test gate still requires its configured passing result. See [quality gates](/software-factory/quality-gates/).
 
 ## Next step
 

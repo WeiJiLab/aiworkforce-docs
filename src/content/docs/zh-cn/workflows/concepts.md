@@ -6,7 +6,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "ef4a2600a0d88e58b44538effa3f33d5a9d806e47e8b9fed2c4a0a24ecb2ea5f"
+  sourceHash: "a02843cd0007c585cddeac594bfbd781339453081b14d48fdf2ef88ecead1c3b"
 ---
 
 ## 试一试：用 Issue 触发自动化
@@ -120,7 +120,7 @@ DRAFT   DEV     PREPARE     TEST         RELEASE      DONE
 | 触发   | 通过 GitHub Token 轮询观察到 Issue 打开、关闭、重新打开、标签或评论 | GitHub App、仓库 Webhook 或即时投递    |
 | 上下文 | 白名单事件字段、工作空间和仓库连接                                  | 检出事件 SHA；事件本身不能证明已经检出 |
 | 智能体 | Job 的执行员工                                                      | 自动选择负责人                         |
-| 步骤   | Job 运行。它可以收集收件箱事项。改代码之前由人确认范围。            | 内置分类器、重复检测或优先级模型       |
+| 步骤   | Job 运行，可收集收件箱事项或工作台草稿。目标看板执行它的接入规则。  | 内置分类器、重复检测或优先级模型       |
 | 验证   | 你检查这次运行。只有事项成为已确认卡片之后，才进入交付验证。        | 自动把 GitHub Issue 标为已解决         |
 | 输出   | 一次运行、可选的收件箱事项，以及看板执行卡片后的 Pull Request       | 事件适配器把结果写回 GitHub            |
 | 人     | 确认草稿。在卡片上回答问题。                                        | 无人值守的实现                         |

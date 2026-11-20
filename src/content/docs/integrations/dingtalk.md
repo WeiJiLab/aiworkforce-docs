@@ -3,11 +3,11 @@ title: "DingTalk"
 description: "Receive DingTalk bot messages over a Stream connection or an HTTP callback, and start a Job from an allowed sender."
 sidebar:
   label: DingTalk
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 DingTalk is a messaging channel. A bot receives messages from your enterprise and can reply with text. It can also start a Job when an automation names the conversation and the sender. DingTalk does not run the workflow, the board, or the delivery lanes.
@@ -28,8 +28,10 @@ An automation receives the message text, the conversation id, and the sender id.
 
 ## Connect it
 
+Choose the setup surface for your purpose. **Connect a messaging channel** saves an Automation connection. **Messaging channels** in the primary session saves the primary session binding. See [Messaging](/integrations/overview/#messaging).
+
 1. On the DingTalk open platform, create an internal enterprise app, enable the bot, and publish it. Choose Stream to avoid a public URL, or HTTP if DingTalk should call your deployment.
-2. Open **Connect a messaging channel** and choose DingTalk. DingTalk is in that dialog with the other chat providers.
+2. Choose DingTalk in the selected setup screen.
 3. Enter the Client ID (also called AppKey), the Client Secret (also called AppSecret), and your own enterprise member User ID.
 4. Name the channel if you want it labeled in the channel list. Save.
 5. For HTTP mode, copy the callback path `/api/im/dingtalk/webhook` onto a publicly reachable HTTPS address in the DingTalk app, and enable the message events DingTalk requires.

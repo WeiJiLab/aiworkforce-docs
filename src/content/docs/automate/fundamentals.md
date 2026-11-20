@@ -6,7 +6,7 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
 Automation starts a workflow and records what happened. It is not the workflow, and it is not only a cron job. The workflow is the reusable definition: a Job's task, a lane pipeline, or a delivery board. The Job is the automation object you configure here. A Job can be invoked by a schedule, a webhook, a platform event, an Issue, or an IM message when that trigger type is available. It can also be run by hand. The sections below keep the Job, the trigger, and the run separate so a failure has a place to look. The shared vocabulary is in [workflow concepts](/workflows/concepts/).
@@ -48,7 +48,7 @@ Schedule a Job to review new defect reports from an authorized source each weekd
 
 ## Inspect and recover
 
-Open run history and inspect status, output, session, and any collection receipt. If a run fails, resolve missing authorization, invalid inputs, or unavailable tools before retrying. For collection tasks, use stable source identities to avoid duplicate requests. A workbench draft still needs human confirmation before development begins.
+Open run history and inspect status, output, session, and any collection receipt. If a run fails, resolve missing authorization, invalid inputs, or unavailable tools before retrying. For collection tasks, use stable source identities to avoid duplicate requests. Workbench drafts follow the target board’s [intake rules](/software-factory/intake/).
 
 ## Related guides
 

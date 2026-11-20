@@ -4,7 +4,7 @@ description: "Inspect run evidence, handle failures and uncertain execution, and
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 A run is the record of one Job execution. Use its identity, input, session, and result to understand what happened. A successful conversation and a saved business result are separate facts.
@@ -40,13 +40,13 @@ Generic retry requires an active Job with the same published version. Re-run tes
 
 The durable execution system can recover bookkeeping and steps known to be safe. It does not automatically assume that replaying an opaque Agent invocation is harmless. For external writes, use stable source identities and review existing outputs before retrying.
 
-API clients should reuse the same idempotency key when retrying delivery of the same start request. Use a new key for a deliberate new execution. Request idempotency does not make every tool called inside a run idempotent.
+For a [public invocation](/developer/api-reference/) that accepts `Idempotency-Key`, reuse the key and input when resending the same request. Use a new key for a deliberate new execution. **Run once manually** in Automations creates a fresh key on each submission. If the response is lost, check run history before submitting again. Request deduplication applies to Run creation. Check the run’s existing side effects before retrying its work.
 
 ## Cancel and hand over
 
 Request cancellation for work that should stop, then inspect the final state and the connected session. Cancellation cannot undo an external action that has already completed.
 
-When a collected Issue enters the delivery workbench, confirm scope, acceptance criteria, and allowed repositories before development. Delivery workbench takeover and release controls are described in [review and release](/software-factory/review-release/).
+A new Run may reuse the Job’s bound session. Use the Run ID to identify the execution and the session to read its conversation. If a collected Issue goes to the workbench, check that board’s [intake rules](/software-factory/intake/).
 
 ## Related guides
 

@@ -6,10 +6,10 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-20"
 ---
 
-On the paired computer, run `aiworkforce-daemon doctor --json` to check the host environment, then `aiworkforce-daemon status --json` to see whether the worker is online.
+On the paired computer, run `aiworkforce-device-exec doctor --json` to check the host environment, then `aiworkforce-device-exec status --json` to see whether the worker is online.
 
 | What you see                                  | What to check                                                                                                                                               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |

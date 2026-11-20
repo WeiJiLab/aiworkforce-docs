@@ -6,13 +6,13 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "e28557eb529d8f35a9436e22e33bef236261060210bf48393c385dca8ac0eaa3"
+  sourceVersion: "2026-11-20"
+  sourceHash: "d2ec524e3cb38a5df980788ef25e079919f3ae8512ac924265e4063f0f1e9847"
 ---
 
-这条回路从团队已经接受的卡片开始，或从你转入看板的收件箱事项开始。需求员工检查问题、结果、范围和目标仓库。含糊的卡片留在澄清状态，直到你确认。边界清楚的卡片进入开发。开发员工实现变更，运行已配置的检查，并在卡片上记录 Pull Request、分支或提交。
+需求员工核对问题、结果、范围和目标仓库。已澄清的卡片按目标看板的[接入规则](/zh-cn/software-factory/intake/)进入开发。开发员工实现变更，执行已配置的检查，并在卡片上记录 Pull Request、分支或提交。
 
-图中标出的是人。其余步骤由员工执行。
+图中示例展示了需要人工审阅范围的一种看板流程。
 
 ```mermaid
 flowchart TD
@@ -28,7 +28,7 @@ flowchart TD
     class ready,spec,author agent
 ```
 
-任务已经具体时，也可以直接打开开发会话。会话需要范围决定时，卡片会等待你的确认，然后变更才继续。检查通过不会自动记成你的接受。
+泳道派发后，可从卡片打开开发会话。会话需要范围决定时，卡片会等待你的确认，然后变更才继续。检查通过不会自动记成你的接受。
 
 完整示例是 [Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。已有看板上的点击路径是[快速入门](/zh-cn/getting-started/quickstart/)。
 

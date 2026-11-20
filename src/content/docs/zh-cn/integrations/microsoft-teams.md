@@ -3,12 +3,12 @@ title: "Microsoft Teams"
 description: "通过机器人与一名允许的 Teams 用户私聊，或经由 Teams 工作流发送通知。"
 sidebar:
   label: Microsoft Teams
-last_verified: "2026-11-18"
+last_verified: "2026-11-20"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "3ace1c5d03a6bd04cfed443bdbbd1dd6eea0c07a228e8a6321ec55f34897dc09"
+  sourceVersion: "2026-11-20"
+  sourceHash: "4bed6a07c8eb26e661fa126dd5e9c1456d5ccdad692abfcbd5cefefd16f4633f"
 ---
 
 Microsoft Teams 是一条消息渠道，两种模式做的事不一样。应用机器人只和一名允许的用户私聊。工作流模式向固定会话发通知，不接收消息。两种模式都不是 AI Workforce 里的 Teams 工作流引擎。
@@ -27,13 +27,15 @@ Microsoft Teams 是一条消息渠道，两种模式做的事不一样。应用�
 
 ## 如何连接
 
+按使用场景选择入口。**连接消息渠道**保存自动化连接。主会话的**消息渠道**保存主会话绑定。见[消息渠道](/zh-cn/integrations/overview/#消息渠道)。
+
 ### 应用机器人
 
 1. 创建 Azure Bot，启用 Microsoft Teams 渠道，并把机器人作为个人应用安装到 Teams。
-2. 打开「集成」或「连接消息渠道」，选择 Microsoft Teams，再选应用机器人。
+2. 在所选入口选择 Microsoft Teams，再选择应用机器人。
 3. 填写 Microsoft App ID、应用注册里的客户端密码，以及允许的 Teams 用户。优先填这个用户的 Microsoft Entra 对象 ID。UPN 或邮箱只有在 Teams 消息真的带上该字段时才有效。
 4. 单租户应用填写 Entra 目录 ID。多租户应用把租户留空。
-5. 保存。产品会校验凭据。如果没填允许的用户，渠道会提示：在补上这个用户并再次保存之前，不会接收消息。
+5. 确认已填写**允许的 Teams 用户**，再保存。应用机器人表单要求填写该字段，并会检查 Microsoft 凭据。
 6. 发一条私聊，回复地址才会被记下来。机器人上要公布的回调路径是 `/api/im/teams/webhook`，挂在部署的公网 HTTPS 域名上。
 
 ### 工作流通知

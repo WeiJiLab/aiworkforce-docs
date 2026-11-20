@@ -4,7 +4,7 @@ description: "Review incoming requests and decide which work should proceed to d
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 The workspace Task inbox holds requests collected by automation or imported into the workspace. It gives each item a source and a review state so teams can decide what deserves attention before committing to execution.
@@ -23,7 +23,7 @@ Record a reason when a decision changes the interpretation or priority of the re
 
 ## Move suitable work toward delivery
 
-A development-capable request can become a delivery draft through the product's available action. Review the draft before starting development: confirm the requirement, acceptance criteria, and repositories that may be changed.
+Open an eligible request and choose **Create workbench draft**. The action opens a drawer in the workbench. Select a project with a ready Requirements employee, review the request, and submit the drawer to create the draft. Open the requirements conversation to check scope, acceptance criteria, and the card’s allowed write repositories.
 
 Collecting a request and starting implementation are separate decisions. An automation run can succeed by collecting an item even though the item is still waiting for review. A delivery card can remain blocked while its source item is visible in the inbox.
 

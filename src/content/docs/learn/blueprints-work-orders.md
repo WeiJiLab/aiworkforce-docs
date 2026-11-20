@@ -4,7 +4,7 @@ description: "Keep requirements, technical decisions, and execution scope connec
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-17"
+  sourceVersion: "2026-11-20"
 ---
 
 A confirmed requirement explains the result people need. A technical design explains how the system will produce it. An execution plan assigns a bounded piece of that change to an employee. Keeping these artifacts connected prevents an implementation from satisfying a convenient interpretation of the wrong requirement.
@@ -51,7 +51,7 @@ Include only the criteria this assignment owns, preserving their identifiers and
 
 ## Apply the plan in the workbench
 
-Use the delivery card's requirements and associated session to carry the agreed design and scope into execution. Confirm editable repositories and lane employees in the project configuration. A design that mentions a repository does not authorize an employee to use its credentials.
+Use the delivery card’s requirements and associated session to carry the agreed design into execution. Review the writable repositories on the current card as well as the board’s settings and the development employee’s grants. A project repository can be available to the board while outside this card’s write scope.
 
 After implementation, compare the actual changes with the requirement and design. If a design decision changed, record the reason and the new reference. If the requested outcome changed, clarify the requirements rather than quietly rewriting the criteria to match the implementation.
 

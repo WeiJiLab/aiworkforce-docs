@@ -4,7 +4,7 @@ description: "Use the documented research-assistant package as a worked example.
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 The worked example in this documentation is a research assistant that prepares a brief from supplied materials and refuses to publish them. It is an illustration of the Agent Package layout, not a template your deployment has necessarily published, and not a repository you can clone from this site.
@@ -15,7 +15,7 @@ The worked example in this documentation is a research assistant that prepares a
 research-assistant/
 ├── .claude-plugin/plugin.json
 ├── .aiworkforce/employee.yaml
-├── .aiworkforce/router.md
+├── .aiworkforce/rule.md
 ├── README.md
 └── skills/main/SKILL.md
 ```
