@@ -6,13 +6,13 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
-  sourceHash: "c7ae60aba57a597f30f524ea6473e9d34e22a61bfd8454530822a3480762b02e"
+  sourceVersion: "2026-11-20"
+  sourceHash: "48778ccacc267b341a1f9f39283a1c06492a1489cdeba6496574b49b4fd37314"
 ---
 
 执行评测回答一个窄问题：这名员工在这项任务上，是否产出了符合职责和验收标准的结果？自信的回复、很长的会话，或一次顺利的对话，都不是这个答案。平台控制，包括授权、模型、成本和审计，在[平台治理](/zh-cn/operate/evaluation-governance/)，不是同一项任务的第二份分数。
 
-交付路径可以校验 Agent 包、运行任务，并保留执行、测试和交付记录。它不会把基准分数变成自动晋升门禁。管理员另有 [FDE Agent 评估](/zh-cn/build/agent-tests/)用来排队运行套件和插件评测。那个界面不移动交付卡片。下面的检查使用你已经有的记录。[质量门禁](/zh-cn/software-factory/quality-gates/)说明记录下来的结果如何阻止或放行交付。[Agent 评测与治理](/zh-cn/operate/evaluation-governance/)说明这些检查如何与权限、模型和审计放在一起。
+交付路径可以校验 Agent 包、运行任务，并保留执行、测试和交付记录。它不会把基准分数变成自动晋升门禁。管理员另有 [岗位能力评测](/zh-cn/build/agent-tests/)用来排队运行套件和插件评测。那个界面不移动交付卡片。下面的检查使用你已经有的记录。[质量门禁](/zh-cn/software-factory/quality-gates/)说明记录下来的结果如何阻止或放行交付。[Agent 评测与治理](/zh-cn/operate/evaluation-governance/)说明这些检查如何与权限、模型和审计放在一起。
 
 ## 现在可以衡量什么
 

@@ -5,8 +5,8 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
-  sourceHash: "57bf5c4737a8e1706657bc808d0bab0dca76822287f8330d36eb73eb59b236eb"
+  sourceVersion: "2026-11-20"
+  sourceHash: "1b1c3e53e6e6ed7f8428f535a85a17583f758b35645508fede4699547051a2d2"
 ---
 
 本术语表是使用者、构建者和开发者的共用词汇。技术标识以英文为准。中文解释用产品语言描述同一个概念。
@@ -19,9 +19,9 @@ translation:
 | Automation          | 自动化     | 启动工作流并让后续运行继续发生的机制。在产品里是 Job 加上触发规则。                                                    |
 | Job                 | 自动化任务 | 一份自动化定义：任务、一个执行者，以及这个 Job 的触发规则。                                                            |
 | Pipeline            | 编排       | 交付看板某条泳道上的执行器图。至少两个执行器才能启用。                                                                 |
-| Agent               | 智能体     | 工作流内部的执行参与者。产品组织模型仍是「工作流 → 自动化 → 智能体」。                                                 |
-| AI employee         | 数字员工   | 智能体在工作空间中的已配置形态，不是单独的产品模型。                                                                   |
-| Employee template   | 员工模板   | 为创建员工而发布的可复用能力。                                                                                         |
+| Agent               | 智能体     | 可以承担某个专业步骤的执行者。                                                                                         |
+| AI employee         | 数字员工   | 在工作空间的授权范围内，持续承接某个岗位中可委派、可验证工作的一名实例。                                               |
+| Employee template   | 员工模板   | 可复用的岗位定义，写明职责边界、工作方法、工具依赖和验收要求。                                                         |
 | Employee definition | 员工定义   | 职责、输入、输出和能力要求。                                                                                           |
 | Skill               | 技能       | 针对一类任务的可复用方法。                                                                                             |
 | Plugin              | 插件       | 技能和相关 Agent 的包。                                                                                                |

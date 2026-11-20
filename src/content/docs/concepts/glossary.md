@@ -5,7 +5,7 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 This glossary is the shared vocabulary for users, builders, and developers. English names remain the reference for technical identifiers. Chinese explanations describe the same concepts in product language.
@@ -18,9 +18,9 @@ This glossary is the shared vocabulary for users, builders, and developers. Engl
 | Automation          | 自动化       | The mechanism that starts a workflow and keeps later runs coming. In the product, a Job plus triggers.                                                                                                                                                                                         |
 | Job                 | 自动化任务   | One automation definition: the task, one executor, and that Job's triggers.                                                                                                                                                                                                                    |
 | Pipeline            | 编排         | A graph of executors on a delivery-board lane. Requires at least two executors to enable.                                                                                                                                                                                                      |
-| Agent               | 智能体       | The execution participant inside a workflow. The organizing product model stays Workflow → Automation → Agent.                                                                                                                                                                                 |
-| AI employee         | 数字员工     | A configured workspace form of an agent—not a separate product model.                                                                                                                                                                                                                          |
-| Employee template   | 员工模板     | Reusable capabilities published for creating employees.                                                                                                                                                                                                                                        |
+| Agent               | 智能体       | A specialist that can perform a step of the work.                                                                                                                                                                                                                                              |
+| AI employee         | 数字员工     | A workspace instance that takes on a defined and verifiable part of a role with the access granted to it.                                                                                                                                                                                      |
+| Employee template   | 员工模板     | A reusable role definition with responsibilities, methods, tool requirements, and acceptance criteria.                                                                                                                                                                                         |
 | Employee definition | 员工定义     | Responsibilities, inputs, outputs, and capability requirements.                                                                                                                                                                                                                                |
 | Skill               | 技能         | A reusable method for one kind of task.                                                                                                                                                                                                                                                        |
 | Plugin              | 插件         | A package of skills and related agents.                                                                                                                                                                                                                                                        |

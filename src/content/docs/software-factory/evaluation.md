@@ -6,12 +6,12 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 Execution evaluation answers a narrow question: did this employee, on this task, produce a result that meets the responsibility and the acceptance criteria? A confident reply, a long session, or a green conversation is not that answer. Platform controls — grants, models, cost, and audit — are [platform governance](/operate/evaluation-governance/), not a second score for the same task.
 
-The delivery path can validate an Agent Package, run a task, and keep execution, test, and delivery records. It does not turn a benchmark score into an automatic promotion gate. Administrators have a separate screen, [FDE Agent tests](/build/agent-tests/), for queued suite runs and plugin evaluation. That screen does not move a delivery card. Use the checks below with the records you already have. [Quality gates](/software-factory/quality-gates/) are how a recorded result blocks or allows delivery. [Agent evaluation and governance](/operate/evaluation-governance/) is how those checks sit next to permissions, models, and audit.
+The delivery path can validate an Agent Package, run a task, and keep execution, test, and delivery records. It does not turn a benchmark score into an automatic promotion gate. Administrators have a separate screen, [Role capability tests](/build/agent-tests/), for queued suite runs and plugin evaluation. That screen does not move a delivery card. Use the checks below with the records you already have. [Quality gates](/software-factory/quality-gates/) are how a recorded result blocks or allows delivery. [Agent evaluation and governance](/operate/evaluation-governance/) is how those checks sit next to permissions, models, and audit.
 
 ## What you can measure now
 

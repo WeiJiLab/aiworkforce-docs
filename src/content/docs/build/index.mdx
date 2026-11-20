@@ -1,20 +1,34 @@
 ---
 title: Customize & Extend
-description: Define a role and its instructions, configure skills, tools, and MCP dependencies, then test and publish a template.
+description: Follow a maintenance team from a role interview to a tested template and the first CI diagnosis in its workspace.
 prev: false
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 import PortalLanding from "../../../components/PortalLanding.astro";
 
-An **Agent Package** defines a reusable role and how it works. Publish a tested version as a template so a workspace can create a digital employee from it.
+A CI run fails and the on-call maintainer opens the log. The team wants a digital employee to locate the failed step and cite the lines that explain it. The maintainer will decide what to change and whether to release. In the **FDE workbench**, a forward deployed engineer works with the team to turn that part of the maintenance role into a reusable template.
 
-## Define an agent
+<div id="build-test-and-publish" aria-hidden="true"></div>
+<div id="from-discovery-to-publication" aria-hidden="true"></div>
 
-Specify the result the agent should deliver, the inputs it needs, and when to hand the task back to a person. For a complete research assistant example, see [Agent definition](/build/employee-definition/).
+## From a role interview to the first handoff
+
+1. **Ask the maintainer to replay a failure.** In **Interview invitations**, invite the role owner to walk through a past CI run. Compare the transcript with the log and agree on the input, the evidence to return and the point at which a person takes over. A meeting record can also supply the source for that discussion.
+2. **Build the software maintenance template.** In **Role template builder**, turn the agreement into a draft. Given a log, the employee should name the failed step and quote the relevant lines. Without a log it should ask for one. Record the steps in a Skill and declare any tools the role requires. [Role template builder](/build/builder/)
+3. **Try the cases before submitting.** Compare the draft’s answers to a known failure, a missing log and a request to release to production. Check the citations and whether it leaves the release decision to the maintainer. **Validate** checks package structure. An administrator can run draft regression cases under **Plugin evaluation and regression**. [Employee testing](/build/testing/) · [Role capability tests](/build/agent-tests/)
+4. **Hand the template to the team.** Submit the build to the shared marketplace and sync the indexed package to an employee template. A member with the right permissions creates a **Payments maintenance employee** in the payments workspace and configures access there. For its first task, give it a failed CI run from that project. The maintainer checks the cited log and accepts the diagnosis or sends it back with the missing evidence. [Publishing and distribution](/build/publishing/) · [Create a workspace employee](/getting-started/first-employee/)
+
+The team can bring a missed diagnosis back to the FDE with the original log and its review decision. Add it to the next regression set and check the revised template against the same evidence. FDE users and administrators can open the workbench at `/fde/`. The capability tests page requires an administrator.
+
+<PortalLanding portal="build" section="paths" />
+
+<div id="define-an-agent" aria-hidden="true"></div>
+
+## Put the agreement into the package
 
 | File                         | What to configure                                                                |
 | ---------------------------- | -------------------------------------------------------------------------------- |
@@ -23,7 +37,7 @@ Specify the result the agent should deliver, the inputs it needs, and when to ha
 | `skills/<skill-id>/SKILL.md` | The method, checks, and output format for a task                                 |
 | `.claude-plugin/plugin.json` | Plugin identifier, version, and description                                      |
 
-For guidance that belongs to a session or repository, see [Agent instructions](/build/prompts-rules/).
+For a worked package and guidance on where instructions belong, see [Agent definition](/build/employee-definition/) and [Agent instructions](/build/prompts-rules/).
 
 <div id="build-and-configuration-reference" aria-hidden="true"></div>
 
@@ -31,15 +45,7 @@ For guidance that belongs to a session or repository, see [Agent instructions](/
 
 <PortalLanding portal="build" section="guides" />
 
-To delegate work with defined inputs and outputs, see [Agent composition](/build/composition/).
-
-<div id="from-discovery-to-publication" aria-hidden="true"></div>
-
-## Build, test, and publish
-
-Open **FDE workbench** (`/fde/`) in the console to build and publish. FDE users and administrators can enter the workbench. Administrators can also run [FDE Agent tests](/build/agent-tests/).
-
-<PortalLanding portal="build" section="paths" />
+A role can reuse specialist agents for a bounded step. Specify the evidence each one returns and check the call in its trace. [Agent composition](/build/composition/)
 
 ## Use a template in a workspace
 
