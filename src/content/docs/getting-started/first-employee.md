@@ -4,14 +4,14 @@ description: "Create a workspace employee from a published template and accept o
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 This path is for someone using AI Workforce, not for someone authoring an Agent Package. You select a published template, wait until the workspace employee is ready, give it one bounded task, and review the result. Builders who need to define a new role start in [Customize & Extend](/build/), at [agent definition](/build/employee-definition/).
 
 ## Prerequisites
 
-You need a workspace you can access and permission to manage digital employees. **Owner** (所有者), **Full access** (完整权限), and **Team leader** (团队 leader) can, along with the other roles in [Teams and access](/administration/teams-access/). You also need at least one published template. The deployment needs a working execution environment. If no digital employee template is published, ask an FDE user or a system administrator to publish one. **Marketplace** (市场) only browses templates.
+You need a workspace you can access and permission to manage digital employees. **Owner** (所有者), **Full access** (完整权限), and **Team leader** (团队 leader) can, along with the other roles in [Teams and access](/administration/teams-access/). You also need at least one published template. The deployment needs a working execution environment. If no digital employee template is published, ask an FDE user or a system administrator to publish one. When you enter **Marketplace** from the target workspace, a template’s detail page can take you back to that workspace to create the employee.
 
 ## 1. Choose the job, then the template
 

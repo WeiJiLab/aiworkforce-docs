@@ -237,22 +237,22 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "定制与扩展" : "Customize & Extend",
         zh
-          ? "定义 Agent 行为，扩展能力，评测后将 Agent 包发布为模板。"
-          : "Define and extend agent behavior, then test and publish the Agent Package as a template.",
+          ? "从维护工程师的一项职责开始，用样例验证模板，再交给项目团队。"
+          : "Start with one maintenance responsibility, test the template and hand it to the project team.",
         "build",
       ),
       guide(
-        zh ? "Agent 构建器" : "Agent builder",
+        zh ? "岗位模板构建" : "Role template builder",
         zh
-          ? "在需求工作树里迭代 Plugin，再校验并提交。"
-          : "Iterate a Plugin in a requirement worktree, then validate and submit.",
+          ? "把访谈确认的职责、交付证据和接管条件写进草稿。"
+          : "Draft the responsibilities, evidence and handoff conditions agreed in the interview.",
         "build/builder",
       ),
       guide(
         zh ? "标准数字员工市场" : "Standard employee marketplace",
         zh
-          ? "同步内部员工，或把外部插件转成一次构建。"
-          : "Sync internal employees, or turn an external plugin into a build.",
+          ? "将验证过的岗位能力包同步为模板，也可从外部插件构建。"
+          : "Sync a tested role package to a template or start a draft from an external plugin.",
         "build/market",
       ),
       guide(
@@ -560,19 +560,19 @@ export function getPortalContent(
       paths: [
         {
           label: zh ? "构建" : "Build",
-          title: zh ? "构建 Agent 包" : "Build an Agent Package",
+          title: zh ? "构建岗位模板草稿" : "Draft a role template",
           description: zh
-            ? "在 FDE 工作台编辑 Plugin，运行 Validate 校验结构，再提交构建。"
-            : "Edit the plugin in the FDE workbench, run Validate, and submit the build.",
+            ? "用岗位访谈里的一次 CI 故障写明要查什么、交什么、何时转交给人。"
+            : "Use a CI failure from the interview to specify what to investigate, what evidence to return and when to hand back.",
           href: "build/builder",
-          outcome: zh ? "已校验的构建" : "A validated build",
+          outcome: zh ? "可试跑的草稿" : "A draft to test",
         },
         {
           label: zh ? "测试" : "Test",
-          title: zh ? "测试 Agent 行为" : "Test agent behavior",
+          title: zh ? "验证排障结果" : "Verify a diagnosis",
           description: zh
-            ? "分别测试正常请求、缺少输入和超出职责范围的请求。"
-            : "Test a routine request, a request with missing inputs, and one outside the role’s scope.",
+            ? "核对诊断中的日志引用，检查缺少材料和请求发布时的应答。"
+            : "Check the log citations and the responses to a missing log or a request to release.",
           href: "build/testing",
           outcome: zh ? "可复查的结果" : "Reviewable results",
         },
@@ -580,8 +580,8 @@ export function getPortalContent(
           label: zh ? "发布" : "Publish",
           title: zh ? "发布模板" : "Publish a template",
           description: zh
-            ? "发布通过测试的版本，再到目标工作空间核对实例应用的版本和能力。"
-            : "Publish the tested version, then check the version and capabilities applied to an instance in the target workspace.",
+            ? "同步模板，在目标空间创建员工，用本项目的 CI 故障验收一次交付。"
+            : "Sync the template, create an employee in the target workspace and review its diagnosis on a project CI failure.",
           href: "build/publishing",
           outcome: zh ? "可安装的模板" : "An installable template",
         },

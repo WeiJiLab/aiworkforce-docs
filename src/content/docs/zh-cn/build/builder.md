@@ -1,17 +1,31 @@
 ---
-title: Agent 构建器
-description: 在需求工作树里迭代 Plugin，校验 Agent 包，并提交构建。
+title: 岗位模板构建
+description: 把岗位负责人确认的一项职责写进草稿，用样例核对结果，再提交岗位能力包。
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-20"
-  sourceHash: "f6391eb8f63a2a4176188276b6cb7c20a5489a99ef07ae67e2fce579e06d81f4"
+  sourceHash: "0480c0701fac9be8661e880786cb35b37f3a4004310e625278f085c66771e504"
 ---
 
-在 FDE 工作台打开**数字员工构建**。这个界面修改的是 Plugin。在工作空间安装已发布模板是另一个界面：[从模板创建第一个数字员工](/zh-cn/getting-started/first-employee/)。
+在 FDE 工作台打开 **岗位模板构建**，带上岗位访谈中达成的约定。下面的示例中，维护工程师把 CI 故障排查交给数字员工，自己保留发布决定权。
 
-使用 kebab-case 的 Plugin 标识。**新建数字员工**会新建 Plugin。**新建会话**将该标识关联到会话，同时保留已有会话和需求文件。构建器因尚未初始化而不可用时，请系统管理员在**管理控制台 → 数字员工市场**初始化。初始化步骤失败时，可使用**重试初始化**。
+## 新建草稿
 
-就绪的会话与构建器 Agent 对话。需求工作树路径显示在输入框下方。需求已绑定时，可以从会话打开插件文件。**Validate** 检查 Agent 包结构。**提交构建**会将已校验的草稿推送到共享市场分支。提交的影响见[发布](/zh-cn/build/publishing/)。包里该放什么，见[Agent 定义](/zh-cn/build/employee-definition/)、[Agent 指令](/zh-cn/build/prompts-rules/)和 [Skills 与 Plugins](/zh-cn/build/skills-plugins/)。
+选择 **新建岗位模板草稿**，填写 **插件标识**，例如 `software-maintainer`。进入构建器后，选择 **新建会话**，输入一条能用日志核对的要求。
 
-从市场转换插件时，所选插件源码会复制到独立的需求工作树，并打开会话，由构建器按期望补齐数字员工规范并校验。转换从[标准数字员工市场](/zh-cn/build/market/)开始。构建完成后，按[发布与分发](/zh-cn/build/publishing/)发布到内部市场。
+> 指出 CI 失败在哪一步，引用支持结论的日志行。缺少日志时向发起人索取。遇到生产发布请求时，交给维护负责人决定。
+
+后续新建会话时仍使用同一插件标识，已有会话和需求文件会保留。输入框下方显示需求工作树路径。需求绑定后，可以从会话打开插件文件。包的内容见 [Agent 定义](/zh-cn/build/employee-definition/)、[Agent 指令](/zh-cn/build/prompts-rules/)和 [Skills 与 Plugins](/zh-cn/build/skills-plugins/)。
+
+## 验证后交给项目团队
+
+用 **校验** 检查包结构。用上面三种输入试跑，和维护工程师一起核对回答。需要记录草稿回归结果时，请管理员运行 **插件评测与回归**。[岗位能力评测](/zh-cn/build/agent-tests/)
+
+**提交构建**会把已校验的草稿推送到配置的共享市场分支。索引完成后，在 **标准数字员工市场** 将能力包同步为模板。支付团队随后在自己的工作空间创建员工、配置权限，用本项目的一份 CI 日志验收诊断。[发布与分发](/zh-cn/build/publishing/) · [从模板创建员工](/zh-cn/getting-started/first-employee/)
+
+## 其他起点
+
+已有插件包含所需排查方法时，可在[标准数字员工市场](/zh-cn/build/market/)选择 **从插件构建岗位模板**。构建器会把源码复制到独立的需求工作树，并打开构建会话。
+
+如果构建器尚未初始化，请系统管理员在 **管理控制台 → 数字员工市场** 初始化。初始化步骤失败时，可使用 **重试初始化**。

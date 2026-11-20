@@ -4,15 +4,15 @@ description: "从已发布模板创建工作空间员工，并接受或拒绝它
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
-  sourceHash: "f1ac512bdbaba69499544da8f218b719263f69462b5eba3f412f5a08f91de718"
+  sourceVersion: "2026-11-20"
+  sourceHash: "6b8b17738651cea5aca76a4f6bb7374335fd7feabefa3628bb0258671038360d"
 ---
 
 这条路径面向使用 AI Workforce 的人，不是编写 Agent 包的人。你选择已发布模板，等到工作空间员工就绪，交给它一项有边界的任务，然后审阅结果。需要定义新岗位的构建者从 [定制与扩展](/zh-cn/build/)的[Agent 定义](/zh-cn/build/employee-definition/)开始。
 
 ## 前提
 
-你需要一个可以访问的工作空间，以及管理数字员工的权限。所有者、完整权限和团队 leader 可以，其他角色见[团队与访问权限](/zh-cn/administration/teams-access/)。还需要至少一个已发布模板。部署需要可用的执行环境。如果没有已发布的数字员工模板，请 FDE 用户或系统管理员发布。**市场**只能浏览模板。
+你需要一个可以访问的工作空间，以及管理数字员工的权限。所有者、完整权限和团队 leader 可以，其他角色见[团队与访问权限](/zh-cn/administration/teams-access/)。还需要至少一个已发布模板。部署需要可用的执行环境。如果没有已发布的数字员工模板，请 FDE 用户或系统管理员发布。从目标工作空间进入 **市场** 时，可以在模板详情页采用模板，回到该空间完成创建。
 
 ## 1. 先写清工作，再选模板
 

@@ -1,13 +1,13 @@
 ---
 title: "Managed agents and digital employees"
-description: "Use managed agents to do work in your workspace. Create a digital employee from a published template, assign tasks, and review results."
+description: "Create a workspace employee from a role template, authorize its tools, assign a task, and review the evidence."
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
-AI Workforce manages sessions and tool permissions for **managed agents**. In the workspace, you create and assign them as **digital employees**. A published template defines the employee’s role and capabilities. Workspace settings and permissions determine where it can run and which connected resources it can use.
+A **digital employee** in a workspace is an instance of a published role template. The template defines which responsibilities the team can delegate and what evidence to expect. The workspace supplies project context and grants access to tools. For example, the payments team can give its maintenance employee a failed CI run and review the log lines it cites. AI Workforce manages the underlying agent sessions and tool permissions.
 
 This guide covers choosing an employee, assigning a task, supplying context, watching execution, and reviewing the result. It does not explain how to author an Agent Package. To author an Agent Package, see [Customize & Extend](/build/) and [employee architecture](/build/architecture/). Software delivery still starts from [Software Factory](/software-factory/overview/), not from creating an employee first.
 
@@ -20,7 +20,7 @@ A focused employee is easier to evaluate than a worker expected to handle unrela
 ## Create an employee
 
 1. Open workspace management and select **Digital employees** (数字员工).
-2. Choose **Add digital employee** (添加数字员工) and pick a published template. **Marketplace** (市场) only browses templates. The instance is created on this tab.
+2. Choose **Add digital employee** and pick a published template. You can also open **Marketplace** from the target workspace and choose **Create an employee from this template** to return to that workspace for setup.
 3. Read the template description and complete the configuration steps offered by the flow. Some templates offer connection or capability choices.
 4. Give the employee a name that distinguishes its role in this workspace.
 5. Submit once and wait for initialization to complete.

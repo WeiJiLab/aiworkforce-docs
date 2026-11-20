@@ -1,21 +1,35 @@
 ---
 title: 定制与扩展
-description: 定义 Agent 的职责和指令，配置 Skills、工具与 MCP 依赖，再测试并发布模板。
+description: 跟随维护团队，从一次岗位访谈到验证并发布模板，再到工作空间验收第一项 CI 排障任务。
 prev: false
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
-  sourceHash: "fd4cd4218086090290463958bd2e25f23f1ba6cb1901fb1e157cedc13ee199f0"
+  sourceVersion: "2026-11-20"
+  sourceHash: "26d6480958fd2df77c48e37bee8e907d22cb7f08cfc44741a8277218b4d5bf6d"
 ---
 
 import PortalLanding from "../../../../components/PortalLanding.astro";
 
-一个 **Agent 包**定义可复用的岗位和工作方法。通过测试的版本可以发布为模板，供团队在工作空间创建数字员工。
+CI 失败后，值班的维护工程师要翻日志、找出失败步骤，再决定怎么处理。团队想把查日志的工作交给数字员工，由维护负责人决定是否改代码、是否发布。现场交付工程师（FDE）在 **FDE 工作台** 和团队一起，把软件维护岗位中的这部分职责做成可复用的模板。
 
-## 定义 Agent
+<div id="构建测试与发布" aria-hidden="true"></div>
+<div id="从需求到发布" aria-hidden="true"></div>
 
-写清 Agent 要交付什么、需要哪些输入，以及何时应交回人工。研究助手的完整示例见 [Agent 定义](/zh-cn/build/employee-definition/)。
+## 从一次岗位访谈到首次交付
+
+1. **请维护工程师回放一次故障。** 在 **访谈邀请** 中邀请岗位负责人，听他讲上一次 CI 失败时怎么排查。对照访谈原话和日志，约定员工需要哪些输入、应交什么证据、哪一步由人接手。团队在会议中讨论的，也可以回到会议记录核对。
+2. **构建软件维护岗位模板。** 在 **岗位模板构建** 中，把双方确认的约定写进草稿。有日志时指出失败步骤并引用对应行，缺日志时向发起人索取。把排查方法写成 Skill，声明需要哪些工具。[岗位模板构建](/zh-cn/build/builder/)
+3. **用样例验证，再提交构建。** 分别给草稿一份已知故障的日志、一个缺少日志的请求和一个要求发布到生产的请求。核对引用能否支持结论，发布决定是否交回维护负责人。**校验**检查包结构。管理员可以在 **插件评测与回归** 中运行草稿用例。[员工测试](/zh-cn/build/testing/) · [岗位能力评测](/zh-cn/build/agent-tests/)
+4. **把模板交给项目团队。** 提交构建到共享市场，再将已索引的包同步为员工模板。有权限的成员在支付项目的工作空间创建 **支付系统维护员工**，为这个实例配置项目访问权限。第一次给它一条本项目失败的 CI 运行记录。维护负责人对照日志验收诊断，或指出缺少的依据并退回。[发布与分发](/zh-cn/build/publishing/) · [从模板创建员工](/zh-cn/getting-started/first-employee/)
+
+如果员工误判，团队把原始日志和验收意见交给 FDE。FDE 将这次失误写成回归用例，用同一份证据检验下一版模板。FDE 用户和管理员可在控制台 `/fde/` 进入工作台，岗位能力评测入口对管理员开放。
+
+<PortalLanding portal="build" section="paths" />
+
+<div id="定义-agent" aria-hidden="true"></div>
+
+## 把岗位约定写进能力包
 
 | 文件                         | 配置内容                                                |
 | ---------------------------- | ------------------------------------------------------- |
@@ -24,7 +38,7 @@ import PortalLanding from "../../../../components/PortalLanding.astro";
 | `skills/<skill-id>/SKILL.md` | 任务的执行方法、检查步骤和输出格式                      |
 | `.claude-plugin/plugin.json` | Plugin 的标识、版本和说明                               |
 
-会话和仓库中的指令写在哪一层，见 [Agent 指令](/zh-cn/build/prompts-rules/)。
+完整的包示例和不同层级的指令见 [Agent 定义](/zh-cn/build/employee-definition/)和 [Agent 指令](/zh-cn/build/prompts-rules/)。
 
 <div id="构建与配置参考" aria-hidden="true"></div>
 
@@ -32,15 +46,7 @@ import PortalLanding from "../../../../components/PortalLanding.astro";
 
 <PortalLanding portal="build" section="guides" />
 
-需要委派给子 Agent 时，先约定子任务的输入和预期结果，见 [Agent 组合](/zh-cn/build/composition/)。
-
-<div id="从需求到发布" aria-hidden="true"></div>
-
-## 构建、测试与发布
-
-在控制台打开 **FDE 工作台**（`/fde/`）构建和发布。FDE 用户和管理员可以进入工作台，管理员还可以运行 [FDE Agent 评估](/zh-cn/build/agent-tests/)。
-
-<PortalLanding portal="build" section="paths" />
+岗位中的某个步骤可以复用专业 Agent。约定它应返回的证据，再用执行追踪核对实际调用。[Agent 组合](/zh-cn/build/composition/)
 
 ## 在工作空间使用模板
 

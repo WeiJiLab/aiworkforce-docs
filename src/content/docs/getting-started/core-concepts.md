@@ -5,14 +5,14 @@ last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-19"
+  sourceVersion: "2026-11-20"
 ---
 
 Use one set of words for a conversation, an inbox item, an automation run, and a delivery card. The records can show different states because they answer different questions.
 
 For a software change, the default path is a confirmed card on the delivery board. An Issue can enter the inbox and be routed to that draft before development starts.
 
-Creating an agent lets you call an employee. Creating a workflow lets that work continue after the conversation: a definition, a trigger, an executor, a run, and evidence. The employee is an execution resource the workflow calls.
+A template defines the part of a role the team can delegate. A workspace employee uses that template and its own project access to take on tasks. A workflow describes how a task proceeds, and a trigger determines when it starts. Review the result of each task against its acceptance criteria.
 
 ## The core records
 
