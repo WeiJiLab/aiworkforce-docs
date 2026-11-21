@@ -4,8 +4,8 @@ description: "把需求、实现、审阅和反馈连成可以重复的交付流
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "1330c7cca6fb63eda715f0acb4ad4993a671e76b8b0b08ee6fcbb4c131170bec"
+  sourceVersion: "2026-11-21"
+  sourceHash: "cc3ec5b8a4305564afaddc7cb9768d7424291182b232e8e1d4494be97098fa43"
 ---
 
 import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astro";
@@ -22,6 +22,10 @@ import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astr
 
 **卡片**是这些回路交接的工作项。导入的 GitHub、GitLab、云效、Jira 或 Linear 事项，在转入项目并确认之后成为这张卡片。卡片保留已确认的范围、会话、代码引用、测试记录和人工决定。
 
+## 选择场景模板
+
+已发布的 BoardFlow 看板模板提供看板背后的可执行阶段。每个阶段都有任务、员工要求和具名交接产物。当前目录包含需求、编码、验证、故障、文档和产品汇报等 10 个场景。完整映射见 [BoardFlow 看板模板](/zh-cn/software-factory/templates/)。
+
 ## 试一试交付看板
 
 从 **#128 修复重复的 Issue 通知** 开始。确认范围后，沿看板查看这张卡的开发会话、Pull Request 和测试记录。也可以直接点开测试验证中的 **#119**，试试要求修改，再展开交付记录查看退回原因。演练使用本地样例数据。
@@ -37,14 +41,14 @@ import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astr
 
 ## 四条回路
 
-| 回路                | 向前推进的是什么                                                    | 指南                                                        |
-| ------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------- |
-| 需求 → 卡片         | 功能说明变成经过审阅的范围和一张已确认的卡片。                      | [需求到卡片](/zh-cn/software-factory/requirements-to-card/) |
-| 卡片 → Pull Request | 已确认的卡片变成已实现的变更，卡片上留下 Pull Request、分支或提交。 | [卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)  |
-| Pull Request → 合并 | 经过审阅的变更被修复、验证，并交给人做合并和发布决定。              | [Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/) |
-| 信号 → 卡片         | 反馈或事件先被调查，再由人决定哪一项后续工作成为卡片。              | [信号到卡片](/zh-cn/software-factory/signal-to-card/)       |
+| 回路                | 向前推进的是什么                                                    | 指南                                                        | 对应的模板场景                                                                                |
+| ------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| 需求 → 卡片         | 功能说明变成经过审阅的范围和一张已确认的卡片。                      | [需求到卡片](/zh-cn/software-factory/requirements-to-card/) | `spec-intake-to-rfc-ticket-breakdown`                                                         |
+| 卡片 → Pull Request | 已确认的卡片变成已实现的变更，卡片上留下 Pull Request、分支或提交。 | [卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)  | `pr-author`                                                                                   |
+| Pull Request → 合并 | 经过审阅的变更被修复、验证，并交给人做合并和发布决定。              | [Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/) | `pr-spec-adherence-check`、`release-candidate-readiness-review`                               |
+| 信号 → 卡片         | 反馈或事件先被调查，再由人决定哪一项后续工作成为卡片。              | [信号到卡片](/zh-cn/software-factory/signal-to-card/)       | `customer-escalation-to-product-fix`、`incident-investigator`、`docs-gap-from-support-ticket` |
 
-每篇指南说明这条回路的泳道员工、人做决定的位置，以及配置步骤。
+四条指南用于归纳相关工作。真正执行的阶段和交接契约由所选模板及其已发布版本决定。
 
 ## 从哪里开始
 

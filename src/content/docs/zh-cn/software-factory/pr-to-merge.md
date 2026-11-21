@@ -6,13 +6,13 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-20"
-  sourceHash: "8315f4bcb34b04ff1e71be11b012f2821282decf89ede6d9f12341f39e590d09"
+  sourceVersion: "2026-11-21"
+  sourceHash: "a6c68a006f9c53d14d7cdbb438736970c20e4571f924927708a32f7eb27dc3ce"
 ---
 
-开发记录变更后，卡片进入测试发布和测试验证。检查失败或审阅要求修改时，退回卡片返修。具备所需集成和授权后，生产发布泳道可以合入通过的批次。生产部署是独立步骤，有自己的结果记录。哪些发布动作需要显式审批由批次策略决定。
+已发布的模板定义 Pull Request 或发布继续前需要产生哪些证据。根据要做的决定选择对应场景。检查失败或审阅要求修改时，卡片沿已配置的返工路径退回。生产部署是独立步骤，有自己的结果记录。
 
-图中示例包含团队在合入前审阅变更的步骤。看板要求的审批步骤以批次策略为准。
+内置交付看板可以把这些记录带过测试发布、测试验证和生产发布。场景模板也可以只覆盖一个证据门禁，例如对照规格检查 PR，或评审候选版本。
 
 ```mermaid
 flowchart TD
@@ -31,6 +31,16 @@ flowchart TD
 测试发布和测试验证是看板泳道，不是一串独立的审阅产品。测试员工记录实际跑过的那个候选版本的结果。[Pull Request 自动化](/zh-cn/workflows/pull-request-automation/)也可以在轮询到匹配的 GitHub Pull Request 事件时启动 Job。这个 Job 做调查。它不合并；除非员工用自己的授权实际提交了审阅，它也不会批准 Pull Request。
 
 关闭批次表示该批次完成了收尾。生产发布和资源回收另有记录。每个阶段要读什么，见[审阅与发布](/zh-cn/software-factory/review-release/)。哪条结果可以让卡片前进、怎样的豁免才有效，见[发布治理](/zh-cn/software-factory/release-governance/)。
+
+## 选择证据模板
+
+| 模板                                 | 阶段和产物                                                                                                    | 完成行为                                     |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `pr-spec-adherence-check`            | 规格整理 → `acceptance_criteria`；逐条核验 → `adherence_report`                                               | 报告就绪后 `AUTO` 自动完成                   |
+| `customer-escalation-to-product-fix` | 客服研判 → `reproduction`；开发修复 → `pull_request`；测试验证 → `verification`；客服回复草稿 → `reply_draft` | `HUMAN_REVIEW`，并配置一次退回开发的验证返工 |
+| `release-candidate-readiness-review` | 发布取证 → `candidate_evidence`；就绪评审 → `readiness_report`                                                | `HUMAN_REVIEW`，交给负责人做发布决定         |
+
+这些场景使用具名产物，不依赖一条自由格式的状态评论。接受下一阶段前，先从产物中读取受测版本、来源链接、失败用例和决定负责人。完整目录见[BoardFlow 看板模板](/zh-cn/software-factory/templates/)。
 
 ## 你在哪些地方参与
 
@@ -54,9 +64,10 @@ flowchart TD
 
 ## 如何配置
 
-1. 连接代码托管和仓库。准备验证泳道要运行的[环境](/zh-cn/software-factory/environments/)和测试工具。看板向导见[配置软件工厂](/zh-cn/getting-started/first-software-factory/)。
-2. 指派模板标为必配的测试和发布员工。为这些泳道要调用的仓库和流水线资源授权。
-3. 打开开发泳道已经记录了代码引用的卡片，或把该变更送入测试泳道。阅读交付工作台、流水线运行，以及卡片上等待回答的问题。
+1. 选择与决定相符的已发布证据模板。[BoardFlow 看板模板](/zh-cn/software-factory/templates/)列出阶段契约和完成规则。
+2. 连接代码托管和仓库。准备所选阶段要运行的[环境](/zh-cn/software-factory/environments/)和测试工具。看板向导见[配置软件工厂](/zh-cn/getting-started/first-software-factory/)。
+3. 为必配阶段绑定就绪员工。为这些阶段要调用的仓库和流水线资源授权。
+4. 打开开发阶段已经记录代码引用的卡片，或用候选版本证据开始第一个阶段。阅读交付工作台、流水线运行、每个具名产物和卡片上等待回答的问题。
 
 ## 下一步
 

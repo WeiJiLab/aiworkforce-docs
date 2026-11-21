@@ -6,12 +6,12 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-20"
+  sourceVersion: "2026-11-21"
 ---
 
-After development records a change, the card moves through Test deployment (测试发布) and Testing (测试验证). A failed check or a review asking for changes returns the card for repair. With the required integration and grants in place, the Production lane can merge a passing batch. Production deployment is a separate step with its own result. The batch policy determines which release actions need an explicit approval.
+A published template defines which evidence is produced before a pull request or release can move forward. The matching scenario depends on the decision you need. A failed check or a review asking for changes returns the card through the configured rework path. Production deployment is a separate step with its own result.
 
-This example shows a team reviewing the change before merge. Check the batch policy for the approval steps required on your board.
+The built-in delivery board can carry these records through Test deployment (测试发布), Testing (测试验证), and Production (生产发布). A scenario template can also focus on one evidence gate, such as checking a PR against its specification or reviewing a release candidate.
 
 ```mermaid
 flowchart TD
@@ -30,6 +30,16 @@ flowchart TD
 Test deployment and Testing are board lanes, not a sequence of separate reviewer products. The test employee records results for the candidate that was actually exercised. [Pull request automation](/workflows/pull-request-automation/) can also start a Job when a polled GitHub pull request event matches. That Job investigates. It does not merge, and it does not approve the pull request unless the employee, using its own grant, actually submitted a review.
 
 A closed batch means the batch finished its close-out. Production and resource cleanup have their own records. [Review and release](/software-factory/review-release/) lists what to read at each stage. [Release governance](/software-factory/release-governance/) is the rule for which result may move a card, and which waiver is valid.
+
+## Choose the evidence template
+
+| Template                             | Stages and artifacts                                                                                                               | Completion behavior                                                         |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `pr-spec-adherence-check`            | Specification review → `acceptance_criteria`; Criterion-by-criterion review → `adherence_report`                                   | `AUTO` after the report is ready                                            |
+| `customer-escalation-to-product-fix` | Support triage → `reproduction`; Development fix → `pull_request`; Test verification → `verification`; Reply draft → `reply_draft` | `HUMAN_REVIEW`, with one configured verification rework path to Development |
+| `release-candidate-readiness-review` | Release evidence → `candidate_evidence`; Readiness review → `readiness_report`                                                     | `HUMAN_REVIEW` for the release decision                                     |
+
+These scenarios use named artifacts rather than a free-form status comment. Read the tested revision, source links, failed cases, and decision owner from the artifact before accepting the next stage. See [BoardFlow templates](/software-factory/templates/) for the full catalog.
 
 ## Where you participate
 
@@ -53,9 +63,10 @@ A batch-level response can resume every member card. Read the membership before 
 
 ## Set it up
 
-1. Connect the code host and the repository. Prepare the [environment](/software-factory/environments/) and the test tools the Testing lane should run. [Configure the Software Factory](/getting-started/first-software-factory/) covers the board wizard.
-2. Assign the test and release employees the template marks as required. Authorize them for the repositories and pipeline resources those lanes call.
-3. Open a card whose development lane has recorded a code reference, or mark that change ready for Test deployment. Read the delivery workbench, the pipeline run, and any question waiting on the card.
+1. Choose the published evidence template that matches the decision. [BoardFlow templates](/software-factory/templates/) lists the stage contracts and completion rules.
+2. Connect the code host and the repository. Prepare the [environment](/software-factory/environments/) and the test tools the selected stages should run. [Configure the Software Factory](/getting-started/first-software-factory/) covers the board wizard.
+3. Bind ready employees to the required stages. Authorize them for the repositories and pipeline resources those stages call.
+4. Open a card whose development stage has recorded a code reference, or start the first stage with the candidate evidence. Read the delivery workbench, the pipeline run, each named artifact, and any question waiting on the card.
 
 ## Next step
 

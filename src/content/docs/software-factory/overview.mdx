@@ -4,14 +4,14 @@ description: "Connect requirements, implementation, review, and feedback into a 
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-21"
 ---
 
 import SoftwareFactoryLoop from "../../../components/SoftwareFactoryLoop.astro";
 
 Asking an employee for a new prompt at every handoff leaves people coordinating the software lifecycle. Software Factory connects the delivery board's lanes into four loops, so a confirmed card moves through implementation, verification, and release without a fresh prompt in every column. People stay on the judgment calls: scope, the review of evidence, and whether the change ships.
 
-The product surface is the **delivery workbench**. Open **Workbench** (工作台) in the primary navigation. The address is `/automations?tab=board-flow`. It uses the same workflow, automation, employees, and evidence as the [Kanban workbench](/workflows/kanban-workbench/) and [issue automation](/workflows/issue-automation/).
+The product surface is the **delivery workbench**. A published board template is the source of the board stages and their automation. Open **Workbench** (工作台) in the primary navigation. The address is `/automations?tab=board-flow`. It uses the same workflow, automation, employees, and evidence as the [Kanban workbench](/workflows/kanban-workbench/) and [issue automation](/workflows/issue-automation/).
 
 ## The full flow
 
@@ -21,16 +21,20 @@ Lane employees carry a requirement to a reviewed change. A connected pipeline de
 
 A **card** is the work item these loops hand off. An imported GitHub, GitLab, Yunxiao, Jira, or Linear issue becomes that card when you route it to a project and confirm it. The card keeps the confirmed scope, the session, the code reference, the test record, and the human decision.
 
+## Choose a scenario template
+
+The published BoardFlow template supplies the executable stages behind a board. It assigns each stage a task, an employee requirement, and a named handoff artifact. The current catalog contains ten scenarios for requirements, coding, verification, incidents, documentation, and product reporting. See [BoardFlow templates](/software-factory/templates/) for the complete mapping.
+
 ## Four loops
 
-| Loop                 | What moves forward                                                                                 | Guide                                                             |
-| -------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Requirements → card  | A feature brief becomes a reviewed scope and a confirmed card.                                     | [Requirements to a card](/software-factory/requirements-to-card/) |
-| Card → pull request  | A confirmed card becomes an implemented change with a pull request, branch, or commit on the card. | [Card to a pull request](/software-factory/card-to-pr/)           |
-| Pull request → merge | A reviewed change is repaired, verified, and presented for a person's merge and release decision.  | [Pull request to merge](/software-factory/pr-to-merge/)           |
-| Signal → card        | Feedback or an incident is investigated, and a person decides which follow-up becomes a card.      | [Signal to a card](/software-factory/signal-to-card/)             |
+| Loop                 | What moves forward                                                                                 | Guide                                                             | Matching template scenarios                                                                   |
+| -------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Requirements → card  | A feature brief becomes a reviewed scope and a confirmed card.                                     | [Requirements to a card](/software-factory/requirements-to-card/) | `spec-intake-to-rfc-ticket-breakdown`                                                         |
+| Card → pull request  | A confirmed card becomes an implemented change with a pull request, branch, or commit on the card. | [Card to a pull request](/software-factory/card-to-pr/)           | `pr-author`                                                                                   |
+| Pull request → merge | A reviewed change is repaired, verified, and presented for a person's merge and release decision.  | [Pull request to merge](/software-factory/pr-to-merge/)           | `pr-spec-adherence-check`, `release-candidate-readiness-review`                               |
+| Signal → card        | Feedback or an incident is investigated, and a person decides which follow-up becomes a card.      | [Signal to a card](/software-factory/signal-to-card/)             | `customer-escalation-to-product-fix`, `incident-investigator`, `docs-gap-from-support-ticket` |
 
-Each guide names the lane employees, the points where a person decides, and the setup for that loop.
+The four guides group related work. The selected template and its published version determine the executable stages and their handoff contracts.
 
 ## Where to start
 

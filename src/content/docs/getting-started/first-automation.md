@@ -21,7 +21,7 @@ Create a delivery board in your workspace from a published board template. The t
 
 Administrators maintain organization templates under **Admin console → Board templates**. They can also capture a template from an existing board.
 
-In your workspace, open **Workbench → New delivery project**. Select an available published template in the board wizard. Expand **View the full flow and automations** to see which pipelines belong to each lane. Name the board and check the lane order.
+In your workspace, open **Workbench → New delivery project**. Select an available published template in the board wizard. Expand **View the full flow and automations** to see which pipelines belong to each lane. Name the board and check the lane order. The [BoardFlow templates](/software-factory/templates/) guide lists the ten curated scenarios and their handoff artifacts.
 
 ## 2. Assign employees and initialize the board
 

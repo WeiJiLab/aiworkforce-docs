@@ -6,30 +6,26 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-20"
+  sourceVersion: "2026-11-21"
 ---
 
-The requirements employee checks the problem, outcome, scope, and target repositories. A clarified card follows the target board’s [intake rules](/software-factory/intake/) into Development. The development employee implements the change, runs configured checks, and records its pull request, branch, or commit on the card.
+The `pr-author` template turns a confirmed Issue into a reviewable code reference. Its first stage, Requirements check, produces `implementation_brief` with the approved scope, acceptance conditions, target repository, and authorization. Its second stage, Implementation and review, reads that brief, implements the change, runs relevant checks, and produces `draft_pr` with the link, commit, and check results.
 
-This example shows a board flow that requests a scope review.
+The template uses `AUTO`, so a final `READY` result can complete the card after close-out. Merge and production release remain separate board or repository decisions.
 
 ```mermaid
 flowchart TD
-    ticket["Person: route an issue or open the card"] --> ready["Requirements employee: check readiness"]
-    ready -->|Still ambiguous| spec["Requirements employee: draft scope and criteria"]
-    spec --> approval["Person: review and confirm the card"]
-    approval --> ready
-    ready -->|Confirmed| author["Development employee: implement and record the change"]
-    author --> review["Person: review the change and its evidence"]
-    review -->|Return| author
-    review -->|Accept| next["Pull request → merge"]
-    class ticket,approval,review human
-    class ready,spec,author agent
+    ticket["Person: route a confirmed Issue"] --> brief["Requirements check: produce implementation_brief"]
+    brief --> author["Implementation and review: produce draft_pr"]
+    author --> done["AUTO: card completes after close-out"]
+    author --> next["Pull request → merge"]
+    class ticket human
+    class brief,author,done agent
 ```
 
 Open the development session from the card after the lane dispatches it. If the session needs a scope decision, the card waits for your confirmation before the change proceeds. A passing check does not record your acceptance.
 
-The worked example is [Issue to PR](/recipes/issue-to-pr/). The click path on an existing board is the [quickstart](/getting-started/quickstart/).
+The worked example is [Issue to PR](/recipes/issue-to-pr/). The click path on an existing board is the [quickstart](/getting-started/quickstart/). For the complete scenario catalog, see [BoardFlow templates](/software-factory/templates/).
 
 ## Where you participate
 
@@ -39,22 +35,21 @@ The worked example is [Issue to PR](/recipes/issue-to-pr/). The click path on an
 
 During the session, answer questions and approval requests on the card. Taking over stops automatic progress. Hand the work back explicitly. A shared batch can include other cards, so read its members before a batch operation.
 
-## Lane employees
+## Handoff contract
 
-| Employee              | Role in this loop                                                                                                                          |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Requirements employee | Checks readiness, drafts missing scope, and keeps the card in Requirements until you confirm it.                                           |
-| Development employee  | Implements, runs configured checks, and records the code reference. Repairs the card when you return it.                                   |
-| Test employee         | Records verification for the candidate when the board runs Testing (测试验证). See [Pull request → merge](/software-factory/pr-to-merge/). |
+| Stage                     | Input                                               | Output                                                                       |
+| ------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Requirements check        | The confirmed Issue and its authorization           | `implementation_brief` with scope, criteria, repository, and access boundary |
+| Implementation and review | `implementation_brief` and the permitted repository | `draft_pr` with the PR or branch, exact commit, and check results            |
 
-The development employee needs a repository grant that covers the actions you expect, including branch and pull request creation when the path should open a pull request. The polling token used by a GitHub trigger does not grant those actions.
+The implementation stage receives the first stage's artifact through the template's `requires` mapping. A repository grant must cover the branch and pull request actions that the stage is expected to perform. A polling token used by a GitHub trigger does not grant those actions.
 
 ## Set it up
 
-1. Connect the code host and grant the development employee the repository. Follow [Configure the Software Factory](/getting-started/first-software-factory/) and [code repositories](/integrations/code-repositories/).
-2. Assign ready employees to Requirements and Development. In **Lane configuration**, check each lane's **Execution identity**.
-3. Route a ready inbox issue to the project, or confirm a card that a requirements session already drafted.
-4. Open the card from **Workbench** (工作台). The delivery workbench is at `/automations?tab=board-flow`. Follow **Executions** to the session and **Deliverables** to the code reference.
+1. Choose the published `pr-author` template in **Workbench → New delivery project**. See [BoardFlow templates](/software-factory/templates/) for the scenario catalog.
+2. Connect the code host and grant the implementation stage the repository. Follow [Configure the Software Factory](/getting-started/first-software-factory/) and [code repositories](/integrations/code-repositories/).
+3. Bind ready employees to Requirements check and Implementation and review. In **Lane configuration**, check each stage's **Execution identity**.
+4. Route a ready inbox issue to the project, or open a confirmed card. Follow **Executions** to the stage results and **Deliverables** to the `draft_pr` artifact.
 
 ## Next step
 

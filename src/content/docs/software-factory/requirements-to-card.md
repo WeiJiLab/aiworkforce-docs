@@ -6,22 +6,23 @@ sidebar:
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-20"
+  sourceVersion: "2026-11-21"
 ---
 
-The Requirements lane turns a brief, an imported issue, or a rough note into a delivery card. The requirements employee researches readable repositories and drafts scope, acceptance criteria, and open questions. When clarification records the card as `READY`, the board can dispatch it to Development. A human confirmation can be part of the configured workflow.
+The `spec-intake-to-rfc-ticket-breakdown` template turns a brief, an imported issue, or a rough note into a development-ready card. Its first stage, Requirements analysis, produces the `acceptance` artifact with the goal, scope, acceptance criteria, and open questions. Its second stage, Technical review, reads that artifact and produces the `work_order` artifact with implementation constraints, verification methods, risks, and unresolved decisions. The template ends at `HUMAN_REVIEW`, so a person confirms the work order before development starts.
 
-This example shows a team reviewing the draft before handing it off. Check the target board’s intake rules for the configured steps.
+The stage names and employee assignments come from the published template version. A different board template can use different stage names or a different completion rule.
 
 ```mermaid
 flowchart TD
-    brief["Person: provide a feature brief or imported issue"] --> design["Requirements employee: research and draft scope"]
-    design --> review["Person: review scope, criteria, and open questions"]
-    review -->|Revise| design
-    review -->|Confirm the card| ready["Card is ready for development"]
+    brief["Person: provide a brief or imported issue"] --> analysis["Requirements analysis: produce acceptance"]
+    analysis --> technical["Technical review: produce work_order"]
+    technical --> review["Person: confirm the development-ready card"]
+    review -->|Need changes| analysis
+    review -->|Confirm| ready["Card is ready for development"]
     ready --> next["Card → pull request"]
     class brief,review human
-    class design agent
+    class analysis,technical agent
 ```
 
 Splitting a large brief means separate cards, each with criteria a reviewer can check. The board groups later test and release work in a batch. It does not keep a general dependency graph between cards. [Connect design to executable work](/learn/blueprints-work-orders/) is the method for writing the design that the card should carry.
@@ -34,21 +35,21 @@ Splitting a large brief means separate cards, each with criteria a reviewer can 
 
 Leave the card in Requirements while a criterion is still ambiguous. See [human approval](/user-guide/human-approval/) and [work intake](/software-factory/intake/).
 
-## Lane employees
+## Handoff contract
 
-| Employee              | Role in this loop                                                                                                       |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Requirements employee | Researches, drafts scope and criteria, and asks for any required decisions.                                             |
-| Development employee  | Implements the card after the board admits it to Development. See [Card → pull request](/software-factory/card-to-pr/). |
+| Stage                 | Input                                              | Output                                                                                       |
+| --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Requirements analysis | The card brief, issue, or note                     | `acceptance` with goal, scope, criteria, and open questions                                  |
+| Technical review      | `acceptance` and the authorized repository context | `work_order` with implementation scope, verification method, risks, and unresolved questions |
 
-Assign a ready employee to the Requirements lane in the board wizard or in **Lane configuration**. The employee needs a grant only for repositories it should read. A grant to read is not a grant to push.
+The technical stage receives the named artifact from the first stage through the template's `requires` mapping. Keep repository and environment limits in the card so both stages work from the same boundary.
 
 ## Set it up
 
-1. Connect the code host, and connect an issue source when the brief starts as an external issue. [Configure the Software Factory](/getting-started/first-software-factory/) has the connection steps.
-2. Put a ready employee on the Requirements lane. Check **Execution identity** for that lane.
-3. Start from **New requirements session** on the board, or route an inbox item into the project.
-4. Read the draft, answer open questions on the card, and confirm scope, acceptance criteria, and allowed repositories.
+1. Choose the published `spec-intake-to-rfc-ticket-breakdown` template in **Workbench → New delivery project**. See [BoardFlow templates](/software-factory/templates/) for the scenario catalog.
+2. Connect the code host, and connect an issue source when the brief starts as an external issue. [Configure the Software Factory](/getting-started/first-software-factory/) has the connection steps.
+3. Bind ready employees to Requirements analysis and Technical review. Check **Execution identity** for both stages and grant only the repositories each stage should read.
+4. Start from the first stage on the board, or route an inbox item into the project. Read both artifacts, answer open questions on the card, and make the human review decision.
 
 ## Next step
 
