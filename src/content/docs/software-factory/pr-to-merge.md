@@ -39,7 +39,7 @@ A closed batch means the batch finished its close-out. Production and resource c
 | `customer-escalation-to-product-fix` | Support triage → `reproduction`; Development fix → `pull_request`; Test verification → `verification`; Reply draft → `reply_draft` | `HUMAN_REVIEW`, with one configured verification rework path to Development |
 | `release-candidate-readiness-review` | Release evidence → `candidate_evidence`; Readiness review → `readiness_report`                                                     | `HUMAN_REVIEW` for the release decision                                     |
 
-These scenarios use named artifacts rather than a free-form status comment. Read the tested revision, source links, failed cases, and decision owner from the artifact before accepting the next stage. See [BoardFlow templates](/software-factory/templates/) for the full catalog.
+These scenarios use named artifacts rather than a free-form status comment. Read the tested revision, source links, failed cases, and decision owner from the artifact before accepting the next stage. See [Collaboration templates](/software-factory/templates/) for the full catalog.
 
 ## Where you participate
 
@@ -63,7 +63,7 @@ A batch-level response can resume every member card. Read the membership before 
 
 ## Set it up
 
-1. Choose the published evidence template that matches the decision. [BoardFlow templates](/software-factory/templates/) lists the stage contracts and completion rules.
+1. Choose the published evidence template that matches the decision. [Collaboration templates](/software-factory/templates/) lists the stage contracts and completion rules.
 2. Connect the code host and the repository. Prepare the [environment](/software-factory/environments/) and the test tools the selected stages should run. [Configure the Software Factory](/getting-started/first-software-factory/) covers the board wizard.
 3. Bind ready employees to the required stages. Authorize them for the repositories and pipeline resources those stages call.
 4. Open a card whose development stage has recorded a code reference, or start the first stage with the candidate evidence. Read the delivery workbench, the pipeline run, each named artifact, and any question waiting on the card.

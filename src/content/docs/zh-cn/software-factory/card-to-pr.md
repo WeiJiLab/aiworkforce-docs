@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-21"
-  sourceHash: "83fefdcba749505c00ecba4b4356223dff5c6f81461f315f3ba454253a4f66ca"
+  sourceHash: "a1cb2440ea3bc8c2cd480f8153d373070647dd671e6e5ec016816e93eb1de61f"
 ---
 
 `pr-author` 模板把已确认的 Issue 变成可审阅的代码引用。第一个阶段「需求核对」交付 `implementation_brief`，包含已确认的范围、验收条件、目标仓库和授权。第二个阶段「实现与提审」读取这个工作单，实现变更，运行相关检查，并交付包含链接、提交和检查结果的 `draft_pr`。
@@ -26,7 +26,7 @@ flowchart TD
 
 泳道派发后，可从卡片打开开发会话。会话需要范围决定时，卡片会等待你的确认，然后变更才继续。检查通过不会自动记成你的接受。
 
-完整示例是 [Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。已有看板上的点击路径是[快速入门](/zh-cn/getting-started/quickstart/)。完整场景目录见[BoardFlow 看板模板](/zh-cn/software-factory/templates/)。
+完整示例是 [Issue 到 PR](/zh-cn/recipes/issue-to-pr/)。已有看板上的点击路径是[快速入门](/zh-cn/getting-started/quickstart/)。完整场景目录见[协作模板](/zh-cn/software-factory/templates/)。
 
 ## 你在哪些地方参与
 
@@ -47,7 +47,7 @@ flowchart TD
 
 ## 如何配置
 
-1. 在**工作台 → 新建交付项目**选择已发布的 `pr-author` 模板。场景目录见[BoardFlow 看板模板](/zh-cn/software-factory/templates/)。
+1. 在**工作台 → 新建交付项目**选择已发布的 `pr-author` 模板。场景目录见[协作模板](/zh-cn/software-factory/templates/)。
 2. 连接代码托管，并为实现阶段授予仓库权限。步骤见[配置软件工厂](/zh-cn/getting-started/first-software-factory/)和[代码仓库](/zh-cn/integrations/code-repositories/)。
 3. 为「需求核对」和「实现与提审」绑定就绪员工。在**泳道配置**里核对每个阶段的**执行身份**。
 4. 把就绪的收件箱事项转入项目，或打开已确认的卡片。沿着**执行**查看阶段结果，沿着**交付物**查看 `draft_pr`。

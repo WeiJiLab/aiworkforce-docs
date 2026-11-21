@@ -52,7 +52,9 @@ export const PORTALS = {
         collapsed: false,
         items: [
           "software-factory/overview",
-          "software-factory/templates",
+          nested("Collaboration templates", "协作模板", [
+            "software-factory/templates",
+          ]),
           "software-factory/requirements-to-card",
           "software-factory/card-to-pr",
           "software-factory/pr-to-merge",

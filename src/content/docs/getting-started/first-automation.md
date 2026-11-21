@@ -1,6 +1,6 @@
 ---
 title: "Follow the first run on a delivery board"
-description: "Initialize lanes and pipelines from a published board template and follow the first card through a run."
+description: "Initialize lanes and pipelines from a published collaboration template and follow the first card through a run."
 last_verified: "2026-11-20"
 prev: false
 next: false
@@ -10,18 +10,18 @@ translation:
   sourceVersion: "2026-11-20"
 ---
 
-Create a delivery board in your workspace from a published board template. The template defines the lanes, their prompts and tasks, employee requirements, and automation recipes. Assign employees to the required lanes during setup. After initialization, the board maintains its own delivery policy.
+Create a delivery board in your workspace from a published collaboration template. The template defines the lanes, their prompts and tasks, employee requirements, and automation recipes. Assign employees to the required lanes during setup. After initialization, the board maintains its own delivery policy.
 
 <picture>
   <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/en-compact.svg" />
-  <img src="/illustrations/first-workflow/en.svg" alt="Delivery lanes in a board template and the steps to assign employees, initialize the board, and follow a card." />
+  <img src="/illustrations/first-workflow/en.svg" alt="Delivery lanes in a collaboration template and the steps to assign employees, initialize the board, and follow a card." />
 </picture>
 
-## 1. Choose a published board template
+## 1. Choose a published collaboration template
 
-Administrators maintain organization templates under **Admin console → Board templates**. They can also capture a template from an existing board.
+Administrators maintain organization templates under **Admin console → Collaboration templates**. They can also capture a template from an existing board.
 
-In your workspace, open **Workbench → New delivery project**. Select an available published template in the board wizard. Expand **View the full flow and automations** to see which pipelines belong to each lane. Name the board and check the lane order. The [BoardFlow templates](/software-factory/templates/) guide lists the ten curated scenarios and their handoff artifacts.
+In your workspace, open **Workbench → New delivery project**. Select an available published template in the board wizard. Expand **View the full flow and automations** to see which pipelines belong to each lane. Name the board and check the lane order. The [Collaboration templates](/software-factory/templates/) guide lists the ten curated scenarios.
 
 ## 2. Assign employees and initialize the board
 

@@ -25,7 +25,7 @@ flowchart TD
 
 Open the development session from the card after the lane dispatches it. If the session needs a scope decision, the card waits for your confirmation before the change proceeds. A passing check does not record your acceptance.
 
-The worked example is [Issue to PR](/recipes/issue-to-pr/). The click path on an existing board is the [quickstart](/getting-started/quickstart/). For the complete scenario catalog, see [BoardFlow templates](/software-factory/templates/).
+The worked example is [Issue to PR](/recipes/issue-to-pr/). The click path on an existing board is the [quickstart](/getting-started/quickstart/). For the complete scenario catalog, see [Collaboration templates](/software-factory/templates/).
 
 ## Where you participate
 
@@ -46,7 +46,7 @@ The implementation stage receives the first stage's artifact through the templat
 
 ## Set it up
 
-1. Choose the published `pr-author` template in **Workbench → New delivery project**. See [BoardFlow templates](/software-factory/templates/) for the scenario catalog.
+1. Choose the published `pr-author` template in **Workbench → New delivery project**. See [Collaboration templates](/software-factory/templates/) for the scenario catalog.
 2. Connect the code host and grant the implementation stage the repository. Follow [Configure the Software Factory](/getting-started/first-software-factory/) and [code repositories](/integrations/code-repositories/).
 3. Bind ready employees to Requirements check and Implementation and review. In **Lane configuration**, check each stage's **Execution identity**.
 4. Route a ready inbox issue to the project, or open a confirmed card. Follow **Executions** to the stage results and **Deliverables** to the `draft_pr` artifact.

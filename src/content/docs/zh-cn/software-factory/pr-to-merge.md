@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-21"
-  sourceHash: "a6c68a006f9c53d14d7cdbb438736970c20e4571f924927708a32f7eb27dc3ce"
+  sourceHash: "6235e7fe662bc359cf952a33cd27c56f86d45a4011d59582ddbadad5a457d8d7"
 ---
 
 已发布的模板定义 Pull Request 或发布继续前需要产生哪些证据。根据要做的决定选择对应场景。检查失败或审阅要求修改时，卡片沿已配置的返工路径退回。生产部署是独立步骤，有自己的结果记录。
@@ -40,7 +40,7 @@ flowchart TD
 | `customer-escalation-to-product-fix` | 客服研判 → `reproduction`；开发修复 → `pull_request`；测试验证 → `verification`；客服回复草稿 → `reply_draft` | `HUMAN_REVIEW`，并配置一次退回开发的验证返工 |
 | `release-candidate-readiness-review` | 发布取证 → `candidate_evidence`；就绪评审 → `readiness_report`                                                | `HUMAN_REVIEW`，交给负责人做发布决定         |
 
-这些场景使用具名产物，不依赖一条自由格式的状态评论。接受下一阶段前，先从产物中读取受测版本、来源链接、失败用例和决定负责人。完整目录见[BoardFlow 看板模板](/zh-cn/software-factory/templates/)。
+这些场景使用具名产物，不依赖一条自由格式的状态评论。接受下一阶段前，先从产物中读取受测版本、来源链接、失败用例和决定负责人。完整目录见[协作模板](/zh-cn/software-factory/templates/)。
 
 ## 你在哪些地方参与
 
@@ -64,7 +64,7 @@ flowchart TD
 
 ## 如何配置
 
-1. 选择与决定相符的已发布证据模板。[BoardFlow 看板模板](/zh-cn/software-factory/templates/)列出阶段契约和完成规则。
+1. 选择与决定相符的已发布证据模板。[协作模板](/zh-cn/software-factory/templates/)列出阶段契约和完成规则。
 2. 连接代码托管和仓库。准备所选阶段要运行的[环境](/zh-cn/software-factory/environments/)和测试工具。看板向导见[配置软件工厂](/zh-cn/getting-started/first-software-factory/)。
 3. 为必配阶段绑定就绪员工。为这些阶段要调用的仓库和流水线资源授权。
 4. 打开开发阶段已经记录代码引用的卡片，或用候选版本证据开始第一个阶段。阅读交付工作台、流水线运行、每个具名产物和卡片上等待回答的问题。

@@ -7,12 +7,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-21"
-  sourceHash: "c177956b5b0fe5f7df8775a15925b950712b6c0557f148899529c19b4a9e3830"
+  sourceHash: "982beead9f4df7e71f24ded3f322e22f32c7af11ac9b867d80f57c486501f2ae"
 ---
 
 `spec-intake-to-rfc-ticket-breakdown` 模板把说明、导入的事项或笔记变成可开发卡片。第一个阶段「需求分析」交付 `acceptance` 产物，其中包含目标、范围、验收标准和未决问题。第二个阶段「技术评审」读取这个产物，交付包含实现约束、验证方法、风险和待决事项的 `work_order`。模板以 `HUMAN_REVIEW` 结束，因此开发开始前需要人确认工作单。
 
-阶段名称和员工绑定来自已发布的模板版本。其他看板模板可以使用不同的阶段名称和完成规则。
+阶段名称和员工绑定来自已发布的模板版本。其他协作模板可以使用不同的阶段名称和完成规则。
 
 ```mermaid
 flowchart TD
@@ -47,7 +47,7 @@ flowchart TD
 
 ## 如何配置
 
-1. 在**工作台 → 新建交付项目**选择已发布的 `spec-intake-to-rfc-ticket-breakdown` 模板。场景目录见[BoardFlow 看板模板](/zh-cn/software-factory/templates/)。
+1. 在**工作台 → 新建交付项目**选择已发布的 `spec-intake-to-rfc-ticket-breakdown` 模板。场景目录见[协作模板](/zh-cn/software-factory/templates/)。
 2. 连接代码托管。说明来自外部事项时，再连接事项来源。连接步骤见[配置软件工厂](/zh-cn/getting-started/first-software-factory/)。
 3. 为「需求分析」和「技术评审」绑定就绪员工。核对两个阶段的**执行身份**，只授予各阶段应读取的仓库。
 4. 从看板第一个阶段开始，或把收件箱事项转入项目。阅读两个交接产物，在卡片上回答未决问题，并完成人工确认。

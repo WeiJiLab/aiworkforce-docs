@@ -1,6 +1,6 @@
 ---
 title: "跟进交付看板的首次运行"
-description: "用已发布的看板模板初始化泳道和编排，跟进第一张卡片的执行。"
+description: "用已发布的协作模板初始化泳道和编排，跟进第一张卡片的执行。"
 last_verified: "2026-11-20"
 prev: false
 next: false
@@ -8,21 +8,21 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-21"
-  sourceHash: "274fd17a3431e8dd8fb36d3f62446b0311d3e2b184d03c7446971e42510acedd"
+  sourceHash: "6124386a2262e26fec0c815e3889e01c148e2fab6abd50969bfb6494712b3b74"
 ---
 
-工作空间可以从已发布的看板模板创建交付看板。模板定义泳道及其提示词、任务、员工要求和自动化配方。创建时为必配泳道指派员工，初始化后由这块看板维护自己的交付策略。
+工作空间可以从已发布的协作模板创建交付看板。模板定义泳道及其提示词、任务、员工要求和自动化配方。创建时为必配泳道指派员工，初始化后由这块看板维护自己的交付策略。
 
 <picture>
   <source media="(max-width: 52rem)" srcset="/illustrations/first-workflow/zh-cn-compact.svg" />
-  <img src="/illustrations/first-workflow/zh-cn.svg" alt="看板模板中的交付泳道，以及选择模板、指派员工、初始化看板和跟进卡片的步骤。" />
+  <img src="/illustrations/first-workflow/zh-cn.svg" alt="协作模板中的交付泳道，以及选择模板、指派员工、初始化看板和跟进卡片的步骤。" />
 </picture>
 
-## 1. 选择已发布的看板模板
+## 1. 选择已发布的协作模板
 
-管理员在**管理控制台 → 看板模板**维护组织的模板，也可以从现有看板捕获模板。
+管理员在**管理控制台 → 协作模板**维护组织的模板，也可以从现有看板捕获模板。
 
-在工作空间打开**工作台 → 新建交付项目**。在创建看板向导选择可用的已发布模板，展开**查看完整流程与自动化**，查看每条泳道使用哪些编排。然后给看板命名，核对泳道顺序。10 个精选场景和交接产物见 [BoardFlow 看板模板](/zh-cn/software-factory/templates/)。
+在工作空间打开**工作台 → 新建交付项目**。在创建看板向导选择可用的已发布模板，展开**查看完整流程与自动化**，查看每条泳道使用哪些编排。然后给看板命名，核对泳道顺序。10 个精选场景见[协作模板](/zh-cn/software-factory/templates/)。
 
 ## 2. 指派员工，初始化看板
 

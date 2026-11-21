@@ -11,7 +11,7 @@ translation:
 
 First-run setup connects the tools a delivery board needs, chooses where employees run, and prepares the board for its first card. Connect a code host before the first change. Add messaging or an external issue source when you want those signals on the board. If the board is already configured, go to the [quickstart](/getting-started/quickstart/).
 
-Use a workspace where you can create a delivery board and manage repository and employee grants. Have an approved test repository, a way to check the change, and a published board template with requirements, development, and verification stages. A missing board template is published by a system administrator. If you cannot add lane employees, the workspace page says to ask a workspace admin. Prepare a ready employee for each required lane with [the employee setup guide](/getting-started/first-employee/).
+Use a workspace where you can create a delivery board and manage repository and employee grants. Have an approved test repository, a way to check the change, and a published collaboration template with requirements, development, and verification stages. A missing collaboration template is published by a system administrator. If you cannot add lane employees, the workspace page says to ask a workspace admin. Prepare a ready employee for each required lane with [the employee setup guide](/getting-started/first-employee/).
 
 ## Give employees access to repositories and delivery tools
 

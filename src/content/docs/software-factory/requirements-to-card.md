@@ -46,7 +46,7 @@ The technical stage receives the named artifact from the first stage through the
 
 ## Set it up
 
-1. Choose the published `spec-intake-to-rfc-ticket-breakdown` template in **Workbench → New delivery project**. See [BoardFlow templates](/software-factory/templates/) for the scenario catalog.
+1. Choose the published `spec-intake-to-rfc-ticket-breakdown` template in **Workbench → New delivery project**. See [Collaboration templates](/software-factory/templates/) for the scenario catalog.
 2. Connect the code host, and connect an issue source when the brief starts as an external issue. [Configure the Software Factory](/getting-started/first-software-factory/) has the connection steps.
 3. Bind ready employees to Requirements analysis and Technical review. Check **Execution identity** for both stages and grant only the repositories each stage should read.
 4. Start from the first stage on the board, or route an inbox item into the project. Read both artifacts, answer open questions on the card, and make the human review decision.
