@@ -21,11 +21,11 @@ Lane employees carry a requirement to a reviewed change. A connected pipeline de
 
 A **card** is the work item these loops hand off. An imported GitHub, GitLab, Yunxiao, Jira, or Linear issue becomes that card when you route it to a project and confirm it. The card keeps the confirmed scope, the session, the code reference, the test record, and the human decision.
 
-## Choose a scenario template
+## Choose a collaboration template
 
-The published collaboration template supplies the executable stages behind a board. It assigns each stage a task, an employee requirement, and a named handoff artifact. The current catalog contains ten scenarios for requirements, coding, verification, incidents, documentation, and product reporting. See [Collaboration templates](/software-factory/templates/) for the complete mapping.
+The published collaboration template is the primary entry point for Software Factory. It supplies the executable stages behind a board, assigns each stage a task and employee requirement, and names the artifact that must be handed to the next stage. Choose the scenario first, then use the matching path guide to configure and run it. See [Collaboration templates](/software-factory/templates/) for the complete catalog.
 
-## Four loops
+## Four template-led paths
 
 | Loop                 | What moves forward                                                                                 | Guide                                                             | Matching template scenarios                                                                   |
 | -------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -34,11 +34,11 @@ The published collaboration template supplies the executable stages behind a boa
 | Pull request → merge | A reviewed change is repaired, verified, and presented for a person's merge and release decision.  | [Pull request to merge](/software-factory/pr-to-merge/)           | `pr-spec-adherence-check`, `release-candidate-readiness-review`                               |
 | Signal → card        | Feedback or an incident is investigated, and a person decides which follow-up becomes a card.      | [Signal to a card](/software-factory/signal-to-card/)             | `customer-escalation-to-product-fix`, `incident-investigator`, `docs-gap-from-support-ticket` |
 
-The four guides group related work. The selected template and its published version determine the executable stages and their handoff contracts.
+The four paths are views into the collaboration template catalog. The selected template and its published version determine the executable stages and their handoff contracts.
 
-## Where to start
+## Start with the template
 
-Start with the loop that limits throughput. Configure that loop first.
+Choose the template that matches the work, then open its path guide for setup and review steps.
 
 | What is slowing the team down                       | Start here                                                                                             |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |

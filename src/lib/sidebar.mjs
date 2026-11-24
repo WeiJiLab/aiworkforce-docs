@@ -52,13 +52,18 @@ export const PORTALS = {
         collapsed: false,
         items: [
           "software-factory/overview",
-          nested("Collaboration templates", "协作模板", [
-            "software-factory/templates",
-          ]),
-          "software-factory/requirements-to-card",
-          "software-factory/card-to-pr",
-          "software-factory/pr-to-merge",
-          "software-factory/signal-to-card",
+          nested(
+            "Collaboration templates",
+            "协作模板",
+            [
+              "software-factory/templates",
+              "software-factory/requirements-to-card",
+              "software-factory/card-to-pr",
+              "software-factory/pr-to-merge",
+              "software-factory/signal-to-card",
+            ],
+            false,
+          ),
           "workflows/issue-automation",
           "workflows/kanban-workbench",
           "workflows/pull-request-automation",

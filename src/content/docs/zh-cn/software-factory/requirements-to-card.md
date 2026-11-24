@@ -1,57 +1,49 @@
 ---
-title: "需求到卡片"
-description: "把功能说明变成经过审阅的范围和一张已确认的交付卡片。"
+title: "需求 → 卡片"
+description: "使用协作模板把需求说明整理成经过审阅范围和已确认的交付卡片。"
 sidebar:
   label: "需求 → 卡片"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-21"
-  sourceHash: "982beead9f4df7e71f24ded3f322e22f32c7af11ac9b867d80f57c486501f2ae"
+  sourceHash: "08755489182b4c0d7d9f376bf63c3d418afb9deaaa45ff383c0b06805c0b8ed9"
 ---
 
-`spec-intake-to-rfc-ticket-breakdown` 模板把说明、导入的事项或笔记变成可开发卡片。第一个阶段「需求分析」交付 `acceptance` 产物，其中包含目标、范围、验收标准和未决问题。第二个阶段「技术评审」读取这个产物，交付包含实现约束、验证方法、风险和待决事项的 `work_order`。模板以 `HUMAN_REVIEW` 结束，因此开发开始前需要人确认工作单。
+当工作来自需求说明、导入的 Issue 或一段粗略记录时，使用已发布的 `spec-intake-to-rfc-ticket-breakdown` 协作模板。模板会把请求整理成具名产物，让人在开发开始前审阅范围。
 
-阶段名称和员工绑定来自已发布的模板版本。其他协作模板可以使用不同的阶段名称和完成规则。
+模板包含两个阶段。需求分析产出 `acceptance`，其中记录目标、范围、验收标准和待解决问题。技术评审读取这个产物，产出 `work_order`，其中记录实现约束、验证方法、风险和未决决定。模板以 `HUMAN_REVIEW` 结束，由人确认卡片已经可以进入开发。
 
 ```mermaid
 flowchart TD
-    brief["人：提供说明或导入的事项"] --> analysis["需求分析：交付 acceptance"]
-    analysis --> technical["技术评审：交付 work_order"]
-    technical --> review["人：确认可开发卡片"]
+    brief["人：提供需求说明或导入的 Issue"] --> analysis["需求分析 → acceptance"]
+    analysis --> technical["技术评审 → work_order"]
+    technical --> review["人：审阅工作单"]
     review -->|需要修改| analysis
-    review -->|确认| ready["卡片可以进入开发"]
-    ready --> next["卡片 → Pull Request"]
+    review -->|确认| ready["已确认卡片"]
+    ready --> next["选择 卡片 → Pull Request"]
     class brief,review human
     class analysis,technical agent
 ```
 
-大段说明要拆开时，分成多张卡片，每张卡片的验收标准都要能被审阅者检查。看板用批次组织后续的测试和发布。它不在卡片之间维护通用的依赖图。卡片应携带的设计怎么写，见[把技术设计连接到可执行工作](/zh-cn/learn/blueprints-work-orders/)。
+## 模板交接契约
 
-## 你在哪些地方参与
+| 阶段     | 读取内容                          | 产出                                                  | 人需要做的决定           |
+| -------- | --------------------------------- | ----------------------------------------------------- | ------------------------ |
+| 需求分析 | 需求说明、Issue 或记录            | 包含目标、范围、标准和待解决问题的 `acceptance`       | 补充上下文并澄清预期结果 |
+| 技术评审 | `acceptance` 和已授权的仓库上下文 | 包含实现范围、验证方法、风险和未决问题的 `work_order` | 确认工作可以进入开发     |
 
-- **定义结果。** 写明问题、成功标准、约束，以及范围之外的内容。这些标准的写法见[编写员工能够验证的需求](/zh-cn/learn/requirements-writing/)。
-- **审阅草稿。** 范围由你决定。员工调研当前代码，并列出取舍和未决问题。会改变实现的问题，在交出卡片之前先解决。
-- **确认卡片。** 确认告诉开发泳道：按写明的仓库和标准继续。合并、仓库凭据和流水线配置保持原样。
+技术阶段通过模板的 `requires` 映射接收 `acceptance`。把仓库和环境限制写入卡片，让两个阶段使用相同边界。需求较大时拆成多张卡片，让每个部分分别接受范围确认。
 
-验收标准仍然含糊时，让卡片留在需求泳道。见[人工确认](/zh-cn/user-guide/human-approval/)和[工作进入](/zh-cn/software-factory/intake/)。
+## 配置模板
 
-## 交接契约
+1. 打开**工作台 → 新建交付项目**，从已发布协作模板中选择 `spec-intake-to-rfc-ticket-breakdown`。
+2. 为需求分析和技术评审绑定就绪员工。检查每个阶段的执行身份，只授予它需要的访问权限。
+3. 在第一个阶段创建卡片，或把收件箱事项路由到项目。写入来源、预期结果、约束和仓库范围。
+4. 阅读 `acceptance` 和 `work_order`，在卡片上回答待解决问题，并记录人工审阅决定。
 
-| 阶段     | 输入                              | 输出                                                 |
-| -------- | --------------------------------- | ---------------------------------------------------- |
-| 需求分析 | 卡片说明、事项或笔记              | `acceptance`，包含目标、范围、验收标准和未决问题     |
-| 技术评审 | `acceptance` 和已授权的仓库上下文 | `work_order`，包含实现范围、验证方法、风险和待决问题 |
+验收标准或技术约束仍然含糊时，把卡片留在当前阶段。相关审阅和收件箱行为见[人工确认](/zh-cn/user-guide/human-approval/)与[工作进入](/zh-cn/software-factory/intake/)。
 
-技术阶段通过模板的 `requires` 映射接收第一个阶段的具名产物。把仓库和环境范围写在卡片上，让两个阶段使用同一个边界。
+## 继续使用下一个模板
 
-## 如何配置
-
-1. 在**工作台 → 新建交付项目**选择已发布的 `spec-intake-to-rfc-ticket-breakdown` 模板。场景目录见[协作模板](/zh-cn/software-factory/templates/)。
-2. 连接代码托管。说明来自外部事项时，再连接事项来源。连接步骤见[配置软件工厂](/zh-cn/getting-started/first-software-factory/)。
-3. 为「需求分析」和「技术评审」绑定就绪员工。核对两个阶段的**执行身份**，只授予各阶段应读取的仓库。
-4. 从看板第一个阶段开始，或把收件箱事项转入项目。阅读两个交接产物，在卡片上回答未决问题，并完成人工确认。
-
-## 下一步
-
-用[卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)把已确认的卡片变成待审阅的变更。卡片已经足够具体时，可以直接从那里开始。
+卡片确认后，选择[卡片 → Pull Request](/zh-cn/software-factory/card-to-pr/)，运行已发布的 `pr-author` 模板。如果请求来自反馈或故障，先阅读[信号 → 卡片](/zh-cn/software-factory/signal-to-card/)，在收集完成后选择场景。

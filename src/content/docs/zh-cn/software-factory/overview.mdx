@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-21"
-  sourceHash: "f1f44e12ac286e75f8641eb63387229baae006ee89c0b8c6a5bda0ace2f8251d"
+  sourceHash: "6799b43e013bfe8339246c12ee1377e6916d54479cf317ae9150731c89fbcb76"
 ---
 
 import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astro";
@@ -22,9 +22,9 @@ import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astr
 
 **卡片**是这些回路交接的工作项。导入的 GitHub、GitLab、云效、Jira 或 Linear 事项，在转入项目并确认之后成为这张卡片。卡片保留已确认的范围、会话、代码引用、测试记录和人工决定。
 
-## 选择场景模板
+## 选择协作模板
 
-已发布的 协作模板提供看板背后的可执行阶段。每个阶段都有任务、员工要求和具名交接产物。当前目录包含需求、编码、验证、故障、文档和产品汇报等 10 个场景。完整映射见 [协作模板](/zh-cn/software-factory/templates/)。
+已发布的协作模板是软件工厂的主要入口。它提供看板背后的可执行阶段，为每个阶段指定任务和员工要求，并定义必须交给下一阶段的具名产物。先选择场景，再打开对应路径指南完成配置和运行。完整目录见[协作模板](/zh-cn/software-factory/templates/)。
 
 ## 试一试交付看板
 
@@ -39,7 +39,7 @@ import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astr
 
 [单独打开交付看板演练](/illustrations/factory-kanban/)
 
-## 四条回路
+## 四条模板路径
 
 | 回路                | 向前推进的是什么                                                    | 指南                                                        | 对应的模板场景                                                                                |
 | ------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -48,11 +48,11 @@ import SoftwareFactoryLoop from "../../../../components/SoftwareFactoryLoop.astr
 | Pull Request → 合并 | 经过审阅的变更被修复、验证，并交给人做合并和发布决定。              | [Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/) | `pr-spec-adherence-check`、`release-candidate-readiness-review`                               |
 | 信号 → 卡片         | 反馈或事件先被调查，再由人决定哪一项后续工作成为卡片。              | [信号到卡片](/zh-cn/software-factory/signal-to-card/)       | `customer-escalation-to-product-fix`、`incident-investigator`、`docs-gap-from-support-ticket` |
 
-四条指南用于归纳相关工作。真正执行的阶段和交接契约由所选模板及其已发布版本决定。
+四条路径是协作模板目录的不同使用视角。真正执行的阶段和交接契约由所选模板及其已发布版本决定。
 
-## 从哪里开始
+## 从模板开始
 
-先做限制吞吐的那一条回路。先配置它。
+先选择与工作相符的模板，再打开对应路径指南完成配置和审阅。
 
 | 团队卡在哪里               | 从这里开始                                                                                                 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------- |

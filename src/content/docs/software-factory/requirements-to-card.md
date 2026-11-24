@@ -1,6 +1,6 @@
 ---
-title: "Requirements to a card"
-description: "Turn a feature brief into a reviewed scope and a confirmed delivery card."
+title: "Requirements → card"
+description: "Use a collaboration template to turn a brief into a reviewed scope and a confirmed delivery card."
 sidebar:
   label: "Requirements → card"
 translation:
@@ -9,48 +9,40 @@ translation:
   sourceVersion: "2026-11-21"
 ---
 
-The `spec-intake-to-rfc-ticket-breakdown` template turns a brief, an imported issue, or a rough note into a development-ready card. Its first stage, Requirements analysis, produces the `acceptance` artifact with the goal, scope, acceptance criteria, and open questions. Its second stage, Technical review, reads that artifact and produces the `work_order` artifact with implementation constraints, verification methods, risks, and unresolved decisions. The template ends at `HUMAN_REVIEW`, so a person confirms the work order before development starts.
+Use the published `spec-intake-to-rfc-ticket-breakdown` collaboration template when work starts as a brief, an imported issue, or a rough note. The template turns the request into named artifacts that a person can review before development begins.
 
-The stage names and employee assignments come from the published template version. A different board template can use different stage names or a different completion rule.
+The template has two stages. Requirements analysis produces `acceptance` with the goal, scope, acceptance criteria, and open questions. Technical review reads that artifact and produces `work_order` with implementation constraints, verification methods, risks, and unresolved decisions. The template ends with `HUMAN_REVIEW`, so a person confirms the development-ready card.
 
 ```mermaid
 flowchart TD
-    brief["Person: provide a brief or imported issue"] --> analysis["Requirements analysis: produce acceptance"]
-    analysis --> technical["Technical review: produce work_order"]
-    technical --> review["Person: confirm the development-ready card"]
+    brief["Person: provide a brief or imported issue"] --> analysis["Requirements analysis → acceptance"]
+    analysis --> technical["Technical review → work_order"]
+    technical --> review["Person: review the work order"]
     review -->|Need changes| analysis
-    review -->|Confirm| ready["Card is ready for development"]
-    ready --> next["Card → pull request"]
+    review -->|Confirm| ready["Confirmed card"]
+    ready --> next["Choose Card → pull request"]
     class brief,review human
     class analysis,technical agent
 ```
 
-Splitting a large brief means separate cards, each with criteria a reviewer can check. The board groups later test and release work in a batch. It does not keep a general dependency graph between cards. [Connect design to executable work](/learn/blueprints-work-orders/) is the method for writing the design that the card should carry.
+## Template contract
 
-## Where you participate
+| Stage                 | Reads                                              | Produces                                                                                     | Person's decision                                        |
+| --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Requirements analysis | The brief, issue, or note                          | `acceptance` with goal, scope, criteria, and open questions                                  | Provide missing context and clarify the intended outcome |
+| Technical review      | `acceptance` and the authorized repository context | `work_order` with implementation scope, verification method, risks, and unresolved questions | Confirm that the work is ready for development           |
 
-- **Define the outcome.** State the problem, the success criteria, the constraints, and what is out of scope. [Requirements writing](/learn/requirements-writing/) is the method for those criteria.
-- **Review the draft.** You decide scope. The employee researches the current code and lists tradeoffs and open questions. Resolve the questions that would change the implementation before you hand the card on.
-- **Confirm the card.** Confirmation tells the development lane to proceed for the stated repositories and criteria. It leaves merge, repository credentials, and pipeline setup unchanged.
+The technical stage receives `acceptance` through the template's `requires` mapping. Keep repository and environment limits in the card so both stages use the same boundary. Split a large brief into separate cards when each part needs its own acceptance decision.
 
-Leave the card in Requirements while a criterion is still ambiguous. See [human approval](/user-guide/human-approval/) and [work intake](/software-factory/intake/).
+## Configure the template
 
-## Handoff contract
+1. Open **Workbench → New delivery project** and choose `spec-intake-to-rfc-ticket-breakdown` from the published collaboration templates.
+2. Bind ready employees to Requirements analysis and Technical review. Check each stage's execution identity and grant only the access it needs.
+3. Create a card in the first stage, or route a collected inbox item into the project. Include the source, intended outcome, constraints, and repository scope.
+4. Read `acceptance` and `work_order`, answer open questions on the card, and record the human review decision.
 
-| Stage                 | Input                                              | Output                                                                                       |
-| --------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Requirements analysis | The card brief, issue, or note                     | `acceptance` with goal, scope, criteria, and open questions                                  |
-| Technical review      | `acceptance` and the authorized repository context | `work_order` with implementation scope, verification method, risks, and unresolved questions |
+Leave the card in the current stage while an acceptance criterion or technical constraint is ambiguous. See [Human approval](/user-guide/human-approval/) and [Work intake](/software-factory/intake/) for the surrounding review and intake behavior.
 
-The technical stage receives the named artifact from the first stage through the template's `requires` mapping. Keep repository and environment limits in the card so both stages work from the same boundary.
+## Continue with the next template
 
-## Set it up
-
-1. Choose the published `spec-intake-to-rfc-ticket-breakdown` template in **Workbench → New delivery project**. See [Collaboration templates](/software-factory/templates/) for the scenario catalog.
-2. Connect the code host, and connect an issue source when the brief starts as an external issue. [Configure the Software Factory](/getting-started/first-software-factory/) has the connection steps.
-3. Bind ready employees to Requirements analysis and Technical review. Check **Execution identity** for both stages and grant only the repositories each stage should read.
-4. Start from the first stage on the board, or route an inbox item into the project. Read both artifacts, answer open questions on the card, and make the human review decision.
-
-## Next step
-
-Use [Card → pull request](/software-factory/card-to-pr/) to turn the confirmed card into a draft change. A card that is already specific can start there.
+After the card is confirmed, choose [Card → pull request](/software-factory/card-to-pr/) and run the published `pr-author` template. If the request came from feedback or an incident, start with [Signal → card](/software-factory/signal-to-card/) and choose the scenario after intake.
