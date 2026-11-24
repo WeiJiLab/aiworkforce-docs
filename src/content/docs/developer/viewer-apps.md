@@ -4,10 +4,10 @@ description: Add a JSON artifact viewer to the platform frontend and try it in t
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
+  sourceVersion: "2026-11-24"
 ---
 
-Viewer Apps render artifacts inside the platform’s file preview. Build **JSON Size** to show a filename and the UTF-8 byte count of its preview text. You can switch between this view and the built-in JSON formatter on the same file.
+Viewer Apps are versioned remote modules that render artifacts inside the platform’s file preview. Build **JSON Size** to show a filename and the UTF-8 byte count of its preview text. You can switch between this view and the built-in JSON formatter on the same file.
 
 You need the platform source and the pnpm version specified in `frontend/package.json`. Work in `frontend/`. For examples, see the [built-in Viewer Apps](/developer/built-in-viewers/).
 
@@ -46,7 +46,7 @@ Save `apps/json-size/viewer.manifest.json`. The build discovers apps by director
 
 ## Render the view
 
-Save `apps/json-size/src/viewer.tsx`. Export the named `Viewer` component and both version numbers. `requestInput` supplies the input for the current request. If a preview is truncated, this count covers only the text the host supplied.
+Save `apps/json-size/src/viewer.tsx`. Export the named `Viewer` component and both version numbers. `requestInput` supplies the input for the current request. The host also passes an SDK, an active-state flag, navigation information, and controlled viewer state. Use `state` and `onStateChange` when the app needs settings that should persist while the artifact is reopened. If a preview is truncated, this count covers only the text the host supplied.
 
 ```tsx
 import {

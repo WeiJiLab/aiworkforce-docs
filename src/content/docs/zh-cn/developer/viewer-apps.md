@@ -4,11 +4,11 @@ description: 在平台前端为 JSON 产物添加查看器，并在文件预览�
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-18"
-  sourceHash: "5d6215a71bb7018f928db9a6a0ea83edd7270aaaf583ea7d296babe60b3c080d"
+  sourceVersion: "2026-11-24"
+  sourceHash: "894b1caf37d0a6b1d7ec61918c87055d41a0f6ea6392fbf738a8261196b315d8"
 ---
 
-Viewer App 决定一个产物在文件预览里如何展示。这个例子会添加 **JSON Size**，显示文件名和预览文本的 UTF-8 字节数。你可以在同一个文件上切换到内置 JSON 查看器，查看格式化后的内容。
+Viewer App 是在文件预览里渲染产物的带版本远程模块。这个例子会添加 **JSON Size**，显示文件名和预览文本的 UTF-8 字节数。你可以在同一个文件上切换到内置 JSON 查看器，查看格式化后的内容。
 
 准备好平台前端源码，并使用 `frontend/package.json` 指定的 pnpm 版本。以下步骤都在 `frontend/` 下进行。可参考[内置 Viewer Apps](/zh-cn/developer/built-in-viewers/)。
 
@@ -47,7 +47,7 @@ Viewer App 决定一个产物在文件预览里如何展示。这个例子会添
 
 ## 渲染预览内容
 
-创建 `apps/json-size/src/viewer.tsx`，按名称导出 `Viewer` 组件和两个版本号。组件通过 `requestInput` 取得当前请求的输入。如果预览被截断，计数只包含宿主传入的那部分文本。
+创建 `apps/json-size/src/viewer.tsx`，按名称导出 `Viewer` 组件和两个版本号。组件通过 `requestInput` 取得当前请求的输入。宿主还会传入 SDK、激活状态、导航信息，以及由宿主控制的查看器状态。如果应用需要在重新打开产物时保留选项，可以使用 `state` 和 `onStateChange`。如果预览被截断，计数只包含宿主传入的那部分文本。
 
 ```tsx
 import {
