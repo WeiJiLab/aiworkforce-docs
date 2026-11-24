@@ -98,8 +98,10 @@ import styles from "../../styles/factory-kanban.css?inline";
       <noscript>请启用 JavaScript 以演练卡片交接。</noscript>
     </main>
     <script define:vars={{ cards, lanes }}>
+      const board = { cards, lanes };
       const el = (id) => document.getElementById(id);
-      const laneIndex = (key) => lanes.findIndex((lane) => lane.key === key);
+      const laneIndex = (key) =>
+        board.lanes.findIndex((lane) => lane.key === key);
       function evidence(card, lane) {
         switch (lane) {
           case "DRAFT":
@@ -119,15 +121,15 @@ import styles from "../../styles/factory-kanban.css?inline";
       function start(card, key) {
         return {
           lane: key,
-          log: lanes
+          log: board.lanes
             .slice(0, laneIndex(key) + 1)
             .map((lane) => evidence(card, lane.key)),
         };
       }
       const runs = new Map(
-        cards.map((card) => [card.id, start(card, card.lane)]),
+        board.cards.map((card) => [card.id, start(card, card.lane)]),
       );
-      let selected = cards[0];
+      let selected = board.cards[0];
       const sections = new Map(
         [...document.querySelectorAll("[data-lane]")].map((node) => [
           node.dataset.lane,
@@ -142,7 +144,7 @@ import styles from "../../styles/factory-kanban.css?inline";
       );
       function render() {
         const run = runs.get(selected.id);
-        const lane = lanes[laneIndex(run.lane)];
+        const lane = board.lanes[laneIndex(run.lane)];
         const btn = buttons.get(selected.id);
         const stack = sections.get(run.lane).querySelector(".stack");
         if (btn.parentElement !== stack) stack.append(btn);
@@ -189,7 +191,7 @@ import styles from "../../styles/factory-kanban.css?inline";
         el("announcement").textContent =
           `#${selected.id} · ${el("stage").textContent}。${entry}`;
       }
-      for (const card of cards)
+      for (const card of board.cards)
         buttons.get(card.id).addEventListener("click", () => {
           selected = card;
           render();
@@ -201,13 +203,13 @@ import styles from "../../styles/factory-kanban.css?inline";
         .querySelector("button")
         .addEventListener("click", () => {
           const index = laneIndex(runs.get(selected.id).lane);
-          if (index === lanes.length - 1) {
+          if (index === board.lanes.length - 1) {
             runs.set(selected.id, start(selected, "DRAFT"));
             render();
             el("announcement").textContent = `#${selected.id} 已回到需求泳道。`;
             return;
           }
-          const next = lanes[index + 1].key;
+          const next = board.lanes[index + 1].key;
           move(next, evidence(selected, next));
         });
       el("return")
