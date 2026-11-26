@@ -1,6 +1,6 @@
 export type HomeSection =
   | "cta"
-  | "applications"
+  | "getting-started"
   | "build-software"
   | "automate-work"
   | "use-employees"
@@ -18,10 +18,14 @@ export interface LandingGuide {
   readonly href: string;
 }
 
+type GettingStartedGuide = LandingGuide & {
+  readonly guides?: readonly Pick<LandingGuide, "title" | "href">[];
+};
+
 interface HomeContent {
   readonly primaryCta: LandingGuide;
   readonly secondaryCta: LandingGuide;
-  readonly applications: readonly LandingGuide[];
+  readonly gettingStarted: readonly GettingStartedGuide[];
   readonly buildSoftware: readonly LandingGuide[];
   readonly automateWork: readonly LandingGuide[];
   readonly useEmployees: readonly LandingGuide[];
@@ -78,30 +82,50 @@ export function getHomeContent(zh: boolean): HomeContent {
         : "Follow a form fix from acceptance criteria to code and verification evidence.",
       "recipes/issue-to-pr",
     ),
-    applications: [
+    gettingStarted: [
       guide(
-        zh ? "交付一条 Issue" : "Deliver an issue",
+        zh ? "创建数字员工" : "Create a digital employee",
         zh
-          ? "已有看板和 Issue？跟进代码变更，在卡片上核对测试结果。"
-          : "Have a board and an issue? Follow the code change and review the test results on the card.",
-        "getting-started/quickstart",
+          ? "在工作空间选用已发布的模板，等待员工就绪。"
+          : "Use a published template in your workspace and wait for the employee to be ready.",
+        "getting-started/first-employee",
       ),
       guide(
-        zh ? "配置第一个交付看板" : "Set up a delivery board",
+        zh ? "使用专家工作台" : "Use the expert workbench",
         zh
-          ? "工作空间还没有看板？连接仓库，为泳道指派员工，接收第一张卡片。"
-          : "Starting with an empty workspace? Connect a repository and assign employees to lanes to receive your first card.",
-        "getting-started/first-software-factory",
+          ? "打开员工会话，交办一项专业任务，跟进执行并审阅产物。"
+          : "Open an employee session, assign a task in their area of expertise, and review the results.",
+        "user-guide/agent-chat",
       ),
-      guide(
-        zh ? "让员工运行一次 Job" : "Run a Job with one employee",
-        zh
-          ? "已有可用的数字员工？给它一项任务，手动运行，再检查输出。"
-          : "Have an employee ready? Give it a task, run it manually, and check the output.",
-        zh
-          ? "automate/workflow-builder#组合一个-job"
-          : "automate/workflow-builder#compose-a-job",
-      ),
+      {
+        ...guide(
+          zh ? "使用交付工作台" : "Use the delivery workbench",
+          zh
+            ? "在看板上推进卡片，跟踪任务交接并核对交付证据。"
+            : "Move cards through the board, track handoffs, and review delivery evidence.",
+          "workflows/kanban-workbench",
+        ),
+        guides: [
+          {
+            title: zh
+              ? "在已有看板上交付第一条 Issue"
+              : "Deliver your first Issue on an existing board",
+            href: "getting-started/quickstart",
+          },
+          {
+            title: zh
+              ? "配置团队的第一个交付看板"
+              : "Set up your team’s first delivery board",
+            href: "getting-started/first-software-factory",
+          },
+          {
+            title: zh
+              ? "跟进交付看板的首次运行"
+              : "Follow the first run on a delivery board",
+            href: "getting-started/first-automation",
+          },
+        ],
+      },
     ],
     buildSoftware: [
       guide(
@@ -189,7 +213,7 @@ export function getHomeContent(zh: boolean): HomeContent {
     ],
     useEmployees: [
       guide(
-        zh ? "把任务交给数字员工" : "Assign a task to a digital employee",
+        zh ? "使用专家工作台" : "Use the expert workbench",
         zh
           ? "打开会话，给员工一个目标和清楚的验收标准。"
           : "Open a session and give the employee a goal and acceptance criteria.",
@@ -224,9 +248,7 @@ export function getHomeContent(zh: boolean): HomeContent {
         "user-guide/artifacts-evidence",
       ),
       guide(
-        zh
-          ? "从模板创建第一个数字员工"
-          : "Create your first AI employee from a template",
+        zh ? "创建数字员工" : "Create a digital employee",
         zh
           ? "在工作空间里选用已发布模板，并验收第一份结果。"
           : "Use a published template in a workspace and review its first result.",

@@ -32,8 +32,16 @@ function homeSection(section: string, zh: boolean): string {
   switch (section) {
     case "cta":
       return linked([content.primaryCta, content.secondaryCta]);
-    case "applications":
-      return linked(content.applications);
+    case "getting-started":
+      return content.gettingStarted
+        .flatMap((guide) => [
+          guideLink(guide, zh),
+          ...(guide.guides ?? []).map(
+            ({ title, href }) =>
+              `  - [${title}](${localizedGuideHref(href, zh)})`,
+          ),
+        ])
+        .join("\n");
     case "build-software":
       return linked(content.buildSoftware);
     case "automate-work":

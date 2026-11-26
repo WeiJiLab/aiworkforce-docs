@@ -41,9 +41,18 @@ export const PORTALS = {
         zh: "开始使用",
         collapsed: false,
         items: [
-          "getting-started/quickstart",
-          "getting-started/first-software-factory",
-          "getting-started/first-automation",
+          "getting-started/first-employee",
+          "user-guide/agent-chat",
+          nested(
+            "Use the delivery workbench",
+            "使用交付工作台",
+            [
+              "getting-started/quickstart",
+              "getting-started/first-software-factory",
+              "getting-started/first-automation",
+            ],
+            false,
+          ),
         ],
       },
       {
@@ -106,12 +115,10 @@ export const PORTALS = {
         zh: "使用托管智能体",
         collapsed: true,
         items: [
-          "user-guide/agent-chat",
           "user-guide/knowledge-context",
           "user-guide/sessions-planning",
           "user-guide/human-approval",
           "user-guide/artifacts-evidence",
-          "getting-started/first-employee",
           "user-guide/workspace",
         ],
       },

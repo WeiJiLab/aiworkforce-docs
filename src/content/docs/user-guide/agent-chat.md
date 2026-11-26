@@ -1,5 +1,5 @@
 ---
-title: "Assign a task to a digital employee"
+title: "Use the expert workbench"
 description: "Open a session, give a digital employee a clear task, and follow up in the same conversation."
 translation:
   source: en
@@ -7,7 +7,7 @@ translation:
   sourceVersion: "2026-11-17"
 ---
 
-In the workspace, select a ready digital employee and open a session. Send a task with the intended result and how you will check it. If your workspace has no suitable employee, follow [Create your first AI employee from a template](/getting-started/first-employee/).
+Use the expert workbench to work with a digital employee on a specific task, such as clarifying requirements, reviewing code, or verifying test results. In the workspace sidebar, select a ready employee and open a session. Send a task with the intended result and how you will check it. If your workspace has no suitable employee, follow [Create a digital employee](/getting-started/first-employee/).
 
 ## Start a useful session
 

@@ -24,7 +24,6 @@ const sectionCards: Partial<
     readonly { title: string; description: string; href: string }[]
   >
 > = {
-  applications: content.applications,
   "build-software": content.buildSoftware,
   "automate-work": content.automateWork,
   "use-employees": content.useEmployees,
@@ -54,34 +53,45 @@ const sectionCards: Partial<
   )
 }
 {
-  section !== "cta" &&
-    section !== "agents" &&
-    sectionCards[section] &&
-    (section === "applications" ? (
-      <div class="path-grid not-content">
-        {cards(sectionCards[section]!).map((item) => (
-          <a class="path-card" href={item.href}>
+  section === "getting-started" && (
+    <ol class="path-grid getting-started not-content" role="list">
+      {content.gettingStarted.map(({ title, description, href, guides }) => (
+        <li class="path-card">
+          <a class="getting-started-link" href={localizedGuideHref(href, zh)}>
             <div class="path-card-heading">
-              <h3>{item.title}</h3>
+              <h3>{title}</h3>
               <span aria-hidden="true">→</span>
             </div>
-            <p class="path-description">{item.description}</p>
+            <p class="path-description">{description}</p>
           </a>
-        ))}
-      </div>
-    ) : (
-      <div class="domain-grid not-content">
-        {cards(sectionCards[section]!).map(({ title, description, href }) => (
-          <a class="domain-link" href={href}>
-            <div>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </div>
-            <span aria-hidden="true">→</span>
-          </a>
-        ))}
-      </div>
-    ))
+          {guides && (
+            <ul class="getting-started-guides">
+              {guides.map((guide) => (
+                <li>
+                  <a href={localizedGuideHref(guide.href, zh)}>{guide.title}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ol>
+  )
+}
+{
+  sectionCards[section] && (
+    <div class="domain-grid not-content">
+      {cards(sectionCards[section]!).map(({ title, description, href }) => (
+        <a class="domain-link" href={href}>
+          <div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+          <span aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+  )
 }
 {
   section === "agents" && (
@@ -103,3 +113,29 @@ const sectionCards: Partial<
     </section>
   )
 }
+
+<style>
+  .getting-started {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .getting-started > .path-card {
+    padding: 0;
+  }
+  .getting-started-link {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: inherit;
+    text-decoration: none;
+  }
+  .getting-started-guides {
+    margin: 0 0.75rem 0.75rem;
+    padding-inline-start: 1rem;
+    color: var(--docs-muted);
+    font-size: 0.8125rem;
+  }
+  .getting-started-guides a {
+    color: var(--docs-accent);
+  }
+</style>

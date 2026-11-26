@@ -12,9 +12,9 @@ AI Workforce helps teams delegate part of a software role to a digital employee.
 
 The same model covers a one-shot task, an event from GitHub, a schedule, and a delivery board that keeps consuming cards. Software Factory, the Kanban workbench, and issue handling are applications of that model. They are not three products.
 
-The default first path is a verified software change. [Software Factory](/software-factory/overview/) moves that change through four loops on the delivery workbench: [requirements to a card](/software-factory/requirements-to-card/), [a card to a pull request](/software-factory/card-to-pr/), [a pull request to merge](/software-factory/pr-to-merge/), and [a signal back to a card](/software-factory/signal-to-card/). The card links the confirmed requirement, the implementation, the verification evidence, and the team's decision.
+[Get started](/#get-started) by creating a digital employee and giving it a task in the expert workbench. When work needs to move across roles, use the delivery workbench to track the card and review the evidence.
 
-Choose a tutorial based on the board, repository, or employee you have available. [Find your starting point](/#choose-your-starting-point).
+[Software Factory](/software-factory/overview/) moves changes through four loops on the delivery workbench: [requirements to a card](/software-factory/requirements-to-card/), [a card to a pull request](/software-factory/card-to-pr/), [a pull request to merge](/software-factory/pr-to-merge/), and [a signal back to a card](/software-factory/signal-to-card/). The card links the confirmed requirement, the implementation, the verification evidence, and the team's decision.
 
 A builder defines a reusable employee. A user creates a workspace employee from a published template. Automation asks a ready employee to perform work. The board uses those employees inside a delivery workflow. To write an Agent Package, see [Customize & Extend](/build/).
 

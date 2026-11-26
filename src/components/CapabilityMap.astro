@@ -6,7 +6,7 @@ const zh = Astro.locals.starlightRoute.locale === "zh-cn";
 const guide = (path: string) => localizedGuideHref(path, zh);
 const alertExampleHref =
   guide("software-factory/signal-to-card") +
-  (zh ? "#线上告警示例" : "#production-alert-example");
+  (zh ? "#生产告警示例" : "#production-alert-example");
 const channels = [
   {
     icon: "list-format",
@@ -164,7 +164,7 @@ const oversight = [
         <div class="board">
           <a class="board-title" href={guide("workflows/kanban-workbench")}>
             <Icon name="list-format" />
-            {zh ? "Kanban 驱动的工作台" : "Kanban-driven workbench"}
+            {zh ? "交付工作台" : "Delivery workbench"}
           </a>
           <ol class="board-lanes" role="list">
             {
@@ -178,8 +178,8 @@ const oversight = [
           </ol>
         </div>
         <div class="squad">
-          <a class="team" href={guide("user-guide/ai-employees")}
-            ><Icon name="puzzle" />{zh ? "数字员工小队" : "AI employee team"}</a
+          <a class="team" href={guide("user-guide/agent-chat")}
+            ><Icon name="puzzle" />{zh ? "专家工作台" : "Expert workbench"}</a
           >
           <div class="roles">
             {
