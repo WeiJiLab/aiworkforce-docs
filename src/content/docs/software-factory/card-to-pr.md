@@ -43,6 +43,20 @@ The implementation stage receives `implementation_brief` through the template's 
 
 The template uses `AUTO`, so the card can complete after the final stage returns `READY` and close-out finishes. Merge and production release remain separate decisions.
 
+## Template for a development handoff
+
+The development employee fills this in when the change is ready for review. Record it on the card and link the PR so the reviewer can open the diff and reproduce the checks.
+
+```text
+Card and scope — [card reference] [confirmed acceptance criteria]
+Change — [repository, what changed, why]
+Code to review — [PR if opened, otherwise branch] [exact commit]
+Checks — [acceptance criterion → check run → result and evidence]
+Gaps or review request — [what was not verified] [what the reviewer should decide]
+```
+
+**Example.** For C-17, the CSV query now uses the order list’s filter. The developer records PR #58 and its head commit on the card. The test run on that commit passes both cases. One matching order produces one data row, and no matches produce the header only. Link the test run and ask the reviewer to check the downloadable file in the test environment.
+
 ## Continue with the next template
 
 Use [Pull request → merge](/software-factory/pr-to-merge/) to choose the evidence template for review, repair, verification, and release. The [Issue to PR](/recipes/issue-to-pr/) recipe shows one complete path from intake to a draft Pull Request.

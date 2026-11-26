@@ -69,6 +69,20 @@ Request more information when the report cannot be investigated. Dismiss or arch
 
 [Runs, results, and recovery](/automate/runs-recovery/) covers failed, timed-out, or rejected collection runs.
 
+## Template for a signal investigation
+
+Copy this into the investigating Job’s findings. If the Job collects an inbox item, keep the source and run receipt with it so the reviewer can check the report.
+
+```text
+Source and original report — [source ID or link] [what the reporter saw]
+Reproduction — [environment, steps, expected and actual behavior]
+Evidence — [observation or artifact] [what is still a hypothesis]
+Disposition — [follow up / request evidence / archive] [reason]
+Handoff — [inbox item and run receipt, if collected] [card, once accepted and confirmed]
+```
+
+**Example.** In Issue #42 a user reports that exporting a filtered order list includes all orders. The investigator reproduces it with three sample orders. The screen shows one row, the CSV contains three. Attach the sample CSV to the finding. The reviewer accepts the item for follow-up and asks how an empty result should export before confirming the card.
+
 ## Continue with the selected template
 
 A request that needs shaping continues in [Requirements → card](/software-factory/requirements-to-card/). A confirmed card ready for implementation continues in [Card → pull request](/software-factory/card-to-pr/). A code change awaiting evidence continues in [Pull request → merge](/software-factory/pr-to-merge/).

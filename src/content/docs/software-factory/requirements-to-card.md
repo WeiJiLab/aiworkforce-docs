@@ -43,6 +43,21 @@ The technical stage receives `acceptance` through the template's `requires` mapp
 
 Leave the card in the current stage while an acceptance criterion or technical constraint is ambiguous. See [Human approval](/user-guide/human-approval/) and [Work intake](/software-factory/intake/) for the surrounding review and intake behavior.
 
+## Template for a requirements card
+
+Start this in the requirements session. Put the agreed scope and checks on the card so the developer can tell when the work is complete.
+
+```text
+Problem and source — [who encounters it, when, and which report or brief describes it]
+Outcome — [what the user should observe]
+Scope — [target repositories and behavior included] [out of scope]
+Acceptance — [given …, when …, then … (one observable result per case)]
+Open decision — [question and decision owner] [answer once resolved]
+Handoff — [card reference] [scope review if required by the board]
+```
+
+**Example.** For Issue #42, limit the change to order CSV export in the orders repository. With one of three orders matching the filter, the CSV must contain only that order. The product owner specifies that an empty result must export the header with zero data rows. Put both cases on card C-17 and leave PDF export out of scope.
+
 ## Continue with the next template
 
 After the card is confirmed, choose [Card → pull request](/software-factory/card-to-pr/) and run the published `pr-author` template. If the request came from feedback or an incident, start with [Signal → card](/software-factory/signal-to-card/) and choose the scenario after intake.
