@@ -1,6 +1,6 @@
 ---
 title: "Expert workbench example"
-description: "Follow a data export request through requirements, code review, test cases, and a human release decision."
+description: "Follow one export request from its source and architecture decision through code review, initial testing, and retesting."
 translation:
   source: en
   status: complete
@@ -8,6 +8,16 @@ translation:
 ---
 
 The project team needs to export a workspace’s data as CSV. This walkthrough expands the data export permissions scenario from the Platform welcome page design. The requirements, pull request, and test report are sample records you can explore without signing in.
+
+## Try the workbench
+
+The four views draw on the Showcase Agents examples. The requirements view combines the source trace from the requirements prototype with a Spec Studio document. Architecture follows the SAD Agent evidence view. Code Review ties findings to a PR snapshot, and Test Agent keeps the initial run and retest in the same evidence trail. The workbench uses sample records.
+
+Open the request source and trace AC-3 from the specification to the authorization boundary. Open the matching review finding, then switch from the initial run to the retest to see which evidence changed.
+
+<iframe src="/illustrations/expert-workbench/en/" title="Interactive expert workbench for data export permissions" loading="lazy" style="width:100%;height:42rem;border:0;border-radius:14px;"></iframe>
+
+[Open the expert workbench demo on its own](/illustrations/expert-workbench/en/)
 
 ## Requirements and specification
 
@@ -33,6 +43,10 @@ The project team needs to export a workspace’s data as CSV. This walkthrough e
 
 The requirement owner confirms the four outcomes before the implementation is handed off. The implementation and tests use the same criterion IDs. [See how to write acceptance criteria](/learn/requirements-writing/).
 
+## Architecture decision
+
+**ADR-024 · Authorization at the export boundary.** Open the API, authorization, and CSV generation nodes in the workbench to see which source supports each responsibility. The decision carries AC-3 into the PR review. It calls for verifying the requester’s access to the target workspace before generating the file.
+
 ## Code review
 
 **ENG-125 · PR #128.** Give the reviewer the changed files and the confirmed criteria. Ask which criteria lack evidence, where the issue appears, and what the developer needs to change.
@@ -56,6 +70,8 @@ The reviewer requests changes. The developer adds the workspace check and the mi
 ## Test cases and acceptance
 
 **ENG-126 · Regression report for the updated PR #128.** Give the test specialist the criterion IDs and the revision to verify. Ask for the environment, expected outcomes, and observations.
+
+Initial run `RUN-401` on `export-r1` records a failure for EXP-03 (AC-3). EXP-04 (AC-4) had not been added. Retest `RUN-402` on `export-r2` records both outcomes alongside the earlier results so a reviewer can compare the revisions.
 
 <div class="intro-review">
 

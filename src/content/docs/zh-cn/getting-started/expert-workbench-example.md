@@ -1,14 +1,24 @@
 ---
 title: "专家工作台示例"
-description: "用数据导出权限案例，走一遍需求与规格、代码审查、测试用例和人工验收。"
+description: "用数据导出权限案例，从需求来源、架构决策走到 PR 审查、初测与复测。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-26"
-  sourceHash: "f119edbb6b5269af21241e07b8123cbb299cea4dcc64a03eb23c75faf378e16d"
+  sourceHash: "a440d37325cdda5825701884e062aac4b4ecea9de45e962c3babfd7bd9ac2a7e"
 ---
 
 项目团队需要把工作空间里的数据导出为 CSV。这页沿用 Platform 访客首页设计中的「数据导出权限」案例。下方的需求、PR 和测试报告使用示例数据，打开文档即可演练。
+
+## 试一试专家工作台
+
+四个界面参考 Showcase Agents 的示例。需求与规格结合需求编写原型的来源追溯和 Spec Studio 的规格文档。架构设计参考 SAD Agent 的节点证据。Code Review 把审查发现绑定到 PR 快照，Test Agent 在同一条证据链上保留初测和复测。演练使用示例数据。
+
+先展开原始需求，沿 AC-3 找到架构中的工作空间授权边界。再打开对应的审查发现，在「测试用例」里切换初测和复测，看看哪些证据发生了变化。
+
+<iframe src="/illustrations/expert-workbench/zh-cn/" title="数据导出权限专家工作台交互演练" loading="lazy" style="width:100%;height:42rem;border:0;border-radius:14px;"></iframe>
+
+[单独打开专家工作台演练](/illustrations/expert-workbench/zh-cn/)
 
 ## 需求与规格
 
@@ -34,6 +44,10 @@ translation:
 
 需求负责人先确认这四项标准，再交给开发。后面的审查和测试沿用同一组编号。[查看需求写作指南](/zh-cn/learn/requirements-writing/)。
 
+## 架构决策
+
+**ADR-024 · 在导出边界完成授权检查。** 展开工作台上的导出 API、工作空间授权和 CSV 生成节点，查看各自的职责与来源。决策把 AC-3 带入 PR 审查，要求在生成文件前确认请求者能访问目标工作空间。
+
 ## 代码审查
 
 **ENG-125 · PR #128。** 把变更文件和已确认的验收标准交给审查专家，请它找出缺少证据的条目，标明位置和修复建议。
@@ -57,6 +71,8 @@ translation:
 ## 测试用例与验收
 
 **ENG-126 · 更新后的 PR #128 回归报告。** 把验收标准编号和待测版本交给测试专家，请它记录运行环境、预期结果和实际观察。
+
+**初测** `RUN-401` 在 `export-r1` 上记录了 EXP-03（AC-3）失败，EXP-04（AC-4）当时尚未添加。**复测** `RUN-402` 在 `export-r2` 中记录了这两项结果，并保留初测记录供审阅者对照。
 
 <div class="intro-review">
 

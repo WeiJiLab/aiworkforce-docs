@@ -9,13 +9,14 @@ translation:
 
 Use the expert workbench when a digital employee can help you produce or review a specific engineering artifact. Start from a workspace employee’s session. If the workspace has installed a plugin with a dedicated interface, you can also open it from **Custom workbenches** in workspace management. The available apps depend on the employees, plugins, and permissions in that workspace.
 
-| Task                           | What you provide                                    | What you review                                          |
-| ------------------------------ | --------------------------------------------------- | -------------------------------------------------------- |
-| Requirements and specification | A request, its constraints, and examples            | The scope, unresolved questions, and acceptance criteria |
-| Code review                    | A PR or changed files and agreed criteria           | Findings with file references and suggested changes      |
-| Test design and verification   | The criteria, target revision, and test environment | Test cases, observed results, and remaining gaps         |
+| Task                           | What you provide                                        | What you review                                          |
+| ------------------------------ | ------------------------------------------------------- | -------------------------------------------------------- |
+| Requirements and specification | A request, its constraints, and examples                | The scope, unresolved questions, and acceptance criteria |
+| Architecture design            | The specification, interface contract, and source files | Component boundaries, dependencies, and decision records |
+| Code review                    | A PR or changed files and agreed criteria               | Findings with file references and suggested changes      |
+| Test design and verification   | The criteria, target revision, and test environment     | Test cases, observed results, and remaining gaps         |
 
-Try all three tasks in the [data export permissions example](/getting-started/expert-workbench-example/).
+Try all four tasks in the [data export permissions example](/getting-started/expert-workbench-example/).
 
 ## Choose where to start
 
