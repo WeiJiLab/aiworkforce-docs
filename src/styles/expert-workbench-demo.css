@@ -13,10 +13,7 @@
   --pending: light-dark(#7b4d12, #ffd39a);
   --pending-bg: light-dark(#fff1dc, #403224);
   --sl-line-height-headings: 1.3;
-  font:
-    14px/1.5 system-ui,
-    sans-serif;
-  color: var(--ink);
+  font-size: 14px;
 }
 
 * {
@@ -26,6 +23,10 @@
 body {
   margin: 0;
   background: var(--surface);
+  color: var(--ink);
+  font:
+    1rem/1.5 system-ui,
+    sans-serif;
 }
 
 p,
