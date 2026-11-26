@@ -20,6 +20,17 @@ The board is the work-management surface. The workflow is the lane rules. Automa
 
 Use the board when several engineering items must move through the same lanes, sometimes as a batch, and you need each item's run and acceptance evidence. Use a single [automation Job](/automate/fundamentals/) when the work is one bounded task and should not become a delivery card.
 
+## Choose a handoff template
+
+When creating a board, select a published board template to reuse its lane configuration, or choose **No template** to configure the board yourself. For work on an existing board, copy just the outline that fits the next handoff into the session, card, or review record. Each guide uses the same filtered CSV export issue as an example.
+
+| What you have now                       | What you need to hand over                                            | Copy this template                                                                            |
+| --------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| A report that still needs investigation | Reproduction evidence and a decision on whether to follow up          | [Signal investigation](/software-factory/signal-to-card/#template-for-a-signal-investigation) |
+| A request whose scope is still open     | A card with a target repository and observable acceptance criteria    | [Requirements card](/software-factory/requirements-to-card/#template-for-a-requirements-card) |
+| A card ready for development            | A reviewable change, its exact commit, and check results              | [Development handoff](/software-factory/card-to-pr/#template-for-a-development-handoff)       |
+| A batch with a candidate to review      | A decision on that revision and separate merge and deployment records | [Merge decision](/software-factory/pr-to-merge/#template-for-a-merge-decision)                |
+
 ## How it works
 
 Built-in lanes:

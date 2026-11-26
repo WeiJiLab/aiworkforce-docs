@@ -51,6 +51,21 @@ A failed check or a review asking for changes should use the configured rework p
 
 The template completion rule controls the card's close-out. It does not merge a Pull Request or approve a production release unless the configured stage is explicitly authorized to perform that action.
 
+## Template for a merge decision
+
+Use this when a candidate has been built for a batch. Record the test result on each card. Before acting on the batch, check its members and the candidate revision the evidence covers.
+
+```text
+Batch under review — [batch, member cards and PRs] [candidate commit per repository]
+Verification — [card and criterion → environment, tested revision, result, evidence]
+Decision — [ready to merge / return for repair / waiting] [reason and affected cards]
+Approval — [decision record if the batch policy requires approval]
+Merge outcome — [actual merge commit or pending]
+Production outcome — [deployed revision and run evidence, or pending / not configured]
+```
+
+**Example.** Batch B-9 contains C-17 and PR #58. The tester downloads both CSV samples from the candidate and attaches them to C-17. If the empty result still contains orders, return C-17 with the failing sample and retest the repaired candidate. If both checks pass and the batch is approved as required, record the resulting merge commit. Leave production pending until the deployment run identifies the deployed revision.
+
 ## Continue with the next template
 
 When a new report or incident should become work, use [Signal → card](/software-factory/signal-to-card/) to collect evidence and choose the right collaboration template. For the complete scenario catalog, see [Collaboration templates](/software-factory/templates/).
