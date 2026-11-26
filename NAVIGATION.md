@@ -24,14 +24,14 @@ Customize & Extend 是文档栏目，中文名为「定制与扩展」。控制�
 
 顺序由 `src/lib/sidebar.mjs` 中 `PORTALS.docs` 决定。栏目第一项是首页链接 **Docs home / 文档首页**，指向 `/` 与 `/zh-cn/`。其后分组为：
 
-1. Get started / 开始使用。首页和侧栏依次提供「创建数字员工」「使用专家工作台」「使用交付工作台」。已有的第一条 Issue、第一个看板和首次运行教程归入「使用交付工作台」子组。
-2. Software Factory / 软件工厂。先是概览和「协作模板」子组，再是四条回路：需求 → 卡片、卡片 → PR、PR → 合并、信号 → 卡片。其后是 Issue、看板和 Pull Request 自动化，以及路径细则。卡片排查指南紧接在「软件工厂路径」子组之后。
-3. Automate Work / 自动化工作（含任务收件箱和 Agent handoff）
-4. Use Managed Agents / 使用托管智能体。依次介绍提供任务上下文、查看执行进度、人工确认、审阅结果与产物，以及工作空间设置。
+1. Get started / 开始使用。首页和侧栏依次提供「创建数字员工」「使用专家工作台」「使用交付工作台」。「使用专家工作台」收录会话指南和数据导出权限示例。「使用交付工作台」收录第一条 Issue、第一个看板和首次运行教程。
+2. Expert workbench / 专家工作台。首页和侧栏提供专家工作台概览，以及上下文、执行进度、人工确认和产物审阅指南。
+3. Software Factory / 软件工厂。先是概览和「协作模板」子组，再是四条回路：需求 → 卡片、卡片 → PR、PR → 合并、信号 → 卡片。其后是 Issue、看板和 Pull Request 自动化，以及路径细则。卡片排查指南紧接在「软件工厂路径」子组之后。
+4. Automate Work / 自动化工作（含任务收件箱和 Agent handoff）
 5. Run Workflows / 运行工作流
 6. Deploy Managed Agents / 部署托管智能体。先从企业部署概览比较运行位置，再查看自托管平台指南。「自托管机器」子组收录设备概览、我的机器、会话执行位置和故障排查。
 7. Integrations / 集成。点击一级栏目「集成」可展开或收起目录。展开后，灰色分类标题下直接列出所有连接器。概览是目录，按代码托管、事项导入、消息渠道、监控告警分组，每项连接有自己的指南。员工工具挂在概览之后。MCP 连接与协议、Webhook 留在 Developer，Agent 的 MCP 依赖声明在定制与扩展。不收录 ACP / A2A。
-8. Resources / 资源。简介、核心概念、「托管智能体与数字员工」和平台地图可在这里查阅。
+8. Resources / 资源。收录简介、核心概念、「托管智能体与数字员工」、工作空间指南和平台地图。
 
 ## 定制与扩展侧栏
 
@@ -64,7 +64,7 @@ Customize & Extend 是文档栏目，中文名为「定制与扩展」。控制�
 3. SDK / CLI
 4. Webhooks
 5. MCP
-6. Apps（内置 Viewer Apps、开发 Viewer App）
+6. Apps（开发 Plugin App、Plugin App API、内置 Viewer Apps、开发 Viewer App）
 
 不收录 ACP / A2A，也不恢复 Agent Protocol 文档页。旧地址 `/integrations/agent-protocol/` 与 `/api/` 已重定向。
 

@@ -3,7 +3,7 @@ export type HomeSection =
   | "getting-started"
   | "build-software"
   | "automate-work"
-  | "use-employees"
+  | "expert-workbench"
   | "build"
   | "run-workflows"
   | "daemon"
@@ -28,7 +28,7 @@ interface HomeContent {
   readonly gettingStarted: readonly GettingStartedGuide[];
   readonly buildSoftware: readonly LandingGuide[];
   readonly automateWork: readonly LandingGuide[];
-  readonly useEmployees: readonly LandingGuide[];
+  readonly expertWorkbench: readonly LandingGuide[];
   readonly build: readonly LandingGuide[];
   readonly runWorkflows: readonly LandingGuide[];
   readonly daemon: readonly LandingGuide[];
@@ -90,13 +90,21 @@ export function getHomeContent(zh: boolean): HomeContent {
           : "Use a published template in your workspace and wait for the employee to be ready.",
         "getting-started/first-employee",
       ),
-      guide(
-        zh ? "使用专家工作台" : "Use the expert workbench",
-        zh
-          ? "打开员工会话，交办一项专业任务，跟进执行并审阅产物。"
-          : "Open an employee session, assign a task in their area of expertise, and review the results.",
-        "user-guide/agent-chat",
-      ),
+      {
+        ...guide(
+          zh ? "使用专家工作台" : "Use the expert workbench",
+          zh
+            ? "打开员工会话，交办一项专业任务，跟进执行并审阅产物。"
+            : "Open an employee session, assign a task in their area of expertise, and review the results.",
+          "user-guide/agent-chat",
+        ),
+        guides: [
+          {
+            title: zh ? "专家工作台示例" : "Expert workbench example",
+            href: "getting-started/expert-workbench-example",
+          },
+        ],
+      },
       {
         ...guide(
           zh ? "使用交付工作台" : "Use the delivery workbench",
@@ -211,13 +219,20 @@ export function getHomeContent(zh: boolean): HomeContent {
         "automate/agent-handoff",
       ),
     ],
-    useEmployees: [
+    expertWorkbench: [
       guide(
-        zh ? "使用专家工作台" : "Use the expert workbench",
+        zh ? "专家工作台概览" : "Expert workbench overview",
         zh
-          ? "打开会话，给员工一个目标和清楚的验收标准。"
-          : "Open a session and give the employee a goal and acceptance criteria.",
-        "user-guide/agent-chat",
+          ? "选择适合任务的员工和界面，带着明确的验收标准开始。"
+          : "Choose the employee and interface for your task, then define how you will accept the result.",
+        "user-guide/expert-workbench",
+      ),
+      guide(
+        zh ? "专家工作台示例" : "Expert workbench example",
+        zh
+          ? "用一条数据导出需求演练规格、PR 审查、测试与人工验收。"
+          : "Follow an export request through specification, PR review, testing, and human acceptance.",
+        "getting-started/expert-workbench-example",
       ),
       guide(
         zh ? "提供任务上下文" : "Provide task context",
@@ -246,13 +261,6 @@ export function getHomeContent(zh: boolean): HomeContent {
           ? "按验收标准检查生成文件、变更和验证证据。"
           : "Check generated files, changes, and evidence against the acceptance criteria.",
         "user-guide/artifacts-evidence",
-      ),
-      guide(
-        zh ? "创建数字员工" : "Create a digital employee",
-        zh
-          ? "在工作空间里选用已发布模板，并验收第一份结果。"
-          : "Use a published template in a workspace and review its first result.",
-        "getting-started/first-employee",
       ),
     ],
     build: [
@@ -531,6 +539,13 @@ export function getPortalContent(
         },
       ],
       guides: [
+        {
+          title: zh ? "Plugin App 与 API" : "Plugin Apps and APIs",
+          description: zh
+            ? "为数字员工添加专用界面，查看 MCP App 能力及宿主接口。"
+            : "Add a dedicated interface to a digital employee and see the MCP App and host interfaces.",
+          href: "developer/plugin-apps",
+        },
         {
           title: zh ? "认证" : "Authentication",
           description: zh

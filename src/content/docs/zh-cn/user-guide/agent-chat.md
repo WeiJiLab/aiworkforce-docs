@@ -1,14 +1,18 @@
 ---
 title: "使用专家工作台"
 description: "打开会话，向数字员工交办一项明确的任务，并在同一会话里跟进。"
+sidebar:
+  label: "交办任务与跟进会话"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "2aa2771cdd730d63dd1809fab18061d7f187f30b85111fe3c5fd911e75de80d7"
+  sourceHash: "bd75d0224a5304d5129330138e6b325206877667d8d62c723003064307c1b689"
 ---
 
 在专家工作台，你可以和数字员工一起澄清需求、审查代码或验证测试结果。在工作空间侧栏选择一名已就绪的数字员工，打开会话，说明预期产出和验收标准。如果空间里还没有合适的员工，先[创建数字员工](/zh-cn/getting-started/first-employee/)。
+
+在[专家工作台示例](/zh-cn/getting-started/expert-workbench-example/)中，沿着一条数据导出需求，查看规格、PR 审查和测试用例，最后判断现有证据能支持哪项发布决定。
 
 ## 试一试：从 Home 找到数字员工
 
