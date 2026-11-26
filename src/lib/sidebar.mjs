@@ -42,7 +42,15 @@ export const PORTALS = {
         collapsed: false,
         items: [
           "getting-started/first-employee",
-          "user-guide/agent-chat",
+          nested(
+            "Use the expert workbench",
+            "使用专家工作台",
+            [
+              "user-guide/agent-chat",
+              "getting-started/expert-workbench-example",
+            ],
+            false,
+          ),
           nested(
             "Use the delivery workbench",
             "使用交付工作台",
@@ -53,6 +61,18 @@ export const PORTALS = {
             ],
             false,
           ),
+        ],
+      },
+      {
+        label: "Expert workbench",
+        zh: "专家工作台",
+        collapsed: false,
+        items: [
+          "user-guide/expert-workbench",
+          "user-guide/knowledge-context",
+          "user-guide/sessions-planning",
+          "user-guide/human-approval",
+          "user-guide/artifacts-evidence",
         ],
       },
       {
@@ -108,18 +128,6 @@ export const PORTALS = {
           "automate/agent-handoff",
           "workflows/custom-workflows",
           "workflows/research-monitoring",
-        ],
-      },
-      {
-        label: "Use Managed Agents",
-        zh: "使用托管智能体",
-        collapsed: true,
-        items: [
-          "user-guide/knowledge-context",
-          "user-guide/sessions-planning",
-          "user-guide/human-approval",
-          "user-guide/artifacts-evidence",
-          "user-guide/workspace",
         ],
       },
       {
@@ -189,6 +197,7 @@ export const PORTALS = {
           "getting-started/introduction",
           "getting-started/core-concepts",
           "user-guide/ai-employees",
+          "user-guide/workspace",
           "resources/best-practices",
           "resources/examples",
           "resources/troubleshooting",
@@ -375,7 +384,12 @@ export const PORTALS = {
         label: "Apps",
         zh: "Apps",
         collapsed: false,
-        items: ["developer/built-in-viewers", "developer/viewer-apps"],
+        items: [
+          "developer/plugin-apps",
+          "developer/plugin-app-api",
+          "developer/built-in-viewers",
+          "developer/viewer-apps",
+        ],
       },
     ],
   },

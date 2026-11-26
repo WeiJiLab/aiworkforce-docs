@@ -46,8 +46,8 @@ function homeSection(section: string, zh: boolean): string {
       return linked(content.buildSoftware);
     case "automate-work":
       return linked(content.automateWork);
-    case "use-employees":
-      return linked(content.useEmployees);
+    case "expert-workbench":
+      return linked(content.expertWorkbench);
     case "build":
       return linked(content.build);
     case "run-workflows":

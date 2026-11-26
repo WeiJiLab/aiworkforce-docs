@@ -29,6 +29,8 @@ Put reusable methods in [skills](/build/skills/). Put the role chain in [agent d
 
 Connection names may be documented as MCP dependencies. Credentials, tokens, and host secrets do not belong in the plugin. Applying a plugin does not authorize an external account. [Tools](/build/tools/) and [MCP servers](/build/mcp-integration/) cover that gap.
 
+For a dedicated interface that users can open from the workspace or a tool result, [build a Plugin App](/developer/plugin-apps/).
+
 ## Apply and check
 
 Validate the package in the builder, then submit the build. Resolve missing files and exposed credentials before you treat the package as publishable. After publication, create or refresh a workspace instance and open **Methods and capabilities**. The instance shows the skills and tools that were actually applied.

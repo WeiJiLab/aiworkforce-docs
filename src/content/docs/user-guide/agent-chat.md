@@ -1,6 +1,8 @@
 ---
 title: "Use the expert workbench"
 description: "Open a session, give a digital employee a clear task, and follow up in the same conversation."
+sidebar:
+  label: "Assign tasks and follow sessions"
 translation:
   source: en
   status: complete
@@ -8,6 +10,8 @@ translation:
 ---
 
 Use the expert workbench to work with a digital employee on a specific task, such as clarifying requirements, reviewing code, or verifying test results. In the workspace sidebar, select a ready employee and open a session. Send a task with the intended result and how you will check it. If your workspace has no suitable employee, follow [Create a digital employee](/getting-started/first-employee/).
+
+In the [expert workbench example](/getting-started/expert-workbench-example/), follow a data export request through the specification, PR review, test cases, and a human release decision.
 
 ## Start a useful session
 
