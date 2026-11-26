@@ -25,23 +25,53 @@ const emptyCsv = text(
 const criteria = [
   {
     id: "AC-1",
+    testId: "EXP-01",
     title: text("有权限的空间成员", "Authorized workspace member"),
     outcome: acceptedCsv,
   },
   {
     id: "AC-2",
+    testId: "EXP-02",
     title: text("缺少导出权限", "Missing export permission"),
     outcome: deniedCsv,
   },
   {
     id: "AC-3",
+    testId: "EXP-03",
     title: text("请求其他空间的数据", "Request for another workspace"),
     outcome: deniedCsv,
   },
   {
     id: "AC-4",
+    testId: "EXP-04",
     title: text("授权范围内没有匹配记录", "No matching records"),
     outcome: emptyCsv,
+  },
+];
+const architecture = [
+  {
+    title: text("导出 API", "Export API"),
+    file: "openapi.yaml",
+    note: text(
+      "接收工作空间和筛选条件，从会话识别当前用户。",
+      "Accepts a workspace and filters, and identifies the user from the session.",
+    ),
+  },
+  {
+    title: text("工作空间授权", "Workspace authorization"),
+    file: "auth.ts:42",
+    note: text(
+      "同时核对导出权限和对目标工作空间的访问权限。对应 AC-2、AC-3。",
+      "Check both export permission and access to the target workspace. Covers AC-2 and AC-3.",
+    ),
+  },
+  {
+    title: text("CSV 生成", "CSV generation"),
+    file: "export.ts",
+    note: text(
+      "只接收已按授权范围筛选的数据。空结果仍写出表头。对应 AC-1、AC-4。",
+      "Receives records filtered to the authorized scope. Keep the headers when the result is empty. Covers AC-1 and AC-4.",
+    ),
   },
 ];
 const findings = [
@@ -64,6 +94,45 @@ const findings = [
     ),
   },
 ];
+const runs = [
+  {
+    id: "initial",
+    label: text("初测", "Initial run"),
+    revision: "export-r1",
+    report: "RUN-401",
+    log: "export-r1.log",
+  },
+  {
+    id: "retest",
+    label: text("修复后复测", "Retest after fix"),
+    revision: "export-r2",
+    report: "RUN-402",
+    log: "export-r2.log",
+  },
+] as const;
+const initialObservations: Partial<
+  Record<string, { result: "failed" | "pending"; detail: string }>
+> = {
+  "AC-3": {
+    result: "failed",
+    detail: text(
+      "目标空间隔离检查未通过。",
+      "The workspace isolation check failed.",
+    ),
+  },
+  "AC-4": {
+    result: "pending",
+    detail: text(
+      "该版本没有空结果用例。",
+      "This revision had no empty-result test case.",
+    ),
+  },
+};
+const resultLabels = {
+  failed: text("失败", "Failed"),
+  pending: text("未执行", "Not run"),
+  passed: text("通过", "Passed"),
+};
 ---
 
 <!doctype html>
@@ -90,9 +159,7 @@ const findings = [
             <header class="panel-heading">
               <div>
                 <p class="record">
-                  ENG-124 <span
-                    >· {text("需求专家", "Requirements specialist")}</span
-                  >
+                  ENG-124 <span>· Spec Studio</span>
                 </p>
                 <h2>{text("确认导出范围", "Define the export scope")}</h2>
               </div>
@@ -100,8 +167,11 @@ const findings = [
                 >{text("范围已确认", "Scope confirmed")}</span
               >
             </header>
-            <aside class="request">
-              <strong>{text("原始请求", "Request")}</strong>
+            <details class="request" open>
+              <summary>{text("原始请求及来源", "Request and source")}</summary>
+              <p class="source-record">
+                <code>ENG-124</code> · {text("项目需求单", "Project request")}
+              </p>
               <p>
                 {
                   text(
@@ -110,21 +180,28 @@ const findings = [
                   )
                 }
               </p>
-            </aside>
+            </details>
             <div class="artifact">
               <h3>
                 <Icon name="document" />
                 {text("验收标准", "Acceptance criteria")}
               </h3>
+              <p class="artifact-reference">
+                <code>docs/specs/export-permissions.md</code>
+              </p>
               <ul class="records" role="list">
                 {
-                  criteria.map(({ id, title, outcome }) => (
+                  criteria.map(({ id, testId, title, outcome }) => (
                     <li>
                       <code>{id}</code>
                       <div>
                         <>
                           <strong>{title}</strong>
                           <p>{outcome}</p>
+                          <small>
+                            {text("追溯用例", "Test case")}{" "}
+                            <code>{testId}</code>
+                          </small>
                         </>
                       </div>
                     </li>
@@ -134,14 +211,58 @@ const findings = [
             </div>
           </section>
         </TabItem>
+        <TabItem label={text("架构设计", "Architecture")} icon="random">
+          <section class="workspace-panel">
+            <header class="panel-heading">
+              <div>
+                <p class="record">ADR-024 <span>· SAD Agent · ENG-124</span></p>
+                <h2>
+                  {
+                    text(
+                      "明确导出授权边界",
+                      "Define the authorization boundary",
+                    )
+                  }
+                </h2>
+              </div>
+              <span class="state approved"
+                >{text("决策已记录", "Decision recorded")}</span
+              >
+            </header>
+            <div class="artifact">
+              <h3><Icon name="random" /> {text("导出链路", "Export flow")}</h3>
+              <ol class="architecture-flow" role="list">
+                {
+                  architecture.map(({ title, file, note }, index) => (
+                    <li>
+                      <details name="architecture-evidence" open={index === 1}>
+                        <summary>{title}</summary>
+                        <div class="disclosure-content">
+                          <code>{file}</code>
+                          <p>{note}</p>
+                        </div>
+                      </details>
+                    </li>
+                  ))
+                }
+              </ol>
+            </div>
+            <p class="workbench-note">
+              {
+                text(
+                  "ADR-024 把授权检查放在导出边界。Code Review 用这条决策核对 PR #128，测试用例负责验证预期行为。",
+                  "ADR-024 places the permission check at the export boundary. Code Review checks PR #128 against this decision, and the test cases verify the expected behavior.",
+                )
+              }
+            </p>
+          </section>
+        </TabItem>
         <TabItem label={text("代码审查", "Code review")} icon="code-branch">
           <section class="workspace-panel">
             <header class="panel-heading">
               <div>
                 <p class="record">
-                  ENG-125 <span
-                    >· PR #128 · {text("审查专家", "Code reviewer")}</span
-                  >
+                  ENG-125 <span>· Code Review · PR #128</span>
                 </p>
                 <h2>
                   {text("审查导出权限校验", "Review export authorization")}
@@ -156,6 +277,17 @@ const findings = [
                 <Icon name="magnifier" />
                 {text("审查发现", "Review findings")}
               </h3>
+              <p class="artifact-reference">
+                {text("审查快照", "Review snapshot")}
+                <code>export-r1</code>
+                <span aria-hidden="true"> · </span>
+                {
+                  text(
+                    "对照 ADR-024 和验收标准",
+                    "Checked against ADR-024 and the acceptance criteria",
+                  )
+                }
+              </p>
               <div class="disclosures">
                 {
                   findings.map(({ file, severity, title, note }, index) => (
@@ -179,78 +311,139 @@ const findings = [
             <header class="panel-heading">
               <div>
                 <p class="record">
-                  ENG-126 <span>· PR #128 · <code>export-r2</code></span>
+                  ENG-126 <span>· Test Agent · PR #128</span>
                 </p>
                 <h2>{text("核对回归测试", "Verify regression results")}</h2>
               </div>
-              <span class="state pending"
-                >{text("待确认发布范围", "Release scope pending")}</span
-              >
             </header>
-            <div class="artifact">
-              <h3>
-                <Icon name="approve-check-circle" />
-                {text("测试环境 · 4 项通过", "Test environment · 4 passed")}
-              </h3>
-              <ul class="records test-results" role="list">
+            <div class="test-runs">
+              <fieldset class="run-selector">
+                <legend>{text("执行记录", "Test runs")}</legend>
                 {
-                  criteria.map(({ id, outcome }) => (
-                    <li>
-                      <code>{id}</code>
-                      <p>{outcome}</p>
-                      <span class="passed">
-                        <Icon name="approve-check" /> {text("通过", "Passed")}
+                  runs.map(({ id, label, revision }, index) => (
+                    <label>
+                      <input
+                        type="radio"
+                        name="test-run"
+                        value={id}
+                        checked={index === 0}
+                      />
+                      <span>
+                        {label} <code>{revision}</code>
                       </span>
-                    </li>
+                    </label>
                   ))
                 }
-              </ul>
+              </fieldset>
+              {
+                runs.map((run) => (
+                  <section
+                    class="artifact run-record"
+                    data-run={run.id}
+                    aria-labelledby={`report-${run.id}`}
+                  >
+                    <h3 id={`report-${run.id}`}>
+                      <Icon name="approve-check-circle" />
+                      {run.report} · {text("测试环境", "Test environment")}
+                    </h3>
+                    <p class="artifact-reference">
+                      {run.id === "initial"
+                        ? text(
+                            "2 项通过 · 1 项失败 · 1 项未执行",
+                            "2 passed · 1 failed · 1 not run",
+                          )
+                        : text(
+                            "4 项通过 · 待确认发布范围",
+                            "4 passed · Release scope pending",
+                          )}
+                    </p>
+                    <ul class="records test-results" role="list">
+                      {criteria.map(({ id, testId, outcome }) => {
+                        const initial =
+                          run.id === "initial"
+                            ? initialObservations[id]
+                            : undefined;
+                        const result = initial?.result ?? "passed";
+                        return (
+                          <li>
+                            <div class="case-id">
+                              <code>{testId}</code>
+                              <small>{id}</small>
+                            </div>
+                            <p>{initial?.detail ?? outcome}</p>
+                            <span class={`result ${result}`}>
+                              {resultLabels[result]}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <details class="run-log">
+                      <summary>
+                        {text("查看运行日志", "View run log")}{" "}
+                        <code>{run.log}</code>
+                      </summary>
+                      <div class="disclosure-content">
+                        {run.id === "initial"
+                          ? text(
+                              "EXP-03 · 实际：空间隔离检查失败。预期：拒绝请求且不生成文件。将此结果交给 Code Review 复核。",
+                              "EXP-03 · Observed: workspace isolation check failed. Expected: deny the request and create no file. Send this result to Code Review for verification.",
+                            )
+                          : text(
+                              "EXP-03 · 空间隔离复测通过。EXP-04 · 新增空结果用例通过。4 项结果与 export-r2 关联。",
+                              "EXP-03 · Workspace isolation passed on retest. EXP-04 · The new empty-result case passed. All four results are linked to export-r2.",
+                            )}
+                      </div>
+                    </details>
+                  </section>
+                ))
+              }
+              <section class="decision" aria-labelledby="decision-title">
+                <h3 id="decision-title">
+                  {
+                    text(
+                      "这些证据支持哪项决定？",
+                      "What decision does this evidence support?",
+                    )
+                  }
+                </h3>
+                <div class="disclosures">
+                  <details name="release-decision">
+                    <summary
+                      >{
+                        text("批准生产发布", "Approve production release")
+                      }</summary
+                    >
+                    <div class="disclosure-content">
+                      {
+                        text(
+                          "报告只覆盖测试环境中的受测版本。生产发布范围还需要负责人确认。",
+                          "The report covers the revision tested in the test environment. The release owner still needs to confirm the rollout scope.",
+                        )
+                      }
+                    </div>
+                  </details>
+                  <details name="release-decision">
+                    <summary
+                      >{
+                        text(
+                          "接受测试证据，等待确认发布范围",
+                          "Accept the evidence and leave release scope pending",
+                        )
+                      }</summary
+                    >
+                    <div class="disclosure-content">
+                      {
+                        text(
+                          "可以把 export-r2 的回归报告关联到交付卡片，由发布负责人确认上线范围。",
+                          "Attach the export-r2 regression report to the delivery card for the release owner to confirm the rollout scope.",
+                        )
+                      }
+                    </div>
+                  </details>
+                </div>
+              </section>
             </div>
-            <section class="decision" aria-labelledby="decision-title">
-              <h3 id="decision-title">
-                {
-                  text(
-                    "这些证据支持哪项决定？",
-                    "What decision does this evidence support?",
-                  )
-                }
-              </h3>
-              <div class="disclosures">
-                <details name="release-decision">
-                  <summary
-                    >{
-                      text("批准生产发布", "Approve production release")
-                    }</summary
-                  >
-                  <div class="disclosure-content">
-                    {
-                      text(
-                        "报告只覆盖测试环境中的受测版本。生产发布范围还需要负责人确认。",
-                        "The report covers the revision tested in the test environment. The release owner still needs to confirm the rollout scope.",
-                      )
-                    }
-                  </div>
-                </details>
-                <details name="release-decision">
-                  <summary
-                    >{
-                      text(
-                        "接受测试证据，等待确认发布范围",
-                        "Accept the evidence and leave release scope pending",
-                      )
-                    }</summary
-                  >
-                  <div class="disclosure-content">
-                    {
-                      text(
-                        "可以把 export-r2 的回归报告关联到交付卡片，由发布负责人确认上线范围。",
-                        "Attach the export-r2 regression report to the delivery card for the release owner to confirm the rollout scope.",
-                      )
-                    }
-                  </div>
-                </details>
-              </div>
-            </section>
           </section>
         </TabItem>
       </Tabs>
