@@ -1,14 +1,14 @@
 ---
-title: "把任务交给数字员工"
+title: "使用专家工作台"
 description: "打开会话，向数字员工交办一项明确的任务，并在同一会话里跟进。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "e4433301f779b4bde77bf3082303b81d00d187f9dceb561d704e8194c1ba1968"
+  sourceHash: "2aa2771cdd730d63dd1809fab18061d7f187f30b85111fe3c5fd911e75de80d7"
 ---
 
-在工作空间里选择一名已就绪的数字员工，打开会话。告诉它需要交付什么结果，以及你会怎么检查。如果工作空间还没有合适的员工，先看[从模板创建第一个数字员工](/zh-cn/getting-started/first-employee/)。
+在专家工作台，你可以和数字员工一起澄清需求、审查代码或验证测试结果。在工作空间侧栏选择一名已就绪的数字员工，打开会话，说明预期产出和验收标准。如果空间里还没有合适的员工，先[创建数字员工](/zh-cn/getting-started/first-employee/)。
 
 ## 试一试：从 Home 找到数字员工
 

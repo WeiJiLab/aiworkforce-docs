@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-20"
-  sourceHash: "6a6231a9f48a9c4bccc0440cdf3110eefdde8a6c20000e8b674fbcbfe07dc768"
+  sourceHash: "2aebfaad4cd9f837a7e0b9b62595ccadf10b5718769a1aeaf63ad892bfce5159"
 ---
 
 import HomeContent from "../../../components/HomeContent.astro";
@@ -21,6 +21,12 @@ import CapabilityMap from "../../../components/CapabilityMap.astro";
 
 <CapabilityMap />
 
+<span id="选择你的起点"></span>
+
+## 开始使用
+
+<HomeContent section="getting-started" />
+
 ## 一条调研发现如何进入测试环境
 
 在下面的交付看板上，跟着 Story #128 看团队如何把「邀请工作空间成员时选择角色」从调研发现推进到测试环境。
@@ -32,7 +38,3 @@ import CapabilityMap from "../../../components/CapabilityMap.astro";
 3. **验证变更。** 在「交付」页签，PR #62 关联到 GitHub Actions 运行 #482。构建与测试已通过，变更已部署到测试环境，生产发布仍待执行。[接入 CI/CD 流水线](/zh-cn/software-factory/cicd/)
 
 [在自己的看板上交付一条 Issue](/zh-cn/getting-started/quickstart/)
-
-## 选择你的起点
-
-<HomeContent section="applications" />

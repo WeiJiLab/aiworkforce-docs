@@ -6,16 +6,16 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-20"
-  sourceHash: "8f5013d5037989e32105d605683a58dddb0f5f46023d96e0f655940630c20d98"
+  sourceHash: "9430385b47d2d084ced4b26d14b4d6d4a6cd0477d9da936242e82056fc381ff3"
 ---
 
 AI Workforce 帮助团队把研发岗位中的一部分工作交给数字员工。岗位模板写清可委派的职责、交付证据和人工接管条件。项目从模板创建员工实例，并授予仓库和工具权限。例如，员工排查一次 CI 失败，维护负责人核对日志证据，决定是否发布。[看 FDE 和维护工程师如何一起构建这个岗位模板](/zh-cn/build/)
 
 同一套模型覆盖一次性任务、来自 GitHub 的事件、日程，以及持续消耗卡片的交付看板。软件工厂、看板工作台和 Issue 处理是这个模型的应用。它们不是三个产品。
 
-默认的第一条路径是一项经过验证的软件变更。[软件工厂](/zh-cn/software-factory/overview/)在交付工作台上用四条回路推进这项变更：[需求到卡片](/zh-cn/software-factory/requirements-to-card/)、[卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)、[Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/)，以及[信号回到卡片](/zh-cn/software-factory/signal-to-card/)。卡片把已确认的需求、实现、验证证据和团队决定连在一起。
+从[开始使用](/zh-cn/#开始使用)创建数字员工，在专家工作台交办一项任务。需要多个岗位协作时，打开交付工作台跟进卡片并核对交付证据。
 
-根据你现有的看板、仓库或数字员工，在[文档首页选择起点](/zh-cn/#选择你的起点)。
+[软件工厂](/zh-cn/software-factory/overview/)在交付工作台上用四条回路推进变更：[需求到卡片](/zh-cn/software-factory/requirements-to-card/)、[卡片到 Pull Request](/zh-cn/software-factory/card-to-pr/)、[Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/)，以及[信号回到卡片](/zh-cn/software-factory/signal-to-card/)。卡片把已确认的需求、实现、验证证据和团队决定连在一起。
 
 构建者定义可复用的员工。使用者从已发布模板创建工作空间员工。自动化要求一名就绪的员工执行工作。看板在交付工作流里使用这些员工。要编写 Agent 包，请参阅[定制与扩展](/zh-cn/build/)。
 

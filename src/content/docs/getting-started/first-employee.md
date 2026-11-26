@@ -1,5 +1,5 @@
 ---
-title: "Create your first AI employee from a template"
+title: "Create a digital employee"
 description: "Create a workspace employee from a published template and accept or reject its first result."
 translation:
   source: en
@@ -46,4 +46,4 @@ You can name the employee, the input you provided, what it produced, and why you
 
 ## If it does not start
 
-Check initialization with someone who can manage this workspace's digital employees. The page says “Ask a workspace admin to add a digital employee” when you cannot add one yourself. If the employee asks for external access on this example, restate that the pasted text is the only source. Continue with [Assign a task to a digital employee](/user-guide/agent-chat/) or [Review results and artifacts](/user-guide/artifacts-evidence/).
+Check initialization with someone who can manage this workspace's digital employees. The page says “Ask a workspace admin to add a digital employee” when you cannot add one yourself. If the employee asks for external access on this example, restate that the pasted text is the only source. Continue with [Use the expert workbench](/user-guide/agent-chat/) or [Review results and artifacts](/user-guide/artifacts-evidence/).

@@ -1,11 +1,11 @@
 ---
-title: "从模板创建第一个数字员工"
+title: "创建数字员工"
 description: "从已发布模板创建工作空间员工，并接受或拒绝它的第一份结果。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-20"
-  sourceHash: "6b8b17738651cea5aca76a4f6bb7374335fd7feabefa3628bb0258671038360d"
+  sourceHash: "401aa3b057fd51dac9ae5978369b23e736c3ce8b4569ce933a987f11aa0e9e39"
 ---
 
 这条路径面向使用 AI Workforce 的人，不是编写 Agent 包的人。你选择已发布模板，等到工作空间员工就绪，交给它一项有边界的任务，然后审阅结果。需要定义新岗位的构建者从 [定制与扩展](/zh-cn/build/)的[Agent 定义](/zh-cn/build/employee-definition/)开始。
@@ -47,4 +47,4 @@ translation:
 
 ## 如果无法开始
 
-请能管理该空间数字员工的人一起检查初始化状态。不能添加时，页面写的是「联系空间管理员添加数字员工」。如果员工在这个例子里要求外部访问，重申粘贴的文本是唯一来源。继续阅读 [把任务交给数字员工](/zh-cn/user-guide/agent-chat/)或[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。
+请能管理该空间数字员工的人一起检查初始化状态。不能添加时，页面写的是「联系空间管理员添加数字员工」。如果员工在这个例子里要求外部访问，重申粘贴的文本是唯一来源。继续阅读[使用专家工作台](/zh-cn/user-guide/agent-chat/)或[审阅结果与产物](/zh-cn/user-guide/artifacts-evidence/)。
