@@ -5,10 +5,18 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-26"
-  sourceHash: "f119edbb6b5269af21241e07b8123cbb299cea4dcc64a03eb23c75faf378e16d"
+  sourceHash: "e6f3f07738080015cf8c3c13f550148b7f76affe68eaf6461f703648500593d4"
 ---
 
 项目团队需要把工作空间里的数据导出为 CSV。这页沿用 Platform 访客首页设计中的「数据导出权限」案例。下方的需求、PR 和测试报告使用示例数据，打开文档即可演练。
+
+## 试一试专家工作台
+
+切换「需求与规格」「代码审查」「测试用例」三个界面。在代码审查中按文件查看发现，再根据测试报告做一次验收判断。
+
+<iframe src="/illustrations/expert-workbench/zh-cn/" title="数据导出权限专家工作台交互演练" loading="lazy" style="width:100%;height:36rem;border:0;border-radius:14px;"></iframe>
+
+[单独打开专家工作台演练](/illustrations/expert-workbench/zh-cn/)
 
 ## 需求与规格
 

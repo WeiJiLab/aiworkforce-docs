@@ -9,6 +9,14 @@ translation:
 
 The project team needs to export a workspace’s data as CSV. This walkthrough expands the data export permissions scenario from the Platform welcome page design. The requirements, pull request, and test report are sample records you can explore without signing in.
 
+## Try the workbench
+
+Switch between Requirements, Code review, and Test cases. Open the review findings by file, then use the test report to make a release decision.
+
+<iframe src="/illustrations/expert-workbench/en/" title="Interactive expert workbench for data export permissions" loading="lazy" style="width:100%;height:36rem;border:0;border-radius:14px;"></iframe>
+
+[Open the expert workbench demo on its own](/illustrations/expert-workbench/en/)
+
 ## Requirements and specification
 
 **ENG-124 · From request to acceptance criteria.** Give the requirements specialist the original request and ask which roles, resources, and outcomes the team needs to confirm.

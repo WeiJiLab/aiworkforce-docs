@@ -1,0 +1,259 @@
+---
+import { Icon, TabItem, Tabs } from "@astrojs/starlight/components";
+import "../../../styles/expert-workbench-demo.css";
+
+export function getStaticPaths() {
+  return [{ params: { locale: "en" } }, { params: { locale: "zh-cn" } }];
+}
+
+const zh = Astro.params.locale === "zh-cn";
+const text = (chinese: string, english: string) => (zh ? chinese : english);
+const title = text("专家工作台", "Expert workbench");
+const scenario = text("数据导出权限", "Data export permissions");
+const acceptedCsv = text(
+  "CSV 仅包含授权记录。",
+  "CSV contains only authorized records.",
+);
+const deniedCsv = text(
+  "返回 403，未生成文件。",
+  "Returns 403 without creating a file.",
+);
+const emptyCsv = text(
+  "CSV 保留表头，数据行数为零。",
+  "CSV contains headers and zero data rows.",
+);
+const criteria = [
+  {
+    id: "AC-1",
+    title: text("有权限的空间成员", "Authorized workspace member"),
+    outcome: acceptedCsv,
+  },
+  {
+    id: "AC-2",
+    title: text("缺少导出权限", "Missing export permission"),
+    outcome: deniedCsv,
+  },
+  {
+    id: "AC-3",
+    title: text("请求其他空间的数据", "Request for another workspace"),
+    outcome: deniedCsv,
+  },
+  {
+    id: "AC-4",
+    title: text("授权范围内没有匹配记录", "No matching records"),
+    outcome: emptyCsv,
+  },
+];
+const findings = [
+  {
+    file: "auth.ts:42",
+    severity: text("中风险", "Medium risk"),
+    title: text("缺少资源级权限校验", "Missing resource-level authorization"),
+    note: text(
+      "AC-3。补上对目标工作空间的访问权限校验。",
+      "AC-3. Check the member’s access to the target workspace.",
+    ),
+  },
+  {
+    file: "export.test.ts",
+    severity: text("缺少测试", "Missing test"),
+    title: text("空结果缺少回归覆盖", "Empty results lack regression coverage"),
+    note: text(
+      "AC-4。增加只有表头、没有数据行的 CSV 用例。",
+      "AC-4. Add a case for a CSV with headers and no data rows.",
+    ),
+  },
+];
+---
+
+<!doctype html>
+<html lang={zh ? "zh-CN" : "en"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title} · {scenario}</title>
+  </head>
+  <body>
+    <main class="workbench">
+      <header class="workbench-bar">
+        <div class="workbench-title">
+          <Icon name="puzzle" size="1.15rem" />
+          <h1>{title}</h1>
+          <span class="divider" aria-hidden="true">/</span>
+          <p>{scenario}</p>
+        </div>
+        <span class="sample">{text("示例数据", "Sample data")}</span>
+      </header>
+      <Tabs>
+        <TabItem label={text("需求与规格", "Requirements")} icon="notes">
+          <section class="workspace-panel">
+            <header class="panel-heading">
+              <div>
+                <p class="record">
+                  ENG-124 <span
+                    >· {text("需求专家", "Requirements specialist")}</span
+                  >
+                </p>
+                <h2>{text("确认导出范围", "Define the export scope")}</h2>
+              </div>
+              <span class="state approved"
+                >{text("范围已确认", "Scope confirmed")}</span
+              >
+            </header>
+            <aside class="request">
+              <strong>{text("原始请求", "Request")}</strong>
+              <p>
+                {
+                  text(
+                    "允许有导出权限的人把所在工作空间的数据下载为 CSV。",
+                    "Let people with export permission download their workspace data as CSV.",
+                  )
+                }
+              </p>
+            </aside>
+            <div class="artifact">
+              <h3>
+                <Icon name="document" />
+                {text("验收标准", "Acceptance criteria")}
+              </h3>
+              <ul class="records" role="list">
+                {
+                  criteria.map(({ id, title, outcome }) => (
+                    <li>
+                      <code>{id}</code>
+                      <div>
+                        <>
+                          <strong>{title}</strong>
+                          <p>{outcome}</p>
+                        </>
+                      </div>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </section>
+        </TabItem>
+        <TabItem label={text("代码审查", "Code review")} icon="code-branch">
+          <section class="workspace-panel">
+            <header class="panel-heading">
+              <div>
+                <p class="record">
+                  ENG-125 <span
+                    >· PR #128 · {text("审查专家", "Code reviewer")}</span
+                  >
+                </p>
+                <h2>
+                  {text("审查导出权限校验", "Review export authorization")}
+                </h2>
+              </div>
+              <span class="state pending"
+                >{text("要求修改", "Changes requested")}</span
+              >
+            </header>
+            <div class="artifact">
+              <h3>
+                <Icon name="magnifier" />
+                {text("审查发现", "Review findings")}
+              </h3>
+              <div class="disclosures">
+                {
+                  findings.map(({ file, severity, title, note }, index) => (
+                    <details name="review-finding" open={index === 0}>
+                      <summary>
+                        <code>{file}</code> <span>{severity}</span>
+                      </summary>
+                      <div class="disclosure-content">
+                        <strong>{title}</strong>
+                        <p>{note}</p>
+                      </div>
+                    </details>
+                  ))
+                }
+              </div>
+            </div>
+          </section>
+        </TabItem>
+        <TabItem label={text("测试用例", "Test cases")} icon="approve-check">
+          <section class="workspace-panel">
+            <header class="panel-heading">
+              <div>
+                <p class="record">
+                  ENG-126 <span>· PR #128 · <code>export-r2</code></span>
+                </p>
+                <h2>{text("核对回归测试", "Verify regression results")}</h2>
+              </div>
+              <span class="state pending"
+                >{text("待确认发布范围", "Release scope pending")}</span
+              >
+            </header>
+            <div class="artifact">
+              <h3>
+                <Icon name="approve-check-circle" />
+                {text("测试环境 · 4 项通过", "Test environment · 4 passed")}
+              </h3>
+              <ul class="records test-results" role="list">
+                {
+                  criteria.map(({ id, outcome }) => (
+                    <li>
+                      <code>{id}</code>
+                      <p>{outcome}</p>
+                      <span class="passed">
+                        <Icon name="approve-check" /> {text("通过", "Passed")}
+                      </span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <section class="decision" aria-labelledby="decision-title">
+              <h3 id="decision-title">
+                {
+                  text(
+                    "这些证据支持哪项决定？",
+                    "What decision does this evidence support?",
+                  )
+                }
+              </h3>
+              <div class="disclosures">
+                <details name="release-decision">
+                  <summary
+                    >{
+                      text("批准生产发布", "Approve production release")
+                    }</summary
+                  >
+                  <div class="disclosure-content">
+                    {
+                      text(
+                        "报告只覆盖测试环境中的受测版本。生产发布范围还需要负责人确认。",
+                        "The report covers the revision tested in the test environment. The release owner still needs to confirm the rollout scope.",
+                      )
+                    }
+                  </div>
+                </details>
+                <details name="release-decision">
+                  <summary
+                    >{
+                      text(
+                        "接受测试证据，等待确认发布范围",
+                        "Accept the evidence and leave release scope pending",
+                      )
+                    }</summary
+                  >
+                  <div class="disclosure-content">
+                    {
+                      text(
+                        "可以把 export-r2 的回归报告关联到交付卡片，由发布负责人确认上线范围。",
+                        "Attach the export-r2 regression report to the delivery card for the release owner to confirm the rollout scope.",
+                      )
+                    }
+                  </div>
+                </details>
+              </div>
+            </section>
+          </section>
+        </TabItem>
+      </Tabs>
+    </main>
+  </body>
+</html>
