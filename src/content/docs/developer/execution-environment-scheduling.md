@@ -20,6 +20,8 @@ translation:
 
 Suppose sessions 1 and 2 are running tools on workers A and B. The owner submits the first message in session 3. With the proposed **execution environment**, the owner chooses a set of eligible workers. Session 3 waits. When B finishes and confirms that its processes have stopped, the platform starts session 3 on B, even if the owner has closed the browser.
 
+This design records the proposed scheduler, including dispatcher takeover of a reserved turn that has yet to start. For the implemented personal-pool candidate, which interrupts abandoned turns after lease expiry, see [Fixed-capacity execution pools](/deployment/daemon/execution-pools/).
+
 ## What works with two devices today
 
 The owner of a regular Claude Code employee session can select a device before the first message. The platform runs the model loop and sends tool calls to that device. A single-node Linux ARM64 Kubernetes trial used two independently registered daemons, real WSS connections and scripted model responses. Both sessions wrote and read different markers at the same relative path, then read them again after each idle Pod was replaced. Across both devices, four turns produced six successful tool receipts. A third session already bound to A received a busy error while B was idle. For registration, volumes and the manual check, see [Run a device executor on Kubernetes](/deployment/self-host/#run-a-device-executor-on-kubernetes).
