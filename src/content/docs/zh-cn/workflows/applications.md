@@ -1,15 +1,15 @@
 ---
 title: "工作流应用"
-description: "软件工厂、交付看板和 Issue 处理是同一套工作流的应用，不是三套引擎。"
+description: "了解 AI Workforce 如何在同一平台上组合数字员工、交付工作流和企业运行控制。"
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "16c4ba3bd7bfd4d9486e9a0cdf2d39ebfd4d5191d8f60d6df1bc6fcf457191a8"
+  sourceHash: "27dd9dbd9adbf8e0929bb9b1491080c19defd2bdf372bea024fe8380cb81eb48"
 ---
 
-工作流应用是运行同一平台的一种具体方式。它不自带引擎。每个应用都使用工作流定义、用来启动并继续的自动化、员工或代码执行器、任务、运行、环境、证据、产物和人工确认。
+AI Workforce 由专业数字员工、研发协作与交付体系、企业级运行底座组成。工作流应用是组合这三层的一种具体方式。软件工厂、交付看板和 Issue 处理共用一套工作流模型，运行底座提供会话、工具、权限、环境和证据。每个应用都使用工作流定义、用来启动并继续的自动化、员工或代码执行器、任务、运行、产物和人工确认。
 
 ## 共用的路径
 

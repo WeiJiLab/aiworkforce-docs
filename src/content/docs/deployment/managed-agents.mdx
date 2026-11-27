@@ -12,13 +12,27 @@ translation:
 
 import ManagedAgentExplorer from "../../../components/ManagedAgentExplorer.astro";
 
-Assign a private repository fix to a digital employee. AI Workforce manages the session and tool permissions. Your team chooses the repository, the machine that runs the tests, and the model endpoint. A reviewer can trace the test output back to the revision proposed for merge.
+AI Workforce's enterprise runtime foundation makes it possible for digital employees to work in a real engineering environment. It connects sessions, execution devices, repositories, tools, model endpoints, permissions, and evidence while leaving the organization in control of its infrastructure and data boundaries.
+
+Assign a private repository fix to a digital employee. AI Workforce manages the session and tool permissions. Your team chooses the repository, the machine that runs the tests, and the model endpoint. A reviewer can trace the test, security, and review evidence back to the revision proposed for merge.
 
 ## Follow a test through your infrastructure
 
 Suppose your development machine already has access to the private repository and internal test service. Choose a deployment to see where the same test output travels. The device opens a connection to the platform and uses it to receive commands and return results.
 
 <ManagedAgentExplorer />
+
+## The enterprise runtime path
+
+A delivery run normally crosses these boundaries:
+
+```text
+Person or trigger → AI Workforce session → execution environment → engineering tools
+                                      ↘ model endpoint
+                                      ↘ evidence and audit records
+```
+
+The employee's role and workflow define the work. Workspace grants and runtime identity define what it may access. The deployment and model-channel configuration define where session state and inference travel.
 
 ## Choose what your organization operates
 

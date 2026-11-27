@@ -1,22 +1,32 @@
 ---
 title: "Introduction"
-description: "Start with a verified software change, using the same workflow for automation and employees."
-last_verified: "2026-11-18"
+description: "Understand AI Workforce as an enterprise platform for AI collaboration and software delivery."
+last_verified: "2026-11-27"
 translation:
   source: en
   status: complete
-  sourceVersion: "2026-11-20"
+  sourceVersion: "2026-11-27"
 ---
 
-AI Workforce helps teams delegate part of a software role to a digital employee. A role template defines responsibilities, evidence to deliver and when to ask a person to take over. A project creates an employee from that template and grants the instance access to its repositories and tools. For example, the employee diagnoses a failed CI run and the maintainer reviews the log evidence and decides whether to release. [See how an FDE and a maintainer build this role](/build/).
+AI Workforce is an enterprise platform for AI collaboration and software delivery. It brings professional digital employees, people, project knowledge, engineering systems, and delivery evidence into one path from requirements through development, testing, security, and release.
 
-The same model covers a one-shot task, an event from GitHub, a schedule, and a delivery board that keeps consuming cards. Software Factory, the Kanban workbench, and issue handling are applications of that model. They are not three products.
+The platform has three connected layers:
 
-[Get started](/#get-started) by creating a digital employee and giving it a task in the expert workbench. When work needs to move across roles, use the delivery workbench to track the card and review the evidence.
+- **Professional digital employees** turn engineering roles into reusable production capability. A requirements assistant, architecture assistant, developer, tester, or security reviewer can each have a clear responsibility, tools, knowledge, permissions, and acceptance criteria.
+- **R&D collaboration and delivery** organizes people and employees around workspaces, tasks, delivery boards, collaboration templates, and handoffs. The team can move from a confirmed requirement to implementation, verification, security review, and release.
+- **The enterprise runtime foundation** provides sessions, execution environments, model endpoints, integrations, access control, audit, evaluation, and evidence. It gives the team a way to operate AI in a real engineering environment.
 
-[Software Factory](/software-factory/overview/) moves changes through four loops on the delivery workbench: [requirements to a card](/software-factory/requirements-to-card/), [a card to a pull request](/software-factory/card-to-pr/), [a pull request to merge](/software-factory/pr-to-merge/), and [a signal back to a card](/software-factory/signal-to-card/). The card links the confirmed requirement, the implementation, the verification evidence, and the team's decision.
+The long-term direction is an agentic software factory that keeps improving through repeated delivery evidence. The current product already exposes the building blocks for that direction through the [expert workbench](/user-guide/expert-workbench/), [Software Factory](/software-factory/overview/), and enterprise deployment controls.
 
-A builder defines a reusable employee. A user creates a workspace employee from a published template. Automation asks a ready employee to perform work. The board uses those employees inside a delivery workflow. To write an Agent Package, see [Customize & Extend](/build/).
+## Start with a verified delivery
+
+The same platform model covers a one-shot task, an event from GitHub, a schedule, and a delivery board that keeps consuming cards. These are workflow applications built from the same employees, automations, sessions, and evidence.
+
+[Get started](/#get-started) by choosing a small request with acceptance criteria. Use the expert workbench when a person needs to collaborate with one specialist employee, including a security review, code review, or test-evidence check. Use the delivery workbench when several roles need to move a change from requirements to release.
+
+[Software Factory](/software-factory/overview/) connects four delivery loops: [requirements to a card](/software-factory/requirements-to-card/), [a card to a pull request](/software-factory/card-to-pr/), [a pull request to merge](/software-factory/pr-to-merge/), and [a signal back to a card](/software-factory/signal-to-card/). The card links the confirmed requirement, implementation, verification evidence, security findings, and human decision.
+
+A builder defines a reusable employee. A workspace user creates an employee from a published template. Automation or a person assigns work. The delivery system carries the result to the next stage. To write an Agent Package, see [Customize & Extend](/build/).
 
 ## Your turn to review
 
@@ -55,10 +65,10 @@ For a first change, use one small Issue with acceptance criteria a reviewer can 
 
 ## What success looks like
 
-For a software change, a reviewer can open the confirmed requirement, identify the revision that was checked, read the result, and see whether the team accepted the change or returned it for repair. When work should happen again without a board, you have a Job, one inspected run, and at most one trigger you know how to find. Development does not start until the request is a confirmed delivery card.
+For a software change, a reviewer can open the confirmed requirement, identify the revision that was checked, read the test and security results, and see whether the team accepted the change or returned it for repair. When work should happen again without a board, you have a Job, one inspected run, and at most one trigger you know how to find. Development does not start until the request is a confirmed delivery card.
 
 If an employee cannot start, check initialization and ask someone who can manage that workspace's digital employees. If an answer or a code change lacks support, ask for the sources or the verification steps before accepting it.
 
 ## Next steps
 
-Read [core concepts](/getting-started/core-concepts/) for the shared vocabulary. [Workflow applications](/workflows/applications/) compares the paths above.
+Read [core concepts](/getting-started/core-concepts/) for the shared vocabulary. [Workflow applications](/workflows/applications/) compares the paths above. To understand how a role becomes a governed production unit, read [employee architecture](/build/architecture/).

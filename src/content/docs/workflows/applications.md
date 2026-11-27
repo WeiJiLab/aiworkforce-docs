@@ -1,6 +1,6 @@
 ---
 title: "Workflow applications"
-description: "Software Factory, the delivery board, and issue handling are applications of one workflow, not three engines."
+description: "See how AI Workforce combines digital employees, delivery workflows, and enterprise runtime controls across one platform."
 last_verified: "2026-11-18"
 translation:
   source: en
@@ -8,7 +8,7 @@ translation:
   sourceVersion: "2026-11-18"
 ---
 
-A workflow application is a concrete way to run the same platform. It does not bring its own engine. Each application uses a workflow definition, automation to start and continue it, employees or code executors, tasks, runs, an environment, evidence, artifacts, and human approval.
+AI Workforce combines professional digital employees, an R&D collaboration and delivery system, and an enterprise runtime foundation. A workflow application is a concrete way to use those layers together. Software Factory, the delivery board, and issue handling share one workflow model, while the runtime supplies sessions, tools, permissions, environments, and evidence. Each application uses a workflow definition, automation to start and continue it, employees or code executors, tasks, runs, artifacts, and human approval.
 
 ## Choose an application
 

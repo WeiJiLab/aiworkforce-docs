@@ -1,15 +1,15 @@
 ---
 title: "核心概念"
-description: "工作流定义工作，自动化启动它，员工执行它。运行、任务和证据是分开的记录。"
+description: "理解 AI Workforce 的数字员工、交付工作流、运行控制、任务、运行和证据如何连接。"
 last_verified: "2026-11-18"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-20"
-  sourceHash: "57d88ebdb0f22a3fd4130ebee30942b14198cb35925e33064afde31f1afcbf09"
+  sourceHash: "505c3255ee215ca6259801fb1aca71fdcd38ba797b30cb1cdf570baa08174f9c"
 ---
 
-会话、收件箱事项、自动化运行和交付卡片使用同一套词。这些记录可以显示不同状态，因为它们回答的问题不同。
+AI Workforce 把专业数字员工、交付工作流和企业级运行底座放在同一套系统里。会话、收件箱事项、自动化运行和交付卡片使用同一套词。这些记录可以显示不同状态，因为它们回答的问题不同。
 
 软件变更的默认路径是交付看板上的一张已确认卡片。Issue 可以先进入收件箱，再转入这张草稿。开发在确认之后才开始。
 

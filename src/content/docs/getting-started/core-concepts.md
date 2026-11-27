@@ -1,6 +1,6 @@
 ---
 title: "Core concepts"
-description: "Workflow defines the work, automation starts it, and an employee executes it. Runs, tasks, and evidence stay separate records."
+description: "Connect AI Workforce's digital employees, delivery workflows, runtime controls, tasks, runs, and evidence."
 last_verified: "2026-11-18"
 translation:
   source: en
@@ -8,7 +8,7 @@ translation:
   sourceVersion: "2026-11-20"
 ---
 
-Use one set of words for a conversation, an inbox item, an automation run, and a delivery card. The records can show different states because they answer different questions.
+AI Workforce brings professional digital employees, delivery workflows, and an enterprise runtime foundation into one system. Use one set of words for a conversation, an inbox item, an automation run, and a delivery card. The records can show different states because they answer different questions.
 
 For a software change, the default path is a confirmed card on the delivery board. An Issue can enter the inbox and be routed to that draft before development starts.
 

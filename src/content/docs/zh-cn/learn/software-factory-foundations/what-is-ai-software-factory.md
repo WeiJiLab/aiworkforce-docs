@@ -1,15 +1,15 @@
 ---
 title: "什么是 AI 软件工厂"
-description: "软件工厂是一种工作流应用，把已确认的工作推进到执行、验证与审阅。"
+description: "了解软件工厂如何把 AI Workforce 的三层能力组织成受治理的软件交付路径。"
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "9b9be9656ff06a9181aeafecb1b8874702ab5f84e1b0688201e66d5bb71fd5c5"
+  sourceHash: "9b2d63913940266c6fdd6e0880bcdfc8ad0a423dbc9d3ea5294723b917ff46f7"
 ---
 
-软件工厂不是另一套引擎。它是一种[工作流应用](/zh-cn/workflows/applications/)，与 AI Workforce 其他部分共用「工作流 → 自动化 → 智能体」模型。
+AI Workforce 由专业数字员工、研发协作与交付体系、企业级运行底座组成。软件工厂是面向工程工作的交付应用，把这三层能力组合起来。它与 AI Workforce 其他部分共用「工作流 → 自动化 → 智能体」模型。
 
-实践里意味着：已确认的需求成为交付看板卡片，智能体在已配置环境中执行，检查产生证据，人在合并或发布前审阅。
+实践里意味着：已确认的需求成为交付看板卡片，数字员工在已配置环境中执行，测试和安全审阅产生证据，人在合并或发布前审阅。
 
 产品概览见：[软件工厂](/zh-cn/software-factory/overview/)。
