@@ -17,6 +17,8 @@ Open the card in the delivery workbench and read its current requirement, accept
 
 Start with scope: does the change solve the agreed problem, and did it modify anything outside the permitted boundary? Then examine behavior: normal input, missing input, permissions, and failure cases relevant to the criteria. Ask for focused evidence where the record is incomplete.
 
+The Code Review view in the expert workbench is designed for this step. Confirm that the PR snapshot and ADR still describe the current revision, then expand each finding to inspect its file location, criterion, and related test. Choose **Request changes and return to employee**, keep the original review record, and wait for the new revision to enter Test Evidence.
+
 ## Read the delivery stages separately
 
 The built-in delivery flow records several outcomes:

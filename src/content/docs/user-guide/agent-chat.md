@@ -13,6 +13,12 @@ Use the expert workbench to work with a digital employee on a specific task, suc
 
 In the [expert workbench example](/getting-started/expert-workbench-example/), follow a data export request through the specification, PR review, test cases, and a human release decision.
 
+## Continue a session from a workbench action
+
+**Add to employee draft** carries the current finding, file location, and linked criterion back to the session. **Ask employee for evidence** is useful when a permission boundary, failure path, or test gap is still unclear. Review the repository, revision, and review scope in the draft before sending it.
+
+**Request changes and return to employee** fits a Code Review finding that already has a file location and acceptance criterion. When the employee returns a new revision, reopen the workbench in the same session and check the new PR snapshot and test run.
+
 ## Start a useful session
 
 Choose a goal that matches the employee’s role. Include the desired output, constraints, and acceptance criteria in the same request. Attach or point to the source material the task needs. See [Provide task context](/user-guide/knowledge-context/).

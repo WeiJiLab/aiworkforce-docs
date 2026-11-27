@@ -30,3 +30,13 @@ For an automation, a manual run of a paused Job does not re-enable its triggers.
 ## Keep the decision specific
 
 Name the decision, the scope, and the evidence. "Approve the stated requirements for the frontend repository only" is a decision. "Looks good" is not. If you waive a check, name the check, the reason, the scope, and the remaining risk.
+
+## Make decisions in the review views
+
+| Workbench action                       | Decision applies to                          | Check before continuing                                                     |
+| -------------------------------------- | -------------------------------------------- | --------------------------------------------------------------------------- |
+| Accept security review                 | Current permission and sensitive-data checks | Findings are closed and the resource scope and evidence locations are clear |
+| Request changes and return to employee | Current PR revision                          | Findings are tied to file locations and acceptance criteria                 |
+| Accept test evidence                   | The named environment and revision           | Every result has a run record, while rollout scope is confirmed separately  |
+
+These actions update the app state and write the next step into the session. They do not replace the repository, pipeline, or production confirmations required outside the app.

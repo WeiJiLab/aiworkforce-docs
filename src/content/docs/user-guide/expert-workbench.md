@@ -1,13 +1,13 @@
 ---
 title: "Expert workbench overview"
-description: "Use a Plugin App with a digital employee to complete a focused task and review the evidence."
+description: "Work through Security Review, Code Review, and Test Evidence views, then hand the decision back to the digital employee."
 translation:
   source: en
   status: complete
   sourceVersion: "2026-11-27"
 ---
 
-An expert workbench combines a ready digital employee with a **Plugin App**. The employee provides the task execution and tool access. The Plugin App provides the task-specific interface for displaying a specification, browsing repository documentation, reviewing a report, or running an interactive check. This page focuses on apps exposed by employee plugins.
+An expert workbench combines a ready digital employee with a **Plugin App**. The employee provides the task execution and tool access. The Plugin App provides the task-specific interface for displaying a specification, browsing repository documentation, reviewing a report, or running an interactive check. This page focuses on apps exposed by employee plugins and the review decisions you make along the same evidence trail.
 
 A Plugin App can appear in two places:
 
@@ -18,24 +18,23 @@ A Plugin App can appear in two places:
 
 The available apps depend on the employees installed in the workspace, the plugin version they use, and your workspace permissions.
 
-## What to do in an expert workbench
+## Choose a task view
 
-| Task                           | Give the employee                                                   | Review in the app or session                                                      |
-| ------------------------------ | ------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Requirements and specification | The request, constraints, examples, and source material             | Scope, unresolved questions, acceptance criteria, and the source of each decision |
-| Architecture design            | The confirmed specification, interface contract, and relevant files | Component boundaries, dependencies, and architecture decisions                    |
-| Code review                    | A PR or changed files and the agreed criteria                       | Findings with file locations, missing evidence, and suggested changes             |
-| Test design and verification   | Acceptance criteria, target revision, and test environment          | Test cases, observed results, and remaining gaps                                  |
+| View                | Give the employee                                            | Action in the app                                                         |
+| ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| **Security Review** | Permission scope, sensitive data, and architecture decisions | Filter risks, open evidence locations, and ask for proof                  |
+| **Code Review**     | PR snapshot, changed files, and acceptance criteria          | Locate findings, request changes, or accept the review                    |
+| **Test Evidence**   | Test environment, revision, and run records                  | Compare initial and retest evidence, then accept or continue verification |
 
-Try all four tasks in the [data export permissions example](/getting-started/expert-workbench-example/).
+Switch between the three views in the [data export permissions example](/getting-started/expert-workbench-example/) to follow the path from security boundary to release decision.
 
 ## Open an app from the workspace
 
 1. Open the target workspace and choose **Custom workbenches** in the workspace navigation.
-2. Choose an app and open it. If the app provides a repository selector, select a synced repository that you are allowed to read. If it provides a project chat, use that chat to ask the employee about the displayed material.
-3. Use the app's controls to inspect the initial data, call the tools it exposes, or read its authorized resources. An app can only use the tools and resources declared for its current app session.
-4. When the app offers **Discuss** or a similar action, review the text it prepares before sending it to the employee. Selected app context is submitted with the next message only after you send it.
-5. Pin a workbench when you return to it often. A pinned app appears below **Workbench** in the main sidebar.
+2. Choose an app and open it. Confirm that the employee, repository, pull request, or run shown at the top matches the task.
+3. Choose **Security Review**, **Code Review**, or **Test Evidence**, then use filters, disclosures, and revision controls to narrow the review.
+4. When evidence is missing, choose **Add to employee draft** or **Ask employee for evidence**. Review the draft before sending.
+5. Choose **Accept security review**, **Request changes**, or **Accept test evidence** after checking the linked evidence. Pin a workbench when you return to it often.
 
 The app may also provide a session report. When it does, compare the report's run or revision with the work you are reviewing. [Provide task context](/user-guide/knowledge-context/) explains how to give the employee the documents and constraints the app needs.
 
@@ -54,7 +53,7 @@ A workbench is listed when its employee is ready, the plugin is installed and en
 
 ## Review and hand off the result
 
-The app is the working interface. The employee session keeps the conversation, tool calls, drafts, and execution records. Review the source, plugin or repository revision, expected result, and evidence before accepting the output. Use [Review results and artifacts](/user-guide/artifacts-evidence/) to inspect files and reports.
+The app is the working interface. The employee session keeps the conversation, tool calls, drafts, and execution records. Review the source, plugin or repository revision, expected result, and evidence before accepting the output. Use [Security and permissions](/deployment/security/) for authorization boundaries, [Review and release](/software-factory/review-release/) for delivery stages, and [Review results and artifacts](/user-guide/artifacts-evidence/) for files and reports.
 
 When the same change needs several roles or staged verification, connect the confirmed specification, implementation reference, and test evidence to a delivery card. The delivery workbench tracks assignment, handoff, and acceptance across roles. [Deliver an issue on an existing board](/getting-started/quickstart/).
 

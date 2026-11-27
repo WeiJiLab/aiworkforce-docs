@@ -29,6 +29,13 @@ For a research or reporting task, follow source links and check quoted material.
 
 For inbox items, evidence may include a source URL and an excerpt. Keep that observation separate from a conclusion that the request has been resolved.
 
+In the expert workbench, review evidence in this order:
+
+1. Check the Security Review resource scope, permission checks, and sensitive-data handling.
+2. Check the Code Review PR snapshot, file locations, finding severity, and requested change.
+3. Check the Test Evidence environment, run ID, revision, and the difference between the initial run and retest.
+4. Add unverified items to the employee draft before deciding to accept, request changes, or continue verification.
+
 ## Troubleshooting
 
 If the artifact list fails to load, use its reload action and inspect the reported error. If a preview is unavailable, try the source or project-file view offered by the product. If evidence is missing, ask the employee for the specific source or verification result rather than accepting an unsupported completion claim.

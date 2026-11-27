@@ -32,6 +32,10 @@ When the runtime reports a plan, **View execution plan** appears. Open it to ins
 
 When an authorization request appears, read the tool name and input preview before allowing or rejecting it. A read-only or expired interaction cannot be answered there. See [Human approval](/user-guide/human-approval/). Use the session's Debug mode when you need the underlying event chronology or tool results.
 
+## Check execution records in the workbench
+
+Security Review, Code Review, and Test Evidence show saved app context. When reading a finding, confirm that its file location belongs to the current PR snapshot. When switching test runs, confirm that the report ID and revision change together. **Employee ready** means the app can call the employee. It does not mean that a permission check or test has passed.
+
 ## Clear a conversation
 
 **Clear context** is in the composer of an editable main-agent session that uses cloud execution. It resets messages and model context, cancels the current turn, and clears unhandled queued messages. Workspace files and existing work orders are retained.

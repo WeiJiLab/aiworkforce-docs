@@ -1,6 +1,6 @@
 ---
 title: "Expert workbench example"
-description: "Follow one export request from its source and architecture decision through code review, initial testing, and retesting."
+description: "Use one data export request to work through Security Review, Code Review, and Test Evidence in an interactive workbench."
 translation:
   source: en
   status: complete
@@ -11,15 +11,15 @@ The project team needs to export a workspace’s data as CSV. This walkthrough e
 
 ## Try the workbench
 
-The four views draw on the Showcase Agents examples. The requirements view combines the source trace from the requirements prototype with a Spec Studio document. Architecture follows the SAD Agent evidence view. Code Review ties findings to a PR snapshot, and Test Agent keeps the initial run and retest in the same evidence trail. The workbench uses sample records.
+This is an interactive workbench shaped like a real Plugin App. Switch between Security Review, Code Review, and Test Evidence in the left rail. The header keeps the employee, repository, pull request, and run context visible while each view connects evidence to the next action.
 
-Open the request source and trace AC-3 from the specification to the authorization boundary. Open the matching review finding, then switch from the initial run to the retest to see which evidence changed.
+Start in Security Review and filter to high-risk findings. Add missing evidence to the employee draft, switch to Code Review to request changes, then compare `RUN-401` with `RUN-402` in Test Evidence before accepting the retest.
 
 <iframe src="/illustrations/expert-workbench/en/" title="Interactive expert workbench for data export permissions" loading="lazy" style="width:100%;height:42rem;border:0;border-radius:14px;"></iframe>
 
 [Open the expert workbench demo on its own](/illustrations/expert-workbench/en/)
 
-## Requirements and specification
+## Requirements and security context
 
 **ENG-124 · From request to acceptance criteria.** Give the requirements specialist the original request and ask which roles, resources, and outcomes the team needs to confirm.
 
@@ -41,13 +41,13 @@ Open the request source and trace AC-3 from the specification to the authorizati
 
 </div>
 
-The requirement owner confirms the four outcomes before the implementation is handed off. The implementation and tests use the same criterion IDs. [See how to write acceptance criteria](/learn/requirements-writing/).
+The requirement owner confirms the four outcomes before the implementation is handed off. Security Review connects these criteria to workspace authorization and sensitive-data logging. See [Security and permissions](/deployment/security/) for resource access and execution credentials.
 
-## Architecture decision
+## Architecture decision and security boundary
 
 **ADR-024 · Authorization at the export boundary.** Open the API, authorization, and CSV generation nodes in the workbench to see which source supports each responsibility. The decision carries AC-3 into the PR review. It calls for verifying the requester’s access to the target workspace before generating the file.
 
-## Code review
+## Code Review and the change loop
 
 **ENG-125 · PR #128.** Give the reviewer the changed files and the confirmed criteria. Ask which criteria lack evidence, where the issue appears, and what the developer needs to change.
 
@@ -65,9 +65,9 @@ The requirement owner confirms the four outcomes before the implementation is ha
 
 </div>
 
-The reviewer requests changes. The developer adds the workspace check and the missing test, then sends the updated revision for verification. [Follow the pull request review workflow](/software-factory/pr-to-merge/).
+The reviewer requests changes. The developer adds the workspace check and the missing test, then sends the updated revision for verification. See [Review and release](/software-factory/review-release/) for stage-specific decisions.
 
-## Test cases and acceptance
+## Test Evidence and the release decision
 
 **ENG-126 · Regression report for the updated PR #128.** Give the test specialist the criterion IDs and the revision to verify. Ask for the environment, expected outcomes, and observations.
 
@@ -107,4 +107,4 @@ The four criteria passed on the tested revision. Record that revision and its re
 
 </div>
 
-Continue with [using the expert workbench](/user-guide/agent-chat/) to assign a task, or [deliver an issue on an existing board](/getting-started/quickstart/) to follow the team handoff.
+Continue with [using the expert workbench](/user-guide/agent-chat/) to assign a task, or read [Viewing execution progress](/user-guide/sessions-planning/) and [Human approval](/user-guide/human-approval/) to continue review and handoff.

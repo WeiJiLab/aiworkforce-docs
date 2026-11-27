@@ -21,6 +21,12 @@ An employee needs relevant context to produce useful work. AI Workforce currentl
 
 For a first attempt, provide a short source text and ask the employee to cite the passages it uses. For file-based work, identify the relevant file names and sections. An uploaded or listed file is not proof that its contents have reached the model.
 
+## Prepare review context for a Plugin App
+
+Before opening Security Review or Code Review, confirm that the employee, repository, PR revision, and architecture decision shown by the workbench match. A security review also needs the target resource scope, sensitive-field handling, and denied path. Test evidence needs the environment, run ID, and revision under test.
+
+Workbench context affects the current app session. After choosing **Add to employee draft**, the employee receives those materials only when you send the next message. Keep durable constraints in reviewed workspace memory, and keep one-off file locations and acceptance criteria in the current session.
+
 ## Maintain workspace memory
 
 Open workspace management and select **Memory**. Search by content or filter by type and status. Memory types include goals, constraints, preferences, decisions, terms, and standards.
