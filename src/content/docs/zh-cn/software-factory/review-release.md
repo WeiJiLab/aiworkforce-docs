@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-17"
-  sourceHash: "01a6f6fbfd698a62c9e51f0fa68482279f72e692174b92f20b9728f4550d465b"
+  sourceHash: "cc62963c554e7875225e4bc72ce61539796850d680077d4fcfbad5cb68e9a89d"
 ---
 
 审核确认特定变更是否满足已确认需求。发布确认已接纳的变更是否到达目标环境。本页是这条交付流程的核对清单。围绕它的回路是 [Pull Request 到合并](/zh-cn/software-factory/pr-to-merge/)。哪条已记录的结果可以让卡片前进、怎样的豁免才有效，见[发布治理](/zh-cn/software-factory/release-governance/)。
@@ -17,6 +17,8 @@ translation:
 在交付工作台打开卡片，阅读当前需求、验收标准、可改仓库和执行记录。沿记录中的分支、提交或 PR 引用查看代码，确认正在审核的代码正是已有证据覆盖的代码。
 
 先检查范围：变更是否解决了约定问题，是否修改了允许边界以外的内容？再检查行为：与验收标准相关的正常输入、输入缺失、权限和失败场景。记录不完整时，应要求补充针对性证据。
+
+专家工作台中的 Code Review 适合完成这一步。先确认 PR 快照和 ADR 仍是当前版本，再展开每个发现，查看文件位置、验收标准和对应测试。选择“要求修改并回到员工”后，保留原始审查记录，等待新修订版本进入 Test Evidence。
 
 ## 分开核对交付阶段
 

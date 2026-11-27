@@ -47,6 +47,10 @@ Sessions, artifacts, traces, Issue observations, and delivery evidence can conta
 
 Before enabling an integration, verify the task's input scope, the recipient of outputs, the model/runtime provider, the employees with grants, and the place where evidence is stored. The available controls describe product behavior; they are not a claim of a particular compliance certification.
 
+## Run a security review in a Plugin App
+
+A Plugin App can display permission checks, repository context, and tool results. It does not expand the actual credentials available to an employee or connection. In Security Review, check the session identity, employee authorization, target workspace access, and output-file scope separately. When a resource-level check is missing, give the employee the exact file location and denied path, then verify the fix in Code Review and Test Evidence.
+
 ## Related guides
 
 - [Authentication](/developer/authentication/)
