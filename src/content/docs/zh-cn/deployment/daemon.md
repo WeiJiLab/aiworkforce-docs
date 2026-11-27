@@ -7,7 +7,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-18"
-  sourceHash: "057d17bb00a7b3a95378836b496bd93be74b74889ae3ba221c08e8fae42bf410"
+  sourceHash: "f7ecb9a105f11514df157b99a74ba08786682d0774c86b7b041ee8f4f33c892f"
 ---
 
 Daemon 让数字员工在你管理的 macOS 或 Linux 电脑上执行工具。你仍在 AI Workforce 里发起会话、查看结果。平台负责对话、模型调用和授权，电脑负责执行命令。
@@ -28,4 +28,4 @@ Daemon 让数字员工在你管理的 macOS 或 Linux 电脑上执行工具。�
 2. 打开员工会话，在发送第一条消息前选中这台电脑。见[会话执行位置](/zh-cn/deployment/daemon/session-execution/)。
 3. 如果浏览器已批准但设备仍离线，按症状查看[故障排查](/zh-cn/deployment/daemon/troubleshooting/)。
 
-已部署候选版本时，可把多台已配对设备组成个人[固定容量执行池](/zh-cn/deployment/daemon/execution-pools/)。
+想让 AI Workforce 从已配对的电脑中选择可用设备，可以[使用执行池](/zh-cn/deployment/daemon/execution-pools/)。

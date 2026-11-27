@@ -11,7 +11,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-20"
-  sourceHash: "2724c7eed4d809f7fefab60966f1fd99b6c5747c863b4efc1efd99bc56f62da2"
+  sourceHash: "377e4eaec6b361850759e5dce3add2049307a3eaafc525b09ae85f42504109bc"
 ---
 
 自托管是指由你们自己运行 AI Workforce 的服务：Web 应用、后端、PostgreSQL，以及这些服务保存的工作空间文件。运营方托管的部署是同一套产品，只是由别人替你们运行。使用工作空间、数字员工和工作流的方式不变。变的是谁运维这些服务，以及这些记录放在哪里。
@@ -159,7 +159,7 @@ docker compose --env-file deploy/local/.env -f deploy/local/docker-compose.yml d
 
 在 daemon 源码检出中运行 `python3 tests/kubernetes/test_lifecycle.py`，可在临时 k3d 集群复现执行、取消、租约到期、断线重连、驱逐和非正常退出后的隔离。这个测试使用 Pod 内的本地控制端。部署后在平台再跑一次小会话，验证实际 WSS 路由和设备鉴权。
 
-需要在预先配对的设备间排队时，参阅[固定容量执行池](/zh-cn/deployment/daemon/execution-pools/)中的候选版本部署条件和两槽验收步骤。
+配对完成后，可以[使用执行池](/zh-cn/deployment/daemon/execution-pools/)，让回合排队等待可用设备。
 
 ## 网络与数据
 

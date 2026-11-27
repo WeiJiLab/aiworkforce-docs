@@ -5,7 +5,7 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "9b7bb59efa97292940267e8d7f55f69bc71658244e527c9209e2d7526408f0ba"
+  sourceHash: "33b9a3cf4b095bff62f5e52a0eb35f971e41da8d508861961f5ffe38b2b6af43"
 ---
 
 平台负责员工对话、模型循环、任务状态与授权；执行环境决定工具在哪里运行。自行托管平台、选择运行内核和选择设备有关联，但其中任何一项都不会自动补齐另外两项。
@@ -34,7 +34,7 @@ translation:
 ## 相关文档
 
 - [自托管](/zh-cn/deployment/self-host/)
-- [固定容量执行池](/zh-cn/deployment/daemon/execution-pools/)
+- [使用执行池](/zh-cn/deployment/daemon/execution-pools/)
 - [执行环境调度（规划中）](/zh-cn/developer/execution-environment-scheduling/)
 - [平台架构](/zh-cn/developer/architecture/)
 - [安全与数据边界](/zh-cn/deployment/security/)

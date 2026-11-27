@@ -11,7 +11,7 @@ translation:
 
 Start a session for a Claude Code employee you can run. Under **Execution location**, select an online computer you own that advertises `device_rpc`. A computer marked **update client** needs a newer device client. For a regular session, make the selection before sending the first message. See [My machines](/deployment/daemon/my-machines/).
 
-If your deployment includes the pool candidate, a regular Claude Code session can also select a [fixed-capacity execution pool](/deployment/daemon/execution-pools/) before the first message.
+To let AI Workforce pick among your paired computers, choose an [execution pool](/deployment/daemon/execution-pools/) before the first message in a regular Claude Code chat.
 
 ## Check the working directory and permissions
 
