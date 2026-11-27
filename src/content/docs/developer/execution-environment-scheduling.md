@@ -20,7 +20,7 @@ translation:
 
 Suppose sessions 1 and 2 are running tools on workers A and B. The owner submits the first message in session 3. With the proposed **execution environment**, the owner chooses a set of eligible workers. Session 3 waits. When B finishes and confirms that its processes have stopped, the platform starts session 3 on B, even if the owner has closed the browser.
 
-This design records the proposed scheduler, including dispatcher takeover of a reserved turn that has yet to start. For the implemented personal-pool candidate, which interrupts abandoned turns after lease expiry, see [Fixed-capacity execution pools](/deployment/daemon/execution-pools/).
+This design explores dispatcher takeover of reserved turns that have yet to start. To group your paired devices or choose a pool for a chat, see [Use an execution pool](/deployment/daemon/execution-pools/).
 
 ## What works with two devices today
 

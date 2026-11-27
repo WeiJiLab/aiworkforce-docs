@@ -27,4 +27,4 @@ The checkout and device credentials are stored on your computer. File contents r
 2. Select the computer before sending the first message in an employee session. See [Session execution location](/deployment/daemon/session-execution/).
 3. If approval succeeds but the worker stays offline, see [Troubleshooting](/deployment/daemon/troubleshooting/).
 
-On a deployment with the candidate change, you can group your paired devices using [Fixed-capacity execution pools](/deployment/daemon/execution-pools/).
+To let AI Workforce pick an available computer from the devices you have paired, [use an execution pool](/deployment/daemon/execution-pools/).

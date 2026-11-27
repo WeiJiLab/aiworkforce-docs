@@ -7,12 +7,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-20"
-  sourceHash: "204114cd25090e26e419812ef81978e93bb174b3a729e4ed54f3a5ebc98fb93a"
+  sourceHash: "3148286609751f9ab8f09f9f05b627be3cd0340138933b623090e0cdd51ac914"
 ---
 
 为你有权执行的 Claude Code 员工新建会话。在**执行位置**选择你拥有且支持 `device_rpc` 的在线电脑。如果列表提示**需更新客户端**，请先更新设备客户端。普通会话必须在发送第一条消息前选择。见[我的机器](/zh-cn/deployment/daemon/my-machines/)。
 
-如果目标环境已部署执行池候选版本，普通 Claude Code 会话也可在首条消息前选择[固定容量执行池](/zh-cn/deployment/daemon/execution-pools/)。
+如果希望 AI Workforce 从已配对的电脑中选机，可以在普通 Claude Code 会话发送首条消息前选择[执行池](/zh-cn/deployment/daemon/execution-pools/)。
 
 ## 核对执行目录和权限
 

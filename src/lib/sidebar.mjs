@@ -432,7 +432,7 @@ export const orderedIds = Object.values(Portal).flatMap((portal) =>
 );
 
 /** Guides that describe planned capabilities, checked against their frontmatter. */
-export const plannedIds = [executionPoolsGuide, workerSchedulingGuide];
+export const plannedIds = [workerSchedulingGuide];
 
 export const groups = PORTALS[Portal.Docs].groups;
 
