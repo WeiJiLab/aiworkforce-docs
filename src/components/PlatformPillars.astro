@@ -1,0 +1,66 @@
+---
+import { localizedGuideHref } from "../lib/landing-content";
+
+const zh = Astro.locals.starlightRoute.locale === "zh-cn";
+const pillars = [
+  {
+    number: "01",
+    title: zh ? "专业数字员工" : "Professional digital employees",
+    description: zh
+      ? "把需求、架构、开发、测试和安全等岗位能力沉淀为可配置、可验证的工作单元。"
+      : "Turn requirements, architecture, development, testing, and security expertise into configurable, verifiable work units.",
+    href: localizedGuideHref(zh ? "build" : "build", zh),
+    label: zh ? "构建岗位模板" : "Build role templates",
+  },
+  {
+    number: "02",
+    title: zh ? "研发协作与交付" : "R&D collaboration and delivery",
+    description: zh
+      ? "把人、数字员工、任务、知识和证据组织在同一条从需求到验收的交付路径上。"
+      : "Organize people, digital employees, tasks, knowledge, and evidence along one path from requirements to acceptance.",
+    href: localizedGuideHref("workflows/kanban-workbench", zh),
+    label: zh ? "查看交付工作台" : "Explore the delivery workbench",
+  },
+  {
+    number: "03",
+    title: zh ? "企业级运行底座" : "Enterprise runtime and governance",
+    description: zh
+      ? "通过执行环境、工具集成、权限、安全和质量验证，让 AI 在真实研发环境中持续工作。"
+      : "Use runtimes, tool integrations, permissions, security, and quality checks to run AI in real engineering environments.",
+    href: localizedGuideHref("deployment/security", zh),
+    label: zh ? "查看安全与权限" : "Review security and permissions",
+  },
+];
+---
+
+<section
+  class="platform-pillars not-content"
+  aria-labelledby="platform-pillars-title"
+>
+  <div class="home-section-heading">
+    <h2 id="platform-pillars-title">
+      {zh ? "AI Workforce 的三层结构" : "The three layers of AI Workforce"}
+    </h2>
+    <p>
+      {
+        zh
+          ? "数字员工提供专业生产力，交付体系组织协作，企业级底座保障持续运行。"
+          : "Digital employees provide expertise, the delivery system organizes collaboration, and the enterprise foundation keeps work running."
+      }
+    </p>
+  </div>
+  <div class="platform-pillar-grid">
+    {
+      pillars.map(({ number, title, description, href, label }) => (
+        <article class="platform-pillar">
+          <span class="platform-pillar-number">{number}</span>
+          <h3>{title}</h3>
+          <p>{description}</p>
+          <a href={href}>
+            {label} <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      ))
+    }
+  </div>
+</section>

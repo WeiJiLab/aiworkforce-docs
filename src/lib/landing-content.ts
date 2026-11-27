@@ -94,8 +94,8 @@ export function getHomeContent(zh: boolean): HomeContent {
         ...guide(
           zh ? "使用专家工作台" : "Use the expert workbench",
           zh
-            ? "打开员工会话，交办一项专业任务，跟进执行并审阅产物。"
-            : "Open an employee session, assign a task in their area of expertise, and review the results.",
+            ? "在安全审查、代码审查和测试证据视图中协作，并把决定交还给员工。"
+            : "Collaborate in Security Review, Code Review, and Test Evidence views, then hand the decision back to the employee.",
           "user-guide/agent-chat",
         ),
         guides: [
@@ -223,15 +223,15 @@ export function getHomeContent(zh: boolean): HomeContent {
       guide(
         zh ? "专家工作台概览" : "Expert workbench overview",
         zh
-          ? "选择适合任务的员工和界面，带着明确的验收标准开始。"
-          : "Choose the employee and interface for your task, then define how you will accept the result.",
+          ? "选择适合任务的员工和 Plugin App，沿着证据链完成审查和交接。"
+          : "Choose the employee and Plugin App for your task, then review evidence and hand off the decision.",
         "user-guide/expert-workbench",
       ),
       guide(
         zh ? "专家工作台示例" : "Expert workbench example",
         zh
-          ? "用一条数据导出需求演练规格、PR 审查、测试与人工验收。"
-          : "Follow an export request through specification, PR review, testing, and human acceptance.",
+          ? "用一条数据导出需求演练安全审查、PR 审查、测试证据与人工验收。"
+          : "Follow an export request through security review, PR review, test evidence, and human acceptance.",
         "getting-started/expert-workbench-example",
       ),
       guide(
@@ -261,6 +261,20 @@ export function getHomeContent(zh: boolean): HomeContent {
           ? "按验收标准检查生成文件、变更和验证证据。"
           : "Check generated files, changes, and evidence against the acceptance criteria.",
         "user-guide/artifacts-evidence",
+      ),
+      guide(
+        zh ? "安全与权限" : "Security and permissions",
+        zh
+          ? "理解员工、连接、执行环境和 Plugin App 的权限边界。"
+          : "Understand permission boundaries across employees, connections, runtimes, and Plugin Apps.",
+        "deployment/security",
+      ),
+      guide(
+        zh ? "审阅与发布" : "Review and release",
+        zh
+          ? "按阶段核对代码、测试、合并和发布证据。"
+          : "Check code, testing, merge, and release evidence by delivery stage.",
+        "software-factory/review-release",
       ),
     ],
     build: [
