@@ -43,7 +43,6 @@
   --docs-line-hover: #508ca5;
   --docs-accent: #91d9ef;
   --docs-accent-soft: #1b3c4e;
-  --docs-toc-width: 13rem;
   /* The platform's front-office radii: navigation, controls, and surfaces. */
   --docs-radius-sm: 0.5rem;
   --docs-radius-md: 0.625rem;
@@ -453,12 +452,15 @@ summary:focus-visible {
 .main-pane {
   min-width: 0;
   min-inline-size: 0;
+  width: 100%;
+  --sl-content-margin-inline: auto;
 }
 body,
 .page {
   background: var(--docs-chrome);
 }
 .main-frame > .lg\:sl-flex {
+  display: block;
   background: var(--docs-surface);
   border: 1px solid var(--docs-card-border);
   border-radius: 12px;
@@ -589,7 +591,7 @@ body,
     color: var(--docs-accent);
   }
 }
-@media screen and (50rem <= width < 80rem) {
+@media screen and (min-width: 50rem) {
   .main-pane:has(.pagination-links > a) {
     min-block-size: 100%;
   }
@@ -768,7 +770,7 @@ body,
 .sl-markdown-content table th {
   color: var(--docs-ink);
 }
-/* Keep the scenario catalog readable when the article also has a right TOC. */
+/* Let long scenario catalog entries wrap within their columns. */
 .sl-markdown-content:has(h2:is(#当前场景模板, #current-scenario-templates))
   table {
   width: 100%;
@@ -831,26 +833,6 @@ body,
   table:has(th:nth-child(4))
   td:nth-child(4) {
   width: 20%;
-}
-.right-sidebar-panel h2 {
-  margin-bottom: 0.5rem;
-  color: var(--docs-ink);
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.right-sidebar-panel a {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  border-inline-start: 2px solid transparent;
-  border-radius: 0;
-  color: var(--docs-muted);
-  font-size: 0.75rem;
-  line-height: 1.125rem;
-}
-.right-sidebar-panel a[aria-current="true"] {
-  border-inline-start-color: var(--docs-accent);
-  color: var(--docs-accent);
 }
 /* The overview uses the same reading column and typographic scale as articles. */
 .overview-canvas {
@@ -1127,61 +1109,16 @@ body,
   :root {
     --sl-mobile-toc-height: 0rem;
   }
-  .main-frame > .lg\:sl-flex {
-    display: grid;
-    grid-template-columns: minmax(0, 52rem) var(--docs-toc-width);
-    gap: 1.5rem;
-    align-items: stretch;
-    block-size: 100%;
-    min-block-size: 0;
-    overflow: hidden;
-    padding-inline-end: 0;
-  }
-  [data-has-sidebar][data-has-toc] .main-pane {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    min-block-size: 0;
-    overflow: auto;
-    overscroll-behavior: contain;
-    --sl-content-margin-inline: auto;
-  }
   .right-sidebar-container {
-    grid-column: 2;
-    grid-row: 1;
-    width: var(--docs-toc-width);
-    min-block-size: 0;
-    margin: 0;
-    overflow: auto;
-    overscroll-behavior: contain;
-  }
-  .right-sidebar {
-    position: static;
-    top: auto;
-    width: auto;
-    height: auto;
-    padding-top: 2rem;
-    border: 0;
-  }
-  .right-sidebar-panel {
-    padding: 0 1rem 2rem 0;
-  }
-  .right-sidebar-panel .sl-container {
-    width: 100%;
-    max-width: none;
-    margin: 0;
+    display: none;
   }
 }
-@media (max-width: 79.999rem) {
+@media (width < 80rem) {
   :root {
     --sl-mobile-toc-height: 3rem;
   }
-  .main-frame > .lg\:sl-flex {
-    display: block;
-  }
-  [data-has-sidebar][data-has-toc] .main-pane {
-    width: 100%;
-  }
+}
+@media (72rem <= width < 80rem) {
   .right-sidebar-container {
     width: auto;
   }
@@ -1191,12 +1128,6 @@ body,
     border: 0;
     width: auto;
     height: auto;
-  }
-  .right-sidebar-panel {
-    display: none;
-  }
-  .right-sidebar .lg\:sl-hidden {
-    display: block;
   }
 }
 @media (max-width: 49.999rem) {
