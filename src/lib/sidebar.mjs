@@ -26,6 +26,7 @@ function nested(label, zh, items, collapsed = true) {
 }
 
 const workerSchedulingGuide = "developer/execution-environment-scheduling";
+const executionPoolsGuide = "deployment/daemon/execution-pools";
 
 export const PORTALS = {
   [Portal.Docs]: {
@@ -154,6 +155,7 @@ export const PORTALS = {
             "deployment/daemon",
             "deployment/daemon/my-machines",
             "deployment/daemon/session-execution",
+            executionPoolsGuide,
             "deployment/daemon/troubleshooting",
           ]),
         ],
@@ -430,7 +432,7 @@ export const orderedIds = Object.values(Portal).flatMap((portal) =>
 );
 
 /** Guides that describe planned capabilities, checked against their frontmatter. */
-export const plannedIds = [workerSchedulingGuide];
+export const plannedIds = [executionPoolsGuide, workerSchedulingGuide];
 
 export const groups = PORTALS[Portal.Docs].groups;
 

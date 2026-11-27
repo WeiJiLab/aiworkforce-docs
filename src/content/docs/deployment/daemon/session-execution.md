@@ -11,6 +11,8 @@ translation:
 
 Start a session for a Claude Code employee you can run. Under **Execution location**, select an online computer you own that advertises `device_rpc`. A computer marked **update client** needs a newer device client. For a regular session, make the selection before sending the first message. See [My machines](/deployment/daemon/my-machines/).
 
+If your deployment includes the pool candidate, a regular Claude Code session can also select a [fixed-capacity execution pool](/deployment/daemon/execution-pools/) before the first message.
+
 ## Check the working directory and permissions
 
 Tool commands run as the operating-system user on the selected computer. The `--workspace` you approved sets the starting directory. The process can access files allowed by that user’s OS permissions. Only the session owner can invoke tools on a personal device, subject to workspace permissions and the session’s tool grant.

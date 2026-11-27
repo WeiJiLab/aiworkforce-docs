@@ -16,10 +16,12 @@ translation:
   source: en
   status: complete
   sourceVersion: "2026-11-19"
-  sourceHash: "495727e421a296cf332f9c1285d7413bd83aa38bc339de653f6a377d7da163cd"
+  sourceHash: "3153d8b2385b5a9f5cd86f23eba06783420b66acca27cda7dd9c4c7fee9e94fa"
 ---
 
 假设会话 1、2 正在 worker A、B 上执行工具，所有者此时向会话 3 发送第一条消息。在规划的方案里，用户选择一个**执行环境**，授权平台从环境内的一组 worker 中选机。会话 3 先排队。B 完成本轮并确认进程已停止后，平台自动在 B 上启动会话 3，即使用户已经关掉浏览器。
+
+本页记录执行环境调度的设计方案，包括协调器接管尚未启动的回合。已实现的个人池候选版本及其租约过期后中断语义，见[固定容量执行池](/zh-cn/deployment/daemon/execution-pools/)。
 
 ## 两台设备今天能做到什么
 
